@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,9 +11,12 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
 </head>
+</head>
 <body>
-    <nav id="desktop-nav">
-<div class="logo">Siddhi Manche</div>
+    <nav id="desktop-nav">  <div class="logo">
+     
+      SM
+  </div>
     <ul class="nav-links">
     <li><a href="#about">About</a></li>
     
@@ -20,7 +26,7 @@
 </div>
 </nav>
 <nav id="hamburger-nav">
-    <div class="logo">Siddhi Manche</div>
+    <div class="logo">Siddhi Manche #x1F600;</div>
     <div class="hamburger-menu">
     <div class="hamburger-icon" onclick="toggleMenu()">
         <span></span>
@@ -37,24 +43,73 @@
 </nav>
 <section id="profile">
     <div class="section__pic-container">
-      <img src="./assets/profile-pic-circle.png" alt="Siddhi Manche profile picture" />
+      <img src="./assets/profile-pic.jpg" alt="Siddhi Manche profile picture" />
     </div>
     <div class="section__text">
       <p class="section__text__p1">Hello, I'm</p>
       <h1 class="title">Siddhi Manche</h1>
-      <p class="section__text__p2">"Passionate about combining design and technology to create seamless experiences that enhance everyday life." </p>
+      <p class="section__text__p2">"Aspiring to be a passionate designer that combines design and technology to create seamless experiences that enhance everyday life." </p>
       
     
     
     </div>
 </section>
 </section>
+
+  <p class="section__text__p1">Tools & Technologies</p>
+  <h1 class="title">My Tech Stack</h1>
+  <div class="carousel">
+    <div class="carousel-track">
+      <img src="./assets/figma.png" alt="Figma Logo" class="carousel-item" />
+      <img src="./assets/vscode.png" alt="VS Code Logo" class="carousel-item" />
+      <img src="./assets/github.png" alt="GitHub Logo" class="carousel-item" />
+      <img src="./assets/Adobe_XD.png" alt="Adobe_XD Logo" class="carousel-item" />
+      <img src="./assets/CSS.png" alt="CSS Logo" class="carousel-item" />
+      <img src="./assets/HTML5-png.png" alt="HTML Logo" class="carousel-item" />
+      <img src="./assets/photoshop.png" alt="HTML Logo" class="carousel-item" />
+      <img src="./assets/miro.svg" alt="HTML Logo" class="carousel-item" />
+      <!-- Duplicates for smooth looping -->
+      <img src="./assets/figma.png" alt="Figma Logo" class="carousel-item" />
+      <img src="./assets/vscode.png" alt="VS Code Logo" class="carousel-item" />
+      <img src="./assets/github.png" alt="GitHub Logo" class="carousel-item" />
+      <img src="./assets/CSS.png" alt="CSS Logo" class="carousel-item" />
+      <img src="./assets/HTML5-png.png" alt="HTML Logo" class="carousel-item" />
+      <img src="./assets/photoshop.png" alt="HTML Logo" class="carousel-item" />
+      <img src="./assets/miro.svg" alt="HTML Logo" class="carousel-item" />
+      <!-- Duplicates for smooth looping -->
+      <img src="./assets/figma.png" alt="Figma Logo" class="carousel-item" />
+      <img src="./assets/vscode.png" alt="VS Code Logo" class="carousel-item" />
+      <img src="./assets/github.png" alt="GitHub Logo" class="carousel-item" />
+      <img src="./assets/CSS.png" alt="CSS Logo" class="carousel-item" />
+      <img src="./assets/HTML5-png.png" alt="HTML Logo" class="carousel-item" />
+      <img src="./assets/photoshop.png" alt="HTML Logo" class="carousel-item" />
+      <img src="./assets/miro.svg" alt="HTML Logo" class="carousel-item" />
+      <!-- Duplicates for smooth looping -->
+      <img src="./assets/figma.png" alt="Figma Logo" class="carousel-item" />
+      <img src="./assets/vscode.png" alt="VS Code Logo" class="carousel-item" />
+      <img src="./assets/github.png" alt="GitHub Logo" class="carousel-item" />
+      <img src="./assets/CSS.png" alt="CSS Logo" class="carousel-item" />
+      <img src="./assets/HTML5-png.png" alt="HTML Logo" class="carousel-item" />
+      <img src="./assets/photoshop.png" alt="HTML Logo" class="carousel-item" />
+      <img src="./assets/miro.svg" alt="HTML Logo" class="carousel-item" />
+    </div>
+  </div>
+</section>
+
 <section id="projects">
   <p class="section__text__p1">Browse My Recent</p>
   <h1 class="title">Projects</h1>
 
   <div class="project-container">
-     
+      <!-- Project 1 -->
+      <div class="project">
+          <a href="https://www.figma.com/proto/aT0WlmldjeQSQh1sG8V37s/prototype?page-id=&node-id=3-2&viewport=2570%2C1413%2C0.31&t=mNGKQCNGQLP6An98-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3%3A2&show-proto-sidebar=1 class="project-link">
+              <video class="project-media" src="./assets/project-1.mp4" autoplay muted loop></video>
+              <div class="hover-overlay">
+                  <span class="arrow-icon"></span>
+              </div>
+          </a>
+      </div>
 
       <!-- Project 2 -->
       <div class="project">
@@ -106,52 +161,63 @@
 </section>
 </section>
 
-</section>
 <section id="about">
-  <p class="section__text__p1">Let's Get To Know More</p>
-  <h1 class="title">About Me</h1>
-
-  
-      <div class="text-container">
-        <p style="text-align: justify;">
-          "I'm a Master's student in Human-Centered Design Engineering at the University of Michigan-Dearborn, specializing in User Experience Design. With a background in engineering, I blend design and technology to create user-centric solutions. My recent freelance work as a Product Design Intern led to a 30% increase in user satisfaction through user research, ideation, prototyping, and usability testing. I’m proficient in Figma, Adobe XD, Photoshop, and have a strong foundation in HTML, CSS, and JavaScript."
-        </p>
-      </div>
-      
-      <!-- Experience Section -->
-      <div class="experience">
-        <h2>Experience</h2>
-        <div class="experience-item">
-          <h3>Product Design Intern</h3>
-          <p style="text-align: justify;">
-            In this project, I collaborated with the client to define goals and conducted user research, including stakeholder interviews and competitor analysis, to uncover key pain points. I created over 50 wireframes and low-fidelity prototypes in Figma, ensuring an accessible, cohesive user experience. By conducting usability testing with 15+ participants, I delivered design recommendations that resulted in a 35% increase in user satisfaction and a 25% reduction in task completion time.
+  <div class="about-container">
+      <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+              I'm a Master's student in Human-Centered Design Engineering at the University of Michigan-Dearborn, 
+              specializing in User Experience Design. With a background in engineering, I blend design and technology 
+              to create user-centric solutions. My recent freelance work as a Product Design Intern led to a 30% increase 
+              in user satisfaction through user research, ideation, prototyping, and usability testing. I’m proficient in 
+              Figma, Adobe XD, Photoshop, and have a strong foundation in HTML, CSS, and JavaScript.
           </p>
-        </div>
-      </div>
-      
-      <!-- Education Section -->
-      <div class="education">
-        <h2>Education</h2>
-        <div class="education-item">
-          <img src="./assets/university-logo.png" alt="University of Michigan logo" class="education-logo" />
-          <p><strong>University of Michigan-Dearborn</strong> – Master's in Human-Centered Design Engineering 
-            {User Experience Design}</p>
-        </div>
-        <div class="education-item">
-          <img src="./assets/bachelor-logo.png" alt="Bachelor's University logo" class="education-logo" />
-          <p><strong>University of Mumbai</strong> – Bachelor of Engineering in Electronics and Telecommunication {Minors: AL/ML}</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <img
-    src="./assets/arrow.png"
-    alt="Arrow icon"
-    class="icon arrow"
-    onclick="location.href='./#Skills'"
-  />
+          <!-- Education Section -->
+          <div class="education">
+              <h3>Education</h3>
+              <div class="education-item">
+                <div class="education-details">
+                    <strong>Master of Science in Human-Centered Design Engineering</strong><br>
+                    University of Michigan-Dearborn
+                </div>
+                <div class="education-dates">
+                    2024 - Present
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-details">
+                    <strong>Bachelor of Engineering in Electronics and Telecommunication</strong><br>
+                    University of Mumbai
+                </div>
+                <div class="education-dates">
+                    2019 - 2023
+                </div>
+            </div>
+            
+
+          <!-- Experience Section -->
+          <div class="experience">
+              <h3>Experience</h3>
+              <div class="experience-item">
+                 
+           
+              
+                  <h4>Product Design Intern (Freelance)</h4>
+                  <p>Freelance Project | 2024</p>
+                  <ul>
+                      <li>Assisted with user research, prototype creation, and usability testing.</li>
+                      <li>Contributed to design decisions that increased user satisfaction by 30%.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      
+      
 </section>
+
 
       </div>
     </div>
@@ -191,11 +257,8 @@
       <p><a href="https://github.com/Siddhidesign">GitHub</a></p>
     </div>
   </div>
-  <div class="contact-info-upper-container">
-    <div class="contact-info-container">
-      <img src="./assets/pdf-icon.png" alt="Resume icon" class="icon contact-icon" />
-      <p><a href="./assets/Siddhi_Resume.pdf" target="_blank">View Resume</a></p>
-    </div>
+  
+    
 </section>
 <footer>
   <nav>
