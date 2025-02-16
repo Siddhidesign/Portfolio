@@ -7,10 +7,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
-</head>
+    <link rel="stylesheet" href="styles.css">
+   
 </head>
 <body>
     <nav id="desktop-nav">  <div class="logo">
@@ -18,15 +20,15 @@
       SM
   </div>
     <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+      <li><a href="#about">About Me</a></li>
     
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact">Let's Connect</a></li>
         </ul>
-</div>
+
 </nav>
 <nav id="hamburger-nav">
-    <div class="logo">Siddhi Manche</div>
+    <div class="logo">Siddhi Manche </div>
     <div class="hamburger-menu">
     <div class="hamburger-icon" onclick="toggleMenu()">
         <span></span>
@@ -34,76 +36,48 @@
         <span></span>
     </div>
     <div class="menu-links">
-      <li><a href="#about" onclick="toggleMenu()">About</a></li>
+      <li><a href="#about" onclick="toggleMenu()">About Me</a></li>
       
       <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-      <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-    </div>
+      <li><a href="#contact" onclick="toggleMenu()">Let's Connect</a></li>
+      
   </div>
+    </div>
+
 </nav>
 <section id="profile">
-    <div class="section__pic-container">
-      <img src="./assets/profile-pic.jpg" alt="Siddhi Manche profile picture" />
+  <div class="section__pic-container">
+    <div class="profile-card">
+        <img class="front-img" src="./assets/profile-pic.jpg" alt="Siddhi Manche profile picture" />
+        <img class="back-img" src="./assets/siddhi-profile-pic.png" alt="Alternate profile picture" />
     </div>
-    <div class="section__text">
-      <p class="section__text__p1">Hello, I'm</p>
-      <h1 class="title">Siddhi Manche</h1>
-      <p class="section__text__p2">"Aspiring to be a passionate designer that combines design and technology to create seamless experiences that enhance everyday life." </p>
-      
-    
-    
-    </div>
-</section>
+</div>
+
+<div class="section__text">
+  <p class="section__text__p2"> Hello👋, Welcome to Siddhi's Portfolio </p>
+  <p class="section__text__p3">
+      Where <span class="highlight-design">design</span> meets <span class="highlight-tech">technology</span> 
+      to craft seamless experiences that enhance everyday life!
+  </p>
+  <p class="section__text__p4">
+    Pursuing Master's in HCDE @ <span class="umich-color"> Uni of Michigan-Dearborn  </span>
+</p>
+</div>
+
+
+
 </section>
 
-  <p class="section__text__p1">Tools & Technologies</p>
-  <h1 class="title">My Tech Stack</h1>
-  <div class="carousel">
-    <div class="carousel-track">
-      <img src="./assets/figma.png" alt="Figma Logo" class="carousel-item" />
-      <img src="./assets/vscode.png" alt="VS Code Logo" class="carousel-item" />
-      <img src="./assets/github.png" alt="GitHub Logo" class="carousel-item" />
-      <img src="./assets/Adobe_XD.png" alt="Adobe_XD Logo" class="carousel-item" />
-      <img src="./assets/CSS.png" alt="CSS Logo" class="carousel-item" />
-      <img src="./assets/HTML5-png.png" alt="HTML Logo" class="carousel-item" />
-      <img src="./assets/photoshop.png" alt="HTML Logo" class="carousel-item" />
-      <img src="./assets/miro.jpg" alt="HTML Logo" class="carousel-item" />
-      <!-- Duplicates for smooth looping -->
-      <img src="./assets/figma.png" alt="Figma Logo" class="carousel-item" />
-      <img src="./assets/vscode.png" alt="VS Code Logo" class="carousel-item" />
-      <img src="./assets/github.png" alt="GitHub Logo" class="carousel-item" />
-      <img src="./assets/CSS.png" alt="CSS Logo" class="carousel-item" />
-      <img src="./assets/HTML5-png.png" alt="HTML Logo" class="carousel-item" />
-      <img src="./assets/photoshop.png" alt="HTML Logo" class="carousel-item" />
-      <img src="./assets/miro.jpg" alt="HTML Logo" class="carousel-item" />
-      <!-- Duplicates for smooth looping -->
-      <img src="./assets/figma.png" alt="Figma Logo" class="carousel-item" />
-      <img src="./assets/vscode.png" alt="VS Code Logo" class="carousel-item" />
-      <img src="./assets/github.png" alt="GitHub Logo" class="carousel-item" />
-      <img src="./assets/CSS.png" alt="CSS Logo" class="carousel-item" />
-      <img src="./assets/HTML5-png.png" alt="HTML Logo" class="carousel-item" />
-      <img src="./assets/photoshop.png" alt="HTML Logo" class="carousel-item" />
-      <img src="./assets/miro.jpg" alt="HTML Logo" class="carousel-item" />
-      <!-- Duplicates for smooth looping -->
-      <img src="./assets/figma.png" alt="Figma Logo" class="carousel-item" />
-      <img src="./assets/vscode.png" alt="VS Code Logo" class="carousel-item" />
-      <img src="./assets/github.png" alt="GitHub Logo" class="carousel-item" />
-      <img src="./assets/CSS.png" alt="CSS Logo" class="carousel-item" />
-      <img src="./assets/HTML5-png.png" alt="HTML Logo" class="carousel-item" />
-      <img src="./assets/photoshop.png" alt="HTML Logo" class="carousel-item" />
-      <img src="./assets/miro.jpg" alt="HTML Logo" class="carousel-item" />
-    </div>
-  </div>
 </section>
-
 <section id="projects">
-  <p class="section__text__p1">Browse My Recent</p>
-  <h1 class="title">Projects</h1>
-
-  <div class="project-container">
+  <div class="projects-header">
+    
+    <h1 class="title">Checkout <br> My Playground of <span class="highlight">Projects</span></h1>
+</div>
+  <div class="projects-grid">
       <!-- Project 1 -->
       <div class="project">
-          <a href="https://www.figma.com/proto/aT0WlmldjeQSQh1sG8V37s/prototype?page-id=&node-id=3-2&viewport=2570%2C1413%2C0.31&t=mNGKQCNGQLP6An98-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3%3A2&show-proto-sidebar=1 class="project-link">
+          <a href="https://www.figma.com/proto/aT0WlmldjeQSQh1sG8V37s/prototype" class="project-link">
               <video class="project-media" src="./assets/project-1.mp4" autoplay muted loop></video>
               <div class="hover-overlay">
                   <span class="arrow-icon"></span>
@@ -114,164 +88,144 @@
       <!-- Project 2 -->
       <div class="project">
           <a href="https://www.figma.com/proto/qWy16GyBpbCZmzsxqyLk9u" class="project-link">
-            <video class="project-media" src="./assets/project-2.mp4" autoplay muted loop></video>
-            <div class="hover-overlay">
+              <video class="project-media" src="./assets/project-2.mp4" autoplay muted loop></video>
+              <div class="hover-overlay">
                   <span class="arrow-icon"></span>
               </div>
           </a>
-          
-          
-        
       </div>
 
       <!-- Project 3 -->
       <div class="project">
           <a href="https://www.figma.com/proto/BmRNH7BCgwd7LSsiF2B6gu/Mental-health" class="project-link">
-            <video class="project-media" src="./assets/project-3.mp4" autoplay muted loop></video>
-            <div class="hover-overlay">
+              <video class="project-media" src="./assets/project-3.mp4" autoplay muted loop></video>
+              <div class="hover-overlay">
                   <span class="arrow-icon"></span>
               </div>
           </a>
-          
-          
-         
       </div>
 
       <!-- Project 4 -->
       <div class="project">
           <a href="https://github.com/Siddhidesign/Real-time-Identification-of-Medicinal-Plants" class="project-link">
-            <video class="project-media" src="./assets/project-4.mp4" autoplay muted loop></video>
-            <div class="hover-overlay">
+              <video class="project-media" src="./assets/project-4.mp4" autoplay muted loop></video>
+              <div class="hover-overlay">
                   <span class="arrow-icon"></span>
               </div>
           </a>
-          
-          
-          
-        </div>
+      </div>
   </div>
-    <img
-    src="./assets/arrow.png"
-    alt="Arrow icon"
-    class="icon arrow"
-    onclick="location.href='./#Skills'"
-  />
-  </div>
-</div>
-</section>
+
+  
 </section>
 
+
+<section id="tools">
+  <h1 class="title">My Favourite Tools</h1>
+  <p class="subtitle">I use these apps regularly in my workflow</p>
+  
+  <div class="tools-grid">
+      <div class="tool-card">
+          <img src="./assets/figma.png" alt="Figma Logo" class="tool-icon" />
+          <h3>Figma</h3>
+          <p>UI Design, Prototyping</p>
+      </div>
+      <div class="tool-card">
+          <img src="./assets/vscode.png" alt="VS Code Logo" class="tool-icon" />
+          <h3>VS Code</h3>
+          <p>Code Editor</p>
+      </div>
+      <div class="tool-card">
+          <img src="./assets/github.png" alt="GitHub Logo" class="tool-icon" />
+          <h3>GitHub</h3>
+          <p>Version Control</p>
+      </div>
+      <div class="tool-card">
+          <img src="./assets/Adobe_XD.png" alt="Adobe XD Logo" class="tool-icon" />
+          <h3>Adobe XD</h3>
+          <p>Wireframing</p>
+      </div>
+      <div class="tool-card">
+          <img src="./assets/CSS.png" alt="CSS Logo" class="tool-icon" />
+          <h3>CSS</h3>
+          <p>Styling</p>
+      </div>
+      <div class="tool-card">
+          <img src="./assets/HTML5-png.png" alt="HTML Logo" class="tool-icon" />
+          <h3>HTML5</h3>
+          <p>Web Structure</p>
+      </div>
+      <div class="tool-card">
+          <img src="./assets/photoshop.png" alt="Photoshop Logo" class="tool-icon" />
+          <h3>Photoshop</h3>
+          <p>Graphic Design</p>
+      </div>
+      <div class="tool-card">
+          <img src="./assets/miro.svg" alt="Miro Logo" class="tool-icon" />
+          <h3>Miro</h3>
+          <p>Collaboration</p>
+      </div>
+  </div>
+</section>
+
+<!-- About Section -->
 <section id="about">
-  <div class="about-container">
-      <div class="about-text">
-          <h2>About Me</h2>
-          <p>
-              I'm a Master's student in Human-Centered Design Engineering at the University of Michigan-Dearborn, 
-              specializing in User Experience Design. With a background in engineering, I blend design and technology 
-              to create user-centric solutions. My recent freelance work as a Product Design Intern led to a 30% increase 
-              in user satisfaction through user research, ideation, prototyping, and usability testing. I’m proficient in 
-              Figma, Adobe XD, Photoshop, and have a strong foundation in HTML, CSS, and JavaScript.
-          </p>
-
-          <!-- Education Section -->
-          <div class="education">
-              <h3>Education</h3>
-              <div class="education-item">
-                <div class="education-details">
-                    <strong>Master of Science in Human-Centered Design Engineering</strong><br>
-                    University of Michigan-Dearborn
-                </div>
-                <div class="education-dates">
-                    2024 - Present
-                </div>
-            </div>
-            
-            <div class="education-item">
-                <div class="education-details">
-                    <strong>Bachelor of Engineering in Electronics and Telecommunication</strong><br>
-                    University of Mumbai
-                </div>
-                <div class="education-dates">
-                    2020 - 2024
-                </div>
-            </div>
-            
-
-          <!-- Experience Section -->
-          <div class="experience">
-              <h3>Experience</h3>
-              <div class="experience-item">
-                 
-           
-              
-                  <h4>Product Design Intern (Freelance)</h4>
-                  <p>Freelance Project | 2023</p>
-                  <ul>
-                      <li>Assisted with user research, prototype creation, and usability testing.</li>
-                      <li>Contributed to design decisions that increased user satisfaction by 30%.</li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-
+  <div class="about-content">
       
-      
-</section>
-
-
-      </div>
-    </div>
-    <img
-      src="./assets/arrow.png"
-      alt="Arrow icon"
-      class="icon arrow"
-      onclick="location.href='./#Skills'"
-    />
-  
-<section id="contact">
-  <p class="section__text__p1">Get in Touch</p>
-  <h1 class="title">Contact Me</h1>
-  <div class="contact-info-upper-container">
-    <div class="contact-info-container">
-      <img
-        src="./assets/email.png"
-        alt="Email icon"
-        class="icon contact-icon email-icon"
-      />
-      <p><a href="mailto:manchesr@umich.edu">Gmail</a></p>
-    </div>
-    <div class="contact-info-container">
-      <img
-        src="./assets/linkedin.png"
-        alt="LinkedIn icon"
-        class="icon contact-icon"
-      />
-      <p><a href="https://www.linkedin.com/in/siddhi-manche-969820216/">LinkedIn</a></p>
-    </div>
-    <div class="contact-info-container">
-      <img
-        src="./assets/github.png"
-        alt=" Github icon"
-        class="icon Github"
-      />
-      <p><a href="https://github.com/Siddhidesign">GitHub</a></p>
-    </div>
-  </div>
-  
+      <h2 class="about-title">MY JOURNEY SO FAR</h2>
+      <p class="about-text">
+          Hi, I am ‘Siddhi’, always been passionate about <span class="highlight">human-centered design</span> and the power it holds to shape digital experiences.
+          My journey began with engineering, but my curiosity to solve user problems and my interest in design led me to explore UX Design.</p>
     
+      
+         
+      <h4 class="photobook-title">
+      
+        Outside of work, you’ll find me enjoying <span class="highlight">photography 📷</span>
+       
+      </h4>
+      <p class="photobook-subtitle">
+        A Glimpse of My Photography through my lens✨
+
+  <!-- Photography Showcase -->
+  <div class="photo-gallery">
+      <div class="photo-track">
+          <img src="./assets/image1.jpg" alt="Photo 1"  class="photo1">
+          <img src="./assets/image2.jpg" alt="Photo 2"class="photo2">
+          <img src="./assets/image3.jpg" alt="Photo 3"class="photo3">
+          <img src="./assets/image4.jpg" alt="Photo 4"class="photo4">
+          <img src="./assets/image5.jpg" alt="Photo 5"class="photo5">
+          <img src="./assets/image6.jpg" alt="Photo 6"class="photo6">
+          <img src="./assets/image7.jpg" alt="Photo 6"class="photo6">
+          <img src="./assets/image8.jpg" alt="Photo 6"class="photo6">
+          <img src="./assets/image10.jpg" alt="Photo 6"class="photo6">
+          <img src="./assets/image11.jpg" alt="Photo 6"class="photo6">
+      </div>
+  </div>
 </section>
-<footer>
-  <nav>
-    <div class="nav-links-container">
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<div id="contact"  class="footer">
+    <h2>Let's Connect!</h2>
+    <p>Have an idea? Let’s create something crazy!</p>
+    
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+            <img src="assets/linkedin.png" alt="LinkedIn" class="icon"/>
+        </a>
+        <a href="https://github.com/yourprofile" target="_blank">
+            <img src="assets/github.png" alt="GitHub" class="icon"/>
+        </a>
+        <a href="mailto:your.email@gmail.com">
+            <img src="assets/email.png" alt="Gmail" class="icon"/>
+        </a>
+        <a href="https://www.instagram.com/yourprofile" target="_blank">
+            <img src="assets/Instagram.png" alt="Instagram" class="icon"/>
+        </a>
     </div>
-  </nav>
-  <p>Copyright &#169; 2024 Siddhi Manche. All Rights Reserved.</p>
-</footer>
-<script src="script.js"></script>
+  
+    <p class="footer-text">Created with HTMl, CSS and Js<span class="heart">❤️</span> and spiced with my creativity and some coffee☕</p>
+    <p class="footers-text">Copyright @ SiddhiManche </p>
+  
+</div>
+
 </body>
 </html>
