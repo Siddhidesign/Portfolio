@@ -23,7 +23,7 @@ body::after {
   position: absolute;
   font-size: 2rem;
   opacity: 0.12;
-  animation: float 10s infinite ease-in-out;
+  animation: floatIcons 12s infinite ease-in-out alternate;
 }
 
 body::before {
@@ -38,10 +38,10 @@ body::after {
   transform: rotate(-15deg);
 }
 
-@keyframes float {
-  0% { transform: translateY(0) rotate(15deg); }
-  50% { transform: translateY(-10px) rotate(20deg); }
-  100% { transform: translateY(0) rotate(15deg); }
+@keyframes floatIcons {
+  0% { transform: translate(0, 0) rotate(15deg); }
+  50% { transform: translate(10px, -15px) rotate(20deg); }
+  100% { transform: translate(0, 0) rotate(15deg); }
 }
 
 section {
@@ -122,17 +122,17 @@ p {
   position: absolute;
   opacity: 0.15;
   font-size: 2rem;
-  animation: floatIcons 8s ease-in-out infinite alternate;
+  animation: drift 10s ease-in-out infinite alternate;
 }
 
 .icon.plane { top: 100px; left: 15%; animation-delay: 1s; }
 .icon.globe { top: 300px; right: 20%; font-size: 2.5rem; animation-delay: 2s; }
 .icon.cloud { bottom: 80px; left: 25%; animation-delay: 3s; }
 
-@keyframes floatIcons {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(5deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+@keyframes drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(15px, -10px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
 
 .hero-container {
@@ -206,6 +206,12 @@ p {
   margin-bottom: 18px;
   box-shadow: 0 6px 15px rgba(255, 209, 124, 0.45);
   font-size: 0.95rem;
+  animation: floatBadge 4s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 .hero-name {
@@ -425,7 +431,7 @@ p {
   .hero-section { flex-direction: column; text-align: center; }
   .hero-right { max-width: 90%; }
   .navbar { width: 90%; padding: 12px; }
-  .nav-links { gap: 20px; }
+  .nav-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
   .timeline::after { left: 20px; }
   .timeline-item { width: 100%; left: 0 !important; padding-left: 50px; }
   .timeline-dot { left: 0; right: auto; }
@@ -435,5 +441,5 @@ p {
   section { padding: 60px 5%; }
   .hero-photo { width: 240px; }
   .section-title { font-size: 1.5rem; }
-  .nav-links { flex-wrap: wrap; gap: 10px; }
+  .nav-links { flex-wrap: wrap; gap: 10px; text-align: center; }
 }
