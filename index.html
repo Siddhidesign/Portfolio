@@ -1,216 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siddhi Manche | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  
-  <title>My Portfolio</title>
-
-  
-  <link rel="stylesheet" href="style.css?v=2">
-  <link rel="stylesheet" href="mediaqueries.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <nav id="desktop-nav">  <div class="logo">
-     
-      SM
-  </div>
+  <!-- Navbar -->
+  <nav class="navbar">
     <ul class="nav-links">
-      <li><a href="#about">About Me</a></li>
-    
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Let's Connect</a></li>
-        </ul>
+      <li><a href="#home" class="active">Start</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience Journey</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-</nav>
-<nav id="hamburger-nav">
-    <div class="logo">Siddhi Manche </div>
-    <div class="hamburger-menu">
-    <div class="hamburger-icon" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+  <!-- Home Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-container">
+      <div class="photo-card">
+        <img src="./assets/profile-pic.jpg" alt="Siddhi Manche" class="hero-photo" />
+        <p class="photo-caption">Your Guide 🌍</p>
+      </div>
+      <div class="hero-right">
+        <div class="intro-badge">Welcome to my journey! ✈️</div>
+        <h1 class="hero-name">Siddhi Manche</h1>
+        <p class="hero-desc">UX/UI Designer and Front-End Developer passionate about creating meaningful, human-centered digital experiences that empower and inspire users across platforms.</p>
+        <div class="hero-tags">
+          <span class="tag blue">UX/UI Designer</span>
+          <span class="tag pink">Front-end Developer</span>
+          <span class="tag green">Design Thinking Enthusiast</span>
+        </div>
+      </div>
     </div>
-    <div class="menu-links">
-      <li><a href="#about" onclick="toggleMenu()">About Me</a></li>
-      
-      <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-      <li><a href="#contact" onclick="toggleMenu()">Let's Connect</a></li>
-      
-  </div>
-    </div>
+  </section>
 
-</nav>
-<section id="profile" class="hero-section">
-  <div class="photo-card">
-    <img src="./assets/profile-pic.jpg" alt="Siddhi Manche" class="hero-photo" />
-    <p class="photo-caption">Your Guide 🌍</p>
-  </div>
-
-  <div class="intro-text">
-    <button class="welcome-btn">Welcome to my journey! ✈️</button>
-    <h1 class="hero-name">Siddhi Manche</h1>
-    <p class="hero-desc">
-      I create digital experiences that feel natural and guide users through interfaces
-      that just make sense.
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <h2 class="section-title">📍 Step 1: About Me</h2>
+    <p class="section-subtitle">
+      I'm a Human-Centered Design & Engineering student at the University of Michigan–Dearborn.
+      I specialize in crafting intuitive, research-driven, and visually delightful digital experiences.
+      With a foundation in both design and front-end development, I aim to bridge creativity with technology.
     </p>
-    <div class="role-tags">
-      <span class="tag blue">UX/UI Designer</span>
-      <span class="tag pink">Front-end Developer</span>
-      <span class="tag green">Design Thinking Enthusiast</span>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section projects">
+    <h2 class="section-title">🎯 Step 2: Featured Projects</h2>
+    <p class="section-subtitle">Each project represents a destination — designed, tested, and refined with purpose.</p>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="./assets/grocgenie.jpg" alt="GrocGenie Project">
+        <h3>GrocGenie – AI Food Inventory Management App</h3>
+        <p>Designed an AI-driven inventory and recipe recommendation platform that detects expiry, suggests recipes, and prevents food waste — enhancing task efficiency by 42%.</p>
+        <span class="proj-tag">Figma • Miro • Accessibility Design</span>
+      </div>
+
+      <div class="project-card">
+        <img src="./assets/irs2go.jpg" alt="IRS2GO Redesign">
+        <h3>IRS2GO Redesign</h3>
+        <p>Re-architected the IRS2Go portal with an accessibility-first, WCAG 2.1 AA–compliant interface, reducing cognitive load for low-vision users by 35%.</p>
+        <span class="proj-tag">Usability Testing • WCAG • A/B Testing</span>
+      </div>
+
+      <div class="project-card">
+        <img src="./assets/evcharging.jpg" alt="EV Charging UX Research">
+        <h3>LLM-Powered UX Research: EV Charging Experience</h3>
+        <p>Performed thematic analysis of 16,000+ charging reviews using LLMs to identify trust and reliability gaps — shaping a design roadmap to improve satisfaction.</p>
+        <span class="proj-tag">LLM • Thematic Analysis • Service Design</span>
+      </div>
+
+      <div class="project-card">
+        <img src="./assets/outpatient.jpg" alt="Outpatient Anxiety Research">
+        <h3>Reducing Outpatient Anxiety – Research Project</h3>
+        <p>Led mixed-method research and designed a VR prototype toolkit that reduced patient anxiety indicators by 40% during pilot testing.</p>
+        <span class="proj-tag">User Research • NVivo • Healthcare UX</span>
+      </div>
+
+      <div class="project-card">
+        <img src="./assets/medplant.jpg" alt="Medicinal Plant Recognition">
+        <h3>Real-Time Medicinal Plant Identification</h3>
+        <p>Built a real-time AI app using TensorFlow and Figma that helps users identify plants for medical use, achieving 90% recognition accuracy.</p>
+        <span class="proj-tag">AI/ML • Mobile UX • Python</span>
+      </div>
     </div>
-  </div>
-</section>
-<section id="projects">
-  <div class="projects-header">
-      <h1 class="title">Checkout <br> My Playground of <span class="highlight">Projects</span></h1>
-  </div>
+  </section>
 
-  <!-- Project 1 - Link to PDF -->
-  <div class="project">
-      <a href="./assets/Project-1.pdf" class="project-link" target="_blank">
-          <video class="project-media" src="./assets/project-1.mp4" autoplay muted loop></video>
-          <div class="hover-overlay">
-              <span class="arrow-icon"></span>
-          </div>
-      </a>
-  </div>
+  <!-- Experience Journey -->
+  <section id="experience" class="section experience">
+    <h2 class="section-title">💼 Step 3: Experience Journey</h2>
+    <div class="timeline">
 
-  <!-- Project 2 - Link to PDF -->
-  <div class="project">
-      <a href="./assets/Project-2.pdf" class="project-link" target="_blank">
-          <video class="project-media" src="./assets/project-2.mp4" autoplay muted loop></video>
-          <div class="hover-overlay">
-              <span class="arrow-icon"></span>
-          </div>
-      </a>
-  </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>UX/UI Design Intern – FindMe (May 2025 – Aug 2025)</h3>
+          <p>Designed AI-driven portfolio templates in Figma & JavaScript, improving design efficiency for 500+ users. Led accessibility testing that boosted navigation clarity by 35% and partnered with AWS engineers to ensure WCAG 2.1 AA compliance.</p>
+        </div>
+      </div>
 
-  <!-- Project 3 - Keep the same (links to project-3.html) -->
-  <div class="project">
-      <a href="https://github.com/Siddhidesign/Real-time-Identification-of-Medicinal-Plants" class="project-link">
-          <video class="project-media" src="./assets/project-3.mp4" autoplay muted loop></video>
-          <div class="hover-overlay">
-              <span class="arrow-icon"></span>
-          </div>
-      </a>
-  </div>
-</section>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>UX/UI Designer – JaiHind Groups (Oct 2023 – Jul 2024)</h3>
+          <p>Created internal dashboards and workflows using Figma & React, reducing order processing time by 40%. Conducted heuristic evaluations for 25+ users, improving task completion rates by 35%.</p>
+        </div>
+      </div>
 
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>University of Michigan-Dearborn (Sept 2024 – May 2026)</h3>
+          <p>Master’s in Human-Centered Design & Engineering (UX Specialization). Teaching Assistant for Foundations of HCDE. GPA: 3.56</p>
+        </div>
+      </div>
 
-
-<section id="tools">
-  <h1 class="title">My Favourite Tools</h1>
-  <p class="subtitle">I use these apps regularly in my workflow</p>
-  
-  <div class="tools-grid">
-      <div class="tool-card">
-          <img src="./assets/figma.png" alt="Figma Logo" class="tool-icon" />
-          <h3>Figma</h3>
-          <p>UI Design, Prototyping</p>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>University of Mumbai (Aug 2020 – Jun 2024)</h3>
+          <p>Bachelor of Technology in Electronics & Telecommunication (AI/ML Specialization). Google Developer Student Club Design Co-Lead.</p>
+        </div>
       </div>
-      <div class="tool-card">
-          <img src="./assets/vscode.png" alt="VS Code Logo" class="tool-icon" />
-          <h3>VS Code</h3>
-          <p>Code Editor</p>
-      </div>
-      <div class="tool-card">
-          <img src="./assets/github.png" alt="GitHub Logo" class="tool-icon" />
-          <h3>GitHub</h3>
-          <p>Version Control</p>
-      </div>
-      <div class="tool-card">
-          <img src="./assets/Adobe_XD.png" alt="Adobe XD Logo" class="tool-icon" />
-          <h3>Adobe XD</h3>
-          <p>Wireframing</p>
-      </div>
-      <div class="tool-card">
-          <img src="./assets/CSS.png" alt="CSS Logo" class="tool-icon" />
-          <h3>CSS</h3>
-          <p>Styling</p>
-      </div>
-      <div class="tool-card">
-          <img src="./assets/HTML5-png.png" alt="HTML Logo" class="tool-icon" />
-          <h3>HTML5</h3>
-          <p>Web Structure</p>
-      </div>
-      <div class="tool-card">
-          <img src="./assets/photoshop.png" alt="Photoshop Logo" class="tool-icon" />
-          <h3>Photoshop</h3>
-          <p>Graphic Design</p>
-      </div>
-      <div class="tool-card">
-          <img src="./assets/miro.jpg" alt="Miro Logo" class="tool-icon" />
-          <h3>Miro</h3>
-          <p>Collaboration</p>
-      </div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section id="about">
-  <div class="about-content">
-      
-      <h2 class="about-title">MY JOURNEY SO FAR</h2>
-      <p class="about-text">
-          Hi, I am ‘Siddhi’, always been passionate about <span class="highlight">human-centered design</span> and the power it holds to shape digital experiences.
-          My journey began with engineering, but my curiosity to solve user problems and my interest in design led me to explore UX Design.</p>
-    
-      
-         
-      <h4 class="photobook-title">
-      
-        Outside of work, you’ll find me enjoying <span class="highlight">photography 📷</span>
-       
-      </h4>
-      <p class="photobook-subtitle">
-        A Glimpse of My Photography through my lens✨
-
-  <!-- Photography Showcase -->
-  <div class="photo-gallery">
-      <div class="photo-track">
-          <img src="./assets/image1.jpg" alt="Photo 1"  class="photo1">
-          <img src="./assets/image2.jpg" alt="Photo 2"class="photo2">
-          <img src="./assets/image3.jpg" alt="Photo 3"class="photo3">
-          <img src="./assets/image4.jpg" alt="Photo 4"class="photo4">
-          <img src="./assets/image5.jpg" alt="Photo 5"class="photo5">
-          <img src="./assets/image6.jpg" alt="Photo 6"class="photo6">
-          <img src="./assets/image7.jpg" alt="Photo 6"class="photo6">
-          <img src="./assets/image8.jpg" alt="Photo 6"class="photo6">
-          <img src="./assets/image10.jpg" alt="Photo 6"class="photo6">
-          <img src="./assets/image11.jpg" alt="Photo 6"class="photo6">
-      </div>
-  </div>
-</section>
-<div id="contact"  class="footer">
-    <h2>Let's Connect!</h2>
-    <p>Have an idea? Let’s create something crazy!</p>
-    
-    <div class="social-icons">
-        <a href="https://www.linkedin.com/in/siddhi-manche-969820216/" target="_blank">
-            <img src="assets/linkedin.png" alt="LinkedIn" class="icon"/>
-        </a>
-        <a href="https://github.com/Siddhidesign" target="_blank">
-            <img src="assets/github.png" alt="GitHub" class="icon"/>
-        </a>
-        <a href="mailto:manchesr@umich.edu">
-            <img src="assets/email.png" alt="Gmail" class="icon"/>
-        </a>
-        <a href="https://www.instagram.com/yourprofile" target="_blank">
-            <img src="assets/Instagram.png" alt="Instagram" class="icon"/>
-        </a>
     </div>
-  
-    <p class="footer-text">Created with HTMl, CSS and Js<span class="heart">❤️</span> and spiced with my creativity and some coffee☕</p>
-    <p class="footers-text">Copyright @ SiddhiManche </p>
-  
-</div>
+  </section>
 
+  <!-- Skills -->
+  <section id="skills" class="section skills">
+    <h2 class="section-title">🧰 Step 4: My Travel Kit</h2>
+    <div class="skills-list">
+      <span>Figma</span>
+      <span>Adobe XD</span>
+      <span>React</span>
+      <span>JavaScript</span>
+      <span>CSS</span>
+      <span>HTML</span>
+      <span>User Research</span>
+      <span>Accessibility Design</span>
+      <span>Prototyping</span>
+      <span>Storyboarding</span>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section gallery">
+    <h2 class="section-title">📸 Step 5: Captured Memories</h2>
+    <div class="photo-grid">
+      <img src="./assets/gallery1.jpg" alt="Gallery 1">
+      <img src="./assets/gallery2.jpg" alt="Gallery 2">
+      <img src="./assets/gallery3.jpg" alt="Gallery 3">
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <h2 class="section-title">🎯 Final Stop: Let’s Connect!</h2>
+    <div class="contact-grid">
+      <div class="contact-card"><h3>📍 Location</h3><p>Dearborn, MI, USA</p></div>
+      <div class="contact-card"><h3>📧 Email</h3><p>manche.siddhi@gmail.com</p></div>
+      <div class="contact-card"><h3>🔗 LinkedIn</h3><p>linkedin.com/in/siddhi-manche-969820216</p></div>
+      <div class="contact-card"><h3>💻 Portfolio</h3><p>siddhidesign.github.io/Portfolio</p></div>
+    </div>
+    <footer class="footer"><p>✨ Designed & Built with passion by Siddhi Manche ✨</p></footer>
+  </section>
 </body>
 </html>
