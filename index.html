@@ -4,39 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Siddhi Manche | Portfolio</title>
+
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
 
-  <!-- NAVBAR -->
+<body>
+  <!-- =======================
+       NAVIGATION BAR
+  ========================== -->
   <nav class="navbar">
     <ul class="nav-links">
       <li><a href="#home" class="active">Start</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- =======================
+       HERO SECTION
+  ========================== -->
   <section id="home" class="hero-section">
     <div class="hero-container">
       <div class="photo-card">
         <img src="./assets/profile-pic.jpg" alt="Siddhi Manche" class="hero-photo" />
         <p class="photo-caption">Your Guide 🌍</p>
       </div>
+
       <div class="hero-right">
         <div class="intro-badge">Welcome to my journey! ✈️</div>
         <h2 class="hero-name">Siddhi Manche</h2>
         <p class="hero-desc">
-          I create digital experiences that feel natural and guide users through interfaces that just make sense.
+          UX/UI Designer and Front-End Developer passionate about creating meaningful, human-centered digital experiences that empower and inspire users across platforms.
         </p>
         <div class="hero-tags">
           <span class="tag blue">UX/UI Designer</span>
@@ -47,107 +53,176 @@
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="section">
-    <h2 class="section-title">Every traveler needs the right tools.</h2>
+  <!-- =======================
+       ABOUT SECTION
+  ========================== -->
+  <section id="about" class="section">
+    <button class="about-badge">🪄 Step 1: Getting to Know Your Guide</button>
+    <h2 class="section-title">About the Journey</h2>
     <p class="section-subtitle">
-      Here’s what I carry in my design backpack to create meaningful digital experiences.
+      Every great adventure starts with a story. Here's mine — a journey through design, code, and creativity.
     </p>
 
-    <div class="skills-grid">
-      <div class="skill-card pink-card">
-        <h3>🎨 Design Skills</h3>
-        <div class="skill-tags">
-          <span>Digital Experience Design</span>
-          <span>UX Writing</span>
-          <span>Content Strategy</span>
-          <span>SEO Optimization</span>
-          <span>Information Architecture</span>
-          <span>Accessibility (WCAG/508)</span>
-          <span>Responsive Web Design</span>
-          <span>Design Systems</span>
-          <span>Brand Consistency</span>
-          <span>Agile Collaboration</span>
+    <div class="about-grid">
+      <div class="about-card blue-card">
+        <h3>🎓 Education Trail</h3>
+        <p><strong>University of Michigan–Dearborn</strong><br>
+          <em>MS in Human-Centered Design and Engineering</em><br>
+          Specializing in User Experience Design with a 3.56 GPA<br>
+          <small>Sept 2024 – May 2026</small>
+        </p><br>
+        <p><strong>University of Mumbai</strong><br>
+          <em>Bachelor of Technology in Electronics and Telecommunication</em><br>
+          Focused on AI and Machine Learning with a 3.32 GPA<br>
+          <small>Aug 2020 – June 2024</small>
+        </p>
+      </div>
+
+      <div class="about-card pink-card">
+        <h3>📖 The Story So Far</h3>
+        <p>
+          My journey began in Mumbai, where I discovered my passion for creating digital experiences that people actually enjoy using. From electronics engineering to UX/UI design, I've explored different domains and picked up new skills along the way.
+        </p><br>
+        <p>
+          Right now, I'm studying Human-Centered Design at the University of Michigan–Dearborn, learning to craft interfaces that make technology feel simple and natural.
+        </p><br>
+        <p>
+          When I'm not designing, you'll find me with my camera, capturing moments and exploring new places. Every journey deserves to be documented beautifully.
+        </p>
+      </div>
+    </div>
+
+    <div class="philosophy-box">
+      <h3>☁️ My Design Philosophy</h3>
+      <p>
+        "Design is like planning the perfect trip. You need to understand your travelers, map out the journey,
+        pack the right tools, and make sure every stop along the way feels meaningful and delightful."
+      </p>
+    </div>
+  </section>
+
+  <!-- =======================
+       EXPERIENCE SECTION
+  ========================== -->
+  <section id="experience" class="section">
+    <button class="experience-badge">🎒 Stop 2: Travel Log</button>
+    <h2 class="section-title">Experience Journey</h2>
+    <p class="section-subtitle">
+      My professional adventures have taken me across continents and companies, each stop enriching my design toolkit.
+    </p>
+
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content blue-card">
+          <h3>UX/UI Design Intern</h3>
+          <p><strong>FindMe</strong> · New York, USA · <em>May 2025 – Aug 2025</em></p>
+          <ul>
+            <li>Designed responsive interfaces using Figma and Adobe XD, boosting engagement by 25%.</li>
+            <li>Built component libraries meeting accessibility and SEO standards.</li>
+            <li>Collaborated in Agile sprints to ensure accuracy and consistency.</li>
+          </ul>
         </div>
       </div>
 
-      <div class="skill-card blue-card">
-        <h3>📊 Research & Analysis</h3>
-        <div class="skill-tags">
-          <span>User Research</span>
-          <span>Usability Testing</span>
-          <span>Content Audits</span>
-          <span>Analytics Tracking</span>
-          <span>Card Sorting</span>
-          <span>Heuristic Evaluation</span>
-          <span>User-Centered Design (UCD)</span>
+      <div class="timeline-item right">
+        <div class="timeline-content pink-card">
+          <h3>UX/UI Designer</h3>
+          <p><strong>Jailbird Groups</strong> · Mumbai, India · <em>May 2024 – Aug 2024</em></p>
+          <ul>
+            <li>Redesigned analytics dashboards improving navigation efficiency by 35%.</li>
+            <li>Implemented accessibility features enhancing usability and performance.</li>
+          </ul>
         </div>
       </div>
 
-      <div class="skill-card purple-card">
-        <h3>🧰 Visual & Design Tools</h3>
-        <div class="skill-tags">
-          <span>Figma</span>
-          <span>Adobe XD</span>
-          <span>Photoshop</span>
-          <span>Illustrator</span>
-          <span>Sketch</span>
-          <span>Lucidchart</span>
-          <span>Layout Design</span>
-          <span>Visual Hierarchy</span>
-        </div>
-      </div>
-
-      <div class="skill-card green-card">
-        <h3>💻 Development</h3>
-        <div class="skill-tags">
-          <span>HTML5</span>
-          <span>CSS3</span>
-          <span>JavaScript</span>
-          <span>CMS</span>
-          <span>SEO Tools</span>
-          <span>Google Analytics</span>
-          <span>Contentful</span>
-          <span>XML</span>
-          <span>Markdown</span>
-        </div>
-      </div>
-
-      <div class="skill-card orange-card">
-        <h3>🤝 Soft Skills</h3>
-        <div class="skill-tags">
-          <span>Collaboration</span>
-          <span>Communication</span>
-          <span>Time Management</span>
-          <span>Content Governance</span>
-          <span>Digital Literacy</span>
-          <span>Attention to Detail</span>
-          <span>Design Thinking</span>
-        </div>
-      </div>
-
-      <div class="skill-card teal-card">
-        <h3>📘 Methodologies</h3>
-        <div class="skill-tags">
-          <span>Agile Sprints</span>
-          <span>Content Audits</span>
-          <span>Digital Publishing Workflows</span>
-          <span>Nielsen's 10 Heuristics</span>
-          <span>User Research Methods</span>
-          <span>Iterative Design</span>
+      <div class="timeline-item left">
+        <div class="timeline-content green-card">
+          <h3>Research & Product Design Intern</h3>
+          <p><strong>Quantum Signal AI</strong> · Michigan, USA · <em>Jan 2024 – May 2024</em></p>
+          <ul>
+            <li>Collaborated on autonomous vehicle interface designs focused on safety and feedback clarity.</li>
+            <li>Created high-fidelity Figma prototypes integrated with AI data.</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- =======================
+       PROJECTS SECTION
+  ========================== -->
+  <section id="projects" class="section">
+    <button class="project-badge">🎁 Stop 3: Destination Highlights</button>
+    <h2 class="section-title">Project Destinations</h2>
+    <p class="section-subtitle">
+      Every project is a destination explored with curiosity, creativity, and a user-first compass.
+    </p>
+
+    <div class="project-list">
+      <!-- Your 5 projects as discussed earlier -->
+    </div>
+  </section>
+
+  <!-- =======================
+       SKILLS SECTION
+  ========================== -->
+  <section id="skills" class="section">
+    <button class="skills-badge">🧭 Stop 4: Design Backpack</button>
+    <h2 class="section-title">Skills & Tools</h2>
+    <p class="section-subtitle">Every traveler needs the right tools. Here’s what I carry in my design backpack.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card pink-card">
+        <h3>🎨 Design Skills</h3>
+        <div class="tags">
+          <span>Digital Experience Design</span><span>UX Writing</span><span>SEO Optimization</span>
+          <span>Information Architecture</span><span>Accessibility (WCAG/508)</span><span>Responsive Web Design</span>
+        </div>
+      </div>
+
+      <div class="skill-card blue-card">
+        <h3>📊 Research & Analysis</h3>
+        <div class="tags">
+          <span>User Research</span><span>Usability Testing</span><span>Heuristic Evaluation</span>
+          <span>Card Sorting</span><span>Analytics Tracking</span>
+        </div>
+      </div>
+
+      <div class="skill-card purple-card">
+        <h3>🪄 Visual & Design Tools</h3>
+        <div class="tags">
+          <span>Figma</span><span>Adobe XD</span><span>Photoshop</span><span>Illustrator</span>
+          <span>Sketch</span><span>Lucidchart</span><span>Layout Design</span>
+        </div>
+      </div>
+
+      <div class="skill-card green-card">
+        <h3>💻 Development</h3>
+        <div class="tags">
+          <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>CMS</span><span>Google Analytics</span>
+        </div>
+      </div>
+
+      <div class="skill-card orange-card">
+        <h3>🧠 Soft Skills</h3>
+        <div class="tags">
+          <span>Collaboration</span><span>Communication</span><span>Time Management</span>
+          <span>Attention to Detail</span><span>Agile Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================
+       CONTACT SECTION
+  ========================== -->
   <section id="contact" class="contact-section">
     <div class="connect-header">
       <button class="connect-btn">🎯 Final Stop: Let's Connect!</button>
       <h2>Get in Touch</h2>
-      <p class="connect-sub">
-        Whether you want to collaborate on a project, talk about design, or just say hello — I'd love to hear from you!
-      </p>
+      <p class="connect-sub">Whether you want to collaborate on a project or just say hello, I'd love to hear from you!</p>
     </div>
 
     <div class="contact-container">
@@ -155,49 +230,18 @@
         <h3>Send a Message</h3>
         <label>Your Name</label>
         <input type="text" name="name" placeholder="John Doe" required />
-
         <label>Your Email</label>
         <input type="email" name="_replyto" placeholder="john@example.com" required />
-
         <label>Your Message</label>
         <textarea name="message" placeholder="Tell me about your project or just say hello!" required></textarea>
-
         <button type="submit" class="send-btn">✈️ Send Message</button>
       </form>
 
       <div class="contact-details">
-        <div class="info-card">
-          <div class="icon-box">📍</div>
-          <div>
-            <h4>Current Location</h4>
-            <p>Dearborn, Michigan, USA</p>
-            <span>Open to remote opportunities</span>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="icon-box">📧</div>
-          <div>
-            <h4>Email</h4>
-            <p>manche.siddhi@gmail.com</p>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="icon-box">💼</div>
-          <div>
-            <h4>LinkedIn</h4>
-            <p>linkedin.com/in/siddhi-manche-969820216</p>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="icon-box">🌐</div>
-          <div>
-            <h4>Portfolio</h4>
-            <p>siddhidesign.github.io/Portfolio/</p>
-          </div>
-        </div>
+        <div class="info-card"><div class="icon-box">📍</div><div><h4>Current Location</h4><p>Dearborn, Michigan, USA</p><span>Open to remote opportunities</span></div></div>
+        <div class="info-card"><div class="icon-box">📧</div><div><h4>Email</h4><p>manche.siddhi@gmail.com</p></div></div>
+        <div class="info-card"><div class="icon-box">💼</div><div><h4>LinkedIn</h4><p>linkedin.com/in/siddhi-manche-969820216</p></div></div>
+        <div class="info-card"><div class="icon-box">🌐</div><div><h4>Portfolio</h4><p>siddhidesign.github.io/Portfolio/</p></div></div>
       </div>
     </div>
 
