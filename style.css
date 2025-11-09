@@ -61,38 +61,70 @@ p {
 }
 
 /* ================================
-   NAVBAR
+   NAVBAR (Modern Rounded Style)
 ================================ */
 .navbar {
   position: fixed;
-  top: 20px;
+  top: 35px;
   left: 50%;
   transform: translateX(-50%);
-  background: #fff;
+  background: #ffffff;
   border-radius: 50px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05);
+  padding: 12px 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1000;
 }
 
 .nav-links {
-  display: flex;
-  gap: 40px;
   list-style: none;
-  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  color: #b8b8b8;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.nav-links li::after {
+  content: "–";
+  margin: 0 18px;
+  color: #dcdcdc;
+}
+
+.nav-links li:last-child::after {
+  content: "";
 }
 
 .nav-links a {
   text-decoration: none;
   color: #555;
   font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 25px;
   transition: all 0.3s ease;
 }
 
-.nav-links a.active,
 .nav-links a:hover {
-  color: #4a8cff;
-  font-weight: 600;
+  background: #f4f7ff;
+  color: #2a6cf4;
 }
+
+.nav-links a.active {
+  background: linear-gradient(135deg, #dce9ff, #a7c9ff);
+  color: #0043b4;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(164, 194, 255, 0.5);
+}
+
 
 /* ================================
    HERO SECTION
