@@ -87,17 +87,50 @@ section {
 }
 
 /* ================================
-   HERO SECTION
+   HERO SECTION (Final Polished)
 ================================ */
 .hero-section {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 80px;
-  padding-top: 200px;
+  padding-top: 180px;
+  padding-bottom: 160px;
+  position: relative;
   flex-wrap: wrap;
+  background: transparent;
 }
 
+/* Floating icons container */
+.floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.icon {
+  position: absolute;
+  opacity: 0.15;
+  font-size: 2.2rem;
+  animation: drift 10s ease-in-out infinite alternate;
+}
+
+.icon.plane { top: 100px; left: 12%; animation-delay: 1s; }
+.icon.globe { bottom: 80px; left: 5%; font-size: 2.5rem; animation-delay: 2s; }
+.icon.cloud { top: 60%; right: 10%; font-size: 2rem; animation-delay: 3s; }
+
+@keyframes drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(15px, -10px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Polaroid-style photo card */
 .photo-card {
   background: #fff;
   padding: 20px;
@@ -106,16 +139,36 @@ section {
   transform: rotate(-3deg);
   transition: all 0.4s ease;
   position: relative;
+  z-index: 1;
 }
 
 .photo-card:hover {
   transform: rotate(0deg) scale(1.02);
 }
 
+.photo-card::before {
+  content: "✈️";
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+.photo-card::after {
+  content: "🌍";
+  position: absolute;
+  bottom: -25px;
+  left: -25px;
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
 .hero-photo {
   width: 320px;
   border-radius: 12px;
   display: block;
+  margin: 0 auto;
 }
 
 .photo-caption {
@@ -123,6 +176,13 @@ section {
   font-style: italic;
   color: #333;
   text-align: center;
+}
+
+/* Right text side */
+.hero-right {
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
 }
 
 .intro-badge {
@@ -147,31 +207,79 @@ section {
   font-size: 2.2rem;
   margin-bottom: 10px;
   font-weight: 700;
+  color: #111;
 }
 
 .hero-desc {
   color: #444;
   margin-bottom: 25px;
   max-width: 450px;
+  line-height: 1.7;
 }
 
+/* Role tags */
 .hero-tags {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 12px;
 }
 
 .tag {
+  display: inline-block;
   padding: 10px 18px;
   border-radius: 50px;
   font-size: 0.95rem;
   font-weight: 500;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: fit-content;
 }
 
 .tag.blue { background: linear-gradient(135deg, #cde3ff, #93b9ff); color: #003f9e; }
 .tag.pink { background: linear-gradient(135deg, #ffd8ef, #f5b6f9); color: #7b006b; }
 .tag.green { background: linear-gradient(135deg, #cbf6d4, #9ef3b7); color: #056a40; }
+
+/* Scroll down arrow indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.6;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 140px;
+    padding-bottom: 100px;
+  }
+
+  .hero-right {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .hero-tags {
+    align-items: center;
+  }
+
+  .photo-card {
+    transform: none;
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
+  }
+}
+
 
 /* ================================
    ABOUT SECTION
