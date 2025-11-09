@@ -125,7 +125,6 @@ p {
   box-shadow: 0 4px 10px rgba(164, 194, 255, 0.5);
 }
 
-
 /* ================================
    HERO SECTION
 ================================ */
@@ -137,34 +136,6 @@ p {
   padding-top: 200px;
   padding-bottom: 160px;
   background: transparent;
-}
-
-.floating-icons {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.icon {
-  position: absolute;
-  opacity: 0.15;
-  font-size: 2rem;
-  animation: drift 10s ease-in-out infinite alternate;
-}
-
-.icon.plane { top: 100px; left: 15%; animation-delay: 1s; }
-.icon.globe { top: 300px; right: 20%; font-size: 2.5rem; animation-delay: 2s; }
-.icon.cloud { bottom: 80px; left: 25%; animation-delay: 3s; }
-
-@keyframes drift {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(15px, -10px) rotate(5deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
 }
 
 .hero-container {
@@ -190,24 +161,6 @@ p {
 .photo-card:hover {
   transform: rotate(0deg) scale(1.02);
   box-shadow: 0 35px 60px rgba(0, 0, 0, 0.1);
-}
-
-.photo-card::before {
-  content: "✈️";
-  position: absolute;
-  top: -25px;
-  right: -25px;
-  font-size: 1.5rem;
-  opacity: 0.5;
-}
-
-.photo-card::after {
-  content: "🌍";
-  position: absolute;
-  bottom: -25px;
-  left: -25px;
-  font-size: 1.5rem;
-  opacity: 0.5;
 }
 
 .hero-photo {
@@ -275,31 +228,7 @@ p {
 .tag.green { background: linear-gradient(135deg, #cbf6d4, #9ef3b7); color: #056a40; }
 
 /* ================================
-   SECTION BASE
-================================ */
-.section {
-  text-align: center;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
-  margin: 80px auto;
-  padding: 80px 8%;
-  max-width: 1100px;
-}
-
-.section-title {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
-
-.section-subtitle {
-  color: #555;
-  max-width: 750px;
-  margin: 0 auto 20px;
-}
-
-/* ================================
-   PROJECTS
+   PROJECTS / EXPERIENCE / SKILLS
 ================================ */
 .project-grid {
   display: grid;
@@ -328,77 +257,6 @@ p {
   margin-bottom: 15px;
 }
 
-/* ================================
-   EXPERIENCE TIMELINE
-================================ */
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 60px auto 0;
-}
-
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 6px;
-  background: linear-gradient(180deg, #b8d3ff, #d4a7ff);
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 10px;
-}
-
-.timeline-item {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.8s ease-out;
-  position: relative;
-  width: 50%;
-  padding: 20px 40px;
-}
-
-.timeline-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.timeline-item:nth-child(odd) { left: 0; }
-.timeline-item:nth-child(even) { left: 50%; }
-
-.timeline-dot {
-  position: absolute;
-  top: 25px;
-  right: -13px;
-  background: #7d9aff;
-  border: 4px solid #fff;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  z-index: 10;
-}
-
-.timeline-item:nth-child(even) .timeline-dot { left: -13px; }
-
-.timeline-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-  text-align: left;
-}
-
-.plane-icon {
-  position: absolute;
-  left: 48.5%;
-  top: 0;
-  font-size: 1.6rem;
-  transition: top 0.3s ease-out;
-}
-
-/* ================================
-   SKILLS / GALLERY / CONTACT
-================================ */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
@@ -416,24 +274,8 @@ p {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
-}
-
-.photo-grid img {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
-
-.photo-grid img:hover { transform: scale(1.03); }
-
 /* ================================
-   CONTACT SECTION
+   CONTACT SECTION (Final)
 ================================ */
 .contact-section {
   text-align: center;
@@ -450,51 +292,62 @@ p {
 }
 
 .connect-btn {
-  background: linear-gradient(135deg, #00aaff, #0072ff);
+  background: linear-gradient(135deg, #00b4ff, #007bff);
   border: none;
   color: #fff;
   font-weight: 600;
   font-size: 1rem;
-  padding: 12px 28px;
+  padding: 14px 36px;
   border-radius: 50px;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 6px 20px rgba(0,114,255,0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0,123,255,0.3);
 }
 
 .connect-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,114,255,0.4);
+  box-shadow: 0 10px 30px rgba(0,123,255,0.4);
+}
+
+.connect-header h2 {
+  margin-top: 24px;
+  font-weight: 700;
+  color: #111;
 }
 
 .connect-sub {
   color: #555;
-  max-width: 700px;
+  max-width: 720px;
   margin: 15px auto 0;
+  line-height: 1.6;
 }
 
 .contact-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 40px;
+  align-items: flex-start;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .contact-form {
-  flex: 1 1 350px;
+  background: #fafbff;
+  border-radius: 20px;
+  padding: 30px 32px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
   text-align: left;
 }
 
 .contact-form h3 {
-  margin-bottom: 15px;
   font-weight: 600;
+  margin-bottom: 20px;
   color: #333;
 }
 
 .contact-form label {
   display: block;
-  margin: 12px 0 6px;
+  margin: 10px 0 5px;
   font-size: 0.95rem;
   color: #444;
 }
@@ -503,11 +356,20 @@ p {
 .contact-form textarea {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid #ddd;
+  border: 1px solid #e0e6ff;
   border-radius: 8px;
-  background: #f8faff;
+  background: #fff;
   font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
   resize: none;
+  transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #7da9ff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(125,169,255,0.25);
 }
 
 .contact-form textarea {
@@ -515,24 +377,24 @@ p {
 }
 
 .send-btn {
-  background: linear-gradient(135deg, #5a8bff, #7b5eff);
+  background: linear-gradient(135deg, #5a8bff, #8e5eff);
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 12px 22px;
-  margin-top: 18px;
+  border-radius: 10px;
+  padding: 14px 24px;
+  margin-top: 20px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   font-weight: 600;
+  width: 100%;
 }
 
 .send-btn:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 15px rgba(122, 94, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(90,139,255,0.3);
 }
 
 .contact-details {
-  flex: 1 1 350px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -540,30 +402,37 @@ p {
 
 .info-card {
   background: linear-gradient(135deg, #eef4ff, #faf6ff);
-  border-radius: 18px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  gap: 16px;
+  padding: 22px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
   text-align: left;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 .icon-box {
-  font-size: 1.6rem;
-  width: 50px;
-  height: 50px;
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 14px;
   background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .info-card h4 {
   margin-bottom: 4px;
-  color: #333;
+  font-weight: 600;
+  color: #222;
 }
 
 .info-card p {
@@ -576,33 +445,43 @@ p {
   color: #777;
 }
 
+/* Thank You block */
 .thankyou-box {
   margin-top: 80px;
-  background: linear-gradient(135deg, #fff3d1, #ffe9c1);
-  border: 1px solid #ffe0a8;
-  padding: 40px;
-  border-radius: 20px;
+  background: linear-gradient(135deg, #fff3d1, #ffe8c1);
+  border: 1px solid #ffdd99;
+  padding: 45px;
+  border-radius: 22px;
   color: #333;
-  box-shadow: 0 4px 10px rgba(255, 210, 130, 0.25);
+  box-shadow: 0 4px 12px rgba(255,210,130,0.25);
+}
+
+.thankyou-box h3 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.thankyou-box p {
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .footer-note {
-  margin-top: 15px;
+  margin-top: 20px;
   font-weight: 500;
   color: #444;
 }
 
 /* ================================
-   RESPONSIVE DESIGN
+   RESPONSIVE
 ================================ */
 @media (max-width: 900px) {
   .hero-section { flex-direction: column; text-align: center; }
   .hero-right { max-width: 90%; }
   .navbar { width: 90%; padding: 12px; }
   .nav-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
-  .timeline::after { left: 20px; }
-  .timeline-item { width: 100%; left: 0 !important; padding-left: 50px; }
-  .timeline-dot { left: 0; right: auto; }
 }
 
 @media (max-width: 600px) {
@@ -610,4 +489,6 @@ p {
   .hero-photo { width: 240px; }
   .section-title { font-size: 1.5rem; }
   .nav-links { flex-wrap: wrap; gap: 10px; text-align: center; }
+  .contact-container { grid-template-columns: 1fr; }
+  .thankyou-box { padding: 30px; }
 }
