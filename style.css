@@ -267,61 +267,129 @@ body::after {
   }
 }
 
-
-
-
-
-
 /* ================================
-   ABOUT SECTION
+   ABOUT SECTION (Final Polished)
 ================================ */
-.section {
+.about-section {
   text-align: center;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
-  margin: 80px auto;
-  padding: 80px 8%;
-  max-width: 1100px;
+  padding: 160px 40px 120px;
+  position: relative;
+}
+
+.section-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #7b5cff, #4f80ff);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 15px rgba(97, 131, 255, 0.35);
+  animation: floatBadge 4s ease-in-out infinite;
 }
 
 .section-title {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
 .section-subtitle {
   color: #555;
-  max-width: 750px;
-  margin: 0 auto 20px;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
-.about-grid {
+/* About Cards Layout */
+.about-cards {
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
   flex-wrap: wrap;
-  gap: 30px;
   margin-top: 40px;
 }
 
 .about-card {
-  flex: 1 1 420px;
+  background: #fff;
   border-radius: 16px;
-  padding: 25px;
-  text-align: left;
-  color: #333;
-}
-
-.blue-card { background: linear-gradient(135deg, #eaf3ff, #f7fbff); }
-.pink-card { background: linear-gradient(135deg, #fff2fb, #ffe9f8); }
-
-.philosophy-box {
-  margin-top: 50px;
-  background: linear-gradient(135deg, #fff4d9, #ffe8bb);
   padding: 35px;
-  border-radius: 16px;
-  color: #333;
-  box-shadow: 0 4px 10px rgba(255, 210, 130, 0.3);
+  flex: 1 1 420px;
+  max-width: 500px;
+  text-align: left;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* Blue & Pink variants */
+.blue-card {
+  background: linear-gradient(180deg, #e9f3ff 0%, #f7fbff 100%);
+  border-left: 6px solid #82b4ff;
+}
+
+.pink-card {
+  background: linear-gradient(180deg, #ffe9f5 0%, #fff6fb 100%);
+  border-left: 6px solid #ff9cd6;
+}
+
+/* Card content */
+.about-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.about-card p {
+  margin-bottom: 15px;
+  color: #333;
+  line-height: 1.7;
+}
+
+.about-card em {
+  color: #555;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Icon */
+.card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-card {
+    max-width: 90%;
+  }
+}
+
+
+
+
 
 /* ================================
    EXPERIENCE (TIMELINE)
