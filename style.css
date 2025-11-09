@@ -10,148 +10,135 @@
 body {
   font-family: "Inter", sans-serif;
   color: #222;
-  background: linear-gradient(180deg, #f9fbff 0%, #f0f5ff 100%);
+  background: radial-gradient(circle at top left, #eaf3ff 0%, #f9fbff 50%, #eef6ff 100%);
   overflow-x: hidden;
   line-height: 1.6;
-}
-
-section {
-  padding: 100px 8%;
   position: relative;
-  scroll-margin-top: 100px;
 }
 
-h1, h2, h3 {
-  font-weight: 700;
-  color: #111;
+/* Floating travel icons */
+body::before,
+body::after {
+  content: "✈️";
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.15;
+  animation: float 10s infinite ease-in-out;
 }
 
-p {
-  color: #555;
-  font-size: 1rem;
+body::before {
+  top: 120px;
+  left: 10%;
+  transform: rotate(25deg);
 }
 
-/* ================================
-   NAVBAR
-================================ */
-.navbar {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fff;
-  border-radius: 50px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05);
-  z-index: 1000;
+body::after {
+  bottom: 80px;
+  right: 12%;
+  transform: rotate(-15deg);
 }
 
-.nav-links {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-  padding: 16px 40px;
+@keyframes float {
+  0% { transform: translateY(0) rotate(15deg); }
+  50% { transform: translateY(-10px) rotate(20deg); }
+  100% { transform: translateY(0) rotate(15deg); }
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.nav-links a.active,
-.nav-links a:hover {
-  color: #4a8cff;
-  font-weight: 600;
-}
-
-/* ================================
-   HERO SECTION
-================================ */
+/* Hero Section */
 .hero-section {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 60px;
-  padding-top: 180px;
-  padding-bottom: 140px;
-}
-
-.hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 80px;
-  flex-wrap: wrap;
+  padding-top: 200px;
+  padding-bottom: 160px;
+  background: transparent;
 }
 
 .photo-card {
   background: #fff;
-  padding: 15px;
+  padding: 18px;
   border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-  transform: rotate(-2deg);
-  text-align: center;
-  transition: all 0.3s ease;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  transform: rotate(-3deg);
+  transition: all 0.4s ease;
+  position: relative;
 }
 
 .photo-card:hover {
-  transform: rotate(0deg) scale(1.03);
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.1);
 }
 
 .hero-photo {
-  width: 280px;
+  width: 300px;
   border-radius: 10px;
+  display: block;
+  margin: 0 auto;
 }
 
 .photo-caption {
-  margin-top: 10px;
+  margin-top: 12px;
   font-style: italic;
   color: #333;
+  text-align: center;
 }
 
-.hero-right {
-  max-width: 400px;
+/* add little floating icons around image */
+.photo-card::before {
+  content: "✈️";
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+.photo-card::after {
+  content: "🌍";
+  position: absolute;
+  bottom: -25px;
+  left: -25px;
+  font-size: 1.5rem;
+  opacity: 0.5;
 }
 
 .intro-badge {
-  background: linear-gradient(135deg, #ffeab8, #ffd17c);
-  color: #d35500;
+  background: linear-gradient(135deg, #ffe8ba, #ffd17b);
+  color: #d25a00;
   font-weight: 600;
   display: inline-block;
   padding: 10px 18px;
-  border-radius: 50px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(255, 209, 124, 0.4);
+  border-radius: 40px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 15px rgba(255, 209, 124, 0.45);
+  font-size: 0.95rem;
 }
 
 .hero-name {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111;
 }
 
 .hero-desc {
-  margin-bottom: 24px;
   color: #444;
+  margin-bottom: 24px;
+  line-height: 1.6;
 }
 
-.hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.tag {
+.hero-tags .tag {
   padding: 10px 18px;
-  border-radius: 50px;
-  font-size: 0.95rem;
+  border-radius: 40px;
+  font-size: 0.9rem;
   font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.tag.blue { background: linear-gradient(135deg, #b0d8ff, #82b6ff); color: #004aad; }
-.tag.pink { background: linear-gradient(135deg, #ffd2f0, #f4a6f7); color: #9c0082; }
-.tag.green { background: linear-gradient(135deg, #c2f2d0, #9df3b5); color: #006a3e; }
+.tag.blue { background: linear-gradient(135deg, #cde3ff, #93b9ff); color: #003f9e; }
+.tag.pink { background: linear-gradient(135deg, #ffd8ef, #f5b6f9); color: #7b006b; }
+.tag.green { background: linear-gradient(135deg, #cbf6d4, #9ef3b7); color: #056a40; }
 
 /* ================================
    SECTIONS BASE
