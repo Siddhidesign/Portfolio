@@ -634,16 +634,17 @@ body::after {
 
 
 
-
 /* ================================
-   PROJECTS SECTION (Final Design)
+   PROJECTS SECTION (Final for 6 Projects)
 ================================ */
 .projects-section {
   text-align: center;
   padding: 160px 40px 140px;
   position: relative;
+  background: #ffffff;
 }
 
+/* Purple Badge */
 .purple-badge {
   display: inline-block;
   background: linear-gradient(135deg, #8b5cf6, #ec4899);
@@ -665,30 +666,34 @@ body::after {
 
 .section-subtitle {
   color: #555;
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto 80px;
   font-size: 1.05rem;
   line-height: 1.7;
 }
 
-/* Project Cards Layout */
+/* Layout container for all project cards */
 .projects-container {
   display: flex;
   flex-direction: column;
-  gap: 80px;
-  max-width: 1100px;
+  gap: 100px;
+  max-width: 1150px;
   margin: 0 auto;
 }
 
+/* ================================
+   Project Card Base
+================================ */
 .project-card {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 60px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   transition: all 0.4s ease;
+  position: relative;
 }
 
 .project-card.reverse {
@@ -696,98 +701,166 @@ body::after {
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
+  transform: translateY(-10px);
+  box-shadow: 0 35px 75px rgba(0, 0, 0, 0.08);
 }
 
-/* Project Image */
+/* ================================
+   Image Styling
+================================ */
 .project-image {
   flex: 1;
   overflow: hidden;
+  border-radius: 0;
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
 }
 
 .project-card:hover .project-image img {
   transform: scale(1.05);
 }
 
-/* Project Content */
+/* ================================
+   Text Content Styling
+================================ */
 .project-content {
   flex: 1;
   text-align: left;
   padding: 40px 50px;
+  position: relative;
 }
 
 .project-content h3 {
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 700;
+  color: #222;
   margin-bottom: 8px;
 }
 
 .project-content .date {
-  color: #666;
+  color: #777;
   font-size: 0.95rem;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .project-content p {
   color: #333;
   line-height: 1.7;
   margin-bottom: 20px;
+  font-size: 0.97rem;
 }
 
-/* Impact box */
+/* ================================
+   Impact Badge & Tags
+================================ */
 .impact-box {
-  background: #f9e8ff;
-  color: #3a005f;
-  padding: 14px 18px;
+  background: #f3ecff;
+  color: #4b0082;
+  padding: 12px 18px;
   border-radius: 12px;
   font-size: 0.95rem;
+  font-weight: 500;
   box-shadow: 0 6px 20px rgba(139, 92, 246, 0.15);
   margin-bottom: 20px;
+  display: inline-block;
 }
 
 .impact-box.pink {
-  background: #ffe7f2;
+  background: #ffeaf4;
   color: #7b005a;
 }
 
-/* Tags */
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 15px;
 }
 
 .tags span {
-  background: #f2f2f2;
+  background: #f7f7f7;
   border-radius: 30px;
   padding: 8px 16px;
   font-size: 0.9rem;
   color: #444;
   font-weight: 500;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .project-card {
-    flex-direction: column;
-  }
+.tags span:hover {
+  transform: translateY(-3px);
+}
+
+/* ================================
+   Checkout Button
+================================ */
+.project-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #7b5eff, #9e67ff);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: linear-gradient(135deg, #6a4aff, #8c50ff);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(123, 94, 255, 0.35);
+}
+
+/* ================================
+   Alternating Pattern (6 Projects)
+================================ */
+.projects-container .project-card:nth-child(odd) {
+  flex-direction: row;
+}
+.projects-container .project-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* ================================
+   Responsive Design
+================================ */
+@media (max-width: 950px) {
+  .project-card,
   .project-card.reverse {
     flex-direction: column;
   }
   .project-content {
     padding: 30px 25px;
+    text-align: center;
+  }
+  .project-content h3 {
+    font-size: 1.25rem;
+  }
+  .project-link {
+    margin: 10px auto 0;
+  }
+  .tags {
+    justify-content: center;
   }
 }
+
+@media (max-width: 600px) {
+  .projects-section {
+    padding: 100px 25px;
+  }
+  .projects-container {
+    gap: 70px;
+  }
+}
+
 
 
 /* ================================
