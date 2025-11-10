@@ -1,3 +1,12 @@
+// Hide intro after animation completes
+window.addEventListener("load", () => {
+  const intro = document.getElementById("intro-overlay");
+  setTimeout(() => {
+    intro.style.opacity = "0";
+    intro.style.visibility = "hidden";
+    intro.style.transition = "opacity 0.8s ease";
+  }, 5100);
+});
 // Wait for page to load then remove intro overlay after animation ends
 window.addEventListener("load", () => {
   const intro = document.getElementById("intro-overlay");
