@@ -591,6 +591,45 @@ body::after {
     right: auto;
   }
 }
+/* Compact Summary Style */
+.experience-summary {
+  color: #444;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Checkout Button */
+.checkout-btn {
+  display: inline-block;
+  margin-top: 12px;
+  background: linear-gradient(135deg, #5b8bff, #9e67ff);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  float: right;
+}
+
+.checkout-btn:hover {
+  background: linear-gradient(135deg, #4a7cff, #8b56ff);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(155, 120, 255, 0.3);
+}
+
+/* Optional: Align icon + header better */
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.exp-icon {
+  font-size: 1.5rem;
+}
 
 
 
