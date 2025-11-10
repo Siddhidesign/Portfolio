@@ -1,3 +1,10 @@
+// Wait for page to load then remove intro overlay after animation ends
+window.addEventListener("load", () => {
+  const intro = document.getElementById("intro-overlay");
+  setTimeout(() => {
+    intro.style.display = "none";
+  }, 5500); // 5.5 seconds total before hiding
+});
 // Smooth Scroll Navigation
 document.querySelectorAll('.nav-links a').forEach(anchor => {
   anchor.addEventListener('click', e => {
