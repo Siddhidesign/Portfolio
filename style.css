@@ -389,7 +389,7 @@ body::after {
 
 
 /* ================================
-   EXPERIENCE SECTION (Timeline FIX)
+   EXPERIENCE SECTION (Final Layout)
 ================================ */
 .experience-section {
   text-align: center;
@@ -398,7 +398,7 @@ body::after {
   overflow: hidden;
 }
 
-/* Green gradient badge */
+/* Green badge */
 .green-badge {
   display: inline-block;
   background: linear-gradient(135deg, #23c98c, #14a86b);
@@ -426,7 +426,7 @@ body::after {
   line-height: 1.7;
 }
 
-/* Timeline structure */
+/* Timeline setup */
 .timeline {
   position: relative;
   margin: 0 auto;
@@ -446,10 +446,12 @@ body::after {
   border-radius: 2px;
 }
 
+/* Each timeline item */
 .timeline-item {
   position: relative;
   width: 50%;
   padding: 40px 50px;
+  box-sizing: border-box;
 }
 
 .timeline-item.left {
@@ -462,28 +464,29 @@ body::after {
   text-align: left;
 }
 
-/* Connector circle */
+/* Glowing circle */
 .timeline-item::before {
   content: "";
   position: absolute;
-  top: 50px;
-  right: -20px;
+  top: 45px;
+  right: -14px;
   width: 22px;
   height: 22px;
   background: linear-gradient(135deg, #4f93ff, #82b4ff);
   border-radius: 50%;
-  border: 3px solid #fff;
-  box-shadow: 0 0 0 4px rgba(79, 147, 255, 0.3);
-  z-index: 5;
+  border: 4px solid #fff;
+  box-shadow: 0 0 15px rgba(79, 147, 255, 0.6);
+  z-index: 10;
 }
 
 .timeline-item.right::before {
-  left: -20px;
+  left: -14px;
   right: auto;
   background: linear-gradient(135deg, #f07eff, #fbb8ff);
+  box-shadow: 0 0 15px rgba(240, 126, 255, 0.6);
 }
 
-/* Card styles */
+/* Experience card */
 .experience-card {
   background: #fff;
   border-radius: 16px;
@@ -499,6 +502,7 @@ body::after {
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
 }
 
+/* Header */
 .experience-header {
   display: flex;
   align-items: center;
@@ -517,6 +521,7 @@ body::after {
   font-size: 1.2rem;
 }
 
+/* Texts */
 .company {
   font-weight: 600;
   color: #333;
@@ -528,6 +533,7 @@ body::after {
   margin-top: 3px;
 }
 
+/* Bullets */
 .experience-card ul {
   margin-top: 10px;
   text-align: left;
@@ -550,10 +556,19 @@ body::after {
 }
 
 /* Color variations */
-.experience-card.blue .exp-icon { background: #cde3ff; }
-.experience-card.pink .exp-icon { background: #ffd8ef; }
+.experience-card.blue .exp-icon {
+  background: #cde3ff;
+}
 
-/* Responsive stack */
+.experience-card.pink .exp-icon {
+  background: #ffd8ef;
+}
+
+.experience-card.purple .exp-icon {
+  background: #e2d4ff;
+}
+
+/* Responsive Fix */
 @media (max-width: 900px) {
   .timeline::after {
     left: 8px;
@@ -576,6 +591,9 @@ body::after {
     right: auto;
   }
 }
+
+
+
 
 
 /* ================================
