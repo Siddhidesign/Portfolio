@@ -1,1 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IRS2GO Redesign | Siddhi Manche</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+    }
+
+    .case-header {
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: linear-gradient(135deg, #eef2ff, #fff7ed);
+    }
+
+    .case-header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #1e1b4b;
+    }
+
+    .case-header p {
+      color: #374151;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .case-tags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .case-tags span {
+      background: #f3f4f6;
+      color: #111827;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .case-img {
+      display: block;
+      margin: 50px auto;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      max-width: 80%;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    section h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #1e1b4b;
+    }
+
+    section p {
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 30px;
+    }
+
+    /* Problem Section */
+    .problem {
+      background: linear-gradient(135deg, #fff7ed, #fef2f2);
+      padding: 80px 20px;
+      border-radius: 20px;
+      margin-top: 60px;
+    }
+
+    .problem h3 {
+      text-align: center;
+      font-size: 1.4rem;
+      margin-bottom: 40px;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+
+    .problem-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .problem-card h4 {
+      font-size: 1rem;
+      margin-top: 12px;
+      color: #1e293b;
+    }
+
+    /* Quotes */
+    .quote-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .quote {
+      background: #eef2ff;
+      padding: 25px;
+      border-radius: 16px;
+      flex: 1;
+      min-width: 250px;
+      font-style: italic;
+      box-shadow: 0 10px 25px rgba(99,102,241,0.1);
+    }
+
+    .quote::before {
+      content: "“";
+      font-size: 2rem;
+      color: #6366f1;
+      margin-right: 5px;
+    }
+
+    .process {
+      background: #f9fafb;
+      padding: 80px 20px;
+    }
+
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .step {
+      flex: 1 1 200px;
+      border-radius: 16px;
+      text-align: center;
+      padding: 30px;
+      color: #111;
+      font-weight: 600;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      background: linear-gradient(135deg, #fff, #f1f5f9);
+      transition: transform 0.3s;
+    }
+
+    .step:hover {
+      transform: translateY(-8px);
+    }
+
+    .transformation {
+      background: #0f172a;
+      color: #fff;
+      padding: 100px 20px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .results {
+      background: linear-gradient(135deg, #faf5ff, #ecfeff);
+      padding: 100px 20px;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .result-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      transition: transform 0.3s;
+    }
+
+    .result-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 100px auto 50px;
+      text-align: center;
+      background: linear-gradient(90deg, #8b5cf6, #ec4899);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(236,72,153,0.4);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="case-header">
+    <h1>IRS2GO Redesign</h1>
+    <p>From frustration to delight — how I transformed tax filing for millions 💼</p>
+    <div class="case-tags">
+      <span>UX/UI Design</span>
+      <span>Mobile App</span>
+      <span>Gov Services</span>
+    </div>
+    <img src="../assets/project1.jpg" alt="IRS2Go Mockup" class="case-img" />
+  </header>
+
+  <section>
+    <h2>The Problem 🤔</h2>
+    <p>The IRS2GO app had poor usability, unclear navigation, and limited features. Users often felt lost and frustrated during tax season.</p>
+
+    <div class="problem-grid">
+      <div class="problem-card"><h4>2.3★ Rating</h4><p>Users hated confusing navigation</p></div>
+      <div class="problem-card"><h4>8 Min</h4><p>Just to check refund status</p></div>
+      <div class="problem-card"><h4>0/10</h4><p>Accessibility score failed standards</p></div>
+      <div class="problem-card"><h4>87%</h4><p>Found navigation confusing</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What Users Told Me 💬</h2>
+    <div class="quote-section">
+      <div class="quote">I just want to know where my refund is. Why so many steps? — Sarah, 34</div>
+      <div class="quote">Text is too small, buttons hard to tap. I always make mistakes. — James, 67</div>
+    </div>
+  </section>
+
+  <section class="process">
+    <h2>My Process 🔍</h2>
+    <p>Each step was guided by user feedback and iterative testing — from problem framing to solution delivery.</p>
+    <div class="process-steps">
+      <div class="step">🔎 Research</div>
+      <div class="step">✨ Design</div>
+      <div class="step">🧪 Test</div>
+      <div class="step">🚀 Launch</div>
+    </div>
+  </section>
+
+  <section class="transformation">
+    <h2>The Transformation ✨</h2>
+    <p>Drag the slider to see the before and after designs.</p>
+    <img src="../assets/transformation.jpg" alt="Before After Comparison" style="width:80%;border-radius:20px;margin-top:30px;">
+  </section>
+
+  <section class="results">
+    <h2>The Results 📊</h2>
+    <p>Numbers that made everyone smile</p>
+    <div class="results-grid">
+      <div class="result-card">⭐ 4.7★ Rating<br><small>from 2.3★</small></div>
+      <div class="result-card">🚀 +71% Engagement<br><small>more active users</small></div>
+      <div class="result-card">⚡ 68% Faster<br><small>task completion</small></div>
+      <div class="result-card">😍 94% Satisfied<br><small>happy users</small></div>
+    </div>
+  </section>
+
+  <div style="text-align:center;">
+    <a href="https://www.figma.com/proto/TIAeVZMHKHtJpCnf9Wt3HB/IRS2GO-Redesign?page-id=135%3A784&node-id=460-1983" class="back-btn" target="_blank">
+      🔗 View Prototype
+    </a>
+    <a href="../index.html#projects" class="back-btn">← Back to Portfolio</a>
+  </div>
+</body>
+</html>
 
