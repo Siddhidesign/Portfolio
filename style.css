@@ -496,6 +496,116 @@ body::after {
   color: #fff;
   text-decoration: none;
 }
+/* ================================
+   SKILLS SECTION
+================================ */
+.skills-section {
+  text-align: center;
+  padding: 160px 40px 140px;
+  background: linear-gradient(to bottom, #fffdf8, #fff8e8);
+}
+
+.orange-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff7e29, #ff449f);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 40px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.skill-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  text-align: left;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+}
+
+.skill-card h3 { font-size: 1.2rem; margin-bottom: 16px; }
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tags span {
+  background: #f3f3f3;
+  border-radius: 30px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.skills-summary {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 40px;
+  border-radius: 20px;
+  background: #fff0fa;
+}
+
+/* ================================
+   PHOTOGRAPHY SECTION
+================================ */
+.gallery-section {
+  text-align: center;
+  padding: 160px 40px;
+}
+
+.photo-intro-card {
+  max-width: 850px;
+  margin: 60px auto;
+  background: #f9f8ff;
+  border: 1.5px solid #e4ddff;
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.intro-icon { font-size: 2.5rem; }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 70px auto;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+  transition: .3s;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.03);
+}
+
+.gallery-quote {
+  margin-top: 60px;
+  background: #ffe9b5;
+  padding: 25px 40px;
+  border-radius: 14px;
+  font-style: italic;
+}
 
 
 /* ================================
