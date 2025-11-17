@@ -10,7 +10,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
 
 
 <!-- =======================
-       HERO SECTION
+       HERO SECTION (PH1)
 =========================== -->
 <section id="home" class="hero-section">
 
@@ -67,15 +67,18 @@
   </div>
 
   <div class="hero-container">
-    <div class="photo-card">
-      <img src="./assets/profile-pic.jpg" class="hero-photo" alt="Siddhi Manche"/>
-      <p class="photo-caption">Your Guide 🌍</p>
+
+    <!-- Polaroid Portrait -->
+    <div class="polaroid-card">
+      <img src="./assets/profile-pic.jpg" class="polaroid-photo" alt="Siddhi Manche"/>
+      <p class="polaroid-caption">Your Guide 🌍</p>
     </div>
 
     <div class="hero-right">
       <div class="intro-badge">Welcome to my journey! ✈️</div>
 
       <h2 class="hero-name">Siddhi Manche</h2>
+
       <p class="hero-desc">
         I craft digital experiences that build trust, reduce friction, and turn complex problems into intuitive interactions.
       </p>
@@ -83,13 +86,13 @@
       <div class="hero-tags">
         <span class="tag blue">UX/UI Designer</span>
         <span class="tag pink">Front-end Developer</span>
-        <span class="tag green">Research + Strategy</span>
+        <span class="tag green">Design Strategy</span>
       </div>
     </div>
   </div>
 
   <div class="scroll-indicator">
-    <svg width="20" height="20" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round">
+    <svg width="20" height="20" fill="none" stroke="#999" stroke-width="2">
       <path d="M5 8l5 5 5-5" />
     </svg>
   </div>
@@ -111,12 +114,6 @@
     Every adventure starts with a story. Here’s mine — a journey of curiosity,
     creativity, and human-centered design.
   </p>
-
-  <div class="floating-icons">
-    <span class="icon plane">✈️</span>
-    <span class="icon globe">🌍</span>
-    <span class="icon cloud">☁️</span>
-  </div>
 
   <div class="about-cards">
 
@@ -141,8 +138,8 @@
       <div class="card-icon">💼</div>
       <h3>The Story So Far</h3>
       <p>
-        From Mumbai to Michigan — my design journey has been shaped by cultures,
-        curiosity, and the drive to solve meaningful problems through intuitive experiences.
+        From Mumbai to Michigan — my journey has blended culture, creativity,
+        and the desire to design meaningful digital experiences.
       </p>
     </div>
 
@@ -183,7 +180,7 @@
           <li>Designed responsive interfaces improving engagement by 25%.</li>
         </ul>
 
-        <a href="https://www.figma.com" class="checkout-btn" target="_blank">Checkout ↗</a>
+        <a href="#" class="checkout-btn" target="_blank">Checkout ↗</a>
       </div>
     </div>
 
@@ -203,7 +200,7 @@
           <li>Redesigned dashboards improving navigation time by 35%.</li>
         </ul>
 
-        <a href="https://www.figma.com" class="checkout-btn" target="_blank">Checkout ↗</a>
+        <a href="#" class="checkout-btn" target="_blank">Checkout ↗</a>
       </div>
     </div>
 
@@ -212,7 +209,7 @@
 
 
 <!-- =======================
-       PROJECTS (ONLY 3)
+     PROJECTS (P2 STYLE)
 =========================== -->
 <section id="projects" class="projects-section">
 
@@ -223,84 +220,67 @@
   <h2 class="section-title">Project Destinations</h2>
 
   <p class="section-subtitle">
-    A curated selection of my UX case studies — each crafted with research,
+    A curated selection of my UX case studies — crafted with research,
     intention, and real-world impact.
   </p>
 
   <div class="projects-container">
 
-    <!-- Project 1 — IRS2GO -->
-    <div class="project-card">
-      <div class="project-image">
-        <img src="./assets/project1.jpg" alt="IRS2GO Redesign">
-      </div>
-
-      <div class="project-content">
+    <!-- IRS2GO -->
+    <div class="project-card p2">
+      <img src="./assets/project1.jpg" class="project-thumb" />
+      <div class="project-info">
         <h3>IRS2GO Redesign</h3>
         <p class="date">Jan 2025 – Apr 2025</p>
-        <p>Redesigned the IRS2GO mobile app to improve accessibility, speed, and user comprehension.</p>
+        <p>Redesigned mobile experience focusing on accessibility and navigation.</p>
 
-        <div class="impact-box">
-          💡 <strong>Impact:</strong> 35% faster task completion for low-vision users.
-        </div>
+        <div class="impact-box">💡 <strong>Impact:</strong> 35% faster task completion.</div>
 
         <div class="tags">
           <span>Accessibility</span><span>User Testing</span><span>Mobile UI</span>
         </div>
 
-        <a href="projects/irs2go.html" target="_blank" class="view-project-btn">
+        <a href="projects/irs2go.html" class="view-project-btn" target="_blank">
           View Project ↗
         </a>
       </div>
     </div>
 
-    <!-- Project 2 — StressSense -->
-    <div class="project-card reverse">
-      <div class="project-image">
-        <img src="./assets/project2.jpg" alt="StressSense">
-      </div>
-
-      <div class="project-content">
+    <!-- StressSense -->
+    <div class="project-card p2">
+      <img src="./assets/project2.jpg" class="project-thumb" />
+      <div class="project-info">
         <h3>StressSense – Student Anxiety Dashboard</h3>
         <p class="date">Sept 2024 – Dec 2024</p>
+        <p>Dashboard built using sentiment analysis + user interviews.</p>
 
-        <p>Built a student stress monitoring dashboard using sentiment analysis, surveys, and trend mapping.</p>
-
-        <div class="impact-box pink">
-          💡 <strong>Impact:</strong> Identified 5 major stress factors in daily student routines.
-        </div>
+        <div class="impact-box pink">💡 <strong>Impact:</strong> Identified 5 key stress factors.</div>
 
         <div class="tags">
           <span>UX Research</span><span>Data Analysis</span><span>Dashboard UI</span>
         </div>
 
-        <a href="projects/stresssense.html" target="_blank" class="view-project-btn">
+        <a href="projects/stresssense.html" class="view-project-btn" target="_blank">
           View Project ↗
         </a>
       </div>
     </div>
 
-    <!-- Project 3 — EV Charging -->
-    <div class="project-card">
-      <div class="project-image">
-        <img src="./assets/project4.jpg" alt="EV Charging Research">
-      </div>
-
-      <div class="project-content">
+    <!-- EV Charging -->
+    <div class="project-card p2">
+      <img src="./assets/project4.jpg" class="project-thumb" />
+      <div class="project-info">
         <h3>LLM-Powered EV Charging UX Research</h3>
         <p class="date">Nov 2024</p>
+        <p>LLM-driven thematic analysis of 16,000+ EV charging reviews.</p>
 
-        <p>Used LLM-driven theming to analyze 16,000+ EV charging reviews and uncover trust barriers.</p>
-
-        <div class="impact-box">
-          💡 <strong>Impact:</strong> Revealed 6 core UX failures across national networks.
-        </div>
+        <div class="impact-box">💡 <strong>Impact:</strong> Revealed 6 core UX failures.</div>
 
         <div class="tags">
-          <span>LLMs</span><span>User Research</span><span>Data Visualization</span>
+          <span>LLM UX</span><span>User Research</span><span>Data Visualization</span>
         </div>
 
-        <a href="projects/EVCharging.html" target="_blank" class="view-project-btn">
+        <a href="projects/EVCharging.html" class="view-project-btn" target="_blank">
           View Project ↗
         </a>
       </div>
@@ -311,131 +291,12 @@
 
 
 <!-- =======================
-         SKILLS
-=========================== -->
-<section id="skills" class="skills-section">
-
-  <div class="section-badge orange-badge"><span>🎒 Stop 4: My Travel Kit</span></div>
-
-  <h2 class="section-title">Skills & Tools</h2>
-
-  <p class="section-subtitle">
-    A well-equipped traveler needs the right tools — here are the ones I rely on.
-  </p>
-
-  <div class="skills-grid">
-
-    <!-- Design Skills -->
-    <div class="skill-card pink">
-      <h3>🎨 Design Skills</h3>
-      <div class="skill-tags">
-        <span>Digital Experience Design</span>
-        <span>UX Writing</span>
-        <span>Content Strategy</span>
-        <span>Information Architecture</span>
-        <span>Accessibility (WCAG/508)</span>
-        <span>Responsive Web Design</span>
-        <span>Design Systems</span>
-        <span>Brand Consistency</span>
-      </div>
-    </div>
-
-    <!-- Research -->
-    <div class="skill-card blue">
-      <h3>📊 Research & Analysis</h3>
-      <div class="skill-tags">
-        <span>User Interviews</span>
-        <span>Usability Testing</span>
-        <span>Survey Analysis</span>
-        <span>Heuristic Evaluation</span>
-        <span>Affinity Mapping</span>
-        <span>User-Centered Design</span>
-      </div>
-    </div>
-
-    <!-- Tools -->
-    <div class="skill-card purple">
-      <h3>🖌️ Visual & Design Tools</h3>
-      <div class="skill-tags">
-        <span>Figma</span>
-        <span>Adobe XD</span>
-        <span>Photoshop</span>
-        <span>Illustrator</span>
-        <span>Canva</span>
-      </div>
-    </div>
-
-    <!-- Development -->
-    <div class="skill-card green">
-      <h3>💻 Development</h3>
-      <div class="skill-tags">
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>GitHub</span>
-        <span>CMS Tools</span>
-      </div>
-    </div>
-
-    <!-- Soft Skills -->
-    <div class="skill-card yellow">
-      <h3>🤝 Soft Skills</h3>
-      <div class="skill-tags">
-        <span>Collaboration</span>
-        <span>Communication</span>
-        <span>Time Management</span>
-        <span>Attention to Detail</span>
-      </div>
-    </div>
-
-    <!-- Methods -->
-    <div class="skill-card teal">
-      <h3>📘 Methodologies</h3>
-      <div class="skill-tags">
-        <span>Agile Sprints</span>
-        <span>Design Thinking</span>
-        <span>UCD</span>
-        <span>Persona Creation</span>
-        <span>Rapid Prototyping</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="skills-summary">
-    <div class="summary-item">
-      <div class="summary-icon">🎓</div>
-      <h4>Certified</h4>
-      <p>Google UX Design Certificate</p>
-    </div>
-
-    <div class="summary-item">
-      <div class="summary-icon">💼</div>
-      <h4>Experience</h4>
-      <p>1+ year in UX/UI & Frontend</p>
-    </div>
-
-    <div class="summary-item">
-      <div class="summary-icon">🚀</div>
-      <h4>Projects</h4>
-      <p>15+ UX Case Studies</p>
-    </div>
-  </div>
-
-</section>
-
-
-<!-- =======================
-     CONTACT SECTION
+       CONTACT
 =========================== -->
 <section id="contact" class="contact-section">
   <div class="section-badge blue-badge"><span>🎯 Final Stop: Let's Connect!</span></div>
 
   <h2 class="section-title">Get in Touch</h2>
-
-  <p class="section-subtitle">
-    Whether you want to collaborate or just say hi — I’d love to hear from you!
-  </p>
 
   <div class="contact-container">
 
@@ -443,29 +304,17 @@
       <h3>Send a Message</h3>
 
       <form action="https://formspree.io/f/xkgnjkay" method="POST">
-        <label>Your Name</label>
-        <input type="text" name="name" required />
-
-        <label>Your Email</label>
-        <input type="email" name="_replyto" required />
-
-        <label>Your Message</label>
-        <textarea name="message" required></textarea>
-
-        <button type="submit" class="send-btn">✈️ Send Message</button>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="_replyto" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Message..." required></textarea>
+        <button type="submit" class="send-btn">✈️ Send</button>
       </form>
     </div>
 
     <div class="contact-info">
       <div class="info-card">
         <h4>📍 Current Location</h4>
-        <p>Dearborn, Michigan, USA</p>
-        <span>Open to remote opportunities</span>
-      </div>
-
-      <div class="info-card">
-        <h4>📧 Email</h4>
-        <a href="mailto:manche.siddhi@gmail.com" target="_blank">manche.siddhi@gmail.com</a>
+        <p>Dearborn, Michigan</p>
       </div>
 
       <div class="info-card">
@@ -483,12 +332,6 @@
       </div>
     </div>
 
-  </div>
-
-  <div class="thankyou-footer">
-    <h3>Thank You for Visiting! 🎉</h3>
-    <p>Let’s build something amazing together!</p>
-    <p class="credit">✨ Designed & Built by <strong>Siddhi Manche</strong> ✨</p>
   </div>
 </section>
 
