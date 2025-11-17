@@ -1,6 +1,6 @@
-/* ================================
+/* ===============================================
    GLOBAL RESET
-================================ */
+================================================ */
 * {
   margin: 0;
   padding: 0;
@@ -21,19 +21,13 @@ body::before,
 body::after {
   content: "✈️";
   position: absolute;
-  font-size: 2rem;
-  opacity: 0.1;
+  font-size: 2.1rem;
+  opacity: 0.09;
   animation: floatIcons 10s ease-in-out infinite;
 }
 
-body::before {
-  top: 100px;
-  left: 10%;
-}
-body::after {
-  bottom: 120px;
-  right: 12%;
-}
+body::before { top: 100px; left: 10%; }
+body::after { bottom: 120px; right: 12%; }
 
 @keyframes floatIcons {
   0%,100% { transform: translateY(0); }
@@ -41,9 +35,9 @@ body::after {
 }
 
 
-/* ================================
+/* ===============================================
    NAVBAR
-================================ */
+================================================ */
 .navbar {
   position: fixed;
   top: 30px;
@@ -81,9 +75,10 @@ body::after {
   color: #003f9e;
 }
 
-/* ================================
+
+/* ===============================================
    INTRO OVERLAY
-================================ */
+================================================ */
 .intro-overlay {
   position: fixed;
   inset: 0;
@@ -103,7 +98,6 @@ body::after {
 
 .intro-plane {
   font-size: 2.6rem;
-  color: #2563eb;
   animation: floatPlane 3s infinite ease-in-out;
 }
 
@@ -141,11 +135,6 @@ body::after {
   font-size: 1.6rem;
 }
 
-.intro-role {
-  color: #555;
-  margin-top: 3px;
-}
-
 .loading-bar {
   width: 240px;
   height: 6px;
@@ -177,9 +166,9 @@ body::after {
 }
 
 
-/* ================================
+/* ===============================================
    HERO SECTION (PH1 POLAROID)
-================================ */
+================================================ */
 .hero-section {
   padding: 190px 40px 140px;
   display: flex;
@@ -253,7 +242,6 @@ body::after {
 .hero-name {
   font-size: 2.3rem;
   font-weight: 700;
-  color: #111;
 }
 
 .hero-desc {
@@ -262,6 +250,7 @@ body::after {
   max-width: 420px;
 }
 
+/* Tags under hero */
 .hero-tags {
   margin-top: 22px;
   display: flex;
@@ -280,6 +269,7 @@ body::after {
 .tag.pink { background: #ffe4f4; color: #7b006b; }
 .tag.green { background: #dcffe9; color: #056a40; }
 
+/* scroll icon */
 .scroll-indicator {
   position: absolute;
   bottom: 30px;
@@ -289,9 +279,9 @@ body::after {
 }
 
 
-/* ================================
+/* ===============================================
    ABOUT SECTION
-================================ */
+================================================ */
 .about-section {
   padding: 160px 40px;
   text-align: center;
@@ -306,8 +296,8 @@ body::after {
 }
 
 .section-title {
-  font-size: 2rem;
   margin: 18px 0 10px;
+  font-size: 2rem;
 }
 
 .section-subtitle {
@@ -316,6 +306,7 @@ body::after {
   color: #555;
 }
 
+/* Cards */
 .about-cards {
   display: flex;
   justify-content: center;
@@ -341,9 +332,9 @@ body::after {
 }
 
 
-/* ================================
+/* ===============================================
    EXPERIENCE SECTION
-================================ */
+================================================ */
 .experience-section {
   padding: 160px 40px;
   text-align: center;
@@ -365,13 +356,14 @@ body::after {
   content: "";
   position: absolute;
   left: 50%;
+  width: 4px;
   top: 0;
   bottom: 0;
-  width: 4px;
   background: linear-gradient(180deg, #7fc9ff, #9e9eff);
   transform: translateX(-50%);
 }
 
+/* Timeline positions */
 .timeline-item {
   width: 50%;
   padding: 40px;
@@ -381,10 +373,11 @@ body::after {
 .timeline-item.left { text-align: right; }
 .timeline-item.right { left: 50%; }
 
+/* dots */
 .timeline-item:before {
   content: "";
   position: absolute;
-  top: 50px;
+  top: 40px;
   right: -11px;
   width: 20px;
   height: 20px;
@@ -399,6 +392,7 @@ body::after {
   background: #f07eff;
 }
 
+/* card */
 .experience-card {
   background: #fff;
   padding: 30px;
@@ -416,10 +410,13 @@ body::after {
 }
 
 
-
-  /* ================================
-   NEW PROJECT GRID LAYOUT
-================================ */
+/* ===============================================
+   PROJECTS — NEW CLEAN GRID
+================================================ */
+.projects-section {
+  padding: 160px 40px;
+  text-align: center;
+}
 
 .projects-grid {
   max-width: 1100px;
@@ -430,15 +427,14 @@ body::after {
   padding: 50px 20px;
 }
 
-/* Project Card */
 .project-card-new {
-  background: #ffffff;
+  background: #fff;
   border-radius: 25px;
   padding: 30px;
   display: flex;
   gap: 30px;
   box-shadow: 0 15px 45px rgba(0,0,0,0.08);
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .project-card-new:hover {
@@ -446,13 +442,11 @@ body::after {
   box-shadow: 0 25px 60px rgba(0,0,0,0.12);
 }
 
-/* Thumbnail */
 .project-card-new .thumb {
   width: 260px;
   height: 190px;
   border-radius: 15px;
   overflow: hidden;
-  flex-shrink: 0;
 }
 
 .project-card-new .thumb img {
@@ -461,71 +455,53 @@ body::after {
   object-fit: cover;
 }
 
-/* Content */
-.p-content {
-  flex: 1;
-}
+.p-content { flex: 1; }
 
 .p-content h3 {
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 5px;
 }
 
-.p-date {
-  color: #777;
-  margin-bottom: 12px;
-  font-size: 0.95rem;
-}
+.p-date { color: #777; font-size: 0.95rem; margin: 8px 0; }
 
-.p-desc {
-  color: #444;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
+.p-desc { color: #444; margin-bottom: 15px; }
 
-/* Impact */
+/* impact */
 .impact-tag {
   padding: 10px 15px;
   border-radius: 12px;
-  font-size: 0.94rem;
   margin-bottom: 15px;
-  display: inline-block;
   font-weight: 500;
+  display: inline-block;
 }
 
-/* Colors */
 .purple-impact { background: #f0e9ff; color: #5a00c8; }
 .pink-impact { background: #ffe4f3; color: #b10068; }
 .blue-impact { background: #e5f1ff; color: #0059c8; }
 
-/* Tags */
 .p-tags {
   display: flex;
-  flex-wrap: wrap;
   gap: 8px;
+  flex-wrap: wrap;
   margin-bottom: 18px;
 }
 
 .p-tags span {
-  background: #f5f5f5;
-  padding: 7px 15px;
+  background: #f3f3f3;
+  padding: 7px 14px;
   border-radius: 30px;
   font-size: 0.85rem;
-  color: #444;
 }
 
-/* Button */
+/* button */
 .view-btn {
   background: linear-gradient(135deg, #8b5cf6, #ec4899);
   padding: 10px 18px;
   color: #fff;
-  font-weight: 600;
   text-decoration: none;
   border-radius: 40px;
+  font-weight: 600;
   font-size: 0.95rem;
-  display: inline-block;
-  width: fit-content;
   transition: 0.3s;
 }
 
@@ -534,22 +510,10 @@ body::after {
   box-shadow: 0 10px 20px rgba(236,72,153,0.3);
 }
 
-/* Responsive */
-@media (max-width: 850px) {
-  .project-card-new {
-    flex-direction: column;
-    text-align: center;
-  }
 
-  .project-card-new .thumb {
-    width: 100%;
-    height: 220px;
-  }
-}
-
-/* ================================
-   SKILLS SECTION
-================================ */
+/* ===============================================
+   SKILLS
+================================================ */
 .skills-section {
   text-align: center;
   padding: 160px 40px 140px;
@@ -557,20 +521,18 @@ body::after {
 }
 
 .orange-badge {
-  display: inline-block;
   background: linear-gradient(135deg, #ff7e29, #ff449f);
   color: #fff;
   padding: 10px 22px;
   border-radius: 40px;
-  font-weight: 600;
   margin-bottom: 25px;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
 }
 
@@ -578,7 +540,6 @@ body::after {
   background: #fff;
   border-radius: 16px;
   padding: 30px;
-  text-align: left;
   box-shadow: 0 10px 35px rgba(0,0,0,0.05);
 }
 
@@ -592,26 +553,15 @@ body::after {
 
 .skill-tags span {
   background: #f3f3f3;
-  border-radius: 30px;
+  border-radius: 25px;
   padding: 8px 14px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.85rem;
 }
 
-.skills-summary {
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  flex-wrap: wrap;
-  padding: 40px;
-  border-radius: 20px;
-  background: #fff0fa;
-}
 
-/* ================================
-   PHOTOGRAPHY SECTION
-================================ */
+/* ===============================================
+   PHOTOGRAPHY
+================================================ */
 .gallery-section {
   text-align: center;
   padding: 160px 40px;
@@ -619,23 +569,22 @@ body::after {
 
 .photo-intro-card {
   max-width: 850px;
-  margin: 60px auto;
+  margin: 60px auto 40px;
   background: #f9f8ff;
-  border: 1.5px solid #e4ddff;
-  border-radius: 16px;
+  border: 1px solid #e4ddff;
+  border-radius: 18px;
   padding: 40px;
   display: flex;
   gap: 20px;
+  align-items: center;
 }
-
-.intro-icon { font-size: 2.5rem; }
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
   gap: 25px;
   max-width: 1100px;
-  margin: 70px auto;
+  margin: 80px auto;
 }
 
 .photo-grid img {
@@ -651,7 +600,7 @@ body::after {
 }
 
 .gallery-quote {
-  margin-top: 60px;
+  margin-top: 40px;
   background: #ffe9b5;
   padding: 25px 40px;
   border-radius: 14px;
@@ -659,18 +608,19 @@ body::after {
 }
 
 
-/* ================================
+/* ===============================================
    CONTACT
-================================ */
+================================================ */
 .contact-section {
   padding: 160px 40px;
+  text-align: center;
 }
 
 .blue-badge {
   background: linear-gradient(135deg, #3a8bff, #007bff);
   padding: 10px 22px;
-  color: #fff;
   border-radius: 40px;
+  color: #fff;
 }
 
 .contact-container {
@@ -703,7 +653,6 @@ body::after {
   border-radius: 10px;
 }
 
-/* info cards */
 .info-card {
   background: #f3f6ff;
   padding: 18px;
