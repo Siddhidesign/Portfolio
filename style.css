@@ -605,3 +605,36 @@ body {
     columns: 1;
   }
 }
+/* =====================================================
+   FIXED + VISIBLE SKILL TAGS (White Text + Better Cards)
+===================================================== */
+
+.skill-category {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 50px 0 20px;
+  color: #ffd84d;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 34px;
+}
+
+.skill-tags .label {
+  padding: 10px 22px;
+  border-radius: 26px;
+  background: #1d1d26;       /* Better contrast */
+  color: #ffffff;            /* FIXED: white text */
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s ease;
+}
+
+.skill-tags .label:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 14px rgba(255,216,77,0.45);
+  background: #2a2a33;
+}
