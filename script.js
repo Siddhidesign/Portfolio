@@ -1,84 +1,101 @@
-/* ================================
-   INTRO LOADING SCREEN
-================================ */
-window.addEventListener("load", () => {
-  const intro = document.getElementById("intro-overlay");
-
-  // Remove overlay after animation
-  setTimeout(() => {
-    intro.style.opacity = "0";
-    intro.style.pointerEvents = "none";
-
-    setTimeout(() => {
-      intro.style.display = "none";
-    }, 900);
-  }, 4700);
-});
-
-
-/* ================================
-   SMOOTH SCROLLING FOR NAV LINKS
-================================ */
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    // Only smooth scroll for same-page links
-    if (link.getAttribute("href").startsWith("#")) {
-      e.preventDefault();
-      document.querySelector(link.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  });
-});
-
-
-/* ================================
-   ACTIVE NAV HIGHLIGHT ON SCROLL
-================================ */
+/* ============================================================
+   SCROLL–BASED ACTIVE NAVIGATION
+============================================================ */
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-links a");
 
-function updateActiveNav() {
-  let fromTop = window.scrollY + 120;
+window.addEventListener("scroll", () => {
+  let scrollPos = window.scrollY + 140;
 
-  sections.forEach(section => {
-    const id = section.getAttribute("id");
+  sections.forEach((sec) => {
+    if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+      let id = sec.getAttribute("id");
 
-    if (
-      section.offsetTop <= fromTop &&
-      section.offsetTop + section.offsetHeight > fromTop
-    ) {
-      navLinks.forEach(link => link.classList.remove("active"));
+      navLinks.forEach((link) => link.classList.remove("active"));
+
       const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
       if (activeLink) activeLink.classList.add("active");
     }
   });
-}
-
-window.addEventListener("scroll", updateActiveNav);
+});
 
 
-/* ================================
-   FADE-IN ANIMATION ON SCROLL
-================================ */
-const revealElements = document.querySelectorAll(
-  ".hero-section, .about-section, .experience-section, .projects-section, .skills-section, .contact-section"
+
+/* ============================================================
+   CHECKPOINT LABEL REVEAL ON SCROLL
+============================================================ */
+const checkpointLabels = document.querySelectorAll(".checkpoint-label");
+
+const labelObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("reveal-label");
+      }
+    });
+  },
+  { threshold: 0.3 }
 );
 
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
-      revealObserver.unobserve(entry.target);
+checkpointLabels.forEach((label) => labelObserver.observe(label));
+
+
+
+/* ============================================================
+   GLOW CARD APPEAR ANIMATION
+============================================================ */
+const glowCards = document.querySelectorAll(".glow-card, .project-card");
+
+const glowObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("glow-in");
+      }
+    });
+  },
+  { threshold: 0.25 }
+);
+
+glowCards.forEach((card) => {
+  card.classList.add("pre-glow"); // initial state
+  glowObserver.observe(card);
+});
+
+
+
+/* ============================================================
+   PHOTO GRID REVEAL
+============================================================ */
+const photos = document.querySelectorAll(".photo-grid img");
+
+const photoObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("photo-visible");
+      }
+    });
+  },
+  { threshold: 0.25 }
+);
+
+photos.forEach((img) => {
+  img.classList.add("photo-hidden");
+  photoObserver.observe(img);
+});
+
+
+
+/* ============================================================
+   SMOOTH SCROLL (For consistency)
+============================================================ */
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
-}, { threshold: 0.15 });
-
-revealElements.forEach(el => {
-  el.style.opacity = "0";
-  el.style.transform = "translateY(40px)";
-  el.style.transition = "all 0.9s ease-out";
-  revealObserver.observe(el);
 });
