@@ -4,19 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Siddhi Manche — UX/UI Designer</title>
 
-  <!-- Correct Paths -->
-  <link rel="stylesheet" href="/Portfolio/style.css" />
+  <!-- CORRECT CSS PATH FOR GITHUB PAGES -->
+  <link rel="stylesheet" href="style.css" />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <script defer src="/Portfolio/script.js"></script>
+  <!-- CORRECT JS PATH FOR GITHUB PAGES -->
+  <script defer src="script.js"></script>
 </head>
 
 <body>
+
+  <!-- Particle Background Container -->
+  <div class="particle-container"></div>
 
   <!-- ============================
       NAVIGATION
@@ -61,8 +65,8 @@
       <a href="#" class="hero-btn">View Resume</a>
     </div>
 
-    <div class="hero-photo parallax-float">
-      <img src="/Portfolio/assets/placeholder-profile.jpg" alt="Profile Photo" />
+    <div class="hero-photo parallax-float cinematic-fade">
+      <img src="assets/profile.jpg" alt="Profile Photo" />
     </div>
 
   </section>
@@ -80,10 +84,10 @@
     <div class="about-wrapper">
 
       <div class="about-photo spotlight cinematic-fade">
-        <img src="/Portfolio/assets/placeholder-about.jpg" />
+        <img src="assets/about.jpg" />
       </div>
 
-      <div class="about-text">
+      <div class="about-text cinematic-fade">
         <p>
           I design with a philosophy rooted in clarity, empathy, and structured thinking.
           My work blends research, modern aesthetic systems, and accessible patterns to craft
@@ -109,30 +113,29 @@
 
     <div class="exp-timeline">
 
-      <div class="exp-item glow-card cinematic-fade">
-        <h3>UX/UI Design Intern — FindMe</h3>
+      <div class="exp-item cinematic-fade">
+        <h3>UX/UI Intern — FindMe</h3>
         <p class="exp-date">New York • May 2025 – Aug 2025</p>
         <ul>
-          <li>Designed AI-based portfolio templates used by 500+ users</li>
-          <li>Improved accessibility scores by 35%</li>
+          <li>Designed AI portfolio components for 500+ users</li>
+          <li>Improved accessibility by 35%</li>
           <li>Reduced user task errors by 28%</li>
         </ul>
       </div>
 
-      <div class="exp-item glow-card cinematic-fade">
+      <div class="exp-item cinematic-fade">
         <h3>UX/UI Designer — JaiHind Groups</h3>
         <p class="exp-date">Mumbai • Oct 2023 – July 2024</p>
         <ul>
-          <li>Redesigned dashboards, improving navigation by 35%</li>
-          <li>Reduced internal processing time by 40%</li>
-          <li>Delivered real-time workflow improvements</li>
+          <li>Improved navigation efficiency by 35%</li>
+          <li>Reduced workflow time by 40%</li>
         </ul>
       </div>
 
     </div>
 
     <div class="center-btn-wrapper">
-      <a href="/Portfolio/experience.html" class="section-btn">View Full Experience →</a>
+      <a href="experience.html" class="section-btn">View Full Experience →</a>
     </div>
 
   </section>
@@ -147,15 +150,13 @@
       <span class="cp-name">Education</span>
     </div>
 
-    <div class="education-card glow-card cinematic-fade">
+    <div class="education-card cinematic-fade">
 
       <h3>University of Michigan–Dearborn</h3>
-      <p class="edu-date">MS in Human-Centered Design & Engineering (2024–2026)</p>
-      <p class="edu-sub">Specialization: UX Design</p>
+      <p class="edu-date">MS — Human-Centered Design & Engineering (2024–2026)</p>
 
       <h3>University of Mumbai</h3>
-      <p class="edu-date">B.Tech in Electronics & Telecommunication (2020–2024)</p>
-      <p class="edu-sub">Specialization: AI/ML</p>
+      <p class="edu-date">B.Tech — Electronics & Telecommunication (2020–2024)</p>
 
     </div>
 
@@ -171,60 +172,42 @@
       <span class="cp-name">Projects</span>
     </div>
 
-    <div class="project-card layered cinematic-fade">
+    <div class="project-card cinematic-fade">
       <div class="project-left">
         <h4 class="project-tag">IRS2GO Redesign</h4>
-        <h3 class="project-title">Revamping Accessibility for Millions</h3>
+        <h3 class="project-title">Accessibility Meets Clarity</h3>
         <p class="project-desc">
-          WCAG-first redesign that improved usability, reduced cognitive load,
-          and increased task completion rates.
+          WCAG-based redesign improving readability and reducing cognitive load.
         </p>
 
-        <div class="project-labels">
-          <span class="label pink">Accessibility</span>
-          <span class="label yellow">Research</span>
-          <span class="label blue">Mobile UI</span>
-        </div>
-
-        <a class="project-btn" href="/Portfolio/irs2go.html">View</a>
+        <a class="project-btn" href="irs2go.html">View</a>
       </div>
 
       <div class="project-right parallax-float">
-        <img src="/Portfolio/assets/placeholder1.jpg" />
+        <img src="assets/proj1.jpg" />
       </div>
     </div>
 
-    <div class="project-card layered cinematic-fade">
+    <div class="project-card cinematic-fade">
       <div class="project-left">
-        <h4 class="project-tag">StressSense Dashboard</h4>
-        <h3 class="project-title">Understanding Student Anxiety</h3>
+        <h4 class="project-tag">EV Charging Insights</h4>
+        <h3 class="project-title">Understanding Public Frustrations</h3>
         <p class="project-desc">
-          A real-time sentiment dashboard that visualizes emotional patterns
-          in academic environments.
+          LLM-based classification of 16,000+ EV charging reviews.
         </p>
 
-        <div class="project-labels">
-          <span class="label pink">Research</span>
-          <span class="label yellow">Data UI</span>
-          <span class="label blue">Visualization</span>
-        </div>
-
-        <a class="project-btn" href="/Portfolio/stresssense.html">View</a>
+        <a class="project-btn" href="EVCharging.html">View</a>
       </div>
 
       <div class="project-right parallax-float">
-        <img src="/Portfolio/assets/placeholder2.jpg" />
+        <img src="assets/proj2.jpg" />
       </div>
-    </div>
-
-    <div class="center-btn-wrapper">
-      <a href="/Portfolio/projects.html" class="section-btn">View All Projects →</a>
     </div>
 
   </section>
 
   <!-- ============================
-      CHECKPOINT 6 — SKILLS (GROUPED)
+      CHECKPOINT 6 — SKILLS
   ============================ -->
   <section id="skills" class="skills-section checkpoint">
 
@@ -235,69 +218,24 @@
 
     <div class="skill-groups">
 
-      <!-- UX Design -->
       <h3 class="skill-category">UX Design</h3>
-      <div class="skill-tags cinematic-fade">
+      <div class="skill-tags">
         <span class="label pink">User Journey Mapping</span>
-        <span class="label yellow">Information Architecture</span>
+        <span class="label yellow">IA</span>
         <span class="label blue">Interaction Design</span>
-        <span class="label pink">Wireframing</span>
-        <span class="label yellow">Prototyping</span>
       </div>
 
-      <!-- UI Design -->
-      <h3 class="skill-category">UI & Interaction</h3>
-      <div class="skill-tags cinematic-fade">
+      <h3 class="skill-category">UI</h3>
+      <div class="skill-tags">
+        <span class="label yellow">Design Systems</span>
         <span class="label blue">Visual Design</span>
-        <span class="label pink">Design Systems</span>
-        <span class="label yellow">Responsive Design</span>
-        <span class="label blue">Motion Design</span>
-        <span class="label pink">Micro-interactions</span>
       </div>
 
-      <!-- Research -->
-      <h3 class="skill-category">User Research</h3>
-      <div class="skill-tags cinematic-fade">
-        <span class="label yellow">User Interviews</span>
-        <span class="label blue">Usability Testing</span>
-        <span class="label pink">Heuristic Evaluation</span>
-        <span class="label yellow">A/B Testing</span>
-        <span class="label blue">Persona Creation</span>
-      </div>
-
-      <!-- Accessibility -->
-      <h3 class="skill-category">Accessibility</h3>
-      <div class="skill-tags cinematic-fade">
-        <span class="label pink">WCAG 2.1 AA</span>
-        <span class="label yellow">Inclusive Design</span>
-      </div>
-
-      <!-- Product -->
-      <h3 class="skill-category">Product & Strategy</h3>
-      <div class="skill-tags cinematic-fade">
-        <span class="label blue">Feature Prioritization</span>
-        <span class="label pink">Competitive Analysis</span>
-        <span class="label yellow">Product Thinking</span>
-        <span class="label blue">Storytelling</span>
-      </div>
-
-      <!-- Tools -->
       <h3 class="skill-category">Tools</h3>
-      <div class="skill-tags cinematic-fade">
-        <span class="label pink">Figma</span>
-        <span class="label yellow">FigJam</span>
+      <div class="skill-tags">
+        <span class="label yellow">Figma</span>
+        <span class="label pink">FigJam</span>
         <span class="label blue">Illustrator</span>
-        <span class="label pink">Photoshop</span>
-        <span class="label yellow">Adobe XD</span>
-      </div>
-
-      <!-- Technical -->
-      <h3 class="skill-category">Technical</h3>
-      <div class="skill-tags cinematic-fade">
-        <span class="label blue">HTML</span>
-        <span class="label pink">CSS</span>
-        <span class="label yellow">JavaScript</span>
-        <span class="label blue">Component Libraries</span>
       </div>
 
     </div>
@@ -315,12 +253,12 @@
     </div>
 
     <div class="photo-grid">
-      <img src="/Portfolio/assets/placeholder-p1.jpg" />
-      <img src="/Portfolio/assets/placeholder-p2.jpg" />
-      <img src="/Portfolio/assets/placeholder-p3.jpg" />
-      <img src="/Portfolio/assets/placeholder-p4.jpg" />
-      <img src="/Portfolio/assets/placeholder-p5.jpg" />
-      <img src="/Portfolio/assets/placeholder-p6.jpg" />
+      <img src="assets/p1.jpg" />
+      <img src="assets/p2.jpg" />
+      <img src="assets/p3.jpg" />
+      <img src="assets/p4.jpg" />
+      <img src="assets/p5.jpg" />
+      <img src="assets/p6.jpg" />
     </div>
 
   </section>
@@ -332,20 +270,14 @@
 
     <div class="checkpoint-label">
       <span class="cp-number">Checkpoint 8</span>
-      <span class="cp-name">Contact Me</span>
+      <span class="cp-name">Contact</span>
     </div>
 
     <div class="contact-box cinematic-fade">
       <h3>Let’s Build Something Great</h3>
-      <p>Reach out for opportunities, collaborations, or just to connect!</p>
+      <p>Open to collaborations, design roles, and creative opportunities.</p>
 
       <a class="contact-btn-main" href="mailto:manchesr@umich.edu">Get in Touch</a>
-
-      <div class="contact-links">
-        <a href="https://www.linkedin.com">LinkedIn →</a>
-        <a href="https://www.behance.net">Behance →</a>
-        <a href="mailto:manchesr@umich.edu">Email →</a>
-      </div>
     </div>
 
   </section>
