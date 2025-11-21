@@ -13,12 +13,15 @@ body {
   color: #ffffff;
   overflow-x: hidden;
 
+  /* Ultra–subtle premium thin grid */
   background-image:
-      linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.01) 11px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
   background-size: 26px 26px;
+
   -webkit-font-smoothing: antialiased;
 }
+
 
 section {
   padding: 130px 60px;
