@@ -277,10 +277,12 @@ section {
     text-align: center;
   }
 
-  .about-photos {
-    flex-direction: row;
-    justify-content: center;
-  }
+ .about-photos {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
 
   .polaroid {
     width: 220px;
