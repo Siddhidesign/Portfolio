@@ -268,6 +268,82 @@ body {
   font-weight: 600;
   text-decoration: none;
 }
+/* =====================================================
+   ABOUT SECTION — POLAROID + CENTERED TEXT
+===================================================== */
+
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Polaroid Container */
+.about-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Polaroid Style */
+.polaroid {
+  background: #ffffff;
+  padding: 16px 16px 26px;
+  border-radius: 14px;
+  width: 260px;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.28);
+  transform: rotate(-2deg);
+  transition: 0.3s;
+}
+
+.polaroid:nth-child(2) {
+  transform: rotate(3deg);
+}
+
+.polaroid:hover {
+  transform: scale(1.03) rotate(0deg);
+}
+
+/* Polaroid Image */
+.polaroid img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Polaroid Caption */
+.polaroid-caption {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: #444;
+  font-weight: 600;
+}
+
+/* RIGHT SIDE TEXT CENTERING */
+.about-text {
+  max-width: 480px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+/* RESPONSIVE */
+@media(max-width: 950px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-photos {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
 
 /* =====================================================
    EXPERIENCE — CINEMATIC TIMELINE
