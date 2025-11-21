@@ -224,9 +224,10 @@ section {
 
 .about-photos {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 30px;
 }
+
 
 .polaroid {
   background: #ffffff;
