@@ -4,281 +4,167 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IRS2GO Redesign | Siddhi Manche</title>
-
   <link rel="stylesheet" href="../style.css" />
-
-  <style>
-    body {
-      font-family: "Inter", sans-serif;
-      background: #f9fafb;
-      color: #111827;
-      margin: 0;
-      padding: 0;
-    }
-
-    header.case-hero {
-      text-align: center;
-      padding: 130px 20px 70px;
-      background: linear-gradient(135deg, #eef2ff, #fff7ed);
-    }
-
-    header.case-hero h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      color: #1e1b4b;
-    }
-
-    header.case-hero p {
-      max-width: 650px;
-      margin: 15px auto 0;
-      color: #374151;
-      font-size: 1.2rem;
-      line-height: 1.7;
-    }
-
-    .case-tags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-    }
-
-    .case-tags span {
-      background: #f3f4f6;
-      padding: 8px 18px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .case-img {
-      display: block;
-      margin: 60px auto;
-      border-radius: 20px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
-      max-width: 82%;
-    }
-
-    section {
-      max-width: 1050px;
-      margin: 100px auto;
-      padding: 0 20px;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #1e1b4b;
-      margin-bottom: 20px;
-    }
-
-    section p, section ul {
-      color: #374151;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 28px;
-    }
-
-    ul li {
-      margin-bottom: 8px;
-    }
-
-    /* PROBLEM GRID */
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .problem-card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 28px;
-      text-align: center;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
-      transition: transform 0.3s;
-    }
-
-    .problem-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .problem-card h4 {
-      font-size: 1.2rem;
-      color: #1e293b;
-      margin-bottom: 10px;
-    }
-
-    /* QUOTES */
-    .quote-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .quote {
-      background: #eef2ff;
-      padding: 24px;
-      border-radius: 16px;
-      flex: 1;
-      min-width: 280px;
-      font-style: italic;
-      box-shadow: 0 12px 28px rgba(99,102,241,0.1);
-    }
-
-    .quote::before {
-      content: "“";
-      font-size: 2rem;
-      color: #6366f1;
-      margin-right: 6px;
-    }
-
-    /* RESULTS GRID */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .result-card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 26px;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.06);
-      text-align: center;
-      transition: 0.3s;
-    }
-
-    .result-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .btn-row {
-      text-align: center;
-      margin: 80px 0;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin: 10px;
-      background: linear-gradient(90deg,#8b5cf6,#ec4899);
-      color: white;
-      padding: 12px 26px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .back-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 22px rgba(236,72,153,0.4);
-    }
-  </style>
 </head>
 
-<body>
+<body class="case-page">
 
-  <!-- HERO -->
-  <header class="case-hero">
+  <!-- ====================== HERO ====================== -->
+  <header class="case-header-dark">
     <h1>IRS2GO Redesign</h1>
     <p>
-      Transforming a fragmented, web-redirecting government app into a guided,
-      accessible, and trustworthy mobile experience — designed to reduce stress
+      Transforming a fragmented, redirect-heavy government app into a guided,
+      accessible, and trustworthy dark-mode mobile experience — reducing stress
       during America’s most stressful season.
     </p>
 
     <div class="case-tags">
       <span>UX/UI Design</span>
       <span>Mobile App</span>
+      <span>HCI Methods</span>
       <span>Accessibility</span>
-      <span>HCI Research</span>
     </div>
 
-    <img src="../assets/project1.jpg" class="case-img" alt="IRS2GO Mockups" />
+    <img src="../assets/Thumbnail.png" alt="IRS2GO Mockup" class="case-img" />
   </header>
 
-  <!-- PROBLEM -->
-  <section>
+
+  <!-- ====================== PROBLEM ====================== -->
+  <section class="case-section">
     <h2>The Problem</h2>
 
     <p>
-      IRS2Go looked like an app — but it wasn’t one. Almost every action redirected
-      users to IRS.gov web pages, causing confusion, context switching, and distrust.
-      For seniors and first-time filers, this made even simple tasks overwhelming.
+      IRS2Go looked like an app — but didn’t behave like one. Almost every
+      important action (refund status, payments, tax help) opened an IRS.gov webpage.
+      Users felt disoriented, unsafe, and thrown out of the experience during a
+      stressful task like taxes.
     </p>
 
     <p>
-      Combined with unclear fields, no accessibility standards, and fragmented
-      navigation, users spent far too long completing sensitive tasks.
+      Combined with tiny text, low contrast, poor navigation, and no error prevention,
+      the app offered <strong>zero native experience</strong> and forced users to
+      navigate the complex IRS website inside a mobile browser shell.
     </p>
 
     <div class="problem-grid">
-      <div class="problem-card"><h4>2.3★ Rating</h4><p>Frustrated users</p></div>
-      <div class="problem-card"><h4>8 Minutes</h4><p>To check refund status</p></div>
-      <div class="problem-card"><h4>0/10</h4><p>Accessibility score</p></div>
-      <div class="problem-card"><h4>100%</h4><p>Flows redirected to web</p></div>
+      <div class="problem-card-dark">
+        <h4>2.3★ Rating</h4>
+        Frustrated navigation
+      </div>
+
+      <div class="problem-card-dark">
+        <h4>8 Minutes</h4>
+        Just to check refund status
+      </div>
+
+      <div class="problem-card-dark">
+        <h4>0/10</h4>
+        Accessibility compliance
+      </div>
+
+      <div class="problem-card-dark">
+        <h4>100%</h4>
+        Critical flows redirected to the web
+      </div>
     </div>
   </section>
 
-  <!-- QUOTES -->
-  <section>
+
+  <!-- ====================== USER INSIGHTS ====================== -->
+  <section class="case-section">
     <h2>User Insights</h2>
 
-    <div class="quote-section">
-      <div class="quote">I feel thrown around every time the app opens a website. — James, 67</div>
-      <div class="quote">Just tell me where to check my refund. Everything looks the same. — Sarah, 34</div>
+    <div class="quote-dark">
+      “Every time I tap something, it takes me out of the app… why?”
+      <br>— James, 67
     </div>
+
+    <div class="quote-dark">
+      “I just want to check my refund. Everything looks the same and I get lost.”
+      <br>— Sarah, 34
+    </div>
+
+    <p>
+      Conversations with seniors, first-time filers, and busy families revealed
+      common themes:
+      confusion, fear of mistakes, distrust of redirections, and overwhelming text.
+    </p>
   </section>
 
-  <!-- WHAT I DID DIFFERENT -->
-  <section>
+
+  <!-- ====================== WHAT I DID DIFFERENTLY ====================== -->
+  <section class="case-section">
     <h2>What I Did Differently</h2>
 
     <p>
-      My redesign was driven by a key insight — the app wasn’t failing because of UI.
-      It was failing because it wasn’t a native app at all. I rebuilt core IRS tools
-      inside the app, creating predictable, guided workflows with zero redirects.
+      My redesign was guided by a key insight:  
+      <strong>IRS2Go wasn’t failing because of UI — it was failing because it
+      wasn’t a real app.</strong>
+    </p>
+
+    <p>
+      I reimagined the entire product as a
+      <strong>fully native tax companion</strong> that supports users through
+      stressful financial tasks with clarity, empathy, and predictable flows.
     </p>
 
     <ul>
-      <li>Identified that IRS2Go had no native functionality</li>
-      <li>Rebuilt refund status, payments, and tax help natively</li>
-      <li>Introduced guided flows to reduce cognitive load</li>
-      <li>Improved accessibility to WCAG AA standards</li>
-      <li>Designed for seniors + low-literacy users</li>
+      <li>Identified the systemic flaw — 100% of flows redirected to the IRS website</li>
+      <li>Rebuilt refund status, payments, and tax help as native screens</li>
+      <li>Added guided steps to reduce cognitive load</li>
+      <li>Redesigned all forms with clear labels, examples, and safe input patterns</li>
+      <li>Improved accessibility using WCAG AA standard</li>
+      <li>Optimized for seniors & low-literacy users</li>
       <li>Reduced task steps by 62%</li>
     </ul>
   </section>
 
-  <!-- RESULTS -->
-  <section>
+
+  <!-- ====================== TRANSFORMATION ====================== -->
+  <section class="case-section transformation-dark">
+    <h2>Visual Transformation</h2>
+    <p>A clearer, more predictable, and accessible experience — built with real users in mind.</p>
+
+    <img src="../assets/transformation.jpg" alt="Before After Comparison" />
+  </section>
+
+
+  <!-- ====================== RESULTS ====================== -->
+  <section class="case-section">
     <h2>The Results</h2>
-    <p>Applying HCI heuristics and evaluating user scenarios showed major improvements.</p>
+    <p>Using HCI heuristics and task walkthroughs, the redesign delivered major improvements.</p>
 
     <div class="results-grid">
-      <div class="result-card">⭐ 4.7★ Rating<br><small>(projected from 2.3★)</small></div>
-      <div class="result-card">⚡ 62% Faster<br><small>task completion</small></div>
-      <div class="result-card">📱 +80% Accessibility<br><small>WCAG AA compliant</small></div>
-      <div class="result-card">😊 94% Satisfaction<br><small>positive experiences</small></div>
+      <div class="result-card">
+        ⭐ <strong>4.7★</strong><br><small>Projected from 2.3★</small>
+      </div>
+
+      <div class="result-card">
+        ⚡ <strong>62% Faster</strong><br><small>Task completion</small>
+      </div>
+
+      <div class="result-card">
+        📱 <strong>+80% Accessibility</strong><br><small>WCAG AA compliant</small>
+      </div>
+
+      <div class="result-card">
+        😊 <strong>94% Satisfaction</strong><br><small>From user tests</small>
+      </div>
     </div>
   </section>
 
-  <!-- BUTTONS -->
-  <div class="btn-row">
+
+  <!-- ====================== BUTTONS ====================== -->
+  <div class="case-section" style="text-align:center;">
     <a
       href="https://www.figma.com/proto/TIAeVZMHKHtJpCnf9Wt3HB/IRS2GO-Redesign?page-id=135%3A784&node-id=460-1983"
-      class="back-btn"
+      class="case-btn"
       target="_blank"
     >
       🔗 View Prototype
     </a>
 
-    <a href="../index.html#projects" class="back-btn">
+    <a href="../index.html#projects" class="case-btn" style="margin-left:20px;">
       ← Back to Portfolio
     </a>
   </div>
