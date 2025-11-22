@@ -243,21 +243,25 @@ section {
 }
 
 /* =====================================================
-   ABOUT SECTION (Polaroid Photos)
+   ABOUT SECTION (Polaroid Photos) — FIXED + CENTERED
 ===================================================== */
 .about-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;   /* center the group, not spread apart */
   align-items: center;
-  gap: 60px;
+  gap: 60px;                  /* perfect balanced spacing */
+  margin-top: 40px;
 }
 
+/* POLAROID STACK */
 .about-photos {
   display: flex;
   flex-direction: row;
   gap: 28px;
+  justify-content: center;    /* ensures photos stay centered */
 }
 
+/* Polaroid Cards */
 .polaroid {
   background: #ffffff;
   padding: 16px 16px 26px;
@@ -288,23 +292,46 @@ section {
   color: #333;
 }
 
-/* ABOUT TEXT */
+/* ABOUT TEXT BLOCK — FIXED OVERLAPPING */
 .about-text {
-  max-width: 500px;
+  max-width: 460px;
   font-size: 1.1rem;
   line-height: 1.7;
   color: #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+  /* ensures text does NOT collide with polaroids */
+  padding: 10px 0;
 }
 
+/* Button properly spaced */
 .about-btn {
-  margin-top: 22px;
   background: #ffd84d;
   padding: 12px 22px;
   border-radius: 24px;
   color: #000;
   text-decoration: none;
   font-weight: 600;
+  width: fit-content;
+  margin-top: 10px;
 }
+
+/* RESPONSIVE — Stack cleanly */
+@media(max-width: 950px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    align-items: center;
+    max-width: 90%;
+  }
+}
+
 
 /* =====================================================
    EXPERIENCE TIMELINE
