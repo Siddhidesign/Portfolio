@@ -243,25 +243,30 @@ section {
 }
 
 /* =====================================================
-   ABOUT SECTION (Polaroid Photos) — FIXED + CENTERED
+   ABOUT SECTION — FINAL PROPERLY CENTERED VERSION
 ===================================================== */
-.about-container {
-  display: flex;
-  justify-content: center;   /* center the group, not spread apart */
-  align-items: center;
-  gap: 60px;                  /* perfect balanced spacing */
-  margin-top: 40px;
+
+#about {
+  padding-top: 90px;   /* prevents overlap with checkpoint + navbar */
 }
 
-/* POLAROID STACK */
+.about-container {
+  display: flex;
+  justify-content: center;      /* center the whole group */
+  align-items: center;
+  gap: 80px;                    /* distance between photos + text */
+  max-width: 1200px;            /* keeps layout centered and tight */
+  margin: 0 auto;               /* perfectly centered on page */
+}
+
+/* POLAROID PHOTOS */
 .about-photos {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 28px;
-  justify-content: center;    /* ensures photos stay centered */
 }
 
-/* Polaroid Cards */
 .polaroid {
   background: #ffffff;
   padding: 16px 16px 26px;
@@ -292,9 +297,9 @@ section {
   color: #333;
 }
 
-/* ABOUT TEXT BLOCK — FIXED OVERLAPPING */
+/* TEXT SECTION */
 .about-text {
-  max-width: 460px;
+  max-width: 420px;      /* narrows text so it stays centered */
   font-size: 1.1rem;
   line-height: 1.7;
   color: #ddd;
@@ -302,13 +307,11 @@ section {
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-
-  /* ensures text does NOT collide with polaroids */
-  padding: 10px 0;
 }
 
-/* Button properly spaced */
+/* BUTTON */
 .about-btn {
+  margin-top: 10px;
   background: #ffd84d;
   padding: 12px 22px;
   border-radius: 24px;
@@ -316,19 +319,19 @@ section {
   text-decoration: none;
   font-weight: 600;
   width: fit-content;
-  margin-top: 10px;
 }
 
-/* RESPONSIVE — Stack cleanly */
-@media(max-width: 950px) {
+/* RESPONSIVE */
+@media (max-width: 950px) {
   .about-container {
     flex-direction: column;
     text-align: center;
+    gap: 40px;
   }
 
   .about-text {
-    align-items: center;
     max-width: 90%;
+    align-items: center;
   }
 }
 
