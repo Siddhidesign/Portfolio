@@ -337,51 +337,133 @@ section {
 
 
 /* =====================================================
-   EXPERIENCE — ENHANCED VISUAL DESIGN
+   EXPERIENCE — LUX PREMIUM TIMELINE DESIGN
 ===================================================== */
 
+/* TIMELINE CONTAINER */
+.exp-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  border-left: 2px dashed rgba(255,255,255,0.12);
+  padding-left: 36px;
+  margin-top: 30px;
+}
+
+/* EXPERIENCE CARD */
 .exp-item {
-  padding: 32px 36px;
   background: #1a1a22;
+  padding: 32px 36px;
   border-radius: 34px;
   position: relative;
   border: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 12px 38px rgba(0,0,0,0.3);
+  box-shadow: 0 12px 38px rgba(0,0,0,0.28);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.9s ease;
 }
 
+.exp-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HOVER LIFT */
 .exp-item:hover {
   transform: translateY(-6px);
+  box-shadow: 0 18px 52px rgba(0,0,0,0.45);
   transition: 0.35s ease;
-  box-shadow: 0 18px 48px rgba(0,0,0,0.45);
 }
 
+/* TIMELINE DOT */
+.exp-item::before {
+  content: "";
+  position: absolute;
+  left: -44px;
+  top: 32px;
+  width: 16px;
+  height: 16px;
+  background: #ffd84d;
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(255,216,77,0.45);
+}
+
+/* TITLE */
 .exp-item h3 {
   color: #ffd84d;
   font-size: 1.45rem;
   margin-bottom: 6px;
+  font-weight: 700;
 }
 
+/* SUBTEXT DATE */
+.exp-date {
+  color: #bbbbbb;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+/* BULLET POINTS */
 .exp-item ul li {
   margin: 6px 0;
   line-height: 1.6;
+  color: #dddddd;
+}
+
+/* =====================================================
+   NEW FLEX LAYOUT (TEXT LEFT + BUTTON RIGHT)
+===================================================== */
+.exp-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.exp-left {
+  flex: 1;
+}
+
+.exp-right {
+  display: flex;
+  align-items: center;
 }
 
 /* FIGMA BUTTON */
 .exp-figma-btn {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: 26px;
   background: #ffd84d;
   color: #000;
   font-weight: 600;
   text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 0 16px rgba(255,216,77,0.35);
   transition: 0.3s ease;
 }
 
 .exp-figma-btn:hover {
   background: #ffe488;
   transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(255,216,77,0.55);
+}
+
+/* =====================================================
+   RESPONSIVE BEHAVIOR
+===================================================== */
+@media(max-width: 900px) {
+  .exp-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .exp-right {
+    width: 100%;
+  }
+
+  .exp-figma-btn {
+    width: fit-content;
+  }
 }
 
 
