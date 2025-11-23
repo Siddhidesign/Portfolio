@@ -351,144 +351,129 @@ section {
 
 
 /* =====================================================
-   EXPERIENCE — ENHANCED LAYOUT + BUTTONS
+   EXPERIENCE SECTION — FULL UPDATED UI
 ===================================================== */
 
+/* Timeline container spacing */
+.experience-section {
+  margin-top: 40px;
+}
+
+/* Vertical timeline line */
+.exp-timeline {
+  position: relative;
+  padding-left: 40px;
+  border-left: 2px dashed rgba(255, 255, 255, 0.15);
+  margin-top: 40px;
+}
+
+/* Golden timeline dots */
+.exp-timeline::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 30px;
+  width: 14px;
+  height: 14px;
+  background: #ffd84d;
+  border-radius: 50%;
+}
+
+.exp-item + .exp-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  width: 14px;
+  height: 14px;
+  background: #ffd84d;
+  border-radius: 50%;
+  margin-top: -30px;
+}
+
+/* EXPERIENCE CARDS */
 .exp-item {
   padding: 32px 36px;
   background: #1a1a22;
   border-radius: 34px;
+  position: relative;
   border: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 0 12px 38px rgba(0,0,0,0.32);
-  margin-bottom: 42px;
-  transition: 0.35s ease;
+  box-shadow: 0 12px 38px rgba(0,0,0,0.35);
+  margin-bottom: 48px;
+  transition: 0.3s ease;
 }
 
 .exp-item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.45);
 }
 
-/* Title + Date + Button row */
+/* TOP ROW: INFO LEFT + BUTTON RIGHT */
 .exp-top-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;   /* forces button to the right */
   align-items: center;
-  margin-bottom: 14px;
+  width: 100%;
+  margin-bottom: 16px;
 }
 
-/* Title */
+/* ROLE TITLE */
 .exp-item h3 {
   color: #ffd84d;
   font-size: 1.45rem;
   margin-bottom: 4px;
 }
 
-/* Date */
-.exp-item .exp-date {
+/* DATE + LOCATION */
+.exp-date {
+  color: #bbbbbb;
   font-size: 0.95rem;
-  color: #cccccc;
+  margin-bottom: 6px;
 }
 
-/* Bullet list */
-.exp-item ul {
-  margin-top: 10px;
-  padding-left: 20px;
-}
-
+/* BULLET POINTS */
 .exp-item ul li {
   margin: 6px 0;
   line-height: 1.6;
+  color: #dcdcdc;
 }
 
-/* =====================================================
-   FIGMA BUTTON — GOLDEN PILL STYLE
-===================================================== */
+/* FIGMA BUTTON — VISUAL CTA */
 .exp-figma-btn {
-  background: #ffd84d;
-  color: #000;
+  margin-left: auto;                   /* forces RIGHT alignment */
   padding: 10px 20px;
-  border-radius: 26px;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: 0.25s ease;
-  white-space: nowrap;
-  box-shadow: 0 0 12px rgba(255, 216, 77, 0.35);
-}
-
-.exp-figma-btn:hover {
-  background: #ffe68f;
-  transform: translateY(-2px);
-  box-shadow: 0 0 18px rgba(255, 216, 77, 0.55);
-}
-
-/* =====================================================
-   MOBILE RESPONSIVE FIX
-===================================================== */
-@media(max-width: 850px) {
-  .exp-top-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-  }
-}
-
-/* =====================================================
-   NEW FLEX LAYOUT (TEXT LEFT + BUTTON RIGHT)
-===================================================== */
-.exp-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-}
-
-.exp-left {
-  flex: 1;
-}
-
-.exp-right {
-  display: flex;
-  align-items: center;
-}
-
-/* FIGMA BUTTON */
-.exp-figma-btn {
-  padding: 10px 22px;
-  border-radius: 26px;
   background: #ffd84d;
   color: #000;
+  border-radius: 26px;
   font-weight: 600;
   text-decoration: none;
-  white-space: nowrap;
-  box-shadow: 0 0 16px rgba(255,216,77,0.35);
   transition: 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(255, 216, 77, 0.35);
 }
 
 .exp-figma-btn:hover {
   background: #ffe488;
   transform: translateY(-2px);
-  box-shadow: 0 0 22px rgba(255,216,77,0.55);
+  box-shadow: 0 6px 16px rgba(255, 216, 77, 0.5);
 }
 
-/* =====================================================
-   RESPONSIVE BEHAVIOR
-===================================================== */
-@media(max-width: 900px) {
-  .exp-content {
+/* RESPONSIVE STACK */
+@media (max-width: 900px) {
+  .exp-top-row {
     flex-direction: column;
-    gap: 20px;
-  }
-
-  .exp-right {
-    width: 100%;
+    align-items: flex-start;
+    gap: 12px;
   }
 
   .exp-figma-btn {
-    width: fit-content;
+    margin-left: 0; /* reset on mobile */
+  }
+
+  .exp-item {
+    padding: 28px;
   }
 }
+
 
 
 /* =====================================================
