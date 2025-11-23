@@ -479,14 +479,85 @@ section {
 
 
 /* =====================================================
-   EDUCATION
+   EDUCATION — MODERN GLOW CARD
 ===================================================== */
-.education-card {
-  background: #15151f;
-  padding: 40px;
-  border-radius: 34px;
-  max-width: 680px;
-  margin: auto;
+
+.education-section {
+  position: relative;
+  padding-top: 60px;
+}
+
+.edu-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 40px;
+}
+
+/* Vertical Line */
+.edu-line {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 260px;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(-50%);
+  top: 0;
+}
+
+/* Card Container */
+.edu-card {
+  background: #1a1a22;
+  padding: 40px 45px;
+  width: 550px;
+  border-radius: 40px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+/* Timeline Dot */
+.edu-dot {
+  position: absolute;
+  left: -20px;
+  top: 40px;
+  width: 16px;
+  height: 16px;
+  background: #ffd84d;
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(255, 216, 77, 0.6);
+}
+
+/* Headings */
+.edu-card h3 {
+  margin-top: 12px;
+  color: #ffd84d;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Subtext */
+.edu-detail {
+  font-size: 1rem;
+  color: #cccccc;
+  margin-bottom: 18px;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+  .edu-line {
+    display: none;
+  }
+
+  .edu-card {
+    width: 90%;
+    padding: 32px;
+  }
+
+  .edu-dot {
+    left: 20px;
+  }
 }
 
 /* =====================================================
