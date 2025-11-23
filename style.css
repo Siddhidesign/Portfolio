@@ -337,77 +337,87 @@ section {
 
 
 /* =====================================================
-   EXPERIENCE — LUX PREMIUM TIMELINE DESIGN
+   EXPERIENCE — ENHANCED LAYOUT + BUTTONS
 ===================================================== */
 
-/* TIMELINE CONTAINER */
-.exp-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  border-left: 2px dashed rgba(255,255,255,0.12);
-  padding-left: 36px;
-  margin-top: 30px;
-}
-
-/* EXPERIENCE CARD */
 .exp-item {
-  background: #1a1a22;
   padding: 32px 36px;
+  background: #1a1a22;
   border-radius: 34px;
-  position: relative;
-  border: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 12px 38px rgba(0,0,0,0.28);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.9s ease;
-}
-
-.exp-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* HOVER LIFT */
-.exp-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 52px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 12px 38px rgba(0,0,0,0.32);
+  margin-bottom: 42px;
   transition: 0.35s ease;
 }
 
-/* TIMELINE DOT */
-.exp-item::before {
-  content: "";
-  position: absolute;
-  left: -44px;
-  top: 32px;
-  width: 16px;
-  height: 16px;
-  background: #ffd84d;
-  border-radius: 50%;
-  box-shadow: 0 0 18px rgba(255,216,77,0.45);
+.exp-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.5);
 }
 
-/* TITLE */
-.exp-item h3 {
-  color: #ffd84d;
-  font-size: 1.45rem;
-  margin-bottom: 6px;
-  font-weight: 700;
-}
-
-/* SUBTEXT DATE */
-.exp-date {
-  color: #bbbbbb;
-  font-size: 0.95rem;
+/* Title + Date + Button row */
+.exp-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 14px;
 }
 
-/* BULLET POINTS */
+/* Title */
+.exp-item h3 {
+  color: #ffd84d;
+  font-size: 1.45rem;
+  margin-bottom: 4px;
+}
+
+/* Date */
+.exp-item .exp-date {
+  font-size: 0.95rem;
+  color: #cccccc;
+}
+
+/* Bullet list */
+.exp-item ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
 .exp-item ul li {
   margin: 6px 0;
   line-height: 1.6;
-  color: #dddddd;
+}
+
+/* =====================================================
+   FIGMA BUTTON — GOLDEN PILL STYLE
+===================================================== */
+.exp-figma-btn {
+  background: #ffd84d;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 26px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.25s ease;
+  white-space: nowrap;
+  box-shadow: 0 0 12px rgba(255, 216, 77, 0.35);
+}
+
+.exp-figma-btn:hover {
+  background: #ffe68f;
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(255, 216, 77, 0.55);
+}
+
+/* =====================================================
+   MOBILE RESPONSIVE FIX
+===================================================== */
+@media(max-width: 850px) {
+  .exp-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
 }
 
 /* =====================================================
