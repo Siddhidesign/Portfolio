@@ -222,6 +222,20 @@ section {
   color: #000 !important;
   box-shadow: 0 0 22px rgba(255, 216, 77, 0.45) !important;
 }
+/* Ensure row stays aligned and button stays right */
+.exp-top-row {
+  display: flex;
+  justify-content: space-between;  /* pushes button to right */
+  align-items: center;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+/* Force the button to stay on the right side */
+.exp-figma-btn {
+  margin-left: auto;        /* THIS forces "stick to right" */
+}
+
 
 /* =====================================================
    RESPONSIVE FIX
