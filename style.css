@@ -379,15 +379,17 @@ section {
   border-radius: 50%;
 }
 
-.exp-item + .exp-item::before {
+.experience-section .exp-item::before {
   content: "";
   position: absolute;
-  left: -13px;
-  width: 14px;
-  height: 14px;
+  left: -13px !important;   /* FORCE APPLY */
+  top: 32px !important;
+  width: 16px;
+  height: 16px;
   background: #ffd84d;
   border-radius: 50%;
-  margin-top: -30px;
+  z-index: 5;
+
 }
 
 /* EXPERIENCE CARDS */
