@@ -477,155 +477,120 @@ section {
 }
 
 
-/* =====================================================
-   EDUCATION — ALTERNATING TIMELINE WITH LOGOS
-===================================================== */
 
-.education-section {
-  padding-top: 80px;
-}
+/* =====================================================
+   EDUCATION — PREMIUM TIMELINE VISUAL
+===================================================== */
 
 .edu-timeline {
   position: relative;
-  width: 100%;
-  max-width: 1100px;
-  margin: auto;
+  margin-top: 50px;
+  padding-left: 40px;
 }
 
 .edu-timeline::before {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 60px;
   top: 0;
   width: 3px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateX(-50%);
+  background: linear-gradient(to bottom, #ffd84d, transparent);
+  opacity: 0.4;
 }
 
-/* Item container */
-.edu-item {
+/* Individual Card */
+.edu-card {
   display: flex;
-  gap: 30px;
-  width: 50%;
-  padding: 40px;
+  align-items: flex-start;
+  gap: 20px;
   background: #1a1a22;
-  border-radius: 32px;
-  border: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+  border-radius: 26px;
+  padding: 28px 36px;
+  margin: 40px 0;
+  width: 80%;
   position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transition: 0.3s ease;
 }
 
-/* Left side */
-.edu-item.left {
-  margin-right: auto;
-  transform: translateX(-40px);
+.edu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
 }
 
-/* Right side */
-.edu-item.right {
-  margin-left: auto;
-  transform: translateX(40px);
-}
-
-/* Dot on the line */
-.edu-item::before {
+/* Timeline Dot */
+.edu-card::before {
   content: "";
   position: absolute;
-  top: 32px;
+  left: -45px;
+  top: 35px;
   width: 18px;
   height: 18px;
   background: #ffd84d;
   border-radius: 50%;
-  box-shadow: 0 0 18px rgba(255, 216, 77, 0.7);
+  box-shadow: 0 0 10px rgba(255, 216, 77, 0.7);
 }
 
-/* Left dot alignment */
-.edu-item.left::before {
-  right: -55px;
+/* Alternate Left/Right */
+.edu-left {
+  margin-left: 60px;
 }
 
-/* Right dot alignment */
-.edu-item.right::before {
-  left: -55px;
+.edu-right {
+  margin-left: 120px;
 }
 
-/* Logo icon */
+/* Logo */
 .edu-icon img {
-  width: 70px;
-  height: 70px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
   object-fit: contain;
-  border-radius: 14px;
-  background: white;
-  padding: 8px;
 }
 
-/* Content */
+/* Text Styling */
 .edu-content h3 {
-  color: #ffd84d;
   font-size: 1.4rem;
+  color: #ffd84d;
   margin-bottom: 6px;
 }
 
-.edu-degree {
-  color: #cfcfcf;
-  margin-bottom: 14px;
-}
-
+.edu-degree,
 .edu-gpa {
   font-size: 1rem;
-  color: #fff;
-  margin-bottom: 14px;
+  color: #ddd;
 }
 
-.edu-subheading {
-  margin-top: 12px;
+.edu-subtitle {
+  margin-top: 14px;
   font-weight: 600;
   color: #fff;
 }
 
-.edu-list {
-  margin-top: 6px;
-  margin-bottom: 10px;
-  color: #cfcfcf;
-  padding-left: 20px;
+.edu-content ul {
+  margin-left: 18px;
   line-height: 1.6;
+  color: #ccc;
 }
 
-/* ========================
-   Scroll Animation
-======================== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.9s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ========================
-   Responsive
-======================== */
+/* Mobile */
 @media(max-width: 900px) {
-  .edu-timeline::before {
-    display: none;
-  }
-
-  .edu-item,
-  .edu-item.left,
-  .edu-item.right {
+  .edu-card {
+    flex-direction: column;
     width: 100%;
-    transform: translateX(0);
   }
 
-  .edu-item::before {
-    left: 20px !important;
-    right: auto !important;
+  .edu-left, .edu-right {
+    margin-left: 0;
+  }
+
+  .edu-card::before {
+    left: -20px;
   }
 }
+
+
 
 
 /* =====================================================
