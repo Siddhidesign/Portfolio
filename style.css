@@ -602,6 +602,15 @@ section {
     left: -30px;
     right: auto;
   }
+   /* Fix spacing so the Education cards don't collide with Projects */
+.edu-card {
+  margin-bottom: 120px;   /* add breathing room below each card */
+}
+
+.education-section {
+  padding-bottom: 160px;  /* ensures checkpoint 5 never overlaps */
+}
+
 }
 
 
