@@ -477,112 +477,120 @@ section {
 }
 
 
-/* ============================
-   EDUCATION TIMELINE
-============================ */
+/* ===========================================
+   EDUCATION — TIMELINE LAYOUT
+=========================================== */
+
 .education-section {
-  padding: 120px 60px;
+  padding-top: 120px;
+  position: relative;
 }
 
+/* Vertical timeline line */
 .edu-timeline {
   position: relative;
-  margin-top: 40px;
+  margin: 60px auto;
+  width: 100%;
+  max-width: 900px;
 }
 
-/* Center vertical line */
 .edu-timeline::before {
   content: "";
   position: absolute;
   left: 50%;
   top: 0;
-  width: 3px;
+  width: 2px;
   height: 100%;
   background: rgba(255,255,255,0.08);
-  transform: translateX(-50%);
-  border-radius: 4px;
 }
 
-/* Each item */
+/* Each timeline item */
 .edu-item {
-  width: 48%;
-  padding: 32px;
+  width: 46%;
   background: #1a1a22;
+  padding: 28px 30px;
   border-radius: 24px;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+  box-shadow: 0 12px 38px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.04);
   position: relative;
-  margin-bottom: 60px;
-  display: flex;
-  gap: 18px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: .7s ease;
 }
 
-/* left-right alternating */
-.edu-item.left { margin-right: auto; }
-.edu-item.right { margin-left: auto; }
+/* Scroll animation */
+.edu-item.edu-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* Dot connector */
-.edu-item::before {
-  content:"";
+/* Left item */
+.edu-item.left {
+  float: left;
+  clear: both;
+  margin-bottom: 80px;
+}
+
+/* Right item */
+.edu-item.right {
+  float: right;
+  clear: both;
+  margin-bottom: 80px;
+}
+
+/* Dots */
+.edu-item.left::before,
+.edu-item.right::before {
+  content: "";
   position: absolute;
-  top: 32px;
-  width: 16px;
-  height: 16px;
+  top: 20px;
+  width: 14px;
+  height: 14px;
   background: #ffd84d;
   border-radius: 50%;
 }
 
 .edu-item.left::before {
-  right: -42px;
+  right: -35px;
 }
 
 .edu-item.right::before {
-  left: -42px;
+  left: -35px;
 }
 
-/* Logo style */
+/* Logo */
 .edu-logo {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  border-radius: 8px;
-  background: #fff;
-  padding: 6px;
+  width: 54px;
+  margin-bottom: 10px;
 }
 
-/* Text */
-.edu-content h3 {
+.edu-degree,
+.edu-gpa {
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.edu-item h3 {
   color: #ffd84d;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
-.degree { color: #ccc; font-size: 0.95rem; }
-.gpa { margin: 10px 0; }
-
-.sub-head {
-  margin: 12px 0 6px;
-  color: #fff;
-  font-weight: 600;
+.edu-item h4 {
+  margin-top: 14px;
+  color: #eee;
 }
 
-/* fade-in scroll animation */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 0.7s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* MOBILE STACKING */
+/* Responsive */
 @media(max-width: 900px) {
-  .edu-item {
+  .edu-item,
+  .edu-item.left,
+  .edu-item.right {
+    float: none;
     width: 100%;
   }
 
   .edu-timeline::before {
-    left: 6%;
+    left: 10px;
   }
 
   .edu-item.left::before,
@@ -590,7 +598,6 @@ section {
     left: -25px;
   }
 }
-
 
 
 
