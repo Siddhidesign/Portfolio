@@ -477,8 +477,14 @@ section {
 }
 
 /* ================================================
-   EDUCATION — CLEAN TIMELINE FIX
+   EDUCATION — CLEAN TIMELINE FIX (FINAL)
 ================================================= */
+
+.education-section {
+  padding-bottom: 180px; /* ensures Projects never overlaps */
+  position: relative;
+  z-index: 2;
+}
 
 .education-wrapper {
   width: 100%;
@@ -508,7 +514,7 @@ section {
   border-radius: 26px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
   position: relative;
-  margin-bottom: 80px;
+  margin-bottom: 120px; /* main fix */
 }
 
 /* Alternating left/right */
@@ -536,6 +542,7 @@ section {
   box-shadow: 0 0 12px rgba(255,216,77,0.8);
 }
 
+/* Dot positions */
 .educ-card.left::before {
   right: -35px;
 }
@@ -583,10 +590,10 @@ section {
   color: #ddd;
 }
 
-/* Responsive behavior */
+/* MOBILE FIX */
 @media(max-width: 900px) {
   .education-wrapper::before {
-    left: 15px;
+    left: 20px;
   }
 
   .educ-card,
@@ -599,26 +606,21 @@ section {
   }
 
   .educ-card::before {
-    left: -30px;
+    left: -28px;
     right: auto;
   }
-   /* Fix spacing so the Education cards don't collide with Projects */
-.edu-card {
-  margin-bottom: 120px;   /* add breathing room below each card */
 }
-
-.education-section {
-  padding-bottom: 160px;  /* ensures checkpoint 5 never overlaps */
-}
-
-}
-
-
 
 
 /* =====================================================
-   PROJECT CARDS (Main Portfolio Not Case Studies)
+   PROJECT CARDS — ENSURE CLEAN SEPARATION
 ===================================================== */
+
+.projects-section {
+  margin-top: 60px; /* clean separation after timeline */
+  padding-top: 20px;
+}
+
 .project-card {
   display: flex;
   justify-content: space-between;
