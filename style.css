@@ -382,6 +382,11 @@ section {
   background: rgba(255,255,255,0.06);
   transform: translateX(-50%);
 }
+.education-wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
 .educ-card {
   width: 48%;
