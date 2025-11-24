@@ -477,88 +477,156 @@ section {
 }
 
 
-
 /* =====================================================
-   EDUCATION — MODERN GLOW CARD
+   EDUCATION — ALTERNATING TIMELINE WITH LOGOS
 ===================================================== */
 
 .education-section {
-  position: relative;
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
-.edu-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+.edu-timeline {
   position: relative;
-  margin-top: 40px;
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
 }
 
-/* Vertical Line */
-.edu-line {
+.edu-timeline::before {
+  content: "";
   position: absolute;
   left: 50%;
-  width: 2px;
-  height: 260px;
+  top: 0;
+  width: 3px;
+  height: 100%;
   background: rgba(255, 255, 255, 0.08);
   transform: translateX(-50%);
-  top: 0;
 }
 
-/* Card Container */
-.edu-card {
+/* Item container */
+.edu-item {
+  display: flex;
+  gap: 30px;
+  width: 50%;
+  padding: 40px;
   background: #1a1a22;
-  padding: 40px 45px;
-  width: 550px;
-  border-radius: 40px;
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 32px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.35);
   position: relative;
 }
 
-/* Timeline Dot */
-.edu-dot {
+/* Left side */
+.edu-item.left {
+  margin-right: auto;
+  transform: translateX(-40px);
+}
+
+/* Right side */
+.edu-item.right {
+  margin-left: auto;
+  transform: translateX(40px);
+}
+
+/* Dot on the line */
+.edu-item::before {
+  content: "";
   position: absolute;
-  left: -20px;
-  top: 40px;
-  width: 16px;
-  height: 16px;
+  top: 32px;
+  width: 18px;
+  height: 18px;
   background: #ffd84d;
   border-radius: 50%;
-  box-shadow: 0 0 18px rgba(255, 216, 77, 0.6);
+  box-shadow: 0 0 18px rgba(255, 216, 77, 0.7);
 }
 
-/* Headings */
-.edu-card h3 {
-  margin-top: 12px;
+/* Left dot alignment */
+.edu-item.left::before {
+  right: -55px;
+}
+
+/* Right dot alignment */
+.edu-item.right::before {
+  left: -55px;
+}
+
+/* Logo icon */
+.edu-icon img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: white;
+  padding: 8px;
+}
+
+/* Content */
+.edu-content h3 {
   color: #ffd84d;
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 6px;
 }
 
-/* Subtext */
-.edu-detail {
+.edu-degree {
+  color: #cfcfcf;
+  margin-bottom: 14px;
+}
+
+.edu-gpa {
   font-size: 1rem;
-  color: #cccccc;
-  margin-bottom: 18px;
+  color: #fff;
+  margin-bottom: 14px;
 }
 
-/* Responsive */
+.edu-subheading {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.edu-list {
+  margin-top: 6px;
+  margin-bottom: 10px;
+  color: #cfcfcf;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+/* ========================
+   Scroll Animation
+======================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.9s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================
+   Responsive
+======================== */
 @media(max-width: 900px) {
-  .edu-line {
+  .edu-timeline::before {
     display: none;
   }
 
-  .edu-card {
-    width: 90%;
-    padding: 32px;
+  .edu-item,
+  .edu-item.left,
+  .edu-item.right {
+    width: 100%;
+    transform: translateX(0);
   }
 
-  .edu-dot {
-    left: 20px;
+  .edu-item::before {
+    left: 20px !important;
+    right: auto !important;
   }
 }
+
 
 /* =====================================================
    PROJECT CARDS (Main Portfolio Not Case Studies)
