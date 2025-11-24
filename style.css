@@ -361,9 +361,11 @@ section {
 }
 
 /* =====================================================
-   EDUCATION TIMELINE
+   EDUCATION TIMELINE (FINAL FIXED VERSION)
 ===================================================== */
-.education-section { padding-bottom: 180px; }
+.education-section { 
+  padding-bottom: 300px;   /* increased so nothing overlaps */
+}
 
 .education-wrapper {
   max-width: 1100px;
@@ -382,12 +384,14 @@ section {
   background: rgba(255,255,255,0.06);
   transform: translateX(-50%);
 }
+
 .education-wrapper::after {
   content: "";
   display: block;
   clear: both;
 }
 
+/* Education Cards */
 .educ-card {
   width: 48%;
   background: #1a1a22;
@@ -395,12 +399,21 @@ section {
   border-radius: 26px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
   position: relative;
-  margin-bottom: 120px;
+  margin-bottom: 200px;   /* increased spacing to prevent checkpoint overlap */
 }
 
-.educ-card.left { float: left; transform: translateX(-20px); }
-.educ-card.right { float: right; transform: translateX(20px); }
+/* Alternating Layout */
+.educ-card.left { 
+  float: left; 
+  transform: translateX(-20px); 
+}
 
+.educ-card.right { 
+  float: right; 
+  transform: translateX(20px); 
+}
+
+/* Yellow Dots */
 .educ-card::before {
   content: "";
   position: absolute;
@@ -415,6 +428,7 @@ section {
 .educ-card.left::before { right: -35px; }
 .educ-card.right::before { left: -35px; }
 
+/* Logos + Text Styling */
 .educ-logo {
   width: 60px;
   height: 60px;
@@ -423,34 +437,51 @@ section {
   margin-right: 18px;
 }
 
-.educ-header { display: flex; align-items: center; margin-bottom: 14px; }
+.educ-header { 
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 14px; 
+}
 
-.educ-title { font-size: 1.3rem; color: #ffd84d; font-weight: 700; }
+.educ-title { 
+  font-size: 1.3rem; 
+  color: #ffd84d; 
+  font-weight: 700; 
+}
 
 .educ-sub { color: #ccc; margin-bottom: 10px; }
-
 .educ-label { color: #fff; font-weight: 600; }
 
-.educ-list li { color: #ddd; margin: 4px 0; }
+.educ-list li { 
+  color: #ddd; 
+  margin: 4px 0; 
+}
 
-/* MOBILE TIMELINE */
+/* Mobile */
 @media (max-width: 900px) {
   .education-wrapper::before { left: 20px; }
-  .educ-card, .educ-card.left, .educ-card.right {
-    width: 90%; 
+
+  .educ-card,
+  .educ-card.left,
+  .educ-card.right {
+    width: 90%;
     float: none;
     margin-left: 40px;
     transform: translateX(0);
   }
-  .educ-card::before { left: -28px; }
+
+  .educ-card::before { 
+    left: -28px; 
+  }
 }
 
+
 /* =====================================================
-   PROJECT CARDS
+   PROJECT CARDS (FINAL FIX)
 ===================================================== */
 .projects-section {
   padding-top: 20px;
-  margin-top: 60px;
+  margin-top: 200px;   /* increased so timeline never touches it */
 }
 
 .project-card {
