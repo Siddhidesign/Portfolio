@@ -481,7 +481,7 @@ section {
 ===================================================== */
 .projects-section {
   padding-top: 20px;
-  margin-top: 200px;   /* increased so timeline never touches it */
+  margin-top: 80px;   /* increased so timeline never touches it */
 }
 
 .project-card {
