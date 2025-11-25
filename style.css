@@ -431,7 +431,7 @@ section {
    EDUCATION TIMELINE (FINAL FIXED VERSION)
 ===================================================== */
 .education-section { 
-  padding-bottom: 300px;   /* increased so nothing overlaps */
+  padding-bottom: 100px;   /* increased so nothing overlaps */
 }
 
 .education-wrapper {
