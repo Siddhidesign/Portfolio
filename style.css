@@ -549,6 +549,10 @@ section {
 /* ==========================================
    PROJECT GRID — 3 per row
 ========================================== */
+.projects-section {
+  margin-top: 10px !important;
+  padding-top: 0 !important;
+}
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
