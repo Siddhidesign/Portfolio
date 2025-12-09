@@ -187,3 +187,23 @@ document.addEventListener("scroll", () => {
     }
   });
 });
+/* ============================================================
+   PROJECT IMAGE CARD FADE-IN ON SCROLL
+============================================================ */
+
+const imageCards = document.querySelectorAll('.project-card-image-style');
+
+const imageCardObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        imageCardObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.25 }
+);
+
+imageCards.forEach(card => imageCardObserver.observe(card));
+
