@@ -1,616 +1,244 @@
-/* =====================================================
-   GLOBAL RESET
-===================================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  background: #0e0e14;
-  color: #ffffff;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-
-  /* subtle grid background */
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-
-section {
-  padding: 130px 60px;
-  position: relative;
-  z-index: 2;
-}
-
-/* =====================================================
-   GOLD FLOATING PARTICLES
-===================================================== */
-.particle-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.particle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: radial-gradient(circle, #ffd86b, #d9a431, transparent 80%);
-  border-radius: 50%;
-  opacity: 0.85;
-  animation: particleFloat 18s linear infinite;
-}
-
-@keyframes particleFloat {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-180px);
-  }
-}
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-.main-nav {
-  padding: 28px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  background: rgba(10,10,16,0.75);
-  backdrop-filter: blur(12px);
-  z-index: 999;
-}
-
-.nav-logo {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #ffd84d;
-}
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #cfcfcf;
-  font-weight: 400;
-  transition: color 0.2s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #ffd84d;
-}
-
-.nav-contact-btn {
-  padding: 10px 22px;
-  background: #ffd84d;
-  color: #000;
-  border-radius: 26px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* =====================================================
-   HERO SECTION
-===================================================== */
-.hero-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 90vh;
-  gap: 40px;
-}
-
-.hero-left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 22px;
-}
-
-.hero-right img {
-  width: 360px;
-  height: 420px;
-  object-fit: cover;
-  border-radius: 36px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-  transition: 0.4s ease;
-}
-
-.hero-right img:hover {
-  transform: scale(1.03);
-}
-
-.hero-title {
-  font-size: 3.4rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.hero-desc {
-  max-width: 480px;
-  color: #cccccc;
-  margin-top: 20px;
-}
-
-.pill {
-  padding: 10px 22px;
-  border-radius: 40px;
-  font-weight: 700;
-  font-size: 1.5rem;
-  display: inline-block;
-  box-shadow: 0 0 18px rgba(255, 216, 77, 0.35);
-}
-
-.pill.pink {
-  background: #ff9ed8;
-  color: #000;
-}
-
-.pill.yellow {
-  background: #ffd84d;
-  color: #000;
-}
-
-@media (max-width: 950px) {
-  .hero-section {
-    flex-direction: column;
-    text-align: center;
-    gap: 50px;
-  }
-  .hero-right img {
-    width: 300px;
-    height: 360px;
-  }
-}
-
-/* =====================================================
-   ABOUT SECTION
-===================================================== */
-#about {
-  padding-top: 90px;
-}
-
-.about-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.about-photos {
-  display: flex;
-  gap: 28px;
-}
-
-.polaroid {
-  background: #fff;
-  padding: 16px 16px 26px;
-  width: 240px;
-  border-radius: 14px;
-  transform: rotate(-2deg);
-  box-shadow: 0 8px 26px rgba(0,0,0,0.28);
-  transition: 0.3s ease;
-}
-
-.polaroid:nth-child(2) {
-  transform: rotate(3deg);
-}
-
-.polaroid:hover {
-  transform: rotate(0) scale(1.03);
-}
-
-.polaroid img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.polaroid-caption {
-  margin-top: 12px;
-  font-size: 0.9rem;
-  color: #111;  /* will show against white background */
-}
-
-.about-text {
-  max-width: 420px;
-  font-size: 1.1rem;
-  color: #ddd;
-  line-height: 1.7;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-@media (max-width: 950px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 40px;
-  }
-  .about-text {
-    max-width: 90%;
-  }
-}
-
-/* =====================================================
-   EXPERIENCE SECTION
-===================================================== */
-.exp-timeline {
-  position: relative;
-  padding-left: 40px;
-  border-left: 2px dashed rgba(255,255,255,0.15);
-  margin-top: 40px;
-}
-
-.exp-timeline::before {
-  content: "";
-  position: absolute;
-  left: -7px;
-  top: 30px;
-  width: 14px;
-  height: 14px;
-  background: #ffd84d;
-  border-radius: 50%;
-}
-
-.exp-item {
-  padding: 32px 36px;
-  margin-bottom: 48px;
-  background: #1a1a22;
-  border-radius: 34px;
-  border: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 0 12px 38px rgba(0,0,0,0.35);
-  position: relative;
-  transition: 0.3s ease;
-}
-
-.exp-item:hover {
-  transform: translateY(-6px);
-}
-
-.exp-item::before {
-  content: "";
-  position: absolute;
-  left: -13px;
-  top: 32px;
-  width: 16px;
-  height: 16px;
-  background: #ffd84d;
-  border-radius: 50%;
-}
-
-.exp-top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.exp-item h3 {
-  color: #ffd84d;
-  font-size: 1.45rem;
-}
-
-.exp-date {
-  color: #bbbbbb;
-  font-size: 0.95rem;
-}
-
-.exp-item ul li {
-  margin: 6px 0;
-  color: #dcdcdc;
-  line-height: 1.6;
-}
-
-.exp-figma-btn {
-  margin-left: auto;
-  padding: 10px 20px;
-  background: #ffd84d;
-  color: #000;
-  border-radius: 26px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(255,216,77,0.35);
-  transition: 0.3s ease;
-}
-
-.exp-figma-btn:hover {
-  background: #ffe488;
-  transform: translateY(-2px);
-}
-
-@media (max-width: 900px) {
-  .exp-top-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .exp-figma-btn {
-    margin-left: 0;
-  }
-}
-
-/* =====================================================
-   PROJECT SECTION (IMAGE STYLE)
-===================================================== */
-.projects-section {
-  max-width: 1200px;
-  margin: 80px auto;
-  padding: 0 20px;
-}
-
-.project-card-image-style {
-  margin-bottom: 100px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease-out;
-}
-
-.project-card-image-style.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.image-container {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.image-container img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-/* Top-left back/redirect arrow button */
-.top-left-arrow {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: #ffffffd9;
-  color: #000;
-  font-size: 1.5rem;
-  padding: 6px 16px;
-  border-radius: 40px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  transition: background 0.2s ease;
-}
-
-.top-left-arrow:hover {
-  background: #eeeeee;
-}
-
-.project-info-bar {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.info-block {
-  flex: 1 1 30%;
-}
-
-.info-block span {
-  font-weight: 600;
-  font-size: 1rem;
-  display: block;
-  color: #ffffff;
-}
-
-.info-block label {
-  font-size: 0.85rem;
-  color: #bbbbbb;
-  margin-top: 4px;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .project-info-bar {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-
-/* =====================================================
-   SKILLS SECTION
-===================================================== */
-.skill-groups {
-  width: 90%;
-  margin: auto;
-}
-
-.skill-category {
-  font-size: 1.4rem;
-  color: #ffd84d;
-  margin-bottom: 16px;
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.skill-tags .label {
-  padding: 10px 20px;
-  background: #1d1d26;
-  border-radius: 26px;
-  color: white;
-  transition: 0.3s ease;
-}
-
-.skill-tags .label:hover {
-  background: #2a2a33;
-  transform: translateY(-4px);
-}
-
-/* =====================================================
-   PHOTOGRAPHY GRID
-===================================================== */
-.photo-grid {
-  columns: 3;
-  column-gap: 20px;
-}
-
-.photo-grid img {
-  width: 100%;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  opacity: 0;
-  transform: scale(0.95);
-  transition: 0.6s ease;
-}
-
-.photo-grid img.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-@media (max-width: 950px) {
-  .photo-grid {
-    columns: 1;
-  }
-}
-
-/* =====================================================
-   CONTACT FORM & INFO
-===================================================== */
-#contact {
-  padding-top: 120px;
-}
-
-.contact-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 50px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.contact-form,
-.contact-info {
-  width: 48%;
-  background: #1d1d26;
-  padding: 40px;
-  border-radius: 30px;
-  box-shadow: 0 0 30px rgba(255,216,77,0.08);
-}
-
-.contact-form h3,
-.contact-info h3 {
-  font-size: 1.7rem;
-  color: #ffd84d;
-  margin-bottom: 18px;
-}
-
-.contact-form label {
-  margin-top: 18px;
-  display: block;
-  color: #e4e4e4;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 14px;
-  margin-top: 6px;
-  border-radius: 12px;
-  border: 1px solid #333;
-  background: #13131a;
-  color: #fff;
-}
-
-.contact-form textarea {
-  height: 140px;
-  resize: none;
-}
-
-.contact-submit {
-  margin-top: 22px;
-  width: 100%;
-  padding: 14px;
-  background: #ffd84d;
-  border: none;
-  border-radius: 30px;
-  color: #000;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 14px rgba(255,216,77,0.3);
-}
-
-.contact-submit:hover {
-  background: #ffe892;
-  transform: translateY(-2px);
-}
-
-.contact-info .info-item {
-  margin: 18px 0;
-  line-height: 1.6;
-}
-
-.contact-info a {
-  color: #ffd84d;
-  text-decoration: none;
-}
-
-.open-role {
-  background: rgba(255,216,77,0.18);
-  padding: 10px 18px;
-  border-radius: 18px;
-  display: inline-block;
-  color: #ffd84d;
-  font-weight: 600;
-  margin-bottom: 18px;
-}
-
-@media (max-width: 950px) {
-  .contact-container {
-    flex-direction: column;
-    gap: 40px;
-  }
-  .contact-form,
-  .contact-info {
-    width: 100%;
-  }
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
-.footer {
-  text-align: center;
-  padding: 40px;
-  color: #777;
-  font-size: 0.9rem;
-  margin-top: 40px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siddhi Manche — UX/UI Designer</title>
+
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- JavaScript Link -->
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+
+  <!-- Particle Background -->
+  <div class="particle-container"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="main-nav">
+    <div class="nav-logo">Siddhi’s Journey</div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#photography">Photography</a></li>
+    </ul>
+    <a href="#contact" class="nav-contact-btn">Contact Me</a>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home" class="hero-section checkpoint">
+    <div class="checkpoint-label">
+      <span class="cp-number">Checkpoint 1</span>
+      <span class="cp-name">Home</span>
+    </div>
+    <div class="hero-left cinematic-fade">
+      <h1 class="hero-title">
+        Designing <span class="pill pink">Meaningful</span><br>
+        & <span class="pill yellow">Impactful</span> Digital Journeys
+      </h1>
+      <p class="hero-desc">
+        I'm <strong>Siddhi Manche</strong>, a UX/UI Designer creating experiences rooted in clarity, emotion, and thoughtful interaction.
+      </p>
+    </div>
+    <div class="hero-right cinematic-fade parallax-float">
+      <img src="assets/profile.png" alt="Profile Image">
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="checkpoint">
+    <div class="checkpoint-label">
+      <span class="cp-number">Checkpoint 2</span>
+      <span class="cp-name">About Me</span>
+    </div>
+    <div class="about-container">
+      <div class="about-photos">
+        <div class="polaroid">
+          <img src="assets/about.jpg" alt="Siddhi">
+          <p class="polaroid-caption">Siddhi — Candid Moment</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/about2.jpg" alt="Exploring">
+          <p class="polaroid-caption">Always Exploring</p>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>
+          I design with a philosophy rooted in clarity, empathy, and structured thinking. My work blends research, modern aesthetic systems, and accessible patterns to craft experiences that feel intuitive, emotionally grounded, and meaningful.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="experience-section checkpoint">
+    <div class="checkpoint-label">
+      <span class="cp-number">Checkpoint 3</span>
+      <span class="cp-name">Experience</span>
+    </div>
+    <div class="exp-timeline">
+      <div class="exp-item cinematic-fade">
+        <div class="exp-top-row">
+          <div>
+            <h3>UX/UI Intern — FindMe</h3>
+            <p class="exp-date">New York • May 2025 – Aug 2025</p>
+          </div>
+          <a href="https://www.figma.com/proto/example" target="_blank" class="exp-figma-btn">View FindMe Screens →</a>
+        </div>
+        <ul>
+          <li>Designed personalized portfolio layouts for various users</li>
+          <li>Improved accessibility by 35%</li>
+          <li>Reduced task errors by 28%</li>
+        </ul>
+      </div>
+      <div class="exp-item cinematic-fade">
+        <div class="exp-top-row">
+          <div>
+            <h3>UX/UI Designer — JaiHind Groups</h3>
+            <p class="exp-date">Mumbai • Oct 2023 – July 2024</p>
+          </div>
+          <a href="https://www.figma.com/proto/example2" target="_blank" class="exp-figma-btn">View Dashboard Screens →</a>
+        </div>
+        <ul>
+          <li>Designed workflow dashboard to streamline business operations</li>
+          <li>Improved navigation by 35%</li>
+          <li>Reduced workflow time by 40%</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects-section checkpoint">
+    <div class="project-card-image-style">
+      <div class="image-container">
+        <a href="irs2go-details.html" class="top-left-arrow">←</a>
+        <img src="assets/Project1.png" alt="IRS2Go Preview" loading="lazy" />
+      </div>
+      <div class="project-info-bar">
+        <div class="info-block"><span>Jan – Apr 2025</span><label>Timeline</label></div>
+        <div class="info-block"><span>UX Designer</span><label>Role</label></div>
+        <div class="info-block"><span>Figma, WCAG Toolkit</span><label>Tools</label></div>
+      </div>
+    </div>
+
+    <div class="project-card-image-style">
+      <div class="image-container">
+        <a href="ev-charging-details.html" class="top-left-arrow">←</a>
+        <img src="assets/Project2.png" alt="EV Charging App Preview" loading="lazy" />
+      </div>
+      <div class="project-info-bar">
+        <div class="info-block"><span>Jan – Apr 2025</span><label>Timeline</label></div>
+        <div class="info-block"><span>UX Researcher</span><label>Role</label></div>
+        <div class="info-block"><span>Figma, GPT-4, ANOVA</span><label>Tools</label></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="skills-section checkpoint">
+    <div class="checkpoint-label">
+      <span class="cp-number">Checkpoint 4</span>
+      <span class="cp-name">Skills</span>
+    </div>
+    <div class="skill-groups">
+      <h3 class="skill-category">UX & Product</h3>
+      <div class="skill-tags cinematic-fade">
+        <span class="label">Journey Mapping</span>
+        <span class="label">Interaction Design</span>
+        <span class="label">Lean UX</span>
+        <span class="label">A/B Testing</span>
+      </div>
+      <h3 class="skill-category">Research</h3>
+      <div class="skill-tags cinematic-fade">
+        <span class="label">User Interviews</span>
+        <span class="label">Heuristic Eval</span>
+        <span class="label">Quant & Qual Research</span>
+      </div>
+      <h3 class="skill-category">UI & Visual</h3>
+      <div class="skill-tags cinematic-fade">
+        <span class="label">Design Systems</span>
+        <span class="label">Prototyping</span>
+        <span class="label">Typography</span>
+      </div>
+      <h3 class="skill-category">Technical</h3>
+      <div class="skill-tags cinematic-fade">
+        <span class="label">HTML</span>
+        <span class="label">CSS</span>
+        <span class="label">JavaScript</span>
+        <span class="label">React</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTOGRAPHY -->
+  <section id="photography" class="photography-section checkpoint">
+    <div class="checkpoint-label">
+      <span class="cp-number">Checkpoint 5</span>
+      <span class="cp-name">Photography</span>
+    </div>
+    <div class="photo-grid">
+      <img src="assets/gallery1.jpg" />
+      <img src="assets/gallery2.jpg" />
+      <img src="assets/gallery3.jpg" />
+      <img src="assets/gallery4.jpg" />
+      <img src="assets/gallery5.jpg" />
+      <img src="assets/gallery6.jpg" />
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section checkpoint">
+    <div class="checkpoint-label">
+      <span class="cp-number">Checkpoint 6</span>
+      <span class="cp-name">Contact</span>
+    </div>
+    <div class="contact-container cinematic-fade">
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <form action="https://formsubmit.co/manchesr@umich.edu" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <label>Your Name</label>
+          <input type="text" name="name" required placeholder="Enter your name">
+          <label>Your Email</label>
+          <input type="email" name="email" required placeholder="Enter your email">
+          <label>Your Message</label>
+          <textarea name="message" required placeholder="Write your message"></textarea>
+          <button type="submit" class="contact-submit">Send Message →</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <h3>Connect With Me</h3>
+        <p class="open-role">✨ Open to Full-Time Opportunities</p>
+        <div class="info-item">
+          <strong>Email:</strong><br>
+          <a href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a>
+        </div>
+        <div class="info-item">
+          <strong>Phone:</strong><br>
+          <a href="tel:+13134144290">+1 (313) 414-4290</a>
+        </div>
+        <div class="info-item">
+          <strong>LinkedIn:</strong><br>
+          <a href="https://linkedin.com/in/siddhimanche" target="_blank">linkedin.com/in/siddhimanche</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2025 Siddhi Manche — All Rights Reserved
+  </footer>
+
+</body>
+</html>
