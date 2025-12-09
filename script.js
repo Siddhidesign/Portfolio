@@ -72,22 +72,7 @@ fadeElements.forEach(el => fadeObserver.observe(el));
 
 
 
-/* ============================================================
-   PROJECT CARD REVEAL
-============================================================ */
 
-const projectCards = document.querySelectorAll(".project-card");
-
-const projectObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
-    });
-  },
-  { threshold: 0.3 }
-);
-
-projectCards.forEach(card => projectObserver.observe(card));
 
 
 
@@ -108,6 +93,21 @@ const expObserver = new IntersectionObserver(
 
 expItems.forEach(i => expObserver.observe(i));
 
+// Scroll effect to add 'overlapping' class to the second card
+window.addEventListener('scroll', () => {
+  const cards = document.querySelectorAll('.project-card-stacked');
+  if (cards.length < 2) return;
+
+  const firstCard = cards[0];
+  const secondCard = cards[1];
+  const triggerPoint = firstCard.offsetTop + firstCard.offsetHeight / 2;
+
+  if (window.scrollY + window.innerHeight > triggerPoint) {
+    secondCard.classList.add('overlapping');
+  } else {
+    secondCard.classList.remove('overlapping');
+  }
+});
 
 
 /* ============================================================
