@@ -1,129 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IRS2GO Redesign — Siddhi Manche</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IRS2Go Redesign – UX Case Study</title>
 
-  <!-- Main portfolio styles -->
-  <link rel="stylesheet" href="../style.css">
-
-  <!-- Project case study styles -->
-  <link rel="stylesheet" href="projects.css">
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
+<body>
 
-<body class="cs-body">
+  <h1>IRS2Go App Redesign – UX Case Study</h1>
 
-  <header class="cs-header">
-    <h1>IRS2GO Redesign</h1>
-    <p>Transforming a frustrating government app into a fast, human-centered experience used by millions.</p>
-
-    <div class="cs-tags">
-      <span>UX/UI Design</span>
-      <span>Mobile Redesign</span>
-      <span>Government Services</span>
-      <span>Accessibility Upgrade</span>
+  <!-- PHASE 1 -->
+  <div class="phase">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <h2>🔍 Phase 1: Discover & Define</h2>
+      <span class="arrow">▶</span>
     </div>
+    <div class="phase-content">
 
-    <img src="../assets/Project1.png" class="cs-hero-img">
-  </header>
-
-  <!-- PROBLEM -->
-  <section class="cs-section">
-    <h2>The Problem</h2>
-    <p>The IRS2GO app suffered from unclear navigation, poor accessibility, outdated UI, and worst of all—most features simply redirected users to the IRS website instead of functioning inside the app.</p>
-
-    <p>I discovered this during a personal filing experience and realized how many users struggle with unnecessary steps, confusion, and anxiety during tax season.</p>
-
-    <div class="problem-grid">
-      <div class="problem-card">
-        <h3>2.3★ Rating</h3>
-        <p>Low trust + outdated experience</p>
+      <!-- IMAGES -->
+      <div class="phase-gallery">
+        <img src="assets/phase1-1.png" alt="User interview screenshot">
+        <img src="assets/phase1-2.png" alt="Heuristic analysis">
+        <img src="assets/phase1-3.png" alt="Task analysis documentation">
       </div>
 
-      <div class="problem-card">
-        <h3>87%</h3>
-        <p>Users struggled with navigation</p>
-      </div>
+      <h3>🚩 Problem Identification</h3>
+      <p>IRS2Go app provides essential tax functions: refund status, payment, and free tax help.</p>
+      <p>Despite its value, reviews highlighted:</p>
+      <ul>
+        <li>Outdated UX</li>
+        <li>Confusing navigation</li>
+        <li>Web redirections for critical flows (like payments)</li>
+        <li>No task memory (manual re-entry each time)</li>
+      </ul>
 
-      <div class="problem-card">
-        <h3>0/10</h3>
-        <p>Accessibility failed industry standards</p>
-      </div>
+      <h3>🔎 Research & Analysis</h3>
+      <p><strong>Methods:</strong> App reviews (App Store, Quora), IRS blog insights, competitive benchmarking</p>
+      <p><strong>Heuristic Evaluation:</strong> Identified UI inconsistencies, error-prone forms, and inaccessible input patterns.</p>
+      <p><strong>Task Analysis:</strong> Documented the entire journey for key tasks:</p>
+      <ul>
+        <li>Refund status check</li>
+        <li>Payment process</li>
+        <li>Accessing tax help</li>
+      </ul>
 
-      <div class="problem-card">
-        <h3>Redirect Issues</h3>
-        <p>App behaved like a website wrapper</p>
-      </div>
+      <h3>💬 User Feedback</h3>
+      <blockquote>“It’s frustrating that there’s no guidance if my info doesn’t match IRS records.”</blockquote>
+      <blockquote>“Entering my details every time is annoying. Where’s auto-fill?”</blockquote>
+      <blockquote>“The help section is too text-heavy and hard to navigate.”</blockquote>
+
+      <h3>🎯 Insights</h3>
+      <ul>
+        <li>Poor efficiency of use</li>
+        <li>Violations of error prevention and recovery</li>
+        <li>No support for recognition over recall</li>
+      </ul>
     </div>
-  </section>
-
-  <!-- WHAT I DID DIFFERENTLY -->
-  <section class="cs-section">
-    <h2>What I Did Differently</h2>
-
-    <p><strong>This was fully my initiative.</strong> I identified core issues, documented breakdowns in the user journey, evaluated accessibility violations, ran heuristic evaluations, and then rebuilt the experience with clear, modern interaction flows.</p>
-
-    <div class="quote-box">
-      “The biggest UX flaw was that the IRS2GO app wasn’t an app.  
-      It was just a collection of links.  
-      I turned it into a real, guided, supportive mobile experience.”
-    </div>
-
-    <p>Key improvements I implemented:</p>
-
-    <ul style="margin-left:20px; line-height:1.8;">
-      <li>Rebuilt refund status flow to reduce completion time from **8 mins → 3 mins**</li>
-      <li>Fixed accessibility hierarchy (contrast, focus order, touch targets)</li>
-      <li>Consolidated information architecture into 4 intuitive buckets</li>
-      <li>Brought critical tasks **inside the app** instead of redirecting to external pages</li>
-      <li>Created a modern visual system that reduces cognitive load</li>
-      <li>Added contextual guidance for first-time filers</li>
-    </ul>
-  </section>
-
-  <!-- TRANSFORMATION -->
-  <section class="cs-section transformation">
-    <h2>The Transformation</h2>
-    <p>A cleaner, modern, accessible interface designed for real users, real stress, and real deadlines.</p>
-
-    <img src="../assets/Thumbnail.png">
-  </section>
-
-  <!-- RESULTS -->
-  <section class="cs-section">
-    <h2>Results</h2>
-    <p>Based on heuristic scoring + benchmark improvements:</p>
-
-    <div class="results-grid">
-      <div class="result-card">
-        <strong>4.7★</strong>
-        <p>Projected user satisfaction</p>
-      </div>
-
-      <div class="result-card">
-        <strong>68% Faster</strong>
-        <p>Task completion time</p>
-      </div>
-
-      <div class="result-card">
-        <strong>+71% Engagement</strong>
-        <p>Better in-app completion rates</p>
-      </div>
-
-      <div class="result-card">
-        <strong>94%</strong>
-        <p>Users reported clarity improvement</p>
-      </div>
-    </div>
-  </section>
- <section class="figma-footer-link">
-      <a href="https://www.figma.com/design/RHTthzwRZGf3j0rqaM6Hbh/IRS2GO--REDESIGN?node-id=0-1&t=SQmNr59JCMMSvwHX-1" target="_blank" class="figma-btn">🔗 View Figma Prototype</a>
-    </section>
-  <!-- BUTTONS -->
-  <div style="text-align:center;">
-    <a class="back-btn" href="../index.html#projects">← Back to Portfolio</a>
   </div>
 
+  <!-- PHASE 2 -->
+  <div class="phase">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <h2>✍️ Phase 2: Ideate & Prototype</h2>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="phase-content">
+
+      <!-- IMAGES -->
+      <div class="phase-gallery">
+        <img src="assets/phase2-1.png" alt="Wireframes">
+        <img src="assets/phase2-2.png" alt="Figma prototype">
+        <img src="assets/phase2-3.png" alt="User flows">
+      </div>
+
+      <h3>🧠 Ideation</h3>
+      <p>Generated wireframes for new task flows with:</p>
+      <ul>
+        <li>Fewer steps</li>
+        <li>Simplified input fields</li>
+        <li>Guided instructions & examples</li>
+      </ul>
+      <p><strong>Key focus:</strong> Mobile-first clarity, visual hierarchy, reduced user confusion</p>
+
+      <h3>📱 Low to Mid-Fidelity Prototypes</h3>
+      <ul>
+        <li>Refund status with pre-filled hints + masked SSN</li>
+        <li>Payment with processor comparison + confirmation modal</li>
+        <li>Help section with FAQ-style structure + voice search</li>
+      </ul>
+
+      <h3>✨ Design Highlights</h3>
+      <ul>
+        <li>Added sample form guidance for refund inputs</li>
+        <li>Improved accessibility options (text size, color contrast)</li>
+        <li>Integrated user onboarding for first-time users</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <h2>🧪 Final Phase: Test & Refine</h2>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="phase-content">
+
+      <!-- IMAGES -->
+      <div class="phase-gallery">
+        <img src="assets/phase3-1.png" alt="Usability session">
+        <img src="assets/phase3-2.png" alt="SUS feedback">
+        <img src="assets/phase3-3.png" alt="Refined prototype">
+      </div>
+
+      <h3>👥 Usability Testing</h3>
+      <p><strong>Participants:</strong> 11 users (age 16–65), mix of tech-savvy and first-timers</p>
+      <p><strong>Tasks:</strong> Check refund status, make payment, access tax help</p>
+      <p><strong>Methods:</strong></p>
+      <ul>
+        <li>Think-Aloud Protocol</li>
+        <li>System Usability Scale (SUS)</li>
+        <li>Observation Sheets</li>
+      </ul>
+
+      <h3>📊 Findings</h3>
+      <table>
+        <thead>
+          <tr><th>Area</th><th>Before Testing</th><th>After Refinement</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Login</td><td>Confusing guest/login options</td><td>Guest Access now prominent</td></tr>
+          <tr><td>Payment</td><td>No preview before payment</td><td>Added confirmation screen</td></tr>
+          <tr><td>Help</td><td>Overwhelming scroll list</td><td>Searchable FAQs + voice input</td></tr>
+          <tr><td>Refund</td><td>Poor instructions</td><td>Sample form + inline guidance</td></tr>
+        </tbody>
+      </table>
+
+      <h3>📈 SUS Score Highlights</h3>
+      <ul>
+        <li>Overall Usability: ↑</li>
+        <li>Reduced hesitation/confusion</li>
+        <li>Positive response to dropdown improvements, feedback modals, and visual consistency</li>
+      </ul>
+
+      <h3>✅ Final Prototype</h3>
+      <p>Developed in Figma. Includes updated screens for all 3 core tasks, onboarding flow, and refined visuals based on user feedback.</p>
+
+      <h3>🎉 Key Takeaways</h3>
+      <ul>
+        <li>Even a government app like IRS2Go benefits hugely from UX-focused redesign.</li>
+        <li>Simple changes (auto-fill, confirmation, voice search) massively improve trust and ease.</li>
+        <li>Systematic user testing revealed deep gaps not visible in initial audits.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- QR SECTION -->
+  <div class="qr-section">
+    <h2>📱 View the Interactive Prototype</h2>
+    <img src="assets/qr-code.png" alt="Scan QR to view prototype" />
+    <div>
+      <a href="https://yourprototype.link" target="_blank" class="view-prototype">👉 Open Prototype</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
