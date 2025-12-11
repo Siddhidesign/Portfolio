@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>IRS2Go Redesign – UX Case Study</title>
-
-  <!-- Link CSS -->
   <link rel="stylesheet" href="projects.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -13,158 +11,144 @@
 
   <h1>IRS2Go App Redesign – UX Case Study</h1>
 
-  <!-- PHASE 1 -->
-  <div class="phase">
-    <div class="phase-header" onclick="togglePhase(this)">
-      <h2>🔍 Phase 1: Discover & Define</h2>
-      <span class="arrow">▶</span>
+  <div class="case-container">
+
+    <!-- Sidebar -->
+    <div class="sidebar-nav" id="sidebar">
+      <div class="active" onclick="scrollToSection('problem')">Problem</div>
+      <div onclick="scrollToSection('scope')">Scope</div>
+      <div onclick="scrollToSection('ideation')">Ideation</div>
+      <div onclick="scrollToSection('solution')">Solution</div>
+      <div onclick="scrollToSection('testing')">Testing</div>
     </div>
-    <div class="phase-content">
 
-      <!-- IMAGES -->
-      <div class="phase-gallery">
-        <img src="assets/phase1-1.png" alt="User interview screenshot">
-        <img src="assets/phase1-2.png" alt="Heuristic analysis">
-        <img src="assets/phase1-3.png" alt="Task analysis documentation">
-      </div>
+    <!-- Main Content -->
+    <div class="case-content">
 
-      <h3>🚩 Problem Identification</h3>
-      <p>IRS2Go app provides essential tax functions: refund status, payment, and free tax help.</p>
-      <p>Despite its value, reviews highlighted:</p>
-      <ul>
-        <li>Outdated UX</li>
-        <li>Confusing navigation</li>
-        <li>Web redirections for critical flows (like payments)</li>
-        <li>No task memory (manual re-entry each time)</li>
-      </ul>
+      <!-- PROBLEM -->
+      <section id="problem">
+        <h2>How It Started</h2>
+        <p>IRS2Go helps users check refunds, make payments, and find tax help — but suffers from poor UX.</p>
 
-      <h3>🔎 Research & Analysis</h3>
-      <p><strong>Methods:</strong> App reviews (App Store, Quora), IRS blog insights, competitive benchmarking</p>
-      <p><strong>Heuristic Evaluation:</strong> Identified UI inconsistencies, error-prone forms, and inaccessible input patterns.</p>
-      <p><strong>Task Analysis:</strong> Documented the entire journey for key tasks:</p>
-      <ul>
-        <li>Refund status check</li>
-        <li>Payment process</li>
-        <li>Accessing tax help</li>
-      </ul>
+        <div class="phase-gallery">
+          <img src="assets/problem-1.png" alt="User complaint screen" />
+          <img src="assets/problem-2.png" alt="App store review screenshot" />
+        </div>
 
-      <h3>💬 User Feedback</h3>
-      <blockquote>“It’s frustrating that there’s no guidance if my info doesn’t match IRS records.”</blockquote>
-      <blockquote>“Entering my details every time is annoying. Where’s auto-fill?”</blockquote>
-      <blockquote>“The help section is too text-heavy and hard to navigate.”</blockquote>
+        <h3>🚩 Problem Identification</h3>
+        <ul>
+          <li>Outdated UX</li>
+          <li>Confusing navigation</li>
+          <li>Web redirections break flow</li>
+          <li>No task memory (SSN, refund amount)</li>
+        </ul>
 
-      <h3>🎯 Insights</h3>
-      <ul>
-        <li>Poor efficiency of use</li>
-        <li>Violations of error prevention and recovery</li>
-        <li>No support for recognition over recall</li>
-      </ul>
-    </div>
-  </div>
+        <h3>💬 User Quotes</h3>
+        <div class="chat-block left">
+          This refund tool is useless. I put everything in and it says no match!
+          <div class="chat-meta">App Store User</div>
+        </div>
+        <div class="chat-block right">
+          Why do I have to re-enter all my info every single time?
+          <div class="chat-meta">User Interview</div>
+        </div>
+        <p class="caption">Frustration and confusion were common in user feedback.</p>
+      </section>
 
-  <!-- PHASE 2 -->
-  <div class="phase">
-    <div class="phase-header" onclick="togglePhase(this)">
-      <h2>✍️ Phase 2: Ideate & Prototype</h2>
-      <span class="arrow">▶</span>
-    </div>
-    <div class="phase-content">
+      <!-- SCOPE -->
+      <section id="scope">
+        <h2>Research & Scope</h2>
 
-      <!-- IMAGES -->
-      <div class="phase-gallery">
-        <img src="assets/phase2-1.png" alt="Wireframes">
-        <img src="assets/phase2-2.png" alt="Figma prototype">
-        <img src="assets/phase2-3.png" alt="User flows">
-      </div>
+        <div class="phase-gallery">
+          <img src="assets/scope-1.png" alt="Task analysis" />
+        </div>
 
-      <h3>🧠 Ideation</h3>
-      <p>Generated wireframes for new task flows with:</p>
-      <ul>
-        <li>Fewer steps</li>
-        <li>Simplified input fields</li>
-        <li>Guided instructions & examples</li>
-      </ul>
-      <p><strong>Key focus:</strong> Mobile-first clarity, visual hierarchy, reduced user confusion</p>
+        <h3>🔎 What We Did</h3>
+        <ul>
+          <li>Reviewed app stores, Quora, blogs</li>
+          <li>Ran heuristic evaluation</li>
+          <li>Mapped 3 key tasks: refund, pay, help</li>
+        </ul>
 
-      <h3>📱 Low to Mid-Fidelity Prototypes</h3>
-      <ul>
-        <li>Refund status with pre-filled hints + masked SSN</li>
-        <li>Payment with processor comparison + confirmation modal</li>
-        <li>Help section with FAQ-style structure + voice search</li>
-      </ul>
+        <h3>🎯 Key Insights</h3>
+        <ul>
+          <li>Violations in error prevention & recovery</li>
+          <li>No smart defaults or saved data</li>
+          <li>Bad support for recognition vs recall</li>
+        </ul>
+      </section>
 
-      <h3>✨ Design Highlights</h3>
-      <ul>
-        <li>Added sample form guidance for refund inputs</li>
-        <li>Improved accessibility options (text size, color contrast)</li>
-        <li>Integrated user onboarding for first-time users</li>
-      </ul>
-    </div>
-  </div>
+      <!-- IDEATION -->
+      <section id="ideation">
+        <h2>Ideation</h2>
 
-  <!-- PHASE 3 -->
-  <div class="phase">
-    <div class="phase-header" onclick="togglePhase(this)">
-      <h2>🧪 Final Phase: Test & Refine</h2>
-      <span class="arrow">▶</span>
-    </div>
-    <div class="phase-content">
+        <div class="phase-gallery">
+          <img src="assets/ideation-1.png" alt="Wireframe sketches" />
+          <img src="assets/ideation-2.png" alt="User flow ideas" />
+        </div>
 
-      <!-- IMAGES -->
-      <div class="phase-gallery">
-        <img src="assets/phase3-1.png" alt="Usability session">
-        <img src="assets/phase3-2.png" alt="SUS feedback">
-        <img src="assets/phase3-3.png" alt="Refined prototype">
-      </div>
+        <h3>🧠 UX Opportunities</h3>
+        <ul>
+          <li>Simplify refund lookup process</li>
+          <li>Preview before payment</li>
+          <li>Smart help search (voice, FAQ)</li>
+        </ul>
 
-      <h3>👥 Usability Testing</h3>
-      <p><strong>Participants:</strong> 11 users (age 16–65), mix of tech-savvy and first-timers</p>
-      <p><strong>Tasks:</strong> Check refund status, make payment, access tax help</p>
-      <p><strong>Methods:</strong></p>
-      <ul>
-        <li>Think-Aloud Protocol</li>
-        <li>System Usability Scale (SUS)</li>
-        <li>Observation Sheets</li>
-      </ul>
+        <h3>📱 Prototypes</h3>
+        <ul>
+          <li>Pre-filled hints, masked SSN</li>
+          <li>Processor comparison + modal</li>
+          <li>Help flow with search + voice</li>
+        </ul>
+      </section>
 
-      <h3>📊 Findings</h3>
-      <table>
-        <thead>
-          <tr><th>Area</th><th>Before Testing</th><th>After Refinement</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Login</td><td>Confusing guest/login options</td><td>Guest Access now prominent</td></tr>
-          <tr><td>Payment</td><td>No preview before payment</td><td>Added confirmation screen</td></tr>
-          <tr><td>Help</td><td>Overwhelming scroll list</td><td>Searchable FAQs + voice input</td></tr>
-          <tr><td>Refund</td><td>Poor instructions</td><td>Sample form + inline guidance</td></tr>
-        </tbody>
-      </table>
+      <!-- SOLUTION -->
+      <section id="solution">
+        <h2>Solution Highlights</h2>
 
-      <h3>📈 SUS Score Highlights</h3>
-      <ul>
-        <li>Overall Usability: ↑</li>
-        <li>Reduced hesitation/confusion</li>
-        <li>Positive response to dropdown improvements, feedback modals, and visual consistency</li>
-      </ul>
+        <div class="phase-gallery">
+          <img src="assets/solution-1.png" alt="Refund redesign" />
+          <img src="assets/solution-2.png" alt="Help center" />
+          <img src="assets/solution-3.png" alt="Payment modal" />
+        </div>
 
-      <h3>✅ Final Prototype</h3>
-      <p>Developed in Figma. Includes updated screens for all 3 core tasks, onboarding flow, and refined visuals based on user feedback.</p>
+        <h3>✨ Final Touches</h3>
+        <ul>
+          <li>Guest login mode</li>
+          <li>WCAG-compliant UI</li>
+          <li>Onboarding to guide first use</li>
+        </ul>
+      </section>
 
-      <h3>🎉 Key Takeaways</h3>
-      <ul>
-        <li>Even a government app like IRS2Go benefits hugely from UX-focused redesign.</li>
-        <li>Simple changes (auto-fill, confirmation, voice search) massively improve trust and ease.</li>
-        <li>Systematic user testing revealed deep gaps not visible in initial audits.</li>
-      </ul>
-    </div>
-  </div>
+      <!-- TESTING -->
+      <section id="testing">
+        <h2>Usability Testing</h2>
 
-  <!-- QR SECTION -->
-  <div class="qr-section">
-    <h2>📱 View the Interactive Prototype</h2>
-    <img src="assets/qr-code.png" alt="Scan QR to view prototype" />
-    <div>
-      <a href="https://yourprototype.link" target="_blank" class="view-prototype">👉 Open Prototype</a>
+        <div class="phase-gallery">
+          <img src="assets/testing-1.png" alt="SUS scores" />
+          <img src="assets/testing-2.png" alt="User feedback session" />
+        </div>
+
+        <h3>👥 Participants</h3>
+        <p>11 users, ages 16–65, mixed experience levels</p>
+
+        <h3>🧪 Methods</h3>
+        <ul>
+          <li>Think-Aloud Protocol</li>
+          <li>System Usability Scale (SUS)</li>
+        </ul>
+
+        <h3>📊 Results</h3>
+        <ul>
+          <li>Guest login preferred</li>
+          <li>Help simplified to search + voice</li>
+          <li>Refund flow success rate ↑</li>
+        </ul>
+
+        <h3>✅ Final Outcome</h3>
+        <p>Users completed tasks faster, with less hesitation, and gave higher usability scores.</p>
+      </section>
+
     </div>
   </div>
 
