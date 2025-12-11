@@ -1,181 +1,271 @@
-/* =====================================================
-   DARK CASE STUDY THEME (Does NOT affect portfolio)
-===================================================== */
+/*
+ * IRS2Go App Redesign – UX Case Study Style
+ * Professional, clean, and accessible design suitable for a finance/government app.
+ */
 
-.cs-body {
-  background: #0b0c10;
-  font-family: "Inter", sans-serif;
-  color: #e5e5e5;
-  padding-bottom: 100px;
-
-  background-image:
-    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-  background-size: 22px 22px;
+:root {
+    /* Color Palette - Blue/White/Gray for Trust and Clarity */
+    --color-primary-blue: #0072C6; /* A strong, professional blue */
+    --color-accent-green: #38A169; /* Success/Action color (like a payment confirmed) */
+    --color-background-light: #F9F9F9; /* Very light gray background */
+    --color-surface-white: #FFFFFF; /* White for content areas */
+    --color-text-dark: #333333; /* Dark gray for body text */
+    --color-text-header: #1A1A1A; /* Near-black for main titles */
+    --color-border-light: #DDDDDD; /* Light border for separation */
 }
 
-/* HEADER */
-.cs-header {
-  text-align: center;
-  padding: 140px 20px 70px;
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background-light);
+    color: var(--color-text-dark);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.cs-header h1 {
-  font-size: 3rem;
-  color: #ffd86b;
-  font-weight: 800;
+/* Main Content Container (Limit content width for readability) */
+body > * {
+    max-width: 960px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.cs-header p {
-  margin-top: 14px;
-  font-size: 1.2rem;
-  color: #ccc;
+/* Headings */
+h1 {
+    color: var(--color-text-header);
+    font-weight: 800; /* Extra bold */
+    font-size: 3em;
+    padding-bottom: 15px;
+    border-bottom: 4px solid var(--color-primary-blue);
+    margin-bottom: 50px;
+    text-align: center;
 }
 
-/* TAGS */
-.cs-tags {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 30px;
-  flex-wrap: wrap;
+h2 {
+    color: var(--color-primary-blue);
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0;
+    padding-right: 15px; /* Space for the arrow */
 }
 
-.cs-tags span {
-  background: #ffd86b;
-  color: #000;
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-weight: 600;
+h3 {
+    color: var(--color-text-header);
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--color-accent-green);
+    padding-left: 15px;
 }
 
-/* HERO IMAGE */
-.cs-hero-img {
-  display: block;
-  margin: 50px auto;
-  max-width: 85%;
-  border-radius: 20px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+/* Lists */
+ul {
+    padding-left: 25px;
 }
 
-/* SECTION WRAPPER */
-.cs-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 20px;
+ul li {
+    margin-bottom: 8px;
 }
 
-.cs-section h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 22px;
-  color: #ffd86b;
+/* Blockquotes (User Feedback) */
+blockquote {
+    background-color: #EBF5FF; /* Light blue background for feedback */
+    border-left: 5px solid var(--color-primary-blue);
+    padding: 15px 20px;
+    margin: 25px 0;
+    font-style: italic;
+    color: var(--color-text-dark);
+    border-radius: 4px;
 }
 
-.cs-section p {
-  color: #e3e3e3;
-  line-height: 1.8;
-  margin-bottom: 20px;
+/* Phase Sections (Collapsible Structure) */
+.phase {
+    background-color: var(--color-surface-white);
+    border: 1px solid var(--color-border-light);
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    overflow: hidden;
 }
 
-/* PROBLEM GRID */
-.problem-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-  gap: 25px;
+.phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: #F0F8FF; /* Very light blue header */
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background-color 0.2s ease;
 }
 
-.problem-card {
-  background: #15161c;
-  padding: 24px;
-  border-radius: 16px;
-  text-align: center;
-  border: 1px solid #26272d;
-  transition: 0.3s;
+.phase-header:hover {
+    background-color: #E2EFFC;
 }
 
-.problem-card:hover {
-  transform: translateY(-5px);
+.arrow {
+    font-size: 1.2em;
+    color: var(--color-primary-blue);
+    transition: transform 0.3s ease;
 }
 
-.problem-card h3 {
-  font-size: 1.4rem;
-  color: #ffd86b;
-  margin-bottom: 10px;
+/* Style for expanded content */
+.phase-content {
+    padding: 25px;
+    display: none; /* Hidden by default - requires script.js */
 }
 
-/* QUOTES */
-.quote-box {
-  background: rgba(255,216,77,0.08);
-  border-left: 4px solid #ffd86b;
-  padding: 24px;
-  border-radius: 10px;
-  margin-top: 20px;
-  font-style: italic;
+/* Rotate arrow when content is shown (add a class via JS) */
+.phase.open .arrow {
+    transform: rotate(90deg);
 }
 
-/* TRANSFORMATION */
-.transformation img {
-  margin-top: 30px;
-  width: 90%;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+.phase.open .phase-content {
+    display: block;
 }
 
-/* RESULTS GRID */
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-  gap: 25px;
-  margin-top: 30px;
+/* Image Gallery */
+.phase-gallery {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    justify-content: space-around; /* Center items if space allows */
 }
 
-.result-card {
-  background: #15161c;
-  padding: 24px;
-  border-radius: 16px;
-  text-align: center;
-  border: 1px solid #26272d;
-  transition: 0.3s;
+.phase-gallery img {
+    flex: 1 1 250px; /* Base size and flex rules */
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--color-border-light);
+    object-fit: cover;
+    min-width: 200px; 
+    transition: transform 0.3s ease;
 }
 
-.result-card:hover {
-  transform: translateY(-5px);
+.phase-gallery img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.result-card strong {
-  color: #ffd86b;
-  font-size: 1.4rem;
-}
-/* Figma Prototype link */
-.figma-link {
-  display: inline-block;
-  margin-top: 30px;
-  font-weight: 600;
-  color: #ffd84d;
-  text-decoration: none;
-  border-bottom: 2px solid #ffd84d;
-  padding-bottom: 2px;
-  transition: 0.3s;
-}
-.figma-link:hover {
-  color: #fff;
-  border-color: #fff;
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background-color: var(--color-surface-white);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-light);
 }
 
-/* BUTTON */
-.back-btn {
-  display: inline-block;
-  margin-top: 40px;
-  background: #ffd86b;
-  color: #000;
-  padding: 12px 22px;
-  border-radius: 26px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: 0.3s;
+th, td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-light);
 }
 
-.back-btn:hover {
-  transform: translateY(-4px);
+th {
+    background-color: var(--color-primary-blue);
+    color: var(--color-surface-white);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+/* Alternate row shading for better readability */
+tbody tr:nth-child(even) {
+    background-color: #F4F4F4;
+}
+
+tbody tr:hover {
+    background-color: #EBEBEB;
+}
+
+/* QR Section */
+.qr-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--color-surface-white);
+    margin-top: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.qr-section h2 {
+    color: var(--color-text-header);
+    margin-bottom: 25px;
+}
+
+.qr-section img {
+    width: 150px;
+    height: 150px;
+    border: 5px solid var(--color-primary-blue);
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.view-prototype {
+    display: inline-block;
+    background-color: var(--color-primary-blue);
+    color: var(--color-surface-white);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.view-prototype:hover {
+    background-color: #005A9C; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+a {
+    color: var(--color-primary-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2em;
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    .phase-gallery {
+        overflow-x: scroll;
+        flex-wrap: nowrap;
+    }
+
+    .phase-gallery img {
+        min-width: 70vw; /* Images take up most of the screen width */
+    }
+
+    th, td {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
 }
