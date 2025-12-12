@@ -107,14 +107,15 @@ ul {
 }
 
 .phase-gallery img {
-  width: calc(33.33% - 10px);
+  width: calc(50% - 8px);
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
   object-fit: cover;
   border: 1px solid #333;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
 
 .phase-gallery img:hover {
   transform: scale(1.03);
