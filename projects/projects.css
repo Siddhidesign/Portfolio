@@ -168,3 +168,37 @@ ul {
     width: 100%;
   }
 }
+.back-link {
+  display: inline-block;
+  margin: 2rem;
+  font-size: 1rem;
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.prototype-link {
+  text-align: center;
+  margin: 3rem auto;
+}
+
+.prototype-link a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.prototype-link a:hover {
+  background-color: #e6b800;
+}
+
