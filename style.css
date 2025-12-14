@@ -163,102 +163,110 @@ section {
 }
 
 
+
+ /* =====================================================
+   ABOUT SECTION
+==================================================== */
 #about {
-  padding: 120px 60px;
+  padding: 100px 40px;
+  background: #0d0d0d;
+  color: #fff;
 }
 
 .about-container {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  gap: 60px;
+  justify-content: center;
+  gap: 80px;
   max-width: 1200px;
   margin: auto;
-  flex-wrap: wrap; /* helps with responsiveness */
+  flex-wrap: wrap;
 }
 
 .about-left {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 28px;
   flex: 1;
-  max-width: 300px;
+  align-items: center;
 }
 
 .about-right {
-  flex: 2;
-  min-width: 320px;
+  flex: 1.2;
+  max-width: 600px;
 }
 
 .about-heading {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
-  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #FFD84D;
 }
 
 .about-subtext {
-  font-size: 1.1rem;
-  color: #bbb;
-  margin-bottom: 30px;
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+  font-style: italic;
 }
 
 .about-quality p {
+  margin-bottom: 12px;
   font-size: 1rem;
+  line-height: 1.6;
   color: #ddd;
-  line-height: 1.7;
-  margin-bottom: 10px;
 }
 
 .about-quality strong {
-  color: #ffd84d;
+  color: #FFD84D;
 }
 
-/* Polaroid styles */
 .polaroid {
-  background: white;
-  padding: 14px;
-  border-radius: 12px;
-  width: 100%;
-  box-shadow: 0 8px 26px rgba(0,0,0,0.28);
+  background: #fff;
+  padding: 16px 16px 26px;
+  width: 240px;
+  border-radius: 14px;
   transform: rotate(-2deg);
-  transition: transform 0.3s ease;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.28);
+  transition: 0.3s ease;
+}
+.polaroid:nth-child(2) {
+  transform: rotate(3deg);
 }
 .polaroid:hover {
-  transform: rotate(0deg) scale(1.03);
+  transform: rotate(0) scale(1.03);
 }
 .polaroid img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 .polaroid-caption {
-  text-align: center;
-  margin-top: 10px;
-  color: #111;
+  margin-top: 12px;
   font-size: 0.9rem;
+  color: #111;
+  text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .about-container {
     flex-direction: column;
-    align-items: center;
     text-align: center;
+    gap: 50px;
   }
 
-  .about-left {
-    max-width: 80%;
+  .about-left, .about-right {
+    max-width: 100%;
     align-items: center;
   }
 
   .about-right {
-    max-width: 90%;
-    margin-top: 40px;
+    text-align: center;
   }
 
-  .about-quality p {
-    text-align: left;
+  .about-quality {
+    padding: 0 10px;
   }
 }
+
 
 
 
