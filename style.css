@@ -162,19 +162,15 @@ section {
   }
 }
 
-
-/* =====================================================
-   ABOUT ME SECTION
-==================================================== */
 #about {
   padding: 120px 60px;
 }
 
 .about-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: flex-start;
-  gap: 60px;
+  gap: 100px; /* increased spacing between photos and text */
   max-width: 1200px;
   margin: 0 auto;
   flex-wrap: nowrap;
@@ -183,8 +179,7 @@ section {
 .about-left {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  min-width: 260px;
+  gap: 30px;
   flex-shrink: 0;
 }
 
@@ -205,23 +200,23 @@ section {
 }
 .polaroid img {
   width: 100%;
-  max-width: 100%;
   height: auto;
-  object-fit: cover;
   border-radius: 10px;
 }
 .polaroid-caption {
   margin-top: 12px;
   font-size: 0.9rem;
   color: #111;
+  text-align: center;
 }
 
-/* Right Text Section */
+/* Right Side: Story Text */
 .about-right {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
+  padding-right: 20px; /* pulls it in more */
 }
 
 .about-heading {
@@ -246,16 +241,17 @@ section {
   color: #FFD84D;
 }
 
-/* Responsive Layout */
+/* Responsive Fix */
 @media (max-width: 950px) {
   .about-container {
     flex-direction: column;
     align-items: center;
-    gap: 40px;
     text-align: center;
   }
 
+  .about-left,
   .about-right {
+    width: 100%;
     align-items: center;
   }
 
