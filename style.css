@@ -543,3 +543,63 @@ section {
   font-size: 0.9rem;
   margin-top: 40px;
 }
+/* =====================================================
+   ABOUT ME STORY SECTION
+==================================================== */
+.about-section {
+  padding: 100px 40px;
+  background: #0d0d0d;
+  color: #fff;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #FFD84D;
+}
+
+.about-intro {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: left;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.about-card strong {
+  color: #FFD84D;
+  display: block;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.about-card p {
+  font-size: 0.95rem;
+  color: #ddd;
+  line-height: 1.5;
+}
