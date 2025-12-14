@@ -162,31 +162,34 @@ section {
   }
 }
 
+
 /* =====================================================
-   UPDATED ABOUT ME — STORY + POLAROID STYLE
+   ABOUT ME SECTION
 ==================================================== */
 #about {
-  padding-top: 100px;
+  padding: 120px 60px;
 }
 
 .about-container {
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .about-left {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  min-width: 260px;
+  flex-shrink: 0;
 }
 
 .polaroid {
-  background: #fff;
+  background: #ffffff;
   padding: 16px 16px 26px;
   width: 240px;
   border-radius: 14px;
@@ -198,64 +201,69 @@ section {
   transform: rotate(3deg);
 }
 .polaroid:hover {
-  transform: rotate(0deg) scale(1.03);
+  transform: rotate(0) scale(1.03);
 }
 .polaroid img {
   width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
   border-radius: 10px;
 }
 .polaroid-caption {
   margin-top: 12px;
   font-size: 0.9rem;
   color: #111;
-  text-align: center;
 }
 
+/* Right Text Section */
 .about-right {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  color: #ddd;
 }
 
 .about-heading {
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   color: #fff;
-  margin-bottom: 10px;
 }
 
-.about-subheading {
-  font-style: italic;
-  color: #bbb;
-  margin-bottom: 20px;
+.about-subtext {
   font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
 
 .about-quality {
-  margin-bottom: 12px;
-  line-height: 1.6;
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.7;
 }
-
 .about-quality strong {
-  color: #ffd84d;
-  font-weight: 600;
+  color: #FFD84D;
 }
 
+/* Responsive Layout */
 @media (max-width: 950px) {
   .about-container {
     flex-direction: column;
     align-items: center;
+    gap: 40px;
     text-align: center;
   }
+
   .about-right {
     align-items: center;
   }
+
   .about-quality {
     text-align: left;
   }
 }
+
 
 /* =====================================================
    EXPERIENCE SECTION
