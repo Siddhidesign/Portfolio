@@ -162,103 +162,104 @@ section {
   }
 }
 
+
 #about {
   padding: 120px 60px;
 }
 
 .about-container {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 100px; /* increased spacing between photos and text */
+  gap: 60px;
   max-width: 1200px;
-  margin: 0 auto;
-  flex-wrap: nowrap;
+  margin: auto;
+  flex-wrap: wrap; /* helps with responsiveness */
 }
 
 .about-left {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  flex-shrink: 0;
-}
-
-.polaroid {
-  background: #ffffff;
-  padding: 16px 16px 26px;
-  width: 240px;
-  border-radius: 14px;
-  transform: rotate(-2deg);
-  box-shadow: 0 8px 26px rgba(0,0,0,0.28);
-  transition: 0.3s ease;
-}
-.polaroid:nth-child(2) {
-  transform: rotate(3deg);
-}
-.polaroid:hover {
-  transform: rotate(0) scale(1.03);
-}
-.polaroid img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-.polaroid-caption {
-  margin-top: 12px;
-  font-size: 0.9rem;
-  color: #111;
-  text-align: center;
-}
-
-/* Right Side: Story Text */
-.about-right {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding-right: 20px; /* pulls it in more */
+  max-width: 300px;
+}
+
+.about-right {
+  flex: 2;
+  min-width: 320px;
 }
 
 .about-heading {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
   color: #fff;
 }
 
 .about-subtext {
   font-size: 1.1rem;
-  color: #ccc;
-  line-height: 1.6;
-  margin-bottom: 12px;
+  color: #bbb;
+  margin-bottom: 30px;
 }
 
-.about-quality {
+.about-quality p {
   font-size: 1rem;
   color: #ddd;
   line-height: 1.7;
-}
-.about-quality strong {
-  color: #FFD84D;
+  margin-bottom: 10px;
 }
 
-/* Responsive Fix */
-@media (max-width: 950px) {
+.about-quality strong {
+  color: #ffd84d;
+}
+
+/* Polaroid styles */
+.polaroid {
+  background: white;
+  padding: 14px;
+  border-radius: 12px;
+  width: 100%;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.28);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+.polaroid img {
+  width: 100%;
+  border-radius: 8px;
+}
+.polaroid-caption {
+  text-align: center;
+  margin-top: 10px;
+  color: #111;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
   .about-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .about-left,
-  .about-right {
-    width: 100%;
+  .about-left {
+    max-width: 80%;
     align-items: center;
   }
 
-  .about-quality {
+  .about-right {
+    max-width: 90%;
+    margin-top: 40px;
+  }
+
+  .about-quality p {
     text-align: left;
   }
 }
+
 
 
 /* =====================================================
