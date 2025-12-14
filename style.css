@@ -163,23 +163,28 @@ section {
 }
 
 /* =====================================================
-   ABOUT SECTION
+   UPDATED ABOUT ME — STORY + POLAROID STYLE
 ==================================================== */
 #about {
-  padding-top: 90px;
+  padding-top: 100px;
 }
+
 .about-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
-.about-photos {
+
+.about-left {
   display: flex;
+  flex-direction: column;
   gap: 28px;
 }
+
 .polaroid {
   background: #fff;
   padding: 16px 16px 26px;
@@ -193,7 +198,7 @@ section {
   transform: rotate(3deg);
 }
 .polaroid:hover {
-  transform: rotate(0) scale(1.03);
+  transform: rotate(0deg) scale(1.03);
 }
 .polaroid img {
   width: 100%;
@@ -203,24 +208,52 @@ section {
   margin-top: 12px;
   font-size: 0.9rem;
   color: #111;
+  text-align: center;
 }
-.about-text {
-  max-width: 420px;
-  font-size: 1.1rem;
-  color: #ddd;
-  line-height: 1.7;
+
+.about-right {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  color: #ddd;
 }
+
+.about-heading {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.about-subheading {
+  font-style: italic;
+  color: #bbb;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.about-quality {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.about-quality strong {
+  color: #ffd84d;
+  font-weight: 600;
+}
+
 @media (max-width: 950px) {
   .about-container {
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 40px;
   }
-  .about-text {
-    max-width: 90%;
+  .about-right {
+    align-items: center;
+  }
+  .about-quality {
+    text-align: left;
   }
 }
 
@@ -542,64 +575,4 @@ section {
   color: #777;
   font-size: 0.9rem;
   margin-top: 40px;
-}
-/* =====================================================
-   ABOUT ME STORY SECTION
-==================================================== */
-.about-section {
-  padding: 100px 40px;
-  background: #0d0d0d;
-  color: #fff;
-}
-
-.about-container {
-  max-width: 1000px;
-  margin: auto;
-  text-align: center;
-}
-
-.about-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #FFD84D;
-}
-
-.about-intro {
-  font-size: 1.2rem;
-  color: #ccc;
-  margin-bottom: 2.5rem;
-  font-style: italic;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.about-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 1.5rem;
-  text-align: left;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.about-card:hover {
-  transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.about-card strong {
-  color: #FFD84D;
-  display: block;
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-}
-
-.about-card p {
-  font-size: 0.95rem;
-  color: #ddd;
-  line-height: 1.5;
 }
