@@ -284,6 +284,27 @@ h2 {
   color: #ffd84d;
 }
 
+.img-hover-hint {
+  position: relative;
+}
+
+.hover-hint {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(0,0,0,0.75);
+  color: #ffd84d;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: 0.2s ease;
+  pointer-events: none;
+}
+
+.img-hover-hint:hover .hover-hint {
+  opacity: 1;
+}
 
 /* =====================================================
    RESPONSIVE (MOBILE)
