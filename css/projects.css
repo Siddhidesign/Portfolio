@@ -248,6 +248,50 @@ h2 {
 .expandable:hover {
   background: #23232c;
 }
+/* =====================================================
+   SKILLS SECTION (Polished layout)
+==================================================== */
+
+.skills-used {
+  margin-top: 30px;
+  padding: 20px 24px;
+  background: #151515;
+  border-left: 5px solid #ffd84d;
+  border-radius: 12px;
+  max-width: 500px;
+  box-shadow: 0 0 14px rgba(255, 216, 77, 0.1);
+}
+
+.skills-used h4 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+  color: #ffd84d;
+  font-weight: 600;
+}
+
+.skills-used ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2-column layout */
+  gap: 10px 20px;
+}
+
+.skills-used li {
+  position: relative;
+  font-size: 1.05rem;
+  padding-left: 18px;
+  color: #eee;
+}
+
+.skills-used li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ffd84d;
+  font-weight: bold;
+}
 
 /* =====================================================
    RESPONSIVE (MOBILE)
