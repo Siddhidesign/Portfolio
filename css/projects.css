@@ -46,10 +46,16 @@
   margin-bottom: 8px;
 }
 
+.cs-diff {
+  color: #aaa;
+  font-size: 1.15rem;
+  margin-top: 16px;
+}
+
 .cs-figma {
   display: inline-block;
   margin-top: 20px;
-   margin-bottom: 30px;
+  margin-bottom: 30px;
   background: #ffd84d;
   color: #000;
   padding: 8px 14px;
@@ -74,6 +80,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  z-index: 999;
 }
 
 .cs-nav a {
@@ -98,10 +105,14 @@
   max-width: 960px;
   margin-left: 260px;
   padding: 40px 60px;
+  position: relative;
+  z-index: 1;
 }
 
 .cs-section {
-  margin-bottom: 60px; /* reduced vertical gap */
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
 }
 
 h2 {
@@ -122,7 +133,7 @@ h2 {
 }
 
 /* =====================================================
-   METRIC CARDS (Interactive metrics)
+   METRIC CARDS
 ==================================================== */
 .metric-row {
   display: flex;
@@ -140,39 +151,41 @@ h2 {
   text-align: center;
   position: relative;
 }
+
 .metric span {
-  display:block;
+  display: block;
   font-size: 1rem;
-  color:#ccc;
-  margin-top:6px;
+  color: #ccc;
+  margin-top: 6px;
 }
+
 .glow {
-  box-shadow: 0 0 30px rgba(255,216,77,0.35);
+  box-shadow: 0 0 30px rgba(255, 216, 77, 0.35);
   transition: 0.3s ease;
 }
 
 /* =====================================================
-   STICKER NOTE STYLES
+   STICKER NOTES
 ==================================================== */
 .sticker {
-  display:inline-block;
-  padding:12px 20px;
-  border-radius:14px;
-  font-size:1.1rem;
-  font-weight:500;
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 500;
   transform: rotate(-4deg);
-  margin:14px 14px 8px 0;
+  margin: 14px 14px 8px 0;
 }
 
-.yellow { background:#ffd84d; color:#000; }
-.pink { background:#ff9ed8; color:#000; }
+.yellow { background: #ffd84d; color: #000; }
+.pink { background: #ff9ed8; color: #000; }
 
 /* =====================================================
-   BENTO / IMAGE GRID
+   BENTO IMAGE GRID
 ==================================================== */
 .bento {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* larger images across 2 columns */
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-top: 18px;
 }
@@ -181,12 +194,11 @@ h2 {
   width: 100%;
   max-width: 100%;
   height: auto;
+  object-fit: contain;
   border-radius: 20px;
   cursor: pointer;
-  object-fit: contain;
   transition: transform 0.25s ease;
 }
-
 
 .bento img:hover {
   transform: scale(1.03);
@@ -197,7 +209,7 @@ h2 {
 }
 
 /* =====================================================
-   TIMELINE LIST
+   TIMELINE
 ==================================================== */
 .timeline {
   border-left: 2px dashed #444;
@@ -212,7 +224,7 @@ h2 {
 }
 
 /* =====================================================
-   FLOATING IMPACT CARDS
+   FLOATING CARDS
 ==================================================== */
 .floating-cards {
   display: flex;
@@ -236,7 +248,7 @@ h2 {
 }
 
 /* =====================================================
-   EXPANDABLE / QUOTE BLOCK
+   QUOTE / EXPANDABLE
 ==================================================== */
 .expandable {
   cursor: pointer;
@@ -251,10 +263,10 @@ h2 {
 .expandable:hover {
   background: #23232c;
 }
-/* =====================================================
-   SKILLS SECTION (Polished layout)
-==================================================== */
 
+/* =====================================================
+   SKILLS USED
+==================================================== */
 .skills-used {
   margin-top: 30px;
   padding: 20px 24px;
@@ -272,20 +284,33 @@ h2 {
   font-weight: 600;
 }
 
-.skills-used ul li {
-  color: #eee;
-  font-size: 1.05rem;
-  position: relative;
-  padding-left: 18px;
+.skills-used ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
 }
 
-.skills-used ul li::before {
+.skills-used li {
+  position: relative;
+  font-size: 1.05rem;
+  padding-left: 18px;
+  color: #eee;
+}
+
+.skills-used li::before {
   content: "✓";
   position: absolute;
   left: 0;
   color: #ffd84d;
+  font-weight: bold;
 }
 
+/* =====================================================
+   HOVER HINT (Double-click note)
+==================================================== */
 .img-hover-hint {
   position: relative;
 }
@@ -294,7 +319,7 @@ h2 {
   position: absolute;
   bottom: 14px;
   right: 14px;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0, 0, 0, 0.75);
   color: #ffd84d;
   font-size: 0.85rem;
   padding: 6px 10px;
@@ -312,18 +337,24 @@ h2 {
    RESPONSIVE (MOBILE)
 ==================================================== */
 @media (max-width: 900px) {
-  .cs-nav { display: none; }
+  .cs-nav {
+    display: none;
+  }
+
   .cs-content {
     margin-left: 0;
     padding: 30px;
   }
+
   .cs-back {
     left: 16px;
     top: 14px;
   }
+
   h2 {
     font-size: 2.2rem;
   }
+
   .cs-figma {
     font-size: 1rem;
     padding: 6px 12px;
