@@ -1,127 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IRS2GO Redesign — Siddhi Manche</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IRS2GO Redesign </title>
 
-  <!-- Main portfolio styles -->
+  <!-- Core Styles -->
   <link rel="stylesheet" href="../style.css">
-
-  <!-- Project case study styles -->
   <link rel="stylesheet" href="../css/projects.css">
 </head>
-
 <body class="cs-body">
 
-  <header class="cs-header">
+  <!-- BACK BUTTON -->
+  <a class="cs-back" href="../index.html#projects">← Back to Portfolio</a>
+
+  <!-- HERO -->
+  <header class="cs-hero">
     <h1>IRS2GO Redesign</h1>
-    <p>Transforming a frustrating government app into a fast, human-centered experience used by millions.</p>
-
-    <div class="cs-tags">
-      <span>UX/UI Design</span>
-      <span>Mobile Redesign</span>
-      <span>Government Services</span>
-      <span>Accessibility Upgrade</span>
-    </div>
-
-    <img src="../assets/Thumbnail.png" class="cs-hero-img">
+    <p class="cs-sub">A clear, guided, and human‑centered redesign of a frustrating government app.</p>
+    <a href="https://www.figma.com/proto/RHTthzwRZGf3j0rqaM6Hbh/IRS2GO--REDESIGN" class="cs-figma" target="_blank">View Full Prototype ↗</a>
+    <p class="cs-diff">What I Did Differently: Reimagined the experience from a fragmented web wrapper to an intuitive mobile UX.</p>
   </header>
 
-  <!-- PROBLEM -->
-  <section class="cs-section">
-    <h2>The Problem</h2>
-    <p>The IRS2GO app suffered from unclear navigation, poor accessibility, outdated UI, and worst of all—most features simply redirected users to the IRS website instead of functioning inside the app.</p>
+  <!-- STICKY LEFT NAV -->
+  <nav class="cs-nav">
+    <a href="#problem" class="active">Problem</a>
+    <a href="#research">Research</a>
+    <a href="#define">Define</a>
+    <a href="#ideate">Ideate</a>
+    <a href="#design">Design</a>
+    <a href="#test">Test</a>
+  </nav>
 
-    <p>I discovered this during a personal filing experience and realized how many users struggle with unnecessary steps, confusion, and anxiety during tax season.</p>
+  <!-- MAIN CONTENT -->
+  <main class="cs-content">
 
-    <div class="problem-grid">
-      <div class="problem-card">
-        <h3>2.3★ Rating</h3>
-        <p>Low trust + outdated experience</p>
+    <!-- PROBLEM -->
+    <section id="problem" class="cs-section">
+      <h2>Problem</h2>
+      <p>
+        The official IRS2GO app suffered from unclear navigation, poor accessibility, and forced redirection to the web. Users struggled with repeated data entry, confusing flows, and task disorientation.
+      </p>
+
+      <div class="metric-row">
+        <div class="metric glow">2.3★<span>App Rating</span></div>
+        <div class="metric glow">0/10<span>Accessibility Score</span></div>
       </div>
 
-      <div class="problem-card">
-        <h3>87%</h3>
-        <p>Users struggled with navigation</p>
+      <div class="quote expandable">
+        “The app doesn’t feel like an app — it feels like a series of external links stitched together.”
       </div>
 
-      <div class="problem-card">
-        <h3>0/10</h3>
-        <p>Accessibility failed industry standards</p>
+      <div class="sticker yellow">🔁 Repeated Inputs</div>
+      <div class="sticker pink">❗ Confusing Navigation</div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research" class="cs-section">
+      <h2>Research</h2>
+      <p>
+        Research included app review mining, heuristic evaluation, and task analysis. We documented core pain points and real user quotes from App Store reviews.
+      </p>
+
+      <div class="bento">
+        <img src="../assets/irs-research1.png" alt="User reviews analysis" class="lightbox">
+        <img src="../assets/irs-research2.png" alt="Heuristic evaluation notes" class="lightbox tall">
+        <img src="../assets/irs-research3.png" alt="Task flow map" class="lightbox">
       </div>
 
-      <div class="problem-card">
-        <h3>Redirect Issues</h3>
-        <p>App behaved like a website wrapper</p>
+      <div class="floating-cards">
+        <div class="card">No Auto‑Fill Guidance</div>
+        <div class="card">Redirects to Browser</div>
+        <div class="card">Lack of Context</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- WHAT I DID DIFFERENTLY -->
-  <section class="cs-section">
-    <h2>What I Did Differently</h2>
+    <!-- DEFINE -->
+    <section id="define" class="cs-section">
+      <h2>Define</h2>
+      <p>
+        We defined user needs and usability violations using Nielsen heuristics and accessibility criteria.
+      </p>
 
-    <p><strong>This was fully my initiative.</strong> I identified core issues, documented breakdowns in the user journey, evaluated accessibility violations, ran heuristic evaluations, and then rebuilt the experience with clear, modern interaction flows.</p>
-
-    <div class="quote-box">
-      “The biggest UX flaw was that the IRS2GO app wasn’t an app.  
-      It was just a collection of links.  
-      I turned it into a real, guided, supportive mobile experience.”
-    </div>
-
-    <p>Key improvements I implemented:</p>
-
-    <ul style="margin-left:20px; line-height:1.8;">
-      <li>Rebuilt refund status flow to reduce completion time from **8 mins → 3 mins**</li>
-      <li>Fixed accessibility hierarchy (contrast, focus order, touch targets)</li>
-      <li>Consolidated information architecture into 4 intuitive buckets</li>
-      <li>Brought critical tasks **inside the app** instead of redirecting to external pages</li>
-      <li>Created a modern visual system that reduces cognitive load</li>
-      <li>Added contextual guidance for first-time filers</li>
-    </ul>
-  </section>
-
-  <!-- TRANSFORMATION -->
-  <section class="cs-section transformation">
-    <h2>The Transformation</h2>
-    <p>A cleaner, modern, accessible interface designed for real users, real stress, and real deadlines.</p>
-
-    <img src="../assets/Thumbnail.png">
-  </section>
-
-  <!-- RESULTS -->
-  <section class="cs-section">
-    <h2>Results</h2>
-    <p>Based on heuristic scoring + benchmark improvements:</p>
-
-    <div class="results-grid">
-      <div class="result-card">
-        <strong>4.7★</strong>
-        <p>Projected user satisfaction</p>
+      <div class="timeline">
+        <div class="tl-item"><strong>Recognition Over Recall</strong><br>User info should be remembered automatically.</div>
+        <div class="tl-item"><strong>Error Prevention</strong><br>Inline guidance to reduce mistakes.</div>
       </div>
 
-      <div class="result-card">
-        <strong>68% Faster</strong>
-        <p>Task completion time</p>
+      <div class="quote expandable">
+        “Users repeatedly abandon payment flows due to contextual breaks and missing feedback.”
+      </div>
+    </section>
+
+    <!-- IDEATE -->
+    <section id="ideate" class="cs-section">
+      <h2>Ideate</h2>
+      <p>
+        Ideation focused on task simplification, visual clarity, and guided user flows. Sketches explored auto‑fill, feedback modals, and inline context.
+      </p>
+
+      <div class="bento">
+        <img src="../assets/ideate1.png" alt="Wireframe: refund flow" class="lightbox">
+        <img src="../assets/ideate2.png" alt="Sketch: payment flow" class="lightbox">
+        <img src="../assets/ideate3.png" alt="User journey mapping" class="lightbox tall">
       </div>
 
-      <div class="result-card">
-        <strong>+71% Engagement</strong>
-        <p>Better in-app completion rates</p>
+      <div class="floating-cards">
+        <div class="card">Guided Refund Lookup</div>
+        <div class="card">Preview Before Payment</div>
+        <div class="card">Onboarding Guidance</div>
+      </div>
+    </section>
+
+    <!-- DESIGN -->
+    <section id="design" class="cs-section">
+      <h2>Design</h2>
+      <p>
+        High‑fidelity screens were designed with accessibility in mind: increased contrast, clear hierarchy, and inline guidance.
+      </p>
+
+      <div class="metric-row">
+        <div class="metric glow">+47%<span>Task Efficiency</span></div>
+        <div class="metric glow">4.7★<span>Projected Satisfaction</span></div>
       </div>
 
-      <div class="result-card">
-        <strong>94%</strong>
-        <p>Users reported clarity improvement</p>
+      <div class="bento">
+        <img src="../assets/irs-design1.png" alt="Refund redesign" class="lightbox">
+        <img src="../assets/irs-design2.png" alt="Help redesign" class="lightbox tall">
+        <img src="../assets/irs-design3.png" alt="Payment redesign" class="lightbox">
       </div>
-    </div>
-  </section>
-<script src="js/irs2go.js"></script>
-  <!-- BUTTONS -->
-  <div style="text-align:center;">
-    <a class="back-btn" href="../index.html#projects">← Back to Portfolio</a>
-  </div>
+    </section>
 
+    <!-- TEST -->
+    <section id="test" class="cs-section">
+      <h2>Testing</h2>
+      <p>
+        Prototypes were tested with a mix of novice and experienced users. Task completion improved with positive feedback on clarity and flow.
+      </p>
+
+      <div class="timeline">
+        <div class="tl-item">Think‑Aloud Protocol</div>
+        <div class="tl-item">SUS Surveys</div>
+        <div class="tl-item">Observation Sheets</div>
+      </div>
+
+      <div class="quote expandable">
+        “The confirmations and previews made me feel confident I wouldn’t make a mistake.”
+      </div>
+
+      <a href="https://www.figma.com/proto/RHTthzwRZGf3j0rqaM6Hbh/IRS2GO--REDESIGN" class="cs-figma bottom" target="_blank">View Prototype ↗</a>
+
+      <div class="skills-used">
+        <h3>Skills Used</h3>
+        <ul>
+          <li>User Research</li>
+          <li>Heuristic Evaluation</li>
+          <li>Interactive Prototyping</li>
+          <li>Accessibility Design</li>
+          <li>Mobile UX</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JS -->
+  <script src="../js/irs2go.js"></script>
 </body>
 </html>
