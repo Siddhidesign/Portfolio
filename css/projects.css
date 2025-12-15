@@ -179,12 +179,14 @@ h2 {
 
 .bento img {
   width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 20px;
   cursor: pointer;
-  max-height: 1000px;      /* BIG IMAGE SIZE */
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.25s ease;
 }
+
 
 .bento img:hover {
   transform: scale(1.03);
