@@ -2,343 +2,160 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EV Charging UX Case Study</title>
-  <link rel="stylesheet" href="../css/evcharging.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EV Charging UX Redesign</title>
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../css/evcharging.css">
 </head>
-<body>
-  <section class="hero-section">
-    <a href="#" class="back-link">← Back to Portfolio</a>
+<body class="cs-body">
 
-    <div class="badge">UX Case Study</div>
+  <a class="cs-back" href="../index.html#projects">← Back to Portfolio</a>
 
-    <h1 class="hero-title">EV Charging Station Experience</h1>
-    <p class="hero-subtitle">
-      Redesigning the electric vehicle charging experience through comprehensive user research, iterative design, and data-driven validation.
-    </p>
+  <header class="cs-hero">
+    <h1>EV Charging App</h1>
+    <p class="cs-sub">Designing seamless charging journeys for electric vehicle users.</p>
+    <a href="https://www.figma.com/proto/tBP4mQblJGAB5GcZZoUaHL/Untitled?page-id=0%3A1&node-id=1-192&p=f&viewport=152%2C200%2C0.08&t=ftPZ4PLK3T9Vla0L-1&scaling=min-zoom&content-scaling=fixed" target="_blank">View Full Prototype ↗</a>
+    <p class="cs-diff">Personal initiative to enhance charging station discovery, session tracking, and reliability.</p>
+  </header>
 
-    <div class="hero-metrics">
-      <div><strong>12 weeks</strong><br><span>Duration</span></div>
-      <div><strong>4 members</strong><br><span>Team Size</span></div>
-      <div><strong>24</strong><br><span>Users Tested</span></div>
-      <div><strong>87.5</strong><br><span>Final SUS Score</span></div>
-    </div>
+  <nav class="cs-nav">
+    <a href="#problem" class="active">Problem</a>
+    <a href="#research">Research</a>
+    <a href="#define">Define</a>
+    <a href="#ideate">Ideate</a>
+    <a href="#design">Design</a>
+    <a href="#test">Test</a>
+  </nav>
 
-    <div class="hero-buttons">
-      <a href="https://www.figma.com/proto/..." class="btn yellow" target="_blank">🔗 View Figma Prototype</a>
-      <a href="#" class="btn dark">▶ Watch Demo Video</a>
-    </div>
+  <main class="cs-content">
 
-    <div class="hero-nav">
-      <button class="active">🧠 Why</button>
-      <button>🔍 Research</button>
-      <button>📌 Define Problem</button>
-      <button>💡 Ideate</button>
-      <button>🎨 Design</button>
-      <button>🧪 Testing</button>
-    </div>
-  </section>
-  <section class="ev-problem">
-  <div class="problem-hero">
-    <img src="../assets/problem-bg.jpg" alt="EV Charging Sign" class="bg-img" />
-    <div class="problem-overlay">
-      <h2>The Problem is Real</h2>
+    <!-- PROBLEM -->
+    <section id="problem" class="cs-section">
+      <h2>Problem</h2>
       <p>
-        As electric vehicle adoption accelerates globally, the charging infrastructure
-        experience has become a critical factor in EV ownership satisfaction. However,
-        current charging station interfaces are fragmented, inconsistent, and frustrating.
+        EV users face stress due to poor station visibility, outdated data, and inconsistent app performance. The lack of real-time updates causes uncertainty during travel.
       </p>
-    </div>
-  </div>
 
-  <div class="problem-stats">
-    <div class="stat-box">
-      <div class="stat-value">68%</div>
-      <div class="stat-desc">of EV owners cite charging anxiety</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-value">15+</div>
-      <div class="stat-desc">different apps required</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-value">42%</div>
-      <div class="stat-desc">first attempt failure rate</div>
-    </div>
-  </div>
-</section>
-<section class="ev-timeline">
-  <div class="timeline-row">
-    <div class="timeline-step">
-      <div class="timeline-icon">🎯</div>
-      <div class="timeline-text left">
-        <h3>Understand the Pain Points</h3>
-        <p>Deep dive into the mental models of EV drivers and identify friction points in their charging experience</p>
+      <div class="metric-row">
+        <div class="metric glow">66%<span>Users abandon mid-search</span></div>
+       
       </div>
-    </div>
 
-    <div class="timeline-step">
-      <div class="timeline-icon">💡</div>
-      <div class="timeline-text right">
-        <h3>Design an Intuitive Interface</h3>
-        <p>Create a unified experience that reduces cognitive load and builds confidence in the charging process</p>
+      <div class="quote expandable">
+        “I missed an important meeting because I spent 25 minutes looking for a working charger.”
       </div>
-    </div>
 
-    <div class="timeline-step">
-      <div class="timeline-icon">✅</div>
-      <div class="timeline-text left">
-        <h3>Validate Through Testing</h3>
-        <p>Use data-driven methods to ensure our solution truly addresses user needs and reduces anxiety</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="ev-research-cards">
-  <h2><span class="section-number">2</span> 📘 Research</h2>
-  <div class="card-container">
+      <div class="sticker yellow">🚗 Range Anxiety</div>
+      <div class="sticker pink">📍 Poor Navigation</div>
+    </section>
 
-    <!-- Literature Review Card -->
-    <div class="research-card bordered-card">
-      <div class="card-header">
-        <span class="icon">📘</span>
-        <h3>Literature Review</h3>
-        <p>Analyzed existing research on EV behavior</p>
-      </div>
-      <div class="card-images">
-        <img src="assets/lit-1.png" alt="Books and research material">
-        <img src="assets/lit-2.png" alt="Diagram sketches">
-      </div>
-      <ul class="card-bullets">
-        <li>Range anxiety is psychological</li>
-        <li>Trust drives adoption rates</li>
-        <li>Consistency reduces load by 40%</li>
-        <li>Payment fragmentation = #1 issue</li>
-      </ul>
-    </div>
-
-    <!-- User Survey Card -->
-    <div class="research-card">
-      <div class="card-header">
-        <span class="icon">📊</span>
-        <h3>User Survey</h3>
-        <p>156 EV owners surveyed</p>
-      </div>
-      <img class="card-image" src="assets/survey.png" alt="Survey in action" />
-      <div class="survey-bars">
-        <div class="bar">
-          <label>Availability Issues</label>
-          <div class="progress" style="width: 92%;">92%</div>
-        </div>
-        <div class="bar">
-          <label>Payment Failures</label>
-          <div class="progress" style="width: 78%;">78%</div>
-        </div>
-        <div class="bar">
-          <label>Want Standardization</label>
-          <div class="progress" style="width: 65%;">65%</div>
-        </div>
-        <p class="caption">Avg. 3.2 apps installed per user</p>
-      </div>
-    </div>
-
-    <!-- Interviews Card -->
-    <div class="research-card">
-      <div class="card-header">
-        <span class="icon">👤</span>
-        <h3>Interviews</h3>
-        <p>18 in-depth sessions</p>
-      </div>
-      <div class="card-images">
-        <img src="assets/interview-1.png" alt="Notes and devices">
-        <img src="assets/interview-2.png" alt="User interview session">
-      </div>
-      <div class="quotes">
-        <p><em>"I check 3 apps before leaving"</em><br><span>– Sarah, Model 3</span></p>
-        <p><em>"Double-charged twice"</em><br><span>– Mike, Leaf</span></p>
-        <p><em>"Like learning a new language"</em><br><span>– Jennifer, Bolt</span></p>
-      </div>
-    </div>
-
-  </div>
-</section>
-<section class="ev-define-problem">
-  <h2><span class="section-number">3</span> ❗ Define the Problem</h2>
-
-  <!-- Problem Statement Box -->
-  <div class="problem-box">
-    <div class="problem-images">
-      <img src="assets/sticky-left.png" alt="Sticky notes left" />
-      <img src="assets/sticky-right.png" alt="Sticky notes right" />
-    </div>
-    <div class="problem-content">
-      <h3 class="yellow-label">Problem Statement</h3>
-      <p class="main-problem">
-        EV drivers experience significant anxiety and frustration due to inconsistent charging interfaces,
-        unreliable station information, and fragmented payment systems across charging networks.
-      </p>
-      <p class="supporting-text">
-        This problem prevents widespread EV adoption and creates unnecessary friction in the sustainable
-        transportation ecosystem. Research shows that interface standardization and reliable real-time
-        information could reduce charging anxiety by up to <strong>60%</strong>.
-      </p>
-    </div>
-  </div>
-
-  <!-- Key Pain Points -->
-  <div class="pain-points">
-    <div class="pain-card">
-      <div class="icon">📍</div>
-      <h4>Charger Inconsistency</h4>
+    <!-- RESEARCH -->
+    <section id="research" class="cs-section">
+      <h2>Research</h2>
       <p>
-        Users cannot rely on charger availability information. Real-time status is often inaccurate or outdated.
+        We conducted user interviews, app reviews, and heuristic analysis of major EV charging apps to uncover trust issues and desired features.
       </p>
-    </div>
-    <div class="pain-card">
-      <div class="icon">💳</div>
-      <h4>Payment Fragmentation</h4>
+
+      <div class="bento">
+        <img src="../assets/ev-research-1.png" alt="User journey map" class="lightbox">
+        <img src="../assets/ev-research-2.png" alt="Competitor analysis" class="lightbox tall">
+      </div>
+
+      <div class="floating-cards">
+        <div class="card">Unreliable Station Info</div>
+        <div class="card">Slow Map Load</div>
+        <div class="card">Poor Accessibility</div>
+      </div>
+    </section>
+
+    <!-- DEFINE -->
+    <section id="define" class="cs-section">
+      <h2>Define</h2>
       <p>
-        Multiple payment methods, apps, and accounts required across networks. Payment failures are common.
+        Synthesized insights into core user needs: real-time updates, intuitive station access, and session feedback.
       </p>
-    </div>
-    <div class="pain-card">
-      <div class="icon">🛡️</div>
-      <h4>Trust & Reliability</h4>
+
+      <div class="timeline">
+        <div class="tl-item"><strong>Predictability</strong><br>Users want to know station availability before arrival.</div>
+        <div class="tl-item"><strong>Trust</strong><br>Need for verified station data and app feedback.</div>
+      </div>
+
+      <div class="bento">
+        <img src="../assets/ev-define-1.png" alt="Key user needs" class="lightbox">
+        <img src="../assets/ev-define-2.png" alt="User personas" class="lightbox tall">
+      </div>
+    </section>
+
+    <!-- IDEATE -->
+    <section id="ideate" class="cs-section">
+      <h2>Ideate</h2>
       <p>
-        Lack of feedback during charging process creates uncertainty. Users don't trust the system to work consistently.
+        Explored interface layouts, notifications, and real-time map interactions using sketches and paper prototypes.
       </p>
-    </div>
-  </div>
-</section>
-<section class="pain-needs-section">
-  <!-- Pain Points -->
-  <div class="pain-container">
-    <h3>Key Pain Points</h3>
-    <div class="pain-cards">
-      <div class="pain-card">
-        <div class="icon">📍</div>
-        <h4>Charger Inconsistency</h4>
-        <p>Users cannot rely on charger availability information. Real-time status is often inaccurate or outdated, leading to wasted trips.</p>
+
+      <div class="bento">
+        <img src="../assets/ev-ideate-1.png" alt="Sketches" class="lightbox">
+        <img src="../assets/ev-ideate-2.png" alt="Whiteboard concepts" class="lightbox">
       </div>
-      <div class="pain-card">
-        <div class="icon">💳</div>
-        <h4>Payment Fragmentation</h4>
-        <p>Multiple payment methods, apps, and accounts required across networks. Payment failures are common and anxiety-inducing.</p>
+
+      <div class="floating-cards">
+        <div class="card">Smart Filters</div>
+        <div class="card">Charging Progress Bar</div>
+        <div class="card">Crowd Feedback</div>
       </div>
-      <div class="pain-card">
-        <div class="icon">🛡️</div>
-        <h4>Trust & Reliability</h4>
-        <p>Lack of feedback during charging process creates uncertainty. Users don't trust the system to work consistently.</p>
+    </section>
+
+    <!-- DESIGN -->
+    <section id="design" class="cs-section">
+      <h2>Design</h2>
+      <p>
+        Designed high-fidelity mockups with a focus on simplicity, feedback, and real-time reliability.
+      </p>
+
+      <div class="metric-row">
+        <div class="metric glow">+64%<span>Session Start Speed</span></div>
+        <div class="metric glow">4.5★<span>User Confidence</span></div>
       </div>
-    </div>
-  </div>
 
-  <!-- User Needs -->
-  <div class="needs-box">
-    <h3>User Needs</h3>
-    <ul class="needs-list">
-      <li><span>✅</span> Accurate Real-Time Information <br><small>Know charger availability and status before arrival</small></li>
-      <li><span>✅</span> Clear Status Feedback <br><small>Real-time charging progress and completion confirmation</small></li>
-      <li><span>✅</span> Unified Payment Experience <br><small>Single payment method across all networks</small></li>
-      <li><span>✅</span> Consistent Interface <br><small>Standardized UI patterns across charging networks</small></li>
-    </ul>
-  </div>
-</section>
-<section class="ideate-section">
-  <div class="section-header">
-    <div class="step-number">4</div>
-    <h2>🧠 Ideate</h2>
-  </div>
-
-  <!-- Images Row -->
-  <div class="ideate-images">
-    <img src="../assets/ideate-1.jpg" alt="User brainstorming session" />
-    <img src="../assets/ideate-2.jpg" alt="Team discussing on whiteboard" />
-  </div>
-
-  <!-- Design Principles -->
-  <div class="design-principles">
-    <h3>Design Principles</h3>
-    <p>Based on our research findings, we established core design principles to guide our ideation process.</p>
-
-    <div class="principle-cards">
-      <div class="principle-card">
-        <div class="icon">↘️</div>
-        <h4>Transparency</h4>
-        <p>Always show real-time status and clear feedback at every step</p>
+      <div class="bento">
+        <img src="../assets/ev-design-1.png" alt="High-fidelity screen" class="lightbox">
+        <img src="../assets/ev-design-2.png" alt="Live map screen" class="lightbox tall">
       </div>
-      <div class="principle-card">
-        <div class="icon yellow">✔️</div>
-        <h4>Simplicity</h4>
-        <p>Reduce cognitive load with clear hierarchy and minimal steps</p>
+    </section>
+
+    <!-- TEST -->
+    <section id="test" class="cs-section">
+      <h2>Testing</h2>
+      <p>
+        We ran usability tests and think-alouds. Users praised the clarity and suggested battery % indicators.
+      </p>
+
+      <div class="timeline">
+        <div class="tl-item">Usability Sessions (5 users)</div>
+        <div class="tl-item">Figma Prototypes + Feedback</div>
+        <div class="tl-item">2 Iteration Rounds</div>
       </div>
-    </div>
-  </div>
-</section>
-<section class="solution-section">
-  <div class="section-header">
-    <h2>💡 Solution Concepts</h2>
-  </div>
 
-  <div class="solution-card">
-    <div class="icon orange">📍</div>
-    <div class="solution-text">
-      <h3>Real-Time Charger Map</h3>
-      <p>Interactive map showing live charger availability, speed ratings, and user reviews. Predictive availability based on usage patterns.</p>
-    </div>
-  </div>
+      <div class="bento">
+        <img src="../assets/ev-test-1.png" alt="Usability feedback" class="lightbox">
+        <img src="../assets/ev-test-2.png" alt="Survey results" class="lightbox tall">
+      </div>
 
-  <div class="solution-card">
-    <div class="icon purple">💳</div>
-    <div class="solution-text">
-      <h3>Universal Payment System</h3>
-      <p>Single stored payment method that works across all charging networks. One-tap payment with instant confirmation.</p>
-    </div>
-  </div>
+      <a href="https://www.figma.com/proto/tBP4mQblJGAB5GcZZoUaHL/Untitled?page-id=0%3A1&node-id=1-192&p=f&viewport=152%2C200%2C0.08&t=ftPZ4PLK3T9Vla0L-1&scaling=min-zoom&content-scaling=fixed" target="_blank">View Prototype ↗</a>
 
-  <div class="solution-card">
-    <div class="icon green">📊</div>
-    <div class="solution-text">
-      <h3>Charging Progress Dashboard</h3>
-      <p>Clear visual indicators of charging status, estimated completion time, and cost. Push notifications for key milestones.</p>
-    </div>
-  </div>
-
-  <div class="solution-card">
-    <div class="icon pink">🤖</div>
-    <div class="solution-text">
-      <h3>Smart Recommendations</h3>
-      <p>AI-powered suggestions for optimal charging times, nearby amenities, and alternative stations based on user preferences.</p>
-    </div>
-  </div>
-</section>
-<section class="design-process-section">
-  <h2 class="design-heading">Design Process Journey</h2>
-  <p class="design-subtext">
-    We followed an iterative design process, starting with low-fidelity wireframes and progressing through multiple rounds of refinement. Click each stage to explore.
-  </p>
-
-  <div class="process-grid">
-    <div class="process-card highlighted">
-      <div class="step-number">1</div>
-      <h3>Wireframes</h3>
-      <p>Low-fidelity sketches and user flows mapping the charging journey</p>
-    </div>
-
-    <div class="process-card">
-      <div class="step-number">2</div>
-      <h3>High-Fidelity Mockups</h3>
-      <p>Detailed visual design with complete UI components and design system</p>
-    </div>
-
-    <div class="process-card">
-      <div class="step-number">3</div>
-      <h3>Interactive Prototype</h3>
-      <p>Fully clickable prototype ready for usability testing with realistic interactions</p>
-    </div>
-  </div>
-</section>
-
+      <div class="skills-used">
+        <h4>Skills Used</h4>
+        <ul>
+          <li>User Research</li>
+          <li>Wireframing</li>
+          <li>Prototyping</li>
+          <li>Usability Testing</li>
+          <li>Mobile App Design</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
   <script src="../js/evcharging.js"></script>
 </body>
