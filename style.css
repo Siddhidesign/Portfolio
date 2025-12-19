@@ -433,34 +433,55 @@ section {
   }
 }
 
-/* =====================================================
-   SKILLS SECTION
-==================================================== */
-.skill-groups {
-  width: 90%;
+.skills-checkpoint {
+  padding: 40px;
+  max-width: 900px;
   margin: auto;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
 }
-.skill-category {
-  font-size: 1.4rem;
+
+.skills-checkpoint h3 {
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.skills-category {
+  margin-bottom: 32px;
+}
+
+.skills-category h4 {
   color: #ffd84d;
-  margin-bottom: 16px;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
 }
-.skill-tags {
+
+.skills-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
-.skill-tags .label {
-  padding: 10px 20px;
-  background: #1d1d26;
-  border-radius: 26px;
-  color: white;
-  transition: transform 0.2s ease, background 0.2s ease;
+
+.skills-tags span {
+  background: #1a1a1f;
+  color: #eee;
+  padding: 8px 14px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
 }
-.skill-tags .label:hover {
-  background: #2a2a33;
-  transform: translateY(-4px);
+
+.skills-tags span:hover {
+  background: #ffd84d;
+  color: #000;
+  border-color: #ffd84d;
+  cursor: default;
 }
+
 
 /* =====================================================
    PHOTOGRAPHY GRID
