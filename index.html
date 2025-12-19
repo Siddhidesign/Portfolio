@@ -5,225 +5,234 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Siddhi Manche — UX/UI Designer</title>
 
-  <!-- CSS Link -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- JavaScript Link -->
+  <!-- JS -->
   <script defer src="script.js"></script>
 </head>
 
 <body>
 
-  <!-- Particle Background -->
+  <!-- BACKGROUND -->
   <div class="particle-container"></div>
 
-  <!-- NAVIGATION -->
+  <!-- ================= NAV ================= -->
   <nav class="main-nav">
     <div class="nav-logo">Siddhi’s Journey</div>
+
     <ul class="nav-links">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#photography">Photography</a></li>
-      <li><a href="#projects">Extracurricular</a></li>
+      <li><a href="#extracurricular">Extracurricular</a></li>
     </ul>
+
     <a href="#contact" class="nav-contact-btn">Contact Me</a>
   </nav>
 
-  <!-- HOME -->
- 
-    <div class="hero-left cinematic-fade">
-      <h1 class="hero-title">
-        Designing <span class="pill pink">Meaningful</span><br>
-        & <span class="pill yellow">Impactful</span> Digital Journeys
-      </h1>
-      <p class="hero-desc">
-        I'm <strong>Siddhi Manche</strong>, a UX/UI Designer creating experiences rooted in clarity, emotion, and thoughtful interaction.
-      </p>
-    </div>
-    <div class="hero-right cinematic-fade parallax-float">
-      <img src="assets/profile.png" alt="Profile Image">
+  <!-- ================= HERO ================= -->
+  <section id="home" class="hero-section">
+    <div class="hero-container">
+
+      <div class="hero-left cinematic-fade">
+        <h1 class="hero-title">
+          Designing <span class="pill pink">Meaningful</span><br>
+          & <span class="pill yellow">Impactful</span> Digital Journeys
+        </h1>
+
+        <p class="hero-desc">
+          I'm <strong>Siddhi Manche</strong>, a UX/UI Designer creating experiences rooted in
+          clarity, emotion, and thoughtful interaction.
+        </p>
+      </div>
+
+      <div class="hero-right cinematic-fade parallax-float">
+        <img src="assets/profile.png" alt="Siddhi profile image">
+      </div>
+
     </div>
   </section>
 
-<section id="about">
- 
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="about-section">
+    <div class="about-container">
 
-    <!-- LEFT: POLAROID IMAGES -->
-    <div class="about-left">
-      <div class="polaroid">
-        <img src="assets/about.jpg" alt="Siddhi with dog">
-        <div class="polaroid-caption">Candid Moment</div>
-      </div>
-      <div class="polaroid">
-        <img src="assets/about2.jpg" alt="Siddhi Exploring">
-        <div class="polaroid-caption">Exploring</div>
-      </div>
-    </div> <!-- ✅ This closes .about-left properly -->
+      <!-- LEFT -->
+      <div class="about-left">
+        <div class="polaroid">
+          <img src="assets/about.jpg" alt="Candid moment">
+          <div class="polaroid-caption">Candid Moment</div>
+        </div>
 
-    <!-- RIGHT: STORY TEXT -->
-    <div class="about-right">
-      <h2 class="about-heading">We Are All Stories in Progress</h2>
-      <p class="about-subtext">Beautifully complex, layered, and always evolving. I am no exception.</p>
-      <div class="about-quality">
-        <p>🌸 <strong>Curious by Nature:</strong> I ask "why" before "how" curiosity is my compass, guiding me to deeper understanding.</p>
-        <p>🚀 <strong>Eager Explorer:</strong> New places, new ideas, new challenges I lean into them with open arms and a spark in my eyes.</p>
-        <p>🌀 <strong>Anti-Routine Rebel:</strong> Monotony is my kryptonite. I infuse freshness into each day by discovering something new in the familiar.</p>
-        <p>🌱 <strong>Quick Adaptor:</strong> I don’t just cope with change I flow with it and grow because of it.</p>
-        <p>🌍 <strong>Naturally Adaptive:</strong> Like water, I take the shape of new environments effortlessly grounded, yet fluid.</p>
-        <p>👀 <strong>Deep Observer:</strong> I notice the small things a pause, a detail, a feeling. I design with attention and intention.</p>
-        <p>💡 <strong>Constant Learner:</strong> Knowledge isn’t a checkbox it’s a pursuit. I grow by questioning and creatively applying what I learn.</p>
+        <div class="polaroid">
+          <img src="assets/about2.jpg" alt="Exploring">
+          <div class="polaroid-caption">Exploring</div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="about-right">
+        <h2 class="about-heading">We Are All Stories in Progress</h2>
+        <p class="about-subtext">
+          Beautifully complex, layered, and always evolving. I am no exception.
+        </p>
+
+        <div class="about-quality">
+          <p>🌸 <strong>Curious by Nature:</strong> I ask why before how.</p>
+          <p>🚀 <strong>Eager Explorer:</strong> I lean into new challenges.</p>
+          <p>🌀 <strong>Anti‑Routine Rebel:</strong> I thrive on freshness.</p>
+          <p>🌱 <strong>Quick Adaptor:</strong> I grow with change.</p>
+          <p>🌍 <strong>Naturally Adaptive:</strong> Grounded yet fluid.</p>
+          <p>👀 <strong>Deep Observer:</strong> I design with intention.</p>
+          <p>💡 <strong>Constant Learner:</strong> Curiosity fuels growth.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" class="projects-section">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card-image-style">
+        <div class="image-container">
+          <a href="html/MoneyAnchor.html" class="top-left-arrow">←</a>
+          <img src="assets/thumbnail3.png" alt="MoneyAnchor project">
+        </div>
+        <div class="project-info-bar">
+          <div class="info-block"><span>Sept–Dec 2025</span><label>Timeline</label></div>
+          <div class="info-block"><span>UX Designer</span><label>Role</label></div>
+          <div class="info-block"><span>Figma, AI</span><label>Tools</label></div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card-image-style">
+        <div class="image-container">
+          <a href="html/irs2go.html" class="top-left-arrow">←</a>
+          <img src="assets/Thumbnail1.png" alt="IRS2GO project">
+        </div>
+        <div class="project-info-bar">
+          <div class="info-block"><span>Jan–Apr 2025</span><label>Timeline</label></div>
+          <div class="info-block"><span>UX Designer</span><label>Role</label></div>
+          <div class="info-block"><span>Figma, WCAG</span><label>Tools</label></div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card-image-style">
+        <div class="image-container">
+          <a href="html/EVCharging.html" class="top-left-arrow">←</a>
+          <img src="assets/Project2.png" alt="EV Charging project">
+        </div>
+        <div class="project-info-bar">
+          <div class="info-block"><span>Jan–Apr 2025</span><label>Timeline</label></div>
+          <div class="info-block"><span>UX Researcher</span><label>Role</label></div>
+          <div class="info-block"><span>Figma, GPT‑4</span><label>Tools</label></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="skills-checkpoint">
+    <h3>Checkpoint 4 Skills</h3>
+
+    <div class="skills-category">
+      <h4>UX & Product</h4>
+      <div class="skills-tags">
+        <span>Journey Mapping</span>
+        <span>Interaction Design</span>
+        <span>Lean UX</span>
+        <span>A/B Testing</span>
       </div>
     </div>
 
-  </div>
-</section>
-
-
-
-      
-  <!-- PROJECTS -->
- 
-  
-    <div class="project-card-image-style">
-      <div class="image-container">
-        <a href="html/MoneyAnchor.html" class="top-left-arrow">←</a>
-        <img src="assets/thumbnail3.png" alt="IRS2Go Preview" loading="lazy" />
-      </div>
-      <div class="project-info-bar">
-        <div class="info-block"><span>Sept- Dec 2025</span><label>Timeline</label></div>
-        <div class="info-block"><span>UX Designer</span><label>Role</label></div>
-        <div class="info-block"><span>Figma, AI</span><label>Tools</label></div>
-      </div>
-    </div>
-    <div class="project-card-image-style">
-      <div class="image-container">
-        <a href="html/irs2go.html" class="top-left-arrow">←</a>
-        <img src="assets/Thumbnail1.png" alt="IRS2Go Preview" loading="lazy" />
-      </div>
-      <div class="project-info-bar">
-        <div class="info-block"><span>Jan – Apr 2025</span><label>Timeline</label></div>
-        <div class="info-block"><span>UX Designer</span><label>Role</label></div>
-        <div class="info-block"><span>Figma, WCAG Toolkit</span><label>Tools</label></div>
+    <div class="skills-category">
+      <h4>Research</h4>
+      <div class="skills-tags">
+        <span>User Interviews</span>
+        <span>Heuristic Eval</span>
+        <span>Quant & Qual Research</span>
       </div>
     </div>
 
-    <div class="project-card-image-style">
-      <div class="image-container">
-        <a href="html/EVCharging.html" class="top-left-arrow">←</a>
-        <img src="assets/Project2.png" alt="EV Charging App Preview" loading="lazy" />
+    <div class="skills-category">
+      <h4>UI & Visual</h4>
+      <div class="skills-tags">
+        <span>Design Systems</span>
+        <span>Prototyping</span>
+        <span>Typography</span>
       </div>
-      <div class="project-info-bar">
-        <div class="info-block"><span>Jan – Apr 2025</span><label>Timeline</label></div>
-        <div class="info-block"><span>UX Researcher</span><label>Role</label></div>
-        <div class="info-block"><span>Figma, GPT-4, ANOVA</span><label>Tools</label></div>
+    </div>
+
+    <div class="skills-category">
+      <h4>Technical</h4>
+      <div class="skills-tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>React</span>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <div class="skills-checkpoint">
-  <h3>Checkpoint 4 Skills</h3>
+  <!-- ================= PHOTOGRAPHY ================= -->
+  <section id="photography" class="photography-section">
+    <h2 class="section-title">Photography</h2>
 
-  <div class="skills-category">
-    <h4>UX & Product</h4>
-    <div class="skills-tags">
-      <span>Journey Mapping</span>
-      <span>Interaction Design</span>
-      <span>Lean UX</span>
-      <span>A/B Testing</span>
-    </div>
-  </div>
-
-  <div class="skills-category">
-    <h4>Research</h4>
-    <div class="skills-tags">
-      <span>User Interviews</span>
-      <span>Heuristic Eval</span>
-      <span>Quant & Qual Research</span>
-    </div>
-  </div>
-
-  <div class="skills-category">
-    <h4>UI & Visual</h4>
-    <div class="skills-tags">
-      <span>Design Systems</span>
-      <span>Prototyping</span>
-      <span>Typography</span>
-    </div>
-  </div>
-
-  <div class="skills-category">
-    <h4>Technical</h4>
-    <div class="skills-tags">
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>JavaScript</span>
-      <span>React</span>
-    </div>
-  </div>
-</div>
-
-
-  <!-- PHOTOGRAPHY -->
-  <section id="photography" class="photography-section checkpoint">
-    <div class="checkpoint-label">
-      <span class="cp-number">Checkpoint 5</span>
-      <span class="cp-name">Photography</span>
-    </div>
     <div class="photo-grid">
-      <img src="assets/gallery1.jpg" />
-      <img src="assets/gallery2.jpg" />
-      <img src="assets/gallery3.jpg" />
-      <img src="assets/gallery4.jpg" />
-      <img src="assets/gallery5.jpg" />
-      <img src="assets/gallery6.jpg" />
+      <img src="assets/gallery1.jpg" alt="">
+      <img src="assets/gallery2.jpg" alt="">
+      <img src="assets/gallery3.jpg" alt="">
+      <img src="assets/gallery4.jpg" alt="">
+      <img src="assets/gallery5.jpg" alt="">
+      <img src="assets/gallery6.jpg" alt="">
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact-section checkpoint">
-    <div class="checkpoint-label">
-      <span class="cp-number">Checkpoint 6</span>
-      <span class="cp-name">Contact</span>
-    </div>
-    <div class="contact-container cinematic-fade">
-      <div class="contact-form">
-        <h3>Send a Message</h3>
-        <form action="https://formsubmit.co/manchesr@umich.edu" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-          <label>Your Name</label>
-          <input type="text" name="name" required placeholder="Enter your name">
-          <label>Your Email</label>
-          <input type="email" name="email" required placeholder="Enter your email">
-          <label>Your Message</label>
-          <textarea name="message" required placeholder="Write your message"></textarea>
-          <button type="submit" class="contact-submit">Send Message →</button>
-        </form>
-      </div>
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="contact-section">
+    <h2 class="section-title">Contact</h2>
+
+    <div class="contact-container">
+
+      <form class="contact-form" action="https://formsubmit.co/manchesr@umich.edu" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Message</label>
+        <textarea name="message" required></textarea>
+
+        <button type="submit">Send Message →</button>
+      </form>
+
       <div class="contact-info">
-        <h3>Connect With Me</h3>
-        <p class="open-role">✨ Open to Full-Time Opportunities</p>
-        <div class="info-item">
-          <strong>Email:</strong><br>
-          <a href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a>
-        </div>
-        <div class="info-item">
-          <strong>Phone:</strong><br>
-          <a href="tel:+13134144290">+1 (313) 414-4290</a>
-        </div>
-        <div class="info-item">
-          <strong>LinkedIn:</strong><br>
-          <a href="https://linkedin.com/in/siddhimanche" target="_blank">linkedin.com/in/siddhimanche</a>
-        </div>
+        <p class="open-role">✨ Open to Full‑Time Opportunities</p>
+        <p><strong>Email:</strong> <a href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+13134144290">+1 (313) 414‑4290</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/siddhimanche" target="_blank">linkedin.com/in/siddhimanche</a></p>
       </div>
+
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ================= FOOTER ================= -->
   <footer class="footer">
     © 2025 Siddhi Manche — All Rights Reserved
   </footer>
