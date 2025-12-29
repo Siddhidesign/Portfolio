@@ -1,0 +1,128 @@
+/* Case Study Specific Styles */
+.case-study-page {
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.cs-hero {
+    padding: 140px 5% 80px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.cs-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 75px);
+    font-style: italic;
+    color: #1a2a4e;
+    margin: 20px 0;
+}
+
+.cs-summary {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #555;
+}
+
+/* Phase Sections */
+.cs-phase {
+    padding: 120px 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.cs-phase.alternate {
+    background-color: #fcfcfc;
+}
+
+.cs-container {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.cs-num {
+    color: #ff5e00;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.cs-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-style: italic;
+    margin: 15px 0 25px;
+    color: #1a2a4e;
+}
+
+.cs-text p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.cs-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.cs-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.cs-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #ff5e00;
+}
+
+/* Visuals Side */
+.cs-visuals {
+    display: grid;
+    gap: 20px;
+}
+
+.cs-visuals img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+/* UX Designer "Thinking Box" */
+.ux-insight {
+    background-color: #f1f4ff;
+    border-left: 4px solid #1a2a4e;
+    padding: 20px;
+    font-style: italic;
+    margin-top: 30px;
+}
+
+/* Footer CTA */
+.cs-footer {
+    padding: 100px 5%;
+    text-align: center;
+    background-color: #1a2a4e;
+    color: white;
+}
+
+.cs-footer h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 900px) {
+    .cs-container { grid-template-columns: 1fr; gap: 40px; }
+    .cs-text { text-align: center; }
+    .cs-list { text-align: left; }
+}
