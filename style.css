@@ -1,632 +1,1341 @@
 /* ============================================================
+
    1. GENERAL RESET & BASE STYLES
+
    ============================================================ */
+
 * {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
+
 }
+
+
 
 body {
+
     font-family: 'Inter', sans-serif;
+
     background-color: #fcfcfc;
+
     color: #333;
+
     overflow-x: hidden;
+
 }
 
+
+
 /* ============================================================
+
    2. NAVIGATION
+
    ============================================================ */
+
 .navbar {
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     padding: 40px 20px;
+
     gap: 60px;
+
 }
+
+
 
 .nav-link {
+
     text-decoration: none;
+
     color: #999;
+
     font-size: 14px;
+
     font-weight: 500;
+
     transition: color 0.3s;
+
 }
+
+
 
 .nav-link:hover {
+
     color: #333;
+
 }
+
+
 
 .logo {
+
     font-family: 'Playfair Display', serif;
+
     font-size: 24px;
+
     font-style: italic;
+
     text-align: center;
+
     line-height: 1;
+
 }
+
+
 
 .orange-text {
+
     color: #d98e5f; /* Muted Orange/Peach */
+
     display: block;
+
 }
 
+
+
 /* ============================================================
+
    3. HERO SECTION
+
    ============================================================ */
+
 .hero-container {
+
     position: relative;
+
     width: 100%;
+
     height: 90vh;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     text-align: center;
+
     overflow: hidden;
+
 }
+
+
 
 .hero-content {
+
     z-index: 10;
+
 }
+
+
 
 .sub-text {
+
     font-size: 16px;
+
     color: #666;
+
     margin-bottom: 15px;
+
 }
+
+
 
 .main-title {
+
     font-family: 'Playfair Display', serif;
+
     font-size: clamp(40px, 8vw, 85px);
+
     color: #1a2a4e; /* Dark Navy Blue */
+
     font-weight: 500;
+
     line-height: 1.1;
+
     margin-bottom: 20px;
+
 }
+
+
 
 .main-title em {
+
     font-style: italic;
+
 }
+
+
 
 .tagline {
+
     font-size: 18px;
+
     color: #666;
+
     margin-bottom: 35px;
+
 }
+
+
 
 .cta-button {
+
     display: inline-flex;
+
     align-items: center;
+
     background-color: #ff2d2d;
+
     color: white;
+
     text-decoration: none;
+
     padding: 15px 35px;
+
     border-radius: 50px;
+
     font-weight: 600;
+
     transition: transform 0.3s ease;
+
 }
+
+
 
 .cta-button:hover {
+
     transform: translateY(-3px);
+
     box-shadow: 0 10px 20px rgba(255, 45, 45, 0.2);
+
 }
+
+
 
 /* Floating Images in Hero */
+
 .float-img {
+
     position: absolute;
+
     border-radius: 15px;
+
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
     object-fit: cover;
+
     z-index: 1;
+
 }
+
+
 
 .img-1 { width: 180px; height: 240px; top: 15%; left: 10%; transform: rotate(-15deg); }
+
 .img-2 { width: 180px; height: 240px; top: 10%; right: 10%; transform: rotate(15deg); }
+
 .img-3 { width: 220px; height: 160px; bottom: 15%; left: 15%; transform: rotate(-10deg); }
+
 .img-4 { width: 200px; height: 140px; bottom: 10%; right: 15%; transform: rotate(10deg); }
 
+
+
 /* ============================================================
+
    4. WORKS SECTION (DESIGN IN ACTION)
+
    ============================================================ */
+
 .works-section {
+
     padding: 100px 5%;
+
     background: #eceae6;
+
     border-radius: 40px 40px 0 0;
+
 }
+
+
 
 .section-intro {
+
     text-align: center;
+
     margin-bottom: 60px;
+
 }
+
+
 
 .telescope-icon {
+
     width: 50px;
+
     margin-bottom: 20px;
+
 }
+
+
 
 .italic-heading {
+
     font-family: 'Playfair Display', serif;
+
     font-style: italic;
+
     color: #1a2a4e;
+
     font-size: 24px;
+
     margin-bottom: 40px;
+
 }
+
+
 
 .works-main-title {
+
     font-family: 'Playfair Display', serif;
+
     font-size: 60px;
+
     color: #1a2a4e;
+
     margin-bottom: 10px;
+
 }
+
+
 
 .works-sub {
+
     color: #666;
+
     font-size: 18px;
+
 }
+
+
 
 .project-grid {
+
     display: grid;
+
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
     gap: 30px;
+
     max-width: 1200px;
+
     margin: 0 auto;
+
 }
+
+
 
 .project-card {
+
     background: #e3e1dc;
+
     border-radius: 20px;
+
     padding: 25px;
+
     cursor: pointer;
+
     transition: transform 0.3s ease;
+
 }
+
+
 
 .project-card:hover {
+
     transform: translateY(-10px);
+
 }
+
+
 
 .card-image-container {
+
     position: relative;
+
     border-radius: 15px;
+
     overflow: hidden;
+
     background: #fff;
+
     margin-bottom: 20px;
+
 }
+
+
 
 .card-image-container img {
+
     width: 100%;
+
     display: block;
+
     transition: filter 0.3s ease;
+
 }
+
+
 
 .hover-overlay {
+
     position: absolute;
+
     top: 0;
+
     left: 0;
+
     width: 100%;
+
     height: 100%;
+
     background: rgba(26, 42, 78, 0.7);
+
     color: white;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     opacity: 0;
+
     transition: opacity 0.3s ease;
+
     font-weight: 500;
+
 }
 
+
+
 .project-card:hover .hover-overlay { opacity: 1; }
+
 .project-card:hover .card-image-container img { filter: blur(2px); }
+
+
 
 .card-info h3 { font-size: 28px; margin-bottom: 15px; color: #333; }
 
+
+
 .category-tag {
+
     background: #222;
+
     color: white;
+
     padding: 8px 18px;
+
     border-radius: 20px;
+
     font-size: 12px;
+
 }
+
+
 
 .load-more-container {
+
     text-align: center;
+
     margin-top: 60px;
+
 }
+
+
 
 .load-more-btn {
+
     background: #ff5e00;
+
     color: white;
+
     border: none;
+
     padding: 15px 40px;
+
     border-radius: 50px;
+
     font-size: 16px;
+
     font-weight: 600;
+
     cursor: pointer;
+
     transition: 0.3s;
+
 }
 
+
+
 /* ============================================================
+
    5. SERVICES SECTION (WHAT I BRING)
+
    ============================================================ */
+
 .services-section {
+
+    /* UPDATED GAP: Increased top padding and added margin for visible separation */
+
     margin-top: 100px; 
+
     padding: 250px 20px 150px 20px; 
+
     background-color: #fcfcfc;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     position: relative;
+
     overflow: hidden;
+
 }
+
+
 
 .services-container {
+
     position: relative;
+
     max-width: 1000px;
+
     width: 100%;
+
     text-align: center;
+
     min-height: 500px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
 }
+
+
 
 .ufo-icon img {
+
     width: 60px;
+
     margin-bottom: 20px;
+
 }
+
+
 
 .services-title {
+
     font-family: 'Playfair Display', serif;
+
     font-size: 72px;
+
     font-style: italic;
+
     color: #1a2a4e;
+
     line-height: 1.1;
+
     margin-bottom: 20px;
+
 }
+
+
 
 .services-sub {
+
     color: #666;
+
     font-size: 18px;
+
     line-height: 1.5;
+
 }
+
+
 
 .skill-tag {
+
     position: absolute;
+
     background-color: #dbe4ff;
+
     color: #1a2a4e;
+
     padding: 12px 24px;
+
     border-radius: 50px;
+
     font-size: 14px;
+
     font-weight: 500;
+
     white-space: nowrap;
+
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+
     transition: transform 0.3s ease;
+
     z-index: 5;
+
 }
+
+
 
 .skill-tag:hover {
+
     transform: scale(1.1);
+
     background-color: #ccd9ff;
+
 }
+
+
 
 /* Tag Positions */
+
 .tag-product  { top: 0%;   left: 45%;  transform: rotate(-10deg); }
-.tag-ux        { top: 15%;  right: 5%;  transform: rotate(5deg); }
-.tag-ui        { top: 45%;  right: -5%; transform: rotate(-5deg); }
+
+.tag-ux       { top: 15%;  right: 5%;  transform: rotate(5deg); }
+
+.tag-ui       { top: 45%;  right: -5%; transform: rotate(-5deg); }
+
 .tag-branding { bottom: 25%; right: 5%; transform: rotate(10deg); }
+
 .tag-visual   { bottom: 0%;  right: 25%; transform: rotate(-10deg); }
+
 .tag-framer   { bottom: -5%; left: 35%;  transform: rotate(5deg); }
+
 .tag-pitch    { bottom: 20%; left: 5%;   transform: rotate(-10deg); }
+
 .tag-research { top: 45%;  left: -10%; transform: rotate(5deg); }
+
 .tag-systems  { top: 10%;  left: 10%;  transform: rotate(-15deg); }
 
+
+
 /* ============================================================
-   6. RESPONSIVE DESIGN (GLOBAL)
+
+   6. RESPONSIVE DESIGN
+
    ============================================================ */
+
 @media (max-width: 900px) {
+
     .navbar { gap: 30px; }
+
     .float-img { width: 120px !important; height: auto !important; }
+
 }
+
+
 
 @media (max-width: 768px) {
+
     .services-title { font-size: 40px; }
+
     .services-section { padding: 100px 20px; margin-top: 50px; }
+
     .skill-tag {
+
         position: static;
+
         display: inline-block;
+
         margin: 5px;
+
         transform: none !important;
+
     }
+
     .services-container { display: block; min-height: auto; }
+
     .float-img { display: none; }
+
     .main-title { font-size: 45px; }
+
 }
 
 /* ============================================================
+
    7. BEHIND THE CANVAS (PHOTOGRAPHY SECTION)
+
    ============================================================ */
+
 .behind-canvas {
+
     padding: 80px 5%;
+
     background-color: #fcfcfc;
+
 }
+
+
 
 .canvas-card {
+
     background-color: #262c2e; /* Dark slate background */
+
     border-radius: 40px;
+
     padding: 80px 40px 0 40px;
+
     text-align: center;
+
     color: white;
+
     overflow: hidden;
+
     position: relative;
+
 }
+
+
 
 .canvas-icon {
+
     width: 60px;
+
     margin-bottom: 25px;
+
 }
+
+
 
 .canvas-title {
+
     font-family: 'Playfair Display', serif;
+
     font-size: 64px;
+
     font-style: italic;
+
     margin-bottom: 20px;
+
 }
+
+
 
 .canvas-intro {
+
     font-size: 18px;
+
     color: #cbd5e0;
+
     max-width: 600px;
+
     margin: 0 auto 30px auto;
+
     font-weight: 500;
+
 }
+
+
 
 .canvas-description {
+
     max-width: 700px;
+
     margin: 0 auto 40px auto;
+
     font-size: 16px;
+
     color: #a0aec0;
+
     line-height: 1.6;
+
 }
+
+
 
 .canvas-description p {
+
     margin-bottom: 15px;
+
 }
+
+
 
 .remix-btn {
+
     display: inline-block;
+
     background-color: #ff1a1a;
+
     color: white;
+
     text-decoration: none;
+
     padding: 12px 28px;
+
     border-radius: 50px;
+
     font-weight: 600;
+
     margin-bottom: 60px;
+
     transition: 0.3s;
+
 }
+
+
 
 .remix-btn:hover {
+
     transform: scale(1.05);
+
     background-color: #e60000;
+
 }
+
+
+
+/* Photography Area with Grid */
 
 .photo-container {
+
     position: relative;
+
     padding-bottom: 80px;
+
 }
+
+
 
 .photo-grid-lines {
+
     position: absolute;
+
     top: 0;
+
     left: 0;
+
     width: 100%;
+
     height: 100%;
+
+    /* Creates the perspective grid effect */
+
     background-image: 
+
         linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+
         linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+
     background-size: 40px 40px;
+
     transform: perspective(500px) rotateX(60deg);
+
     transform-origin: top;
+
     z-index: 1;
+
 }
+
+
 
 .photo-wrapper {
+
     position: relative;
+
     z-index: 2;
+
     display: flex;
+
     justify-content: center;
+
     align-items: flex-end;
+
     gap: 30px;
+
     margin-top: -20px;
+
 }
+
+
 
 .canvas-photo {
+
     width: 220px;
+
     height: 280px;
+
     object-fit: cover;
+
     border-radius: 20px;
+
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
     transition: transform 0.3s ease;
+
 }
+
+
+
+/* Specific tilts for photography cards */
 
 .photo-left { transform: rotate(-8deg) translateY(20px); }
+
 .photo-center { transform: rotate(2deg) translateY(-10px); }
+
 .photo-right { transform: rotate(8deg) translateY(20px); }
 
+
+
 .canvas-photo:hover {
+
     transform: scale(1.1) rotate(0deg);
+
     z-index: 10;
+
+}
+
+
+
+/* Mobile Adjustments */
+
+@media (max-width: 768px) {
+
+    .canvas-title { font-size: 40px; }
+
+    .photo-wrapper {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+    .canvas-photo {
+
+        width: 80%;
+
+        height: auto;
+
+        transform: none !important;
+
+    }
+
 }
 
 /* ============================================================
+
    8. TESTIMONIALS SECTION
+
    ============================================================ */
+
 .testimonials {
+
     padding: 100px 20px;
+
     background-color: #fcfcfc;
+
     text-align: center;
+
 }
+
+
 
 .testimonial-title {
+
     font-family: 'Playfair Display', serif;
+
     font-size: 32px;
+
     font-style: italic;
+
     color: #1a2a4e;
+
     margin-bottom: 60px;
+
 }
+
+
 
 .testimonial-container {
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
-    gap: 40px;
+
+    gap: 40px; /* Space between the cards */
+
     max-width: 800px;
+
     margin: 0 auto;
+
 }
+
+
 
 .testimonial-card {
-    background-color: #edeae6;
+
+    background-color: #edeae6; /* Muted light grey/beige background */
+
     padding: 45px 50px;
+
     border-radius: 20px;
+
     text-align: left;
+
     width: 100%;
+
 }
+
+
 
 .testimonial-text {
+
     font-size: 20px;
+
     line-height: 1.5;
+
     color: #333;
+
     margin-bottom: 30px;
+
     font-weight: 400;
+
 }
+
+
+
+/* Orange highlighted text in testimonials */
 
 .highlight {
+
     color: #ff8c42; 
+
     font-weight: 500;
+
 }
+
+
 
 .client-info {
+
     display: flex;
+
     align-items: center;
+
     gap: 15px;
+
 }
+
+
 
 .client-avatar {
+
     width: 60px;
+
     height: 60px;
-    border-radius: 50%;
+
+    border-radius: 50%; /* Perfect circle */
+
     object-fit: cover;
+
 }
+
+
 
 .client-name {
+
     font-weight: 600;
+
     font-size: 18px;
+
     color: #222;
+
 }
+
+
 
 .client-role {
+
     font-size: 14px;
+
     color: #777;
+
+}
+
+
+
+/* Mobile Adjustments */
+
+@media (max-width: 768px) {
+
+    .testimonial-card {
+
+        padding: 30px;
+
+    }
+
+    .testimonial-text {
+
+        font-size: 18px;
+
+    }
+
 }
 
 /* ============================================================
+
    9. CONTACT & FOOTER SECTION
+
    ============================================================ */
+
 .contact-section {
+
     padding: 120px 20px 60px 20px;
+
     background-color: #fcfcfc;
+
     text-align: center;
+
 }
+
+
 
 .contact-header {
+
     margin-bottom: 60px;
+
 }
+
+
 
 .contact-icon {
+
     width: 60px;
+
     margin-bottom: 30px;
+
 }
+
+
 
 .contact-title {
+
     font-family: 'Playfair Display', serif;
+
     font-size: clamp(40px, 6vw, 72px);
+
     font-style: italic;
+
     color: #1a2a4e;
+
     line-height: 1.1;
+
     margin-bottom: 20px;
+
 }
+
+
 
 .contact-sub {
+
     font-size: 18px;
+
     color: #666;
+
 }
+
+
+
+/* Links List Container */
 
 .links-list {
+
     max-width: 650px;
+
     margin: 0 auto 100px auto;
+
     display: flex;
+
     flex-direction: column;
+
     gap: 12px;
+
 }
+
+
+
+/* Individual Link Row */
 
 .link-item {
-    background-color: #edeae6;
+
+    background-color: #edeae6; /* Muted grey/beige background */
+
     padding: 24px 35px;
+
     border-radius: 20px;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     text-decoration: none;
+
     transition: transform 0.2s ease, background-color 0.2s ease;
+
 }
+
+
 
 .link-item:hover {
+
     transform: scale(1.02);
+
     background-color: #e2dfda;
+
 }
+
+
 
 .link-item .label {
+
     font-size: 16px;
+
     color: #555;
+
     font-weight: 500;
+
 }
+
+
 
 .link-item .value {
+
     font-size: 16px;
+
     color: #222;
+
     font-weight: 500;
+
 }
+
+
+
+/* Download specific item */
+
+.download-item {
+
+    cursor: pointer;
+
+}
+
+
+
+.download-icon {
+
+    font-size: 20px;
+
+    border: 1.5px solid #222;
+
+    border-radius: 50%;
+
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+
+/* Footer Styling */
 
 .footer {
+
     padding-top: 40px;
+
 }
+
+
 
 .footer-logo {
+
     font-family: 'Playfair Display', serif;
+
     font-size: 28px;
+
     font-style: italic;
+
     line-height: 1;
+
     margin-bottom: 15px;
+
 }
+
+
 
 .copyright {
+
     font-size: 14px;
+
     color: #999;
+
 }
 
-/* ============================================================
-   10. ADDITIONAL RESPONSIVE ADJUSTMENTS
-   ============================================================ */
+
+
+/* Mobile Adjustments */
+
 @media (max-width: 768px) {
-    .testimonial-card { padding: 30px; }
-    .testimonial-text { font-size: 18px; }
-    
-    .canvas-title { font-size: 40px; }
-    .photo-wrapper { flex-direction: column; align-items: center; }
-    .canvas-photo { width: 80%; height: auto; transform: none !important; }
 
     .link-item {
+
         flex-direction: column;
+
         align-items: flex-start;
+
         gap: 5px;
+
         padding: 20px;
+
     }
-    .link-item .value { font-size: 14px; }
+
+    
+
+    .link-item .value {
+
+        font-size: 14px;
+
+    }
+
 }
