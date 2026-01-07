@@ -4,32 +4,32 @@
 // This array contains the 4 projects that are hidden by default
 const extraProjects = [
     {
-        title: "LaunchPad",
+        title: "EV Charging-Human Factors Project",
         category: "UI & UX",
         img: "https://picsum.photos/600/400?random=11",
-        url: "launchpad.html",
+        url: "ev.html",
         overlay: "View Case Study"
     },
     {
-        title: "EcoTrack App",
+        title: "GrocGenie-AI powered grocery tracking app",
         category: "Sustainability",
         img: "https://picsum.photos/600/400?random=12",
-        url: "ecotrack.html",
-        overlay: "Coming Soon"
+        url: "grocgenie.html",
+        overlay: "View Case Study"
     },
     {
-        title: "HealthSync",
+        title: "Mental Health Support App",
         category: "Medical UI",
         img: "https://picsum.photos/600/400?random=13",
-        url: "healthsync.html",
-        overlay: "Coming Soon"
+        url: "health.html",
+        overlay: "View Case Study"
     },
     {
-        title: "Smart Home UI",
+        title: "Real-Time Identification of Medicinal Plants",
         category: "IoT Design",
         img: "https://picsum.photos/600/400?random=14",
-        url: "smarthome.html",
-        overlay: "Coming Soon"
+        url: "medicine.html",
+        overlay: "View Case Study"
     }
 ];
 
