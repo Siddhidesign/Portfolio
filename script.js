@@ -4,30 +4,30 @@
 // This array contains the 4 projects that are hidden by default
 const extraProjects = [
     {
-        title: "EV Charging-Human Factors Project",
+        title: "EV Charging - Human Factors Project",
         category: "UI & UX",
-        img: "https://picsum.photos/600/400?random=11",
+        img: "https://picsum.photos/600/400?random=11", // Replace with your actual image path
         url: "ev.html",
         overlay: "View Case Study"
     },
     {
-        title: "GrocGenie-AI powered grocery tracking app",
+        title: "GrocGenie - AI powered grocery tracking app",
         category: "Sustainability",
-        img: "https://picsum.photos/600/400?random=12",
+        img: "https://picsum.photos/600/400?random=12", // Replace with your actual image path
         url: "grocgenie.html",
         overlay: "View Case Study"
     },
     {
         title: "Mental Health Support App",
         category: "Medical UI",
-        img: "https://picsum.photos/600/400?random=13",
+        img: "https://picsum.photos/600/400?random=13", // Replace with your actual image path
         url: "health.html",
         overlay: "View Case Study"
     },
     {
         title: "Real-Time Identification of Medicinal Plants",
         category: "IoT Design",
-        img: "https://picsum.photos/600/400?random=14",
+        img: "https://picsum.photos/600/400?random=14", // Replace with your actual image path
         url: "medicine.html",
         overlay: "View Case Study"
     }
@@ -81,8 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     });
 });
