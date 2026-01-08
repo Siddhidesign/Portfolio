@@ -6,7 +6,7 @@ const extraProjects = [
     {
         title: "EV Charging - Human Factors Project",
         category: "UI & UX",
-        img: "https://picsum.photos/600/400?random=11", // Replace with your actual image path
+        img: "assets/Project2.png", // Replace with your actual image path
         url: "ev/ev.html",
         overlay: "View Case Study"
     },
