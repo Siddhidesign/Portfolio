@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EV Charging HMI | UX Case Study</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="ev/ev.css">    </head>
+    <link rel="stylesheet" href="ev.css"> </head>
 <body class="case-study-page">
 
     <nav class="navbar">
-        <a href="index.html" class="nav-link">← Portfolio</a>
+        <a href="../index.html" class="nav-link">← Portfolio</a>
         <div class="logo">Siddhi Manche</div>
         <div class="nav-right">EV Charging Case Study</div>
     </nav>
 
-    <header class="cs-hero ev-hero">
+    <header class="cs-hero">
         <div class="cs-hero-content">
             <span class="category-tag">Human Factors & Sustainability</span>
-            <h1 class="cs-title">Combating Range Anxiety with Human Factors</h1>
-            <p class="cs-summary">A research-driven HMI design focused on unifying the fragmented EV charging landscape and addressing safety vulnerabilities in public infrastructure.</p>
+            <h1 class="cs-title">Standardizing the Electric Journey</h1>
+            <p class="cs-summary">A research-driven HMI design focused on reducing range anxiety by unifying fragmented charging networks and prioritizing user safety through real-time amenity data.</p>
         </div>
     </header>
 
@@ -26,17 +26,17 @@
         <div class="cs-container">
             <div class="cs-text">
                 <span class="cs-num">01 / Research</span>
-                <h2>The Anatomy of Range Anxiety</h2>
-                <p>Through a literature review of the public charging study, we found that range anxiety isn't just about battery life—it's about <strong>Information Trust</strong>. Users are forced to navigate a "walled garden" of charging networks.</p>
+                <h2>The Barriers to Adoption</h2>
+                <p>Through a comprehensive literature review, we identified that range anxiety isn't just about battery capacity; it's a lack of trust in infrastructure reliability.</p>
                 <ul class="cs-list">
-                    <li>25% of users report charger reliability issues</li>
-                    <li>Significant safety gaps for female users at night</li>
-                    <li>Fragmented payment systems causing cognitive fatigue</li>
+                    <li>25% of users report frequent charger reliability issues[cite: 40996].</li>
+                    <li>Significant safety concerns for female users at night.</li>
+                    <li>Fragmented payment systems causing "app fatigue".</li>
                 </ul>
             </div>
             <div class="cs-visuals">
-                <img src="assets/ev-research-1.png" alt="Literature Review Analysis">
-                <img src="assets/ev-research-2.png" alt="User Pain Point Mapping">
+                <img src="../assets/ev-research-1.png" alt="Literature Review Themes">
+                <img src="../assets/ev-research-2.png" alt="User Pain Point Mapping">
             </div>
         </div>
     </section>
@@ -45,15 +45,15 @@
         <div class="cs-container">
             <div class="cs-text">
                 <span class="cs-num">02 / Define</span>
-                <h2>Human-Centered Heuristics</h2>
-                <p>We defined the core problem: The EV experience lacks <strong>Standardization</strong>. We applied Nielsen’s Heuristics to move from "Finding a plug" to "Planning a journey."</p>
+                <h2>Human Factor Heuristics</h2>
+                <p>We defined the core problem: The EV experience lacks <strong>Visibility of System Status</strong>. Users are often "blind" to the actual condition of a charger until they arrive.</p>
                 <div class="ux-insight">
-                    <strong>Insight:</strong> Safety is a secondary barrier; users often skip the closest charger if the location feels isolated or poorly lit.
+                    <strong>Insight:</strong> Reliability is the primary barrier, but <em>safety</em> is the emotional hurdle that prevents night-time travel.
                 </div>
             </div>
             <div class="cs-visuals">
-                <img src="assets/ev-persona.png" alt="EV User Personas">
-                <img src="assets/ev-journey.png" alt="Current Journey Map">
+                <img src="../assets/ev-persona.png" alt="EV User Personas">
+                <img src="../assets/ev-journey.png" alt="Charging Journey Map">
             </div>
         </div>
     </section>
@@ -62,12 +62,12 @@
         <div class="cs-container">
             <div class="cs-text">
                 <span class="cs-num">03 / Ideate</span>
-                <h2>Bridging Networks</h2>
-                <p>Our ideation focused on a <strong>Unified Dashboard</strong>. We prototyped features that allow users to view availability and speed across all competitor networks in one real-time map.</p>
+                <h2>Unified Station Visualization</h2>
+                <p>Our ideation focused on a <strong>Cross-Network Interface</strong>. We aimed to create a single source of truth for availability, plug compatibility, and charging speeds across all competitors.</p>
             </div>
             <div class="cs-visuals">
-                <img src="assets/ev-wireframes.png" alt="Low-fi wireframes">
-                <img src="assets/ev-hmi-flow.png" alt="Proposed Task Analysis">
+                <img src="../assets/ev-wireframes.png" alt="Low-fi wireframes">
+                <img src="../assets/ev-flow.png" alt="Task Analysis Flow">
             </div>
         </div>
     </section>
@@ -76,12 +76,12 @@
         <div class="cs-container">
             <div class="cs-text">
                 <span class="cs-num">04 / Design</span>
-                <h2>Confidence Through Visualization</h2>
-                <p>The final UI prioritizes <strong>Status Visibility</strong>. We added safety indicators—such as lighting levels and onsite amenities—directly onto the map pins to reduce user vulnerability.</p>
+                <h2>A Safety-First Interface</h2>
+                <p>The final UI introduces <strong>Amenity Overlays</strong>. Users can now filter for stations based on lighting levels, onsite staff, and restroom availability—addressing the vulnerability users feel in isolated areas.</p>
             </div>
             <div class="cs-visuals">
-                <img src="assets/ev-final-map.png" alt="Unified Map Design">
-                <img src="assets/ev-payment.png" alt="Simplified Payment UI">
+                <img src="../assets/ev-final-1.png" alt="Unified Map Dashboard">
+                <img src="../assets/ev-final-2.png" alt="Payment & Safety Details">
             </div>
         </div>
     </section>
@@ -90,19 +90,20 @@
         <div class="cs-container">
             <div class="cs-text">
                 <span class="cs-num">05 / Impact</span>
-                <h2>Designing for Adoption</h2>
-                <p>By solving for the most vulnerable users, we improve the experience for everyone. The resulting interface reduces the "Time to Charge" and provides the psychological reassurance needed for long-distance travel.</p>
+                <h2>Bridging the Gender Gap</h2>
+                <p>By implementing <strong>Human Factor Heuristics</strong>, we moved beyond technical utility to psychological comfort. Our testing showed that real-time status updates significantly reduced cognitive load.</p>
             </div>
             <div class="cs-visuals">
-                <img src="assets/ev-prototype.png" alt="Final High-Fi Prototype">
+                <img src="../assets/ev-prototype.png" alt="Final High-Fi Prototype">
             </div>
         </div>
     </section>
 
     <footer class="cs-footer">
         <h3>Ready to see the next project?</h3>
-        <a href="health.html" class="cta-button">IRS2Go Redesign ↗</a>
+        <a href="../launchpad.html" class="cta-button">View LaunchPad ↗</a>
     </footer>
 
+    <script src="ev.js"></script>
 </body>
 </html>
