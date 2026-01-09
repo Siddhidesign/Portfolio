@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrocGenie | Deep-Dive UX Case Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="grocgenie.css">
+</head>
+<body class="case-study-page">
+
+    <nav class="navbar">
+        <a href="../index.html" class="nav-link">← Portfolio</a>
+        <div class="logo">Siddhi Manche</div>
+        <div class="nav-right">GrocGenie: Human-AI Teaming</div>
+    </nav>
+
+    <header class="cs-hero">
+        <div class="cs-hero-content">
+            <span class="category-tag">Human-AI Collaboration</span>
+            <h1 class="cs-title">GrocGenie: Engineering Trust in AI Systems</h1>
+            <p class="cs-summary">A comprehensive study on how intelligent food management can reduce household waste by 40%. This project focuses on the intersection of computer vision, user privacy, and AI explainability.</p>
+        </div>
+    </header>
+
+    <section class="cs-phase alternate">
+        <div class="cs-container">
+            <div class="cs-text">
+                <span class="cs-num">01 / Research</span>
+                <h2>Synthesizing the Friction</h2>
+                <p>Our discovery phase revealed that food waste is a byproduct of <strong>cognitive overload</strong>. We analyzed target audiences—busy students and families—to identify why existing manual trackers fail.</p>
+                <ul class="cs-list">
+                    <li><strong>Fridge Blindness:</strong> Once items are pushed to the back of the fridge, they effectively "cease to exist" in the user's mind.</li>
+                    <li><strong>The Logging Tax:</strong> Users find the "Manual Log" barrier too high for everyday items like milk or kale.</li>
+                    <li><strong>Surveillance Anxiety:</strong> A critical finding was the fear of cloud-based kitchen cameras, leading us to a "Local-First" data strategy.</li>
+                </ul>
+            </div>
+            <div class="cs-visuals">
+                <img src="../assets/groc-affinity.png" alt="Affinity mapping of waste behaviors">
+                <img src="../assets/groc-persona.png" alt="Primary Persona: Anthony the Busy Professional">
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-phase">
+        <div class="cs-container">
+            <div class="cs-text">
+                <span class="cs-num">02 / Define</span>
+                <h2>Defining the Human-AI Feedback Loop</h2>
+                <p>Instead of an autonomous system, we designed a <strong>Collaborative Agent</strong>. We mapped out "Anthony's Storyboard" to pinpoint exactly where the AI should intervene and where it should yield control.</p>
+                <div class="ux-insight">
+                    <strong>AI Requirements:</strong> The system must prioritize <em>Explainability</em> (Why is this on my list?) and <em>User Agency</em> (Let me delete this even if the AI thinks I need it).
+                </div>
+                <p>We applied Microsoft’s AI Design Guidelines, specifically focusing on G1 (Make clear what the system can do) and G11 (Make clear why the system did what it did).</p>
+            </div>
+            <div class="cs-visuals">
+                <img src="../assets/groc-storyboard.png" alt="Storyboarding the AI interaction lifecycle">
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-phase alternate">
+        <div class="cs-container">
+            <div class="cs-text">
+                <span class="cs-num">03 / Ideate</span>
+                <h2>Designing for "Shared Control"</h2>
+                <p>Our task analysis focused on the "Duplicate Warning" and "Expiry Prediction" flows. We asked: how do we present an AI error without frustrating the user?</p>
+                <ul class="cs-list">
+                    <li><strong>Confidence Indicators:</strong> Using low-profile UI cues to show how "sure" the AI is about a scan.</li>
+                    <li><strong>Contextual Previews:</strong> Showing the user a thumbnail of what the camera saw so they can verify the AI’s logic.</li>
+                </ul>
+            </div>
+            <div class="cs-visuals">
+                <img src="../assets/groc-task-analysis.png" alt="Task analysis of Human-AI teaming">
+                <img src="../assets/groc-wireframes.png" alt="Evolution of the scan interface">
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-phase">
+        <div class="cs-container">
+            <div class="cs-text">
+                <span class="cs-num">04 / Design</span>
+                <h2>Privacy-First High Fidelity UI</h2>
+                <p>The final interface balances friendly, motivating tones with high-utility dashboards. Key technical features include:</p>
+                <ul class="cs-list">
+                    <li><strong>Transparent Scanning:</strong> Real-time bounding boxes that identify ingredients (Organic Eggs, Kale, Cheese) with clear labels.</li>
+                    <li><strong>Sustainability Visualization:</strong> A "Savings" tab that gamifies waste reduction into real dollar amounts saved.</li>
+                    <li><strong>Local-Only Mode:</strong> A clear UI indicator that camera data is processed on-device and not sent to a cloud server.</li>
+                </ul>
+            </div>
+            <div class="cs-visuals">
+                <img src="../assets/groc-final-ui.png" alt="High-fidelity inventory dashboard">
+                <img src="../assets/groc-design-specs.png" alt="WCAG 2.1 AA design specifications">
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-phase alternate">
+        <div class="cs-container">
+            <div class="cs-text">
+                <span class="cs-num">05 / Evaluation</span>
+                <h2>Evaluating Trust & Adaptation</h2>
+                <p>We conducted a multi-metric evaluation across Usability, Desirability, and **Explainability**. Users were asked to complete complex tasks, such as finding items expiring in exactly two days using the AI assistant.</p>
+                <ul class="cs-list">
+                    <li><strong>The "Aha" Moment:</strong> Users gained trust when the AI correctly identified duplicates from a grocery bag.</li>
+                    <li><strong>Critical Pivot:</strong> Testing showed that "Cost Estimations" felt invasive. We shifted to "Savings Progress" to focus on positive reinforcement.</li>
+                </ul>
+            </div>
+            <div class="cs-visuals">
+                <img src="../assets/groc-testing-metrics.png" alt="Human-AI collaboration evaluation data">
+            </div>
+        </div>
+    </section>
+
+    <footer class="cs-footer">
+        <h3>Continue Exploring?</h3>
+        <a href="../ev/ev.html" class="cta-button">View EV Charging Project ↗</a>
+    </footer>
+
+    <script src="grocgenie.js"></script>
+</body>
+</html>
