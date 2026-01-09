@@ -14,7 +14,7 @@ const extraProjects = [
         title: "GrocGenie - AI powered grocery tracking app",
         category: "Sustainability",
         img: "https://picsum.photos/600/400?random=12", // Replace with your actual image path
-        url: "grocgenie.html",
+        url: "grocgenie/grocgenie.html",
         overlay: "View Case Study"
     },
     {
