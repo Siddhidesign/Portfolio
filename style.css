@@ -249,6 +249,150 @@ body {
 .img-4 { width: 200px; height: 140px; bottom: 10%; right: 15%; transform: rotate(10deg); }
 
 
+/* ============================================================
+   EXPERIENCE DETAIL PAGE STYLES
+   ============================================================ */
+
+/* Hero Section for Detail Page */
+.detail-hero {
+    background-color: #eceae6; /* Matches your works section bg */
+    padding: 120px 20px 80px 20px;
+    text-align: center;
+}
+
+.company-label {
+    font-size: 16px;
+    color: #d98e5f; /* Your orange accent */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.detail-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 60px);
+    color: #1a2a4e;
+    margin-bottom: 15px;
+}
+
+.detail-date {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Main Container */
+.detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+.metric-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+}
+
+.metric-number {
+    font-size: 42px;
+    font-family: 'Playfair Display', serif;
+    color: #1a2a4e;
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Content Layout (Text + Sidebar) */
+.detail-content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Text takes 2/3, Sidebar takes 1/3 */
+    gap: 60px;
+}
+
+.detail-main-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #1a2a4e;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.detail-main-text h2:first-child {
+    margin-top: 0;
+}
+
+.detail-main-text p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.detail-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.detail-list li {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 3px solid #d98e5f; /* Orange accent line */
+}
+
+/* Sidebar Styling */
+.detail-sidebar h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.sidebar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag-static {
+    background: #e3e1dc;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .detail-content-wrapper {
+        grid-template-columns: 1fr; /* Stack sidebar below text on mobile */
+        gap: 40px;
+    }
+    
+    .detail-hero {
+        padding-top: 100px;
+    }
+}
 
 /* ============================================================
 
