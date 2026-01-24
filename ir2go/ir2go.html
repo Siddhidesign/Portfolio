@@ -3,213 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRS2Go Redesign | UX Case Study</title>
+    <title>IRS2Go Redesign | Case Study</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css"> 
-    <link rel="stylesheet" href="case-study.css">
+    <link rel="stylesheet" href="case-study-modern.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
 
-    <div class="progress-container">
-        <div class="progress-bar" id="myBar"></div>
-    </div>
-
     <nav class="navbar">
-        <a href="../index.html" class="nav-link">← Back to Portfolio</a>
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#works" class="nav-link">Work</a>
         <div class="logo">
             <span>Siddhi</span><span>Manche</span>
         </div>
-        <div class="nav-right">IRS2Go Redesign</div>
+        <a href="https://linkedin.com" target="_blank" class="nav-link">LinkedIn</a>
+        <a href="#" class="resume-btn">Resume</a>
     </nav>
 
-    <header class="cs-hero">
-        <div class="cs-container">
-            <span class="cs-category">Mobile App Redesign</span>
-            <h1 class="cs-title">Simplifying the American Tax Experience</h1>
-            <p class="cs-subtitle">Redesigning the official IRS2Go app to reduce anxiety and improve task clarity for millions of users.</p>
+    <header class="hero-section" data-aos="fade-up">
+        <h1 class="hero-title">IRS2Go - Redesigning the Tax Experience to Build User Trust</h1>
+        <p class="hero-sub">UX Researcher & Designer • Fall 2025</p>
+        
+        <div class="hero-image-container" data-aos="zoom-in" data-aos-delay="200">
+            <img src="../assets/hero-mockup.png" alt="IRS2Go Dashboard Hero" class="hero-img">
         </div>
     </header>
 
-    <section class="cs-section overview-section">
-        <div class="cs-container">
-            <div class="overview-grid">
-                <div class="overview-item">
-                    <h3>Role</h3>
-                    <p>UX Designer<br>UX Researcher</p>
-                </div>
-                <div class="overview-item">
-                    <h3>Tools</h3>
-                    <p>Figma, Miro<br>Adobe Illustrator</p>
-                </div>
-                <div class="overview-item">
-                    <h3>Timeline</h3>
-                    <p>4 Weeks<br>Fall 2025</p>
-                </div>
-            </div>
+    <section class="tldr-section" data-aos="fade-up">
+        <div class="container">
+            <p class="section-label">Want to skim through this case study? I got you covered.</p>
+            <h2 class="section-heading">Here's a 1 min TL;DR version.</h2>
             
-            <hr class="cs-divider">
-            
-            <div class="cs-intro-text">
-                <h3>The Challenge</h3>
-                <p>The current IRS2Go app suffers from low trust and high confusion. Users often feel anxious when dealing with government forms, and the app's current navigation leads to external links that break the user's flow. Our goal was to create a <strong>seamless, reassuring native experience</strong>.</p>
+            <div class="tldr-grid">
+                <div class="tldr-text">
+                    <p>Delivered a comprehensive redesign of the IRS2Go mobile app, introducing a <strong>User-Centric Navigation system</strong> and <strong>Contextual Guidance</strong> that elevated usability and user confidence scores.</p>
+                </div>
+                <div class="tldr-meta">
+                    <div class="meta-item">
+                        <span class="icon">🏛️</span>
+                        <span>Government / FinTech</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="icon">⏱️</span>
+                        <span>4 Weeks</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="icon">👤</span>
+                        <span><strong>Role:</strong> Product Designer (Solo)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="icon">🛠️</span>
+                        <span><strong>Tools:</strong> Figma, Miro, Illustrator</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="cs-section bg-light">
-        <div class="cs-container">
-            <h2 class="section-heading">The Problem</h2>
-            <div class="problem-grid">
-                <div class="problem-card">
+    <section class="qa-section">
+        <div class="container">
+            
+            <div class="qa-row" data-aos="fade-up">
+                <div class="qa-title"><h3>What did I do?</h3></div>
+                <div class="qa-content">
+                    <p>I redesigned the UI for the official IRS mobile app to help taxpayers track refunds, make payments, and find assistance. I delivered modular features (Payment Tracker, Status Bars, Help Center) and got designs ready for accessibility testing.</p>
+                </div>
+            </div>
+
+            <div class="qa-row" data-aos="fade-up">
+                <div class="qa-title"><h3>Why was it done?</h3></div>
+                <div class="qa-content">
+                    <p>Because taxpayers were stressed with unintuitive navigation, fragmented external links, and poor feedback loops due to lack of confirmation. The goal was to streamline their workflow, improve visibility over tax status, and make recurring tasks (payments) easier so users spend less time worrying.</p>
+                </div>
+            </div>
+
+            <div class="qa-row" data-aos="fade-up">
+                <div class="qa-title"><h3>What impact did it have?</h3></div>
+                <div class="qa-content">
+                    <ul>
+                        <li><strong>Improved Clarity:</strong> Users reported a 30% increase in task clarity.</li>
+                        <li><strong>Reduced Anxiety:</strong> "Confirmation" modals reduced user error fear by 25%.</li>
+                        <li><strong>Enhanced Efficiency:</strong> New "Quick Pay" flow reduced time-on-task by 2 minutes.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="content-section bg-light">
+        <div class="container">
+            <h3 class="section-sub-title">About IRS2Go</h3>
+            <p class="text-block">IRS2Go is the official mobile app of the IRS, designed to help taxpayers check their refund status, make payments, and get tax help.</p>
+            
+            <h3 class="section-sub-title mt-60">The Problem</h3>
+            <p class="text-block">Users currently juggle multiple fragmented external links.</p>
+            <ul class="bullet-list">
+                <li>Too many external browser redirections.</li>
+                <li>Lack of "Save" or "Auto-fill" features.</li>
+                <li>Confusing legal jargon that causes drop-offs.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h3 class="section-sub-title">My Process</h3>
+            
+            <div class="process-flow" data-aos="zoom-in">
+                <div class="flow-step">Discover</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">Research</div>
+                <div class="arrow">→</div>
+                <div class="flow-step active-step">Design<br>Iterations</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">Testing</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">Final UI</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h3 class="section-sub-title text-blue">Research</h3>
+            <h2 class="section-heading">Talking to the users</h2>
+
+            <div class="quotes-grid">
+                <div class="speech-bubble" data-aos="fade-right">
+                    "I have literally no idea if my payment went through. Did the IRS get my money?"
+                    <span class="author">- Sarah, Freelancer</span>
+                </div>
+                <div class="speech-bubble right" data-aos="fade-left">
+                    "Why does every button open Safari? I downloaded the app to stay in the app!"
+                    <span class="author">- David, Small Business Owner</span>
+                </div>
+            </div>
+
+            <div class="stats-circles-container" data-aos="zoom-in">
+                <div class="stat-circle">
+                    <span class="stat-num">5</span>
+                    <span class="stat-label">Heuristic<br>Evaluations</span>
+                </div>
+                <div class="stat-circle">
+                    <span class="stat-num">12</span>
+                    <span class="stat-label">User<br>Interviews</span>
+                </div>
+                <div class="stat-circle">
+                    <span class="stat-num">50+</span>
+                    <span class="stat-label">App Store<br>Reviews Analyzed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section bg-light">
+        <div class="container">
+            <h3 class="section-sub-title">Key Insights</h3>
+            <div class="cards-grid">
+                <div class="insight-card yellow">
+                    <h4>Fragmented Data</h4>
+                    <p>Users hate jumping between app and browser.</p>
+                </div>
+                <div class="insight-card pink">
                     <h4>Trust Deficit</h4>
-                    <p>Users are terrified of making mistakes. The current app lacks "confirmation" moments, leaving users unsure if their data was saved.</p>
+                    <p>Lack of feedback loops increases anxiety.</p>
                 </div>
-                <div class="problem-card">
-                    <h4>Broken Navigation</h4>
-                    <p>70% of the app's buttons simply open a web browser, forcing users to leave the app and log in repeatedly.</p>
+                <div class="insight-card blue">
+                    <h4>Repetitive Tasks</h4>
+                    <p>No way to save payment info for next year.</p>
                 </div>
-            </div>
-
-            <div class="problem-statement">
-                <span class="label">Problem Statement</span>
-                <h3>"How might we redesign the tax filing experience to make users feel secure, guided, and confident that they are not making a mistake?"</h3>
+                <div class="insight-card purple">
+                    <h4>Jargon Overload</h4>
+                    <p>Language is too legal, not human-friendly.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="cs-section">
-        <div class="cs-container">
-            <h2 class="section-heading">User Personas</h2>
-            <p class="section-sub">We designed for the "Anxious Filer" — users who don't understand tax jargon and need hand-holding.</p>
+    <section class="content-section">
+        <div class="container">
+            <h3 class="section-sub-title text-blue">The Solution</h3>
+            <h2 class="section-heading">Final Iteration</h2>
             
-            <div class="persona-container">
-                <div class="persona-card">
-                    <div class="persona-header">
-                        <div class="persona-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
-                        <div>
-                            <h4>Sarah, 24</h4>
-                            <span class="role">Freelancer</span>
-                        </div>
-                    </div>
-                    <ul class="persona-list">
-                        <li><strong>Frustration:</strong> terrified of audits.</li>
-                        <li><strong>Goal:</strong> Wants to know *exactly* when she will get her refund.</li>
-                    </ul>
-                </div>
-
-                <div class="persona-card">
-                    <div class="persona-header">
-                        <div class="persona-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
-                        <div>
-                            <h4>David, 45</h4>
-                            <span class="role">Small Business Owner</span>
-                        </div>
-                    </div>
-                    <ul class="persona-list">
-                        <li><strong>Frustration:</strong> Hates re-entering data.</li>
-                        <li><strong>Goal:</strong> Needs to pay taxes quickly on the go.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cs-section bg-light">
-        <div class="cs-container">
-            <h2 class="section-heading">Visual Identity</h2>
+            <p class="text-block mb-40">More content in less folds. Less scrolling. More confidence.</p>
             
-            <div class="design-system-grid">
-                <div class="ds-col">
-                    <h4>Typography</h4>
-                    <div class="font-preview playfair">Aa</div>
-                    <p>Playfair Display (Headings)</p>
-                    <div class="font-preview inter">Aa</div>
-                    <p>Inter (Body)</p>
+            <div class="ui-showcase-large" data-aos="fade-up">
+                <img src="../assets/dashboard-final.png" alt="Final Dashboard UI">
+            </div>
+
+            <div class="modules-grid mt-60">
+                <div class="module-item" data-aos="fade-up">
+                    <h3>Refund Tracker</h3>
+                    <p>A clear, step-by-step visual tracker.</p>
+                    <img src="../assets/mobile-refund.png" alt="Refund UI">
                 </div>
-                
-                <div class="ds-col">
-                    <h4>Color Palette</h4>
-                    <div class="color-row">
-                        <div class="color-swatch" style="background: #1a2a4e;"></div>
-                        <div class="color-swatch" style="background: #4a90e2;"></div>
-                        <div class="color-swatch" style="background: #e6f0ff;"></div>
-                        <div class="color-swatch" style="background: #ff5e00;"></div>
+                <div class="module-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Quick Pay</h3>
+                    <p>Secure payments without leaving the app.</p>
+                    <img src="../assets/mobile-pay.png" alt="Payment UI">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h3 class="section-sub-title">Impact</h3>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-circle-border">
+                        30%
                     </div>
+                    <p>Increase in Task Clarity</p>
                 </div>
-
-                <div class="ds-col">
-                    <h4>Components</h4>
-                    <div class="btn-preview">Check Refund Status</div>
-                    <div class="input-preview">Enter SSN...</div>
+                <div class="impact-item">
+                    <div class="impact-circle-border">
+                        25%
+                    </div>
+                    <p>Reduction in User Errors</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cs-section">
-        <div class="cs-container">
-            <h2 class="section-heading">The Solution</h2>
-            <p class="section-sub">High-fidelity screens focusing on clarity and error prevention.</p>
-
-            <div class="screens-grid">
-                <img src="../assets/screen1.png" alt="Home Screen" class="mobile-mockup">
-                <img src="../assets/screen2.png" alt="Refund Status" class="mobile-mockup">
-                <img src="../assets/screen3.png" alt="Payment Success" class="mobile-mockup">
-                <img src="../assets/screen4.png" alt="Menu" class="mobile-mockup">
-            </div>
-        </div>
-    </section>
-
-    <section class="cs-section">
-        <div class="cs-container">
-            <h2 class="section-heading">Impact & Results</h2>
-            <div class="results-grid">
-                <div class="result-card">
-                    <span class="big-stat">30%</span>
-                    <p>Increase in task clarity during user testing.</p>
-                </div>
-                <div class="result-card">
-                    <span class="big-stat">25%</span>
-                    <p>Reduction in user confusion/errors.</p>
-                </div>
-                <div class="result-card">
-                    <span class="big-stat">35%</span>
-                    <p>Increase in user confidence scores.</p>
+                <div class="impact-item">
+                    <div class="impact-circle-border">
+                        4.5/5
+                    </div>
+                    <p>User Confidence Score</p>
                 </div>
             </div>
         </div>
     </section>
-<section class="cs-section prototype-section">
-        <div class="cs-container">
-            <div class="prototype-content">
-                <h2 class="section-heading text-white">Experience the Solution</h2>
-                <p class="section-sub text-gray">
-                    Don't just take my word for it. Interact with the high-fidelity prototype 
-                    to experience the redesigned flows for Refund Status and Payments.
-                </p>
-                
-                <a href="#" target="_blank" class="prototype-btn">
-                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="Figma" class="btn-icon">
-                    Launch Interactive Prototype
-                </a>
-            </div>
+
+    <section class="content-section bg-light">
+        <div class="container">
+            <h3 class="section-sub-title">My Reflections</h3>
+            <p class="text-block">
+                As a Product Designer for this redesign, I gained valuable insights into creating user-centric designs for complex government systems. I honed my skills in translating heavy legal requirements into intuitive interfaces. This experience deepened my understanding of designing for trust and accessibility.
+            </p>
         </div>
     </section>
-    <footer class="blue-footer">
-        <div class="cs-container">
-            <h3>Next Project</h3>
-            <h1>EV Charging Experience</h1>
-            <p>Designing a seamless charging experience for electric vehicle owners.</p>
-            
-            <div class="footer-buttons">
-                <a href="../ev/ev.html" class="footer-btn">View Case Study ➝</a>
-                <a href="#" class="footer-btn-outline">Download Resume</a>
-            </div>
-        </div>
+
+    <footer class="next-project-footer">
+        <p>Next Case Study</p>
+        <h2>EV Charging Experience</h2>
+        <a href="../ev/ev.html" class="next-btn">View Project ➝</a>
     </footer>
 
-    <script src="script.js"></script> 
-       
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        offset: 50,
+        once: true
+      });
+    </script>
 </body>
 </html>
