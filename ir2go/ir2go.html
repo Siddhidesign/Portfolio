@@ -3,218 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRS2Go Redesign | Case Study</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>IRS2Go Redesign | UX Case Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="ir2go.css">
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="index.html#works" class="nav-link">Work</a>
-        <div class="logo">
-            <span>Siddhi</span><span>Manche</span>
-        </div>
-        <a href="https://linkedin.com" target="_blank" class="nav-link">LinkedIn</a>
-        <a href="#" class="resume-btn">Resume</a>
-    </nav>
-
-    <header class="hero-section" data-aos="fade-up">
-        <h1 class="hero-title">IRS2Go Redesign</h1>
-        <p class="hero-sub">Simplifying the American Tax Experience • Fall 2025</p>
-        <div class="hero-image-container" data-aos="zoom-in" data-aos-delay="200">
-            <img src="assets/final-hero.png" alt="IRS2Go Redesign Hero" class="hero-img">
+    <header class="bio-hero">
+        <div class="bio-container hero-grid">
+            <div class="hero-text" data-aos="fade-right">
+                <span class="pill-tag">UI/UX Case Study</span>
+                <h1 class="bio-title">IRS2Go Redesign</h1>
+                <p class="bio-sub">Simplifying the American tax experience by reducing anxiety and improving clarity for millions of taxpayers.</p>
+                
+                <div class="hero-icons">
+                    <div class="icon-box"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="Figma"></div>
+                    <div class="icon-box"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968520.png" alt="Photoshop"></div>
+                    <div class="icon-box"><img src="https://cdn-icons-png.flaticon.com/512/906/906324.png" alt="Illustrator"></div>
+                </div>
+            </div>
+            <div class="hero-img" data-aos="fade-left">
+                <img src="assets/final-hero.png" alt="IRS2Go App Mockup">
+            </div>
         </div>
     </header>
 
-    <section class="content-section">
-        <div class="container">
-            <h3 class="section-sub-title">Context</h3>
-            <h2 class="section-heading">Why IRS2Go?</h2>
-            <p class="text-block mb-40">
-                Tax season is stressful. The IRS2Go app creates more anxiety than it solves due to fragmented navigation and unclear status updates.
+    <section class="bio-section text-center">
+        <div class="bio-container">
+            <h2 class="bio-heading highlight-text">Problem Statement</h2>
+            <p class="bio-desc">
+                Taxpayers currently face a fragmented mobile experience. The official app relies heavily on external browser redirects, lacks "save" functionality, and uses confusing legal jargon, leading to high anxiety and task abandonment.
             </p>
 
-            <div class="analysis-block mt-60">
-                <h3>1. System Analysis</h3>
-                <p class="text-block mb-20">I mapped the existing 5-step flow to identify where users were dropping off.</p>
-                <img src="assets/system-analysis.jpg" alt="System Analysis Flow" class="full-width-img">
-            </div>
+            <div class="spacer-80"></div>
+
+            <h2 class="bio-heading highlight-text">Possible Solution</h2>
+            <p class="bio-desc">
+                A native, mobile-first redesign that keeps users <strong>inside the app</strong>. By introducing a secure payment gateway, clear status trackers, and human-friendly language, we can restore trust in the government digital service.
+            </p>
         </div>
     </section>
 
-    <section class="content-section bg-light">
-        <div class="container">
-            <h3 class="section-sub-title">Discovery</h3>
-            <h2 class="section-heading">Analyzing the "Big Two" Tasks</h2>
-
-            <div class="text-image-grid mt-60">
-                <div class="text-col">
-                    <h3>Task 1: Check Refund Status</h3>
-                    <p>We asked participants to simply "Check their status."</p>
-                    <ul class="bullet-list-styled">
-                        <li>Users had to guess which tax year to select.</li>
-                        <li>"Filing Status" used confusing legal terms.</li>
-                        <li>No visual feedback after clicking "Get Status".</li>
+    <section class="bio-section">
+        <div class="bio-container target-grid">
+            <div class="target-list" data-aos="fade-up">
+                <h2 class="bio-heading highlight-text">Target Audience</h2>
+                <div class="target-card">
+                    <ul>
+                        <li>First-time Filers (Gen Z)</li>
+                        <li>Gig Economy Workers / Freelancers</li>
+                        <li>Low-to-Mid Income Families</li>
+                        <li>Elderly Users seeking Tax Help</li>
                     </ul>
                 </div>
-                <div class="image-col">
-                    <img src="assets/task-refund.jpg" alt="Task Analysis Refund" class="grid-img">
-                </div>
             </div>
-
-            <hr class="divider-light">
-
-            <div class="text-image-grid">
-                <div class="text-col">
-                    <h3>Task 2: Make a Payment</h3>
-                    <p>This was the highest friction point. Users were redirected to an external browser 3 times.</p>
-                    <ul class="bullet-list-styled">
-                        <li>Users felt unsafe leaving the app to pay.</li>
-                        <li>Too many payment processor options (Pay1040, ACI, etc.) without explanation.</li>
-                    </ul>
-                </div>
-                <div class="image-col">
-                    <img src="assets/task-payment.jpg" alt="Task Analysis Payment" class="grid-img">
-                </div>
+            <div class="target-img" data-aos="zoom-in">
+                <img src="assets/story-1.jpg" alt="Target Audience Illustration">
             </div>
         </div>
     </section>
 
-    <section class="content-section">
-        <div class="container">
-            <h3 class="section-sub-title">Research Findings</h3>
-            <div class="text-image-grid">
-                <div class="text-col">
-                    <h2>Overall User Critique</h2>
-                    <p>The System Usability Score was low (3.5/5). The main violations were <strong>Error Prevention</strong> and <strong>User Control</strong>.</p>
-                </div>
-                <div class="image-col">
-                    <img src="assets/critique-graph.png" alt="User Critique Graph" class="grid-img">
-                </div>
-            </div>
-
-            <div class="mt-60">
-                <h3>User Scenarios</h3>
-                <p class="text-block mb-40">I visualized "Alex's" journey to empathize with the first-time filer struggle.</p>
-                <div class="storyboard-grid">
-                    <img src="assets/storyboard-1.jpg" alt="Storyboard Part 1" class="story-img">
-                    <img src="assets/storyboard-2.jpg" alt="Storyboard Part 2" class="story-img">
-                </div>
+    <section class="role-section">
+        <div class="bio-container">
+            <h2 class="role-title">My Role</h2>
+            <div class="role-tags-grid">
+                <span class="role-pill">User Research</span>
+                <span class="role-pill">Information Architecture</span>
+                <span class="role-pill">Wireframing</span>
+                <span class="role-pill">Prototyping</span>
+                <span class="role-pill">Visual Design</span>
+                <span class="role-pill">Usability Testing</span>
             </div>
         </div>
     </section>
 
-    <section class="content-section bg-dark text-white">
-        <div class="container">
-            <h3 class="section-sub-title text-orange">The Solution</h3>
-            <h2 class="section-heading text-white">Redesigning Core Flows</h2>
+    <section class="bio-section">
+        <div class="bio-container text-center">
+            <h2 class="bio-heading highlight-text">Design Thinking Process</h2>
+            <p class="bio-desc">We followed a non-linear, iterative approach to solve complex regulatory problems.</p>
             
-            <div class="text-image-grid mt-60">
-                <div class="text-col">
-                    <h3 class="text-white">1. Payment Flow</h3>
-                    <p class="text-gray">We moved the entire payment process <strong>inside the app</strong>. No more browser redirects. Users can now compare processor fees directly on one screen.</p>
+            <div class="process-steps" data-aos="fade-up">
+                <div class="step">
+                    <div class="step-icon">🔍</div>
+                    <h3>Empathize</h3>
+                    <p>User Research<br>Reviews Analysis</p>
                 </div>
-                <div class="image-col">
-                    <img src="assets/redesign-payment.jpg" alt="Payment Redesign" class="grid-img rounded">
+                <div class="arrow">›››</div>
+                <div class="step">
+                    <div class="step-icon">🎯</div>
+                    <h3>Define</h3>
+                    <p>User Persona<br>Journey Map</p>
                 </div>
-            </div>
-
-            <hr class="divider-dark">
-
-            <div class="text-image-grid">
-                <div class="text-col">
-                    <h3 class="text-white">2. Refund Status</h3>
-                    <p class="text-gray">We cleaned up the form with clear labels and added a "Scan Document" feature to prevent typing errors.</p>
+                <div class="arrow">›››</div>
+                <div class="step">
+                    <div class="step-icon">💡</div>
+                    <h3>Ideate</h3>
+                    <p>Brainstorming<br>User Flow</p>
                 </div>
-                <div class="image-col">
-                    <img src="assets/redesign-refund.jpg" alt="Refund Redesign" class="grid-img rounded">
+                <div class="arrow">›››</div>
+                <div class="step">
+                    <div class="step-icon">🎨</div>
+                    <h3>Design</h3>
+                    <p>Wireframes<br>Visual Design</p>
+                </div>
+                <div class="arrow">›››</div>
+                <div class="step">
+                    <div class="step-icon">✅</div>
+                    <h3>Test</h3>
+                    <p>Usability Testing<br>SUS Score</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-section">
-        <div class="container">
-            <h3 class="section-sub-title">Validation</h3>
-            <h2 class="section-heading">Testing the Redesign</h2>
+    <section class="bio-section bg-light">
+        <div class="bio-container text-center">
+            <h2 class="bio-heading highlight-text">Project Timeline</h2>
+            <div class="timeline-img-wrapper" data-aos="zoom-in">
+                <div class="timeline-steps">
+                    <div class="t-step">
+                        <span class="t-label">Week 1</span>
+                        <span class="t-title">Discovery</span>
+                    </div>
+                    <div class="t-step">
+                        <span class="t-label">Week 2</span>
+                        <span class="t-title">Definition</span>
+                    </div>
+                    <div class="t-step">
+                        <span class="t-label">Week 3</span>
+                        <span class="t-title">Design</span>
+                    </div>
+                    <div class="t-step">
+                        <span class="t-label">Week 4</span>
+                        <span class="t-title">Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bio-section">
+        <div class="bio-container">
+            <h2 class="bio-heading highlight-text text-center">Empathize Phase</h2>
             
-            <div class="text-image-grid mt-40">
-                <div class="text-col">
-                    <h3>Methods & Data</h3>
-                    <p>We ran a second round of testing using Think-Aloud protocols. The results showed a massive spike in user satisfaction.</p>
+            <div class="research-grid">
+                <div class="res-text">
+                    <h3>Qualitative Research</h3>
+                    <p>We analyzed over <strong>50+ App Store reviews</strong> and conducted interviews. The recurring theme was "fear"—fear of clicking the wrong button, fear of browser redirects, and fear of unknown status.</p>
                 </div>
-                <div class="image-col">
-                    <img src="assets/data-analysis.jpg" alt="Data Analysis Graphs" class="grid-img">
-                </div>
-            </div>
-
-            <div class="mt-60">
-                <h3>Feedback: Pros & Cons</h3>
-                <p class="text-block mb-20">While navigation improved, some users still missed the mandatory field indicators.</p>
-                <img src="assets/pros-cons.jpg" alt="Pros and Cons Feedback" class="full-width-img">
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section bg-light">
-        <div class="container">
-            <h3 class="section-sub-title">Final Iterations</h3>
-            <h2 class="section-heading">Fixing the Last Friction Points</h2>
-
-            <div class="text-image-grid mt-60">
-                <div class="text-col">
-                    <h3>Iteration 1: Login vs. Guest</h3>
-                    <p><strong>Insight:</strong> Users just want to check status, not sign up.</p>
-                    <p><strong>Fix:</strong> We made "Explore without signing in" the primary action.</p>
-                </div>
-                <div class="image-col">
-                    <img src="assets/iteration-login.jpg" alt="Login Iteration" class="grid-img">
-                </div>
-            </div>
-
-            <hr class="divider-light">
-
-            <div class="text-image-grid">
-                <div class="text-col">
-                    <h3>Iteration 2: Payment Confirmation</h3>
-                    <p><strong>Insight:</strong> "Did I just pay $500?" Users were scared to tap Pay.</p>
-                    <p><strong>Fix:</strong> Added a final Confirmation Modal to summarize fees before charging.</p>
-                </div>
-                <div class="image-col">
-                    <img src="assets/iteration-confirmation.jpg" alt="Confirmation Iteration" class="grid-img">
+                <div class="res-charts">
+                    <div class="donut-card">
+                        <div class="donut" style="--p:30; --c:#0052cc;">30%</div>
+                        <p>Task Clarity<br>(Before)</p>
+                    </div>
+                    <div class="donut-card">
+                        <div class="donut" style="--p:78; --c:#0052cc;">78%</div>
+                        <p>Task Clarity<br>(After)</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-section bg-dark text-center">
-        <div class="container">
-            <h2 class="text-white mb-40">Experience the Final Prototype</h2>
-            <a href="#" class="prototype-btn">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="Figma" class="btn-icon">
-                Interact in Figma
-            </a>
+    <section class="bio-section bg-light">
+        <div class="bio-container">
+            <h2 class="bio-heading highlight-text text-center">User Persona</h2>
+            
+            <div class="persona-card-bio" data-aos="fade-up">
+                <div class="pc-sidebar">
+                    <div class="pc-avatar" style="background-image: url('assets/story-1.jpg');"></div>
+                    <h3>Alex, 24</h3>
+                    <p class="pc-role">First-Time Filer</p>
+                    
+                    <div class="pc-tags">
+                        <span>Anxious</span>
+                        <span>Tech-Savvy</span>
+                        <span>Mobile-First</span>
+                    </div>
+                    
+                    <div class="pc-bio-text">
+                        <p>"I just want to know where my money is without needing a law degree to read the app."</p>
+                    </div>
+                </div>
+
+                <div class="pc-content">
+                    <div class="pc-block">
+                        <h4>Goals</h4>
+                        <ul>
+                            <li>Check refund status in under 30 seconds.</li>
+                            <li>Pay taxes securely without leaving the app.</li>
+                        </ul>
+                    </div>
+                    <div class="pc-block">
+                        <h4>Frustrations</h4>
+                        <ul>
+                            <li>Constant browser redirections.</li>
+                            <li>Unclear error messages ("Error 404").</li>
+                            <li>No confirmation receipt after payment.</li>
+                        </ul>
+                    </div>
+                    <div class="pc-block">
+                        <h4>Motivations</h4>
+                        <div class="bar-chart">
+                            <span>Speed</span> <div class="bar"><div class="fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="bar-chart">
+                            <span>Security</span> <div class="bar"><div class="fill" style="width: 85%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="next-project-footer">
-        <p>Next Case Study</p>
-        <h2>EV Charging Experience</h2>
-        <a href="ev.html" class="next-btn">View Project ➝</a>
+    <section class="bio-section">
+        <div class="bio-container text-center">
+            <h2 class="bio-heading highlight-text">Information Architecture</h2>
+            <div class="flow-img-container" data-aos="zoom-in">
+                <img src="assets/system-analysis.jpg" alt="Task Flow Diagram">
+            </div>
+        </div>
+    </section>
+
+    <section class="bio-section">
+        <div class="bio-container">
+            <h2 class="bio-heading highlight-text text-center">Typography & Colors</h2>
+            
+            <div class="style-guide-grid">
+                <div class="sg-card">
+                    <h3>Typography</h3>
+                    <h1 class="font-demo-head">Inter</h1>
+                    <p class="font-demo-body">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>1234567890</p>
+                </div>
+                <div class="sg-card">
+                    <h3>Color Palette</h3>
+                    <div class="color-bubbles">
+                        <div class="bubble" style="background: #0052cc;"><span>#0052CC</span></div>
+                        <div class="bubble" style="background: #1a2a4e;"><span>#1A2A4E</span></div>
+                        <div class="bubble" style="background: #ff5e00;"><span>#FF5E00</span></div>
+                        <div class="bubble" style="background: #f4f6f8;"><span>#F4F6F8</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bio-section bg-light">
+        <div class="bio-container">
+            <h2 class="bio-heading highlight-text text-center">Visual Design</h2>
+            
+            <div class="annotated-screen" data-aos="fade-up">
+                <div class="anno-left">
+                    <div class="anno-item">
+                        <h4>Secure Login</h4>
+                        <p>Guest Access is prioritized for quick status checks.</p>
+                    </div>
+                    <div class="anno-item">
+                        <h4>Clear Status</h4>
+                        <p>Visual progress bars replace confusing text codes.</p>
+                    </div>
+                </div>
+                
+                <div class="anno-center">
+                    <img src="assets/new-refund.png" alt="High Fidelity Screen">
+                </div>
+
+                <div class="anno-right">
+                    <div class="anno-item">
+                        <h4>Smart Input</h4>
+                        <p>Dropdowns reduce typing errors by 40%.</p>
+                    </div>
+                    <div class="anno-item">
+                        <h4>Accessibility</h4>
+                        <p>High contrast text and large touch targets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bio-section">
+        <div class="bio-container">
+            <h2 class="bio-heading highlight-text text-center">Final Screens</h2>
+            <div class="screens-grid-bio">
+                <img src="assets/new-payment.png" alt="Payment Screen">
+                <img src="assets/iteration-login.png" alt="Login Screen">
+                <img src="assets/iteration-modal.png" alt="Modal Screen">
+                <img src="assets/redesign-payment.jpg" alt="Fees Screen">
+            </div>
+        </div>
+    </section>
+
+    <footer class="bio-footer">
+        <div class="footer-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" alt="Heart" class="footer-icon">
+            <h2>Thank you for your time :)</h2>
+            <p>Feel free to provide your valuable suggestions and comments.</p>
+        </div>
     </footer>
 
-    <div id="imageModal" class="lightbox-modal">
-        <span class="close-btn">&times;</span>
-        <img class="lightbox-content" id="lightboxImg">
-        <div id="caption"></div>
-    </div>
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script src="ir2go.js"></script>
     <script>
-      AOS.init({ duration: 800, offset: 50, once: true });
+      AOS.init({ duration: 800, once: true });
     </script>
 </body>
 </html>
