@@ -105,6 +105,66 @@
     padding: 20px;
     font-style: italic;
     margin-top: 30px;
+}/* =========================================
+   PROTOTYPE SECTION STYLES
+   ========================================= */
+
+.prototype-section {
+    background-color: #1a2a4e; /* Your Dark Navy */
+    color: white;
+    text-align: center;
+}
+
+/* Center the content for this specific section */
+.centered-layout {
+    grid-template-columns: 1fr; /* Overrides the grid split */
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.centered-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Override text colors for dark background */
+.prototype-section h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.prototype-section p {
+    color: #cbd5e0; /* Light grey for readability */
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+/* The Big CTA Button */
+.prototype-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #ff5e00; /* Your Orange Brand Color */
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 18px 40px;
+    border-radius: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prototype-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(255, 94, 0, 0.4);
+}
+
+.btn-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Makes the Figma icon white */
 }
 
 /* Footer CTA */
