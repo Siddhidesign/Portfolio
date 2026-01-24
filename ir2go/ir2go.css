@@ -33,6 +33,39 @@ h1, h2, h3, h4 {
 .text-blue { color: var(--accent-blue); }
 .mt-60 { margin-top: 60px; }
 .mb-40 { margin-bottom: 40px; }
+/* =========================================
+   NAVIGATION BAR FIX
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Spreads items out */
+    align-items: center;
+    padding: 20px 40px;
+    background: white;
+    width: 100%;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    margin: 0 15px; /* Spacing between links */
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: bold;
+    flex-grow: 1; /* Pushes logo to the center/left depending on layout */
+    text-align: center;
+}
+
+/* Align links correctly on desktop */
+@media (min-width: 768px) {
+    .navbar {
+        flex-direction: row;
+    }
+}
 
 /* --- HERO SECTION --- */
 .hero-section {
