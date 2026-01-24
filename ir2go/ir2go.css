@@ -1,211 +1,337 @@
-/* Case Study Specific Styles */
-.case-study-page {
-    background-color: #ffffff;
-    line-height: 1.7;
-    font-family: 'Inter', sans-serif;
-    color: #2d3436;
-    margin: 0;
-}
-}
-/* Navbar Scrolled State */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 5%;
-    z-index: 1000;
-    transition: all 0.4s ease;
-    box-sizing: border-box;
+/* =========================================
+   CASE STUDY SPECIFIC STYLES
+   ========================================= */
+
+/* General Layout */
+.cs-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.nav-scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    padding: 15px 5%;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.03);
-    backdrop-filter: blur(10px);
+.cs-section {
+    padding: 80px 0;
 }
-/* Hero Section */
+
+.bg-light {
+    background-color: #f9f9f9;
+}
+
+.section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #1a2a4e;
+    margin-bottom: 10px;
+}
+
+.section-sub {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 600px;
+}
+
+/* Progress Bar */
+.progress-container {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 5px;
+    background: #f1f1f1;
+}
+
+.progress-bar {
+    height: 5px;
+    background: #0052cc; /* Blue progress bar */
+    width: 0%;
+}
+
+/* Hero */
 .cs-hero {
-    padding: 140px 5% 80px;
-    background-color: #f8f8f8;
-    text-align: center;
+    padding: 120px 0 60px;
+    text-align: left;
+}
+
+.cs-category {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0052cc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .cs-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(40px, 6vw, 75px);
-    font-style: italic;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.1;
     color: #1a2a4e;
-    margin: 20px 0;
-}
-
-.cs-summary {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 20px;
-    color: #555;
-}
-
-/* Phase Sections */
-.cs-phase {
-    padding: 120px 5%;
-    display: flex;
-    justify-content: center;
-}
-
-.cs-phase.alternate {
-    background-color: #fcfcfc;
-}
-
-.cs-container {
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
-    align-items: flex-start;
-}
-
-.cs-num {
-    color: #ff5e00;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 2px;
-}
-
-.cs-text h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-style: italic;
-    margin: 15px 0 25px;
-    color: #1a2a4e;
-}
-
-.cs-text p {
-    font-size: 18px;
-    color: #444;
-    margin-bottom: 25px;
-}
-
-.cs-list {
-    list-style: none;
-    margin-top: 20px;
-}
-
-.cs-list li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 12px;
-    color: #555;
-}
-
-.cs-list li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: #ff5e00;
-}
-
-/* Visuals Side */
-.cs-visuals {
-    display: grid;
-    gap: 20px;
-}
-
-.cs-visuals img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-}
-
-/* UX Designer "Thinking Box" */
-.ux-insight {
-    background-color: #f1f4ff;
-    border-left: 4px solid #1a2a4e;
-    padding: 20px;
-    font-style: italic;
-    margin-top: 30px;
-}/* =========================================
-   PROTOTYPE SECTION STYLES
-   ========================================= */
-
-.prototype-section {
-    background-color: #1a2a4e; /* Your Dark Navy */
-    color: white;
-    text-align: center;
-}
-
-/* Center the content for this specific section */
-.centered-layout {
-    grid-template-columns: 1fr; /* Overrides the grid split */
-    max-width: 800px;
-    margin: 0 auto;
-    gap: 30px;
-}
-
-.centered-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Override text colors for dark background */
-.prototype-section h2 {
-    color: white;
     margin-bottom: 20px;
 }
 
-.prototype-section p {
-    color: #cbd5e0; /* Light grey for readability */
+.cs-subtitle {
     font-size: 20px;
+    color: #555;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* Overview Grid */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.overview-item h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.overview-item p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.5;
+}
+
+.cs-divider {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 40px 0;
+}
+
+.cs-intro-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.cs-intro-text p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* Problem Section */
+.problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
     margin-bottom: 40px;
 }
 
-/* The Big CTA Button */
-.prototype-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background-color: #ff5e00; /* Your Orange Brand Color */
+.problem-card {
+    background: #fff0f0; /* Light pink background */
+    padding: 30px;
+    border-left: 4px solid #ff4d4d; /* Red accent line */
+    border-radius: 8px;
+}
+
+.problem-card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #cc0000;
+}
+
+.problem-statement {
+    background: #e6f0ff; /* Light blue background */
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.problem-statement .label {
+    background: #0052cc;
     color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.problem-statement h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: #0040a0;
+}
+
+/* Personas */
+.persona-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.persona-card {
+    border: 1px solid #eee;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.persona-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.persona-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-color: #eee;
+}
+
+.persona-list li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Design System */
+.design-system-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.font-preview {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+.playfair { font-family: 'Playfair Display', serif; }
+.inter { font-family: 'Inter', sans-serif; }
+
+.color-row { display: flex; gap: 10px; }
+.color-swatch { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); }
+
+.btn-preview {
+    background: #0052cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.input-preview {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    color: #999;
+}
+
+/* Screens Grid */
+.screens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.mobile-mockup {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background: #f0f0f0; /* Placeholder color */
+    min-height: 400px; /* Placeholder height */
+    object-fit: cover;
+}
+
+/* Results */
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    text-align: center;
+}
+
+.result-card {
+    background: #fcfcfc;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+.big-stat {
+    display: block;
+    font-size: 48px;
+    font-weight: 700;
+    color: #0052cc;
+    margin-bottom: 10px;
+}
+
+/* Blue Footer */
+.blue-footer {
+    background: linear-gradient(135deg, #0052cc, #003d99);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.blue-footer h3 {
+    opacity: 0.7;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.blue-footer h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.blue-footer p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 40px;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-btn {
+    background: white;
+    color: #0052cc;
+    padding: 15px 30px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 18px;
-    padding: 18px 40px;
-    border-radius: 50px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.prototype-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(255, 94, 0, 0.4);
-}
-
-.btn-icon {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1); /* Makes the Figma icon white */
-}
-
-/* Footer CTA */
-.cs-footer {
-    padding: 100px 5%;
-    text-align: center;
-    background-color: #1a2a4e;
+.footer-btn-outline {
+    border: 2px solid white;
     color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.cs-footer h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    margin-bottom: 30px;
-}
-
-@media (max-width: 900px) {
-    .cs-container { grid-template-columns: 1fr; gap: 40px; }
-    .cs-text { text-align: center; }
-    .cs-list { text-align: left; }
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .overview-grid, .problem-grid, .persona-container, .design-system-grid, .results-grid {
+        grid-template-columns: 1fr;
+    }
+    .cs-hero { padding-top: 100px; }
+    .cs-title { font-size: 40px; }
 }
