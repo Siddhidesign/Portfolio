@@ -375,51 +375,98 @@ h1, h2, h3, h4 {
 
 
 
-
-/* --- FOOTER SECTION --- */
-.bio-footer {
-    background: white; /* Or var(--bg-light) if you want it slightly gray */
-    padding: 100px 20px 60px;
-    text-align: center;
-    border-top: 1px solid #f0f0f0; /* Optional: subtle separator line */
+/* --- CONNECT FOOTER STYLE --- */
+.connect-footer {
+    background-color: #f9fbfd; /* Light blue-grey background */
+    padding: 80px 20px;
+    border-top: 1px solid #e6eff5;
 }
 
-.footer-content {
-    max-width: 600px;
+.footer-container {
+    max-width: 1100px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Pushes content to left and right edges */
+    align-items: center;
+    flex-wrap: wrap; /* Wraps on mobile */
+    gap: 40px;
 }
 
-/* FIX: Restricts the heart icon size so it doesn't explode */
-.footer-icon {
-    width: 60px; 
-    height: auto;
-    display: block;
-    margin: 0 auto 20px; /* Centers the image */
-    
-    /* Animation */
-    animation: heartbeat 1.5s infinite ease-in-out;
+/* Left Side: Call to Action */
+.footer-left {
+    max-width: 500px;
 }
 
-.bio-footer h2 {
+.footer-title {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: var(--secondary); /* or #1a2a4e */
-    margin-bottom: 15px;
+    font-size: 36px;
+    color: #1a2a4e; /* Dark Navy */
+    margin: 0 0 10px 0;
 }
 
-.bio-footer p {
+.footer-text {
     font-family: 'Inter', sans-serif;
-    color: var(--text-gray); /* or #666 */
+    color: #666;
     font-size: 18px;
-    margin: 0;
+    margin-bottom: 30px;
 }
 
-/* --- HEARTBEAT ANIMATION --- */
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    15% { transform: scale(1.15); } /* Pumps up */
-    30% { transform: scale(1); }    /* Returns to normal */
-    45% { transform: scale(1.15); } /* Pumps up again */
-    60% { transform: scale(1); }    /* Rest */
-    100% { transform: scale(1); }
+/* The "Let's Chat" Button */
+.email-btn {
+    display: inline-block;
+    background-color: #0052cc; /* IRS Blue */
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 82, 204, 0.15);
+}
+
+.email-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 82, 204, 0.25);
+}
+
+/* Right Side: Social Links */
+.footer-right {
+    display: flex;
+    gap: 30px;
+}
+
+.social-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #1a2a4e;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+}
+
+/* Hover underline effect */
+.social-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff5e00; /* Orange accent */
+    transition: width 0.3s;
+    margin-top: 4px;
+}
+
+.social-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-right {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
