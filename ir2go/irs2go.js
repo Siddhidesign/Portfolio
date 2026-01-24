@@ -1,51 +1,47 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Create Progress Bar Element
-    const bar = document.createElement('div');
-    bar.id = 'myBar';
-    document.body.prepend(bar);
-
-    // 2. Scroll Events (Progress Bar & Navbar)
-    window.addEventListener('scroll', () => {
-        // Calculate Scroll Progress
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        bar.style.width = scrolled + "%";
-
-        // Navbar Styling
-        const nav = document.querySelector('.navbar');
-        if (winScroll > 80) {
-            nav.classList.add('nav-scrolled');
-        } else {
-            nav.classList.remove('nav-scrolled');
-        }
-        window.onscroll = function() { updateProgressBar() };
+/* =========================================
+   1. READING PROGRESS BAR
+   ========================================= */
+// When the user scrolls the page, run the updateProgressBar function
+window.onscroll = function() {
+    updateProgressBar();
+    revealOnScroll(); // Also run the fade-in animation check
+};
 
 function updateProgressBar() {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let scrolled = (winScroll / height) * 100;
     
-    // Create the bar if it doesn't exist
     let bar = document.getElementById("myBar");
-    if (!bar) {
-        let container = document.createElement("div");
-        container.style.cssText = "position:fixed;top:0;z-index:100;width:100%;height:4px;background:#ccc;";
-        bar = document.createElement("div");
-        bar.id = "myBar";
-        bar.style.cssText = "height:4px;background:#ff5e00;width:0%;";
-        container.appendChild(bar);
-        document.body.appendChild(container);
+    if (bar) {
+        bar.style.width = scrolled + "%";
     }
-    bar.style.width = scrolled + "%";
-}/* =========================================
-   BUTTON FADE-IN ANIMATION
-   ========================================= */
+}
 
+/* =========================================
+   2. SCROLL REVEAL ANIMATION (FADE IN)
+   ========================================= */
+// This makes elements fade in nicely as you scroll down
+function revealOnScroll() {
+    var reveals = document.querySelectorAll(".cs-section, .problem-card, .result-card");
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150; // Trigger when element is 150px into view
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+
+/* =========================================
+   3. PROTOTYPE BUTTON FLOATING ANIMATION
+   ========================================= */
 document.addEventListener("DOMContentLoaded", function() {
     const observerOptions = {
-        threshold: 0.5 // Trigger when 50% of the button is visible
+        threshold: 0.1 
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -53,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = "1";
                 entry.target.style.transform = "translateY(0)";
-                observer.unobserve(entry.target); // Run only once
+                observer.unobserve(entry.target); 
             }
         });
     }, observerOptions);
@@ -61,12 +57,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const protoBtn = document.querySelector('.prototype-btn');
     
     if (protoBtn) {
-        // Set initial state for animation
+        // Set initial state via JS so it doesn't hide if JS fails
         protoBtn.style.opacity = "0";
         protoBtn.style.transform = "translateY(20px)";
         protoBtn.style.transition = "opacity 0.8s ease, transform 0.8s ease";
         
-        // Start watching
         observer.observe(protoBtn);
     }
+    
+    // Trigger reveals once on load in case user starts in middle of page
+    revealOnScroll();
 });
