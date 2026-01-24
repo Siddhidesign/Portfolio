@@ -1,7 +1,11 @@
 /* Case Study Specific Styles */
 .case-study-page {
     background-color: #ffffff;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    color: #2d3436;
+    margin: 0;
+}
 }
 /* Navbar Scrolled State */
 .navbar {
