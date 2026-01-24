@@ -373,39 +373,53 @@ h1, h2, h3, h4 {
     max-width: 1100px;
 }
 
-/* --- THANK YOU FOOTER --- */
-.thank-you-section {
-    text-align: center;
+
+
+
+/* --- FOOTER SECTION --- */
+.bio-footer {
+    background: white; /* Or var(--bg-light) if you want it slightly gray */
     padding: 100px 20px 60px;
+    text-align: center;
+    border-top: 1px solid #f0f0f0; /* Optional: subtle separator line */
 }
 
-/* --- FOOTER & HEART FIX --- */
-.thank-you-section {
-    text-align: center;
-    padding: 100px 20px 60px;
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.heart-icon {
-    font-size: 40px;      /* Sets size if it's text/emoji */
-    width: 40px;          /* Sets size if it's an image/svg */
+/* FIX: Restricts the heart icon size so it doesn't explode */
+.footer-icon {
+    width: 60px; 
     height: auto;
-    color: #ff4757; 
-    margin: 0 auto 20px;  /* Centers it */
-    display: block;       /* Ensures it sits on its own line */
-    animation: heartbeat 1.5s infinite;
+    display: block;
+    margin: 0 auto 20px; /* Centers the image */
+    
+    /* Animation */
+    animation: heartbeat 1.5s infinite ease-in-out;
 }
 
+.bio-footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--secondary); /* or #1a2a4e */
+    margin-bottom: 15px;
+}
+
+.bio-footer p {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-gray); /* or #666 */
+    font-size: 18px;
+    margin: 0;
+}
+
+/* --- HEARTBEAT ANIMATION --- */
 @keyframes heartbeat {
     0% { transform: scale(1); }
-    15% { transform: scale(1.15); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.15); }
-    60% { transform: scale(1); }
-}
-
-/* --- RESPONSIVE MOBILE --- */
-@media (max-width: 900px) {
-    .annotated-screen { flex-direction: column; align-items: center; }
-    .anno-left, .anno-right { text-align: center; width: 100%; }
-    .anno-center img { margin: 30px 0; }
+    15% { transform: scale(1.15); } /* Pumps up */
+    30% { transform: scale(1); }    /* Returns to normal */
+    45% { transform: scale(1.15); } /* Pumps up again */
+    60% { transform: scale(1); }    /* Rest */
+    100% { transform: scale(1); }
 }
