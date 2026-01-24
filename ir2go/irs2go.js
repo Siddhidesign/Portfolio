@@ -17,4 +17,34 @@ function updateProgressBar() {
         document.body.appendChild(container);
     }
     bar.style.width = scrolled + "%";
-}
+}/* =========================================
+   BUTTON FADE-IN ANIMATION
+   ========================================= */
+
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        threshold: 0.5 // Trigger when 50% of the button is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                observer.unobserve(entry.target); // Run only once
+            }
+        });
+    }, observerOptions);
+
+    const protoBtn = document.querySelector('.prototype-btn');
+    
+    if (protoBtn) {
+        // Set initial state for animation
+        protoBtn.style.opacity = "0";
+        protoBtn.style.transform = "translateY(20px)";
+        protoBtn.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+        
+        // Start watching
+        observer.observe(protoBtn);
+    }
+});
