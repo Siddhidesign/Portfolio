@@ -1,4 +1,26 @@
-window.onscroll = function() { updateProgressBar() };
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Create Progress Bar Element
+    const bar = document.createElement('div');
+    bar.id = 'myBar';
+    document.body.prepend(bar);
+
+    // 2. Scroll Events (Progress Bar & Navbar)
+    window.addEventListener('scroll', () => {
+        // Calculate Scroll Progress
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        bar.style.width = scrolled + "%";
+
+        // Navbar Styling
+        const nav = document.querySelector('.navbar');
+        if (winScroll > 80) {
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
+        }
+        window.onscroll = function() { updateProgressBar() };
 
 function updateProgressBar() {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
