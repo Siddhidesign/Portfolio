@@ -15,7 +15,7 @@
 
     <nav class="top-nav">
         <div class="container">
-            <a href="index.html" class="back-link">← Back to Portfolio</a>
+            <a href="../index.html" class="back-link">← Back to Portfolio</a>
         </div>
     </nav>
 
@@ -62,27 +62,31 @@
     <section class="section bg-light">
         <div class="container">
             <div class="split-layout">
-                <div class="text-block" data-aos="fade-right">
-                    <h3>01. Information Architecture</h3>
-                    <p>
-                        The challenge was complexity. Users were getting lost trying to upload projects. 
-                        I redesigned the <strong>5 core flows</strong> (Sign up, Upload, Edit, Preview, Publish) to be linear and intuitive.
-                    </p>
-                    <ul class="feature-list">
-                        <li>Reduced decision fatigue by breaking forms into steps.</li>
-                        <li>Clarified task navigation with breadcrumbs and progress indicators.</li>
-                    </ul>
-                </div>
-                <div class="text-block" data-aos="fade-left" data-aos-delay="100">
-                    <h3>02. Design System & Handoff</h3>
-                    <p>
-                        To move fast in an agile environment, I couldn't just design screens—I had to build a system.
-                    </p>
-                    <ul class="feature-list">
-                        <li><strong>Component Library:</strong> Defined 25+ atoms and molecules (Buttons, Inputs, Cards).</li>
-                        <li><strong>Developer Empathy:</strong> Created "Dev-Ready" prototypes in Figma that defined every interaction state (Hover, Focus, Error), reducing meeting times by 30%.</li>
-                    </ul>
-                </div>
+    
+    <div class="text-block" data-aos="fade-right">
+        <h3>01. Multi-User Portfolio Creation</h3>
+        <p>
+            I designed distinct flows for <strong>different user groups</strong> (Designers, Developers, Marketers). 
+            The goal was simplicity: users shouldn't have to design; they just need to <strong>fill up a form</strong>.
+        </p>
+        <ul class="feature-list">
+            <li><strong>Role-Based Forms:</strong> The input fields change dynamically—asking Developers for GitHub repos vs. Designers for visual case studies.</li>
+            <li><strong>"Fill-in-the-Blanks" Logic:</strong> Users enter raw data (text, links, images), and the system automatically structures it into a polished layout.</li>
+        </ul>
+    </div>
+
+    <div class="text-block" data-aos="fade-left" data-aos-delay="100">
+        <h3>02. Design System & Handoff</h3>
+        <p>
+            To support these various templates, I contributed to built a scalable system with addition of <strong>25+ reusable components</strong> (Buttons, Inputs, Cards).
+        </p>
+        <ul class="feature-list">
+            <li><strong>Component Library:</strong> Standardized UI elements ensured consistency across different portfolio types.</li>
+            <li><strong>Developer Empathy:</strong> Defined every interaction state (Hover, Focus, Error) in Figma, reducing dev clarification time by 30%.</li>
+        </ul>
+    </div>
+
+</div>
             </div>
         </div>
     </section>
@@ -102,4 +106,5 @@
     <script src="Findme.js"></script>
 </body>
 </html>
+
 
