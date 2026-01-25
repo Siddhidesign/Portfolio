@@ -458,6 +458,43 @@ h1, h2, h3, h4 {
 .social-link:hover::after {
     width: 100%;
 }
+/* --- NEW ADDITIONS FOR PROTOTYPE BUTTON --- */
+
+/* 1. Wrapper to put buttons next to each other */
+.button-row {
+    display: flex;
+    gap: 15px;       /* Space between the buttons */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Stacks them if the screen is too small */
+}
+
+/* 2. The "View Prototype" Button Style (Outline) */
+.prototype-btn {
+    display: inline-block;
+    background-color: transparent; /* Clear background */
+    border: 2px solid #0052cc;     /* Blue border */
+    color: #0052cc;                /* Blue text */
+    padding: 12px 30px;            /* Same size as your "Say Hello" button */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect: Fills with blue */
+.prototype-btn:hover {
+    background-color: #0052cc;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 82, 204, 0.15);
+}
+
+/* 3. Mobile update to center buttons */
+@media (max-width: 768px) {
+    .button-row {
+        justify-content: center; /* Centers buttons on phone */
+    }
+}
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
