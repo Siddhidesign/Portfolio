@@ -114,26 +114,50 @@
         </div>
     </section>
 
-    <section class="section-padding bg-dark">
-        <div class="container">
-            <h2 class="text-white text-center mb-60">Final Design Gallery</h2>
-            <div class="final-gallery-grid">
-                <div class="gallery-item" data-aos="fade-up">
-                    <img src="../assets/FINAL-DESIGN-1.jpg" alt="Final Design Screen 1">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="../assets/FINAL-DESIGN-2.jpg" alt="Final Design Screen 2">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="../assets/FINAL-DESIGN-3.jpg" alt="Final Design Screen 3">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="../assets/FINAL-DESIGN-4.jpg" alt="Final Design Screen 4">
-                </div>
+   <section class="section-padding bg-dark">
+    <div class="container">
+        <h2 class="text-white text-center mb-60">Final Design Gallery</h2>
+        <p class="text-white text-center" style="margin-top: -40px; margin-bottom: 40px; opacity: 0.7;">Click any image to enlarge</p>
+        
+        <div class="final-gallery-grid">
+            
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="../assets/FINAL-DESIGN-1.jpg.jpg" 
+                     alt="Main Analytics Dashboard" 
+                     onclick="openModal(this)" 
+                     class="zoomable-img">
             </div>
-        </div>
-    </section>
 
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="../assets/FINAL-DESIGN-2.jpg" 
+                     alt="Complex Order Creation Flow" 
+                     onclick="openModal(this)" 
+                     class="zoomable-img">
+            </div>
+
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="../assets/FINAL-DESIGN-3.jpg" 
+                     alt="Customer Profile View" 
+                     onclick="openModal(this)" 
+                     class="zoomable-img">
+            </div>
+
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                <img src="../assets/FINAL-DESIGN-4.jpg" 
+                     alt="Clean Checkout UI" 
+                     onclick="openModal(this)" 
+                     class="zoomable-img">
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
     <footer class="case-study-footer">
         <div class="container text-center">
             <h3>Thank you for watching!</h3>
@@ -145,6 +169,7 @@
     <script src="jaihind.js"></script>
 </body>
 </html>
+
 
 
 
