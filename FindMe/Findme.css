@@ -1,0 +1,100 @@
+/* =========================================
+   FINDME CASE STUDY STYLES
+   Theme: Creative, Modern, Clean
+   ========================================= */
+
+:root {
+    --primary: #2d3436;
+    --accent: #6c5ce7; /* Creative Purple/Indigo */
+    --bg-light: #f9f9f9;
+    --white: #ffffff;
+    --text-gray: #636e72;
+    --radius: 12px;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--primary);
+    margin: 0;
+    line-height: 1.6;
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; margin-top: 0; }
+p { font-size: 18px; color: var(--text-gray); }
+img { max-width: 100%; display: block; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+/* Navigation */
+.top-nav { padding: 20px 0; }
+.back-link { 
+    text-decoration: none; color: var(--text-gray); font-weight: 500; 
+    transition: color 0.2s;
+}
+.back-link:hover { color: var(--accent); }
+
+/* Hero */
+.hero { text-align: center; padding: 80px 0 60px; }
+.pill { 
+    background: #edeaff; color: var(--accent); padding: 6px 16px; 
+    border-radius: 50px; font-weight: 600; font-size: 14px; text-transform: uppercase; 
+    display: inline-block; margin-bottom: 20px; letter-spacing: 1px;
+}
+.hero-title { font-size: clamp(36px, 5vw, 56px); margin-bottom: 20px; line-height: 1.1; }
+.hero-sub { max-width: 700px; margin: 0 auto; }
+
+/* Metrics (The focus since we lack photos) */
+.metrics-grid {
+    display: flex; justify-content: center; gap: 30px; margin-top: 60px; flex-wrap: wrap;
+}
+.metric-card {
+    background: var(--white); border: 1px solid #eee; padding: 25px; 
+    border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    min-width: 200px; flex: 1;
+}
+.num { display: block; font-size: 42px; font-weight: 700; color: var(--accent); margin-bottom: 5px; }
+.label { font-size: 14px; font-weight: 600; color: var(--primary); text-transform: uppercase; }
+
+/* The "One Big Visual" Area */
+.visual-centerpiece {
+    padding: 0 0 80px; text-align: center;
+}
+.browser-mockup {
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1); border: 1px solid #ddd;
+    overflow: hidden; max-width: 900px; margin: 0 auto;
+}
+.browser-header {
+    background: #f1f3f4; padding: 12px 16px; display: flex; gap: 8px; border-bottom: 1px solid #ddd;
+}
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+.caption { margin-top: 20px; font-size: 14px; font-style: italic; opacity: 0.7; }
+
+/* Content Sections */
+.bg-light { background: var(--bg-light); padding: 100px 0; }
+.split-layout { 
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; 
+}
+.text-block h3 { font-size: 24px; color: var(--accent); margin-bottom: 15px; }
+.feature-list { padding-left: 20px; color: var(--text-gray); }
+.feature-list li { margin-bottom: 10px; }
+
+/* Footer */
+.footer { text-align: center; padding: 100px 0; border-top: 1px solid #eee; }
+.contact-btn {
+    background: var(--accent); color: white; padding: 14px 32px; 
+    border-radius: 50px; text-decoration: none; font-weight: 600; 
+    display: inline-block; transition: transform 0.2s;
+}
+.contact-btn:hover { transform: translateY(-3px); }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .split-layout { grid-template-columns: 1fr; gap: 40px; }
+    .metrics-grid { flex-direction: column; }
+}
