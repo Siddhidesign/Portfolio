@@ -3,255 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRS2Go Redesign | UX Case Study</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>IRS2Go Redesign Case Study</title>
     <link rel="stylesheet" href="ir2go.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <header class="bio-hero">
-        <div class="bio-container hero-grid">
-            <div class="hero-text" data-aos="fade-right">
-                <span class="pill-tag">UI/UX Case Study</span>
-                <h1 class="bio-title">IRS2Go App Redesign</h1>
-                <p class="bio-sub">
-                    <strong>Designing Trust Within Constraints.</strong><br>
-                    Transforming the official U.S. tax app from a source of anxiety into a guided, educational tool for new filers.
-                </p>
-                
-                <div class="hero-highlights">
-                    <span>Managed Constraints</span> • <span>Iterative Testing</span> • <span>Accessibility Focus</span>
-                </div>
-            </div>
-            <div class="hero-img" data-aos="fade-left">
-                <img src="../assets/irs2go.main.png" alt="IRS2Go Redesigned App Mockup">
-            </div>
-        </div>
-    </header>
-
-    <section class="bio-section text-center bg-light">
-        <div class="bio-container">
-            <h2 class="section-title">The Spark: A 2.8-Star Reality</h2>
-            <p class="section-desc" style="max-width: 800px; margin: 0 auto;">
-                We started with a simple observation: the official IRS app had an abysmal <strong>2.8-star rating</strong> on the App Store. It was failing its primary goal—not just functionally, but emotionally. It wasn't educating new taxpayers; it was confusing them.
-            </p>
-
-            <div class="spacer-60"></div>
-
-            <div class="problem-statement-box" data-aos="fade-up">
-                <h3>The Core Problem Statement</h3>
-                <p>
-                    First-time filers feel overwhelmed and anxious using IRS2Go because the app lacks educational scaffolding, forces abrupt external redirects for key tasks (like payments), and offers no way to save progress, leading to high abandonment rates.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="bio-section">
-        <div class="bio-container">
-            <div class="phase-header">
-                <span class="phase-tag">Phase 01</span>
-                <h2 class="section-title">Empathize: Understanding the "Why"</h2>
-            </div>
-            <p class="section-desc">We knew the rating was low, but we needed to know why. We moved beyond reviews to conduct surveys and interviews to understand the mental model of a new taxpayer.</p>
-
-            <div class="research-proof-grid">
-                <div class="proof-card" data-aos="zoom-in">
-                    <h3>Survey Insights</h3>
-                    <p>We surveyed 50+ users to understand their primary anxieties.</p>
-                    <img src="../assets/survey-chart-placeholder.png" alt="Survey Results Chart" class="proof-img">
-                    <p class="caption">Key Finding: 70% of users feared clicking "Pay" because they didn't know what would happen next.</p>
-                </div>
-
-                <div class="proof-card" data-aos="zoom-in" data-aos-delay="100">
-                    <h3>In their own words</h3>
-                    <div class="quote-box">
-                        <p>"I felt like I needed a law degree just to read the home screen. I was terrified I'd tap the wrong thing and get audited."</p>
-                        <span class="quote-author">- First-time filer, 23</span>
-                    </div>
-                    <div class="quote-box">
-                        <p>"Why does it kick me to Safari to pay? It feels sketchy, like a phishing scam. I immediately closed the app."</p>
-                        <span class="quote-author">- Gig Worker, 27</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bio-section bg-dark text-white">
-        <div class="bio-container">
-            <div class="phase-header">
-                <span class="phase-tag light">Phase 02</span>
-                <h2 class="section-title text-white">Define & Strategy: The Realistic Pivot</h2>
-            </div>
-            <p class="section-desc text-white-fade">
-                We realized a crucial technical constraint: due to security and compliance, <strong>we could not build every function natively inside the app</strong>. The payment portals had to remain external.
-            </p>
-
-            <div class="strategy-shift-box" data-aos="fade-up">
-                <div class="shift-left">
-                    <h3>🚫 Initial Assumption</h3>
-                    <p>Build everything in-app to stop redirects.</p>
-                </div>
-                <div class="shift-arrow">➡️</div>
-                <div class="shift-right">
-                    <h3>✅ New Strategy: Preparation & Education</h3>
-                    <p>If we must redirect, we must <strong>prepare the user first</strong>. The app's job shifted from *doing* the task to *educating and setting expectations* before handing off to the web.</p>
-                </div>
-            </div>
-
-            <div class="scope-selection" style="margin-top: 60px;">
-                <h3 class="text-center text-white">Scope Selection: The Big 3</h3>
-                <p class="text-center text-white-fade mb-40">Based on task analysis, we focused on the three highest-friction areas.</p>
-                <div class="scope-grid">
-                    <div class="scope-item">1. Refund Status</div>
-                    <div class="scope-item">2. Make a Payment</div>
-                    <div class="scope-item">3. Tax Help/Search</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bio-section">
-        <div class="bio-container">
-            <div class="phase-header">
-                <span class="phase-tag">Phase 03</span>
-                <h2 class="section-title">Design Solutions: Addressing Specific Anxieties</h2>
-            </div>
-            <p class="section-desc">We moved into high-fidelity design, addressing the specific friction points identified in our task analysis.</p>
-
-            <div class="solution-block left-layout" data-aos="fade-right">
-                <div class="solution-text">
-                    <h3>01. Privacy & Accessibility (SSN Entry)</h3>
-                    <p class="problem-tag">Problem: Users felt exposed entering SSN in public; accessibility help was hidden.</p>
-                    <p>We added a prominent "Hide/Show" toggle for sensitive data entry and brought accessibility help text out of menus and directly into the context of the form.</p>
-                </div>
-                <div class="solution-img">
-                    <img src="../assets/solution-ssn.png" alt="SSN Entry Design Solution">
-                </div>
-            </div>
-
-            <div class="solution-block right-layout" data-aos="fade-left">
-                <div class="solution-img">
-                    <img src="../assets/solution-payment.png" alt="Payment Preparation Screen">
-                </div>
-                <div class="solution-text">
-                    <h3>02. The "Soft Handoff" (Payments)</h3>
-                    <p class="problem-tag">Problem: Jarring, unexplained redirects to external websites caused distrust.</p>
-                    <p>Instead of immediately redirecting, we designed an intermediate screen. It explains available payment options, what information they will need, and explicitly states they are moving to a secure web portal.</p>
-                </div>
-            </div>
-
-            <div class="solution-block left-layout" data-aos="fade-right">
-                <div class="solution-text">
-                    <h3>03. Educating via Search (Tax Help)</h3>
-                    <p class="problem-tag">Problem: Users didn't know official terminology to find help.</p>
-                    <p>We replaced static FAQs with a smart search bar. Users enter their problem in plain language, and the app maps it to the respective tax option or official form.</p>
-                </div>
-                <div class="solution-img">
-                    <img src="../assets/solution-help.png" alt="Contextual Search Bar Solution">
-                </div>
-            </div>
-
-             <div class="solution-block right-layout" data-aos="fade-left">
-                <div class="solution-img">
-                    <img src="../assets/solution-signup.png" alt="Sign Up Screen">
-                </div>
-                <div class="solution-text">
-                    <h3>04. Reducing Repetition (Authentication)</h3>
-                    <p class="problem-tag">Problem: Users had to re-enter complex details every single time they opened the app.</p>
-                    <p>We introduced secure user accounts. This allows returning users to save basic details, significantly speeding up repeat tasks like checking refund status.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bio-section bg-light">
-        <div class="bio-container">
-            <div class="phase-header">
-                <span class="phase-tag alert">Phase 04 - Critical Insight</span>
-                <h2 class="section-title">Test & Iterate: The "Guest Mode" Realization</h2>
-            </div>
-            <p class="section-desc">
-                We took our high-fidelity designs into usability testing. While usability scores improved, we uncovered a major friction point in our new authentication flow.
-            </p>
-
-            <div class="testing-insight-box" data-aos="zoom-in">
-                 <h3>💡 The Testing Discovery</h3>
-                 <p>
-                    Users who just wanted to quickly check their refund status <strong>abandoned the app when forced to create an account.</strong> They felt it was too much commitment for a 30-second task.
-                 </p>
-            </div>
-
-            <div class="iteration-comparison">
-                <h3 class="text-center mb-40">The Design Pivot</h3>
-                <div class="before-after-container">
-                    <div class="ba-item before">
-                        <span class="ba-label">Before Testing</span>
-                        <img src="../assets/before-signup-forced.png" alt="Forced Sign Up Flow">
-                        <p>Forced users to sign up before doing anything.</p>
-                    </div>
-                    <div class="ba-arrow">➡️</div>
-                    <div class="ba-item after">
-                        <span class="ba-label">After Iteration</span>
-                        <img src="../assets/after-guest-mode.png" alt="Sign Up with Guest Option">
-                        <p>Introduced "Guest Mode" for quick, low-commitment tasks.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bio-section">
-        <div class="bio-container">
-            <h2 class="section-title text-center">Final Outcomes & Handoff</h2>
+    <div class="container">
+        
+        <aside class="sidebar">
+            <div class="logo">IRS2Go <span>Redesign</span></div>
             
-            <div class="final-showcase" style="margin-bottom: 60px;">
-                <h3>Before & After Comparison</h3>
-                 <div class="before-after-container">
-                    <div class="ba-item before">
-                        <span class="ba-label">Original App (2.8 Stars)</span>
-                        <img src="../assets/old-app-home.png" alt="Original IRS2Go Home">
-                    </div>
-                    <div class="ba-item after">
-                        <span class="ba-label">Redesign Concept</span>
-                        <img src="../assets/new-app-home.png" alt="Redesigned IRS2Go Home">
-                    </div>
-                </div>
-            </div>
-
-            <div class="results-summary bg-light" data-aos="fade-up">
-                <h3>Key Achievements</h3>
+            <nav class="nav-links">
                 <ul>
-                    <li>✅ <strong>Increased Trust:</strong> "Soft handoffs" reduced reported anxiety during external redirects.</li>
-                    <li>✅ <strong>Improved Efficiency:</strong> Returning users can check status 40% faster thanks to saved accounts.</li>
-                    <li>✅ <strong>Flexible Access:</strong> "Guest Mode" accommodates users who need quick checks without commitment.</li>
+                    <li><a href="#overview" class="nav-item active">1. Overview</a></li>
+                    <li><a href="#research" class="nav-item">2. Research</a></li>
+                    <li><a href="#define" class="nav-item">3. Define</a></li>
+                    <li><a href="#ideate" class="nav-item">4. Ideate</a></li>
+                    <li><a href="#prototype" class="nav-item">5. Prototype</a></li>
+                    <li><a href="#testing" class="nav-item">6. Testing</a></li>
                 </ul>
-            </div>
-        </div>
-    </section>
+            </nav>
+        </aside>
 
-   <footer class="connect-footer">
-    <div class="footer-container text-center">
-        <h2 class="footer-title">Experience the Redesign</h2>
-        <p class="footer-text" style="margin: 0 auto 40px; max-width: 600px;">
-            Walk through the complete user flows, including the secure sign-up, guest mode for refund checks, and the educational payment flow.
-        </p>
-        
-        <div class="button-row center-buttons">
-            <a href="https://www.figma.com/proto/YOUR_LINK_HERE" target="_blank" class="prototype-btn">
-                View Interactive Prototype 📱
-            </a>
-        </div>
-        
-        <div class="spacer-60"></div>
-        <p class="copyright">© 2026 Siddhi Manche. UI/UX Case Study.</p>
+        <main class="content-area">
+            
+            <section id="overview" class="section">
+                <span class="summary-label">Project Context</span>
+                <h1>Making Tax Season <br><span class="highlight-text">Less Taxing</span> 🇺🇸</h1>
+                
+                <p><strong>What is IRS2Go?</strong><br>
+                IRS2Go is the official mobile application of the Internal Revenue Service (IRS). It allows millions of American taxpayers to check their refund status, make secure payments, and find free tax assistance nearby.</p>
+                
+                <div class="summary-box">
+                    <span class="summary-label">Project Summary</span>
+                    <p style="margin-bottom:0; color: #fff;">
+                        This is a complete <strong>UX/UI overhaul</strong> of the existing app. The project focuses on transforming a rigid government tool into a user-friendly guide. By simplifying complex tax terminology and modernizing the visual interface, we aim to reduce user anxiety and increase successful task completion rates.
+                    </p>
+                </div>
+
+                <div style="margin-top: 80px;">
+                    <h2>Why the <span class="highlight-text">Redesign?</span></h2>
+                    
+                    <p>Despite being an essential tool, the current app suffers from a dated interface and usability issues that frustrate users during an already stressful time.</p>
+
+                    <p><strong>The Core Problems:</strong></p>
+                    <ul class="problem-list">
+                        <li><strong>Visual Clutter:</strong> Information overload makes it hard for users to find simple answers like "Where is my refund?"</li>
+                        <li><strong>Lack of Trust:</strong> Inconsistent design patterns make the official app feel less secure than third-party alternatives.</li>
+                        <li><strong>Accessibility Gaps:</strong> The current color contrast and navigation fail to meet modern WCAG standards for inclusive design.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="research" class="section">
+                <h2 class="section-title">2. Research Phase</h2>
+                <p>User Personas, Surveys, and Competitive Analysis go here...</p>
+            </section>
+
+            <section id="define" class="section">
+                <h2 class="section-title">3. Define Phase</h2>
+                <p>Problem Statements and User Journeys go here...</p>
+            </section>
+
+            <section id="ideate" class="section">
+                <h2 class="section-title">4. Ideate Phase</h2>
+                <p>Wireframes and Sketches go here...</p>
+            </section>
+
+            <section id="prototype" class="section">
+                <h2 class="section-title">5. Prototype Phase</h2>
+                <p>High-fidelity designs go here...</p>
+            </section>
+
+            <section id="testing" class="section">
+                <h2 class="section-title">6. Testing Phase</h2>
+                <p>Usability testing results go here...</p>
+            </section>
+
+        </main>
     </div>
-</footer>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="irs2go.js"></script>
+    <script src="ir2go.js"></script>
 </body>
 </html>
