@@ -633,7 +633,37 @@ p {
     cursor: pointer;
     transition: color 0.3s;
 }
+/* --- IDEATE PHASE: CONCEPT STYLES --- */
 
+/* 1. The Container (Pink Theme) */
+.concept-placeholder {
+    border-color: #f43f5e !important; /* Force Pink Border */
+    background-color: rgba(244, 63, 94, 0.05) !important; /* Faint Pink Background */
+    gap: 15px; /* Adjust spacing between the 3 images */
+    padding: 25px;
+}
+
+/* 2. The 3 Wireframe Images */
+.concept-placeholder img {
+    /* This ensures 3 images fit on one row if possible */
+    flex: 1 1 30%;       /* Grow: 1, Shrink: 1, Basis: 30% width */
+    min-width: 200px;    /* Allow them to get slightly smaller before stacking */
+    max-width: 300px;    /* Stop them from getting huge on big screens */
+    
+    border: 1px solid #f43f5e; /* Thin pink border around each screen */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Lift them off the page */
+    background-color: white; /* Wireframes usually look best on white */
+}
+
+/* 3. The Caption (Pink Text) */
+.figure-caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #f43f5e; /* Pink text matches the box */
+    font-style: italic;
+    margin-top: -15px;
+    margin-bottom: 40px;
+}
 .close-btn:hover {
     color: #ef4444; /* Red on hover */
 }
