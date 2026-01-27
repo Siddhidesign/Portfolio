@@ -705,3 +705,135 @@ p {
     transform: scale(1.02); /* Slight zoom on hover */
     border-color: #3b82f6;
 }
+/* --- TESTING PHASE STYLES --- */
+
+/* 1. SUS Score Dashboard */
+.sus-score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 40px 0 20px 0;
+    flex-wrap: wrap;
+}
+
+.sus-card {
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    min-width: 220px;
+    flex: 1;
+}
+
+.old-score { border-bottom: 4px solid #ef4444; }
+.new-score { border-bottom: 4px solid #22c55e; background-color: rgba(34, 197, 94, 0.05); }
+
+.score-label {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.score-number {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.score-desc { font-weight: 600; color: #cbd5e1; }
+.red-text { color: #ef4444; }
+.green-text { color: #22c55e; }
+.arrow-divider { font-size: 2rem; color: #64748b; }
+
+/* 2. Pros & Cons Grid */
+.feedback-grid {
+    display: flex;
+    gap: 25px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.feedback-card {
+    flex: 1;
+    min-width: 280px;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: #1e293b;
+}
+
+.pro-card { border-top: 4px solid #22c55e; }
+.con-card { border-top: 4px solid #ef4444; }
+
+.feedback-card h4 { margin-bottom: 20px; font-size: 1.2rem; color: #fff; }
+.feedback-card ul { padding-left: 20px; color: #cbd5e1; line-height: 1.6; }
+.feedback-card li { margin-bottom: 10px; }
+
+/* 3. Iteration Blocks (Before vs After) */
+.iteration-block { margin-bottom: 60px; }
+
+.iteration-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+    background-color: #0f172a; /* Darker BG for contrast */
+}
+
+.iteration-placeholder img {
+    max-width: 40%; /* Each phone takes slightly less than half */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.img-divider {
+    font-weight: 800;
+    color: #64748b;
+    font-size: 1.2rem;
+    background-color: #1e293b;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.img-label {
+    position: absolute;
+    /* This positioning logic assumes simpler layout, 
+       but for flexbox simply hiding these labels or 
+       moving them above images via HTML structure is often easier.
+       For this CSS, we will just hide them on mobile. */
+    display: none; 
+}
+
+/* 4. Final Prototype Button */
+.final-cta-section {
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px;
+    background-color: #1e293b;
+    border-radius: 16px;
+    border: 1px solid #334155;
+}
+
+.prototype-btn {
+    display: inline-block;
+    background-color: #3b82f6;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.prototype-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+}
