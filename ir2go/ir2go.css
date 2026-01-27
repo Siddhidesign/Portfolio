@@ -178,12 +178,12 @@ p {
 .metrics-grid {
     display: flex;
     gap: 20px;
-    margin: 30px 0 50px 0; /* Added bottom margin for spacing */
-    flex-wrap: wrap;       /* Ensures cards stack on small screens */
+    margin: 30px 0 50px 0;
+    flex-wrap: wrap;       
 }
 
 .metric-card {
-    flex: 1;               /* Makes all cards equal width */
+    flex: 1;               
     min-width: 140px;
     background-color: #1e293b;
     padding: 25px 20px;
@@ -217,14 +217,14 @@ p {
 
 /* Specific Card Colors */
 .challenge-card {
-    border-top: 4px solid #ef4444; /* Red Top Border */
+    border-top: 4px solid #ef4444; 
 }
 .challenge-card .metric-number {
     color: #ef4444;
 }
 
 .solution-card {
-    border-top: 4px solid #22c55e; /* Green Top Border */
+    border-top: 4px solid #22c55e; 
 }
 .solution-card .metric-number {
     color: #22c55e;
@@ -239,39 +239,48 @@ p {
 }
 
 .research-list li {
-    margin-bottom: 20px; /* More space between list items */
+    margin-bottom: 20px; 
     padding-left: 10px;
 }
 
 .research-list strong {
-    color: #fff; /* White text for the bold parts */
+    color: #fff; 
     font-weight: 700;
 }
 
-/* 4. Image Placeholders */
+/* 4. Image Placeholders & Images */
 .research-image-placeholder {
     width: 100%;
     max-width: 800px;
-    min-height: 250px;     /* Taller area for photos */
+    min-height: 250px;     
     background-color: #1e293b;
     border: 2px dashed #475569;
     border-radius: 12px;
     display: flex;
-    flex-direction: column; /* Stack text vertically */
-    gap: 10px;              /* Space between the two text lines */
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     color: #64748b;
     font-weight: 600;
     margin: 30px 0;
     padding: 20px;
+    overflow: hidden; /* Ensures image doesn't spill out */
 }
 
-/* Specific Style for Solution Placeholder */
+/* NEW: Styles for the actual image inside the placeholder */
+.research-image-placeholder img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Specific Style for Solution Placeholder (Green Theme) */
 .solution-placeholder {
-    border-color: #22c55e; /* Green dashed border */
+    border-color: #22c55e; 
     color: #22c55e;
-    background-color: rgba(34, 197, 94, 0.05); /* Very faint green tint */
+    background-color: rgba(34, 197, 94, 0.05); 
+    gap: 15px; /* Adds space between the two text lines */
 }
 
 /* 5. Separator Line */
