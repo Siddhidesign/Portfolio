@@ -667,3 +667,41 @@ p {
 .close-btn:hover {
     color: #ef4444; /* Red on hover */
 }
+/* --- PROTOTYPE PHASE STYLES --- */
+
+.prototype-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Space between the 3 main images */
+    margin-top: 40px;
+}
+
+.proto-item {
+    text-align: left;
+}
+
+.proto-label {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 4px solid #3b82f6; /* Blue accent line */
+}
+
+/* Style for the Hi-Fi Images */
+.proto-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    /* Clean shadow to make the design pop off the dark background */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    border: 1px solid #334155; /* Subtle border */
+    transition: transform 0.3s ease;
+    cursor: zoom-in; /* Enables the click-to-zoom feature */
+}
+
+/* Hover Effect */
+.proto-item img:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+    border-color: #3b82f6;
+}
