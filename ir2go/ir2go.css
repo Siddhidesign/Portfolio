@@ -157,3 +157,127 @@ p {
 .problem-list strong {
     color: #fff;
 }
+/* --- RESEARCH SECTION STYLES --- */
+
+/* 1. Titles */
+.challenge-title {
+    color: #ef4444; /* Red/Warning for Challenge */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.solution-title {
+    color: #22c55e; /* Green/Success for Solution */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* 2. Metrics Grid (The Number Cards) */
+.metrics-grid {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0 50px 0; /* Added bottom margin for spacing */
+    flex-wrap: wrap;       /* Ensures cards stack on small screens */
+}
+
+.metric-card {
+    flex: 1;               /* Makes all cards equal width */
+    min-width: 140px;
+    background-color: #1e293b;
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect */
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.metric-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* Specific Card Colors */
+.challenge-card {
+    border-top: 4px solid #ef4444; /* Red Top Border */
+}
+.challenge-card .metric-number {
+    color: #ef4444;
+}
+
+.solution-card {
+    border-top: 4px solid #22c55e; /* Green Top Border */
+}
+.solution-card .metric-number {
+    color: #22c55e;
+}
+
+/* 3. Research Lists */
+.research-list {
+    margin-left: 20px;
+    color: #cbd5e1;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.research-list li {
+    margin-bottom: 20px; /* More space between list items */
+    padding-left: 10px;
+}
+
+.research-list strong {
+    color: #fff; /* White text for the bold parts */
+    font-weight: 700;
+}
+
+/* 4. Image Placeholders */
+.research-image-placeholder {
+    width: 100%;
+    max-width: 800px;
+    min-height: 250px;     /* Taller area for photos */
+    background-color: #1e293b;
+    border: 2px dashed #475569;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+    gap: 10px;              /* Space between the two text lines */
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-weight: 600;
+    margin: 30px 0;
+    padding: 20px;
+}
+
+/* Specific Style for Solution Placeholder */
+.solution-placeholder {
+    border-color: #22c55e; /* Green dashed border */
+    color: #22c55e;
+    background-color: rgba(34, 197, 94, 0.05); /* Very faint green tint */
+}
+
+/* 5. Separator Line */
+.research-separator {
+    border: none;
+    border-top: 1px solid #334155;
+    margin: 60px 0;
+    width: 100%;
+}
