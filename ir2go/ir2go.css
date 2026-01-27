@@ -239,8 +239,7 @@ p {
     font-weight: 700;
 }
 
-/* --- 4. IMAGE PLACEHOLDER STYLES (The Fix) --- */
-
+/* --- 4. IMAGE LAYOUT (The key fix) --- */
 .research-image-placeholder {
     width: 100%;
     max-width: 800px;
@@ -250,27 +249,24 @@ p {
     margin: 30px 0;
     padding: 20px;
     
-    /* Flexbox settings to handle single OR multiple images */
+    /* Flexbox settings to handle side-by-side images */
     display: flex;
-    flex-direction: row; /* Aligns images side-by-side */
-    gap: 20px;           /* Space between images */
+    flex-direction: row; 
+    gap: 20px;           
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;     /* Wraps images on small screens */
+    flex-wrap: wrap; /* Allows stacking on small screens */
 }
 
-/* Image Styles */
 .research-image-placeholder img {
-    /* If there is 1 image, it can take up to 100% width */
-    /* If there are 2 images, they share the space */
-    flex: 1; 
-    max-width: 100%; 
-    min-width: 250px; /* Prevents images from getting too small */
-    height: auto;     /* Maintain aspect ratio */
-    
+    flex: 1;          /* Grow to fill space */
+    max-width: 100%;  /* Don't exceed parent */
+    min-width: 250px; /* Don't get too small before stacking */
+    height: auto;     /* Keep aspect ratio */
     border-radius: 8px;
     display: block;
-    object-fit: cover; /* Ensures clean fit if sizes differ */
+    object-fit: cover;
+    cursor: zoom-in;  /* Shows the zoom icon on hover */
 }
 
 /* 5. Separator Line */
@@ -279,5 +275,4 @@ p {
     border-top: 1px solid #334155;
     margin: 60px 0;
     width: 100%;
-}
 }
