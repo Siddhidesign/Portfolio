@@ -416,3 +416,65 @@ p {
     .timeline-label { margin-bottom: 15px; width: 100%; text-align: left; }
     .timeline-bar-area { width: 100%; }
 }
+/* --- IDEATE PHASE STYLES --- */
+
+/* 1. Figure Captions */
+.figure-caption {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: -15px; /* Pulls it closer to the image box */
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* 2. Problem Area Box */
+.problem-area-box {
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-left: 4px solid #fb923c; /* Orange accent for "Problems" */
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.problem-area-box h4 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.problem-area-list {
+    list-style: none;
+    padding: 0;
+}
+
+.problem-area-list li {
+    margin-bottom: 12px;
+    color: #cbd5e1;
+    font-size: 1rem;
+    padding-left: 15px;
+    position: relative;
+}
+
+/* Custom bullet point */
+.problem-area-list li::before {
+    content: '•';
+    color: #fb923c; /* Orange bullet */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.problem-area-list strong {
+    color: #fff;
+}
+
+/* 3. Concept Placeholder (Pink Theme) */
+/* This re-uses the base placeholder but changes colors */
+.concept-placeholder {
+    border-color: #f43f5e; /* Pink Border */
+    background-color: rgba(244, 63, 94, 0.05); /* Faint Pink Background */
+    color: #f43f5e;
+    gap: 10px; /* Space between text lines */
+}
