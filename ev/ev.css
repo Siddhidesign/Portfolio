@@ -196,7 +196,7 @@ p {
 .solution-card { border-top: 4px solid #16a34a; }
 .solution-card .metric-number { color: #16a34a; }
 
-/* --- IMAGE PLACEHOLDERS --- */
+/* --- IMAGE PLACEHOLDERS & IMAGES --- */
 .research-image-placeholder {
     width: 100%;
     max-width: 800px;
@@ -205,6 +205,8 @@ p {
     border-radius: 12px;
     margin: 30px 0;
     padding: 20px;
+    
+    /* Flexbox settings to handle side-by-side images */
     display: flex;
     flex-direction: row; 
     gap: 20px;            
@@ -223,6 +225,7 @@ p {
     display: block;
     object-fit: cover;
     cursor: zoom-in;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Slight shadow for images */
 }
 
 .research-separator {
@@ -297,11 +300,6 @@ p {
 }
 
 /* Timeline Colors */
-.bar-dark-green { background-color: #15803d; }
-.bar-mid-green { background-color: #22c55e; }
-.bar-bright-green { background-color: #4ade80; }
-.bar-neon-green { background-color: #86efac; }
-/* Keep older color classes just in case HTML uses them */
 .bar-yellow { background-color: #fcd34d; }
 .bar-green { background-color: #16a34a; }
 .bar-orange { background-color: #fb923c; }
@@ -328,6 +326,19 @@ p {
 .concept-placeholder {
     border-color: #16a34a !important;
     background-color: rgba(22, 163, 74, 0.05) !important;
+}
+
+.concept-placeholder img {
+    border: 1px solid #16a34a;
+}
+
+.figure-caption {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: -15px; 
+    margin-bottom: 40px;
+    font-style: italic;
 }
 
 /* --- ANALYSIS CARDS --- */
@@ -357,6 +368,22 @@ p {
 .card-body { padding: 25px; color: #334155; }
 .card-icon { font-size: 3rem; text-align: center; margin-top: 20px; opacity: 0.8; }
 
+/* Satisfaction Box */
+.satisfaction-box {
+    margin-top: auto; 
+    text-align: center;
+    background-color: #f1f5f9; 
+    padding: 15px;
+    border-radius: 8px;
+}
+.sat-label {
+    display: block; font-size: 0.8rem; text-transform: uppercase;
+    color: #64748b; margin-bottom: 10px; font-weight: 600;
+}
+.faces-row { display: flex; justify-content: center; gap: 10px; font-size: 1.5rem; }
+.face { opacity: 0.3; filter: grayscale(100%); transition: all 0.3s ease; }
+.face.active { opacity: 1; filter: grayscale(0%); transform: scale(1.2); }
+
 /* --- PROTOTYPE & CTA --- */
 .proto-label {
     color: #0f172a;
@@ -364,6 +391,13 @@ p {
     margin-bottom: 15px;
     padding-left: 10px;
     border-left: 4px solid #16a34a;
+}
+
+.prototype-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-top: 40px;
 }
 
 .final-cta-section {
@@ -389,60 +423,3 @@ p {
 
 .prototype-btn:hover {
     background-color: #15803d;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
-}
-
-/* --- SUS SCORES --- */
-.sus-score-container {
-    display: flex; justify-content: center; gap: 30px; margin: 40px 0; flex-wrap: wrap;
-}
-.sus-card {
-    background-color: #ffffff; border: 1px solid #e2e8f0;
-    border-radius: 16px; padding: 30px; text-align: center; flex: 1; min-width: 220px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-}
-.old-score { border-bottom: 4px solid #ef4444; }
-.new-score { border-bottom: 4px solid #16a34a; background-color: #f0fdf4; }
-
-.score-number { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; }
-.red-text { color: #ef4444; }
-.green-text { color: #16a34a; }
-.arrow-divider { font-size: 2rem; color: #cbd5e1; }
-
-/* Mobile Responsive */
-@media (max-width: 992px) {
-    .container { flex-direction: column; height: auto; }
-    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; flex-direction: row; justify-content: space-between; align-items: center; padding: 15px; }
-    .nav-links { display: none; }
-    .section { padding: 60px 20px; }
-}
-
-/* --- ITERATION PLACEHOLDERS --- */
-.iteration-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 15px;
-    background-color: #f8fafc; /* Light Gray for contrast */
-}
-
-.iteration-placeholder img {
-    max-width: 40%;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.img-divider {
-    font-weight: 800;
-    color: #64748b;
-    font-size: 1.2rem;
-    background-color: #e2e8f0;
-    padding: 10px;
-    border-radius: 50%;
-}
-
-.img-label {
-    position: absolute;
-    display: none;
-}
