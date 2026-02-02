@@ -242,12 +242,13 @@ section { scroll-margin-top: 100px; }
 }
 
 /* ============================================================
-   5. SKILLS / SERVICES SECTION (FIXED SPACING)
+   5. SKILLS / SERVICES SECTION (10-Item Orbit)
    ============================================================ */
 .services-section {
     position: relative;
-    padding: 100px 20px;
+    padding: 0;
     background-color: #fcfcfc;
+    height: 850px; /* Increased slightly to fit 10 items */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -257,23 +258,21 @@ section { scroll-margin-top: 100px; }
 
 .services-container {
     position: relative;
-    max-width: 1200px; /* Increased width slightly */
     width: 100%;
-    text-align: center;
-    min-height: 750px; /* CRITICAL FIX: Increased height to stop overlap */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
 }
 
+/* CENTER TEXT */
 .services-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 10;
-    position: relative;
-    padding: 40px;
-    /* Optional: glass effect to make text readable if tags float behind */
-    background: rgba(252, 252, 252, 0.5); 
-    backdrop-filter: blur(5px);
-    border-radius: 50%;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    background: radial-gradient(circle, rgba(252,252,252,1) 20%, rgba(252,252,252,0) 70%);
 }
 
 .ufo-icon img { width: 60px; margin-bottom: 20px; }
@@ -287,115 +286,95 @@ section { scroll-margin-top: 100px; }
     margin-bottom: 20px;
 }
 
-.services-sub {
-    color: #666;
-    font-size: 18px;
-    line-height: 1.5;
-}
+.services-sub { color: #666; font-size: 18px; line-height: 1.5; }
 
-/* Floating Tags Base Styles */
+/* TAG STYLES */
 .skill-tag {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #dbe4ff;
     color: #1a2a4e;
-    padding: 14px 28px; /* Slightly bigger padding */
+    padding: 12px 24px;
     border-radius: 50px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-    z-index: 1; 
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 2; 
 }
 
 .skill-tag:hover {
-    transform: scale(1.1);
     background-color: #ccd9ff;
     z-index: 20;
+    transform: translate(-50%, -50%) scale(1.1) !important;
 }
 
-/* UPDATED POSITIONS (The "Clock" Layout)
-   Using strict percentages to keep them apart.
-*/
+/* 10 UNIQUE POSITIONS (Clockwise from Top) */
 
-/* 12:00 - Top Center */
+/* 1. Top Center */
 .tag-product { 
-    top: 2%; 
-    left: 50%; 
-    transform: translateX(-50%) rotate(-3deg); 
+    margin-top: -250px; margin-left: 0px; 
 }
 
-/* 10:00 - Top Left Corner */
-.tag-systems { 
-    top: 12%; 
-    left: 15%; 
-    transform: rotate(-8deg); 
-}
-
-/* 2:00 - Top Right Corner */
+/* 2. Top Right */
 .tag-ux { 
-    top: 12%; 
-    right: 15%; 
-    transform: rotate(5deg); 
+    margin-top: -180px; margin-left: 280px; transform: translate(-50%, -50%) rotate(5deg);
 }
 
-/* 9:00 - Middle Left (Anchored) */
-.tag-research { 
-    top: 45%; 
-    left: 2%; 
-    transform: translateY(-50%) rotate(8deg); 
-}
-
-/* 3:00 - Middle Right (Anchored) */
+/* 3. Right Upper */
 .tag-ui { 
-    top: 45%; 
-    right: 2%; 
-    transform: translateY(-50%) rotate(-8deg); 
+    margin-top: -50px; margin-left: 400px; transform: translate(-50%, -50%) rotate(3deg);
 }
 
-/* 7:00 - Bottom Left (Moved UP to avoid bottom collision) */
-.tag-pitch { 
-    bottom: 25%; 
-    left: 10%; 
-    transform: rotate(-10deg); 
+/* 4. Right Lower */
+.tag-research-user { 
+    margin-top: 100px; margin-left: 380px; transform: translate(-50%, -50%) rotate(-3deg);
 }
 
-/* 5:00 - Bottom Right (Moved UP to avoid bottom collision) */
-.tag-branding { 
-    bottom: 25%; 
-    right: 10%; 
-    transform: rotate(10deg); 
+/* 5. Bottom Right */
+.tag-proto { 
+    margin-top: 220px; margin-left: 220px; transform: translate(-50%, -50%) rotate(5deg);
 }
 
-/* 6:00 Pair - Bottom Center (Moved DOWN and spread apart) */
-.tag-framer { 
-    bottom: 5%; 
-    left: 30%; 
-    transform: rotate(4deg); 
-}
-.tag-visual { 
-    bottom: 5%; 
-    right: 30%; 
-    transform: rotate(-4deg); 
+/* 6. Bottom Center */
+.tag-code { 
+    margin-top: 280px; margin-left: 0px; transform: translate(-50%, -50%) rotate(0deg);
 }
 
-/* Mobile Skills: Stacked List (No floating) */
+/* 7. Bottom Left */
+.tag-access { 
+    margin-top: 220px; margin-left: -220px; transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+/* 8. Left Lower */
+.tag-saas { 
+    margin-top: 100px; margin-left: -380px; transform: translate(-50%, -50%) rotate(3deg);
+}
+
+/* 9. Left Upper */
+.tag-dash { 
+    margin-top: -50px; margin-left: -400px; transform: translate(-50%, -50%) rotate(-3deg);
+}
+
+/* 10. Top Left */
+.tag-systems { 
+    margin-top: -180px; margin-left: -280px; transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+/* MOBILE: List View */
 @media (max-width: 768px) {
-    .services-container {
-        flex-direction: column;
-        height: auto;
-        min-height: auto;
-        padding-bottom: 40px;
-    }
+    .services-section { height: auto; padding: 60px 20px; }
+    .services-content { position: relative; top: auto; left: auto; transform: none; margin-bottom: 50px; background: none; }
     .skill-tag {
         position: static;
         display: inline-block;
-        margin: 8px;
+        margin: 5px !important;
         transform: none !important;
     }
-    .services-content { order: -1; margin-bottom: 30px; background: transparent; padding: 0; }
 }
-
 /* ============================================================
    6. WORKS SECTION
    ============================================================ */
