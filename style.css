@@ -74,11 +74,11 @@ body {
 
 @media (max-width: 768px) {
     .navbar { padding: 15px 20px; }
-    .nav-menu { display: none; /* Hide links on mobile or replace with hamburger */ }
+    .nav-menu { display: none; }
 }
 
 /* ============================================================
-   3. HERO SECTION
+   3. HERO SECTION (FIXED IMAGES)
    ============================================================ */
 .hero-container {
     position: relative;
@@ -89,10 +89,14 @@ body {
     align-items: center;
     text-align: center;
     overflow: hidden;
-    padding-top: 60px;
+    padding-top: 0; /* Removing padding keeps layout centered vertically */
 }
 
-.hero-content { z-index: 10; }
+/* CRITICAL FIX: Ensure text sits ON TOP of floating images */
+.hero-content { 
+    z-index: 20; 
+    position: relative; 
+}
 
 .sub-text {
     font-size: 16px;
@@ -139,18 +143,21 @@ body {
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     object-fit: cover;
-    z-index: 1;
+    z-index: 1; /* Sits behind text */
 }
 
-.img-1 { width: 180px; height: 240px; top: 15%; left: 30%; transform: rotate(-15deg); }
-.img-2 { width: 180px; height: 240px; top: 10%; right: 30%; transform: rotate(15deg); }
-.img-3 { width: 220px; height: 160px; bottom: 15%; left: 15%; transform: rotate(-10deg); }
-.img-4 { width: 200px; height: 140px; bottom: 5%; right: 15%; transform: rotate(10deg); }
+/* FIXED POSITIONS: 
+   Moved images to 5-10% (the corners) instead of 30% (the center).
+   This creates space for the text in the middle.
+*/
+.img-1 { width: 180px; height: 240px; top: 15%; left: 5%;  transform: rotate(-15deg); }
+.img-2 { width: 180px; height: 240px; top: 10%; right: 5%; transform: rotate(15deg); }
+.img-3 { width: 220px; height: 160px; bottom: 15%; left: 10%; transform: rotate(-10deg); }
+.img-4 { width: 200px; height: 140px; bottom: 10%; right: 10%; transform: rotate(10deg); }
 
 /* ============================================================
    4. EXPERIENCE SECTION
    ============================================================ */
-/* Scroll Margin ensures title isn't hidden behind navbar */
 section { scroll-margin-top: 100px; }
 
 .project-card-link {
@@ -235,7 +242,7 @@ section { scroll-margin-top: 100px; }
 }
 
 /* ============================================================
-   5. SKILLS / SERVICES SECTION (FIXED VISUALS)
+   5. SKILLS / SERVICES SECTION (FIXED LAYOUT)
    ============================================================ */
 .services-section {
     position: relative;
@@ -244,7 +251,7 @@ section { scroll-margin-top: 100px; }
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Fixes horizontal scroll issues */
+    overflow: hidden; 
     scroll-margin-top: 80px;
 }
 
@@ -263,7 +270,6 @@ section { scroll-margin-top: 100px; }
     z-index: 10;
     position: relative;
     padding: 20px;
-    /* Optional: Slight blur backing for readability over tags */
     background: rgba(252, 252, 252, 0.6);
     backdrop-filter: blur(2px);
     border-radius: 20px;
@@ -307,19 +313,18 @@ section { scroll-margin-top: 100px; }
     z-index: 20;
 }
 
-/* ============================================================
-   UPDATED TAG POSITIONS (Perfectly Centered & Balanced)
-   ============================================================ */
+/* UPDATED TAG POSITIONS (Radial Orbit) 
+   These values ensure tags circle the text without hitting it.
+*/
 
-/* 1. TOP CENTER: Locked exactly to the middle */
+/* 1. TOP CENTER */
 .tag-product { 
     top: 5%; 
     left: 50%; 
-    /* translateX(-50%) ensures the center of the tag is at 50%, not the start */
     transform: translateX(-50%) rotate(-5deg); 
 }
 
-/* 2. TOP CORNERS: Balanced distance from top */
+/* 2. TOP CORNERS */
 .tag-systems { 
     top: 15%; 
     left: 10%; 
@@ -331,7 +336,7 @@ section { scroll-margin-top: 100px; }
     transform: rotate(5deg); 
 }
 
-/* 3. MIDDLE SIDES: Balanced vertical center */
+/* 3. MIDDLE SIDES */
 .tag-research { 
     top: 48%; 
     left: 2%; 
@@ -355,14 +360,12 @@ section { scroll-margin-top: 100px; }
     transform: rotate(10deg); 
 }
 
-/* 5. BOTTOM CENTER PAIR: Spaced evenly apart */
-/* Changed from 38% to 28% to push them apart slightly */
+/* 5. BOTTOM CENTER PAIR */
 .tag-framer { 
     bottom: 5%; 
     left: 28%; 
     transform: rotate(5deg); 
 }
-/* Changed from 35% to 28% to match the left side symmetrically */
 .tag-visual { 
     bottom: 5%; 
     right: 28%; 
