@@ -240,15 +240,14 @@ section { scroll-margin-top: 100px; }
     .exp-header { flex-direction: column; align-items: flex-start; }
     .exp-date { margin-top: 5px; }
 }
-
 /* ============================================================
-   5. SKILLS / SERVICES SECTION (10-Item Orbit)
+   5. SKILLS / SERVICES SECTION (CLEAN & FIXED)
    ============================================================ */
 .services-section {
     position: relative;
     padding: 0;
     background-color: #fcfcfc;
-    height: 850px; /* Increased slightly to fit 10 items */
+    height: 850px; /* Fixed height to keep orbit circular */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,17 +261,17 @@ section { scroll-margin-top: 100px; }
     height: 100%;
 }
 
-/* CENTER TEXT */
+/* CENTER TEXT (Removed the white background blob) */
 .services-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10;
+    z-index: 0; /* Set to 0 so tags (z-index 2) float ON TOP of text if they overlap */
     text-align: center;
     width: 100%;
     max-width: 500px;
-    background: radial-gradient(circle, rgba(252,252,252,1) 20%, rgba(252,252,252,0) 70%);
+    background: transparent; /* No more white blob */
 }
 
 .ufo-icon img { width: 60px; margin-bottom: 20px; }
@@ -293,7 +292,7 @@ section { scroll-margin-top: 100px; }
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* Starts dead center */
     background-color: #dbe4ff;
     color: #1a2a4e;
     padding: 12px 24px;
@@ -303,7 +302,7 @@ section { scroll-margin-top: 100px; }
     white-space: nowrap;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, background-color 0.3s ease;
-    z-index: 2; 
+    z-index: 2; /* Tags sit above text */
 }
 
 .skill-tag:hover {
@@ -312,7 +311,7 @@ section { scroll-margin-top: 100px; }
     transform: translate(-50%, -50%) scale(1.1) !important;
 }
 
-/* 10 UNIQUE POSITIONS (Clockwise from Top) */
+/* 10 UNIQUE POSITIONS (Clockwise Orbit) */
 
 /* 1. Top Center */
 .tag-product { 
@@ -330,7 +329,7 @@ section { scroll-margin-top: 100px; }
 }
 
 /* 4. Right Lower */
-.tag-research-user { 
+.tag-research { 
     margin-top: 100px; margin-left: 380px; transform: translate(-50%, -50%) rotate(-3deg);
 }
 
@@ -375,6 +374,7 @@ section { scroll-margin-top: 100px; }
         transform: none !important;
     }
 }
+
 /* ============================================================
    6. WORKS SECTION
    ============================================================ */
