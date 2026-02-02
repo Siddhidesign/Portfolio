@@ -307,18 +307,67 @@ section { scroll-margin-top: 100px; }
     z-index: 20;
 }
 
-/* Tag Positions (Adjusted to stay inside screen) */
-.tag-product  { top: 5%;   left: 42%;  transform: rotate(-5deg); }
-.tag-systems  { top: 12%;  left: 10%;   transform: rotate(-10deg); }
-.tag-ux       { top: 18%;  right: 10%;  transform: rotate(5deg); }
+/* ============================================================
+   UPDATED TAG POSITIONS (Perfectly Centered & Balanced)
+   ============================================================ */
 
-.tag-research { top: 48%;  left: 8%;   transform: rotate(10deg); }
-.tag-ui       { top: 52%;  right: 8%;  transform: rotate(-5deg); }
+/* 1. TOP CENTER: Locked exactly to the middle */
+.tag-product { 
+    top: 5%; 
+    left: 50%; 
+    /* translateX(-50%) ensures the center of the tag is at 50%, not the start */
+    transform: translateX(-50%) rotate(-5deg); 
+}
 
-.tag-pitch    { bottom: 20%; left: 12%;   transform: rotate(-10deg); }
-.tag-branding { bottom: 22%; right: 15%; transform: rotate(10deg); }
-.tag-framer   { bottom: 5%;  left: 38%;  transform: rotate(5deg); }
-.tag-visual   { bottom: 5%;  right: 35%; transform: rotate(-5deg); }
+/* 2. TOP CORNERS: Balanced distance from top */
+.tag-systems { 
+    top: 15%; 
+    left: 10%; 
+    transform: rotate(-10deg); 
+}
+.tag-ux { 
+    top: 15%; 
+    right: 10%; 
+    transform: rotate(5deg); 
+}
+
+/* 3. MIDDLE SIDES: Balanced vertical center */
+.tag-research { 
+    top: 48%; 
+    left: 2%; 
+    transform: rotate(10deg); 
+}
+.tag-ui { 
+    top: 50%; 
+    right: 2%; 
+    transform: rotate(-5deg); 
+}
+
+/* 4. BOTTOM CORNERS */
+.tag-pitch { 
+    bottom: 20%; 
+    left: 10%; 
+    transform: rotate(-10deg); 
+}
+.tag-branding { 
+    bottom: 22%; 
+    right: 10%; 
+    transform: rotate(10deg); 
+}
+
+/* 5. BOTTOM CENTER PAIR: Spaced evenly apart */
+/* Changed from 38% to 28% to push them apart slightly */
+.tag-framer { 
+    bottom: 5%; 
+    left: 28%; 
+    transform: rotate(5deg); 
+}
+/* Changed from 35% to 28% to match the left side symmetrically */
+.tag-visual { 
+    bottom: 5%; 
+    right: 28%; 
+    transform: rotate(-5deg); 
+}
 
 /* Mobile Skills: Stacked List */
 @media (max-width: 768px) {
