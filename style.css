@@ -242,7 +242,7 @@ section { scroll-margin-top: 100px; }
 }
 
 /* ============================================================
-   5. SKILLS / SERVICES SECTION (FIXED LAYOUT)
+   5. SKILLS / SERVICES SECTION (FIXED SPACING)
    ============================================================ */
 .services-section {
     position: relative;
@@ -257,10 +257,10 @@ section { scroll-margin-top: 100px; }
 
 .services-container {
     position: relative;
-    max-width: 1100px;
+    max-width: 1200px; /* Increased width slightly */
     width: 100%;
     text-align: center;
-    min-height: 600px;
+    min-height: 750px; /* CRITICAL FIX: Increased height to stop overlap */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -269,10 +269,11 @@ section { scroll-margin-top: 100px; }
 .services-content {
     z-index: 10;
     position: relative;
-    padding: 20px;
-    background: rgba(252, 252, 252, 0.6);
-    backdrop-filter: blur(2px);
-    border-radius: 20px;
+    padding: 40px;
+    /* Optional: glass effect to make text readable if tags float behind */
+    background: rgba(252, 252, 252, 0.5); 
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
 }
 
 .ufo-icon img { width: 60px; margin-bottom: 20px; }
@@ -292,14 +293,14 @@ section { scroll-margin-top: 100px; }
     line-height: 1.5;
 }
 
-/* Floating Tags */
+/* Floating Tags Base Styles */
 .skill-tag {
     position: absolute;
     background-color: #dbe4ff;
     color: #1a2a4e;
-    padding: 12px 24px;
+    padding: 14px 28px; /* Slightly bigger padding */
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     white-space: nowrap;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -313,66 +314,72 @@ section { scroll-margin-top: 100px; }
     z-index: 20;
 }
 
-/* UPDATED TAG POSITIONS (Radial Orbit) 
-   These values ensure tags circle the text without hitting it.
+/* UPDATED POSITIONS (The "Clock" Layout)
+   Using strict percentages to keep them apart.
 */
 
-/* 1. TOP CENTER */
+/* 12:00 - Top Center */
 .tag-product { 
-    top: 5%; 
+    top: 2%; 
     left: 50%; 
-    transform: translateX(-50%) rotate(-5deg); 
+    transform: translateX(-50%) rotate(-3deg); 
 }
 
-/* 2. TOP CORNERS */
+/* 10:00 - Top Left Corner */
 .tag-systems { 
-    top: 15%; 
-    left: 10%; 
-    transform: rotate(-10deg); 
+    top: 12%; 
+    left: 15%; 
+    transform: rotate(-8deg); 
 }
+
+/* 2:00 - Top Right Corner */
 .tag-ux { 
-    top: 15%; 
-    right: 10%; 
+    top: 12%; 
+    right: 15%; 
     transform: rotate(5deg); 
 }
 
-/* 3. MIDDLE SIDES */
+/* 9:00 - Middle Left (Anchored) */
 .tag-research { 
-    top: 48%; 
+    top: 45%; 
     left: 2%; 
-    transform: rotate(10deg); 
-}
-.tag-ui { 
-    top: 50%; 
-    right: 2%; 
-    transform: rotate(-5deg); 
+    transform: translateY(-50%) rotate(8deg); 
 }
 
-/* 4. BOTTOM CORNERS */
+/* 3:00 - Middle Right (Anchored) */
+.tag-ui { 
+    top: 45%; 
+    right: 2%; 
+    transform: translateY(-50%) rotate(-8deg); 
+}
+
+/* 7:00 - Bottom Left (Moved UP to avoid bottom collision) */
 .tag-pitch { 
-    bottom: 20%; 
+    bottom: 25%; 
     left: 10%; 
     transform: rotate(-10deg); 
 }
+
+/* 5:00 - Bottom Right (Moved UP to avoid bottom collision) */
 .tag-branding { 
-    bottom: 22%; 
+    bottom: 25%; 
     right: 10%; 
     transform: rotate(10deg); 
 }
 
-/* 5. BOTTOM CENTER PAIR */
+/* 6:00 Pair - Bottom Center (Moved DOWN and spread apart) */
 .tag-framer { 
     bottom: 5%; 
-    left: 28%; 
-    transform: rotate(5deg); 
+    left: 30%; 
+    transform: rotate(4deg); 
 }
 .tag-visual { 
     bottom: 5%; 
-    right: 28%; 
-    transform: rotate(-5deg); 
+    right: 30%; 
+    transform: rotate(-4deg); 
 }
 
-/* Mobile Skills: Stacked List */
+/* Mobile Skills: Stacked List (No floating) */
 @media (max-width: 768px) {
     .services-container {
         flex-direction: column;
@@ -383,10 +390,10 @@ section { scroll-margin-top: 100px; }
     .skill-tag {
         position: static;
         display: inline-block;
-        margin: 5px;
+        margin: 8px;
         transform: none !important;
     }
-    .services-content { order: -1; margin-bottom: 30px; background: transparent; }
+    .services-content { order: -1; margin-bottom: 30px; background: transparent; padding: 0; }
 }
 
 /* ============================================================
