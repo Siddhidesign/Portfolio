@@ -17,13 +17,7 @@ const extraProjects = [
         url: "grocgenie/grocgenie.html",
         overlay: "View Case Study"
     },
-    {
-        title: "Mental Health Support App",
-        category: "Medical UI",
-        img: "https://picsum.photos/600/400?random=13", // Replace with your actual image path
-        url: "health.html",
-        overlay: "View Case Study"
-    },
+    
     {
         title: "Real-Time Identification of Medicinal Plants",
         category: "IoT Design",
