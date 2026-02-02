@@ -27,7 +27,7 @@ const extraProjects = [
     {
         title: "Real-Time Identification of Medicinal Plants",
         category: "IoT Design",
-        img: "https://picsum.photos/600/400?random=14", // Replace with your actual image path
+        img: "assets/real-time-thumbnail.png", // Replace with your actual image path
         url: "https://github.com/Siddhidesign/Real-time-Identification-of-Medicinal-Plants?tab=readme-ov-file",
         overlay: "View Case Study"
     }
