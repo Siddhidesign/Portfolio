@@ -150,8 +150,8 @@ body {
    Moved images to 5-10% (the corners) instead of 30% (the center).
    This creates space for the text in the middle.
 */
-.img-1 { width: 180px; height: 240px; top: 15%; left: 10%;  transform: rotate(-15deg); }
-.img-2 { width: 180px; height: 240px; top: 10%; right: 10%; transform: rotate(15deg); }
+.img-1 { width: 180px; height: 240px; top: 15%; left: 8%;  transform: rotate(-15deg); }
+.img-2 { width: 180px; height: 240px; top: 10%; right: 8%; transform: rotate(15deg); }
 .img-3 { width: 220px; height: 160px; bottom: 15%; left: 10%; transform: rotate(-10deg); }
 .img-4 { width: 200px; height: 140px; bottom: 10%; right: 10%; transform: rotate(10deg); }
 
