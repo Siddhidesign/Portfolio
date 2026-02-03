@@ -18,10 +18,11 @@
                 <ul>
                     <li><a href="#overview" class="nav-item active">1. Overview</a></li>
                     <li><a href="#research" class="nav-item">2. Research</a></li>
-                    <li><a href="#define" class="nav-item">3. Define</a></li>
-                    <li><a href="#ideate" class="nav-item">4. Ideate</a></li>
-                    <li><a href="#prototype" class="nav-item">5. Prototype</a></li>
-                    <li><a href="#testing" class="nav-item">6. Testing</a></li>
+                    <li><a href="#competitors" class="nav-item">3. Competitive Audit</a></li>
+                    <li><a href="#features" class="nav-item">4. Ideation</a></li>
+                    <li><a href="#tasks" class="nav-item">5. User Tasks for Prototype</a></li>
+                    <li><a href="#sketching" class="nav-item">6. Sketches & Wireframes</a></li>
+                    <li><a href="#prototype" class="nav-item">7. Prototype</a></li>
                 </ul>
             </nav>
         </aside>
@@ -30,386 +31,178 @@
             
             <section id="overview" class="section">
                 <span class="summary-label">Project Context</span>
-                <h1>Eliminating Range <br><span class="highlight-text">Anxiety</span> ⚡️</h1>
+                <h1>Unified EV Charging <br><span class="highlight-text">Experience</span> ⚡️</h1>
                 
-                <p><strong>What is EV Chargepoint?</strong><br><br>
-                EV Chargepoint is a conceptual unified mobile application designed to simplify the electric vehicle charging experience. It addresses the fragmented market by providing accurate, real-time data on station availability, compatibility, and pricing across different networks.</p>
+                <p><strong>The Problem</strong><br><br>
+                The electric vehicle (EV) marketplace is fragmented. Drivers suffer from "Range Anxiety" not because cars lack range, but because the charging infrastructure is unreliable. Users are forced to juggle multiple apps, carry physical RFID cards, and often arrive at broken chargers.</p>
                 
                 <div class="summary-box">
-                    <span class="summary-label">Project Summary</span>
+                    <span class="summary-label">The Solution</span>
                     <p style="margin-bottom:0; color: #14532d;">
-                        This project is a <strong>ground-up UX/UI design</strong> aimed at solving the critical pain points of EV ownership. By centralizing fragmented network data into a single, intuitive interface with reliable real-time status indicators, we aim to build trust and make long-distance EV travel seamless.
+                        A unified interface that aggregates data across networks, enables universal payment without physical cards, and integrates battery health monitoring directly into the routing experience.
                     </p>
-                </div>
-
-                <div style="margin-top: 80px;">
-                    <h2>Why the <span class="highlight-text">Need?</span></h2>
-                    
-                    <p>Literature review and market analysis reveal that despite rapid EV adoption, the charging infrastructure experience remains a major barrier, leading to "range anxiety" and user frustration.</p>
-
-                    <p><strong>The Core Problems Identified in Research:</strong></p>
-                    <ul class="problem-list">
-                        <li><strong>Data Inaccuracy:</strong> Users frequently encounter stations marked "available" that are actually broken or occupied upon arrival.</li>
-                        <li><strong>Fragmented Ecosystem:</strong> EV owners must juggle multiple apps (PlugShare, ChargePoint, Tesla, etc.) just to find a usable charger.</li>
-                        <li><strong>Complex Planning:</strong> Existing tools often lack integrated trip planning that accurately accounts for vehicle range and charging speeds.</li>
-                    </ul>
                 </div>
             </section>
 
             
             <section id="research" class="section">
-    
-                <h2 class="challenge-title">The Challenge</h2>
-                <p>Based on our literature review of the current EV landscape, the primary challenges preventing a smooth user experience are fragmentation and unreliable data:</p>
+                <h2 class="challenge-title">2. Research: The Pain Point Matrix</h2>
+                <p>To understand the root causes of user frustration, <strong>we conducted</strong> a triangulated research study combining <strong>Peer-Reviewed Literature</strong>, <strong>Industry Studies</strong>, and <strong>Anecdotal Evidence</strong> (Reddit/Forums).</p>
                 
+                <h3>Key Themes Identified:</h3>
                 <div class="metrics-grid">
                     <div class="metric-card challenge-card">
-                        <div class="metric-number">3-4</div>
-                        <div class="metric-label">Avg Apps Used Per Driver</div>
+                        <div class="metric-number">Reliability</div>
+                        <div class="metric-label">#1 Pain Point across all studies</div>
                     </div>
                     <div class="metric-card challenge-card">
-                        <div class="metric-number">High</div>
-                        <div class="metric-label">Frustration with Broken Chargers</div>
+                        <div class="metric-number">Payment</div>
+                        <div class="metric-label">Lack of single interface</div>
                     </div>
                     <div class="metric-card challenge-card">
-                        <div class="metric-number">Poor</div>
-                        <div class="metric-label">Real-Time Data Reliability</div>
+                        <div class="metric-number">Info</div>
+                        <div class="metric-label">Lack of amenity/safety data</div>
                     </div>
                 </div>
-
-                <ol class="research-list">
-                    <li><strong>The "Broken Charger" Epidemic:</strong> A significant portion of public charging infrastructure is often non-functional, but apps fail to reflect this in real-time.</li>
-                    <li><strong>App Fatigue & Cognitive Load:</strong> Users are forced to cross-reference multiple platforms to check plug compatibility, pricing, and availability.</li>
-                </ol>
 
                 <div class="research-image-placeholder">
-                    <img src="../assets/competitor-analysis.png" alt="Competitor Analysis Matrix">
+                    <img src="assets/research-matrix.png" alt="Research Matrix: Comparing Literature, Industry Studies, and Anecdotal Evidence">
                 </div>
-
-                <hr class="research-separator">
-
-                <h2 class="solution-title">The Strategy</h2>
-                <p>To address these industry-wide issues, the redesign strategy focuses on centralization and data transparency:</p>
-
-                <div class="metrics-grid">
-                    <div class="metric-card solution-card">
-                        <div class="metric-number">1</div>
-                        <div class="metric-label">Unified Platform Goal</div>
-                    </div>
-                    <div class="metric-card solution-card">
-                        <div class="metric-number">95%+</div>
-                        <div class="metric-label">Target Data Accuracy</div>
-                    </div>
-                    <div class="metric-card solution-card">
-                        <div class="metric-number">Saved</div>
-                        <div class="metric-label">User Preference Profiles</div>
-                    </div>
-                </div>
-
-                <ol class="research-list">
-                    <li><strong>Prioritize Real-Time Verification:</strong> The solution must emphasize accurate, up-to-the-minute status of chargers over just showing their location.</li>
-                    <li><strong>Unified Filtering:</strong> Allow users to set global preferences for their vehicle type, plug standard (CCS, CHAdeMO, J1772), and desired charging speed.</li>
-                </ol>
-
+                <p class="figure-caption">Figure 2.1: Our matrix analysis revealed that Payment Interface and Reliability were the most consistent issues across all data sources.</p>
             </section>
 
+            <section id="competitors" class="section">
+                <h2 class="section-title">3. Competitive Audit & App Deconstruction</h2>
+                <p><strong>We analyzed</strong> existing market leaders (EVgo, ChargePoint) and OEM apps (Tesla, Nissan). <strong>Our team mapped</strong> their user flows to pinpoint exactly where users drop off or feel frustration.</p>
 
-            <section id="define" class="section">
-                
-                <h2 class="section-title">📝 3. Define Phase: Task Analysis</h2>
-                <p>We broke down the core user journey into three essential tasks to identify where friction occurs in current solutions:</p>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <div class="card-header">EVgo & ChargePoint Analysis</div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Physical Friction:</strong> Many legacy chargers still require a physical RFID card to initiate a session.</li>
+                                <li><strong>Payment Barriers:</strong> Expensive monthly plans vs. Pay-as-you-go confusion.</li>
+                                <li><strong>Information Gaps:</strong> "No reviews" and "No amenities info" leaves users feeling unsafe at night.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="analysis-card">
+                        <div class="card-header">OEM Apps (Tesla/BMW)</div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Walled Gardens:</strong> Great for their own cars, but useless for mixed-brand households.</li>
+                                <li><strong>Limited Payment:</strong> Cannot use a Tesla app to pay for a non-partnered third-party charger.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-image-placeholder">
+                    <img src="assets/competitor-flow.png" alt="EVgo User Flow Analysis showing pain points like physical cards and session limits">
+                </div>
+            </section>
+
+            <section id="features" class="section">
+                <h2 class="section-title">💡 4. Ideation: Feature Integration</h2>
+                <p>Based on the gaps identified in the audit, <strong>we brainstormed</strong> features that go beyond simple mapping.</p>
 
                 <div class="task-grid">
                     <div class="task-card">
-                        <div class="task-badge">1</div>
-                        <h3>Find Compatible Station</h3>
-                        <p class="task-one-liner">Users struggle with cluttered maps showing incompatible plugs or slow chargers they don't want.</p>
+                        <div class="task-badge">Feature 1</div>
+                        <h3>Battery Health Monitor</h3>
+                        <p class="task-one-liner">Tracks degradation over time and provides insights into how charging habits impact battery longevity.</p>
                     </div>
 
                     <div class="task-card">
-                        <div class="task-badge">2</div>
-                        <h3>Verify Availability</h3>
-                        <p class="task-one-liner">The critical pain point: driving to a station only to find it occupied or out-of-service.</p>
+                        <div class="task-badge">Feature 2</div>
+                        <h3>Percentage Alarm</h3>
+                        <p class="task-one-liner">Users set a specific threshold. If the battery falls below this, the app triggers a notification and suggests a station.</p>
                     </div>
 
                     <div class="task-card">
-                        <div class="task-badge">3</div>
-                        <h3>Plan a Long Trip</h3>
-                        <p class="task-one-liner">Calculating necessary stops based on current range and terrain is complex and often requires separate tools.</p>
+                        <div class="task-badge">Feature 3</div>
+                        <h3>EV Marketplace</h3>
+                        <p class="task-one-liner">A one-stop shop for purchasing OEM-compatible home chargers and accessories directly within the app.</p>
                     </div>
                 </div>
-
-                <div class="research-image-placeholder" style="margin-top: 40px;">
-                    <img src="ev-assets/task-flow-1.png" alt="Task Flow: Find Station">
-                    <img src="ev-assets/task-flow-2.png" alt="Task Flow: Verify Status">
-                    <img src="ev-assets/task-flow-3.png" alt="Task Flow: Trip Plan">
-                </div>
-
-                <div class="timeline-spacer"></div>
-
-                <h2 class="section-title">⏰ Project Timeline (4 Months)</h2>
-                <p>The project followed a structured 4-month design sprint:</p>
-
-                <div class="timeline-container">
-                    
-                    <div class="timeline-row">
-                        <div class="timeline-label">Research & Strategy</div>
-                        <div class="timeline-bar-area">
-                            <div class="progress-bar bar-yellow" style="width: 25%;"></div>
-                            <span class="time-text">Month 1: Literature Review & Discovery</span>
-                        </div>
-                    </div>
-
-                    <div class="timeline-row">
-                        <div class="timeline-label">Define & Ideate</div>
-                        <div class="timeline-bar-area">
-                            <div class="progress-bar bar-green" style="width: 25%;"></div>
-                            <span class="time-text">Month 2: Flows & Wireframing</span>
-                        </div>
-                    </div>
-
-                    <div class="timeline-row">
-                        <div class="timeline-label">Design & Prototyping</div>
-                        <div class="timeline-bar-area">
-                            <div class="progress-bar bar-orange" style="width: 25%;"></div>
-                            <span class="time-text">Month 3: High Fidelity UI</span>
-                        </div>
-                    </div>
-
-                    <div class="timeline-row">
-                        <div class="timeline-label">Testing & Validation</div>
-                        <div class="timeline-bar-area">
-                            <div class="progress-bar bar-pink" style="width: 25%;"></div>
-                            <span class="time-text">Month 4: Usability Testing</span>
-                        </div>
-                    </div>
-
-                </div>
-
             </section>
 
-
-            <section id="ideate" class="section">
-    
-                <h2 class="section-title">💡 4. Ideate Phase: Scenarios & Solutions</h2>
-                <p>We developed user scenarios based on our research to better empathize with the anxiety drivers feel when their battery gets low.</p>
-
-                <hr class="research-separator" style="margin: 40px 0;">
-
-                <h3>User Scenarios</h3>
-                <p>We focused on two primary use cases: the urban driver needing a quick, reliable top-up, and the long-distance traveler planning a multi-stop route.</p>
-
-                <div class="research-image-placeholder">
-                    <img src="ev-assets/scenario-urban.png" alt="User Scenario: Urban Charging">
-                    <img src="ev-assets/scenario-trip.png" alt="User Scenario: Road Trip">
-                </div>
-                <p class="figure-caption">Figure 4.1: User Scenarios for Daily Use vs. Long Distance Travel</p>
-
-                <div class="timeline-spacer"></div>
-
-                <h3>Analyzing Pain Points in Current Solutions</h3>
-                <p>We mapped the core tasks against user satisfaction based on literature review findings, highlighting the areas of highest frustration (Red/Orange).</p>
-
-                <div class="analysis-grid">
-                    
-                    <div class="analysis-card">
-                        <div class="card-header">Find Station</div>
-                        <div class="card-body">
-                            <ol>
-                                <li>High cognitive load due to clutter.</li>
-                                <li>Filtering is often buried.</li>
-                                <li>Inaccurate plug type info.</li>
-                            </ol>
-                            
-                            <div class="satisfaction-box">
-                                <span class="sat-label">Current Satisfaction</span>
-                                <div class="faces-row">
-                                    <span class="face red">😡</span>
-                                    <span class="face orange">☹️</span> <span class="face yellow active">😐</span>
-                                    <span class="face lime">🙂</span>
-                                    <span class="face green">😃</span>
-                                </div>
-                            </div>
-                            <div class="card-icon">🗺️</div> 
-                        </div>
-                    </div>
-
-                    <div class="analysis-card">
-                        <div class="card-header">Verify Status</div>
-                        <div class="card-body">
-                            <ol>
-                                <li>Major Pain Point: Data lag.</li>
-                                <li>Broken chargers listed as working.</li>
-                                <li>Wasted travel time.</li>
-                            </ol>
-                            
-                            <div class="satisfaction-box">
-                                <span class="sat-label">Current Satisfaction</span>
-                                <div class="faces-row">
-                                    <span class="face red active">😡</span>
-                                    <span class="face orange">☹️</span> <span class="face yellow">😐</span>
-                                    <span class="face lime">🙂</span>
-                                    <span class="face green">😃</span>
-                                </div>
-                            </div>
-                            <div class="card-icon">🔌</div> 
-                        </div>
-                    </div>
-
-                    <div class="analysis-card">
-                        <div class="card-header">Trip Planning</div>
-                        <div class="card-body">
-                            <ol>
-                                <li>Requires switching apps.</li>
-                                <li>Doesn't account for weather/terrain.</li>
-                                <li>Complex interface.</li>
-                            </ol>
-                            
-                            <div class="satisfaction-box">
-                                <span class="sat-label">Current Satisfaction</span>
-                                <div class="faces-row">
-                                    <span class="face red">😡</span>
-                                    <span class="face orange active">☹️</span>
-                                    <span class="face yellow">😐</span> <span class="face lime">🙂</span>
-                                    <span class="face green">😃</span>
-                                </div>
-                            </div>
-                            <div class="card-icon">📍</div> 
-                        </div>
-                    </div>
-
-                </div>
-                
-                <p class="figure-caption">Figure 4.2: Pain Point Analysis based on Literature Review</p>
-
-                <div class="problem-area-box">
-                    <h4>Key Design Opportunities:</h4>
-                    <ul class="problem-area-list">
-                        <li><strong>Smart Filtering:</strong> Onboarding should save vehicle details to automatically filter the map for compatible plugs only.</li>
-                        <li><strong>Real-Time Trust Signals:</strong> Use clear visual indicators (e.g., pulsating green dots, "Last verified X mins ago") to build trust in station status.</li>
-                        <li><strong>Integrated Route Planner:</strong> Combine navigation with charging stops, automatically calculating necessary charge times.</li>
-                    </ul>
-                </div>
-
-                <hr class="research-separator" style="margin: 40px 0;">
-
-                <h3>Brainstorming & Concepts</h3>
-                <p>Focusing on trust and clarity, we sketched layouts that prioritize the map view and simplify station details cards.</p>
-
-                <div class="research-image-placeholder concept-placeholder">
-                    <img src="ev-assets/wireframe-1.png" alt="Wireframe 1">
-                    <img src="ev-assets/wireframe-2.png" alt="Wireframe 2">
-                    <img src="ev-assets/wireframe-3.png" alt="Wireframe 3">
-                </div>
-                <p class="figure-caption" style="color: #16a34a;">Figure 4.3: Low-Fidelity Sketches of the New Interface</p>
-
-            </section>
-
-
-            <section id="prototype" class="section">
-                
-                <h2 class="section-title">🎨 5. Prototype: High-Fidelity Designs</h2>
-                <p>Moving to high-fidelity, we applied a modern, clean visual identity featuring distinct status colors (Green for available, Red for in-use/broken) to allow for quick scanning while driving.</p>
+            <section id="tasks" class="section">
+                <h2 class="section-title">📝 5. User Tasks Defined for Prototype</h2>
+                <p>Before building the high-fidelity screens, <strong>we defined specific user tasks</strong> to ensure the logic was sound. These flowcharts served as the blueprint for our prototype.</p>
 
                 <div class="prototype-gallery">
                     
                     <div class="proto-item">
-                        <h3 class="proto-label">Flow 1: Home Map & Smart Filters</h3>
+                        <h3 class="proto-label">Task 1: Sign Up & Car Profile</h3>
+                        <p><strong>User Task:</strong> User signs up and creates a new account.<br>
+                        <em>Logic:</em> Account Creation → Login → Enter Car Brand/Model → Save Profile.</p>
                         <div class="research-image-placeholder" style="border: none; padding: 0;">
-                            <img src="ev-assets/hifi-flow-1.png" alt="Hi-Fi Flow: Map & Filters">
+                            <img src="assets/flow-signup.png" alt="Flowchart: User signing up and creating new account">
+                        </div>
+                    </div>
+                    
+                     <div class="proto-item">
+                        <h3 class="proto-label">Task 2: Real-Time Traffic Update</h3>
+                        <p><strong>User Task:</strong> Gets a real-time traffic update.<br>
+                        <em>Logic:</em> Select Station → Check Reviews/Ratings → Check Distance → System Provides Traffic Data.</p>
+                         <div class="research-image-placeholder" style="border: none; padding: 0;">
+                            <img src="assets/flow-traffic.png" alt="Flowchart: Identifies Real-time Traffic">
                         </div>
                     </div>
 
                     <div class="proto-item">
-                        <h3 class="proto-label">Flow 2: Station Details & Real-Time Status</h3>
+                        <h3 class="proto-label">Task 3: Low Battery Alert</h3>
+                        <p><strong>User Task:</strong> Gets a notification when battery turns low.<br>
+                        <em>Logic:</em> Low Battery Notification → Find Nearby Station → Time Suggestion → Select Station.</p>
                          <div class="research-image-placeholder" style="border: none; padding: 0;">
-                            <img src="ev-assets/hifi-flow-2.png" alt="Hi-Fi Flow: Station Details">
+                            <img src="assets/flow-battery.png" alt="Flowchart: Alerts when car runs low on Battery">
                         </div>
                     </div>
 
                     <div class="proto-item">
-                        <h3 class="proto-label">Flow 3: Integrated Trip Planner</h3>
+                        <h3 class="proto-label">Task 4: In-App Payment</h3>
+                        <p><strong>User Task:</strong> User pays through the app.<br>
+                        <em>Logic:</em> Select Charging Station → User Charges → Integrated Payment Option → Payment Complete.</p>
                          <div class="research-image-placeholder" style="border: none; padding: 0;">
-                            <img src="ev-assets/hifi-flow-3.png" alt="Hi-Fi Flow: Trip Planner">
+                            <img src="assets/flow-payment.png" alt="Flowchart: Payment options within the app">
                         </div>
                     </div>
 
                 </div>
-
             </section>
 
+            <section id="sketching" class="section">
+                <h2 class="section-title">✏️ 6. Sketching & Wireframing</h2>
+                <p>Before jumping into pixels, <strong>the team used</strong> pen and paper to rapidly visualize the core features. <strong>We grouped</strong> these sketches into four key pillars to ensure a balanced experience.</p>
 
-            <section id="testing" class="section">
-                
-                <h2 class="section-title">🧪 6. Testing & Validation (Hypothetical)</h2>
-                <p>To validate the unified app concept, we conducted simulated usability testing focusing on task completion rates for finding reliable chargers and planning trips.</p>
-
-                <div class="sus-score-container">
-                    <div class="sus-card old-score">
-                        <span class="score-label">Fragmented Market Avg SUS</span>
-                        <span class="score-number red-text">45.5</span>
-                        <span class="score-desc">"Poor/Stressful"</span>
-                    </div>
-                    <div class="arrow-divider">➔</div>
-                    <div class="sus-card new-score">
-                        <span class="score-label">Unified Concept SUS Score</span>
-                        <span class="score-number green-text">82.0</span>
-                        <span class="score-desc">"Excellent/Reliable"</span>
-                    </div>
+                <div class="research-image-placeholder" style="background: transparent; border: none;">
+                    <img src="assets/sketches-grouped.png" alt="Grouped Sketches: Real Time Data, Universal Payment, Personalized Suggestions, Amenities">
                 </div>
-                <p class="figure-caption">Figure 6.1: Projected System Usability Scale (SUS) Improvement</p>
+                <p class="figure-caption">Figure 6.1: Ideation sketches categorized by the four main value propositions.</p>
 
-                <hr class="research-separator">
+                <h3 style="margin-top: 40px;">Translating to Structure</h3>
+                <p><strong>We refined</strong> these sketches into structured wireframes to define the information architecture. Key focus areas included:</p>
+                <ul class="research-list">
+                    <li><strong>The Dashboard:</strong> Prioritizing the "Search" and "Map" view as the primary home screen.</li>
+                    <li><strong>Trip Planner:</strong> Creating a simple input for "From" and "To" with battery percentage sliders.</li>
+                    <li><strong>Charging Session:</strong> A clear, large timer and cost estimator for active charging sessions.</li>
+                </ul>
 
-                <h3>User Feedback Summary</h3>
-                <div class="feedback-grid">
-                    <div class="feedback-card pro-card">
-                        <h4>✅ What Users Loved</h4>
-                        <ul>
-                            <li>"Saving my car profile made the map instantly useful."</li>
-                            <li>High trust in the prominent "Last Updated" timestamps.</li>
-                            <li>Integrated trip planning saved switching to Google Maps.</li>
-                        </ul>
-                    </div>
-                    <div class="feedback-card con-card">
-                        <h4>❌ Friction Points Identified</h4>
-                        <ul>
-                            <li>Initial onboarding felt slightly long to input car details.</li>
-                            <li>Users wanted clearer pricing visualization on the map pins.</li>
-                        </ul>
-                    </div>
+                <div class="research-image-placeholder">
+                    <img src="assets/wireframes-paper.png" alt="Paper Wireframes showing Map, Trip Planner, and Charging Status screens">
                 </div>
-                <p class="figure-caption">Figure 6.2: Qualitative Feedback Analysis</p>
+            </section>
 
-                <hr class="research-separator">
-
-                <h3>Design Iteration Example</h3>
-                <p>Based on feedback that onboarding was too long, we introduced a "Quick Start" option.</p>
-
-                <div class="iteration-block">
-                    <h4>Iteration: Streamlining Onboarding</h4>
-                    <p><strong>Insight:</strong> Users wanted to see the map immediately without entering full vehicle details first.</p>
-                    <p><strong>Solution:</strong> We allowed users to skip vehicle setup and use generic filters initially, with a prompt to save details later for better accuracy.</p>
-                    
-                    <div class="research-image-placeholder iteration-placeholder">
-                        <div class="img-label">Before</div>
-                        <img src="ev-assets/iteration-before.png" alt="Onboarding Before">
-                        <div class="img-divider">VS</div>
-                        <img src="ev-assets/iteration-after.png" alt="Onboarding After">
-                        <div class="img-label">After</div>
-                    </div>
-                </div>
-
-                <hr class="research-separator">
-
+            <section id="prototype" class="section">
                 <div class="final-cta-section">
-                    <h2>🚀 Experience the Prototype</h2>
-                    <p>Interact with the fully clickable high-fidelity prototype.</p>
+                    <h2>🚀 7. Final Prototype</h2>
+                    <p>Moving from wireframes to high-fidelity, <strong>we applied</strong> a clean visual identity using distinct color cues (Green/Red) for status to allow for quick scanning while driving.</p>
                     
                     <a href="#" class="prototype-btn">View Figma Prototype ↗</a>
                 </div>
-
             </section>
+
         </main>
     </div>
 
