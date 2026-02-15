@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FindMe LLC | UX/UI Design Intern</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Findme.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="findme.css">
 </head>
 <body>
 
     <main class="main-container">
         
         <header class="hero">
-            <a href="../index.html" class="back-link">BACK TO HOME ↗</a>
+            <a href="../index.html" class="back-link">← BACK TO HOME</a>
             
-            <h1>Designed Portfolio Builder & Consumer Website for FindMe</h1>
+            <h1>Designing a Portfolio Builder for Creatives</h1>
             
             <p class="hero-summary">
-                Designed and shipped end-to-end web and mobile flows for a portfolio builder product. Improved <strong>usability by 25%</strong> and reduced dev clarification cycles by <strong>30%</strong> through structured handoff processes.
+                I led the design of 5+ end-to-end flows for a platform that helps other creatives build their online presence. My focus was on usability, scalability, and seamless developer handoff.
             </p>
 
             <div class="hero-grid">
@@ -32,8 +34,8 @@
                             <p>Myself, Product Manager, 3 Engineers, Marketing Lead</p>
                         </div>
                         <div class="meta-item">
-                            <h3>Company and Sector</h3>
-                            <p>FindMe LLC • EdTech / Career</p> 
+                            <h3>Company</h3>
+                            <p>FindMe LLC • EdTech</p> 
                         </div>
                         <div class="meta-item">
                             <h3>Date</h3>
@@ -41,10 +43,26 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="hero-image-col">
-                    <div class="image-placeholder main-hero-img">
-                         <img src="assets/findme-hero.jpg" alt="FindMe Portfolio Builder Hero" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                    <div class="image-placeholder">
+                        <img src="Screenshot 2026-02-15 at 12.43.26 PM.jpg" alt="FindMe Dashboard Hero" onclick="openModal(this)">
                     </div>
+                </div>
+            </div>
+            
+            <div class="metrics-row">
+                <div class="metric-box">
+                    <span class="metric-num">25%</span>
+                    <span class="metric-label">IMPROVEMENT IN<br>USABILITY & NAVIGATION</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-num">30%</span>
+                    <span class="metric-label">REDUCTION IN DEV<br>CLARIFICATION CYCLES</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-num">25+</span>
+                    <span class="metric-label">REUSABLE COMPONENTS<br>CREATED</span>
                 </div>
             </div>
         </header>
@@ -52,24 +70,23 @@
         <section class="note-box">
             <span class="lock-icon">🔒</span>
             <div class="note-content">
-                <h3>Note</h3>
+                <h3>Context</h3>
                 <p>This project involves proprietary internal tools. Below is a structured overview of the <em>what, why, who, where, and how</em> of this internship to give you a short understanding of my role.</p>
             </div>
-            <a href="#" class="email-link">Drop me an email ↗</a>
         </section>
 
         <section class="core-overview" id="overview">
             <div class="pillar">
                 <h2>Challenge</h2>
-                <p>FindMe needed to launch two critical platforms simultaneously: a <strong>consumer-facing marketing website</strong> to attract users, and the actual <strong>SaaS product (Portfolio Builder)</strong> for users to create their profiles. The existing flows were fragmented, leading to confusion during onboarding.</p>
+                <p>FindMe needed to launch two critical platforms simultaneously: a consumer-facing marketing website and the SaaS product. The existing flows were fragmented, leading to confusion during onboarding.</p>
             </div>
             <div class="pillar">
                 <h2>Solution</h2>
-                <p>Designed distinct flows for both the <strong>Marketing Site</strong> and the <strong>Product Dashboard</strong>. I created developer-ready prototypes, defined interaction states, and built a scalable component library to ensure brand consistency across both platforms.</p>
+                <p>Designed distinct flows for the <strong>Marketing Site</strong> and the <strong>Product Dashboard</strong>. I created developer-ready prototypes, defined interaction states, and built a scalable component library to ensure brand consistency.</p>
             </div>
             <div class="pillar">
                 <h2>Impact</h2>
-                <p>Shipped end-to-end flows that improved <strong>task clarity and navigation by 25%</strong>. Reduced design-to-dev clarification cycles by <strong>30%</strong> by delivering comprehensive Figma specs, unblocking the engineering team in an agile environment.</p>
+                <p>Shipped end-to-end flows that improved task clarity by 25%. Reduced design-to-dev clarification cycles by 30% by delivering comprehensive Figma specs, unblocking the engineering team.</p>
             </div>
         </section>
 
@@ -88,12 +105,10 @@
                         <div class="quote-card">
                             <span class="quote-mark">“</span>
                             <p>We have great features, but users drop off during sign-up because the transition from the website to the app feels jarring.</p>
-                            <span class="quote-mark right">”</span>
                         </div>
                         <div class="quote-card">
                             <span class="quote-mark">“</span>
                             <p>Developers are constantly asking for missing states (hover, error, empty). We need a single source of truth.</p>
-                            <span class="quote-mark right">”</span>
                         </div>
                     </div>
                 </section>
@@ -122,10 +137,6 @@
                             <h3>Design System</h3>
                             <p>Built a scalable component library with <strong>25+ reusable UI components</strong>, establishing consistent visual hierarchy and brand alignment across the product.</p>
                         </div>
-                        <div class="contrib-item">
-                            <h3>Cross-Functional Work</h3>
-                            <p>Collaborated with the <strong>Marketing Team</strong> on visual assets for the website and the <strong>Engineering Team</strong> to QA the final build.</p>
-                        </div>
                     </div>
                 </section>
 
@@ -135,8 +146,8 @@
                     
                     <div class="learning-cards">
                         <div class="learn-card">
-                            <h3>Marketing vs. Product Design</h3>
-                            <p>I learned to switch contexts between "selling" (Marketing Site) and "building" (Product Tool). The marketing site needed to be flashy and persuasive, while the product needed to be functional and invisible.</p>
+                            <h3>Marketing vs. Product</h3>
+                            <p>I learned to switch contexts between "selling" (Marketing Site) and "building" (Product Tool). The marketing site needed to be flashy, while the product needed to be functional.</p>
                         </div>
                         <div class="learn-card">
                             <h3>The Art of Handoff</h3>
@@ -154,7 +165,7 @@
 
                     <div class="gallery-grid">
                         <div class="gallery-item">
-                            <img src="assets/findme-1.jpg" alt="Consumer Marketing Home Page" onclick="openModal(this)">
+                            <img src="assets/findme-1.jpg" alt="Marketing Home Page" onclick="openModal(this)">
                             <p class="caption">Consumer Marketing Website</p>
                         </div>
                         <div class="gallery-item">
@@ -162,36 +173,30 @@
                             <p class="caption">Portfolio Builder Dashboard</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/findme-3.jpg" alt="Component Library System" onclick="openModal(this)">
+                            <img src="assets/findme-3.jpg" alt="Component System" onclick="openModal(this)">
                             <p class="caption">Design System & Components</p>
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/findme-4.jpg" alt="Mobile Responsive Views" onclick="openModal(this)">
+                            <img src="assets/findme-4.jpg" alt="Mobile Flows" onclick="openModal(this)">
                             <p class="caption">Mobile Responsive Flows</p>
                         </div>
                     </div>
                 </section>
 
-                <section id="conclusion" class="scroll-section">
-                    <h2 class="section-title">Conclusion</h2>
-                    <p>This internship was a crash course in end-to-end product delivery. I successfully bridged the gap between marketing goals and product utility, delivering a cohesive experience for users.</p>
-                </section>
-
                 <footer class="footer-note">
-                    <p><a href="#" style="text-decoration:none; color:inherit;">Back to top ↗</a></p>
+                    <p><a href="#">Back to top ↗</a></p>
                 </footer>
 
             </div>
 
             <div class="right-nav">
                 <ul class="sticky-menu">
-                    <li><a href="#overview" class="active">Overview</a></li>
+                    <li><a href="#overview">Overview</a></li>
                     <li><a href="#the-problem">The problem</a></li>
                     <li><a href="#the-user">The user</a></li>
                     <li><a href="#my-contribution">My contribution</a></li>
                     <li><a href="#my-learnings">My learnings</a></li>
                     <li><a href="#final-designs">Final Gallery</a></li>
-                    <li><a href="#conclusion">Conclusion</a></li>
                 </ul>
             </div>
 
@@ -204,8 +209,6 @@
         <div id="modal-caption"></div>
     </div>
 
-    <script src="Findme.js"></script>
+    <script src="findme.js"></script>
 </body>
 </html>
-
-
