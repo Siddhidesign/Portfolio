@@ -1,46 +1,37 @@
-// Initialize AOS animation library
-AOS.init({
-    duration: 800,    // How long the animation lasts
-    offset: 120,      // Offset (in px) from the original trigger point
-    once: true,       // Whether animation should happen only once
-    easing: 'ease-in-out-quad'
-});
-// Initialize AOS animation library
-AOS.init({
-    duration: 800,
-    offset: 120,
-    once: true,
-    easing: 'ease-in-out-quad'
-});
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all sections that are linked in the sidebar
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sticky-menu a');
 
-/* --- LIGHTBOX FUNCTIONS --- */
+    // Options for the Intersection Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px', // Trigger when section is in the middle of viewport
+        threshold: 0
+    };
 
-// Get the modal
-var modal = document.getElementById("imageModal");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Remove active class from all links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
 
-// Get the image and insert it inside the modal
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
+                // Get the ID of the current section
+                const id = entry.target.getAttribute('id');
+                
+                // Find the corresponding link and add active class
+                const activeLink = document.querySelector(`.sticky-menu a[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    }, observerOptions);
 
-function openModal(element) {
-  modal.style.display = "block";
-  modalImg.src = element.src;
-  captionText.innerHTML = element.alt; // Uses the alt text as caption
-  
-  // Disable scrolling on body while modal is open
-  document.body.style.overflow = "hidden";
-}
-
-function closeModal() {
-  modal.style.display = "none";
-  
-  // Re-enable scrolling
-  document.body.style.overflow = "auto";
-}
-
-// Close modal when pressing ESC key
-document.addEventListener('keydown', function(event) {
-    if (event.key === "Escape") {
-        closeModal();
-    }
+    // Start observing each section
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 });
