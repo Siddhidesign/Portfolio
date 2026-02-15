@@ -1,11 +1,19 @@
 /* --- RESET & VARIABLES --- */
 :root {
-    --text-primary: #111111;
-    --text-secondary: #555555;
-    --text-tertiary: #888888;
-    --bg-light: #F9F9F9;
-    --accent: #FF5A36; /* Orange accent */
+    /* FINDME Theme Colors */
+    --text-primary: #2d3436; /* Charcoal Charcoal */
+    --text-secondary: #636e72; /* Medium Gray */
+    --text-tertiary: #b2bec3; /* Lighter Gray */
+    --bg-light: #f9f9f9;
+    --white: #ffffff;
+    --accent: #6c5ce7; /* Creative Purple/Indigo */
+    
+    /* Tints for boxes */
+    --accent-tint: #f3f0ff; /* Very light purple for boxes */
+    
+    /* Fonts */
     --font-main: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif; /* Added for Headings */
 }
 
 * {
@@ -17,9 +25,16 @@
 body {
     font-family: var(--font-main);
     color: var(--text-primary);
-    background-color: #FAFAFA;
-    line-height: 1.6;
+    background-color: var(--white); /* Changed to solid white */
+    line-height: 1.7; /* Slightly more breathing room */
+    font-size: 17px; /* Slightly larger base size based on FINDME p size */
     -webkit-font-smoothing: antialiased;
+}
+
+/* Apply Serif font to all headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--text-primary);
 }
 
 /* --- NAVIGATION --- */
@@ -27,11 +42,11 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px 40px;
-    background: #fff;
+    background: var(--white);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(0,0,0,0.05); /* Subtle separation */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .nav-content {
@@ -66,8 +81,8 @@ body {
     line-height: 1.2;
 }
 
-.name { font-weight: 700; color: #000; }
-.loc { color: var(--text-tertiary); font-size: 0.8rem; }
+.name { font-weight: 700; color: var(--text-primary); font-family: var(--font-main); }
+.loc { color: var(--text-secondary); font-size: 0.8rem; }
 
 .links {
     display: flex;
@@ -82,20 +97,23 @@ body {
     transition: color 0.2s;
 }
 
-.links a:hover { color: #000; }
+.links a:hover { color: var(--accent); }
 
 .cta-button {
-    background: #000;
-    color: #fff;
-    padding: 10px 24px;
+    background: var(--accent); /* Changed to Purple */
+    color: var(--white);
+    padding: 12px 28px; /* Slightly bigger to match FINDME style */
     border-radius: 50px;
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    transition: background 0.2s;
+    transition: transform 0.2s, background 0.2s;
 }
 
-.cta-button:hover { background: #333; }
+.cta-button:hover { 
+    background: #5a4bcf; /* Darker purple on hover */
+    transform: translateY(-2px);
+}
 
 /* --- MAIN CONTAINER --- */
 .main-container {
@@ -106,7 +124,7 @@ body {
 
 /* --- HERO SECTION --- */
 .hero {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
 }
 
 .back-link {
@@ -114,17 +132,21 @@ body {
     margin-bottom: 40px;
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--accent);
 }
 
 h1 {
-    font-size: 3.5rem; /* Large, bold title */
+    font-size: 4rem; /* Larger, Serif font */
     line-height: 1.1;
     margin-bottom: 30px;
     max-width: 900px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-weight: 700;
 }
 
 .hero-summary {
@@ -145,21 +167,23 @@ h1 {
 /* Meta Data Grid */
 .meta-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Stacked on left side */
+    grid-template-columns: 1fr;
     gap: 30px;
 }
 
+/* Keep meta labels sans-serif for clarity */
 .meta-item h3 {
+    font-family: var(--font-main); 
     font-size: 0.85rem;
-    color: var(--text-tertiary);
-    margin-bottom: 6px;
-    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .meta-item p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 500;
     color: var(--text-primary);
 }
@@ -168,14 +192,15 @@ h1 {
 .image-placeholder {
     width: 100%;
     height: 450px;
-    background-color: #E0E0E0; 
+    background-color: var(--bg-light); 
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #666;
+    color: var(--text-secondary);
     font-weight: 500;
     overflow: hidden;
+    border: 1px solid #eee;
 }
 
 .image-placeholder img {
@@ -186,25 +211,27 @@ h1 {
 
 /* --- NOTE BOX --- */
 .note-box {
-    background-color: #FFF0EB; /* Light orange background */
+    background-color: var(--accent-tint); /* Changed to light purple */
     padding: 30px 40px;
     border-radius: 12px;
     display: flex;
     gap: 20px;
     margin-bottom: 100px;
     align-items: flex-start;
+    color: var(--accent);
 }
 
 .lock-icon { font-size: 1.4rem; margin-top: 2px;}
 
 .note-content h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 8px;
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--accent);
 }
 
 .note-content p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     max-width: 800px;
 }
@@ -212,32 +239,33 @@ h1 {
 .email-link {
     margin-left: auto;
     white-space: nowrap;
-    color: var(--text-primary);
+    color: var(--accent);
     text-decoration: none;
-    font-size: 0.9rem;
-    border-bottom: 1px solid #000;
-    font-weight: 500;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--accent);
+    font-weight: 600;
+    transition: opacity 0.2s;
 }
+.email-link:hover { opacity: 0.8; }
 
 /* --- CORE OVERVIEW --- */
 .core-overview {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
     margin-bottom: 120px;
     border-bottom: 1px solid #eee;
     padding-bottom: 80px;
 }
 
 .pillar h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 20px;
-    font-weight: 400; /* Thin style */
-    color: #000;
+    font-weight: 700;
 }
 
 .pillar p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text-secondary);
     line-height: 1.7;
 }
@@ -245,7 +273,7 @@ h1 {
 /* --- SPLIT LAYOUT (Content + Sidebar) --- */
 .content-split {
     display: grid;
-    grid-template-columns: 1fr 250px; /* Content takes space, sidebar fixed width */
+    grid-template-columns: 1fr 250px;
     gap: 80px;
     position: relative;
 }
@@ -257,22 +285,22 @@ h1 {
 }
 
 .section-number {
-    font-size: 2rem;
+    font-family: var(--font-serif); /* Serif numbers */
+    font-size: 2.5rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--accent); /* Purple numbers */
     display: block;
     margin-bottom: 20px;
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 30px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    font-weight: 700;
 }
 
 .section-intro {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-secondary);
     margin-bottom: 50px;
     max-width: 90%;
@@ -282,24 +310,25 @@ h1 {
 .quote-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 30px;
 }
 
 .quote-card {
-    background: #fff;
-    padding: 30px;
+    background: var(--white);
+    padding: 35px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
     position: relative;
     border: 1px solid #f0f0f0;
 }
 
 .quote-mark {
     font-size: 3rem;
-    color: #E0E0E0;
+    color: #e0e0e0;
     line-height: 0;
     display: block;
     margin-bottom: 20px;
+    font-family: var(--font-serif);
 }
 
 .quote-mark.right {
@@ -309,7 +338,7 @@ h1 {
 }
 
 .quote-card p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text-secondary);
     font-style: italic;
     line-height: 1.6;
@@ -324,19 +353,18 @@ h1 {
 
 .contrib-item {
     display: grid;
-    grid-template-columns: 200px 1fr; /* Label on left, text on right */
+    grid-template-columns: 200px 1fr;
     gap: 30px;
 }
 
 .contrib-item h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 .contrib-item p {
     color: var(--text-secondary);
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
 
 /* --- LEARNING CARDS --- */
@@ -347,20 +375,20 @@ h1 {
 }
 
 .learn-card {
-    background: #FFF5F2; /* Very light orange */
+    background: var(--accent-tint); /* Light purple */
     padding: 40px;
     border-radius: 16px;
 }
 
 .learn-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 15px;
-    color: #333;
-    font-weight: 600;
+    color: var(--accent);
+    font-weight: 700;
 }
 
 .learn-card p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text-secondary);
 }
 
@@ -374,6 +402,7 @@ h1 {
 .footer-note p {
     font-weight: 600;
     cursor: pointer;
+    color: var(--accent);
 }
 
 /* --- STICKY SIDEBAR --- */
@@ -384,7 +413,7 @@ h1 {
 
 .sticky-menu {
     position: sticky;
-    top: 150px; /* Distance from top of screen */
+    top: 150px;
     list-style: none;
     padding-left: 20px;
     border-left: 2px solid #eee;
@@ -396,20 +425,20 @@ h1 {
 
 .sticky-menu a {
     text-decoration: none;
-    color: var(--text-tertiary);
-    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
     font-weight: 500;
     transition: all 0.3s ease;
     display: block;
 }
 
 .sticky-menu a:hover {
-    color: var(--text-primary);
+    color: var(--accent);
 }
 
 /* Active State for Sidebar */
 .sticky-menu a.active {
-    color: var(--accent);
+    color: var(--accent); /* Purple active state */
     font-weight: 700;
     transform: translateX(5px);
 }
@@ -417,11 +446,11 @@ h1 {
 /* Responsive Design */
 @media (max-width: 900px) {
     .content-split { grid-template-columns: 1fr; }
-    .right-nav { display: none; } /* Hide sidebar on tablet/mobile */
+    .right-nav { display: none; }
     .hero-grid { grid-template-columns: 1fr; }
     .core-overview { grid-template-columns: 1fr; }
     .meta-grid { grid-template-columns: 1fr 1fr; }
-    h1 { font-size: 2.5rem; }
+    h1 { font-size: 3rem; }
 }
 
 @media (max-width: 600px) {
@@ -429,6 +458,7 @@ h1 {
     .learning-cards { grid-template-columns: 1fr; }
     .contrib-item { grid-template-columns: 1fr; gap: 10px; }
     .top-nav { padding: 20px; }
-    .links { display: none; } /* Hide nav links on mobile */
+    .links { display: none; }
     .meta-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 2.5rem; }
 }
