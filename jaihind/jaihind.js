@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Select all sections that are linked in the sidebar
-    const sections = document.querySelectorAll('section[id]');
+    
+    // --- STICKY NAVIGATION HIGHLIGHTER ---
+    const sections = document.querySelectorAll('section[id]'); // Only select sections with IDs
     const navLinks = document.querySelectorAll('.sticky-menu a');
 
-    // Options for the Intersection Observer
     const observerOptions = {
         root: null,
-        rootMargin: '-20% 0px -60% 0px', // Trigger when section is in the middle of viewport
+        rootMargin: '-20% 0px -60% 0px', // Trigger when section is near middle of viewport
         threshold: 0
     };
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Get the ID of the current section
                 const id = entry.target.getAttribute('id');
                 
-                // Find the corresponding link and add active class
+                // Find the matching link and make it active
                 const activeLink = document.querySelector(`.sticky-menu a[href="#${id}"]`);
                 if (activeLink) {
                     activeLink.classList.add('active');
@@ -30,8 +30,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Start observing each section
     sections.forEach(section => {
         observer.observe(section);
     });
+
+    // --- LIGHTBOX MODAL FUNCTIONALITY ---
+    
+    // Get the modal
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("img01");
+    const captionText = document.getElementById("modal-caption");
+
+    // Make functions globally available so HTML onclick works
+    window.openModal = function(element) {
+        modal.style.display = "block";
+        modalImg.src = element.src;
+        captionText.innerHTML = element.alt;
+        document.body.style.overflow = "hidden"; // Prevent background scrolling
+    }
+
+    window.closeModal = function() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Restore scrolling
+    }
+
+    // Close on Escape Key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            window.closeModal();
+        }
+    });
+
+    // Close if clicking outside the image
+    modal.onclick = function(event) {
+        if (event.target === modal) {
+            window.closeModal();
+        }
+    }
 });
