@@ -366,6 +366,41 @@ h1 {
     padding-top: 40px;
     border-top: 1px solid #eee;
 }
+/* --- METRICS ROW --- */
+.metrics-row {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.metric-box {
+    background: var(--white);
+    border: 1px solid #eee;
+    padding: 25px;
+    border-radius: 12px;
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.metric-num {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
 /* --- RESPONSIVE --- */
 @media (max-width: 900px) {
