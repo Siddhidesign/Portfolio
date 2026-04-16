@@ -396,4 +396,51 @@ section {
     .tag-wrap {
         justify-content: flex-start;
     }
+} 
+.end-section {
+    padding: 120px 20px 100px;
+    text-align: center;
+    background-color: #fcfcfc;
+}
+
+.end-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.end-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    color: #1a2a4e;
+    font-style: italic;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.end-text {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.end-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ff2d2d;
+    color: white;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.end-btn span {
+    margin-left: 8px;
+}
+
+.end-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 45, 45, 0.2);
 }
