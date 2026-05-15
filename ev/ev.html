@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Chargepoint UX Case Study</title>
+    <link rel="stylesheet" href="ev.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        
+        <aside class="sidebar">
+            <div class="logo">EV Charge<span>point</span></div>
+            
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#overview" class="nav-item active">1. Overview</a></li>
+                    <li><a href="#research" class="nav-item">2. Research</a></li>
+                    <li><a href="#competitors" class="nav-item">3. Competitive Audit</a></li>
+                    <li><a href="#features" class="nav-item">4. Ideation</a></li>
+                    <li><a href="#tasks" class="nav-item">5. User Tasks for Prototype</a></li>
+                    <li><a href="#sketching" class="nav-item">6. Sketches & Wireframes</a></li>
+                    <li><a href="#prototype" class="nav-item">7. Prototype</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            
+            <section id="overview" class="section">
+                <span class="summary-label">Project Context</span>
+                <h1>Unified EV Charging <br><span class="highlight-text">Experience</span> ⚡️</h1>
+                
+                <p><strong>The Problem</strong><br><br>
+                The electric vehicle (EV) marketplace is fragmented. Drivers suffer from "Range Anxiety" not because cars lack range, but because the charging infrastructure is unreliable. Users are forced to juggle multiple apps, carry physical RFID cards, and often arrive at broken chargers.</p>
+                
+                <div class="summary-box">
+                    <span class="summary-label">The Solution</span>
+                    <p style="margin-bottom:0; color: #14532d;">
+                        A unified interface that aggregates data across networks, enables universal payment without physical cards, and integrates battery health monitoring directly into the routing experience.
+                    </p>
+                </div>
+            </section>
+
+            
+            <section id="research" class="section">
+                <h2 class="challenge-title">2. Research: The Pain Point Matrix</h2>
+                <p>To understand the root causes of user frustration, <strong>we conducted</strong> a triangulated research study combining <strong>Peer-Reviewed Literature</strong>, <strong>Industry Studies</strong>, and <strong>Anecdotal Evidence</strong> (Reddit/Forums).</p>
+                
+                <h3>Key Themes Identified:</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card challenge-card">
+                        <div class="metric-number">Reliability</div>
+                        <div class="metric-label">#1 Pain Point across all studies</div>
+                    </div>
+                    <div class="metric-card challenge-card">
+                        <div class="metric-number">Payment</div>
+                        <div class="metric-label">Lack of single interface</div>
+                    </div>
+                    <div class="metric-card challenge-card">
+                        <div class="metric-number">Info</div>
+                        <div class="metric-label">Lack of amenity/safety data</div>
+                    </div>
+                </div>
+
+                <div class="research-image-placeholder">
+                    <img src="../assets/competitor-analysis.png" alt="Research Matrix: Comparing Literature, Industry Studies, and Anecdotal Evidence">
+                </div>
+                <p class="figure-caption">Figure 2.1: Our matrix analysis revealed that Payment Interface and Reliability were the most consistent issues across all data sources.</p>
+            </section>
+
+            <section id="competitors" class="section">
+                <h2 class="section-title">3. Competitive Audit & App Deconstruction</h2>
+                <p><strong>We analyzed</strong> existing market leaders (EVgo, ChargePoint) and OEM apps (Tesla, Nissan). <strong>Our team mapped</strong> their user flows to pinpoint exactly where users drop off or feel frustration.</p>
+
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <div class="card-header">EVgo & ChargePoint Analysis</div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Physical Friction:</strong> Many legacy chargers still require a physical RFID card to initiate a session.</li>
+                                <li><strong>Payment Barriers:</strong> Expensive monthly plans vs. Pay-as-you-go confusion.</li>
+                                <li><strong>Information Gaps:</strong> "No reviews" and "No amenities info" leaves users feeling unsafe at night.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="analysis-card">
+                        <div class="card-header">OEM Apps (Tesla/BMW)</div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Walled Gardens:</strong> Great for their own cars, but useless for mixed-brand households.</li>
+                                <li><strong>Limited Payment:</strong> Cannot use a Tesla app to pay for a non-partnered third-party charger.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-image-placeholder">
+                    <img src="../assets/competitor-flow.png" alt="EVgo User Flow Analysis showing pain points like physical cards and session limits">
+                </div>
+            </section>
+
+            <section id="features" class="section">
+                <h2 class="section-title">💡 4. Ideation: Feature Integration</h2>
+                <p>Based on the gaps identified in the audit, <strong>we brainstormed</strong> features that go beyond simple mapping.</p>
+
+                <div class="task-grid">
+                    <div class="task-card">
+                        <div class="task-badge">Feature 1</div>
+                        <h3>Battery Health Monitor</h3>
+                        <p class="task-one-liner">Tracks degradation over time and provides insights into how charging habits impact battery longevity.</p>
+                    </div>
+
+                    <div class="task-card">
+                        <div class="task-badge">Feature 2</div>
+                        <h3>Percentage Alarm</h3>
+                        <p class="task-one-liner">Users set a specific threshold. If the battery falls below this, the app triggers a notification and suggests a station.</p>
+                    </div>
+
+                    <div class="task-card">
+                        <div class="task-badge">Feature 3</div>
+                        <h3>EV Marketplace</h3>
+                        <p class="task-one-liner">A one-stop shop for purchasing OEM-compatible home chargers and accessories directly within the app.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tasks" class="section">
+                <h2 class="section-title">📝 5. User Tasks Defined for Prototype</h2>
+                <p>Before building the high-fidelity screens, <strong>we defined specific user tasks</strong> to ensure the logic was sound. These flowcharts served as the blueprint for our prototype.</p>
+
+                <div class="prototype-gallery">
+                    
+                    <div class="proto-item">
+                        <h3 class="proto-label">Task 1: Sign Up & Car Profile</h3>
+                        <p><strong>User Task:</strong> User signs up and creates a new account.<br>
+                        <em>Logic:</em> Account Creation → Login → Enter Car Brand/Model → Save Profile.</p>
+                        <div class="research-image-placeholder" style="border: none; padding: 0;">
+                            <img src="../assets/flow-signup.png" alt="Flowchart: User signing up and creating new account">
+                        </div>
+                    </div>
+                    
+                     <div class="proto-item">
+                        <h3 class="proto-label">Task 2: Real-Time Traffic Update</h3>
+                        <p><strong>User Task:</strong> Gets a real-time traffic update.<br>
+                        <em>Logic:</em> Select Station → Check Reviews/Ratings → Check Distance → System Provides Traffic Data.</p>
+                         <div class="research-image-placeholder" style="border: none; padding: 0;">
+                            <img src="../assets/flow-traffic.png" alt="Flowchart: Identifies Real-time Traffic">
+                        </div>
+                    </div>
+
+                    <div class="proto-item">
+                        <h3 class="proto-label">Task 3: Low Battery Alert</h3>
+                        <p><strong>User Task:</strong> Gets a notification when battery turns low.<br>
+                        <em>Logic:</em> Low Battery Notification → Find Nearby Station → Time Suggestion → Select Station.</p>
+                         <div class="research-image-placeholder" style="border: none; padding: 0;">
+                            <img src="../assets/flow-battery.png" alt="Flowchart: Alerts when car runs low on Battery">
+                        </div>
+                    </div>
+
+                    <div class="proto-item">
+                        <h3 class="proto-label">Task 4: In-App Payment</h3>
+                        <p><strong>User Task:</strong> User pays through the app.<br>
+                        <em>Logic:</em> Select Charging Station → User Charges → Integrated Payment Option → Payment Complete.</p>
+                         <div class="research-image-placeholder" style="border: none; padding: 0;">
+                            <img src="../assets/flow-payment.png" alt="Flowchart: Payment options within the app">
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="sketching" class="section">
+                <h2 class="section-title">✏️ 6. Sketching & Wireframing</h2>
+                <p>Before jumping into pixels, <strong>the team used</strong> pen and paper to rapidly visualize the core features. <strong>We grouped</strong> these sketches into four key pillars to ensure a balanced experience.</p>
+
+                <div class="research-image-placeholder" style="background: transparent; border: none;">
+                    <img src="../assets/sketches-grouped.png" alt="Grouped Sketches: Real Time Data, Universal Payment, Personalized Suggestions, Amenities">
+                </div>
+                <p class="figure-caption">Figure 6.1: Ideation sketches categorized by the four main value propositions.</p>
+
+                <h3 style="margin-top: 40px;">Translating to Structure</h3>
+                <p><strong>We refined</strong> these sketches into structured wireframes to define the information architecture. Key focus areas included:</p>
+                <ul class="research-list">
+                    <li><strong>The Dashboard:</strong> Prioritizing the "Search" and "Map" view as the primary home screen.</li>
+                    <li><strong>Trip Planner:</strong> Creating a simple input for "From" and "To" with battery percentage sliders.</li>
+                    <li><strong>Charging Session:</strong> A clear, large timer and cost estimator for active charging sessions.</li>
+                </ul>
+
+                <div class="research-image-placeholder">
+                    <img src="../assets/wireframes-paper.png" alt="Paper Wireframes showing Map, Trip Planner, and Charging Status screens">
+                </div>
+            </section>
+
+            <section id="prototype" class="section">
+                <div class="final-cta-section">
+                    <h2>🚀 7. Final Prototype</h2>
+                    <p>Moving from wireframes to high-fidelity, <strong>we applied</strong> a clean visual identity using distinct color cues (Green/Red) for status to allow for quick scanning while driving.</p>
+                    
+                    <a href="https://www.figma.com/design/iQ43CH3FjQVDSkjKN35Zld/EV-Charging-prototype?node-id=0-1&t=viRqpQ7Mf5LJgJBk-1" class="prototype-btn">View Figma Prototype ↗</a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="ev.js"></script>
+</body>
+</html>

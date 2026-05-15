@@ -1,0 +1,797 @@
+/* ============================================================
+   1. GENERAL RESET & BASE STYLES
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling when clicking nav links */
+    width: 100%;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #fcfcfc;
+    color: #333;
+    overflow-x: hidden; /* GLOBAL FIX: Prevents horizontal scrolling */
+    width: 100%;
+}
+
+/* ============================================================
+   2. NAVIGATION (Sticky & Interactive)
+   ============================================================ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: fixed; /* Sticks to top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(252, 252, 252, 0.95);
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+    transition: padding 0.3s ease;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-style: italic;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.orange-text {
+    color: #d98e5f;
+    display: block;
+}
+
+/* Navigation Menu Links */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #666;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-menu li a:hover {
+    color: #d98e5f;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 15px 20px; }
+    .nav-menu { display: none; }
+}
+
+/* ============================================================
+   3. HERO SECTION (FIXED IMAGES)
+   ============================================================ */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 80px; /* offset fixed navbar so content centres in visible area */
+}
+
+.hero-content {
+    z-index: 20;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -80px;
+}
+
+.sub-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 8vw, 85px);
+    color: #1a2a4e;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.main-title em { font-style: italic; }
+
+.tagline {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ff2d2d;
+    color: white;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 45, 45, 0.2);
+}
+
+/* Card fan wrapper — in-flow block above the hero text */
+.card-fan-wrapper {
+    position: relative;
+    width: 640px;
+    height: 300px;
+    /* 75px clears the rotated card corners that extend below the pivot */
+    margin-bottom: 75px;
+}
+
+.card-fan {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+}
+
+.fan-card {
+    position: absolute;
+    bottom: 0;
+    left: -80px;
+    width: 160px;
+    height: 240px;
+    border-radius: 16px;
+    overflow: hidden;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    opacity: 0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.fan-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.fan-card-1 { z-index: 1; }
+.fan-card-2 { z-index: 2; }
+.fan-card-3 { z-index: 3; }
+.fan-card-4 { z-index: 4; }
+
+/* ============================================================
+   4. EXPERIENCE SECTION
+   ============================================================ */
+section { scroll-margin-top: 100px; }
+
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.experience-section {
+    padding: 100px 5%; 
+    background-color: #fcfcfc;
+}
+
+.experience-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.experience-card {
+    background: #eceae6;
+    border-radius: 20px;
+    padding: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    background: #e6e4df;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #1a2a4e;
+    font-weight: 600;
+}
+
+.exp-date {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    background: #dcdad5;
+    padding: 6px 14px;
+    border-radius: 50px;
+}
+
+.exp-company {
+    font-size: 18px;
+    color: #d98e5f;
+    margin-bottom: 20px;
+    font-weight: 500;
+    display: block;
+}
+
+.exp-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.exp-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+
+@media (max-width: 768px) {
+    .experience-card { padding: 25px; }
+    .exp-header { flex-direction: column; align-items: flex-start; }
+    .exp-date { margin-top: 5px; }
+}
+/* ============================================================
+   5. SKILLS / SERVICES SECTION (CLEAN & FIXED)
+   ============================================================ */
+.services-section {
+    position: relative;
+    padding: 0;
+    background-color: #fcfcfc;
+    height: 850px; /* Fixed height to keep orbit circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    scroll-margin-top: 80px;
+}
+
+.services-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* CENTER TEXT (Removed the white background blob) */
+.services-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0; /* Set to 0 so tags (z-index 2) float ON TOP of text if they overlap */
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    background: transparent; /* No more white blob */
+}
+
+.ufo-icon img { width: 60px; margin-bottom: 20px; }
+
+.services-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 72px);
+    font-style: italic;
+    color: #1a2a4e;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.services-sub { color: #666; font-size: 18px; line-height: 1.5; }
+
+/* TAG STYLES */
+.skill-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Starts dead center */
+    background-color: #dbe4ff;
+    color: #1a2a4e;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 2; /* Tags sit above text */
+}
+
+.skill-tag:hover {
+    background-color: #ccd9ff;
+    z-index: 20;
+    transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+/* 10 UNIQUE POSITIONS (Clockwise Orbit) */
+
+/* 1. Top Center */
+.tag-product { 
+    margin-top: -250px; margin-left: 0px; 
+}
+
+/* 2. Top Right */
+.tag-ux { 
+    margin-top: -180px; margin-left: 280px; transform: translate(-50%, -50%) rotate(5deg);
+}
+
+/* 3. Right Upper */
+.tag-ui { 
+    margin-top: -50px; margin-left: 400px; transform: translate(-50%, -50%) rotate(3deg);
+}
+
+/* 4. Right Lower */
+.tag-research { 
+    margin-top: 100px; margin-left: 380px; transform: translate(-50%, -50%) rotate(-3deg);
+}
+
+/* 5. Bottom Right */
+.tag-proto { 
+    margin-top: 220px; margin-left: 220px; transform: translate(-50%, -50%) rotate(5deg);
+}
+
+/* 6. Bottom Center */
+.tag-code { 
+    margin-top: 280px; margin-left: 0px; transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* 7. Bottom Left */
+.tag-access { 
+    margin-top: 220px; margin-left: -220px; transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+/* 8. Left Lower */
+.tag-saas { 
+    margin-top: 100px; margin-left: -380px; transform: translate(-50%, -50%) rotate(3deg);
+}
+
+/* 9. Left Upper */
+.tag-dash { 
+    margin-top: -50px; margin-left: -400px; transform: translate(-50%, -50%) rotate(-3deg);
+}
+
+/* 10. Top Left */
+.tag-systems { 
+    margin-top: -180px; margin-left: -280px; transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+/* MOBILE: List View */
+@media (max-width: 768px) {
+    .services-section { height: auto; padding: 60px 20px; }
+    .services-content { position: relative; top: auto; left: auto; transform: none; margin-bottom: 50px; background: none; }
+    .skill-tag {
+        position: static;
+        display: inline-block;
+        margin: 5px !important;
+        transform: none !important;
+    }
+}
+
+/* ============================================================
+   6. WORKS SECTION
+   ============================================================ */
+.works-section {
+    padding: 100px 5%;
+    background: #eceae6;
+    border-radius: 40px 40px 0 0;
+}
+
+.section-intro { text-align: center; margin-bottom: 60px; }
+.telescope-icon { width: 50px; margin-bottom: 20px; }
+
+.italic-heading {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #1a2a4e;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.works-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    color: #1a2a4e;
+    margin-bottom: 10px;
+}
+
+.works-sub { color: #666; font-size: 18px; }
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: #e3e1dc;
+    border-radius: 20px;
+    padding: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover { transform: translateY(-10px); }
+
+.card-image-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.card-image-container img {
+    width: 100%;
+    display: block;
+    transition: filter 0.3s ease;
+}
+
+.hover-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(26, 42, 78, 0.7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+}
+
+.project-card:hover .hover-overlay { opacity: 1; }
+.project-card:hover .card-image-container img { filter: blur(2px); }
+
+.card-info h3 { font-size: 28px; margin-bottom: 15px; color: #333; }
+.category-tag { background: #222; color: white; padding: 8px 18px; border-radius: 20px; font-size: 12px; }
+
+.load-more-container { text-align: center; margin-top: 60px; }
+.load-more-btn {
+    background: #ff5e00; color: white; border: none; padding: 15px 40px;
+    border-radius: 50px; font-size: 16px; font-weight: 600; cursor: pointer;
+}
+
+/* ============================================================
+   7. PHOTOGRAPHY SECTION
+   ============================================================ */
+.behind-canvas { padding: 80px 5%; background-color: #fcfcfc; }
+
+.canvas-card {
+    background-color: #262c2e;
+    border-radius: 40px;
+    padding: 80px 40px 0 40px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.canvas-icon { width: 60px; margin-bottom: 25px; }
+.canvas-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.canvas-intro {
+    font-size: 18px;
+    color: #cbd5e0;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.remix-btn {
+    display: inline-block;
+    background-color: #ff1a1a;
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 60px;
+    transition: 0.3s;
+}
+.remix-btn:hover { transform: scale(1.05); }
+
+.photo-container { position: relative; padding-bottom: 80px; }
+.photo-grid-lines {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: top;
+    z-index: 1;
+}
+
+.photo-wrapper {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center; align-items: flex-end;
+    gap: 30px; margin-top: -20px;
+}
+
+.canvas-photo {
+    width: 220px; height: 280px; object-fit: cover;
+    border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.photo-left { transform: rotate(-8deg) translateY(20px); }
+.photo-center { transform: rotate(2deg) translateY(-10px); }
+.photo-right { transform: rotate(8deg) translateY(20px); }
+
+.canvas-photo:hover { transform: scale(1.1) rotate(0deg); z-index: 10; }
+
+@media (max-width: 768px) {
+    .photo-wrapper { flex-direction: column; align-items: center; }
+    .canvas-photo { width: 80%; height: auto; transform: none !important; margin-bottom: 20px; }
+}
+
+/* ============================================================
+   8. TESTIMONIALS SECTION
+   ============================================================ */
+.testimonials { padding: 100px 20px; background-color: #fcfcfc; text-align: center; }
+.testimonial-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-style: italic; color: #1a2a4e; margin-bottom: 60px;
+}
+.testimonial-container {
+    display: flex; flex-direction: column; align-items: center; gap: 40px; max-width: 800px; margin: 0 auto;
+}
+.testimonial-card {
+    background-color: #edeae6; padding: 45px 50px; border-radius: 20px; text-align: left; width: 100%;
+}
+.testimonial-text { font-size: 20px; line-height: 1.5; color: #333; margin-bottom: 30px; }
+.client-info { display: flex; align-items: center; gap: 15px; }
+.client-avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+.client-name { font-weight: 600; font-size: 18px; color: #222; }
+.client-role { font-size: 14px; color: #777; }
+
+@media (max-width: 768px) {
+    .testimonial-card { padding: 30px; }
+    .testimonial-text { font-size: 18px; }
+}
+
+/* ============================================================
+   9. CONTACT & FOOTER SECTION
+   ============================================================ */
+.contact-section { padding: 120px 20px 60px 20px; background-color: #fcfcfc; text-align: center; }
+.contact-header { margin-bottom: 60px; }
+.contact-icon { width: 60px; margin-bottom: 30px; }
+.contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-style: italic; color: #1a2a4e; line-height: 1.1; margin-bottom: 20px;
+}
+.contact-sub { font-size: 18px; color: #666; }
+
+.links-list {
+    max-width: 650px; margin: 0 auto 100px auto; display: flex; flex-direction: column; gap: 12px;
+}
+
+.link-item {
+    background-color: #edeae6; padding: 24px 35px; border-radius: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.link-item:hover { transform: scale(1.02); background-color: #e2dfda; }
+.link-item .label { font-size: 16px; color: #555; font-weight: 500; }
+.link-item .value { font-size: 16px; color: #222; font-weight: 500; }
+
+.footer { padding-top: 40px; }
+.footer-logo {
+    font-family: 'Playfair Display', serif; font-size: 28px; font-style: italic; line-height: 1; margin-bottom: 15px;
+}
+.copyright { font-size: 14px; color: #999; }
+
+@media (max-width: 768px) {
+    .link-item { flex-direction: column; align-items: flex-start; gap: 5px; padding: 20px; }
+    .link-item .value { font-size: 14px; }
+    .main-title { font-size: 45px; }
+    .card-fan-wrapper { display: none; }
+}
+
+/* ============================================================
+   10. TITLE CYCLING ANIMATION
+   ============================================================ */
+#heroTitle {
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+#heroTitle.title-fade-out {
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+/* ============================================================
+   11. SCROLL REVEAL ANIMATIONS
+   ============================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+
+/* ============================================================
+   12. NAVBAR SCROLL SHRINK
+   ============================================================ */
+.navbar.scrolled {
+    padding: 12px 5%;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   13. CARD FAN — GPU hint
+   ============================================================ */
+.fan-card {
+    will-change: transform;
+}
+
+/* ============================================================
+   14. ENHANCED MICRO-INTERACTIONS
+   ============================================================ */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.cta-button:hover::after {
+    opacity: 1;
+}
+
+.load-more-btn {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.load-more-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 94, 0, 0.3);
+}
+
+.load-more-btn:active {
+    transform: translateY(0);
+}
+
+.remix-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.remix-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.remix-btn:hover::after {
+    opacity: 1;
+}
+
+.link-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.link-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    height: 0%;
+    background: #d98e5f;
+    border-radius: 4px 0 0 4px;
+    transition: height 0.3s ease;
+}
+
+.link-item:hover::before {
+    height: 100%;
+}
+
+.nav-menu li a {
+    position: relative;
+}
+
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d98e5f;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
+}
+
+.project-card {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.experience-card {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s ease,
+                background-color 0.3s ease;
+}
+
+.canvas-photo {
+    cursor: zoom-in;
+}

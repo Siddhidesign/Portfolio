@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRS2Go Redesign Case Study</title>
+    <link rel="stylesheet" href="ir2go.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+            <div class="logo">IRS2Go <span>Redesign</span></div>
+
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#overview"  class="nav-item active">1. Overview</a></li>
+                    <li><a href="#research"  class="nav-item">2. Research</a></li>
+                    <li><a href="#define"    class="nav-item">3. Define</a></li>
+                    <li><a href="#ideate"    class="nav-item">4. Ideate</a></li>
+                    <li><a href="#prototype" class="nav-item">5. Prototype</a></li>
+                    <li><a href="#testing"   class="nav-item">6. Testing</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+
+            <!-- ========== 1. OVERVIEW ========== -->
+            <section id="overview" class="section">
+                <span class="summary-label">Project Context</span>
+                <p class="academic-badge">🎓 Academic UX Project · University of Michigan · School of Information (SI 582: Interaction Design)</p>
+
+                <h1>Making Tax Season <br><span class="highlight-text">Less Taxing</span> 🇺🇸</h1>
+
+                <p><strong>What is IRS2Go?</strong><br>
+                IRS2Go is the official mobile application of the Internal Revenue Service (IRS). It allows millions of American taxpayers to check their refund status, make secure payments, and find free tax assistance nearby.</p>
+
+                <div class="summary-box">
+                    <span class="summary-label">Project Summary</span>
+                    <p style="margin-bottom:0; color: #fff;">
+                        This is a complete <strong>UX/UI overhaul</strong> of the existing IRS2Go app, completed as a semester-long academic project at the University of Michigan. The project focuses on transforming a rigid government tool into a user-friendly guide — simplifying complex tax terminology and modernizing the visual interface to reduce user anxiety and increase successful task completion.
+                    </p>
+                </div>
+
+                <div style="margin-top: 80px;">
+                    <h2>Why the <span class="highlight-text">Redesign?</span></h2>
+
+                    <p>Despite being an essential tool used by millions, the current app suffers from a dated interface and serious usability issues that frustrate users during an already stressful time.</p>
+
+                    <p><strong>The Core Problems:</strong></p>
+                    <ul class="problem-list">
+                        <li><strong>Visual Clutter:</strong> Information overload makes it hard for users to find simple answers like "Where is my refund?"</li>
+                        <li><strong>Lack of Trust:</strong> Inconsistent design patterns make the official app feel less secure than third-party alternatives.</li>
+                        <li><strong>Accessibility Gaps:</strong> The current color contrast and navigation fail to meet modern WCAG standards for inclusive design.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ========== 2. RESEARCH ========== -->
+            <section id="research" class="section">
+
+                <h2 class="challenge-title">The Challenge</h2>
+                <p>The primary challenge for the redesign was twofold, identified through literature surveys and app reviews:</p>
+
+                <div class="metrics-grid">
+                    <div class="metric-card challenge-card">
+                        <div class="metric-number">2.8 <span style="font-size: 1rem;">★</span></div>
+                        <div class="metric-label">Avg App Store Rating</div>
+                    </div>
+                    <div class="metric-card challenge-card">
+                        <div class="metric-number">45%</div>
+                        <div class="metric-label">User Drop-off Rate</div>
+                    </div>
+                    <div class="metric-card challenge-card">
+                        <div class="metric-number">12s</div>
+                        <div class="metric-label">Avg Load Time</div>
+                    </div>
+                </div>
+
+                <ol class="research-list">
+                    <li><strong>User Experience Issues:</strong> Most users were unable to perform certain tasks because of a lack of proper guidance and accessibility help.</li>
+                    <li><strong>App to Web Transition:</strong> Users were confused because the existing app frequently redirected them to the website to complete tasks.</li>
+                </ol>
+
+                <div class="research-image-placeholder">
+                    <img src="../assets/research-image-1.png" alt="Screenshot of old IRS App Interface">
+                </div>
+
+                <hr class="research-separator">
+
+                <h2 class="solution-title">The Solution</h2>
+                <p>To address these challenges, the team developed a comprehensive redesign strategy backed by data:</p>
+
+                <div class="metrics-grid">
+                    <div class="metric-card solution-card">
+                        <div class="metric-number">4.6 <span style="font-size: 1rem;">★</span></div>
+                        <div class="metric-label">Target Rating</div>
+                    </div>
+                    <div class="metric-card solution-card">
+                        <div class="metric-number">60%</div>
+                        <div class="metric-label">Reduced User Problems</div>
+                    </div>
+                    <div class="metric-card solution-card">
+                        <div class="metric-number">100%</div>
+                        <div class="metric-label">WCAG Compliance</div>
+                    </div>
+                </div>
+
+                <ol class="research-list">
+                    <li><strong>User-Centric Approach:</strong> A deep dive into user needs through diary studies, app reviews, surveys, and interviews allowed the team to prioritize features.</li>
+                    <li><strong>Task Analysis:</strong> Focusing on 3 main tasks (Refund Status, Payment, Tax Help) helped identify specific user pain points.</li>
+                </ol>
+
+                <hr class="research-separator">
+
+                <!-- USER PERSONAS -->
+                <h2 style="color:#fff; margin-bottom: 10px;">User Personas</h2>
+                <p>Based on app review analysis, survey responses, and diary studies, two primary user archetypes emerged — each with distinct goals, mental models, and frustrations.</p>
+
+                <div class="persona-grid">
+
+                    <div class="persona-card-dark">
+                        <div class="persona-header">
+                            <div class="persona-avatar-icon">😰</div>
+                            <div>
+                                <h4 class="persona-name-dark">Maya R.</h4>
+                                <span class="persona-tag">Anxious First-Time Filer</span>
+                            </div>
+                        </div>
+                        <div class="persona-meta-row">
+                            <span class="persona-chip">Age 24</span>
+                            <span class="persona-chip">College Student</span>
+                            <span class="persona-chip">Part-time barista</span>
+                        </div>
+                        <div class="persona-body-grid">
+                            <div class="persona-col-dark">
+                                <h5 class="persona-col-header">Goals</h5>
+                                <ul class="persona-list goals-list">
+                                    <li>File taxes correctly without making expensive mistakes</li>
+                                    <li>Track refund status without constant anxiety</li>
+                                    <li>Understand what she owes in plain English</li>
+                                </ul>
+                            </div>
+                            <div class="persona-col-dark">
+                                <h5 class="persona-col-header">Frustrations</h5>
+                                <ul class="persona-list frustrations-list">
+                                    <li>Government jargon makes her fear she'll "mess something up"</li>
+                                    <li>App redirects to the IRS website mid-task — breaks trust</li>
+                                    <li>No clear confirmation after submitting ("Did it actually work?")</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <blockquote class="persona-quote-dark">
+                            "I just want to know my refund is coming and I haven't broken any laws. Is that too much to ask?"
+                        </blockquote>
+                    </div>
+
+                    <div class="persona-card-dark">
+                        <div class="persona-header">
+                            <div class="persona-avatar-icon">💼</div>
+                            <div>
+                                <h4 class="persona-name-dark">David K.</h4>
+                                <span class="persona-tag tag-orange">Self-Employed Freelancer</span>
+                            </div>
+                        </div>
+                        <div class="persona-meta-row">
+                            <span class="persona-chip">Age 35</span>
+                            <span class="persona-chip">UX Consultant</span>
+                            <span class="persona-chip">Multi-client income</span>
+                        </div>
+                        <div class="persona-body-grid">
+                            <div class="persona-col-dark">
+                                <h5 class="persona-col-header">Goals</h5>
+                                <ul class="persona-list goals-list">
+                                    <li>Make quarterly estimated payments without losing track</li>
+                                    <li>Get proof of payment immediately after submitting</li>
+                                    <li>Access payment history across multiple tax years</li>
+                                </ul>
+                            </div>
+                            <div class="persona-col-dark">
+                                <h5 class="persona-col-header">Frustrations</h5>
+                                <ul class="persona-list frustrations-list">
+                                    <li>Payment flow drops him to a browser mid-session — destroys trust</li>
+                                    <li>No way to save payment details for next quarter</li>
+                                    <li>Error messages have zero recovery guidance ("Payment failed. Try again.")</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <blockquote class="persona-quote-dark">
+                            "I've accidentally paid twice in a panic because there was no confirmation screen. I can't afford that kind of mistake."
+                        </blockquote>
+                    </div>
+
+                </div>
+
+                <hr class="research-separator">
+
+                <!-- COMPETITIVE ANALYSIS -->
+                <h2 style="color:#fff; margin-bottom: 10px;">Competitive Analysis</h2>
+                <p>We benchmarked IRS2Go against TurboTax and H&R Block mobile apps across 5 core UX criteria to understand where the official app was falling behind and where the biggest opportunities were:</p>
+
+                <div class="comp-table-wrapper">
+                    <table class="comp-table">
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>IRS2Go <span>(Before Redesign)</span></th>
+                                <th>TurboTax</th>
+                                <th>H&amp;R Block</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="criteria-col">Navigation</td>
+                                <td class="score-bad">🔴 Confusing deep nesting; no clear visual hierarchy or progress indicators</td>
+                                <td class="score-good">🟢 Step-by-step wizard with a persistent progress bar throughout</td>
+                                <td class="score-mid">🟡 Generally clear, but too many sub-menus for simple tasks</td>
+                            </tr>
+                            <tr>
+                                <td class="criteria-col">Trust Signals</td>
+                                <td class="score-bad">🔴 Outdated UI feels unofficial — users trust third-party apps more</td>
+                                <td class="score-good">🟢 Strong brand consistency, visible security badges, clear data policies</td>
+                                <td class="score-good">🟢 Privacy disclaimers at each data-entry step; feels transparent</td>
+                            </tr>
+                            <tr>
+                                <td class="criteria-col">Accessibility</td>
+                                <td class="score-bad">🔴 Fails WCAG AA — low contrast ratios, no visible focus states</td>
+                                <td class="score-mid">🟡 Mostly compliant; some contrast issues in secondary text</td>
+                                <td class="score-mid">🟡 Screen reader support present; limited color contrast in places</td>
+                            </tr>
+                            <tr>
+                                <td class="criteria-col">Task Completion</td>
+                                <td class="score-bad">🔴 45% drop-off; core tasks frequently redirect users to the browser</td>
+                                <td class="score-good">🟢 End-to-end in-app; reported 85%+ completion on core flows</td>
+                                <td class="score-mid">🟡 Good in-app experience but requires account creation upfront</td>
+                            </tr>
+                            <tr>
+                                <td class="criteria-col">Visual Design</td>
+                                <td class="score-bad">🔴 Dense, circa-2014 aesthetic; no visual breathing room</td>
+                                <td class="score-good">🟢 Modern, brand-consistent, friendly tone; appropriate use of white space</td>
+                                <td class="score-mid">🟡 Clean but corporate — functional but lacks warmth or personality</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="figure-caption" style="color: #64748b; margin-top: 12px;">Competitive benchmark: IRS2Go vs. TurboTax vs. H&R Block</p>
+
+            </section>
+
+            <!-- ========== 3. DEFINE ========== -->
+            <section id="define" class="section">
+
+                <h2 class="section-title">📝 3. Define Phase: Task Analysis</h2>
+                <p>We analyzed the 3 core functions of the app to identify specific user friction points:</p>
+
+                <div class="task-grid">
+                    <div class="task-card">
+                        <div class="task-badge">1</div>
+                        <h3>Check Refund Status</h3>
+                        <p class="task-one-liner">Users are confused by vague status messages and lack of estimated dates.</p>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-badge">2</div>
+                        <h3>Make a Payment</h3>
+                        <p class="task-one-liner">The disjointed payment flow creates anxiety about accidental double-charges.</p>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-badge">3</div>
+                        <h3>Free Tax Help</h3>
+                        <p class="task-one-liner">The location finder often returns zero results or outdated facility hours.</p>
+                    </div>
+                </div>
+
+                <div class="research-image-placeholder" style="margin-top: 40px;">
+                    <img src="../assets/task analysis-1.png" alt="Task 1 Flow">
+                    <img src="../assets/task analysis-2.png" alt="Task 2 Flow">
+                    <img src="../assets/task analysis-3.png" alt="Task 3 Flow">
+                </div>
+
+                <div class="timeline-spacer"></div>
+
+                <h2 class="section-title">⏰ Project Timeline (4 Months)</h2>
+                <p>The redesign was executed over a strict 4-month sprint structure:</p>
+
+                <div class="timeline-container">
+                    <div class="timeline-row">
+                        <div class="timeline-label">Research & Define</div>
+                        <div class="timeline-bar-area">
+                            <div class="progress-bar bar-yellow" style="width: 25%;"></div>
+                            <span class="time-text">Month 1: Discovery & Strategy</span>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-label">Ideation & Sketching</div>
+                        <div class="timeline-bar-area">
+                            <div class="progress-bar bar-green" style="width: 25%;"></div>
+                            <span class="time-text">Month 2: Wireframing</span>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-label">Design & Prototyping</div>
+                        <div class="timeline-bar-area">
+                            <div class="progress-bar bar-orange" style="width: 25%;"></div>
+                            <span class="time-text">Month 3: High Fidelity UI</span>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-label">Testing & Handoff</div>
+                        <div class="timeline-bar-area">
+                            <div class="progress-bar bar-pink" style="width: 25%;"></div>
+                            <span class="time-text">Month 4: User Testing & QA</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ========== 4. IDEATE ========== -->
+            <section id="ideate" class="section">
+
+                <h2 class="section-title">💡 4. Ideate Phase: Scenarios & Solutions</h2>
+                <p>To bridge the gap between user frustrations and the final design, we mapped out <strong>User Scenarios</strong> and analyzed the specific pain points of our selected tasks.</p>
+
+                <hr class="research-separator" style="margin: 40px 0;">
+
+                <h3>Developing User Scenarios</h3>
+                <p>We visualized the user's journey through comic-strip narratives. This helped us empathize with the emotional context — specifically the anxiety around tax refunds and the fear of making payment errors.</p>
+
+                <div class="research-image-placeholder">
+                    <img src="../assets/user-scenario-refund.png" alt="User Scenario: Refund Status">
+                    <img src="../assets/user-scenario-payment.png" alt="User Scenario: Payment">
+                </div>
+                <p class="figure-caption">Figure 4.1: User Scenarios for Refund Status & Payment</p>
+
+                <div class="timeline-spacer"></div>
+
+                <h3>Improving Selected Tasks</h3>
+                <p>We audited the three core tasks against user feedback to identify why satisfaction scores were low.</p>
+
+                <div class="analysis-grid">
+
+                    <div class="analysis-card">
+                        <div class="card-header">Check Refund</div>
+                        <div class="card-body">
+                            <ol>
+                                <li>Most frequently used task.</li>
+                                <li>Inconsistent input fields.</li>
+                                <li>Lack of standardization.</li>
+                            </ol>
+                            <div class="satisfaction-box">
+                                <span class="sat-label">Customer Satisfaction</span>
+                                <div class="faces-row">
+                                    <span class="face red">😡</span>
+                                    <span class="face orange active">☹️</span>
+                                    <span class="face yellow">😐</span>
+                                    <span class="face lime">🙂</span>
+                                    <span class="face green">😃</span>
+                                </div>
+                            </div>
+                            <div class="card-icon">💰</div>
+                        </div>
+                    </div>
+
+                    <div class="analysis-card">
+                        <div class="card-header">Make Payment</div>
+                        <div class="card-body">
+                            <ol>
+                                <li>Excessive web redirection.</li>
+                                <li>Inefficient process.</li>
+                                <li>Lack of detail storage.</li>
+                            </ol>
+                            <div class="satisfaction-box">
+                                <span class="sat-label">Customer Satisfaction</span>
+                                <div class="faces-row">
+                                    <span class="face red">😡</span>
+                                    <span class="face orange active">☹️</span>
+                                    <span class="face yellow">😐</span>
+                                    <span class="face lime">🙂</span>
+                                    <span class="face green">😃</span>
+                                </div>
+                            </div>
+                            <div class="card-icon">💳</div>
+                        </div>
+                    </div>
+
+                    <div class="analysis-card">
+                        <div class="card-header">Free Tax Help</div>
+                        <div class="card-body">
+                            <ol>
+                                <li>Limited help focus.</li>
+                                <li>Missing guidelines.</li>
+                                <li>Hard to find locations.</li>
+                            </ol>
+                            <div class="satisfaction-box">
+                                <span class="sat-label">Customer Satisfaction</span>
+                                <div class="faces-row">
+                                    <span class="face red">😡</span>
+                                    <span class="face orange">☹️</span>
+                                    <span class="face yellow active">😐</span>
+                                    <span class="face lime">🙂</span>
+                                    <span class="face green">😃</span>
+                                </div>
+                            </div>
+                            <div class="card-icon">🏳️</div>
+                        </div>
+                    </div>
+
+                </div>
+                <p class="figure-caption">Figure 4.2: Pain Point Analysis & Satisfaction Scores</p>
+
+                <div class="problem-area-box">
+                    <h4>Key Friction Points Identified:</h4>
+                    <ul class="problem-area-list">
+                        <li><strong>Check Refund:</strong> Inconsistent input fields and lack of standardization lead to user errors.</li>
+                        <li><strong>Make Payment:</strong> Excessive redirection to external websites breaks the app experience.</li>
+                        <li><strong>Free Tax Help:</strong> Missing guidelines and limited search filters prevent users from finding help.</li>
+                    </ul>
+                </div>
+
+                <hr class="research-separator" style="margin: 40px 0;">
+
+                <h3>Brainstorming & Concepts</h3>
+                <p>Focusing on these problem areas, we sketched layouts to simplify navigation and keep users inside the app.</p>
+
+                <div class="research-image-placeholder concept-placeholder">
+                    <img src="../assets/wireframe-1.png" alt="Wireframe: Simplified Home Dashboard">
+                    <img src="../assets/wireframe-2.png" alt="Wireframe: New Payment Flow">
+                    <img src="../assets/wireframe-3.png" alt="Wireframe: Refund Status Tracker">
+                </div>
+                <p class="figure-caption" style="color: #f43f5e;">Figure 4.3: Low-Fidelity Sketches of the New Flow</p>
+
+            </section>
+
+            <!-- ========== 5. PROTOTYPE ========== -->
+            <section id="prototype" class="section">
+
+                <h2 class="section-title">🎨 5. Prototype: High-Fidelity Designs</h2>
+                <p>Moving from wireframes to the final UI, we applied the new visual identity. These high-fidelity prototypes demonstrate the streamlined flows for our core user tasks.</p>
+
+                <div class="prototype-gallery">
+                    <div class="proto-item">
+                        <h3 class="proto-label">Flow 1: Home & Refund Status</h3>
+                        <img src="../assets/hifi-screens-1.png" alt="High Fidelity Screens: Home and Refund">
+                    </div>
+                    <div class="proto-item">
+                        <h3 class="proto-label">Flow 2: Secure Payments</h3>
+                        <img src="../assets/hifi-screens-2.png" alt="High Fidelity Screens: Payment Flow">
+                    </div>
+                    <div class="proto-item">
+                        <h3 class="proto-label">Flow 3: Tax Help & Support</h3>
+                        <img src="../assets/hifi-screens-3.png" alt="High Fidelity Screens: Support Flow">
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ========== 6. TESTING ========== -->
+            <section id="testing" class="section">
+
+                <h2 class="section-title">🧪 6. Testing & Validation</h2>
+
+                <div class="participant-callout">
+                    <span class="pc-num">8</span>
+                    <span>participants · Think-Aloud Protocol + System Usability Scale (SUS)</span>
+                </div>
+
+                <p>To validate our redesign, we recruited <strong>8 participants</strong> (5 general taxpayers, 2 self-employed filers, 1 senior citizen) and conducted moderated usability testing using the <strong>Think-Aloud Protocol</strong> and the <strong>System Usability Scale (SUS)</strong>. Our goal was to measure findability, trust, and task success rates across all 3 redesigned flows.</p>
+
+                <div class="sus-score-container">
+                    <div class="sus-card old-score">
+                        <span class="score-label">Original App SUS Score</span>
+                        <span class="score-number red-text">31.3</span>
+                        <span class="score-desc">"Poor Usability"</span>
+                    </div>
+                    <div class="arrow-divider">➔</div>
+                    <div class="sus-card new-score">
+                        <span class="score-label">Redesign SUS Score</span>
+                        <span class="score-number green-text">78.25</span>
+                        <span class="score-desc">"Excellent Usability"</span>
+                    </div>
+                </div>
+                <p class="figure-caption">Figure 6.1: System Usability Scale (SUS) Improvement — averaged across 8 participants</p>
+
+                <hr class="research-separator">
+
+                <h3>User Feedback Summary</h3>
+                <div class="feedback-grid">
+                    <div class="feedback-card pro-card">
+                        <h4>✅ What Users Loved</h4>
+                        <ul>
+                            <li>Clear navigation across features.</li>
+                            <li>High trust in the new payment flow.</li>
+                            <li>Help section found helpful by all users.</li>
+                        </ul>
+                    </div>
+                    <div class="feedback-card con-card">
+                        <h4>❌ Friction Points Identified</h4>
+                        <ul>
+                            <li>Account setup was often abandoned midway.</li>
+                            <li>Mandatory field indicators were missed.</li>
+                            <li>Users wanted a "Guest Access" priority.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="figure-caption">Figure 6.2: Qualitative Feedback Analysis</p>
+
+                <hr class="research-separator">
+
+                <h3>Design Iterations Post-Testing</h3>
+                <p>Based on the feedback, we made critical refinements to the final UI.</p>
+
+                <div class="iteration-block">
+                    <h4>Iteration 1: Prioritizing Guest Access</h4>
+                    <p><strong>Insight:</strong> Users showed mixed preferences. Many preferred checking status immediately without creating an account.</p>
+                    <p><strong>Solution:</strong> We made "Explore without signing in" the primary action, moving Login to secondary emphasis.</p>
+                    <div class="research-image-placeholder iteration-placeholder">
+                        <div class="img-label">Before VS After</div>
+                        <img src="../assets/login.png" alt="Login Screen Before">
+                    </div>
+                </div>
+
+                <div class="iteration-block">
+                    <h4>Iteration 2: Payment Anxiety Reducer</h4>
+                    <p><strong>Insight:</strong> Users feared accidentally triggering payments and wanted a clear invoice before committing.</p>
+                    <p><strong>Solution:</strong> Added a "Confirmation Modal" summarizing all fees and totals before the final transaction.</p>
+                    <div class="research-image-placeholder iteration-placeholder">
+                        <div class="img-label">Before VS After</div>
+                        <img src="../assets/payment.png" alt="Payment Screen Before">
+                    </div>
+                </div>
+
+                <hr class="research-separator">
+
+                <!-- REFLECTION SECTION -->
+                <div class="retro-section">
+                    <span class="reflection-label">Reflection</span>
+                    <h3 class="retro-section-title">What I'd Do Differently</h3>
+                    <p>Three honest things I'd change about this project, not as self-criticism, but as a record of what this work taught me.</p>
+
+                    <div class="retro-grid-dark">
+
+                        <div class="retro-card-dark">
+                            <div class="retro-num-dark">1</div>
+                            <div>
+                                <h4>I'd recruit a more representative testing cohort from the start</h4>
+                                <p>I tested primarily with college-aged, tech-comfortable participants. But IRS2Go's most critical users are older adults and people with limited English proficiency, the very people who'd benefit most from a cleaner interface. I'd build demographic requirements into the research plan from day one, not treat representation as a bonus if time allows.</p>
+                            </div>
+                        </div>
+
+                        <div class="retro-card-dark">
+                            <div class="retro-num-dark">2</div>
+                            <div>
+                                <h4>I'd measure the original app's usability before redesigning it</h4>
+                                <p>I used App Store reviews and a heuristic audit as my baseline, which was useful but not rigorous. Running the same Think-Aloud + SUS protocol on the original IRS2Go before any design work would have given me a true control-group measurement, making the 31.3 → 78.25 SUS improvement far more credible and defensible to any stakeholder who asks "how do you know it's actually better?"</p>
+                            </div>
+                        </div>
+
+                        <div class="retro-card-dark">
+                            <div class="retro-num-dark">3</div>
+                            <div>
+                                <h4>I'd treat performance as a design constraint, not an engineering afterthought</h4>
+                                <p>The original app's 12-second load time felt like a backend problem, so I left it there. I now understand that asset weight, animation complexity, and image optimization are design decisions too. Going forward, I'd set a performance budget in week one and check my designs against it the same way I check contrast ratios.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr class="research-separator">
+
+                <div class="final-cta-section">
+                    <h2>🚀 Experience the Final Prototype</h2>
+                    <p>Interact with the fully clickable high-fidelity prototype.</p>
+                    <a href="https://www.figma.com/proto/RHTthzwRZGf3j0rqaM6Hbh/IRS2GO--REDESIGN?page-id=0%3A1&node-id=1-1564&starting-point-node-id=1%3A1299&t=TPSclTN0t7PQbSQ5-1" class="prototype-btn">View Figma Prototype ↗</a>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <script src="irs2go.js"></script>
+</body>
+</html>

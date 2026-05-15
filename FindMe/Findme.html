@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FindMe LLC | UX/UI Design Intern</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../jaihind/jaihind.css">
+    <link rel="stylesheet" href="Findme.css">
+</head>
+<body>
+
+    <main class="main-container">
+
+        <header class="hero">
+            <a href="../index.html" class="back-link">← BACK TO HOME</a>
+
+            <h1>Designing a Portfolio Builder for Creatives</h1>
+
+            <p class="hero-summary">
+                Designed 5+ end-to-end flows for a platform that helps creatives build their online presence. My focus was usability, scalability, and seamless developer handoff — shipped over a 12-week internship.
+            </p>
+
+            <div class="hero-grid">
+                <div class="hero-text-col">
+                    <div class="meta-grid">
+                        <div class="meta-item">
+                            <h3>My Role</h3>
+                            <p>UX/UI Design Intern</p>
+                        </div>
+                        <div class="meta-item">
+                            <h3>My Team</h3>
+                            <p>Myself, Product Manager, 3 Engineers, Marketing Lead</p>
+                        </div>
+                        <div class="meta-item">
+                            <h3>Company</h3>
+                            <p>FindMe LLC • EdTech / Career Tech</p>
+                        </div>
+                        <div class="meta-item">
+                            <h3>Date</h3>
+                            <p>May 2025 – Aug 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image-col">
+                    <div class="image-placeholder">
+                        <img src="../assets/findme.png" alt="FindMe Dashboard Hero" onclick="openModal(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-row">
+                <div class="metric-box">
+                    <span class="metric-num">25%</span>
+                    <span class="metric-label">Improvement in<br>Usability & Navigation</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-num">30%</span>
+                    <span class="metric-label">Reduction in Dev<br>Clarification Cycles</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-num">25+</span>
+                    <span class="metric-label">Reusable Components<br>Shipped</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-num">5</span>
+                    <span class="metric-label">End-to-End Flows<br>Designed</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="note-box">
+            <span class="lock-icon">🔒</span>
+            <div class="note-content">
+                <h3>Context</h3>
+                <p>This project involves proprietary internal tools. Specific UI screens are under NDA. Below is a structured overview of the <em>what, why, who, where, and how</em> of this internship, including text-based component and flow documentation in place of live mockups.</p>
+            </div>
+        </section>
+
+        <section class="core-overview" id="overview">
+            <div class="pillar">
+                <h2>Challenge</h2>
+                <p>FindMe needed to launch two platforms simultaneously: a consumer-facing marketing website and the SaaS product. Existing flows were fragmented, causing high drop-off during onboarding.</p>
+            </div>
+            <div class="pillar">
+                <h2>Solution</h2>
+                <p>Designed distinct flows for the <strong>Marketing Site</strong> and <strong>Product Dashboard</strong>. Created developer-ready prototypes, defined all interaction states, and built a scalable component library.</p>
+            </div>
+            <div class="pillar">
+                <h2>Impact</h2>
+                <p>Improved task clarity by 25%. Reduced design-to-dev clarification cycles by 30% through comprehensive Figma specs — directly unblocking the engineering team.</p>
+            </div>
+        </section>
+
+        <div class="content-split">
+
+            <div class="left-content">
+
+                <!-- ===== 01: THE PROBLEM ===== -->
+                <section id="the-problem" class="scroll-section">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">The problem</h2>
+                    <p class="section-intro">
+                        The startup was moving fast, but design inconsistencies were slowing down development. Users were getting lost between the marketing site and the actual product — and developers were building without a clear visual spec.
+                    </p>
+
+                    <div class="quote-grid">
+                        <div class="quote-card">
+                            <span class="quote-mark">"</span>
+                            <p>We have great features, but users drop off during sign-up because the transition from the website to the app feels jarring.</p>
+                        </div>
+                        <div class="quote-card">
+                            <span class="quote-mark">"</span>
+                            <p>Developers are constantly asking for missing states — hover, error, empty. We need a single source of truth.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== 02: RESEARCH FINDINGS ===== -->
+                <section id="research-findings" class="scroll-section">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">Research Findings</h2>
+                    <p class="section-intro">
+                        Before designing anything, I conducted <strong>6 user interviews</strong> with job seekers and early beta users, ran a heuristic evaluation of the existing prototype, and analyzed drop-off points from early sign-up analytics. Here's what surfaced:
+                    </p>
+
+                    <div class="quote-grid">
+                        <div class="quote-card findme-quote">
+                            <span class="quote-mark">"</span>
+                            <p>I clicked "Get Started" on the website and suddenly I was on a totally different-looking page. I wasn't sure if I was still on the same product.</p>
+                            <p class="quote-attr">— Beta user, Graphic Designer, 24</p>
+                        </div>
+                        <div class="quote-card findme-quote">
+                            <span class="quote-mark">"</span>
+                            <p>After signing up I just had this blank screen with no guidance. I didn't know what to do first — add a project? Fill out a bio? I gave up.</p>
+                            <p class="quote-attr">— Beta user, Recent Graduate, 22</p>
+                        </div>
+                        <div class="quote-card findme-quote">
+                            <span class="quote-mark">"</span>
+                            <p>The button styles kept changing across screens. I kept wondering if clicking something would save my work or lose it.</p>
+                            <p class="quote-attr">— Beta user, Freelance Photographer, 27</p>
+                        </div>
+                        <div class="quote-card findme-quote insight-card">
+                            <div class="insight-header">Key Patterns Found</div>
+                            <ul class="insight-list">
+                                <li><strong>83% of interviewees</strong> felt the marketing site and the product looked "disconnected" on first login</li>
+                                <li><strong>5 of 6 users</strong> didn't know what to do on the empty state dashboard — no clear call-to-action</li>
+                                <li><strong>Inconsistent button styles</strong> across 4 screens created uncertainty about interactive elements</li>
+                                <li>Sign-up analytics showed <strong>62% of users</strong> abandoned during the post-sign-up profile setup step</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== 03: DESIGN PROCESS ===== -->
+                <section id="design-process" class="scroll-section">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">Design Process</h2>
+                    <p class="section-intro">
+                        I followed a structured double-diamond process across the 12-week internship — compressing each phase into two-to-three week sprints to keep pace with the engineering team.
+                    </p>
+
+                    <div class="process-timeline">
+
+                        <div class="process-step">
+                            <div class="step-card">
+                                <div class="step-phase step-phase-1">Phase 01</div>
+                                <div class="step-name">Discover</div>
+                                <div class="step-duration">Weeks 1–2</div>
+                                <p class="step-desc">User interviews, heuristic evaluation of the existing prototype, competitive analysis of 4 portfolio tools (Contra, Behance, Readymag, Notion). Identified 3 core problem spaces.</p>
+                                <div class="step-tools">
+                                    <span class="tool-chip">Figma</span>
+                                    <span class="tool-chip">Notion</span>
+                                    <span class="tool-chip">Zoom</span>
+                                </div>
+                            </div>
+                            <div class="step-arrow">→</div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-card">
+                                <div class="step-phase step-phase-2">Phase 02</div>
+                                <div class="step-name">Define</div>
+                                <div class="step-duration">Week 3</div>
+                                <p class="step-desc">Problem framing sessions with PM. Mapped 5 user journeys covering onboarding, portfolio creation, sharing, recruiter view, and account settings. Defined success metrics.</p>
+                                <div class="step-tools">
+                                    <span class="tool-chip">FigJam</span>
+                                    <span class="tool-chip">Notion</span>
+                                </div>
+                            </div>
+                            <div class="step-arrow">→</div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-card">
+                                <div class="step-phase step-phase-3">Phase 03</div>
+                                <div class="step-name">Design</div>
+                                <div class="step-duration">Weeks 4–8</div>
+                                <p class="step-desc">Lo-fi wireframes → hi-fi prototypes for all 5 flows. Parallel-tracked the marketing site and product dashboard. Built the 25-component design system from scratch.</p>
+                                <div class="step-tools">
+                                    <span class="tool-chip">Figma</span>
+                                    <span class="tool-chip">Auto Layout</span>
+                                    <span class="tool-chip">Components</span>
+                                </div>
+                            </div>
+                            <div class="step-arrow">→</div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-card">
+                                <div class="step-phase step-phase-4">Phase 04</div>
+                                <div class="step-name">Deliver</div>
+                                <div class="step-duration">Weeks 9–12</div>
+                                <p class="step-desc">Developer-ready Figma specs — redlines, annotations, hover states, error states, and empty states documented for every screen. 3 rounds of design QA with engineers.</p>
+                                <div class="step-tools">
+                                    <span class="tool-chip">Figma</span>
+                                    <span class="tool-chip">Zeplin</span>
+                                    <span class="tool-chip">Slack</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ===== 04: USER FLOWS ===== -->
+                <section id="user-flows" class="scroll-section">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">User Flows</h2>
+                    <p class="section-intro">
+                        I designed 5 end-to-end flows in total. Here are the two most critical ones — the flows where users either stayed or left the product.
+                    </p>
+
+                    <div class="flow-block">
+                        <div class="flow-block-header">
+                            <div class="flow-tag">Flow 01</div>
+                            <h3 class="flow-block-title">Onboarding Flow</h3>
+                            <p class="flow-block-sub">From first click on the marketing site to having a live, shareable portfolio URL</p>
+                        </div>
+
+                        <div class="flow-steps">
+                            <div class="flow-step">
+                                <div class="flow-dot">1</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Marketing Homepage → CTA click</div>
+                                    <p class="flow-step-desc">User lands on the marketing site, reads value prop, and clicks "Build Your Portfolio Free." This was the highest-traffic entry point. Design challenge: the CTA had to feel trustworthy, not salesy.</p>
+                                </div>
+                            </div>
+                            <div class="flow-step">
+                                <div class="flow-dot">2</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Sign-Up Form</div>
+                                    <p class="flow-step-desc">3-field form (name, email, password). I reduced this from 7 fields — research showed longer forms caused 40%+ abandonment on similar tools. Social sign-in as a secondary option.</p>
+                                    <p class="flow-note">Design decision: progressive disclosure — collect only what's needed to get in the door first.</p>
+                                </div>
+                            </div>
+                            <div class="flow-step">
+                                <div class="flow-dot">3</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Email Verification</div>
+                                    <p class="flow-step-desc">Single-purpose screen with clear copy and a re-send link. Designed the loading and confirmed states. Added a timer to reduce re-send spam.</p>
+                                </div>
+                            </div>
+                            <div class="flow-step">
+                                <div class="flow-dot">4</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Welcome + Role Selection</div>
+                                    <p class="flow-step-desc">Post-verification, user selects their creative role (Designer, Developer, Writer, Photographer, Other). This personalizes the dashboard template suggestions. Skippable — we don't block the product behind preferences.</p>
+                                    <p class="flow-note">Key insight: making this step skippable reduced onboarding abandonment at this step by 38% in testing.</p>
+                                </div>
+                            </div>
+                            <div class="flow-step">
+                                <div class="flow-dot">5</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Empty State Dashboard with Guided Prompt</div>
+                                    <p class="flow-step-desc">The biggest problem from research: users hitting a blank screen with no direction. I designed a structured empty state with 3 action cards — "Add a Project," "Fill Your Bio," and "Copy Your Portfolio Link." Clear visual hierarchy, purple primary CTA.</p>
+                                    <p class="flow-note">This directly addressed the 5-of-6 research finding: users didn't know where to start.</p>
+                                </div>
+                            </div>
+                            <div class="flow-step">
+                                <div class="flow-dot">6</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">First Project Added → Success State</div>
+                                    <p class="flow-step-desc">After adding the first project, a celebration moment: a brief animation and copy acknowledging the milestone. The portfolio link becomes active and copyable. This was the product's "aha moment."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flow-block" style="margin-top: 60px;">
+                        <div class="flow-block-header">
+                            <div class="flow-tag flow-tag-2">Flow 02</div>
+                            <h3 class="flow-block-title">Portfolio Creation Flow</h3>
+                            <p class="flow-block-sub">Adding and publishing a single project to the live portfolio</p>
+                        </div>
+
+                        <div class="flow-steps">
+                            <div class="flow-step">
+                                <div class="flow-dot flow-dot-2">1</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Dashboard → "Add Project" Button</div>
+                                    <p class="flow-step-desc">Entry point from dashboard. The button was made persistent in the top nav (not just in the empty state) so repeat users can add projects from any screen.</p>
+                                </div>
+                            </div>
+                            <div class="flow-step">
+                                <div class="flow-dot flow-dot-2">2</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Project Type Selection</div>
+                                    <p class="flow-step-desc">Card-based selector: Design, Development, Photography, Writing, Video, Other. Each card shows which fields will appear. Reduces cognitive load — users know what they're committing to before clicking.</p>
+                                </div>
+                            </div>
+                            <div class="flow-step">
+                                <div class="flow-dot flow-dot-2">3</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Upload Assets or Add Link</div>
+                                    <p class="flow-step-desc">Drag-and-drop image upload + external URL field (for Figma, GitHub, or live site links). Upload accepts JPG, PNG, GIF. Designed 4 states: idle, drag-over, uploading, and error (file too large / wrong type).</p>
+                                    <p class="flow-note">This single component had the most edge cases — 11 states documented for developer handoff.</p>
+                                </div>
+                            </div>
+                            <div class="flow-step">
+                                <div class="flow-dot flow-dot-2">4</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Project Details Form</div>
+                                    <p class="flow-step-desc">Title (required), short description (optional, 200 char), skill tags (typeahead, from preset library), and visibility toggle (public/private). Auto-save on each field blur — no "Save Draft" button needed.</p>
+                                </div>
+                            </div>
+                            <div class="flow-step">
+                                <div class="flow-dot flow-dot-2">5</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Preview Mode</div>
+                                    <p class="flow-step-desc">Full-screen preview showing how the project looks on the public portfolio. Recruiter-view toggle shows the simplified card view. User can go back and edit or proceed to publish.</p>
+                                </div>
+                            </div>
+                            <div class="flow-step">
+                                <div class="flow-dot flow-dot-2">6</div>
+                                <div class="flow-content">
+                                    <div class="flow-step-name">Publish → Confirmation</div>
+                                    <p class="flow-step-desc">Publish button triggers the project to appear on the live portfolio URL. Confirmation toast with a direct link to the live project and a one-click copy. Dashboard updates with new project card in the grid.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== 05: COMPONENT LIBRARY SNAPSHOT ===== -->
+                <section id="component-library" class="scroll-section">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">Component Library Snapshot</h2>
+                    <p class="section-intro">
+                        I built a 25-component Figma library covering every interactive state across the product. Below are 6 of the core component families — described with text-based previews in place of live screens (NDA).
+                    </p>
+
+                    <div class="component-grid">
+
+                        <div class="component-card">
+                            <div class="comp-header">
+                                <span class="comp-name">Buttons</span>
+                                <span class="comp-count">4 variants · 5 states each</span>
+                            </div>
+                            <div class="comp-preview">
+                                <div class="comp-btn-row">
+                                    <div class="mock-btn mock-primary">Primary</div>
+                                    <div class="mock-btn mock-secondary">Secondary</div>
+                                    <div class="mock-btn mock-ghost">Ghost</div>
+                                    <div class="mock-btn mock-disabled">Disabled</div>
+                                </div>
+                                <p class="comp-note">Each variant has: default, hover, active, focused, and disabled states. Sizes: small, medium, large. Icon-left and icon-right configurations.</p>
+                            </div>
+                        </div>
+
+                        <div class="component-card">
+                            <div class="comp-header">
+                                <span class="comp-name">Cards</span>
+                                <span class="comp-count">3 types · hover + selected states</span>
+                            </div>
+                            <div class="comp-preview">
+                                <div class="comp-card-row">
+                                    <div class="mock-card-sm">
+                                        <div class="mock-card-img"></div>
+                                        <div class="mock-card-text">
+                                            <div class="mock-line mock-line-full"></div>
+                                            <div class="mock-line mock-line-half"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mock-card-sm">
+                                        <div class="mock-card-img"></div>
+                                        <div class="mock-card-text">
+                                            <div class="mock-line mock-line-full"></div>
+                                            <div class="mock-line mock-line-two-thirds"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="comp-note">Project Card, Profile Card, and Type-Selector Card. Each includes a hover lift and a selected/active ring state using the brand purple.</p>
+                            </div>
+                        </div>
+
+                        <div class="component-card">
+                            <div class="comp-header">
+                                <span class="comp-name">Form States</span>
+                                <span class="comp-count">4 states · text input + textarea</span>
+                            </div>
+                            <div class="comp-preview">
+                                <div class="mock-form-states">
+                                    <div class="mock-input mock-input-default"><span>Default</span></div>
+                                    <div class="mock-input mock-input-focus"><span>Focus</span></div>
+                                    <div class="mock-input mock-input-error"><span>Error</span></div>
+                                    <div class="mock-input mock-input-success"><span>Success</span></div>
+                                </div>
+                                <p class="comp-note">Inline validation with helper text below the field. Error messages use plain language ("That email's already taken. Try logging in?" not "Email invalid.").</p>
+                            </div>
+                        </div>
+
+                        <div class="component-card">
+                            <div class="comp-header">
+                                <span class="comp-name">Navigation</span>
+                                <span class="comp-count">3 patterns · responsive</span>
+                            </div>
+                            <div class="comp-preview">
+                                <div class="mock-nav">
+                                    <div class="mock-nav-logo"></div>
+                                    <div class="mock-nav-links">
+                                        <div class="mock-nav-link mock-nav-active"></div>
+                                        <div class="mock-nav-link"></div>
+                                        <div class="mock-nav-link"></div>
+                                    </div>
+                                    <div class="mock-nav-avatar"></div>
+                                </div>
+                                <p class="comp-note">Top nav (marketing site), product sidebar nav, and mobile hamburger nav. Active state uses a left-border accent. All designed with tab-order for accessibility.</p>
+                            </div>
+                        </div>
+
+                        <div class="component-card">
+                            <div class="comp-header">
+                                <span class="comp-name">Empty States</span>
+                                <span class="comp-count">3 variants · with + without CTA</span>
+                            </div>
+                            <div class="comp-preview comp-preview-col">
+                                <div class="mock-empty">
+                                    <div class="mock-empty-icon"></div>
+                                    <div class="mock-empty-lines">
+                                        <div class="mock-line mock-line-half" style="margin: 0 auto 6px;"></div>
+                                        <div class="mock-line mock-line-two-thirds" style="margin: 0 auto;"></div>
+                                    </div>
+                                    <div class="mock-btn mock-primary" style="font-size:0.65rem; padding: 5px 12px; margin-top: 10px;">+ Add Project</div>
+                                </div>
+                                <p class="comp-note">Covers: no projects yet, no search results, and first-visit welcome. Each has a distinct illustration placeholder, heading, sub-copy, and optional CTA. Designed to feel helpful, not punishing.</p>
+                            </div>
+                        </div>
+
+                        <div class="component-card">
+                            <div class="comp-header">
+                                <span class="comp-name">Error States</span>
+                                <span class="comp-count">3 levels · inline, toast, full-page</span>
+                            </div>
+                            <div class="comp-preview comp-preview-col">
+                                <div class="mock-toast mock-toast-error">⚠ Upload failed — file must be under 5MB</div>
+                                <div class="mock-toast mock-toast-success">✓ Project published! Your portfolio is live.</div>
+                                <p class="comp-note">Three tiers: inline validation (below field), toast notification (bottom-right, auto-dismiss 4s), and full-page error (404, network failure). All errors include a recovery action — never a dead end.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ===== 06: THE USER ===== -->
+                <section id="the-user" class="scroll-section">
+                    <span class="section-number">06</span>
+                    <h2 class="section-title">The User</h2>
+                    <p>The primary users were <strong>Job Seekers and Creatives</strong> — designers, developers, photographers, and writers — looking to build their online presence without needing to code. They needed speed and confidence, not flexibility at the cost of complexity.</p>
+                    <p style="margin-top: 16px;">The secondary users were <strong>Recruiters</strong> viewing these portfolios passively, requiring a clean, standardized, and fast-loading layout — no distractions, just the work.</p>
+                </section>
+
+                <!-- ===== 07: MY CONTRIBUTION ===== -->
+                <section id="my-contribution" class="scroll-section">
+                    <span class="section-number">07</span>
+                    <h2 class="section-title">My Contribution</h2>
+
+                    <div class="contribution-list">
+                        <div class="contrib-item">
+                            <h3>Product & Web Design</h3>
+                            <p>Designed the <strong>Consumer-Facing Marketing Website</strong> to drive sign-ups and the <strong>SaaS Product</strong> (Portfolio Builder) for user retention. Ensured a seamless visual bridge between the two.</p>
+                        </div>
+                        <div class="contrib-item">
+                            <h3>Developer Handoff</h3>
+                            <p>Produced developer-ready Figma files: interaction states, spacing tokens, hover/focus/error variants, and edge case documentation for all 5 flows. Reduced clarification cycles by 30%.</p>
+                        </div>
+                        <div class="contrib-item">
+                            <h3>Component Library</h3>
+                            <p>Built a scalable 25-component Figma library with auto-layout, variants, and interactive states — establishing a shared visual language between design and engineering.</p>
+                        </div>
+                        <div class="contrib-item">
+                            <h3>Research & Iteration</h3>
+                            <p>Ran 6 user interviews, synthesized findings into 3 actionable problem spaces, and used those to validate design decisions across two rounds of prototype testing.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== 08: WHAT DID I LEARN ===== -->
+                <section id="my-learnings" class="scroll-section">
+                    <span class="section-number">08</span>
+                    <h2 class="section-title">What did I learn?</h2>
+
+                    <div class="learning-cards">
+                        <div class="learn-card">
+                            <h3>Marketing vs. Product Thinking</h3>
+                            <p>I learned to switch contexts between "selling" and "building." The marketing site needed to be aspirational; the product needed to be fast. Designing both simultaneously taught me how to keep brand consistent while serving different user intents.</p>
+                        </div>
+                        <div class="learn-card">
+                            <h3>The Art of Handoff</h3>
+                            <p>A designer's job isn't done until it's built correctly. Documenting every edge case — empty states, error states, loading states — built real trust with the engineering team and shortened the feedback loop dramatically.</p>
+                        </div>
+                        <div class="learn-card">
+                            <h3>Empty States Are Not Empty</h3>
+                            <p>The single highest-impact design change of the internship was redesigning the empty-state dashboard. It proved that the spaces with "nothing" in them are often where the biggest UX wins live.</p>
+                        </div>
+                        <div class="learn-card">
+                            <h3>Design in a Startup</h3>
+                            <p>Timelines compress fast when you're in a startup. I learned to ship "good enough to test" over "perfect," prioritize velocity without sacrificing consistency, and advocate for research even when time was tight.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== 09: WHAT I'D DO DIFFERENTLY ===== -->
+                <section id="retrospective" class="scroll-section">
+                    <span class="section-number">09</span>
+                    <span class="reflection-label">Reflection</span>
+                    <h2 class="section-title">What I'd Do Differently</h2>
+                    <p class="section-intro">
+                        Three honest things I'd change, not as self-criticism, but as a record of what this project taught me.
+                    </p>
+
+                    <div class="retro-list">
+                        <div class="retro-item">
+                            <div class="retro-number">1</div>
+                            <div class="retro-content">
+                                <h4>I'd run a mid-fidelity test round before building the component library</h4>
+                                <p>I jumped from wireframes to a 25-component Figma system without validating information architecture in between. A single 5-person test at 40% fidelity would have caught the portfolio creation flow's branching confusion before I'd built six variants of it, saving at least two weeks of rework in the final sprint.</p>
+                            </div>
+                        </div>
+                        <div class="retro-item">
+                            <div class="retro-number">2</div>
+                            <div class="retro-content">
+                                <h4>I'd set accessibility constraints before opening Figma, not after</h4>
+                                <p>Focus states and color contrast were the last things I touched, squeezed into the final week. The purple-heavy palette I chose looks great but required significant rework to hit WCAG AA on smaller text. Defining a contrast-safe token palette on day one would have made the entire system cleaner without any visual compromise.</p>
+                            </div>
+                        </div>
+                        <div class="retro-item">
+                            <div class="retro-number">3</div>
+                            <div class="retro-content">
+                                <h4>I'd measure the right things from the start, not retrofit metrics at the end</h4>
+                                <p>The "25% usability improvement" figure I use came from prototype testing, not from production analytics. I'd now define specific, measurable success criteria before any design work begins: onboarding completion rate, time-to-first-portfolio, and day-7 retention. That way the outcome data is as rigorous as the design process that produced it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== 10: FINAL GALLERY ===== -->
+                <section id="final-designs" class="scroll-section">
+                    <span class="section-number">10</span>
+                    <h2 class="section-title">Final Design Gallery</h2>
+                    <p class="section-intro">
+                        Key screens from the Consumer Website and the Portfolio Builder product. Full mockups under NDA — placehold shown for the marketing homepage.
+                    </p>
+
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://placehold.co/800x500/6c5ce7/ffffff?text=Marketing+Homepage+%E2%80%93+FindMe" alt="Marketing Homepage" onclick="openModal(this)">
+                            <p class="caption">Marketing Homepage</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../assets/findme-1.png" alt="Portfolio Builder Dashboard" onclick="openModal(this)">
+                            <p class="caption">Portfolio Builder Dashboard</p>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="footer-note">
+                    <p><a href="#">Back to top ↗</a></p>
+                </footer>
+
+            </div>
+
+            <div class="right-nav">
+                <ul class="sticky-menu">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#the-problem">01 · The problem</a></li>
+                    <li><a href="#research-findings">02 · Research</a></li>
+                    <li><a href="#design-process">03 · Process</a></li>
+                    <li><a href="#user-flows">04 · User flows</a></li>
+                    <li><a href="#component-library">05 · Components</a></li>
+                    <li><a href="#the-user">06 · The user</a></li>
+                    <li><a href="#my-contribution">07 · Contribution</a></li>
+                    <li><a href="#my-learnings">08 · Learnings</a></li>
+                    <li><a href="#retrospective">09 · Differently</a></li>
+                    <li><a href="#final-designs">10 · Gallery</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="modal-caption"></div>
+    </div>
+
+    <script src="Findme.js"></script>
+</body>
+</html>
