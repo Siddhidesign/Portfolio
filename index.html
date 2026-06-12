@@ -6,7 +6,6 @@
   <title>Siddhi Manche · UX Designer</title>
   <meta name="description" content="Siddhi Manche is a UX designer who finds the signal in the research, then makes it intuitive. Fintech, govtech, SaaS & sustainability. University of Michigan." />
 
-  <!-- Inter = metric-close fallback for SF Pro · Caveat = signature -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
@@ -53,7 +52,6 @@
         </p>
       </div>
 
-      <!-- the "that's me" video + things I like, scrapbook style -->
       <div class="hero-scrap rv">
 
         <figure class="me-card">
@@ -87,7 +85,7 @@
           <span class="scrap-label">diet coke &gt; coffee</span>
         </div>
 
-      </div><!-- /hero-scrap -->
+      </div>
     </header>
 
     <!-- ===================== MARQUEE ===================== -->
@@ -245,13 +243,12 @@
             <img src="assets/photobook/21.jpeg" alt="" loading="lazy" />
             <span class="pb-note pb-note--pink" style="left:.9rem; top:1rem; --tilt:-4deg;">finally, i got graduated 🎓</span>
             <span class="pb-count" aria-hidden="true">01 / 16</span>
-            </div><!-- /pb-page -->
+            </div>
           </div>
           <div class="about-id">
             <strong>My photobook</strong>
             <span>little moments, on auto-flip · Michigan</span>
           </div>
-
         </div>
 
         <div class="about-copy rv">
@@ -268,32 +265,36 @@
         <h3>Where I've been professionally</h3>
         <div class="where-grid">
 
-          <div class="where-card">
+          <!-- ↓ ONLY CHANGE: div → a, added href and where-go arrow -->
+          <a class="where-card" href="experience/umich.html" style="text-decoration:none;display:block;cursor:pointer;position:relative;transition:transform 0.2s,border-color 0.2s;">
+            <span class="where-go" aria-hidden="true">↗</span>
             <div class="where-top">
               <span class="org">University of Michigan</span>
               <span class="date">2025–April 2026</span>
             </div>
             <span class="role">Teaching Assistant · HCD/HCDE</span>
             <p class="where-desc">Teaching human-centered design and running design critiques for 30+ students, mentoring their projects from first research questions to final prototypes.</p>
-          </div>
+          </a>
 
-          <div class="where-card">
+          <a class="where-card" href="experience/findme.html" style="text-decoration:none;display:block;cursor:pointer;position:relative;transition:transform 0.2s,border-color 0.2s;">
+            <span class="where-go" aria-hidden="true">↗</span>
             <div class="where-top">
               <span class="org">FindMe LLC</span>
               <span class="date">2025</span>
             </div>
             <span class="role">UX/UI Design Intern</span>
             <p class="where-desc">Designed product flows and helped build a scalable design system at a fast-moving startup, working directly with developers to ship what I designed.</p>
-          </div>
+          </a>
 
-          <div class="where-card">
+          <a class="where-card" href="experience/jaihind.html" style="text-decoration:none;display:block;cursor:pointer;position:relative;transition:transform 0.2s,border-color 0.2s;">
+            <span class="where-go" aria-hidden="true">↗</span>
             <div class="where-top">
               <span class="org">Jai Hind Group</span>
               <span class="date">2023–24</span>
             </div>
             <span class="role">Product UX Designer</span>
             <p class="where-desc">My first design role, at a B2B supplier running on phone calls and disconnected spreadsheets. Designed its digital tooling end to end and learned that design is often rescue work.</p>
-          </div>
+          </a>
 
           <a class="where-open" href="mailto:manche.siddhi@gmail.com">
             <i aria-hidden="true"></i> Actively looking for a new role, this box is waiting for your company's name
@@ -490,6 +491,20 @@
     <a class="dock-btn" href="mailto:manche.siddhi@gmail.com" aria-label="Email Siddhi">✉</a>
     <a class="dock-btn alt" href="https://www.linkedin.com/in/siddhi-manche/" target="_blank" rel="noopener" aria-label="Siddhi on LinkedIn">in</a>
   </div>
+
+  <style>
+    .where-card { color: inherit; }
+    .where-go {
+      position: absolute;
+      top: 1rem;
+      right: 1.1rem;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .where-card:hover { transform: translateY(-3px); border-color: currentColor; }
+    .where-card:hover .where-go { opacity: 1; }
+  </style>
 
   <script src="js/home.js"></script>
 </body>
