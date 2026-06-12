@@ -1,0 +1,59 @@
+<svg width="1260" height="540" viewBox="0 0 1260 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="mglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#b97f16" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#b97f16" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="leafg" x1="630" y1="120" x2="630" y2="424" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6fae50"/>
+      <stop offset="1" stop-color="#37702f"/>
+    </linearGradient>
+    <filter id="msoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <rect width="1260" height="540" fill="#f3f1ec"/>
+  <ellipse cx="630" cy="280" rx="420" ry="260" fill="url(#mglow)"/>
+  <rect x="14" y="14" width="1232" height="512" rx="4" stroke="#e3ddd0" stroke-width="1.5"/>
+
+  <!-- viewfinder brackets -->
+  <g stroke="#8a5a18" stroke-width="7" stroke-linecap="round" opacity="0.9">
+    <path d="M512 86 h-48 a14 14 0 0 0 -14 14 v48"/>
+    <path d="M748 86 h48 a14 14 0 0 1 14 14 v48"/>
+    <path d="M512 454 h-48 a14 14 0 0 1 -14 -14 v-48"/>
+    <path d="M748 454 h48 a14 14 0 0 0 14 -14 v-48"/>
+  </g>
+
+  <!-- leaf -->
+  <ellipse cx="634" cy="430" rx="84" ry="14" fill="#8a5a18" opacity="0.12" filter="url(#msoft)"/>
+  <path d="M630 122 C 522 198 510 320 630 416 C 750 320 738 198 630 122 Z" fill="url(#leafg)"/>
+  <path d="M630 146 V 398" stroke="#e9f3df" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+  <g stroke="#e9f3df" stroke-width="3" stroke-linecap="round" opacity="0.55" fill="none">
+    <path d="M630 200 C 600 208 578 226 564 248"/>
+    <path d="M630 200 C 660 208 682 226 696 248"/>
+    <path d="M630 258 C 598 268 576 288 564 310"/>
+    <path d="M630 258 C 662 268 684 288 696 310"/>
+    <path d="M630 316 C 604 324 588 338 578 354"/>
+    <path d="M630 316 C 656 324 672 338 682 354"/>
+  </g>
+
+  <!-- scan line -->
+  <rect x="488" y="258" width="284" height="4" rx="2" fill="#b97f16" opacity="0.9"/>
+  <rect x="488" y="252" width="284" height="16" rx="8" fill="#b97f16" opacity="0.2" filter="url(#msoft)"/>
+
+  <!-- detection chip -->
+  <rect x="772" y="86" width="280" height="42" rx="21" fill="#ffffff"/>
+  <rect x="772" y="86" width="280" height="42" rx="21" stroke="#e3ddd0" stroke-width="1.5"/>
+  <circle cx="800" cy="107" r="7" fill="#37702f"/>
+  <text x="818" y="113" font-family="'SF Mono','Menlo',monospace" font-size="14" letter-spacing="1.5" fill="#3c5b22">TULSI · HOLY BASIL · 97%</text>
+
+  <!-- real-time chip -->
+  <rect x="556" y="468" width="148" height="34" rx="17" fill="#8a5a18"/>
+  <circle cx="580" cy="485" r="6" fill="#ffd391"/>
+  <text x="594" y="490" font-family="'SF Mono','Menlo',monospace" font-size="12" letter-spacing="2" fill="#ffedd0">REAL-TIME</text>
+
+  <!-- captions -->
+  <text x="43" y="50" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13.5" letter-spacing="9" fill="#bdb4a0">MEDICINAL PLANT ID</text>
+  <text x="43" y="496" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13.5" letter-spacing="9" fill="#b3a995">BOTANY MEETS COMPUTER VISION</text>
+</svg>

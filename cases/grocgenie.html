@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrocGenie, Case Study · Siddhi Manche</title>
+  <meta name="description" content="Engineering trust in AI systems, GrocGenie reduces household food waste through human-AI collaboration, privacy-first design, and explainable AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/case-study.css" />
+  <link rel="stylesheet" href="../css/case-light.css" />
+</head>
+<body>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-content">
+      <div class="loader-words">
+        <div class="loader-word"><span>GROC</span></div>
+        <div class="loader-word accent"><span>GENIE</span></div>
+      </div>
+      <div class="loader-line-wrap"><div class="loader-line-bar"></div></div>
+      <p class="loader-sub">Loading Case Study</p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="cs-nav" id="nav" role="banner">
+    <a href="../index.html" class="cs-back">← All Work</a>
+    <span class="cs-nav-center">GrocGenie</span>
+    <div class="cs-nav-right">
+      <a href="medicinal.html" class="cs-next-link">Medicinal Plants →</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span>◐</span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="cs-hero">
+    <div class="cs-hero-bg" aria-hidden="true">AI</div>
+    <div class="cs-hero-glow" aria-hidden="true"></div>
+
+    <div class="cs-hero-inner">
+      <div class="cs-hero-index">
+        <span>04 / 05</span>
+        <span class="idx-line"></span>
+        <span>HCAI · Sustainability · Human-AI Teaming</span>
+      </div>
+
+      <h1 class="cs-hero-title">
+        <div class="line-mask"><span class="line-inner">GrocGenie</span></div>
+        <div class="line-mask italic"><span class="line-inner">Engineering Trust in AI</span></div>
+      </h1>
+
+      <div class="cs-hero-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <span class="cs-meta-value">UX Designer</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Context</span>
+          <span class="cs-meta-value">HCAI Course Project</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Type</span>
+          <span class="cs-meta-value">AI-Powered Mobile App</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Year</span>
+          <span class="cs-meta-value">2024</span>
+        </div>
+      </div>
+
+      <div class="cs-hero-stats">
+        <div>
+          <div class="cs-stat-n">40%</div>
+          <div class="cs-stat-l">Waste Reduction Target</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">3</div>
+          <div class="cs-stat-l">User Friction Sources</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">0</div>
+          <div class="cs-stat-l">Cloud Camera Uploads</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">2</div>
+          <div class="cs-stat-l">Microsoft AI Guidelines Applied</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 RESEARCH -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">01</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🔍</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Research</div>
+      <h2 class="cs-sec-title">Food Waste is a <em>Cognitive Overload Problem</em></h2>
+      <p class="cs-text">Our discovery phase analysed busy students and families to understand why existing manual grocery trackers consistently fail. The finding: <strong>food waste is a byproduct of cognitive overload</strong>, not carelessness. Nobody is throwing away food because they don't care about waste, they're throwing it away because the mental overhead of tracking inventory is higher than the emotional cost of the loss.</p>
+
+      <div class="cs-stat-row">
+        <div class="cs-stat-box">
+          <div class="cs-stat-big">$1,600</div>
+          <div class="cs-stat-desc">Average food wasted per household per year in the US, the equivalent of throwing away one in every five bags of groceries</div>
+          <div class="cs-stat-source">Source: USDA Economic Research Service, 2022</div>
+        </div>
+        <div class="cs-stat-box">
+          <div class="cs-stat-big">30–40%</div>
+          <div class="cs-stat-desc">Of the US food supply is wasted, representing the largest single component of landfill material nationally</div>
+          <div class="cs-stat-source">Source: FDA, 2023</div>
+        </div>
+        <div class="cs-stat-box">
+          <div class="cs-stat-big">3</div>
+          <div class="cs-stat-desc">Distinct friction sources that cause users to abandon manual food tracking: logging tax, fridge blindness, surveillance anxiety</div>
+          <div class="cs-stat-source">Source: Primary Research · User Interviews</div>
+        </div>
+      </div>
+
+      <div class="cs-findings">
+        <div class="cs-finding">
+          <div class="cs-finding-n">01</div>
+          <div class="cs-finding-body">
+            <h4>Fridge Blindness</h4>
+            <p>Once items are pushed to the back of the fridge, they effectively "cease to exist" in the user's mind. Out of sight, out of mind, and into the bin. Users consistently described discovering forgotten items only when they began to smell.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">02</div>
+          <div class="cs-finding-body">
+            <h4>The Logging Tax</h4>
+            <p>Users find the "Manual Log" barrier too high for everyday items like milk or kale. Any friction in the logging process, even a single extra tap, causes abandonment. Every existing food tracking app we tested charged this tax.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">03</div>
+          <div class="cs-finding-body">
+            <h4>Surveillance Anxiety</h4>
+            <p>A critical finding: users feared cloud-based kitchen cameras deeply. Multiple participants said they "would never allow a camera in their home connected to a server." This led us to a <strong>Local-First data strategy</strong>, all camera processing happens on-device, nothing uploaded to a server.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-img"><div class="cs-img-ph">AFFINITY MAP, WASTE BEHAVIOUR PATTERNS</div><div class="cs-img-caption">Affinity mapping of user research: three distinct friction categories driving food waste, and their emotional root causes.</div></div>
+    </div>
+  </div>
+
+  <!-- 02 PERSONA -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">02</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">👤</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Persona</div>
+      <h2 class="cs-sec-title">Meet <em>Anthony</em></h2>
+
+      <div class="cs-persona-grid" style="grid-template-columns: 1fr;">
+        <div class="cs-persona">
+          <div class="cs-persona-header">
+            <div class="cs-persona-avatar">A</div>
+            <div class="cs-persona-header-text">
+              <h3>Anthony Kim</h3>
+              <span class="cs-persona-type">The Forgetful-but-Well-Intentioned Shopper</span>
+            </div>
+          </div>
+          <div class="cs-persona-details">
+            <div class="cs-pd-item"><span class="cs-pd-label">Age</span><span class="cs-pd-value">22</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Gender</span><span class="cs-pd-value">Male</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Location</span><span class="cs-pd-value">East Lansing, MI</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Occupation</span><span class="cs-pd-value">Graduate Student</span></div>
+          </div>
+          <p class="cs-persona-narrative">Anthony lives alone in a one-bedroom apartment near campus. He does one big grocery shop every Sunday, spending around $80–$90 at Meijer. He genuinely cares about sustainability, he composts, uses reusable bags, and buys local when he can. But by Thursday, a third of his weekly shop is in the compost bin. He feels guilty every single time.</p>
+          <div class="cs-persona-steps">
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">01</span>
+              <div class="cs-persona-step-body">
+                <p>Sunday 2pm. Anthony does his weekly Meijer run: salad mix, kale, chicken thighs, Greek yogurt, eggs, and a bag of apples. He's optimistic, "I'll actually cook this week." He gets home and puts everything away.</p>
+                <span class="cs-persona-emotion">😊 Optimistic, good intentions in place</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">02</span>
+              <div class="cs-persona-step-body">
+                <p>Monday and Tuesday: back-to-back seminars, a paper deadline, and a lab session that runs three hours over. Anthony eats granola bars and orders DoorDash twice. The fridge stays closed.</p>
+                <span class="cs-persona-emotion">😤 Overwhelmed, cooking feels impossible</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">03</span>
+              <div class="cs-persona-step-body">
+                <p>Thursday evening. Anthony opens the fridge to make dinner and finds the salad mix is slimy and the kale has yellowed. He checks the chicken, still okay but needs to be cooked tonight. He didn't even remember the kale was there.</p>
+                <span class="cs-persona-emotion">😔 Guilty &amp; frustrated, $15 in the bin again</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">04</span>
+              <div class="cs-persona-step-body">
+                <p>He throws away the salad and kale, cooks the chicken, and tells himself he'll do better next week. He considers downloading a grocery tracking app but doesn't, the manual logging feels like more work than the problem is worth.</p>
+                <span class="cs-persona-emotion">😶 Resigned, the cycle will repeat</span>
+              </div>
+            </div>
+          </div>
+          <div class="cs-persona-cols">
+            <div class="cs-persona-col goals">
+              <h5>Goals</h5>
+              <ul>
+                <li>Stop wasting food, and the money it represents</li>
+                <li>Get recipe suggestions for what's already in his fridge</li>
+                <li>Be notified before items go bad, not after</li>
+              </ul>
+            </div>
+            <div class="cs-persona-col">
+              <h5>Frustrations</h5>
+              <ul>
+                <li>Forgets what's in the fridge after 2 days</li>
+                <li>Manual tracking apps feel like more work than the problem</li>
+                <li>No app tells him what to cook with what he has</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 EMPATHY MAP -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">03</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">Empathy Map, Anthony Kim</div>
+      <h2 class="cs-sec-title">The Guilt Behind <em>Every Bin Bag</em></h2>
+
+      <div class="cs-empathy">
+        <div class="cs-empathy-quad">
+          <div class="cs-empathy-label">👁 Sees</div>
+          <ul>
+            <li>Slimy salad mix that was perfectly fine four days ago</li>
+            <li>A fridge organised by "what fits" not by "what expires first"</li>
+            <li>Friends posting "fridge cleanout" recipes on Instagram</li>
+            <li>Grocery bills adding up to $300+ per month despite wasting a third of it</li>
+            <li>Climate change statistics that make every bin bag feel personal</li>
+          </ul>
+        </div>
+        <div class="cs-empathy-quad">
+          <div class="cs-empathy-label">👂 Hears</div>
+          <ul>
+            <li>"Did you know Americans throw away 80 million pounds of food a day?"</li>
+            <li>"Just meal prep Sunday, it takes like two hours." (from people with more time)</li>
+            <li>Silence from his fridge, nothing tells him something's going bad</li>
+            <li>"There are apps for that, but they're kind of a lot of work."</li>
+            <li>His own voice: "I should have cooked that on Tuesday."</li>
+          </ul>
+        </div>
+        <div class="cs-empathy-quad pain">
+          <div class="cs-empathy-label">💔 Pain</div>
+          <ul>
+            <li>Guilt, he cares about sustainability but keeps wasting food</li>
+            <li>Financial loss, $15–20 per week in thrown-away groceries</li>
+            <li>The futility of his Sunday shopping ritual if it ends in waste every week</li>
+            <li>Distrust of AI food apps that want to put a camera in his home</li>
+            <li>The gap between intention ("I'll cook this week") and reality (DoorDash Tuesday)</li>
+          </ul>
+        </div>
+        <div class="cs-empathy-quad gain">
+          <div class="cs-empathy-label">✨ Gain</div>
+          <ul>
+            <li>Relief when the AI catches an impending expiry before he does</li>
+            <li>Satisfaction when the app suggests a recipe using exactly what's about to go bad</li>
+            <li>Pride in the "Savings" tracker showing $12 saved this week</li>
+            <li>Trust when the app confirms his camera data never leaves his phone</li>
+            <li>The feeling that he's finally winning the war against his own fridge</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 ANTHONY'S JOURNEY -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">04</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">Customer Journey, Anthony's Weekly Waste Cycle</div>
+      <h2 class="cs-sec-title">Where <em>Good Intentions Break</em></h2>
+      <p class="cs-text">Mapping Anthony's full weekly cycle, from hopeful Sunday shop to guilty Thursday bin, reveals that the intervention point isn't Sunday. It's Tuesday. By the time Thursday arrives, the food is already lost. GrocGenie needs to intervene <strong>before the spiral starts</strong>.</p>
+
+      <div class="cs-journey">
+        <div class="cs-journey-stages">
+          <div class="cs-journey-stage">
+            <div class="cs-journey-stage-name">Sunday Shop</div>
+            <div class="cs-journey-actions">
+              <p class="cs-journey-action" data-n="1.">Shops optimistically, buys fresh produce for the week</p>
+              <p class="cs-journey-action" data-n="2.">Organises fridge by what fits, not by expiry date</p>
+              <p class="cs-journey-action" data-n="3.">"I'll definitely cook this week." He means it.</p>
+            </div>
+            <div class="cs-journey-emotion">😊 Hopeful, good intentions</div>
+          </div>
+          <div class="cs-journey-stage">
+            <div class="cs-journey-stage-name">Mon–Tue</div>
+            <div class="cs-journey-actions">
+              <p class="cs-journey-action" data-n="1.">Back-to-back classes and a paper deadline</p>
+              <p class="cs-journey-action" data-n="2.">Orders food delivery, "just tonight"</p>
+              <p class="cs-journey-action" data-n="3.">Fridge stays closed. Salad clock ticking.</p>
+            </div>
+            <div class="cs-journey-emotion">😤 Overwhelmed, cooking falls off the list</div>
+          </div>
+          <div class="cs-journey-stage">
+            <div class="cs-journey-stage-name">Wednesday</div>
+            <div class="cs-journey-actions">
+              <p class="cs-journey-action" data-n="1.">The GrocGenie intervention point, a nudge could save the salad</p>
+              <p class="cs-journey-action" data-n="2.">"Your salad mix expires tomorrow, here's a 10-min recipe"</p>
+              <p class="cs-journey-action" data-n="3.">Without the nudge: the opportunity passes silently</p>
+            </div>
+            <div class="cs-journey-emotion">⚡ Critical window, act now or waste</div>
+          </div>
+          <div class="cs-journey-stage">
+            <div class="cs-journey-stage-name">Thursday</div>
+            <div class="cs-journey-actions">
+              <p class="cs-journey-action" data-n="1.">Opens fridge and discovers slimy salad</p>
+              <p class="cs-journey-action" data-n="2.">Kale is yellowed, didn't remember it was there</p>
+              <p class="cs-journey-action" data-n="3.">Chicken cooked. Two items binned.</p>
+            </div>
+            <div class="cs-journey-emotion">😔 Guilty, $15 wasted again</div>
+          </div>
+          <div class="cs-journey-stage">
+            <div class="cs-journey-stage-name">Sunday (Again)</div>
+            <div class="cs-journey-actions">
+              <p class="cs-journey-action" data-n="1.">Goes back to Meijer, "I'll do better this week"</p>
+              <p class="cs-journey-action" data-n="2.">Buys similar items. Cycle resets.</p>
+              <p class="cs-journey-action" data-n="3.">Without GrocGenie: this repeats indefinitely</p>
+            </div>
+            <div class="cs-journey-emotion">😶 Resigned, the cycle continues</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="cs-text">GrocGenie's design mandate: <strong>intercept on Wednesday</strong>, not Thursday. Proactive expiry nudges + AI recipe suggestions change the outcome before the food is lost, not after.</p>
+    </div>
+  </div>
+
+  <!-- 05 DEFINE -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">05</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">💡</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Define, The Collaborative Agent</div>
+      <h2 class="cs-sec-title">AI as <em>Partner, Not Surveillant</em></h2>
+      <p class="cs-text">Instead of designing an autonomous system that monitors the user's kitchen, we designed a <strong>Collaborative Agent</strong>, an AI that intervenes at the right moments and yields control everywhere else. We applied two of Microsoft's Human-AI Interaction Guidelines specifically to address Anthony's surveillance anxiety:</p>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feat-num">G1</div>
+          <h4>Make Clear What the System Can Do</h4>
+          <p>Every AI feature clearly communicates its capabilities and limitations upfront. The camera's on-device processing is disclosed prominently, not buried in a privacy policy. Anthony always knows what the AI can see and what it cannot.</p>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feat-num">G11</div>
+          <h4>Make Clear Why the System Did What It Did</h4>
+          <p>Every AI action includes a brief, plain-language explanation. "This item was flagged because it was detected in your last scan and its typical shelf life is 5 days, you're now on day 4." Transparency builds lasting trust far more effectively than accuracy alone.</p>
+        </div>
+      </div>
+
+      <div class="cs-hmw">
+        <div class="cs-hmw-item">How might we reduce the cognitive cost of tracking inventory to the point where it requires less effort than the food waste it prevents?</div>
+        <div class="cs-hmw-item">How might we present AI actions in a way that builds trust through transparency rather than eroding it through opacity?</div>
+        <div class="cs-hmw-item">How might we give users meaningful control over the AI without requiring them to understand how it works?</div>
+      </div>
+
+      <p class="cs-text">We storyboarded "Anthony's GrocGenie Week" to map exactly where the AI should intervene (expiry warnings, duplicate detection, recipe suggestions) and where it should yield control (editing the grocery list, overriding recommendations, deleting AI-added items).</p>
+      <div class="cs-img"><div class="cs-img-ph">ANTHONY'S STORYBOARD, AI INTERVENTION LIFECYCLE</div><div class="cs-img-caption">7-panel storyboard: Sunday shop → fridge scan → Wednesday nudge → recipe suggestion → cooked → saved. Marks AI actions vs. user control moments.</div></div>
+    </div>
+  </div>
+
+  <!-- 06 IDEATION -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">06</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🎨</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UI Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Ideation, Designing for Shared Control</div>
+      <h2 class="cs-sec-title">When AI Gets It Wrong, <em>Users Stay in Charge</em></h2>
+      <p class="cs-text">Task analysis focused on the "Duplicate Warning" and "Expiry Prediction" flows, the two highest-stakes AI moments where errors feel most frustrating. The key design question: <strong>how do we make an AI error feel recoverable rather than catastrophic?</strong></p>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feat-num">◈</div>
+          <h4>Confidence Indicators</h4>
+          <p>Low-profile UI cues show how "sure" the AI is about a scan, 87% confident vs. 43% confident. Users know when to trust and when to verify. Uncertainty is visible, not hidden behind a confident-sounding result.</p>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feat-num">◉</div>
+          <h4>Contextual Scan Previews</h4>
+          <p>A thumbnail of what the camera saw lets users verify the AI's logic before accepting a scan. "Is this the kale or the bok choy?", the user can see the image and correct it. Reduces errors and builds genuine system trust.</p>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feat-num">◍</div>
+          <h4>One-Tap Override at Every Step</h4>
+          <p>The user can always delete an AI-added item, correct a miscategorisation, or override an expiry estimate, even after the AI has acted. Explicit user agency is non-negotiable at every step of the flow.</p>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feat-num">◎</div>
+          <h4>Local-Only Mode, Visible Toggle</h4>
+          <p>A persistent, prominent indicator confirms that all camera processing happens on-device. Not a one-time onboarding disclosure, a continuous signal that reassures Anthony every single time he scans his fridge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 FINAL UI -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">07</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🎨</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UI Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">High-Fidelity Design</div>
+      <h2 class="cs-sec-title">Privacy-First <em>Interface</em></h2>
+      <p class="cs-text">The final interface balances a friendly, motivating tone with high-utility dashboards. Key technical features, confidence scores, local-only processing, override controls, are <strong>front-and-centre, not buried in settings</strong>. If trust is the product, trust must be visible.</p>
+
+      <div class="cs-img"><div class="cs-img-ph">INVENTORY DASHBOARD, REAL-TIME ITEM TRACKING</div><div class="cs-img-caption">Transparent scanning with real-time bounding boxes labelling detected ingredients. Confidence score shown per item. "Local Only" badge persistent in header.</div></div>
+      <div class="cs-img"><div class="cs-img-ph narrow">EXPIRY ALERTS, PROACTIVE WEDNESDAY NUDGE</div><div class="cs-img-caption">Push notification + in-app card: "Your salad mix expires tomorrow. Here's a 10-min recipe that uses it." The Wednesday intervention, designed.</div></div>
+      <div class="cs-img"><div class="cs-img-ph narrow">SAVINGS TAB, GAMIFIED WASTE REDUCTION</div><div class="cs-img-caption">"Savings" tab translates waste reduction into real dollar amounts, this week: $12.40 saved. Positive reinforcement over guilt-based tracking.</div></div>
+      <div class="cs-img"><div class="cs-img-ph narrow">WCAG 2.1 AA, DESIGN SPECIFICATIONS</div><div class="cs-img-caption">Full accessibility specifications: contrast ratios, touch target sizes, and interaction standards across all states.</div></div>
+    </div>
+  </div>
+
+  <!-- 08 EVALUATION -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">08</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🧪</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Evaluation</div>
+      <h2 class="cs-sec-title">Evaluating <em>Trust &amp; Adaptation</em></h2>
+      <p class="cs-text">Multi-metric evaluation across Usability, Desirability, and <strong>Explainability</strong>, the dimension uniquely relevant to HCAI systems. Users completed complex tasks, like finding items expiring in exactly two days using the AI assistant, to test whether they genuinely trusted the system or were just complying with it.</p>
+
+      <div class="cs-quote">"The 'Aha' Moment: Users gained genuine trust when the AI correctly identified duplicates from a grocery bag, without being asked. They weren't just impressed; they relaxed."</div>
+
+      <div class="cs-ba-pairs">
+        <div class="cs-ba-pair">
+          <div class="cs-ba-side">
+            <div class="cs-ba-label">Initial Design</div>
+            <h4>Cost Estimations Feature</h4>
+            <p>The original design included a feature showing estimated monthly food spend. In testing, users described it as invasive and anxiety-inducing, it surfaced guilt without actionable direction. "It just tells me I'm spending too much. So what?"</p>
+          </div>
+          <div class="cs-ba-side after">
+            <div class="cs-ba-label">Post-Testing Pivot ✓</div>
+            <h4>Savings Progress Metric</h4>
+            <p>Shifted to a "Savings Progress" metric, how much food cost was prevented this week by acting on AI suggestions. Reframes the same financial information as positive achievement rather than negative audit. Users felt motivated, not surveilled.</p>
+          </div>
+        </div>
+        <div class="cs-ba-pair">
+          <div class="cs-ba-side">
+            <div class="cs-ba-label">Initial Design</div>
+            <h4>AI Confidence, Hidden by Default</h4>
+            <p>Early prototypes showed AI scan results without confidence indicators. Users accepted them uncritically, or rejected them entirely when wrong, losing all trust in the system.</p>
+          </div>
+          <div class="cs-ba-side after">
+            <div class="cs-ba-label">Post-Testing Pivot ✓</div>
+            <h4>Visible Confidence + Easy Correction</h4>
+            <p>Confidence percentage shown per item, with a one-tap correction flow. Users who corrected an error reported higher trust in subsequent scans, the ability to correct the AI made the AI feel more trustworthy, not less.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 OUTCOMES -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">09</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🧭</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>Product UX Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Outcomes &amp; Learnings</div>
+      <h2 class="cs-sec-title">Designing AI You Can <em>Actually Trust</em></h2>
+      <p class="cs-text">GrocGenie proved that the hardest problem in Human-AI Interaction design isn't accuracy, it's the <strong>perception of trustworthiness</strong>. An AI that's 95% accurate but opaque about its reasoning generates less user trust than an AI that's 82% accurate but explains itself clearly. The lesson: trust is a design outcome, not just a technical one.</p>
+
+      <div class="cs-compare">
+        <div class="cs-compare-col">
+          <div class="cs-compare-label">Design Outcomes</div>
+          <ul>
+            <li>Local-First architecture eliminated surveillance anxiety entirely in testing</li>
+            <li>Confidence indicators increased user trust even when the AI was wrong</li>
+            <li>Savings Progress metric drove 3× more positive emotional response than cost estimation</li>
+            <li>WCAG 2.1 AA compliance achieved across all final screens</li>
+          </ul>
+        </div>
+        <div class="cs-compare-col after">
+          <div class="cs-compare-label">Key Learnings</div>
+          <ul>
+            <li>Privacy is not a feature, it's the prerequisite for everything else to work</li>
+            <li>Showing uncertainty builds more trust than hiding it</li>
+            <li>User agency (override at every step) is more important than AI accuracy</li>
+            <li>Positive reinforcement framing outperforms negative audit framing every time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROTOTYPE CTA -->
+  <section class="cs-proto">
+    <div class="cs-proto-inner">
+      <div class="label">VIEW IN ACTION</div>
+      <h2 class="cs-proto-title">See the <em>Prototype</em></h2>
+      <p class="cs-proto-desc">Explore the high-fidelity prototype for GrocGenie, real-time scanning with confidence indicators, AI collaboration flows, and the full privacy-first inventory dashboard.</p>
+      <div class="cs-proto-actions">
+        <a href="#" class="btn btn-gold magnetic">View Prototype →</a>
+        <a href="../index.html#work" class="btn btn-ghost magnetic">← Back to Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM NAV -->
+  <nav class="cs-bottom-nav" aria-label="Case study navigation">
+    <a href="ev.html" class="cs-bn-link">
+      <span class="cs-bn-label">← Previous</span>
+      <span class="cs-bn-title">EV Charging</span>
+    </a>
+    <a href="medicinal.html" class="cs-bn-link right">
+      <span class="cs-bn-label">Next Case Study →</span>
+      <span class="cs-bn-title">Medicinal Plants</span>
+    </a>
+  </nav>
+  <footer class="cs-footer">
+    <span>© 2025 Siddhi Manche</span>
+    <span>04 / 05, GrocGenie</span>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

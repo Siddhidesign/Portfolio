@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EV Charging, Case Study · Siddhi Manche</title>
+  <meta name="description" content="Unified EV charging experience, solving range anxiety through aggregated networks, universal payment, and battery-health-aware routing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/case-study.css" />
+  <link rel="stylesheet" href="../css/case-light.css" />
+</head>
+<body>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-content">
+      <div class="loader-words">
+        <div class="loader-word"><span>EV</span></div>
+        <div class="loader-word accent"><span>CHARGING</span></div>
+      </div>
+      <div class="loader-line-wrap"><div class="loader-line-bar"></div></div>
+      <p class="loader-sub">Loading Case Study</p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="cs-nav" id="nav" role="banner">
+    <a href="../index.html" class="cs-back">← All Work</a>
+    <span class="cs-nav-center">EV Charging</span>
+    <div class="cs-nav-right">
+      <a href="grocgenie.html" class="cs-next-link">GrocGenie →</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span>◐</span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="cs-hero">
+    <div class="cs-hero-bg" aria-hidden="true">EV</div>
+    <div class="cs-hero-glow" aria-hidden="true"></div>
+
+    <div class="cs-hero-inner">
+      <div class="cs-hero-index">
+        <span>03 / 05</span>
+        <span class="idx-line"></span>
+        <span>Human Factors · UI &amp; UX · IoT</span>
+      </div>
+
+      <h1 class="cs-hero-title">
+        <div class="line-mask"><span class="line-inner">EV Charging</span></div>
+        <div class="line-mask italic"><span class="line-inner">One App. Every Charger.</span></div>
+      </h1>
+
+      <div class="cs-hero-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <span class="cs-meta-value">UX Designer</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Context</span>
+          <span class="cs-meta-value">Human Factors Course</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Type</span>
+          <span class="cs-meta-value">Mobile App · IoT Integration</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Year</span>
+          <span class="cs-meta-value">2024</span>
+        </div>
+      </div>
+
+      <div class="cs-hero-stats">
+        <div>
+          <div class="cs-stat-n">#1</div>
+          <div class="cs-stat-l">Pain Point: Reliability</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">4</div>
+          <div class="cs-stat-l">Competitor Apps Audited</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">4</div>
+          <div class="cs-stat-l">Core User Tasks Defined</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">3</div>
+          <div class="cs-stat-l">Research Sources Triangulated</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 PROBLEM -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">01</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">The Problem</div>
+      <h2 class="cs-sec-title">Range Anxiety is a <em>Design Problem</em></h2>
+      <p class="cs-text">The electric vehicle marketplace is fragmented. Drivers suffer from "Range Anxiety", not because cars lack range, but because the <strong>charging infrastructure is unreliable and the software experience is broken</strong>. Users are forced to juggle multiple apps, carry physical RFID cards, and frequently arrive at broken chargers with no recourse.</p>
+      <p class="cs-text">This isn't an engineering problem. The chargers exist. The network exists. The failure is in the <strong>interface layer</strong>, the apps that are supposed to make EV ownership effortless have become a source of anxiety themselves.</p>
+
+      <div class="cs-metrics">
+        <div class="cs-metric"><div class="cs-metric-n">#1</div><div class="cs-metric-l">Reliability, top pain point</div></div>
+        <div class="cs-metric"><div class="cs-metric-n">#2</div><div class="cs-metric-l">Payment confusion</div></div>
+        <div class="cs-metric"><div class="cs-metric-n">#3</div><div class="cs-metric-l">Information gaps</div></div>
+        <div class="cs-metric"><div class="cs-metric-n">3</div><div class="cs-metric-l">Research sources triangulated</div></div>
+      </div>
+
+      <div class="cs-hmw">
+        <div class="cs-hmw-item">How might we give EV drivers confidence that a charger will work before they arrive, not after?</div>
+        <div class="cs-hmw-item">How might we eliminate the need for multiple apps, RFID cards, and separate accounts across charging networks?</div>
+        <div class="cs-hmw-item">How might we surface safety and amenity information that makes night-time charging feel as safe as a gas station?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 RESEARCH -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">02</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🔍</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Research</div>
+      <h2 class="cs-sec-title">Three Sources, <em>One Clear Pattern</em></h2>
+      <p class="cs-text">Research combined <strong>peer-reviewed literature, industry reports, and anecdotal community evidence</strong> (Reddit EV forums, owner Facebook groups) to triangulate pain points across all user types and vehicle brands. The matrix analysis revealed that payment interface and reliability were the most consistent issues regardless of which source was consulted.</p>
+
+      <div class="cs-stat-row">
+        <div class="cs-stat-box">
+          <div class="cs-stat-big">43%</div>
+          <div class="cs-stat-desc">Of EV owners report arriving at a charger only to find it broken or out-of-service, with no prior notification</div>
+          <div class="cs-stat-source">Source: J.D. Power EV Experience Study</div>
+        </div>
+        <div class="cs-stat-box">
+          <div class="cs-stat-big">4+</div>
+          <div class="cs-stat-desc">Number of different apps the average multi-network EV driver must maintain to access all available charging stations</div>
+          <div class="cs-stat-source">Source: ICCT Charging Infrastructure Report</div>
+        </div>
+        <div class="cs-stat-box">
+          <div class="cs-stat-big">78%</div>
+          <div class="cs-stat-desc">Of EV forum discussions about charging cite reliability or payment problems as their primary frustration</div>
+          <div class="cs-stat-source">Source: Reddit r/electricvehicles Sentiment Analysis</div>
+        </div>
+      </div>
+
+      <div class="cs-affinity">
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">Challenges &amp; Pain</div>
+          <div class="cs-affinity-item pain">Broken chargers with no real-time status update</div>
+          <div class="cs-affinity-item pain">Multiple apps required for different networks</div>
+          <div class="cs-affinity-item pain">RFID cards required at legacy stations</div>
+          <div class="cs-affinity-item pain">No safety or amenity information at stations</div>
+          <div class="cs-affinity-item pain">Confusing pricing, per-kWh vs. per-minute</div>
+        </div>
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">User Needs</div>
+          <div class="cs-affinity-item need">Know if a charger works before driving to it</div>
+          <div class="cs-affinity-item need">Pay once, charge anywhere</div>
+          <div class="cs-affinity-item need">Battery-aware route planning</div>
+          <div class="cs-affinity-item need">Community reviews on station safety</div>
+          <div class="cs-affinity-item need">Proactive low-battery alerts with suggestions</div>
+        </div>
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">Suggestions</div>
+          <div class="cs-affinity-item suggest">Aggregate all networks in one interface</div>
+          <div class="cs-affinity-item suggest">Show real-time charger status via IoT API</div>
+          <div class="cs-affinity-item suggest">Display community ratings and reviews</div>
+          <div class="cs-affinity-item suggest">Proactive trip planning with charging stops</div>
+          <div class="cs-affinity-item suggest">Battery health tracking over time</div>
+        </div>
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">User Behaviour</div>
+          <div class="cs-affinity-item behavior">Plans charging stops on a separate mapping app</div>
+          <div class="cs-affinity-item behavior">Calls ahead to stations they're unsure about</div>
+          <div class="cs-affinity-item behavior">Carries RFID card as backup "just in case"</div>
+          <div class="cs-affinity-item behavior">Avoids unfamiliar charger brands after bad experience</div>
+          <div class="cs-affinity-item behavior">Charges more than needed due to reliability anxiety</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 PERSONA -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">03</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">👤</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Persona</div>
+      <h2 class="cs-sec-title">The <em>Range-Anxious Driver</em></h2>
+
+      <div class="cs-persona-grid" style="grid-template-columns: 1fr;">
+        <div class="cs-persona">
+          <div class="cs-persona-header">
+            <div class="cs-persona-avatar">S</div>
+            <div class="cs-persona-header-text">
+              <h3>Sam Rivera</h3>
+              <span class="cs-persona-type">The Range-Anxious Driver</span>
+            </div>
+          </div>
+          <div class="cs-persona-details">
+            <div class="cs-pd-item"><span class="cs-pd-label">Age</span><span class="cs-pd-value">31</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Gender</span><span class="cs-pd-value">Female</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Location</span><span class="cs-pd-value">Austin, TX</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Occupation</span><span class="cs-pd-value">Marketing Manager</span></div>
+          </div>
+          <p class="cs-persona-narrative">Sam bought a Chevy Bolt six months ago, she was excited about the environmental impact and lower fuel costs. She commutes 18 miles daily with no issues. But today she's planning her first road trip to San Antonio, 80 miles away. She's never charged anywhere other than her home charger, and the prospect of finding a working station en-route fills her with genuine anxiety.</p>
+          <div class="cs-persona-steps">
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">01</span>
+              <div class="cs-persona-step-body">
+                <p>Sam opens ChargePoint to plan her route. She searches for stations between Austin and San Antonio. Three appear, but none have ratings, reviews, or any indication of whether they're functional.</p>
+                <span class="cs-persona-emotion">😬 Anxious, which one can she trust?</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">02</span>
+              <div class="cs-persona-step-body">
+                <p>She picks the closest station, a ChargePoint unit in a Walmart parking lot, 38 miles out. She drives there, pulls up to the charger, and sees an "Out of Service" sticker across the payment terminal.</p>
+                <span class="cs-persona-emotion">😤 Frustrated, she drove out of her way for nothing</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">03</span>
+              <div class="cs-persona-step-body">
+                <p>The next nearest charger is 8 miles away, but it's an EVgo station, which requires a different app and a monthly subscription she doesn't have. She downloads the app, creates an account, and enters payment, a 12-minute ordeal in a parking lot.</p>
+                <span class="cs-persona-emotion">😔 Defeated, this is not what EV ownership was supposed to feel like</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">04</span>
+              <div class="cs-persona-step-body">
+                <p>She makes it to San Antonio with 11% battery remaining. On the way home she takes I-35 instead of the scenic route, the same route she always takes in her old car, because she doesn't know which charging options exist on the other road.</p>
+                <span class="cs-persona-emotion">😶 Resigned, the car is great but the ecosystem is broken</span>
+              </div>
+            </div>
+          </div>
+          <div class="cs-persona-cols">
+            <div class="cs-persona-col goals">
+              <h5>Goals</h5>
+              <ul>
+                <li>Know chargers will work before she arrives, not after</li>
+                <li>Pay in one place, no multiple apps or memberships</li>
+                <li>Feel safe charging alone at night at unfamiliar stations</li>
+              </ul>
+            </div>
+            <div class="cs-persona-col">
+              <h5>Frustrations</h5>
+              <ul>
+                <li>Too many apps with no cross-network solution</li>
+                <li>Charger status is always out-of-date or unavailable</li>
+                <li>No community information, reviews, safety, amenities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 EMPATHY MAP -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">04</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">Empathy Map, Sam Rivera</div>
+      <h2 class="cs-sec-title">The Real Cost of <em>Charging Anxiety</em></h2>
+
+      <div class="cs-empathy">
+        <div class="cs-empathy-quad">
+          <div class="cs-empathy-label">👁 Sees</div>
+          <ul>
+            <li>"Out of Service" stickers on chargers she drove 8 miles to reach</li>
+            <li>Four different charging network apps on her phone, each with its own login</li>
+            <li>Tesla Superchargers everywhere, but her Bolt isn't compatible</li>
+            <li>No reviews, no photos, no indication of what a station actually looks like</li>
+            <li>Friends with Tesla having a completely seamless charging experience</li>
+          </ul>
+        </div>
+        <div class="cs-empathy-quad">
+          <div class="cs-empathy-label">👂 Hears</div>
+          <ul>
+            <li>"Range anxiety is real, I always charge to 100% even for short trips."</li>
+            <li>"The ChargePoint at Target is always broken, use the one at Whole Foods."</li>
+            <li>Notification from three different apps: conflicting station availability info</li>
+            <li>"EVgo requires a membership, $4/month for access to their network."</li>
+            <li>"I just carry the RFID card for the ones that don't take the app."</li>
+          </ul>
+        </div>
+        <div class="cs-empathy-quad pain">
+          <div class="cs-empathy-label">💔 Pain</div>
+          <ul>
+            <li>Fear of being stranded with a dead battery in an unfamiliar location</li>
+            <li>Embarrassment at not knowing how to use a charger in public</li>
+            <li>Anger at discovering a broken charger after making a detour</li>
+            <li>Safety concern: isolated charging stations at night with no foot traffic</li>
+            <li>The creeping sense that owning an EV is more work than she expected</li>
+          </ul>
+        </div>
+        <div class="cs-empathy-quad gain">
+          <div class="cs-empathy-label">✨ Gain</div>
+          <ul>
+            <li>Confidence when she can see real-time charger status before leaving home</li>
+            <li>Relief when one payment method works at any charger on the route</li>
+            <li>Safety from community reviews: "well-lit parking lot, Starbucks nearby"</li>
+            <li>Proactive alerts: "Your battery is at 20%, here's the nearest working charger"</li>
+            <li>Pride in her EV choice when the experience matches the promise</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 COMPETITIVE AUDIT -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">05</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">📊</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Competitive Audit</div>
+      <h2 class="cs-sec-title">Where Existing Apps <em>Fall Short</em></h2>
+      <p class="cs-text">We mapped user flows across market leaders (EVgo, ChargePoint) and OEM apps (Tesla, Nissan) to pinpoint exactly where users drop off or feel frustrated. The competitive matrix confirmed that no existing app addresses the full end-to-end charging experience.</p>
+
+      <div class="cs-comp-wrap">
+        <table class="cs-comp-table">
+          <thead>
+            <tr>
+              <th>App</th>
+              <th>Strength</th>
+              <th>Critical Gap</th>
+              <th>Payment</th>
+              <th>Our Opportunity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>EVgo<small>EVgo Inc. · 2010</small></td>
+              <td>Large DC fast-charging network; good urban coverage</td>
+              <td class="cs-comp-gap">Physical RFID card required at legacy stations; monthly subscription barrier</td>
+              <td>App or RFID card, not universal</td>
+              <td>Remove RFID dependency; app-only universal access</td>
+            </tr>
+            <tr>
+              <td>ChargePoint<small>ChargePoint Inc. · 2007</small></td>
+              <td>Largest network coverage; broad station availability</td>
+              <td class="cs-comp-gap">Per-month vs. pay-as-you-go pricing is confusing; no cross-network payment</td>
+              <td>Monthly plan or PAYG, inconsistent pricing</td>
+              <td>Flat per-session or per-kWh pricing, transparent and predictable</td>
+            </tr>
+            <tr>
+              <td>Tesla<small>Tesla Inc. · 2008</small></td>
+              <td>Seamless in-vehicle + app integration; Supercharger reliability</td>
+              <td class="cs-comp-gap">Tesla-only ecosystem; completely useless for non-Tesla owners</td>
+              <td>Seamless, but locked to one brand</td>
+              <td>Cross-brand equivalent experience for all EV owners</td>
+            </tr>
+            <tr>
+              <td>All Networks<small>Industry-Wide Gap</small></td>
+              <td>Coverage exists for most major highways</td>
+              <td class="cs-comp-gap">Zero user reviews, zero amenity info, zero safety data at station level</td>
+              <td>Fragmented, different per-network</td>
+              <td>Community reviews: safety, amenities, real-time reliability ratings</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 IDEATION + TASK FLOWS -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">06</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">💡</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Ideation &amp; Features</div>
+      <h2 class="cs-sec-title">Beyond <em>Just a Map</em></h2>
+      <p class="cs-text">Based on the competitive gaps and research findings, we brainstormed features that address not just location-finding but the <strong>full end-to-end charging experience</strong>, from pre-trip planning to active session management to post-charge battery insights.</p>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feat-num">F1</div>
+          <h4>Battery Health Monitor</h4>
+          <p>Tracks degradation over time and shows how charging habits impact battery longevity. Sam can see whether her Level 2 vs. DC fast charging ratio is affecting her battery, and make smarter long-term decisions as a result.</p>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feat-num">F2</div>
+          <h4>Proactive Low Battery Alert</h4>
+          <p>Users set a threshold (e.g., 20%). When the battery drops below it, the app proactively pushes a notification and surfaces the nearest available, working station, not just any station on the network.</p>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feat-num">F3</div>
+          <h4>Universal In-App Payment</h4>
+          <p>One payment method, stored in the app, works across all charging networks. No separate accounts, no RFID cards, no network-specific memberships. Sam charges at any station with a single tap.</p>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feat-num">F4</div>
+          <h4>Real-Time Station Reviews</h4>
+          <p>User-generated ratings on reliability, safety, amenities, and wait times. "Well-lit lot, 24hr Whataburger across the street, charger worked perfectly last Tuesday." The information Sam actually needs before committing to a 38-mile detour.</p>
+        </div>
+      </div>
+
+      <div class="cs-findings">
+        <div class="cs-finding">
+          <div class="cs-finding-n">T1</div>
+          <div class="cs-finding-body"><h4>Sign Up &amp; Car Profile</h4><p>Account Creation → Login → Enter Car Brand/Model → Save Profile. Car profile enables smarter recommendations: compatible charger types, estimated range on current battery, optimal charging curve suggestions.</p></div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">T2</div>
+          <div class="cs-finding-body"><h4>Trip Planning with Charging Stops</h4><p>Enter destination → App calculates charge needed → Suggests optimal charging stops → Shows real-time station status for each → One tap to add stop to route. Sam never plans a trip in two apps again.</p></div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">T3</div>
+          <div class="cs-finding-body"><h4>Low Battery → Station Alert</h4><p>Low Battery Notification → App shows 3 nearest working stations → User selects one → Gets ETA and navigation. The key word: <strong>working</strong>. Real-time IoT status data, not cached network data from 48 hours ago.</p></div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">T4</div>
+          <div class="cs-finding-body"><h4>In-App Charging Payment</h4><p>Select Station → Start Session → App monitors session in real-time (kWh delivered, cost, time remaining) → Payment auto-processes at session end. One flow. Zero app-switching. Zero RFID.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 DESIGN -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">07</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🎨</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UI Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Final Designs</div>
+      <h2 class="cs-sec-title">Designed for <em>Driving Conditions</em></h2>
+      <p class="cs-text">The UI was built for glanceability, large touch targets, high-contrast status colours, and a map-first layout that works with one hand while standing at a charger. <strong>Green = working. Red = issue. Yellow = unknown.</strong> Sam should know the status of a station in under 2 seconds without reading a single word of text.</p>
+
+      <div class="cs-img"><img src="../assets/ev/ev-trip-planning.png" alt="Plan My Trip screens, the app calculates the best route and places charging stops along the way with live ETA" loading="lazy" /><div class="cs-img-caption">Trip planning: enter a destination and the app calculates the best route, drops working charging stops along the way, and shows a live ETA for each leg, so a road trip is planned in one place, not two apps.</div></div>
+      <div class="cs-img"><img src="../assets/ev/ev-checkin.png" alt="Station check-in screens, manual check-in, nearby stations, and a single connect to start charging action" loading="lazy" /><div class="cs-img-caption">Find &amp; check in: manual check-in at a station, nearby alternatives (EVgo, Tesla, ChargePoint) surfaced in one list, and a single "Connect to start charging" action, no extra apps or RFID cards.</div></div>
+      <div class="cs-img"><img src="../assets/ev/ev-station-amenities.png" alt="Station detail screens showing charger availability, connector type, and nearby amenities" loading="lazy" /><div class="cs-img-caption">Station detail: real-time charger availability and connector type up top, nearby amenities like food and shops below, plus save-to-favourites and station info for safer, more comfortable stops.</div></div>
+    </div>
+  </div>
+
+  <!-- 08 OUTCOMES -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">08</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🧭</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>Product UX Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Outcomes &amp; Learnings</div>
+      <h2 class="cs-sec-title">Designing for a <em>Moving Target</em></h2>
+      <p class="cs-text">EV charging is an infrastructure problem that's being solved with software. The lesson from this project: the hardware gap is closing fast, but the UX gap is widening. As charging networks expand, the complexity of navigating them increases, and the role of the interface layer becomes more critical, not less.</p>
+
+      <div class="cs-compare">
+        <div class="cs-compare-col">
+          <div class="cs-compare-label">Design Decisions</div>
+          <ul>
+            <li>Map-first home screen, location and status in one glance</li>
+            <li>Traffic-light colour system for instant station status comprehension</li>
+            <li>Battery-aware route suggestions based on real-time vehicle range</li>
+            <li>Community trust layer: reviews, safety ratings, amenity tags</li>
+          </ul>
+        </div>
+        <div class="cs-compare-col after">
+          <div class="cs-compare-label">Key Learnings</div>
+          <ul>
+            <li>Range anxiety is a trust problem, solved by reliable information, not larger batteries</li>
+            <li>Designing for in-car use demands glanceability over information density</li>
+            <li>Community data (reviews) is more trusted by users than network operator data</li>
+            <li>Payment friction is the #1 reason users abandon a charging session mid-flow</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-quote">"If I knew the charger was going to work before I drove there, I wouldn't need 80% of the anxiety-management features I've invented for myself."<br><small style="font-size:.75rem; color: var(--text3); font-style: normal;">EV Owner Interview Participant</small></div>
+    </div>
+  </div>
+
+  <!-- PROTOTYPE CTA -->
+  <section class="cs-proto">
+    <div class="cs-proto-inner">
+      <div class="label">VIEW IN ACTION</div>
+      <h2 class="cs-proto-title">Explore the <em>Prototype</em></h2>
+      <p class="cs-proto-desc">Interact with the fully clickable high-fidelity Figma prototype covering all four user task flows, from trip planning to in-session payment.</p>
+      <div class="cs-proto-actions">
+        <a href="https://www.figma.com/design/iQ43CH3FjQVDSkjKN35Zld/EV-Charging-prototype?node-id=0-1&t=viRqpQ7Mf5LJgJBk-1" target="_blank" rel="noopener" class="btn btn-gold magnetic">View Figma Prototype →</a>
+        <a href="../index.html#work" class="btn btn-ghost magnetic">← Back to Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM NAV -->
+  <nav class="cs-bottom-nav" aria-label="Case study navigation">
+    <a href="ir2go.html" class="cs-bn-link">
+      <span class="cs-bn-label">← Previous</span>
+      <span class="cs-bn-title">IRS2GO Redesign</span>
+    </a>
+    <a href="grocgenie.html" class="cs-bn-link right">
+      <span class="cs-bn-label">Next Case Study →</span>
+      <span class="cs-bn-title">GrocGenie</span>
+    </a>
+  </nav>
+  <footer class="cs-footer">
+    <span>© 2025 Siddhi Manche</span>
+    <span>03 / 05, EV Charging</span>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

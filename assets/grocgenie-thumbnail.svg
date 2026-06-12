@@ -1,0 +1,53 @@
+<svg width="1260" height="540" viewBox="0 0 1260 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5a9e2f" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#5a9e2f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="apple" x1="560" y1="180" x2="700" y2="390" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#97d65b"/>
+      <stop offset="1" stop-color="#5a9e2f"/>
+    </linearGradient>
+    <filter id="gsoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <rect width="1260" height="540" fill="#f3f1ec"/>
+  <ellipse cx="630" cy="280" rx="420" ry="260" fill="url(#gglow)"/>
+  <rect x="14" y="14" width="1232" height="512" rx="4" stroke="#e3ddd0" stroke-width="1.5"/>
+
+  <!-- viewfinder brackets -->
+  <g stroke="#3f6c1e" stroke-width="7" stroke-linecap="round" opacity="0.85">
+    <path d="M512 92 h-48 a14 14 0 0 0 -14 14 v48"/>
+    <path d="M748 92 h48 a14 14 0 0 1 14 14 v48"/>
+    <path d="M512 448 h-48 a14 14 0 0 1 -14 -14 v-48"/>
+    <path d="M748 448 h48 a14 14 0 0 0 14 -14 v-48"/>
+  </g>
+
+  <!-- apple -->
+  <ellipse cx="634" cy="406" rx="96" ry="16" fill="#3f6c1e" opacity="0.12" filter="url(#gsoft)"/>
+  <circle cx="630" cy="282" r="108" fill="url(#apple)"/>
+  <ellipse cx="590" cy="240" rx="34" ry="22" fill="#ffffff" opacity="0.32" transform="rotate(-28 590 240)"/>
+  <path d="M630 176 C627 152 640 138 656 132" stroke="#6b4a2a" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <ellipse cx="682" cy="150" rx="34" ry="16" fill="#5a9e2f" transform="rotate(-24 682 150)"/>
+
+  <!-- scan line -->
+  <rect x="488" y="274" width="284" height="4" rx="2" fill="#e8a13c" opacity="0.85"/>
+  <rect x="488" y="268" width="284" height="16" rx="8" fill="#e8a13c" opacity="0.18" filter="url(#gsoft)"/>
+
+  <!-- freshness chip -->
+  <rect x="788" y="92" width="180" height="40" rx="20" fill="#ffffff"/>
+  <rect x="788" y="92" width="180" height="40" rx="20" stroke="#e3ddd0" stroke-width="1.5"/>
+  <circle cx="814" cy="112" r="7" fill="#5a9e2f"/>
+  <text x="832" y="118" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="1.5" fill="#3f6c1e">FRESH · 6 DAYS</text>
+
+  <!-- on-device chip -->
+  <rect x="556" y="466" width="148" height="34" rx="17" fill="#3f6c1e"/>
+  <circle cx="580" cy="483" r="6" fill="#a8dd7c"/>
+  <text x="594" y="488" font-family="'SF Mono','Menlo',monospace" font-size="12" letter-spacing="2" fill="#e9f5d8">ON-DEVICE</text>
+
+  <!-- captions -->
+  <text x="43" y="50" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13.5" letter-spacing="9" fill="#bdb4a0">GROCGENIE</text>
+  <text x="43" y="496" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13.5" letter-spacing="9" fill="#b3a995">WASTE LESS, EAT BETTER</text>
+</svg>

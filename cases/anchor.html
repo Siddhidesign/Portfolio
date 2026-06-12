@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Money Anchor, Case Study · Siddhi Manche</title>
+  <meta name="description" content="AI-driven financial wellness app IRB-approved research with 24 participants, two rounds of usability testing, proactive budgeting that shifts from reactive reporting to real-time intervention." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/case-study.css" />
+  <link rel="stylesheet" href="../css/case-light.css" />
+</head>
+<body>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-content">
+      <div class="loader-words">
+        <div class="loader-word"><span>MONEY</span></div>
+        <div class="loader-word accent"><span>ANCHOR</span></div>
+      </div>
+      <div class="loader-line-wrap"><div class="loader-line-bar"></div></div>
+      <p class="loader-sub">Loading Case Study</p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="cs-nav" id="nav" role="banner">
+    <a href="../index.html" class="cs-back">← All Work</a>
+    <span class="cs-nav-center">Money Anchor</span>
+    <div class="cs-nav-right">
+      <a href="ir2go.html" class="cs-next-link">IRS2GO →</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span>◐</span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="cs-hero">
+    <div class="cs-hero-bg" aria-hidden="true">$$</div>
+    <div class="cs-hero-glow" aria-hidden="true"></div>
+
+    <div class="cs-hero-inner">
+      <div class="cs-hero-index">
+        <span>01 / 05</span>
+        <span class="idx-line"></span>
+        <span>UX Research · AI Product Design · Usability Testing</span>
+      </div>
+
+      <h1 class="cs-hero-title">
+        <div class="line-mask"><span class="line-inner">Money Anchor</span></div>
+        <div class="line-mask italic"><span class="line-inner">Proactive. Personal. Non-Judgmental.</span></div>
+      </h1>
+
+      <div class="cs-hero-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <span class="cs-meta-value">UX Researcher &amp; Designer</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Team</span>
+          <span class="cs-meta-value">Brandan, Giselle, Shreeraj, Siddhi</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Type</span>
+          <span class="cs-meta-value">AI Fintech · 0→1 Product</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Context</span>
+          <span class="cs-meta-value">HCDC Course Project · IRB Approved</span>
+        </div>
+      </div>
+
+      <div class="cs-hero-stats">
+        <div>
+          <div class="cs-stat-n">24</div>
+          <div class="cs-stat-l">Research Participants</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">40+</div>
+          <div class="cs-stat-l">Academic Papers Reviewed</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">2</div>
+          <div class="cs-stat-l">Rounds of Usability Testing</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">IRB</div>
+          <div class="cs-stat-l">Ethical Research Protocol</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 PROBLEM -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">01</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">The Problem</div>
+      <h2 class="cs-sec-title">Money Feels <em>Fake</em></h2>
+      <p class="cs-text">Young adults are increasingly struggling with financial management due to the <strong>"decoupling effect"</strong> of digital wallets and credit cards. When you tap a phone instead of handing over cash, money loses its psychological weight, it feels abstract, disconnected from reality. The result: impulsive spending, "zombie subscription" leaks, and a growing cycle of financial anxiety.</p>
+      <p class="cs-text">Current financial tools make this worse. Mint, YNAB, Rocket Money, they're all <strong>reactive</strong>. They show you what you've already spent. Historical graphs of your mistakes. Abstract pie charts that don't tell you how to change. Users don't open these apps because they feel like report cards, not tools. The clinical term for this is <em>app avoidance</em>.</p>
+
+      <div class="cs-stat-row">
+        <div class="cs-stat-box">
+          <div class="cs-stat-big">40+</div>
+          <div class="cs-stat-desc">Academic papers reviewed on behavioral economics, "Pain of Paying," and credit card decoupling effects</div>
+          <div class="cs-stat-source">PHASE 1 · LITERATURE REVIEW</div>
+        </div>
+        <div class="cs-stat-box">
+          <div class="cs-stat-big">10</div>
+          <div class="cs-stat-desc">Competing financial apps benchmarked Mint, YNAB, Rocket Money, Copilot. All reactive. None proactive.</div>
+          <div class="cs-stat-source">PHASE 1 · COMPETITIVE AUDIT</div>
+        </div>
+        <div class="cs-stat-box">
+          <div class="cs-stat-big">Gap</div>
+          <div class="cs-stat-desc">Users need "money context", translating dollar amounts into hours of work, not abstract account balances</div>
+          <div class="cs-stat-source">KEY FINDING</div>
+        </div>
+      </div>
+
+      <div class="cs-hmw">
+        <div class="cs-hmw-item">How might we shift financial apps from reactive reporting to proactive, real-time intervention before a mistake happens?</div>
+        <div class="cs-hmw-item">How might we provide personalized financial guidance without triggering the shame and anxiety that causes users to avoid the app entirely?</div>
+        <div class="cs-hmw-item">How might we make money feel real again when digital payments have stripped away the psychological "pain of paying"?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 RESEARCH -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">02</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🔍</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Research Methodology</div>
+      <h2 class="cs-sec-title">24 Participants. <em>Real Stories.</em></h2>
+
+      <p class="cs-text">We ran a two-phase research programme, first a literature review and competitive benchmarking to understand the landscape, then direct user engagement through individual interviews and focus groups. All research conducted under <strong>IRB Approval #HUM00280873</strong>.</p>
+
+      <div class="cs-findings">
+        <div class="cs-finding">
+          <div class="cs-finding-n">P1</div>
+          <div class="cs-finding-body">
+            <h4>Individual Interviews Mental Accounting Habits</h4>
+            <p>8 participants aged 20–32. Semi-structured questions: "What was your last regretful purchase?" and "How do you feel when you open your bank app?" Tools: Zoom for remote sessions, Otter.ai for transcriptions. Signed consent forms from all participants.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">P2</div>
+          <div class="cs-finding-body">
+            <h4>Focus Groups Social Spending and Peer Pressure</h4>
+            <p>4 sessions with 4 participants each (16 total). FigJam for digital whiteboarding and real-time clustering. Focused on the role of peer influence on financial decisions, a factor almost completely ignored by existing financial apps.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-user-quotes">
+        <blockquote class="cs-quote-item">"For me, it's more the want, the window shopping. If I free up some money, I go spend it on something else. My eyes get big when I see something I want."</blockquote>
+        <blockquote class="cs-quote-item">"If my friends are going out, I'm going out too. Even if I had considered staying back, I just don't want to be left out."</blockquote>
+        <blockquote class="cs-quote-item">"I spend more when I'm bored. Surfing online equals unnecessary spending."</blockquote>
+        <blockquote class="cs-quote-item">"For me, it's juggling everything, bills, assignments, cooking, planning. I can manage money, but I can't manage everything at once here."</blockquote>
+        <blockquote class="cs-quote-item">"I like when I get positive messages like 'You saved $50 this week!' It makes me want to keep going."</blockquote>
+        <blockquote class="cs-quote-item">"If an app said 'Everyone slips up sometimes' instead of scolding you, it'd feel encouraging."</blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 AFFINITY + INSIGHTS -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">03</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">Synthesis</div>
+      <h2 class="cs-sec-title">50+ Quotes. <em>4 Core Themes.</em></h2>
+      <p class="cs-text">We extracted 50+ raw quotes and "Critical Incidents" from the interviews and FGIs. Using affinity mapping in FigJam, we clustered them into four core themes that defined our design requirements.</p>
+
+      <div class="cs-affinity">
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">😰 Anxiety</div>
+          <div class="cs-affinity-item pain">Opening a bank app feels like getting a report card</div>
+          <div class="cs-affinity-item pain">Users delay checking balances to avoid the emotional hit</div>
+          <div class="cs-affinity-item pain">"App avoidance", the clinical term for not opening a tool you need</div>
+          <div class="cs-affinity-item pain">Complex graphs make anxiety worse, not better</div>
+        </div>
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">🔒 No Transparency</div>
+          <div class="cs-affinity-item need">Zombie subscriptions drain accounts invisibly</div>
+          <div class="cs-affinity-item need">"I didn't even know I was still paying for that"</div>
+          <div class="cs-affinity-item need">No app proactively flags poor-value spending</div>
+          <div class="cs-affinity-item need">AI recommendations needed, not just data</div>
+        </div>
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">💳 Digital Decoupling</div>
+          <div class="cs-affinity-item suggest">Tapping a phone doesn't feel like spending real money</div>
+          <div class="cs-affinity-item suggest">Credit cards remove the "pain of paying" entirely</div>
+          <div class="cs-affinity-item suggest">Users need "money context", $30 = 2 hours of work</div>
+          <div class="cs-affinity-item suggest">Visual anchors reconnect spending to real-world value</div>
+        </div>
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">😔 Guilt Cycle</div>
+          <div class="cs-affinity-item behavior">Peer pressure drives impulse decisions</div>
+          <div class="cs-affinity-item behavior">Social spending is the #1 budget killer</div>
+          <div class="cs-affinity-item behavior">Users want encouragement, not scolding</div>
+          <div class="cs-affinity-item behavior">"Setting small weekly goals helps me stick to the bigger plan"</div>
+        </div>
+      </div>
+
+      <div class="cs-findings">
+        <div class="cs-finding">
+          <div class="cs-finding-n">I1</div>
+          <div class="cs-finding-body">
+            <h4>The "Pain of Paying" is Dead</h4>
+            <p>Digital wallets make money feel fake. Requirement: Visual Anchors that translate dollars into real-world units, hours of work, coffee equivalents, concrete comparisons that reconnect spending to reality.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">I2</div>
+          <div class="cs-finding-body">
+            <h4>Graphs Cause Stress</h4>
+            <p>Complex charts lead directly to app avoidance. Requirement: Conversational UI, a chat-based AI assistant that feels like a supportive coach, not a financial dashboard judging your choices.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">I3</div>
+          <div class="cs-finding-body">
+            <h4>Social Pressure is the #1 Budget Killer</h4>
+            <p>"If my friends are going out, I'm going out too." Requirement: Peer and group goal tracking, tools to navigate social spending without shame or isolation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 PERSONAS -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">04</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">👤</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Personas</div>
+      <h2 class="cs-sec-title">Two Users. <em>Two Relationships</em> with Money.</h2>
+
+      <div class="cs-persona-grid">
+        <div class="cs-persona">
+          <div class="cs-persona-header">
+            <div class="cs-persona-avatar">M</div>
+            <div class="cs-persona-header-text">
+              <h3>Maya Kapoor</h3>
+              <span class="cs-persona-type">The Anxious Avoider</span>
+            </div>
+          </div>
+          <div class="cs-persona-details">
+            <div class="cs-pd-item"><span class="cs-pd-label">Age</span><span class="cs-pd-value">26</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Status</span><span class="cs-pd-value">Graduate Student</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Pattern</span><span class="cs-pd-value">Checks account once a month</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Trigger</span><span class="cs-pd-value">Social spending, boredom</span></div>
+          </div>
+          <p class="cs-persona-narrative">Maya knows she spends too much when she's stressed or bored, but opening her bank app feels like a judgment she's not ready for. She checks her balance once a month and often avoids it entirely when she knows she's overspent. She needs a voice that checks in without making her feel like a failure.</p>
+          <div class="cs-persona-steps">
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">01</span>
+              <div class="cs-persona-step-body">
+                <p>It's Thursday night. Her friends are going out. She knows she's close to her monthly limit but opens Uber Eats out of habit while deciding. She doesn't open her banking app because she doesn't want to see the number.</p>
+                <span class="cs-persona-emotion">😰 Avoidance mode, the app feels like a report card</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">02</span>
+              <div class="cs-persona-step-body">
+                <p>Money Anchor sends a gentle nudge: "Hey Maya, you've got $47 left for dining this week. Going out tonight? Totally fine, just a heads-up." No alarm. No red color. Just context.</p>
+                <span class="cs-persona-emotion">😌 Informed, not scolded, just aware</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">03</span>
+              <div class="cs-persona-step-body">
+                <p>She goes out anyway, but orders one less drink. On Sunday she opens the app for the first time that week and sees "You stayed within budget 4 of 5 days this week." Small win, acknowledged.</p>
+                <span class="cs-persona-emotion">🙂 Encouraged, the app noticed her effort</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">04</span>
+              <div class="cs-persona-step-body">
+                <p>Over time, Monday morning check-ins become a habit. Not because she has to, because the app never made her feel bad for getting it wrong. She starts actually trusting the numbers.</p>
+                <span class="cs-persona-emotion">💚 Habit formed, non-judgmental tone built the trust</span>
+              </div>
+            </div>
+          </div>
+          <div class="cs-persona-cols">
+            <div class="cs-persona-col goals">
+              <h5>Needs</h5>
+              <ul>
+                <li>Gentle, non-judgmental check-ins, not alarms</li>
+                <li>Positive reinforcement for small wins</li>
+                <li>Low-friction way to understand her patterns</li>
+              </ul>
+            </div>
+            <div class="cs-persona-col">
+              <h5>Frustrations</h5>
+              <ul>
+                <li>Bank apps that lead with scary red numbers</li>
+                <li>Feeling like a failure every time she opens an app</li>
+                <li>No app has ever told her she did something right</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-persona">
+          <div class="cs-persona-header">
+            <div class="cs-persona-avatar">J</div>
+            <div class="cs-persona-header-text">
+              <h3>Jordan Mehta</h3>
+              <span class="cs-persona-type">The Precision Planner</span>
+            </div>
+          </div>
+          <div class="cs-persona-details">
+            <div class="cs-pd-item"><span class="cs-pd-label">Age</span><span class="cs-pd-value">34</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Status</span><span class="cs-pd-value">Product Manager</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Pattern</span><span class="cs-pd-value">Checks finances daily</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Trigger</span><span class="cs-pd-value">Wants to see ripple effects</span></div>
+          </div>
+          <p class="cs-persona-narrative">Jordan checks his finances every morning, but existing apps only show him what's already happened. He wants to see how a $5 coffee today affects a flight he's saving for in 6 months. He needs forward-looking intelligence, not a transaction log.</p>
+          <div class="cs-persona-steps">
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">01</span>
+              <div class="cs-persona-step-body">
+                <p>Jordan opens his current banking app. It shows him yesterday's transactions, a pie chart of this month's spending, and a running balance. He already knows all of this. He wants to know: if he skips Starbucks for 30 days, does he hit his Japan trip goal in March or April?</p>
+                <span class="cs-persona-emotion">😒 Unsatisfied, reactive data doesn't help him plan</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">02</span>
+              <div class="cs-persona-step-body">
+                <p>In Money Anchor, he asks the AI: "If I stop my $19 streaming subscription and cut Starbucks to twice a week, when do I hit $2,000 for Japan?" The AI answers with a specific date and shows the trajectory.</p>
+                <span class="cs-persona-emotion">🎯 Engaged, this is the forward-looking view he's been missing</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">03</span>
+              <div class="cs-persona-step-body">
+                <p>He notices the AI flagged a streaming service he signed up for during a free trial 7 months ago. He hasn't watched it in 5 months. "You're paying $19/month for something you watched 2 hours total." One tap to cancel.</p>
+                <span class="cs-persona-emotion">💡 Clarity, the AI caught what he missed</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">04</span>
+              <div class="cs-persona-step-body">
+                <p>He sets up weekly AI check-ins. The app now feels like a financial co-pilot, something that knows his goals and thinks ahead with him, not just a ledger that tallies his past.</p>
+                <span class="cs-persona-emotion">🚀 Trust built AI as co-pilot, not just calculator</span>
+              </div>
+            </div>
+          </div>
+          <div class="cs-persona-cols">
+            <div class="cs-persona-col goals">
+              <h5>Needs</h5>
+              <ul>
+                <li>Forward-looking projections tied to specific goals</li>
+                <li>AI that catches hidden leaks (zombie subscriptions)</li>
+                <li>Scenario modelling, "what if I cut X, when do I hit Y?"</li>
+              </ul>
+            </div>
+            <div class="cs-persona-col">
+              <h5>Frustrations</h5>
+              <ul>
+                <li>Every app shows history, none model the future</li>
+                <li>Subscription tracking is passive, not proactive</li>
+                <li>No app connects daily spending to long-term goals</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 IDEATION -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">05</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">💡</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>Product Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Ideation</div>
+      <h2 class="cs-sec-title">100 Ideas. <em>10 Features.</em></h2>
+
+      <p class="cs-text">We took 50+ clustered research notes and ran a full ideation sprint, 4 team members × 25 ideas each = 100 total across 7 themes. Every idea, realistic or not, went into the pool. Then we voted.</p>
+
+      <div class="cs-funnel">
+        <div class="cs-funnel-stage">
+          <div class="cs-funnel-n">100</div>
+          <div class="cs-funnel-label">Ideas Generated</div>
+          <div class="cs-funnel-desc">4 members × 25 ideas each. Realistic and inaccessible both included.</div>
+        </div>
+        <div class="cs-funnel-stage">
+          <div class="cs-funnel-n">64</div>
+          <div class="cs-funnel-label">Compiled to Idea Book</div>
+          <div class="cs-funnel-desc">Voting rubric: Not Feasible → Can Skip → Optional → Considerable → Must Have.</div>
+        </div>
+        <div class="cs-funnel-stage">
+          <div class="cs-funnel-n">7</div>
+          <div class="cs-funnel-label">Core Themes</div>
+          <div class="cs-funnel-desc">Proactive Awareness · Emotional Motivation · AI · Trust · Simplification · Accountability · Real-Life Goals</div>
+        </div>
+        <div class="cs-funnel-stage">
+          <div class="cs-funnel-n">10</div>
+          <div class="cs-funnel-label">Features Built</div>
+          <div class="cs-funnel-desc">Budget builder · AI predictions · Subscription cancellation · Auto-categorization · Savings goals</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 06 DESIGN -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">06</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🎨</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UI Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">High-Fidelity Design</div>
+      <h2 class="cs-sec-title">From Research <em>to Real Screens</em></h2>
+
+      <p class="cs-text">Wireframes translated into a fully interactive Figma prototype with a consistent design system. Design system: Inter (headings) + SF Pro (body) · Primary #1E3A8A · Success #15823D · Error #E64045 · Warning #F59E0B. Every screen tied back to a specific research finding.</p>
+
+      <div class="cs-phone-grid">
+        <div class="cs-phone-wrap">
+          <img class="cs-phone-img" src="../assets/Homepage-Budget.png" alt="Money Anchor final home dashboard with total balance and budget overview" loading="lazy" />
+          <span class="cs-phone-label">Home Dashboard</span>
+        </div>
+        <div class="cs-phone-wrap">
+          <img class="cs-phone-img" src="../assets/moneyanchor/reports-insights.png" alt="Money Anchor final AI insights screen with spending patterns" loading="lazy" />
+          <span class="cs-phone-label">AI Insights</span>
+        </div>
+        <div class="cs-phone-wrap">
+          <div class="cs-img-ph phone"></div>
+          <span class="cs-phone-label">Accounts</span>
+        </div>
+        <div class="cs-phone-wrap">
+          <div class="cs-img-ph phone"></div>
+          <span class="cs-phone-label">AI Anchor Chat</span>
+        </div>
+        <div class="cs-phone-wrap">
+          <div class="cs-img-ph phone"></div>
+          <span class="cs-phone-label">Transactions</span>
+        </div>
+        <div class="cs-phone-wrap">
+          <div class="cs-img-ph phone"></div>
+          <span class="cs-phone-label">Reports</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 USABILITY TESTING -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">07</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🧪</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Usability Testing</div>
+      <h2 class="cs-sec-title">Two Rounds. <em>Real Iterations.</em></h2>
+
+      <p class="cs-text">We used Maze (integrated with our Figma prototype) and Zoom to run two rounds of moderated usability testing with 16 total participants. Four core tasks per session, think-aloud protocol throughout. After Round 1, we redesigned. Then tested again.</p>
+
+
+      <div class="cs-compare">
+        <div class="cs-compare-col">
+          <div class="cs-compare-label">Round 1 Key Findings</div>
+          <ul>
+            <li>Task 1 (Explore App): 22.2% success, 130.3s avg time, 29% misclick rate, unclear icons and labels</li>
+            <li>Task 2 (AI Insights): 87.5% success, helpful but hard to locate due to navigation issues</li>
+            <li>Tasks 3 + 4 (Budget + AI Shopping): 100% success, but 32.1% and 8.5% misclick rates</li>
+            <li>Users wanted negative budget scenarios and more flexible fund transfer options</li>
+            <li>AI chat bubble was easy to miss, not visually distinct from the nav bar</li>
+          </ul>
+        </div>
+        <div class="cs-compare-col after">
+          <div class="cs-compare-label">Round 2 Improvements Validated</div>
+          <ul>
+            <li>Task 1 (Explore App): 100% success, 0% misclick, simplified home screen worked</li>
+            <li>Task 2 (AI Chat Bubble): 100% success, but 9.1% misclick still showed discoverability gap</li>
+            <li>Task 3 (Budget Adjust): 87.5% success but 54.7% misclick rate, flow still needed work</li>
+            <li>Users reported high ease of use (4.4/5), but data showed a discoverability gap between perceived and actual usability</li>
+            <li>75% completely trust the AI recommendations after seeing explanations</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Round 1 iteration -->
+      <div style="margin: 1.5rem 0;">
+        <div class="cs-img-caption" style="border-top:none; padding-left:0; margin-bottom:.75rem;">Round 1: Home page + AI Anchor placement</div>
+        <figure class="cs-img" style="max-width:640px;">
+          <img src="img/moneyanchor/testing-iteration-1.jpg" alt="Round 1 iteration: home page and AI Anchor placement, before and after" loading="lazy" />
+        </figure>
+      </div>
+
+      <!-- Round 2 iteration -->
+      <div style="margin: 1.5rem 0;">
+        <div class="cs-img-caption" style="border-top:none; padding-left:0; margin-bottom:.75rem;">Round 2: Budget flow + AI chat bubble visibility</div>
+        <figure class="cs-img" style="max-width:640px;">
+          <img src="img/moneyanchor/testing-iteration-2a.jpg" alt="Round 2 iteration: budget flow and AI chat bubble visibility, before and after" loading="lazy" />
+        </figure>
+      </div>
+
+      <!-- AI explanation iteration -->
+      <div style="margin: 1.5rem 0;">
+        <div class="cs-img-caption" style="border-top:none; padding-left:0; margin-bottom:.75rem;">AI transparency: surfacing the "why" behind recommendations</div>
+        <figure class="cs-img" style="max-width:640px;">
+          <img src="img/moneyanchor/testing-iteration-2b.jpg" alt="AI transparency iteration: surfacing the why behind recommendations, before and after" loading="lazy" />
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 OUTCOMES -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">08</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🏁</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>Product UX Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Conclusion &amp; Learnings</div>
+      <h2 class="cs-sec-title">What We Proved. <em>What We Learned.</em></h2>
+
+      <p class="cs-text">Money Anchor successfully demonstrated that a shift from reactive reporting to proactive, AI-driven intervention is both technically feasible and genuinely preferred by users. Usability testing showed high task success and positive sentiment, especially for AI recommendations and budgeting features, while surfacing real challenges in discoverability and initial AI trust.</p>
+
+      <div class="cs-metrics">
+        <div class="cs-metric"><div class="cs-metric-n">100%</div><div class="cs-metric-l">Task success rate on core flows in Round 2</div></div>
+        <div class="cs-metric"><div class="cs-metric-n">4.4/5</div><div class="cs-metric-l">Perceived ease of use (Round 2 participant rating)</div></div>
+        <div class="cs-metric"><div class="cs-metric-n">75%</div><div class="cs-metric-l">Users completely trust AI recommendations after seeing explanations</div></div>
+        <div class="cs-metric"><div class="cs-metric-n">2×</div><div class="cs-metric-l">Rounds of testing, with full prototype iteration between rounds</div></div>
+      </div>
+
+      <div class="cs-findings">
+        <div class="cs-finding">
+          <div class="cs-finding-n">L1</div>
+          <div class="cs-finding-body">
+            <h4>Perceived Usability ≠ Actual Usability</h4>
+            <p>Users reported ease (4.4/5) while simultaneously struggling with feature discoverability. The gap between self-reported and measured usability is real, you need both qualitative feedback and quantitative Maze data to see the full picture.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">L2</div>
+          <div class="cs-finding-body">
+            <h4>Visibility is Critical</h4>
+            <p>The AI Anchor, our most important feature, was missed by users in Round 1 because it looked like part of the nav bar. Important features must be visually distinct. A 54.7% misclick rate on budget adjustment in Round 2 reinforced this: users can't use what they can't find.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">L3</div>
+          <div class="cs-finding-body">
+            <h4>Trust in AI Requires Transparency</h4>
+            <p>Users prefer explanations, control, and optional suggestions, not prescriptive actions. The "why behind the recommendation" is as important as the recommendation itself. Once we surfaced AI reasoning clearly, trust jumped to 75% complete confidence.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">L4</div>
+          <div class="cs-finding-body">
+            <h4>Iterative Testing Drives Better Design</h4>
+            <p>Two rounds of testing uncovered issues a single round would have missed. Prototype early, test often, and treat every misclick as a design question, not a user error.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-badge-row">
+        <span class="cs-badge alt">Figma · Maze · FigJam · Otter.ai · Zoom</span>
+        <span class="cs-badge alt">IRB #HUM00280873 Approved</span>
+        <span class="cs-badge">✓ 24 Research Participants</span>
+        <span class="cs-badge">✓ 2 Rounds Usability Testing</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROTOTYPE CTA -->
+  <section class="cs-proto">
+    <div class="cs-proto-inner">
+      <div class="label">EXPLORE THE PROTOTYPE</div>
+      <h2 class="cs-proto-title">See It in <em>Figma</em></h2>
+      <p class="cs-proto-desc">The full interactive prototype, all 5 core flows, the AI Anchor assistant, subscription management, and spending reports, is live in Figma.</p>
+      <div class="cs-proto-actions">
+        <a href="#" class="btn btn-gold magnetic">View Prototype →</a>
+        <a href="ir2go.html" class="btn btn-ghost magnetic">Next Case Study →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM NAV -->
+  <nav class="cs-bottom-nav" aria-label="Case study navigation">
+    <a href="../index.html#work" class="cs-bn-link">
+      <span class="cs-bn-label">← All Work</span>
+      <span class="cs-bn-title">Portfolio</span>
+    </a>
+    <a href="ir2go.html" class="cs-bn-link right">
+      <span class="cs-bn-label">Next →</span>
+      <span class="cs-bn-title">IRS2GO Redesign</span>
+    </a>
+  </nav>
+  <footer class="cs-footer">
+    <span>© 2025 Siddhi Manche</span>
+    <span>01 / 05 Money Anchor</span>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

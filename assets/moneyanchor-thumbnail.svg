@@ -1,0 +1,64 @@
+<svg width="1260" height="540" viewBox="0 0 1260 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="abg" x1="0" y1="0" x2="1260" y2="540" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ecf2fc"/>
+      <stop offset="1" stop-color="#d6e4f8"/>
+    </linearGradient>
+    <linearGradient id="anch" x1="430" y1="120" x2="430" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6ea7ff"/>
+      <stop offset="1" stop-color="#2f6fd6"/>
+    </linearGradient>
+    <filter id="asoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <rect width="1260" height="540" fill="url(#abg)"/>
+
+  <!-- faint coins -->
+  <circle cx="120" cy="100" r="90" fill="#3d8bfd" opacity="0.07"/>
+  <circle cx="1170" cy="460" r="110" fill="#3d8bfd" opacity="0.07"/>
+
+  <!-- anchor -->
+  <g stroke="url(#anch)" stroke-width="17" stroke-linecap="round" fill="none">
+    <circle cx="430" cy="152" r="28"/>
+    <path d="M430 180 V 398"/>
+    <path d="M352 248 H 508"/>
+    <path d="M312 330 C 318 392 368 426 430 430 C 492 426 542 392 548 330"/>
+    <path d="M312 330 L 286 362 M312 330 L 344 352"/>
+    <path d="M548 330 L 574 362 M548 330 L 516 352"/>
+  </g>
+  <!-- coin docked on anchor ring -->
+  <circle cx="430" cy="152" r="58" fill="#3d8bfd" opacity="0.12"/>
+
+  <!-- AI coach card -->
+  <rect x="700" y="118" width="392" height="220" rx="24" fill="#3d8bfd" opacity="0.16" filter="url(#asoft)"/>
+  <rect x="690" y="106" width="392" height="220" rx="24" fill="#ffffff"/>
+  <text x="724" y="150" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="4" fill="#94a6c0">AI COACH</text>
+  <!-- spark -->
+  <path d="M1040 134 l6 14 14 6 -14 6 -6 14 -6 -14 -14 -6 14 -6 z" fill="#3d8bfd"/>
+  <!-- message lines -->
+  <rect x="724" y="172" width="250" height="14" rx="7" fill="#dbe6f5"/>
+  <rect x="724" y="200" width="198" height="14" rx="7" fill="#dbe6f5"/>
+  <!-- why chip -->
+  <rect x="724" y="240" width="128" height="36" rx="18" fill="#eaf2fe"/>
+  <text x="788" y="263" text-anchor="middle" font-family="'SF Mono','Menlo',monospace" font-size="13" letter-spacing="2" fill="#2f6fd6">WHY? →</text>
+  <!-- gentle nudge chip -->
+  <rect x="868" y="240" width="180" height="36" rx="18" fill="#ffffff" stroke="#dbe6f5" stroke-width="2"/>
+  <text x="958" y="263" text-anchor="middle" font-family="'SF Mono','Menlo',monospace" font-size="13" letter-spacing="1.5" fill="#5d7396">NO JUDGMENT</text>
+
+  <!-- trust ring -->
+  <g transform="rotate(-90 800 412)">
+    <circle cx="800" cy="412" r="54" stroke="#c9d9f0" stroke-width="14" fill="none"/>
+    <circle cx="800" cy="412" r="54" stroke="#3d8bfd" stroke-width="14" fill="none" stroke-linecap="round"
+            stroke-dasharray="254 339"/>
+  </g>
+  <text x="800" y="418" text-anchor="middle" font-family="'SF Mono','Menlo',monospace" font-size="22" fill="#2f6fd6">75%</text>
+  <text x="884" y="404" font-family="'SF Mono','Menlo',monospace" font-size="14" letter-spacing="2" fill="#5d7396">USER TRUST</text>
+  <text x="884" y="428" font-family="'SF Mono','Menlo',monospace" font-size="13" letter-spacing="1.5" fill="#94a6c0">IRB STUDY · N=24</text>
+
+  <!-- captions -->
+  <text x="64" y="64" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="4" fill="#2f6fd6" fill-opacity="0.55">MONEY ANCHOR · AI FINANCE</text>
+  <text x="630" y="500" text-anchor="middle" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="17" letter-spacing="5.5" fill="#3c5578">AN AI COACH THAT SHOWS ITS WHY</text>
+  <text x="1196" y="64" text-anchor="end" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="2" fill="#3d8bfd">0→1 · TEAM ANCHOR</text>
+</svg>

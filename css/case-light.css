@@ -1,0 +1,393 @@
+/* ============================================================
+   CASE STUDIES — LIGHT & COLORFUL RE-THEME
+   Loads AFTER style.css + case-study.css and overrides both.
+   SF Pro · cream background · color accents
+   ============================================================ */
+
+/* ── PALETTE OVERRIDE (re-themes every var-driven rule) ─────── */
+:root,
+html[data-theme="dark"],
+html[data-theme="light"] {
+  --bg:        #faf6ef;
+  --bg2:       #f3eee4;
+  --bg3:       #ece6d9;
+  --surface:   #ffffff;
+  --text:      #1d1a2e;
+  --text2:     #4d4a5c;
+  --text3:     #8d8a99;
+
+  /* old "--gold" accent slots → coral */
+  --gold:      #f4604c;
+  --gold-dim:  rgba(244, 96, 76, .14);
+  --gold-glow: rgba(244, 96, 76, .08);
+
+  --border:    rgba(29, 26, 46, .09);
+  --border2:   rgba(29, 26, 46, .18);
+
+  --serif: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Helvetica Neue', sans-serif;
+  --sans:  -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
+
+  /* color pops */
+  --coral:  #f4604c;
+  --violet: #7c5cf4;
+  --blue:   #3d8bfd;
+  --lemon:  #ffc233;
+  --mint:   #19c389;
+  --pink:   #f25fa8;
+  --grad:   linear-gradient(92deg, var(--coral) 0%, var(--pink) 35%, var(--violet) 70%, var(--blue) 100%);
+}
+
+/* ── KILL DARK-ERA CHROME ───────────────────────────────────── */
+.loader,
+.noise,
+.cursor-dot,
+.cursor-ring,
+.cursor-spotlight,
+.theme-btn { display: none !important; }
+
+body, button, a { cursor: auto !important; }
+a, button, .work-link, .btn { cursor: pointer !important; }
+
+/* typography: SF Pro is tighter than Garamond — relax weights */
+body { font-weight: 400; }
+
+.cs-hero-title,
+.cs-sec-title,
+.cs-proto-title {
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+/* italic gold accents → gradient text */
+.cs-hero-title .italic,
+.cs-sec-title em,
+.cs-proto-title em {
+  font-style: normal;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* hero entrance: content no longer waits for the loader */
+.cs-hero-title .line-mask .line-inner,
+.cs-hero-title .line-mask:nth-child(1) .line-inner,
+.cs-hero-title .line-mask:nth-child(2) .line-inner,
+.cs-hero-title .line-mask:nth-child(3) .line-inner {
+  animation-delay: .15s, .3s, .45s;
+}
+
+.cs-hero-index,
+.cs-hero-meta,
+.cs-hero-stats { animation-delay: .55s !important; }
+
+/* ── NAV → floating pill ────────────────────────────────────── */
+.cs-nav {
+  top: 1rem;
+  inset-inline: auto;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: min(92vw, 760px);
+  background: rgba(255, 255, 255, .25);
+  backdrop-filter: blur(26px) saturate(190%);
+  -webkit-backdrop-filter: blur(26px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 100px;
+  padding: .55rem 1.1rem;
+  box-shadow:
+    0 14px 36px rgba(0,0,0,.10),
+    0 2px 6px rgba(0,0,0,.05),
+    inset 0 1px 1px rgba(255,255,255,.7),
+    inset 0 -1px 1px rgba(255,255,255,.25);
+}
+
+.cs-nav.compact {
+  padding-block: .55rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cs-back,
+.cs-next-link {
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.cs-back:hover,
+.cs-next-link:hover {
+  color: #fff;
+  background: var(--coral);
+  border-color: var(--coral);
+  letter-spacing: .14em;
+}
+
+/* ── HERO ───────────────────────────────────────────────────── */
+.cs-hero { border-bottom: 1px solid var(--border); }
+
+.cs-hero-bg {
+  -webkit-text-stroke: 1.5px rgba(29, 26, 46, .12);
+  opacity: .55;
+}
+
+.cs-hero-glow {
+  background: radial-gradient(circle, rgba(124, 92, 244, .14) 0%, transparent 70%);
+}
+
+.cs-hero-index { color: var(--coral); }
+.cs-hero-index .idx-line { background: var(--coral); }
+
+/* hero stats / meta numbers pick up color */
+.cs-stat-n,
+.cs-hero-stats .cs-stat-n { color: var(--coral); }
+
+.cs-hero-stats > div:nth-child(2) .cs-stat-n { color: var(--blue); }
+.cs-hero-stats > div:nth-child(3) .cs-stat-n { color: var(--mint); }
+.cs-hero-stats > div:nth-child(4) .cs-stat-n { color: var(--violet); }
+
+/* ── SECTION SHELL ──────────────────────────────────────────── */
+.cs-sec-num {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0;
+  opacity: 1;
+}
+
+.cs-sec-label { color: var(--coral); }
+
+/* alternating tinted sections */
+.cs-section.alt-bg { background: #f4efe5; }
+
+/* ── STAT BOXES / METRICS — colorful cards ──────────────────── */
+.cs-stat-box,
+.cs-metric {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 10px 26px rgba(0,0,0,.05);
+}
+
+.cs-stat-big,
+.cs-metric-n { color: var(--coral); }
+
+.cs-stat-row .cs-stat-box:nth-child(2) .cs-stat-big { color: var(--blue); }
+.cs-stat-row .cs-stat-box:nth-child(3) .cs-stat-big { color: var(--mint); }
+
+.cs-metrics .cs-metric:nth-child(2) .cs-metric-n { color: var(--blue); }
+.cs-metrics .cs-metric:nth-child(3) .cs-metric-n { color: var(--mint); }
+.cs-metrics .cs-metric:nth-child(4) .cs-metric-n { color: var(--violet); }
+
+/* ── HMW cards — pastel trio ────────────────────────────────── */
+.cs-hmw-item {
+  border-radius: 16px;
+  border: 1px solid transparent;
+  font-weight: 500;
+}
+
+.cs-hmw .cs-hmw-item:nth-child(1) { background: #fdeae6; border-color: #f8cfc6; }
+.cs-hmw .cs-hmw-item:nth-child(2) { background: #e9f1fe; border-color: #c8ddfb; }
+.cs-hmw .cs-hmw-item:nth-child(3) { background: #e7f8f0; border-color: #bfecd9; }
+
+/* ── FINDINGS — colored index chips ─────────────────────────── */
+.cs-finding-n {
+  color: #fff;
+  background: var(--coral);
+  border-radius: 10px;
+  padding: .25rem .5rem;
+  height: fit-content;
+}
+
+.cs-findings .cs-finding:nth-child(2) .cs-finding-n { background: var(--blue); }
+.cs-findings .cs-finding:nth-child(3) .cs-finding-n { background: var(--mint); }
+.cs-findings .cs-finding:nth-child(4) .cs-finding-n { background: var(--violet); }
+
+/* ── QUOTES — pastel sticky tones ───────────────────────────── */
+.cs-quote-item {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.cs-user-quotes .cs-quote-item:nth-child(3n+1) { background: #fff7e8; }
+.cs-user-quotes .cs-quote-item:nth-child(3n+2) { background: #f3f0fe; }
+.cs-user-quotes .cs-quote-item:nth-child(3n+3) { background: #eaf7f1; }
+
+/* ── AFFINITY MAP — true color clusters ─────────────────────── */
+.cs-affinity-item { border-radius: 10px; }
+
+.cs-affinity-item.pain     { background: #fdeae6; border-color: #f5b9ac; }
+.cs-affinity-item.need     { background: #e9f1fe; border-color: #b8d4fa; }
+.cs-affinity-item.suggest  { background: #fff4d6; border-color: #f5dc94; }
+.cs-affinity-item.behavior { background: #f3edfe; border-color: #d8c8fa; }
+
+/* ── ROLE BADGE ─────────────────────────────────────────────── */
+.cs-role-badge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+
+.cs-role-title em {
+  font-style: normal;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── PERSONAS ───────────────────────────────────────────────── */
+.cs-persona {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04), 0 16px 40px rgba(0,0,0,.06);
+}
+
+.cs-persona-avatar {
+  background: linear-gradient(135deg, var(--coral), var(--pink));
+  color: #fff;
+}
+
+.cs-persona-grid .cs-persona:nth-child(2) .cs-persona-avatar {
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+}
+
+.cs-persona-type { color: var(--coral); }
+.cs-persona-grid .cs-persona:nth-child(2) .cs-persona-type { color: var(--blue); }
+
+.cs-persona-step-n { color: var(--violet); }
+
+/* ── FUNNEL ─────────────────────────────────────────────────── */
+.cs-funnel-stage {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.cs-funnel-n { color: var(--coral); }
+.cs-funnel .cs-funnel-stage:nth-child(2) .cs-funnel-n { color: var(--blue); }
+.cs-funnel .cs-funnel-stage:nth-child(3) .cs-funnel-n { color: var(--mint); }
+.cs-funnel .cs-funnel-stage:nth-child(4) .cs-funnel-n { color: var(--violet); }
+
+/* ── COMPARE (before/after) ─────────────────────────────────── */
+.cs-compare-col {
+  border-radius: 16px;
+  background: #fdeae6;
+  border: 1px solid #f5b9ac;
+}
+
+.cs-compare-col.after {
+  background: #e7f8f0;
+  border: 1px solid #a9e3c8;
+}
+
+/* ── IMAGE PLACEHOLDERS / PHONES ────────────────────────────── */
+.cs-img,
+.cs-img-ph { border-radius: 14px; }
+
+.cs-img-ph.phone {
+  box-shadow: 0 0 0 6px var(--bg2), 0 0 0 7px var(--border), 0 18px 40px rgba(0,0,0,.10);
+}
+
+/* real screen exports in phone frames */
+.cs-phone-img {
+  width: 140px;
+  aspect-ratio: 393 / 852;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 2px solid var(--border2);
+  box-shadow: 0 0 0 6px var(--bg2), 0 0 0 7px var(--border), 0 18px 40px rgba(0,0,0,.12);
+  display: block;
+  transition: transform .45s cubic-bezier(.16,1,.3,1);
+}
+
+.cs-phone-img:hover { transform: translateY(-5px) scale(1.03); }
+
+.cs-img-caption { border-radius: 0 0 14px 14px; }
+
+/* ── BADGES ─────────────────────────────────────────────────── */
+.cs-badge {
+  border-radius: 100px;
+  background: #e7f8f0;
+  border: 1px solid #a9e3c8;
+  color: #0c7a52;
+}
+
+.cs-badge.alt {
+  background: #f3f0fe;
+  border: 1px solid #d8c8fa;
+  color: #5b3df0;
+}
+
+/* ── PROTOTYPE CTA + BUTTONS ────────────────────────────────── */
+.btn { border-radius: 100px; }
+
+.btn-gold {
+  background: linear-gradient(94deg, var(--coral), var(--pink));
+  color: #fff;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(94deg, var(--coral), var(--pink));
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(244, 96, 76, .35);
+}
+
+.btn-ghost {
+  border: 1.5px solid var(--border2);
+  color: var(--text);
+}
+
+.btn-ghost:hover { border-color: var(--violet); color: var(--violet); }
+
+/* ── SCROLL PROGRESS → rainbow ──────────────────────────────── */
+.scroll-progress {
+  background: var(--grad);
+  height: 3px;
+}
+
+/* ── BOTTOM NAV / FOOTER ────────────────────────────────────── */
+.cs-bn-link:hover .cs-bn-title { color: var(--coral); }
+
+/* back-to-top stays, softened */
+.back-top {
+  background: rgba(255,255,255,.9);
+  color: var(--text2);
+}
+
+.back-top:hover {
+  border-color: var(--coral);
+  color: var(--coral);
+  background: var(--gold-dim);
+}
+
+/* lightbox keeps dark backdrop for focus — fine in light theme */
+
+/* ── REMOVE DARK-THEME HAIRLINE-GRID BACKDROPS ──────────────────
+   The dark theme painted these containers grey and used 2px gaps
+   as hairline separators. In the light theme the children are
+   rounded floating cards, so the grey backdrop must go. */
+.cs-user-quotes,
+.cs-metrics,
+.cs-features,
+.cs-compare,
+.cs-timeline,
+.cs-persona-grid,
+.cs-persona-details,
+.cs-persona-cols,
+.cs-journey-stages,
+.cs-empathy,
+.cs-affinity,
+.cs-stat-row,
+.cs-hmw,
+.cs-funnel,
+.cs-ba-pairs {
+  background: transparent;
+  gap: .9rem;
+}
+
+/* image+caption pairs stay flush, just lose the grey backdrop */
+.cs-ba-pair { background: transparent; }

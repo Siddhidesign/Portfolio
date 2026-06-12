@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medicinal Plants Identifier, Case Study · Siddhi Manche</title>
+  <meta name="description" content="Real-time IoT application for identifying medicinal plants through image recognition, bridging traditional botanical knowledge with modern interface design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/case-study.css" />
+  <link rel="stylesheet" href="../css/case-light.css" />
+</head>
+<body>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-content">
+      <div class="loader-words">
+        <div class="loader-word"><span>PLANT</span></div>
+        <div class="loader-word accent"><span>ID</span></div>
+      </div>
+      <div class="loader-line-wrap"><div class="loader-line-bar"></div></div>
+      <p class="loader-sub">Loading Case Study</p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="cs-nav" id="nav" role="banner">
+    <a href="../index.html" class="cs-back">← All Work</a>
+    <span class="cs-nav-center">Medicinal Plants</span>
+    <div class="cs-nav-right">
+      <a href="../index.html#work" class="cs-next-link">All Work →</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span>◐</span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="cs-hero">
+    <div class="cs-hero-bg" aria-hidden="true">IoT</div>
+    <div class="cs-hero-glow" aria-hidden="true"></div>
+
+    <div class="cs-hero-inner">
+      <div class="cs-hero-index">
+        <span>05 / 05</span>
+        <span class="idx-line"></span>
+        <span>IoT · App Development · Research</span>
+      </div>
+
+      <h1 class="cs-hero-title">
+        <div class="line-mask"><span class="line-inner">Medicinal Plants</span></div>
+        <div class="line-mask italic"><span class="line-inner">Ancient Knowledge, Modern Access</span></div>
+      </h1>
+
+      <div class="cs-hero-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <span class="cs-meta-value">Designer &amp; Developer</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Context</span>
+          <span class="cs-meta-value">App Development Project</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Type</span>
+          <span class="cs-meta-value">IoT · Image Recognition</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Year</span>
+          <span class="cs-meta-value">2023</span>
+        </div>
+      </div>
+
+      <div class="cs-hero-stats">
+        <div>
+          <div class="cs-stat-n">Real</div>
+          <div class="cs-stat-l">Time Identification</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">IoT</div>
+          <div class="cs-stat-l">Hardware Integration</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">CV</div>
+          <div class="cs-stat-l">Computer Vision</div>
+        </div>
+        <div>
+          <div class="cs-stat-n">0→1</div>
+          <div class="cs-stat-l">Full Product Build</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 PROBLEM -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">01</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">The Problem</div>
+      <h2 class="cs-sec-title">Centuries of Knowledge, <em>Zero Access</em></h2>
+      <p class="cs-text">Traditional botanical knowledge about medicinal plants is vast but almost entirely inaccessible, locked in expert memory, dense reference books, and academic databases that everyday users cannot navigate. Meanwhile, people encounter these plants daily in their gardens, parks, and forests with no reliable way to identify them or understand their properties.</p>
+      <p class="cs-text">The stakes are not academic. Misidentifying a medicinal plant as a safe edible, or misidentifying a toxic plant as a medicinal one, carries real health consequences. The challenge: <strong>how do you translate centuries of botanical expertise into an interface that anyone can use correctly in seconds, in the field, possibly without internet access?</strong></p>
+
+      <div class="cs-metrics">
+        <div class="cs-metric"><div class="cs-metric-n">∞</div><div class="cs-metric-l">Botanical species to identify</div></div>
+        <div class="cs-metric"><div class="cs-metric-n">0</div><div class="cs-metric-l">Expertise required to use</div></div>
+        <div class="cs-metric"><div class="cs-metric-n">&lt;3s</div><div class="cs-metric-l">Target identification time</div></div>
+        <div class="cs-metric"><div class="cs-metric-n">IoT</div><div class="cs-metric-l">Hardware + software bridge</div></div>
+      </div>
+
+      <div class="cs-hmw">
+        <div class="cs-hmw-item">How might we make expert botanical knowledge instantly available to a non-expert user standing in a field without internet access?</div>
+        <div class="cs-hmw-item">How might we present safety-critical identification results in a way that never allows overconfidence in an uncertain match?</div>
+        <div class="cs-hmw-item">How might we design an interface that works in bright sunlight, with one hand, while the user is actively moving through terrain?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 PERSONA -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">02</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">👤</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Persona</div>
+      <h2 class="cs-sec-title">The <em>Field Researcher</em></h2>
+
+      <div class="cs-persona-grid" style="grid-template-columns: 1fr;">
+        <div class="cs-persona">
+          <div class="cs-persona-header">
+            <div class="cs-persona-avatar">P</div>
+            <div class="cs-persona-header-text">
+              <h3>Dr. Priya Sharma</h3>
+              <span class="cs-persona-type">The Field Botanist</span>
+            </div>
+          </div>
+          <div class="cs-persona-details">
+            <div class="cs-pd-item"><span class="cs-pd-label">Age</span><span class="cs-pd-value">45</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Gender</span><span class="cs-pd-value">Female</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Location</span><span class="cs-pd-value">Pune, India</span></div>
+            <div class="cs-pd-item"><span class="cs-pd-label">Occupation</span><span class="cs-pd-value">Botanist / Field Researcher</span></div>
+          </div>
+          <p class="cs-persona-narrative">Dr. Sharma runs field surveys in the Western Ghats biodiversity hotspot. She has 20 years of botanical expertise but routinely encounters plants at the edge of her knowledge, especially in the transition zones between ecosystems where species are hybridising. Today she's 2km from the nearest road and has found an unfamiliar Solanum specimen that could be either a valuable medicinal plant or a toxic lookalike.</p>
+          <div class="cs-persona-steps">
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">01</span>
+              <div class="cs-persona-step-body">
+                <p>Dr. Sharma encounters an unfamiliar plant specimen in a ravine section she hasn't surveyed before. She needs to determine if it's Solanum khasianum (medicinal, valuable for alkaloid research) or Solanum viarum (invasive, toxic). The visual difference is subtle, leaf texture and berry arrangement.</p>
+                <span class="cs-persona-emotion">🧐 Engaged, this is why she does field research</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">02</span>
+              <div class="cs-persona-step-body">
+                <p>She pulls out her field reference book. The relevant pages are damp from the morning rain and the printed photos are too small to make a definitive comparison in dim forest light. She's not confident in the ID after 15 minutes of reference work.</p>
+                <span class="cs-persona-emotion">😟 Frustrated, tools aren't built for field conditions</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">03</span>
+              <div class="cs-persona-step-body">
+                <p>She tries searching on her phone, no mobile signal at this location. She photographs the plant for later analysis, marks the GPS coordinates, and flags it as "unconfirmed", which means a second trip to this location next week.</p>
+                <span class="cs-persona-emotion">😤 Inefficient, a second trip costs time and budget</span>
+              </div>
+            </div>
+            <div class="cs-persona-step">
+              <span class="cs-persona-step-n">04</span>
+              <div class="cs-persona-step-body">
+                <p>Back at base camp she confirms the ID using her desktop database: it was Solanum khasianum, the valuable one. With on-device AI identification, she could have confirmed this in 3 seconds in the field, collected a sample, and saved the second trip entirely.</p>
+                <span class="cs-persona-emotion">💡 Realisation, the gap technology could fill</span>
+              </div>
+            </div>
+          </div>
+          <div class="cs-persona-cols">
+            <div class="cs-persona-col goals">
+              <h5>Goals</h5>
+              <ul>
+                <li>Confident, reliable ID in the field, with or without internet</li>
+                <li>Safety information prominently displayed for ambiguous species</li>
+                <li>Scan history that syncs when she returns to connectivity</li>
+              </ul>
+            </div>
+            <div class="cs-persona-col">
+              <h5>Frustrations</h5>
+              <ul>
+                <li>Reference books are fragile and illegible in field conditions</li>
+                <li>Every existing plant ID app requires reliable internet</li>
+                <li>App confidence scores aren't calibrated to her expert standards</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-text" style="margin-top: 2rem;">We also designed for a <strong>secondary persona</strong>: the everyday nature enthusiast, a hiker or home gardener with zero botanical expertise who encounters an unfamiliar plant and wants to understand if it's safe. The interface had to serve both users without compromising safety for either.</div>
+    </div>
+  </div>
+
+  <!-- 03 EMPATHY MAP -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">03</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">Empathy Map, Dr. Priya Sharma</div>
+      <h2 class="cs-sec-title">What the <em>Field Demands</em></h2>
+
+      <div class="cs-empathy">
+        <div class="cs-empathy-quad">
+          <div class="cs-empathy-label">👁 Sees</div>
+          <ul>
+            <li>Hundreds of plant specimens, most familiar, but always a few that aren't</li>
+            <li>Reference book pages that are damp, torn, or too dark to read clearly</li>
+            <li>A phone with "No Signal", the most frustrating four words in field research</li>
+            <li>Subtle visual differences between species that look nearly identical to the untrained eye</li>
+            <li>Colleagues in other disciplines using AI tools that have transformed their fieldwork</li>
+          </ul>
+        </div>
+        <div class="cs-empathy-quad">
+          <div class="cs-empathy-label">👂 Hears</div>
+          <ul>
+            <li>"There are apps for plant ID but they're not reliable enough for scientific use."</li>
+            <li>"iNaturalist is great, if you have internet."</li>
+            <li>Her own expertise: "This looks like Solanum khasianum, but I'm not certain."</li>
+            <li>"A second trip to that location will cost two researcher-days and fuel."</li>
+            <li>"The taxonomy has been updated, your reference book may be two revisions behind."</li>
+          </ul>
+        </div>
+        <div class="cs-empathy-quad pain">
+          <div class="cs-empathy-label">💔 Pain</div>
+          <ul>
+            <li>Time wasted on uncertain identifications that require a second field visit</li>
+            <li>Safety risk: toxic lookalikes for medicinal species carry real danger</li>
+            <li>Reference books physically fail in the conditions where they're most needed</li>
+            <li>Internet-dependent tools are useless in exactly the areas with the most valuable specimens</li>
+            <li>The cognitive load of maintaining uncertainty across multiple unconfirmed specimens</li>
+          </ul>
+        </div>
+        <div class="cs-empathy-quad gain">
+          <div class="cs-empathy-label">✨ Gain</div>
+          <ul>
+            <li>Confident identification in 3 seconds, even 2km from the nearest road</li>
+            <li>Safety warnings that make toxic/medicinal lookalikes unmistakably distinct</li>
+            <li>A scan history that logs GPS coordinates and syncs when connectivity returns</li>
+            <li>Confidence scores calibrated to expert standards, not just "high" or "low"</li>
+            <li>The ability to confirm, collect, and move on, eliminating second trips entirely</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 APPROACH -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">04</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">💡</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UX Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Approach</div>
+      <h2 class="cs-sec-title">Image Recognition <em>Meets Field UX</em></h2>
+      <p class="cs-text">The solution combines <strong>computer vision (on-device image recognition)</strong> with a clean, minimal mobile interface built specifically for field conditions. The user points their camera at a plant; the system identifies it in real time and surfaces the relevant botanical and medicinal information, without requiring an internet connection.</p>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feat-num">◈</div>
+          <h4>Real-Time Camera Interface</h4>
+          <p>Live viewfinder with visual overlay, bounding boxes and confidence indicators appear as the system processes the image frame by frame. Dr. Sharma sees what the AI is "looking at" and can adjust framing to improve the match.</p>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feat-num">◉</div>
+          <h4>Botanical Knowledge Layer</h4>
+          <p>Once identified, the app surfaces: common name, scientific name, family, medicinal properties, traditional uses by region, safety classification, toxic lookalikes, and regional availability, in a scannable hierarchy that puts the most critical information first.</p>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feat-num">◍</div>
+          <h4>IoT Hardware Bridge</h4>
+          <p>Integration with IoT hardware for institutional deployment, field stations, conservation sites, and research institutions can deploy the system on fixed devices in locations where mobile coverage is unreliable. All processing on the edge device.</p>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feat-num">◎</div>
+          <h4>Offline-First Architecture</h4>
+          <p>Core identification works completely without internet. The botanical database lives on-device. Scan history queues for sync when connectivity returns. For Dr. Sharma 2km into the Western Ghats: zero difference to the experience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 DESIGN -->
+  <div class="cs-section reveal-item">
+    <div class="cs-sec-num">05</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🎨</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>UI Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Interface Design</div>
+      <h2 class="cs-sec-title">Clarity Under <em>Field Conditions</em></h2>
+      <p class="cs-text">The interface was designed for three specific environmental realities: <strong>bright sunlight that washes out screens, one-handed use while navigating terrain, and the safety-critical nature of the identification task</strong>. Every design decision was filtered through these constraints before it was approved.</p>
+
+      <div class="cs-findings">
+        <div class="cs-finding">
+          <div class="cs-finding-n">P1</div>
+          <div class="cs-finding-body">
+            <h4>Clarity, Information Above the Fold</h4>
+            <p>High-contrast UI elements tested for legibility in direct sunlight. The plant's common name, safety classification, and confidence score appear immediately on identification, no scrolling required to get the critical answer. Everything else is secondary, accessed on demand.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">P2</div>
+          <div class="cs-finding-body">
+            <h4>Speed, Identification Within 3 Seconds</h4>
+            <p>Results appear within 3 seconds of framing the plant. The UI is completely non-interruptive during scanning, no popups, no loading spinners blocking the viewfinder, no confirmation dialogs. The camera runs continuously while the model processes in the background.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding-n">P3</div>
+          <div class="cs-finding-body">
+            <h4>Trust, Visible Uncertainty, Prominent Safety</h4>
+            <p>Confidence scores are visible on every identification, "87% match" vs. "43% match" conveys meaningfully different information. Safety warnings for toxic or ambiguous plants are displayed in a distinct visual system that cannot be mistaken for a regular result. The design never allows overconfidence in an uncertain identification.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-affinity">
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">Design Decisions</div>
+          <div class="cs-affinity-item need">High-contrast color system for sunlight legibility</div>
+          <div class="cs-affinity-item need">Large touch targets, gloves-compatible minimum 48px</div>
+          <div class="cs-affinity-item need">Critical info above the fold at all times</div>
+          <div class="cs-affinity-item need">Distinct visual system for safety-critical alerts</div>
+        </div>
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">Technical Decisions</div>
+          <div class="cs-affinity-item suggest">On-device model, no API call latency</div>
+          <div class="cs-affinity-item suggest">Offline-first database, full functionality without signal</div>
+          <div class="cs-affinity-item suggest">GPS tagging of every scan for field log</div>
+          <div class="cs-affinity-item suggest">Async sync, queues data until connectivity returns</div>
+        </div>
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">What We Tested For</div>
+          <div class="cs-affinity-item behavior">Outdoor legibility, tested in direct sunlight conditions</div>
+          <div class="cs-affinity-item behavior">One-handed use, tested with dominant and non-dominant hand</div>
+          <div class="cs-affinity-item behavior">Safety communication, user misidentification rate with and without warnings</div>
+          <div class="cs-affinity-item behavior">Speed, time from camera open to actionable result</div>
+        </div>
+        <div class="cs-affinity-col">
+          <div class="cs-affinity-header">Edge Cases Considered</div>
+          <div class="cs-affinity-item pain">Partial view, only part of plant visible</div>
+          <div class="cs-affinity-item pain">Poor lighting, dawn/dusk, deep forest canopy</div>
+          <div class="cs-affinity-item pain">Similar species, toxic lookalikes for medicinal plants</div>
+          <div class="cs-affinity-item pain">Camera angle, identification from leaf-side vs. stem-side</div>
+        </div>
+      </div>
+
+      <div class="cs-img"><div class="cs-img-ph">CAMERA VIEW, REAL-TIME PLANT IDENTIFICATION</div><div class="cs-img-caption">Live viewfinder with bounding box and confidence score. Identification happens while the camera is active, no capture required. "Offline" indicator visible when no connectivity.</div></div>
+      <div class="cs-img"><div class="cs-img-ph">PLANT DETAIL, BOTANICAL INFORMATION SCREEN</div><div class="cs-img-caption">Result screen: safety classification prominent at top, then common name → scientific name → medicinal properties → traditional uses → toxic lookalikes. Expandable sections for depth without overwhelming the initial view.</div></div>
+    </div>
+  </div>
+
+  <!-- 06 OUTCOMES -->
+  <div class="cs-section alt-bg reveal-item">
+    <div class="cs-sec-num">06</div>
+    <div class="cs-sec-content">
+      <div class="cs-role-badge">
+        <div class="cs-role-icon">🧭</div>
+        <div class="cs-role-text">
+          <div class="cs-role-phase">In this phase</div>
+          <div class="cs-role-title">Siddhi as <em>Product UX Designer</em></div>
+        </div>
+      </div>
+      <div class="cs-sec-label">Outcomes &amp; Learnings</div>
+      <h2 class="cs-sec-title">Bridging the <em>Knowledge Gap</em></h2>
+      <p class="cs-text">The project demonstrated that specialised scientific knowledge, typically confined to experts, can be made universally accessible through thoughtful interface design paired with appropriate technology. The hardest design problem wasn't the visual layer; it was <strong>deciding how much information to show, in what order, and what to suppress to prevent dangerous overconfidence</strong>.</p>
+
+      <div class="cs-compare">
+        <div class="cs-compare-col">
+          <div class="cs-compare-label">Key Challenges</div>
+          <ul>
+            <li>Balancing information density with scannability in field conditions</li>
+            <li>Communicating AI confidence without inducing false certainty</li>
+            <li>Designing safety warnings that are always noticed but never cry-wolf</li>
+            <li>Handling edge cases, partial views, poor lighting, similar-looking species</li>
+            <li>Making the interface work for both the expert (Dr. Sharma) and the novice hiker</li>
+          </ul>
+        </div>
+        <div class="cs-compare-col after">
+          <div class="cs-compare-label">Key Learnings</div>
+          <ul>
+            <li>Trust UI is as important as accuracy, perception of reliability is a design output</li>
+            <li>Offline-first thinking changes every single design and technical decision you make</li>
+            <li>Field testing is irreplaceable, lab testing missed 60% of the critical use cases</li>
+            <li>Safety-critical UX requires a completely different error-handling philosophy, silence is never an acceptable failure mode</li>
+            <li>A well-designed "I'm not sure" state builds more user trust than a confident wrong answer</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-quote">"The hardest part of this project wasn't the computer vision. It was designing what to show when the computer vision isn't sure, and making that feel safe."</div>
+
+      <div class="cs-badge-row">
+        <span class="cs-badge alt">Python · OpenCV · Raspberry Pi</span>
+        <span class="cs-badge alt">Figma · TensorFlow Lite · SQLite</span>
+        <span class="cs-badge">✓ Offline-First Architecture</span>
+        <span class="cs-badge">✓ IoT Hardware Integration</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROTOTYPE CTA -->
+  <section class="cs-proto">
+    <div class="cs-proto-inner">
+      <div class="label">EXPLORE THE PROJECT</div>
+      <h2 class="cs-proto-title">View on <em>GitHub</em></h2>
+      <p class="cs-proto-desc">The full project, source code, model training documentation, IoT hardware setup, and technical implementation details, is available on GitHub.</p>
+      <div class="cs-proto-actions">
+        <a href="https://github.com/Siddhidesign/Real-time-Identification-of-Medicinal-Plants" target="_blank" rel="noopener" class="btn btn-gold magnetic">View on GitHub →</a>
+        <a href="../index.html#work" class="btn btn-ghost magnetic">← Back to Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM NAV -->
+  <nav class="cs-bottom-nav" aria-label="Case study navigation">
+    <a href="grocgenie.html" class="cs-bn-link">
+      <span class="cs-bn-label">← Previous</span>
+      <span class="cs-bn-title">GrocGenie</span>
+    </a>
+    <a href="../index.html#work" class="cs-bn-link right">
+      <span class="cs-bn-label">All Work →</span>
+      <span class="cs-bn-title">Back to Portfolio</span>
+    </a>
+  </nav>
+  <footer class="cs-footer">
+    <span>© 2025 Siddhi Manche</span>
+    <span>05 / 05, Medicinal Plants</span>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

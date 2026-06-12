@@ -1,0 +1,70 @@
+<svg width="1260" height="540" viewBox="0 0 1260 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ibg" x1="0" y1="0" x2="1260" y2="540" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e7edf6"/>
+      <stop offset="1" stop-color="#d2dcea"/>
+    </linearGradient>
+    <filter id="isoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <rect width="1260" height="540" fill="url(#ibg)"/>
+
+  <!-- faint government building (right) -->
+  <g stroke="#5a6b85" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.28" fill="none">
+    <path d="M880 150 L1030 88 L1180 150 Z"/>
+    <path d="M896 150 H1164"/>
+    <path d="M916 182 V330 M982 182 V330 M1048 182 V330 M1114 182 V330 M1144 182 V330"/>
+    <path d="M886 182 H1174"/>
+    <path d="M868 362 H1192 M880 330 H1180"/>
+  </g>
+
+  <!-- refund tracker card -->
+  <rect x="128" y="108" width="380" height="330" rx="24" fill="#5a6b85" opacity="0.18" filter="url(#isoft)"/>
+  <rect x="118" y="96" width="380" height="330" rx="24" fill="#ffffff"/>
+  <text x="152" y="142" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="4" fill="#8b99ad">WHERE'S MY REFUND</text>
+
+  <!-- stepper -->
+  <g>
+    <!-- connectors -->
+    <rect x="173" y="196" width="6" height="64" rx="3" fill="#2e9e63"/>
+    <rect x="173" y="288" width="6" height="64" rx="3" fill="#f4604c" opacity="0.35"/>
+    <!-- step 1 done -->
+    <circle cx="176" cy="180" r="16" fill="#2e9e63"/>
+    <path d="M168 180l5.5 5.5L184 174" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="212" y="186" font-family="'SF Mono','Menlo',monospace" font-size="15" letter-spacing="1" fill="#334155">RETURN RECEIVED</text>
+    <!-- step 2 done -->
+    <circle cx="176" cy="272" r="16" fill="#2e9e63"/>
+    <path d="M168 272l5.5 5.5L184 266" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="212" y="278" font-family="'SF Mono','Menlo',monospace" font-size="15" letter-spacing="1" fill="#334155">REFUND APPROVED</text>
+    <!-- step 3 active -->
+    <circle cx="176" cy="364" r="22" fill="#f4604c" opacity="0.18"/>
+    <circle cx="176" cy="364" r="16" fill="#f4604c"/>
+    <circle cx="176" cy="364" r="6" fill="#ffffff"/>
+    <text x="212" y="370" font-family="'SF Mono','Menlo',monospace" font-size="15" letter-spacing="1" fill="#f4604c">REFUND SENT · 2 DAYS</text>
+  </g>
+
+  <!-- SUS stat card -->
+  <rect x="600" y="306" width="320" height="120" rx="22" fill="#ffffff"/>
+  <text x="632" y="346" font-family="'SF Mono','Menlo',monospace" font-size="14" letter-spacing="3" fill="#8b99ad">SUS SCORE</text>
+  <text x="632" y="396" font-family="'SF Mono','Menlo',monospace" font-size="34" fill="#334155">31.3</text>
+  <path d="M728 384 H788 M788 384 L770 370 M788 384 L770 398" stroke="#f4604c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="806" y="396" font-family="'SF Mono','Menlo',monospace" font-size="34" fill="#f4604c">78.2</text>
+
+  <!-- accessibility figure -->
+  <g stroke="#334155" stroke-width="7" stroke-linecap="round" fill="none">
+    <circle cx="668" cy="148" r="40" stroke-opacity="0.9"/>
+    <circle cx="668" cy="132" r="7" fill="#334155" stroke="none"/>
+    <path d="M648 146 H688 M668 146 V162 M668 162 L656 176 M668 162 L680 176"/>
+  </g>
+  <!-- WCAG chip -->
+  <rect x="736" y="124" width="190" height="40" rx="20" fill="#334155"/>
+  <circle cx="762" cy="144" r="7" fill="#7be0a8"/>
+  <text x="780" y="150" font-family="'SF Mono','Menlo',monospace" font-size="14" letter-spacing="1.5" fill="#e8eef7">WCAG 2.1 AA</text>
+
+  <!-- captions -->
+  <text x="64" y="64" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="4" fill="#5a6b85" fill-opacity="0.75">IRS2GO REDESIGN · GOVTECH</text>
+  <text x="630" y="500" text-anchor="middle" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="17" letter-spacing="5.5" fill="#46556c">GOV UX, ACCESSIBLE BY DEFAULT</text>
+  <text x="1196" y="500" text-anchor="end" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="2" fill="#f4604c">2.8★ APP → SUS ×2.5</text>
+</svg>

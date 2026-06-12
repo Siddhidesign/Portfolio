@@ -1,0 +1,80 @@
+<svg width="1260" height="540" viewBox="0 0 1260 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1260" y2="540" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b151f"/>
+      <stop offset="1" stop-color="#101e2b"/>
+    </linearGradient>
+    <linearGradient id="boltg" x1="330" y1="190" x2="330" y2="334" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7df5cd"/>
+      <stop offset="0.55" stop-color="#00d4a0"/>
+      <stop offset="1" stop-color="#00b389"/>
+    </linearGradient>
+    <radialGradient id="glowc" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#00d4a0" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#00d4a0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <rect width="1260" height="540" fill="url(#bg)"/>
+
+  <!-- faint map grid -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <path d="M105 0V540M210 0V540M315 0V540M420 0V540M525 0V540M630 0V540M735 0V540M840 0V540M945 0V540M1050 0V540M1155 0V540"/>
+    <path d="M0 90H1260M0 180H1260M0 270H1260M0 360H1260M0 450H1260"/>
+  </g>
+  <path d="M0 372H1260" stroke="#ffffff" stroke-opacity="0.05" stroke-width="8"/>
+
+  <!-- ===== left: charge ring ===== -->
+  <circle cx="330" cy="262" r="216" fill="url(#glowc)"/>
+  <g transform="rotate(-90 330 262)">
+    <circle cx="330" cy="262" r="130" stroke="#ffffff" stroke-opacity="0.08" stroke-width="18"/>
+    <circle cx="330" cy="262" r="130" stroke="#00d4a0" stroke-width="18" stroke-linecap="round"
+            stroke-dasharray="637 817" filter="url(#soft)" opacity="0.5"/>
+    <circle cx="330" cy="262" r="130" stroke="#00d4a0" stroke-width="13" stroke-linecap="round"
+            stroke-dasharray="637 817"/>
+  </g>
+  <circle cx="330" cy="262" r="104" fill="#0d1d24" opacity="0.7"/>
+  <!-- bolt -->
+  <path d="M337 192 L267 276 L323 276 L309 332 L393 248 L337 248 Z" fill="#00d4a0" filter="url(#soft)" opacity="0.5"/>
+  <path d="M337 192 L267 276 L323 276 L309 332 L393 248 L337 248 Z" fill="url(#boltg)"
+        stroke="url(#boltg)" stroke-width="10" stroke-linejoin="round"/>
+  <!-- ring chip -->
+  <rect x="218" y="432" width="224" height="38" rx="19" fill="#172230"/>
+  <circle cx="244" cy="451" r="6" fill="#00d4a0"/>
+  <text x="258" y="457" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="2" fill="#9fe5c8">78% · 22 MIN TO 80%</text>
+
+  <!-- ===== right: station card ===== -->
+  <rect x="700" y="118" width="430" height="128" rx="22" fill="#172230"/>
+  <rect x="700" y="118" width="430" height="128" rx="22" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1.5"/>
+  <rect x="728" y="146" width="58" height="58" rx="14" fill="#00d4a0" opacity="0.16"/>
+  <path d="M761 158 L743 181 L755 181 L751 194 L770 170 L758 170 Z" fill="#00d4a0"/>
+  <text x="806" y="172" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="16" letter-spacing="1.5" fill="#ffffff">AUTEL CHARGING · 0.5 KM</text>
+  <text x="806" y="200" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13" letter-spacing="1.5" fill="#8899aa">$0.50/KWH · DC FAST</text>
+  <rect x="1024" y="212" width="82" height="30" rx="15" fill="#22c55e" opacity="0.16"/>
+  <text x="1065" y="232" text-anchor="middle" font-family="'SF Mono','Menlo',monospace" font-size="13" letter-spacing="1.5" fill="#22c55e">3 FREE</text>
+
+  <!-- one-tap row -->
+  <rect x="700" y="272" width="430" height="64" rx="18" fill="#ffffff" opacity="0.04"/>
+  <circle cx="734" cy="304" r="7" fill="#00d4a0"/>
+  <text x="756" y="310" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="2" fill="#c4d2dd">ONE TAP START · NO RFID CARDS</text>
+
+  <!-- route -->
+  <path d="M716 430 C 830 430 850 392 925 392 S 1040 430 1124 430"
+        stroke="#00d4a0" stroke-opacity="0.25" stroke-width="11" stroke-linecap="round" filter="url(#soft)"/>
+  <path d="M716 430 C 830 430 850 392 925 392 S 1040 430 1124 430"
+        stroke="#00d4a0" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="716" cy="430" r="8" fill="#ffffff"/>
+  <circle cx="925" cy="392" r="11" fill="#0b151f" stroke="#00d4a0" stroke-width="3"/>
+  <path d="M927 384l-6 9h4l-2.5 8 7-10h-4.5l2-7z" fill="#00d4a0"/>
+  <circle cx="1124" cy="430" r="18" fill="#00d4a0" opacity="0.18"/>
+  <circle cx="1124" cy="430" r="9" fill="#00d4a0"/>
+  <circle cx="1124" cy="430" r="3.5" fill="#0b151f"/>
+
+  <!-- captions -->
+  <text x="64" y="64" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="4" fill="#ffffff" fill-opacity="0.38">EV CHARGING · HUMAN FACTORS</text>
+  <text x="630" y="504" text-anchor="middle" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="17" letter-spacing="5.5" fill="#9fe5c8">ONE APP FOR EVERY CHARGER</text>
+  <text x="1196" y="64" text-anchor="end" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" letter-spacing="2" fill="#00d4a0">4 APPS → 1</text>
+</svg>
