@@ -444,6 +444,62 @@
   background: var(--bg3);
 }
 
+.cs-img-caption strong { color: var(--text2); font-weight: 700; }
+
+/* ── flow headers for the key-flows walkthrough ─────────────── */
+.cs-flow-head {
+  display: flex;
+  align-items: baseline;
+  gap: .9rem;
+  flex-wrap: wrap;
+  margin: 2.75rem 0 .5rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--border);
+}
+.cs-flow-step {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.cs-flow-title {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 800;
+  letter-spacing: -.5px;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* phone-screen showcase rows */
+.cs-screens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+  margin: 1.5rem 0 .75rem;
+}
+.cs-screens img {
+  width: 100%;
+  max-width: 224px;
+  height: auto;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .16);
+  background: var(--bg2);
+}
+.cs-flow-cap {
+  font-size: .85rem;
+  line-height: 1.7;
+  color: var(--text2);
+  margin: 0 0 2rem;
+  max-width: 760px;
+}
+.cs-flow-cap strong { color: var(--text); font-weight: 700; }
+
 /* ── METRICS GRID ────────────────────────────────────────────── */
 .cs-metrics {
   display: grid;
