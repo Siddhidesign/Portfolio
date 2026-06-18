@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jai Hind Group: B2B Dashboard | Siddhi Manche</title>
+  <style>
+    :root {
+      --accent: #f4604c;
+      --accent-tint: #fff0ee;
+      --navy: #1d1a2e;
+      --text-primary: #1d1a2e;
+      --text-secondary: #4d4a5c;
+      --text-muted: #8d8a99;
+      --bg: #faf6ef;
+      --bg-card: #ffffff;
+      --bg-light: #f2ede6;
+      --white: #ffffff;
+      --border: #e9e2d8;
+      --nav-width: 220px;
+      --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text-primary); }
+    img { max-width: 100%; display: block; }
+
+    /* SIDE NAV */
+    .side-nav {
+      position: fixed; left: 0; top: 0; height: 100vh; width: var(--nav-width);
+      padding: 50px 0 50px 28px; background: var(--white); border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: center; z-index: 100;
+    }
+    .side-nav-back {
+      font-size: 0.78rem; color: var(--text-secondary); text-decoration: none;
+      margin-bottom: 36px; display: block; letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .side-nav-back:hover { color: var(--accent); }
+    .sticky-menu { list-style: none; }
+    .sticky-menu li { margin-bottom: 3px; }
+    .sticky-menu a {
+      font-size: 0.78rem; color: var(--text-secondary); text-decoration: none;
+      display: block; padding: 5px 0 5px 14px; border-left: 2px solid transparent;
+      letter-spacing: 0.03em; transition: all 0.2s ease;
+    }
+    .sticky-menu a:hover { color: var(--text-primary); }
+    .sticky-menu a.active { color: var(--accent); font-weight: 700; border-left-color: var(--accent); }
+
+    /* PAGE WRAPPER */
+    .page-wrapper { margin-left: var(--nav-width); }
+
+    /* BACK LINK */
+    .top-back { padding: 36px 64px 0; }
+    .back-link {
+      font-size: 0.875rem; color: var(--text-secondary); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* SECTION BASE */
+    .cs-section { padding: 80px 64px; scroll-margin-top: 40px; }
+    .cs-section + .cs-section { border-top: 1px solid var(--border); }
+    .section-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px;
+    }
+    .section-heading { font-size: 2rem; font-weight: 700; margin-bottom: 14px; color: var(--navy); }
+    .section-sub { font-size: 1rem; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.65; }
+
+    /* HERO */
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+    .meta-pill {
+      background: var(--bg-card); color: var(--text-primary); font-size: 0.72rem; font-weight: 600;
+      padding: 6px 14px; border-radius: 100px; letter-spacing: 0.04em; border: 1px solid var(--border);
+    }
+    .hero-title {
+      font-size: clamp(1.9rem, 3.2vw, 3rem); font-weight: 700; line-height: 1.1;
+      margin-bottom: 16px; color: var(--navy);
+    }
+    .hero-subtitle {
+      font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 36px;
+      max-width: 640px; line-height: 1.65; font-style: italic;
+    }
+    .hero-image {
+      width: 100%; border-radius: 14px; margin-bottom: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+    .hero-note { font-size: 0.8rem; color: var(--text-muted); font-style: italic; text-align: center; }
+
+    /* WORKFLOW FLOW */
+    .workflow-flow {
+      display: flex; align-items: center; gap: 0; overflow-x: auto;
+      padding: 10px 0 24px; scrollbar-width: thin;
+    }
+    .flow-step {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      padding: 16px 18px; flex-shrink: 0; min-width: 140px; max-width: 160px;
+      text-align: center; font-size: 0.82rem; font-weight: 600;
+      color: var(--text-primary); line-height: 1.4;
+    }
+    .flow-arrow { font-size: 1.4rem; color: var(--text-muted); flex-shrink: 0; padding: 0 10px; }
+    .flow-tagline {
+      font-size: 1.15rem; font-weight: 700; text-align: center;
+      margin-top: 36px; margin-bottom: 28px; color: var(--navy);
+    }
+    .pain-chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .pain-chip {
+      background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c;
+      font-size: 0.8rem; padding: 8px 16px; border-radius: 100px; font-style: italic;
+    }
+
+    /* PROBLEM */
+    .pull-quote {
+      font-size: 1.85rem; font-weight: 600; font-style: italic; text-align: center;
+      color: var(--navy); max-width: 680px; margin: 0 auto 52px;
+      line-height: 1.4; border: none;
+    }
+    .problem-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+    .problem-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px;
+    }
+    .problem-number {
+      display: block; font-size: 4rem; font-weight: 700; color: transparent;
+      -webkit-text-stroke: 1.5px #ddd; line-height: 1; margin-bottom: 14px;
+    }
+    .problem-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--navy); }
+    .problem-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.75; }
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+    .muted-note { font-size: 0.85rem; color: var(--text-muted); font-style: italic; max-width: 640px; }
+
+    /* USER */
+    .team-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px; }
+    .team-col { background: var(--bg-light); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+    .team-name { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .team-role {
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px;
+      padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    }
+    .team-item { margin-bottom: 14px; }
+    .team-item:last-child { margin-bottom: 0; }
+    .team-item-label {
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 4px;
+    }
+    .team-item-label.goal { color: #15803d; }
+    .team-item-label.frustration { color: #b91c1c; }
+    .team-item-text { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55; }
+    .teams-tagline {
+      font-size: 0.875rem; color: var(--text-muted); text-align: center;
+      font-style: italic; margin-bottom: 40px;
+    }
+    .quote-card-wide {
+      background: var(--bg-card); border-radius: 16px; padding: 48px 52px;
+      position: relative; overflow: hidden;
+    }
+    .user-quote-mark {
+      font-size: 8rem; color: var(--navy); opacity: 0.08; position: absolute;
+      top: -10px; left: 24px; line-height: 1; user-select: none;
+    }
+    .user-quote-text {
+      font-size: 1.1rem; font-style: italic; line-height: 1.75; color: var(--navy);
+      margin-bottom: 20px; position: relative;
+    }
+    .user-quote-attr { font-size: 0.82rem; color: var(--text-secondary); }
+    .user-quote-attr strong { color: var(--navy); display: block; font-size: 0.9rem; margin-bottom: 2px; }
+
+    /* PROCESS */
+    .process-timeline { display: flex; flex-direction: column; gap: 52px; }
+    .process-step { display: grid; grid-template-columns: 56px 1fr; gap: 22px; align-items: start; }
+    .step-node {
+      width: 48px; height: 48px; border-radius: 50%; background: var(--navy);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+    }
+    .step-node-num { font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .step-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; color: var(--navy); }
+    .step-text { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; }
+    .metric-chips-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; max-width: 400px;
+    }
+    .metric-chip {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px;
+    }
+    .metric-chip-num { display: block; font-size: 1.5rem; font-weight: 700; color: var(--accent); line-height: 1.1; }
+    .metric-chip-label { font-size: 0.72rem; color: var(--text-secondary); }
+    .component-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .comp-chip {
+      background: var(--bg-light); border: 1px solid var(--border); color: var(--text-primary);
+      font-size: 0.8rem; padding: 7px 14px; border-radius: 100px;
+    }
+    .ia-tree { margin-top: 16px; }
+    .ia-branch { margin-bottom: 14px; }
+    .ia-branch-header {
+      background: var(--navy); color: var(--white); padding: 10px 16px;
+      border-radius: 8px; font-size: 0.84rem; font-weight: 700; margin-bottom: 6px;
+    }
+    .ia-branch-children {
+      display: flex; flex-direction: column; gap: 4px;
+      padding-left: 18px; border-left: 2px solid var(--border); margin-left: 8px;
+    }
+    .ia-leaf { font-size: 0.8rem; color: var(--text-secondary); padding: 3px 0; }
+    .ia-leaf::before { content: '· '; color: var(--accent); font-weight: 700; }
+
+    /* ARCHITECTURE */
+    .arch-intro { font-size: 0.86rem; color: var(--text-muted); font-style: italic; margin-bottom: 28px; }
+    .ia-module {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.03); margin-bottom: 14px;
+    }
+    .ia-module-header {
+      background: var(--navy); color: white; padding: 13px 22px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .ia-module-title { font-size: 0.95rem; font-weight: 700; flex: 1; }
+    .ia-module-note { font-size: 0.72rem; opacity: 0.7; font-style: italic; font-weight: 400; }
+    .ia-children { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .ia-child { padding: 16px 18px; border-right: 1px solid var(--border); }
+    .ia-child:last-child { border-right: none; }
+    .ia-child-name { font-weight: 700; font-size: 0.85rem; color: var(--text-primary); margin-bottom: 4px; }
+    .ia-child-sub { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; }
+
+    /* DESIGNS */
+    .before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+    .ba-col { display: flex; flex-direction: column; gap: 16px; }
+    .ba-header {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 7px 18px 7px 14px; border-left: 4px solid; border-radius: 0 100px 100px 0;
+      display: inline-block; width: fit-content;
+    }
+    .ba-before-header { background: #fef2f2; color: #b91c1c; border-color: #ef4444; }
+    .ba-after-header { background: #f0fdf4; color: #15803d; border-color: #22c55e; }
+    .ba-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .ba-list li {
+      font-size: 0.875rem; color: var(--text-secondary); display: flex;
+      gap: 8px; align-items: flex-start; line-height: 1.5;
+    }
+    .ba-before-list li::before { content: '✕'; color: #ef4444; font-weight: 700; flex-shrink: 0; }
+    .ba-after-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+    .design-frames { display: flex; flex-direction: column; gap: 32px; }
+    .design-frame { width: 100%; }
+    .design-frame img {
+      width: 100%; border-radius: 12px 12px 0 0;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+    .caption-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 18px; background: var(--bg-light); border: 1px solid var(--border);
+      border-top: none; border-radius: 0 0 12px 12px;
+    }
+    .caption-title { font-size: 0.84rem; font-weight: 700; color: var(--navy); }
+    .caption-desc { font-size: 0.78rem; color: var(--text-secondary); }
+
+    /* OUTCOME */
+    .stat-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; }
+    .stat-card { background: var(--bg-card); border-radius: 16px; padding: 36px 24px; text-align: center; }
+    .stat-big { display: block; font-size: 2.8rem; font-weight: 700; color: var(--accent); line-height: 1.1; margin-bottom: 8px; }
+    .stat-desc { font-size: 0.82rem; color: var(--text-secondary); }
+    .outcome-bands { display: flex; flex-direction: column; }
+    .outcome-band {
+      padding: 26px 30px; border-left: 4px solid var(--accent);
+      background: var(--white); border-bottom: 1px solid var(--border);
+    }
+    .outcome-band:last-child { border-bottom: none; }
+    .outcome-band-inner { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+    .outcome-band h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+    .outcome-band p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.75; }
+
+    /* LEARNINGS */
+    .learnings-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .learning-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-bottom: 4px solid var(--accent); border-radius: 16px; padding: 40px;
+    }
+    .learning-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: var(--navy); }
+    .learning-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.8; }
+
+    /* RETROSPECTIVE */
+    .retro-list { display: flex; flex-direction: column; gap: 20px; }
+    .retro-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px; position: relative; overflow: hidden;
+    }
+    .retro-watermark {
+      position: absolute; top: -12px; right: 14px; font-size: 5.5rem; font-weight: 700;
+      color: transparent; -webkit-text-stroke: 1px var(--border); line-height: 1; user-select: none;
+    }
+    .retro-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; position: relative; color: var(--navy); }
+    .retro-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.75; position: relative; }
+
+    /* BOTTOM NAV */
+    .bottom-nav {
+      padding: 52px 64px 72px; display: flex; gap: 24px;
+      align-items: center; border-top: 1px solid var(--border);
+    }
+    .back-to-top {
+      font-size: 0.875rem; color: var(--text-secondary); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;
+    }
+    .back-to-top:hover { color: var(--accent); }
+    .nav-sep { color: var(--border); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .side-nav { display: none; }
+      .page-wrapper { margin-left: 0; }
+      .cs-section { padding: 60px 24px; }
+      .top-back { padding: 24px 24px 0; }
+      .hero-title { font-size: 1.8rem; }
+      .pull-quote { font-size: 1.4rem; }
+      .problem-cards { grid-template-columns: 1fr; }
+      .team-columns { grid-template-columns: 1fr; }
+      .process-step { grid-template-columns: 48px 1fr; gap: 14px; }
+      .metric-chips-grid { max-width: 100%; }
+      .ia-children { grid-template-columns: 1fr; }
+      .ia-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .ia-child:last-child { border-bottom: none; }
+      .before-after-grid { grid-template-columns: 1fr; }
+      .stat-cards { grid-template-columns: 1fr; }
+      .outcome-band-inner { grid-template-columns: 1fr; gap: 8px; }
+      .learnings-pair { grid-template-columns: 1fr; }
+      .bottom-nav { padding: 40px 24px 60px; flex-wrap: wrap; }
+    }
+
+    /* ── NEW CLASSES ─────────────────────────────────────────────── */
+
+    /* Hero two-col */
+    .hero-two-col {
+      display: grid; grid-template-columns: 2fr 1fr; gap: 48px;
+      align-items: start; margin-bottom: 40px;
+    }
+    .hero-desc-text { font-size: 1rem; color: var(--text-secondary); line-height: 1.75; }
+    .hero-meta-block { display: flex; flex-direction: column; gap: 20px; }
+    .hero-meta-item { display: flex; flex-direction: column; gap: 3px; }
+    .hero-meta-item-label {
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .hero-meta-item-val { font-size: 0.9rem; color: var(--navy); font-weight: 600; }
+
+    /* Dark callout */
+    .dark-callout {
+      background: var(--navy); border-radius: 16px; padding: 52px; margin-bottom: 40px;
+    }
+    .dark-callout-quote {
+      font-size: 1.45rem; font-style: italic; line-height: 1.55;
+      color: var(--white); margin-bottom: 14px; opacity: 0.95;
+    }
+    .dark-callout-attr { font-size: 0.78rem; color: rgba(255,255,255,0.45); letter-spacing: 0.04em; }
+
+    /* Example flow card */
+    .example-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .example-two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;
+    }
+    .example-flow-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px;
+    }
+    .example-flow-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+    .example-flow-step {
+      display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;
+      font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;
+    }
+    .example-flow-step:last-child { margin-bottom: 0; }
+    .flow-step-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+      flex-shrink: 0; margin-top: 6px;
+    }
+    .example-note { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; }
+
+    /* Challenge cards */
+    .challenge-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .challenge-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-top: 3px solid var(--accent); border-radius: 16px; padding: 36px;
+    }
+    .challenge-num {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      color: var(--accent); margin-bottom: 14px; display: block;
+    }
+    .challenge-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .challenge-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.75; }
+
+    /* Power shift */
+    .power-shift {
+      background: var(--bg-light); border-radius: 16px; padding: 36px; margin-bottom: 32px;
+    }
+    .power-shift-title {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px;
+    }
+    .shift-row {
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px;
+      align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border);
+    }
+    .shift-row:last-child { border-bottom: none; }
+    .shift-from { font-size: 0.875rem; color: var(--text-secondary); text-align: right; font-style: italic; }
+    .shift-arrow { font-size: 1rem; color: var(--accent); font-weight: 700; text-align: center; }
+    .shift-to { font-size: 0.875rem; color: var(--navy); font-weight: 600; }
+
+    /* Goal cards */
+    .goal-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .goal-card { background: var(--bg-card); border-radius: 14px; padding: 28px; }
+    .goal-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .goal-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* Responsibilities */
+    .responsibility-list { display: flex; flex-direction: column; }
+    .responsibility-item {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 20px 0; border-bottom: 1px solid var(--border);
+    }
+    .responsibility-item:last-child { border-bottom: none; }
+    .resp-accent-bar {
+      width: 3px; border-radius: 2px; background: var(--accent);
+      align-self: stretch; flex-shrink: 0; min-height: 20px;
+    }
+    .resp-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+    .resp-text strong { color: var(--navy); }
+
+    /* Persona cards */
+    .persona-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+    .persona-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 36px;
+    }
+    .persona-name { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .persona-role-label {
+      font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-bottom: 20px;
+      padding-bottom: 16px; border-bottom: 1px solid var(--border); display: block;
+    }
+    .persona-field { margin-bottom: 14px; }
+    .persona-field:last-child { margin-bottom: 0; }
+    .persona-field-label {
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 4px;
+    }
+    .persona-field-val { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; }
+    .persona-quote {
+      background: var(--bg-light); border-left: 3px solid var(--accent);
+      padding: 12px 16px; font-size: 0.84rem; font-style: italic; color: var(--navy);
+      border-radius: 0 8px 8px 0; margin-top: 16px;
+    }
+
+    /* Shared needs */
+    .shared-needs {
+      background: var(--navy); border-radius: 14px; padding: 36px 40px; color: var(--white);
+    }
+    .shared-needs h4 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; opacity: 0.45; margin-bottom: 20px;
+    }
+    .needs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .need-item { font-size: 0.875rem; line-height: 1.65; color: rgba(255,255,255,0.8); }
+    .need-dot {
+      width: 5px; height: 5px; background: var(--accent); border-radius: 50%;
+      display: inline-block; margin-right: 8px; vertical-align: middle;
+    }
+
+    /* System columns */
+    .system-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .sys-col-old { background: var(--navy); border-radius: 16px; padding: 36px; color: var(--white); }
+    .sys-col-new {
+      background: var(--white); border: 2px solid var(--accent); border-radius: 16px; padding: 36px;
+    }
+    .sys-col-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 16px; display: block;
+    }
+    .sys-col-old .sys-col-label { color: rgba(255,255,255,0.4); }
+    .sys-col-new .sys-col-label { color: var(--accent); }
+    .sys-col-title { font-size: 1rem; font-weight: 700; margin-bottom: 20px; }
+    .sys-col-old .sys-col-title { color: var(--white); }
+    .sys-col-new .sys-col-title { color: var(--navy); }
+    .sys-item {
+      margin-bottom: 12px; font-size: 0.875rem; line-height: 1.6;
+      padding-left: 16px; position: relative;
+    }
+    .sys-item:last-child { margin-bottom: 0; }
+    .sys-item::before {
+      content: ''; width: 4px; height: 4px; border-radius: 50%;
+      position: absolute; left: 0; top: 8px;
+    }
+    .sys-col-old .sys-item { color: rgba(255,255,255,0.7); }
+    .sys-col-old .sys-item::before { background: rgba(255,255,255,0.3); }
+    .sys-col-new .sys-item { color: var(--text-secondary); }
+    .sys-col-new .sys-item::before { background: var(--accent); }
+
+    /* Decision rows */
+    .decision-rows { display: flex; flex-direction: column; }
+    .decision-row { padding: 44px 0; border-bottom: 1px solid var(--border); }
+    .decision-row:last-child { border-bottom: none; }
+    .decision-row-header {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 28px;
+    }
+    .decision-badge {
+      width: 40px; height: 40px; border-radius: 50%; background: var(--navy);
+      color: var(--white); font-size: 0.85rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .decision-title { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+    .decision-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 20px; }
+    .decision-field-label {
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 8px;
+    }
+    .decision-field-val { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7; }
+    .rationale-chip {
+      display: inline-block; background: var(--accent-tint); border: 1px solid var(--accent);
+      color: var(--accent); font-size: 0.78rem; font-weight: 600;
+      padding: 5px 14px; border-radius: 100px;
+    }
+
+    /* Results block */
+    .results-block {
+      background: var(--navy); border-radius: 20px; padding: 64px 52px;
+      text-align: center; margin-bottom: 40px;
+    }
+    .results-big-stat {
+      font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 700;
+      color: var(--accent); line-height: 1; margin-bottom: 12px;
+    }
+    .results-stat-label { font-size: 1rem; color: rgba(255,255,255,0.6); margin-bottom: 36px; }
+    .results-divider { width: 40px; height: 1px; background: rgba(255,255,255,0.15); margin: 0 auto 36px; }
+    .results-bullets {
+      display: flex; flex-direction: column; gap: 16px;
+      max-width: 560px; margin: 0 auto; text-align: left;
+    }
+    .result-bullet { display: flex; gap: 14px; align-items: flex-start; }
+    .result-bullet-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+      flex-shrink: 0; margin-top: 7px;
+    }
+    .result-bullet p { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.7; }
+    .result-bullet strong { color: var(--white); }
+
+    /* Learning list */
+    .learning-list { display: flex; flex-direction: column; }
+    .learning-item {
+      padding: 36px 0; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 1fr 2fr; gap: 40px;
+    }
+    .learning-item:last-child { border-bottom: none; }
+    .learning-item-num {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: block;
+    }
+    .learning-item h3 { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.4; }
+    .learning-item p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.8; }
+
+    /* Responsive additions */
+    @media (max-width: 900px) {
+      .hero-two-col { grid-template-columns: 1fr; gap: 28px; }
+      .example-two-col { grid-template-columns: 1fr; }
+      .challenge-cards { grid-template-columns: 1fr; }
+      .goal-cards { grid-template-columns: 1fr; }
+      .persona-cards { grid-template-columns: 1fr; }
+      .needs-grid { grid-template-columns: 1fr; gap: 12px; }
+      .system-columns { grid-template-columns: 1fr; }
+      .decision-fields { grid-template-columns: 1fr; gap: 16px; }
+      .results-block { padding: 48px 24px; }
+      .learning-item { grid-template-columns: 1fr; gap: 16px; }
+      .shift-row { grid-template-columns: 1fr auto 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="side-nav">
+    <a href="../index.html" class="side-nav-back">&#8592; Home</a>
+    <nav aria-label="Case study sections">
+      <ul class="sticky-menu">
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#context">Context</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#goals">Goals</a></li>
+        <li><a href="#responsibilities">My Role</a></li>
+        <li><a href="#users">Users</a></li>
+        <li><a href="#system">System</a></li>
+        <li><a href="#decisions">Decisions</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#learnings">Learnings</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="page-wrapper">
+
+    <div class="top-back">
+      <a href="../index.html" class="back-link">&#8592; Back to all work</a>
+    </div>
+
+    <!-- OVERVIEW -->
+    <section id="overview" class="cs-section">
+      <div class="hero-meta">
+        <span class="meta-pill">B2B Dashboard</span>
+        <span class="meta-pill">Wholesale Clothing</span>
+        <span class="meta-pill">Web</span>
+        <span class="meta-pill">2023 to 2024</span>
+        <span class="meta-pill">Product UX Designer</span>
+      </div>
+      <h1 class="hero-title">Five spreadsheets.<br>Three teams.<br>One dashboard.</h1>
+      <p class="hero-subtitle">How Jai Hind Group replaced a phone-and-spreadsheet operation with a unified internal platform built for the people actually using it daily.</p>
+
+      <div class="hero-two-col">
+        <p class="hero-desc-text">Jai Hind Group is a B2B uniform and clothing supplier serving hotels, schools, and vendors across the region. When I joined, the entire operation ran on phone calls, printed business cards, and five disconnected spreadsheets owned by three different teams. Orders were missed. Stock was miscounted. New staff took weeks to learn a system that nobody had designed on purpose.</p>
+        <div class="hero-meta-block">
+          <div class="hero-meta-item">
+            <span class="hero-meta-item-label">My Role</span>
+            <span class="hero-meta-item-val">Product UX Designer</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-item-label">Team</span>
+            <span class="hero-meta-item-val">3 designers, 1 PM</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-item-label">Duration</span>
+            <span class="hero-meta-item-val">Aug 2023 to Jul 2024</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-item-label">Platform</span>
+            <span class="hero-meta-item-val">Internal web dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <img src="../assets/jaihind/jaihind_mainview.png" alt="Jai Hind Group B2B Dashboard main view" class="hero-image">
+      <p class="hero-note">Specific sales data obfuscated due to B2B confidentiality. Workflow and process documentation shown in full.</p>
+    </section>
+
+    <!-- CONTEXT -->
+    <section id="context" class="cs-section">
+      <div class="section-label">Context</div>
+      <h2 class="section-heading">How the business actually worked</h2>
+
+      <div class="dark-callout">
+        <p class="dark-callout-quote">"The data existed. It just lived in five different places, owned by five different people, updated at five different times."</p>
+        <span class="dark-callout-attr">Observed pattern across all 8 stakeholder interviews</span>
+      </div>
+
+      <p class="example-label">Let's take an example</p>
+      <div class="example-two-col">
+        <div class="example-flow-card">
+          <h4>A typical order, start to finish</h4>
+          <div class="example-flow-step">
+            <div class="flow-step-dot"></div>
+            A hotel manager calls to order 50 sets of housekeeping uniforms in two sizes.
+          </div>
+          <div class="example-flow-step">
+            <div class="flow-step-dot"></div>
+            The sales rep checks stock by calling the warehouse. The warehouse staff checks a spreadsheet manually.
+          </div>
+          <div class="example-flow-step">
+            <div class="flow-step-dot"></div>
+            The rep confirms availability and records the order in their own spreadsheet. Merchandising has no visibility.
+          </div>
+          <div class="example-flow-step">
+            <div class="flow-step-dot"></div>
+            Three days later, the warehouse discovers the size split is wrong because two other orders came in meanwhile.
+          </div>
+          <div class="example-flow-step">
+            <div class="flow-step-dot"></div>
+            The error is discovered at delivery. A complaint is logged by phone.
+          </div>
+        </div>
+        <div class="example-note">
+          <p style="margin-bottom: 16px;">This was not an edge case. It was the standard operating procedure.</p>
+          <p style="margin-bottom: 16px;">No step in this flow had a digital record shared across teams. Every handoff between sales, warehouse, and merchandising happened verbally or by phone, then got recorded independently in separate tools.</p>
+          <p>The five spreadsheets were not a symptom of bad habits. They were the entire system.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHALLENGES -->
+    <section id="challenges" class="cs-section">
+      <div class="section-label">Challenges</div>
+      <h2 class="section-heading">What was breaking and why</h2>
+      <p class="section-sub">Three root problems, all connected to the same gap: no single source of truth.</p>
+
+      <div class="challenge-cards">
+        <div class="challenge-card">
+          <span class="challenge-num">01</span>
+          <h3>No order visibility across teams</h3>
+          <p>Each team recorded orders independently. A sale confirmed by the sales team would not appear in the warehouse's spreadsheet until someone manually updated it, often hours later. Errors appeared only at delivery.</p>
+        </div>
+        <div class="challenge-card">
+          <span class="challenge-num">02</span>
+          <h3>Scattered customer and stock data</h3>
+          <p>Stock counts lived in one sheet. Customer records in another. Order history in a third. Answering a single question, like whether a repeat client's usual size was in stock, required opening three files and reconciling the data by hand.</p>
+        </div>
+        <div class="challenge-card">
+          <span class="challenge-num">03</span>
+          <h3>Error-prone manual entry</h3>
+          <p>All order entry happened by phone and was transcribed by hand. Quantities, size splits, and client details were frequently wrong, and there was no validation layer to catch mistakes before they became fulfilled orders.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOALS -->
+    <section id="goals" class="cs-section">
+      <div class="section-label">Goals</div>
+      <h2 class="section-heading">What the dashboard needed to do</h2>
+
+      <div class="power-shift">
+        <p class="power-shift-title">The shift we were designing for</p>
+        <div class="shift-row">
+          <span class="shift-from">Reactive stockout discovery</span>
+          <span class="shift-arrow">&#8594;</span>
+          <span class="shift-to">Proactive low-stock alerts</span>
+        </div>
+        <div class="shift-row">
+          <span class="shift-from">5 spreadsheets, 3 owners</span>
+          <span class="shift-arrow">&#8594;</span>
+          <span class="shift-to">One shared source of truth</span>
+        </div>
+        <div class="shift-row">
+          <span class="shift-from">Phone-based order entry</span>
+          <span class="shift-arrow">&#8594;</span>
+          <span class="shift-to">Structured digital order creation</span>
+        </div>
+      </div>
+
+      <div class="goal-cards">
+        <div class="goal-card">
+          <h4>Reduce errors at the point of entry</h4>
+          <p>Build validation into order creation so size, quantity, and client mismatches surface before confirmation, not after delivery.</p>
+        </div>
+        <div class="goal-card">
+          <h4>Give every team real-time visibility</h4>
+          <p>Stock counts, order status, and customer history should update instantly across warehouse, merchandising, and sales without any manual sync.</p>
+        </div>
+        <div class="goal-card">
+          <h4>Support B2B scale, not just current volume</h4>
+          <p>The system should handle growth without requiring new spreadsheets. One platform for all product lines, all clients, all teams.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESPONSIBILITIES -->
+    <section id="responsibilities" class="cs-section">
+      <div class="section-label">My Role</div>
+      <h2 class="section-heading">What I was responsible for</h2>
+      <p class="section-sub" style="margin-bottom: 32px;">I joined as Product UX Designer on a team of 3 designers and a PM. My ownership covered research through handoff.</p>
+
+      <div class="responsibility-list">
+        <div class="responsibility-item">
+          <div class="resp-accent-bar"></div>
+          <p class="resp-text"><strong>Stakeholder research:</strong> Led 8 interviews across warehouse, merchandising, and sales. Mapped 30+ operational requirements and grouped them by task frequency and decision urgency to inform the IA.</p>
+        </div>
+        <div class="responsibility-item">
+          <div class="resp-accent-bar"></div>
+          <p class="resp-text"><strong>Information architecture:</strong> Defined the navigational structure of the platform. Organized every feature by how often each team needed it and how quickly they needed to act on it.</p>
+        </div>
+        <div class="responsibility-item">
+          <div class="resp-accent-bar"></div>
+          <p class="resp-text"><strong>High-fidelity UI design:</strong> Designed all primary screens including the dashboard overview, stock management table, alert system, and order entry flow. Built for density: 30+ data points per screen without cognitive overload.</p>
+        </div>
+        <div class="responsibility-item">
+          <div class="resp-accent-bar"></div>
+          <p class="resp-text"><strong>Design decisions under constraint:</strong> Made documented tradeoff calls on table vs card layout, unified vs role-split views, and inline vs modal editing. Each decision is documented in the Decisions section below.</p>
+        </div>
+        <div class="responsibility-item">
+          <div class="resp-accent-bar"></div>
+          <p class="resp-text"><strong>Dev handoff:</strong> Delivered complete Figma specs including interaction states, edge cases, empty states, and data density variants across all breakpoints.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- USERS -->
+    <section id="users" class="cs-section">
+      <div class="section-label">Users</div>
+      <h2 class="section-heading">Who the platform was built for</h2>
+      <p class="section-sub" style="margin-bottom: 32px;">Three teams. Different daily tasks. One shared frustration.</p>
+
+      <div class="persona-cards">
+        <div class="persona-card">
+          <p class="persona-name">Rajan Mehta</p>
+          <span class="persona-role-label">Warehouse Manager, highest login frequency</span>
+          <div class="persona-field">
+            <p class="persona-field-label">Daily task</p>
+            <p class="persona-field-val">Track incoming stock, update quantities, respond to availability queries from sales.</p>
+          </div>
+          <div class="persona-field">
+            <p class="persona-field-label">Core frustration</p>
+            <p class="persona-field-val">Discovering stockouts only when an order fails. No way to check proactively across categories.</p>
+          </div>
+          <div class="persona-field">
+            <p class="persona-field-label">What success looks like</p>
+            <p class="persona-field-val">Real-time stock levels. Alerts before a stockout, not after.</p>
+          </div>
+          <p class="persona-quote">I know our stock inside out. I just need the system to know it too, in real time, without me updating five different spreadsheets.</p>
+        </div>
+
+        <div class="persona-card">
+          <p class="persona-name">Priya Nair</p>
+          <span class="persona-role-label">Sales Coordinator, highest order volume</span>
+          <div class="persona-field">
+            <p class="persona-field-label">Daily task</p>
+            <p class="persona-field-val">Take client orders by phone, confirm availability, coordinate with warehouse on delivery timing.</p>
+          </div>
+          <div class="persona-field">
+            <p class="persona-field-label">Core frustration</p>
+            <p class="persona-field-val">Calling the warehouse to check stock for every single order. Errors discovered at the client's door.</p>
+          </div>
+          <div class="persona-field">
+            <p class="persona-field-label">What success looks like</p>
+            <p class="persona-field-val">Instant availability lookup. Order confirmation that does not depend on a phone call.</p>
+          </div>
+          <p class="persona-quote">Every time I confirm an order, I'm crossing my fingers that stock is actually what the warehouse told me an hour ago.</p>
+        </div>
+      </div>
+
+      <div class="shared-needs">
+        <h4>What both users needed from day one</h4>
+        <div class="needs-grid">
+          <div class="need-item"><span class="need-dot"></span>Stock data that updates in real time, no manual sync</div>
+          <div class="need-item"><span class="need-dot"></span>Order status visible to all teams simultaneously</div>
+          <div class="need-item"><span class="need-dot"></span>Fewer clicks to answer the most frequent daily questions</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM -->
+    <section id="system" class="cs-section">
+      <div class="section-label">System</div>
+      <h2 class="section-heading">Old flow vs. new architecture</h2>
+      <p class="section-sub" style="margin-bottom: 36px;">The goal was not to digitize the spreadsheets. It was to replace the workflow that made spreadsheets necessary.</p>
+
+      <div class="system-columns">
+        <div class="sys-col-old">
+          <span class="sys-col-label">Before</span>
+          <p class="sys-col-title">Five tools, no connection</p>
+          <div class="sys-item">Sales records orders in personal spreadsheet</div>
+          <div class="sys-item">Warehouse tracks stock in a separate file, updated manually</div>
+          <div class="sys-item">Merchandising uses a third sheet for SKU and category data</div>
+          <div class="sys-item">Stock queries handled by phone between teams</div>
+          <div class="sys-item">No alert system: stockouts discovered at delivery</div>
+          <div class="sys-item">No audit trail: accountability impossible</div>
+        </div>
+        <div class="sys-col-new">
+          <span class="sys-col-label">After</span>
+          <p class="sys-col-title">One platform, three teams</p>
+          <div class="sys-item">Inventory Overview: real-time stock counts, low-stock alerts, category breakdown on every login</div>
+          <div class="sys-item">Stock Management: bulk edit table with inline validation, search and filter by SKU and zone</div>
+          <div class="sys-item">Order Entry: structured form with availability check built in, no phone call required</div>
+          <div class="sys-item">Reports: movement trends and stock velocity for merchandising decisions</div>
+          <div class="sys-item">Admin: role-based permissions, configurable alert thresholds per SKU</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECISIONS -->
+    <section id="decisions" class="cs-section">
+      <div class="section-label">Decisions</div>
+      <h2 class="section-heading">Three choices that shaped the product</h2>
+
+      <div class="decision-rows">
+
+        <div class="decision-row">
+          <div class="decision-row-header">
+            <div class="decision-badge">1</div>
+            <h3 class="decision-title">Tables over cards for inventory data</h3>
+          </div>
+          <div class="decision-fields">
+            <div>
+              <p class="decision-field-label">The problem</p>
+              <p class="decision-field-val">Inventory data has 8 to 12 attributes per SKU: size, category, zone, quantity, reorder threshold, velocity, last updated, status. Cards hide most of these by default. Users must open each one to compare values across rows.</p>
+            </div>
+            <div>
+              <p class="decision-field-label">What I tried</p>
+              <p class="decision-field-val">Card-based layout with expandable rows. Tested with warehouse staff across two rounds of walkthrough. They kept asking to see all the data at once and trying to click through to compare multiple SKUs side by side.</p>
+            </div>
+            <div>
+              <p class="decision-field-label">What I landed on</p>
+              <p class="decision-field-val">Dense, scannable data table with sticky column headers, configurable column visibility, and inline editing. Users can bulk-edit multiple rows without opening a single modal. Faster for the high-frequency task of daily stock updates.</p>
+            </div>
+          </div>
+          <span class="rationale-chip">B2B power users scan, not browse</span>
+        </div>
+
+        <div class="decision-row">
+          <div class="decision-row-header">
+            <div class="decision-badge">2</div>
+            <h3 class="decision-title">Unified dashboard with role permissions over separate views</h3>
+          </div>
+          <div class="decision-fields">
+            <div>
+              <p class="decision-field-label">The problem</p>
+              <p class="decision-field-val">Three teams with different primary tasks: warehouse tracks stock, sales manages orders, merchandising plans categories. Initial instinct was to build three separate dashboards tailored to each team's workflow.</p>
+            </div>
+            <div>
+              <p class="decision-field-label">What I tried</p>
+              <p class="decision-field-val">Explored a tabbed structure with a "Sales View," "Warehouse View," and "Merchandising View." Found in walkthroughs that the warehouse manager frequently needed to see pending orders from sales, and the sales coordinator needed live stock data. The views created siloes the team was trying to escape.</p>
+            </div>
+            <div>
+              <p class="decision-field-label">What I landed on</p>
+              <p class="decision-field-val">One unified dashboard with shared data visibility. Role-based permissions control edit access, not read access. Everyone can see everything. Only authorized users can modify. Cross-team queries dropped from a phone call to a single page load.</p>
+            </div>
+          </div>
+          <span class="rationale-chip">Visibility is a shared need, editing access is not</span>
+        </div>
+
+        <div class="decision-row">
+          <div class="decision-row-header">
+            <div class="decision-badge">3</div>
+            <h3 class="decision-title">Inline editing over modal-based editing for stock updates</h3>
+          </div>
+          <div class="decision-fields">
+            <div>
+              <p class="decision-field-label">The problem</p>
+              <p class="decision-field-val">Warehouse staff update stock quantities multiple times a day, sometimes across 20 to 30 rows at once. A modal-per-row approach works for occasional edits. It does not work for a workflow where bulk updates are the default case.</p>
+            </div>
+            <div>
+              <p class="decision-field-label">What I tried</p>
+              <p class="decision-field-val">Modal with an edit form, matching the pattern used across most internal tools the team was familiar with. Timed the task in walkthroughs: editing 10 rows took 4 minutes with modals. Users described it as "tedious" in three out of four sessions.</p>
+            </div>
+            <div>
+              <p class="decision-field-label">What I landed on</p>
+              <p class="decision-field-val">Inline editing directly in the table cell. Click any field to edit, Tab to advance to the next, Save row with Enter. Validation runs per-cell before the row saves. Editing 10 rows dropped to under 90 seconds in follow-up walkthroughs.</p>
+            </div>
+          </div>
+          <span class="rationale-chip">Match the interaction to task frequency</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="cs-section">
+      <div class="section-label">Results</div>
+      <h2 class="section-heading">What changed after launch</h2>
+
+      <div class="results-block">
+        <p class="results-big-stat">27%</p>
+        <p class="results-stat-label">reduction in user errors post-launch</p>
+        <div class="results-divider"></div>
+        <div class="results-bullets">
+          <div class="result-bullet">
+            <div class="result-bullet-dot"></div>
+            <p><strong>40% increase in workflow efficiency</strong> across all three teams, measured in task completion time for the most frequent daily operations.</p>
+          </div>
+          <div class="result-bullet">
+            <div class="result-bullet-dot"></div>
+            <p><strong>Five spreadsheets replaced by one platform</strong> used daily by warehouse, merchandising, and sales with no parallel manual process.</p>
+          </div>
+          <div class="result-bullet">
+            <div class="result-bullet-dot"></div>
+            <p><strong>30+ operational requirements</strong> mapped and built into a navigable structure where the most frequent tasks are reachable in two clicks or fewer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-frames">
+        <div class="design-frame">
+          <img src="../assets/jaihind/YOUR-DATA-TABLE-SCREEN.jpg" alt="Orders Management">
+          <div class="caption-bar">
+            <span class="caption-title">Orders Management</span>
+            <span class="caption-desc">Filterable order list with status tabs, bulk actions, challan printing, and CSV and PDF export</span>
+          </div>
+        </div>
+        <div class="design-frame">
+          <img src="../assets/jaihind/FINAL-DESIGN-1.jpg" alt="Create Sales Order">
+          <div class="caption-bar">
+            <span class="caption-title">Create Sales Order</span>
+            <span class="caption-desc">Customer lookup, product cart, and delivery and payment details handled in one flow</span>
+          </div>
+        </div>
+        <div class="design-frame">
+          <img src="../assets/jaihind/FINAL-DESIGN-2.jpg" alt="Order Summary and Checkout">
+          <div class="caption-bar">
+            <span class="caption-title">Order Summary and Checkout</span>
+            <span class="caption-desc">Itemized review with discounts, advance payment, and a final total before placing the order</span>
+          </div>
+        </div>
+        <div class="design-frame">
+          <img src="../assets/jaihind/FINAL-DESIGN-3.jpg" alt="Inventory Check on Approval">
+          <div class="caption-bar">
+            <span class="caption-title">Inventory Check on Approval</span>
+            <span class="caption-desc">Live stock check against requested quantities, flagging understocked items before the order is approved</span>
+          </div>
+        </div>
+        <div class="design-frame">
+          <img src="../assets/jaihind/FINAL-DESIGN-4.jpg" alt="Customer Creation">
+          <div class="caption-bar">
+            <span class="caption-title">Customer Creation</span>
+            <span class="caption-desc">Phone-first customer record with address, map location, and save-as tags for quick lookup</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARNINGS -->
+    <section id="learnings" class="cs-section">
+      <div class="section-label">Learnings</div>
+      <h2 class="section-heading">What I took from this project</h2>
+
+      <div class="learning-list">
+        <div class="learning-item">
+          <div>
+            <span class="learning-item-num">01</span>
+            <h3>Designing for density is a skill, not a constraint</h3>
+          </div>
+          <p>Simple does not mean empty. Data-heavy B2B environments require balancing density with scannability. The work is creating layouts where users read 30+ data points without feeling overwhelmed. That balance is the design challenge, not a limitation to work around.</p>
+        </div>
+        <div class="learning-item">
+          <div>
+            <span class="learning-item-num">02</span>
+            <h3>Adoption beats interface perfection</h3>
+          </div>
+          <p>The 40% efficiency gain did not come from making the interface beautiful. It came from making the digital tool faster than the manual habit it replaced. Shortcut patterns, task frequency hierarchy, and fewer clicks per decision mattered more than visual refinement.</p>
+        </div>
+        <div class="learning-item">
+          <div>
+            <span class="learning-item-num">03</span>
+            <h3>Interview the people doing the work, not just the people managing it</h3>
+          </div>
+          <p>All 8 interviews were with managers and supervisors. The people entering stock data daily were floor staff using handheld scanners in a moving warehouse: a completely different physical context. Some design decisions I made for desktop would not have survived contact with that reality. I would recruit at least 3 floor-level users before sketching any screen.</p>
+        </div>
+        <div class="learning-item">
+          <div>
+            <span class="learning-item-num">04</span>
+            <h3>Build the component library alongside the product, not after it</h3>
+          </div>
+          <p>Components were documented after screens were complete, under deadline pressure. By then, spacing and color inconsistencies had accumulated across 30+ screens and were tedious to reconcile. A living library built in parallel would have saved time and produced a cleaner handoff.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="bottom-nav">
+      <a href="#overview" class="back-to-top">&#8593; Back to top</a>
+      <span class="nav-sep">&#183;</span>
+      <a href="../index.html" class="back-link">&#8592; Back to all work</a>
+    </div>
+
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.cs-section[id]');
+    const navLinks = document.querySelectorAll('.sticky-menu a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const id = entry.target.getAttribute('id');
+          const activeLink = document.querySelector('.sticky-menu a[href="#' + id + '"]');
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
