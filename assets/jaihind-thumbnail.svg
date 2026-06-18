@@ -1,0 +1,86 @@
+<svg width="1260" height="540" viewBox="0 0 1260 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="jhglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#d98e5f" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#d98e5f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="jhsoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <rect width="1260" height="540" fill="#f3f1ec"/>
+  <ellipse cx="700" cy="280" rx="440" ry="270" fill="url(#jhglow)"/>
+  <rect x="14" y="14" width="1232" height="512" rx="4" stroke="#e3ddd0" stroke-width="1.5"/>
+
+  <!-- five scattered spreadsheets, left -->
+  <g opacity="0.9">
+    <rect x="150" y="150" width="120" height="150" rx="8" fill="#ffffff" stroke="#e3ddd0" stroke-width="1.5" transform="rotate(-9 210 225)"/>
+    <rect x="172" y="186" width="120" height="150" rx="8" fill="#ffffff" stroke="#e3ddd0" stroke-width="1.5" transform="rotate(-3 232 261)"/>
+    <rect x="196" y="222" width="120" height="150" rx="8" fill="#ffffff" stroke="#e3ddd0" stroke-width="1.5" transform="rotate(4 256 297)"/>
+    <g stroke="#d6cdbb" stroke-width="3" stroke-linecap="round">
+      <path d="M214 256 h82"/><path d="M214 274 h82"/><path d="M214 292 h82"/><path d="M214 310 h54"/>
+    </g>
+    <circle cx="300" cy="170" r="20" fill="#fbe7dd"/>
+    <text x="300" y="176" font-family="'SF Mono','Menlo',monospace" font-size="15" font-weight="700" fill="#c06a3a" text-anchor="middle">5</text>
+  </g>
+
+  <!-- merge arrow -->
+  <path d="M362 270 h78" stroke="#d98e5f" stroke-width="5" stroke-linecap="round"/>
+  <path d="M430 256 l18 14 l-18 14" stroke="#d98e5f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- unified dashboard window, right -->
+  <rect x="478" y="120" width="640" height="312" rx="14" fill="#ffffff" stroke="#e3ddd0" stroke-width="1.5"/>
+  <ellipse cx="800" cy="446" rx="300" ry="20" fill="#1a2a4e" opacity="0.07" filter="url(#jhsoft)"/>
+  <!-- header bar -->
+  <path d="M478 134 a14 14 0 0 1 14 -14 h612 a14 14 0 0 1 14 14 v34 h-640 z" fill="#1a2a4e"/>
+  <circle cx="504" cy="151" r="5" fill="#d98e5f"/>
+  <circle cx="522" cy="151" r="5" fill="#ffffff" opacity="0.35"/>
+  <circle cx="540" cy="151" r="5" fill="#ffffff" opacity="0.35"/>
+  <text x="566" y="156" font-family="'SF Mono','Menlo',monospace" font-size="12" letter-spacing="2.5" fill="#e9ddd2">INVENTORY OVERVIEW</text>
+
+  <!-- sidebar -->
+  <rect x="478" y="168" width="120" height="264" fill="#f7f4ef"/>
+  <g fill="#1a2a4e" opacity="0.5">
+    <rect x="500" y="196" width="76" height="9" rx="4.5"/>
+    <rect x="500" y="222" width="64" height="9" rx="4.5"/>
+    <rect x="500" y="248" width="72" height="9" rx="4.5"/>
+    <rect x="500" y="274" width="58" height="9" rx="4.5"/>
+  </g>
+  <rect x="488" y="190" width="100" height="22" rx="6" fill="#1a2a4e" opacity="0.08"/>
+
+  <!-- data table rows -->
+  <g>
+    <rect x="624" y="190" width="470" height="34" rx="6" fill="#f1ede6"/>
+    <rect x="624" y="234" width="470" height="34" rx="6" fill="#ffffff" stroke="#eee7da" stroke-width="1"/>
+    <rect x="624" y="278" width="470" height="34" rx="6" fill="#ffffff" stroke="#eee7da" stroke-width="1"/>
+    <rect x="624" y="322" width="470" height="34" rx="6" fill="#ffffff" stroke="#eee7da" stroke-width="1"/>
+  </g>
+  <g fill="#1a2a4e" opacity="0.55">
+    <rect x="640" y="203" width="120" height="8" rx="4"/>
+    <rect x="800" y="203" width="70" height="8" rx="4"/>
+    <rect x="900" y="203" width="60" height="8" rx="4"/>
+  </g>
+  <g fill="#c8bda8">
+    <rect x="640" y="247" width="120" height="8" rx="4"/><rect x="800" y="247" width="70" height="8" rx="4"/><rect x="900" y="247" width="60" height="8" rx="4"/>
+    <rect x="640" y="291" width="120" height="8" rx="4"/><rect x="800" y="291" width="70" height="8" rx="4"/><rect x="900" y="291" width="60" height="8" rx="4"/>
+    <rect x="640" y="335" width="120" height="8" rx="4"/><rect x="800" y="335" width="70" height="8" rx="4"/><rect x="900" y="335" width="60" height="8" rx="4"/>
+  </g>
+
+  <!-- low-stock alert pill -->
+  <rect x="980" y="286" width="98" height="20" rx="10" fill="#fbe7dd"/>
+  <circle cx="998" cy="296" r="4" fill="#c06a3a"/>
+  <text x="1010" y="300" font-family="'SF Mono','Menlo',monospace" font-size="10" letter-spacing="1" fill="#c06a3a">LOW STOCK</text>
+  <rect x="980" y="198" width="98" height="20" rx="10" fill="#e6efe2"/>
+  <circle cx="998" cy="208" r="4" fill="#5a9e2f"/>
+  <text x="1010" y="212" font-family="'SF Mono','Menlo',monospace" font-size="10" letter-spacing="1" fill="#3f6c1e">IN STOCK</text>
+
+  <!-- one platform chip -->
+  <rect x="478" y="398" width="172" height="34" rx="17" fill="#1a2a4e"/>
+  <circle cx="502" cy="415" r="6" fill="#d98e5f"/>
+  <text x="516" y="420" font-family="'SF Mono','Menlo',monospace" font-size="12" letter-spacing="2" fill="#e9ddd2">ONE PLATFORM</text>
+
+  <!-- captions -->
+  <text x="43" y="50" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13.5" letter-spacing="9" fill="#bdb4a0">JAI HIND GROUP</text>
+  <text x="43" y="496" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13.5" letter-spacing="9" fill="#b3a995">FIVE SPREADSHEETS, ONE DASHBOARD</text>
+</svg>
