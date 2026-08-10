@@ -565,6 +565,41 @@
       .shift-row { grid-template-columns: 1fr auto 1fr; }
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* editorial re-theme override — matches homepage */
+    :root {
+      --accent: #0099ff;
+      --accent-tint: #eaf5ff;
+      --navy: #32404f;
+      --text-primary: #32404f;
+      --text-secondary: #5b6673;
+      --text-muted: #999999;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --bg-light: #f7f7f7;
+      --border: #e2e2e2;
+      --font: "Inter", -apple-system, sans-serif;
+    }
+    .section-heading, .hero h1, .problem-card h3, .team-name, .step-title,
+    .caption-title, .ia-module-title, h1, h2 {
+      font-family: "Instrument Serif", Georgia, serif !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.01em;
+    }
+
+    .cs-scenes { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin:34px 0; }
+    .cs-scene { background:#f7f7f7; border:1px solid #e2e2e2; border-radius:18px; padding:22px 22px 18px; transition:transform .3s ease; }
+    .cs-scene:hover { transform:translateY(-4px); }
+    .cs-scene img { width:100%; height:auto; display:block; margin-bottom:14px; }
+    .cs-scene-kicker { display:block; font-family:"Geist Mono",monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#0099ff; margin-bottom:6px; }
+    .cs-scene-cap { font-size:.92rem; line-height:1.55; color:#5b6673; }
+    .cs-scene-cap strong { color:#32404f; font-weight:600; }
+    .eyebrow, .kicker, .sticky-menu a, .back-link, .metric-chip-num,
+    [class*="label"], [class*="tag"] { font-family: "Geist Mono", monospace; }
+  </style>
 </head>
 <body>
 
@@ -634,6 +669,12 @@
     <section id="context" class="cs-section">
       <div class="section-label">Context</div>
       <h2 class="section-heading">How the business actually worked</h2>
+      <div class="cs-scenes">
+        <figure class="cs-scene">
+          <img src="../assets/sketches/field.svg" alt="Sketch: field research" loading="lazy" />
+          <figcaption><span class="cs-scene-kicker">FIELD RESEARCH</span><span class="cs-scene-cap">Three teams, <strong>five disconnected spreadsheets</strong>, and orders held together by phone calls — I shadowed the workflow before designing anything.</span></figcaption>
+        </figure>
+      </div>
 
       <div class="dark-callout">
         <p class="dark-callout-quote">"The data existed. It just lived in five different places, owned by five different people, updated at five different times."</p>
@@ -742,6 +783,12 @@
     <section id="responsibilities" class="cs-section">
       <div class="section-label">My Role</div>
       <h2 class="section-heading">What I was responsible for</h2>
+      <div class="cs-scenes">
+        <figure class="cs-scene">
+          <img src="../assets/sketches/handoff.svg" alt="Sketch: research → dev handoff" loading="lazy" />
+          <figcaption><span class="cs-scene-kicker">RESEARCH → DEV HANDOFF</span><span class="cs-scene-cap">End to end: research, IA, design system, and a <strong>spec-complete handoff</strong> with tokens and zero guesswork.</span></figcaption>
+        </figure>
+      </div>
       <p class="section-sub" style="margin-bottom: 32px;">I joined as Product UX Designer on a team of 3 designers and a PM. My ownership covered research through handoff.</p>
 
       <div class="responsibility-list">
@@ -772,6 +819,12 @@
     <section id="users" class="cs-section">
       <div class="section-label">Users</div>
       <h2 class="section-heading">Who the platform was built for</h2>
+      <div class="cs-scenes">
+        <figure class="cs-scene">
+          <img src="../assets/sketches/interview.svg" alt="Sketch: stakeholder interviews" loading="lazy" />
+          <figcaption><span class="cs-scene-kicker">STAKEHOLDER INTERVIEWS</span><span class="cs-scene-cap">Sessions with <strong>owners, floor managers, and accountants</strong> revealed three very different daily routines on the same data.</span></figcaption>
+        </figure>
+      </div>
       <p class="section-sub" style="margin-bottom: 32px;">Three teams. Different daily tasks. One shared frustration.</p>
 
       <div class="persona-cards">
