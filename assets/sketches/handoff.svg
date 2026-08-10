@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <style>
+    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
+    .bob{animation:bob 3.4s ease-in-out infinite}
+    .bob2{animation:bob 3.4s ease-in-out 1s infinite}
+    .doc{animation:pass 5s ease-in-out infinite}
+    .arrow{stroke-dasharray:6 8;animation:dash 1.6s linear infinite}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    @keyframes pass{0%,100%{transform:translate(0,0) rotate(-2deg)}50%{transform:translate(14px,-8px) rotate(3deg)}}
+    @keyframes dash{to{stroke-dashoffset:-14}}
+  </style>
+  <ellipse cx="200" cy="190" rx="172" ry="95" fill="#c7d4f2" opacity=".45"/>
+  <!-- designer (left) -->
+  <g class="bob">
+    <circle class="ink" cx="96" cy="118" r="22"/>
+    <path class="ink" d="M79 110 q9 -14 30 -6" opacity=".6"/>
+    <circle fill="#32404f" cx="90" cy="119" r="2.4"/>
+    <circle fill="#32404f" cx="103" cy="119" r="2.4"/>
+    <path class="ink" d="M92 130 q5 3.5 9 0"/>
+    <path class="ink" d="M96 140 q-16 12 -14 100"/>
+    <path class="ink" d="M96 146 q32 8 56 26"/>
+  </g>
+  <!-- spec doc in the middle -->
+  <g class="doc">
+    <rect class="ink" x="160" y="140" width="76" height="96" rx="8" fill="#fff"/>
+    <rect x="170" y="152" width="24" height="24" rx="4" fill="#fad29d"/>
+    <line class="ink" x1="202" y1="158" x2="226" y2="158" opacity=".5"/>
+    <line class="ink" x1="202" y1="168" x2="220" y2="168" opacity=".5"/>
+    <line class="ink" x1="170" y1="188" x2="226" y2="188" opacity=".4"/>
+    <line class="ink" x1="170" y1="198" x2="214" y2="198" opacity=".4"/>
+    <rect class="ink" x="170" y="208" width="56" height="16" rx="8" opacity=".55"/>
+    <!-- measurement marks -->
+    <path class="ink" d="M170 232 h24 M170 228 v8 M194 228 v8" stroke="#e6612e"/>
+  </g>
+  <!-- animated arrow to dev -->
+  <path class="ink arrow" d="M244 180 q28 -10 48 0"/>
+  <path class="ink" d="M288 174 l6 6 l-8 3"/>
+  <!-- developer (right) with laptop -->
+  <g class="bob2">
+    <circle class="ink" cx="316" cy="120" r="22"/>
+    <path class="ink" d="M299 112 q9 -14 30 -6" opacity=".6"/>
+    <rect class="ink" x="304" y="114" width="11" height="9" rx="2"/>
+    <rect class="ink" x="319" y="114" width="11" height="9" rx="2"/>
+    <line class="ink" x1="315" y1="118" x2="319" y2="118"/>
+    <path class="ink" d="M312 132 q5 3.5 9 0"/>
+    <path class="ink" d="M316 142 q16 12 14 98"/>
+    <path class="ink" d="M316 148 q-26 8 -46 24"/>
+    <!-- laptop -->
+    <rect class="ink" x="286" y="196" width="60" height="38" rx="5" fill="#cde7d8"/>
+    <path class="ink" d="M296 208 l-6 7 l6 7 M336 208 l6 7 l-6 7" />
+    <line class="ink" x1="318" y1="206" x2="312" y2="228"/>
+  </g>
+</svg>

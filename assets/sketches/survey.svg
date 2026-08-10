@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <style>
+    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
+    .c1{animation:pop 5s ease-in-out infinite}
+    .c2{animation:pop 5s ease-in-out 1.2s infinite}
+    .c3{animation:pop 5s ease-in-out 2.4s infinite}
+    .pen{animation:write 2.6s ease-in-out infinite;transform-origin:286px 190px}
+    .bar1{animation:grow 5s ease-in-out infinite;transform-origin:318px 232px}
+    .bar2{animation:grow 5s ease-in-out .6s infinite;transform-origin:334px 232px}
+    .bar3{animation:grow 5s ease-in-out 1.2s infinite;transform-origin:350px 232px}
+    @keyframes pop{0%,15%{opacity:0;transform:scale(.5)}28%,100%{opacity:1;transform:scale(1)}}
+    @keyframes write{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(5deg)}}
+    @keyframes grow{0%,10%{transform:scaleY(.15)}45%,100%{transform:scaleY(1)}}
+  </style>
+  <ellipse cx="200" cy="180" rx="170" ry="98" fill="#cde7d8" opacity=".45"/>
+  <!-- clipboard -->
+  <rect class="ink" x="120" y="56" width="150" height="190" rx="10" fill="#fff"/>
+  <rect class="ink" x="172" y="46" width="46" height="20" rx="8" fill="#fad29d"/>
+  <!-- q rows with animated checks -->
+  <g class="c1" style="transform-origin:146px 100px"><rect class="ink" x="136" y="90" width="20" height="20" rx="5" fill="#cde7d8"/><path class="ink" d="M141 100 l4 5 l8 -10"/></g>
+  <line class="ink" x1="168" y1="96" x2="248" y2="96" opacity=".45"/>
+  <line class="ink" x1="168" y1="105" x2="230" y2="105" opacity=".3"/>
+  <g class="c2" style="transform-origin:146px 142px"><rect class="ink" x="136" y="132" width="20" height="20" rx="5" fill="#c7d4f2"/><path class="ink" d="M141 142 l4 5 l8 -10"/></g>
+  <line class="ink" x1="168" y1="138" x2="248" y2="138" opacity=".45"/>
+  <line class="ink" x1="168" y1="147" x2="222" y2="147" opacity=".3"/>
+  <g class="c3" style="transform-origin:146px 184px"><rect class="ink" x="136" y="174" width="20" height="20" rx="5" fill="#fad29d"/><path class="ink" d="M141 184 l4 5 l8 -10"/></g>
+  <line class="ink" x1="168" y1="180" x2="248" y2="180" opacity=".45"/>
+  <line class="ink" x1="168" y1="189" x2="236" y2="189" opacity=".3"/>
+  <!-- rating dots -->
+  <circle cx="140" cy="222" r="5" fill="#e6612e"/>
+  <circle cx="158" cy="222" r="5" fill="#e6612e"/>
+  <circle cx="176" cy="222" r="5" fill="#e6612e"/>
+  <circle class="ink" cx="194" cy="222" r="5"/>
+  <circle class="ink" cx="212" cy="222" r="5"/>
+  <!-- pencil -->
+  <g class="pen">
+    <rect class="ink" x="278" y="140" width="16" height="64" rx="4" fill="#fad29d" transform="rotate(28 286 172)"/>
+    <path class="ink" d="M304 202 l12 20 l-21 -6 z" fill="#fff"/>
+  </g>
+  <!-- tiny chart -->
+  <g>
+    <line class="ink" x1="310" y1="232" x2="360" y2="232"/>
+    <rect class="bar1" x="312" y="204" width="10" height="28" rx="2" fill="#c7d4f2"/>
+    <rect class="bar2" x="328" y="192" width="10" height="40" rx="2" fill="#03ae6f"/>
+    <rect class="bar3" x="344" y="212" width="10" height="20" rx="2" fill="#e6612e"/>
+  </g>
+</svg>
