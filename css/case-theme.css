@@ -1,0 +1,254 @@
+/* ============================================================
+   CASE STUDIES — EDITORIAL RE-THEME
+   Loads AFTER style.css + case-study.css + case-light.css.
+   Matches the homepage: white · slate ink · Instrument Serif
+   headlines · Geist Mono labels · Inter body · blue accent.
+   ============================================================ */
+
+/* ── PALETTE ──────────────────────────────────── */
+:root,
+html[data-theme="dark"],
+html[data-theme="light"] {
+  --bg:        #ffffff;
+  --bg2:       #f7f7f7;
+  --bg3:       #f0f0f0;
+  --surface:   #ffffff;
+  --text:      #32404f;
+  --text2:     #5b6673;
+  --text3:     #999999;
+
+  /* accent slots → editorial blue */
+  --gold:      #0099ff;
+  --gold-dim:  rgba(0, 153, 255, .10);
+  --gold-glow: rgba(0, 153, 255, .06);
+
+  --border:    #e2e2e2;
+  --border2:   #cfcfcf;
+
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans:  "Inter", -apple-system, "Helvetica Neue", sans-serif;
+  --mono:  "Geist Mono", "SF Mono", monospace;
+
+  /* color pops → homepage palette */
+  --coral:  #e6612e;
+  --violet: #32404f;
+  --blue:   #0099ff;
+  --lemon:  #fad29d;
+  --mint:   #03ae6f;
+  --pink:   #e6612e;
+  --grad:   none;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────────── */
+body {
+  font-family: var(--sans);
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.cs-hero-title,
+.cs-sec-title,
+.cs-proto-title,
+.cs-role-title,
+.cs-bn-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -.01em;
+}
+
+/* italic accents: serif italic in ink (no gradient text) */
+.cs-hero-title .italic,
+.cs-hero-title .italic .line-inner,
+.cs-sec-title em,
+.cs-proto-title em,
+.cs-role-title em {
+  font-style: italic;
+  font-family: var(--serif);
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: var(--text3);
+  -webkit-text-fill-color: currentColor;
+}
+
+/* mono for all small labels, indexes, chips, stats labels */
+.cs-hero-index,
+.cs-sec-label,
+.cs-sec-num,
+.cs-meta-label,
+.cs-stat-l,
+.cs-metric-l,
+.cs-nav-center,
+.cs-back,
+.cs-next-link,
+.cs-badge,
+.cs-img-caption,
+.cs-finding-n,
+.cs-persona-type,
+.cs-bn-label,
+.cs-quote-who {
+  font-family: var(--mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* big numbers in serif */
+.cs-stat-n,
+.cs-stat-big,
+.cs-metric-n,
+.cs-funnel-n {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+
+/* ── SECTION CHROME ─────────────────────────────── */
+.cs-sec-num {
+  background: none;
+  color: var(--text3);
+  -webkit-text-fill-color: currentColor;
+  opacity: 1;
+}
+.cs-sec-label { color: var(--text3); }
+
+.cs-section.alt-bg { background: var(--bg2); }
+
+.cs-hero { border-bottom: 1px solid var(--border); }
+.cs-hero-bg { -webkit-text-stroke: 1.5px rgba(50, 64, 79, .10); opacity: .4; }
+.cs-hero-glow { background: none; }
+.cs-hero-index { color: var(--text3); }
+.cs-hero-index .idx-line { background: var(--border2); }
+
+/* stat colors: blue / green / orange / slate */
+.cs-stat-n, .cs-hero-stats .cs-stat-n { color: var(--blue); }
+.cs-hero-stats > div:nth-child(2) .cs-stat-n { color: var(--mint); }
+.cs-hero-stats > div:nth-child(3) .cs-stat-n { color: var(--coral); }
+.cs-hero-stats > div:nth-child(4) .cs-stat-n { color: var(--text); }
+
+.cs-stat-big, .cs-metric-n { color: var(--blue); }
+.cs-stat-row .cs-stat-box:nth-child(2) .cs-stat-big { color: var(--mint); }
+.cs-stat-row .cs-stat-box:nth-child(3) .cs-stat-big { color: var(--coral); }
+.cs-metrics .cs-metric:nth-child(2) .cs-metric-n { color: var(--mint); }
+.cs-metrics .cs-metric:nth-child(3) .cs-metric-n { color: var(--coral); }
+.cs-metrics .cs-metric:nth-child(4) .cs-metric-n { color: var(--text); }
+
+/* ── NAV pill → flat editorial bar ────────────────────── */
+.cs-nav {
+  background: rgba(255, 255, 255, .85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(50, 64, 79, .08);
+}
+.cs-back, .cs-next-link { font-size: 10px; }
+.cs-back:hover, .cs-next-link:hover {
+  color: #fff;
+  background: var(--text);
+  border-color: var(--text);
+  letter-spacing: .14em;
+}
+
+/* ── CARDS: quieter, hairline borders, homepage radii ───────── */
+.cs-stat-box, .cs-metric, .cs-funnel-stage {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.cs-persona {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: none;
+}
+.cs-persona-avatar { background: #c7d4f2; color: var(--text); }
+.cs-persona-grid .cs-persona:nth-child(2) .cs-persona-avatar { background: #cde7d8; }
+.cs-persona-type { color: var(--blue); }
+.cs-persona-grid .cs-persona:nth-child(2) .cs-persona-type { color: var(--mint); }
+.cs-persona-step-n { color: var(--text3); }
+
+/* HMW / quotes / affinity → homepage pastels */
+.cs-hmw .cs-hmw-item:nth-child(1) { background: #c7d4f2; border-color: transparent; }
+.cs-hmw .cs-hmw-item:nth-child(2) { background: #fad29d; border-color: transparent; }
+.cs-hmw .cs-hmw-item:nth-child(3) { background: #cde7d8; border-color: transparent; }
+
+.cs-user-quotes .cs-quote-item:nth-child(3n+1) { background: #f4f7fc; }
+.cs-user-quotes .cs-quote-item:nth-child(3n+2) { background: #fdf6ec; }
+.cs-user-quotes .cs-quote-item:nth-child(3n+3) { background: #f1f8f4; }
+
+.cs-affinity-item.pain     { background: #fbe9e0; border-color: transparent; }
+.cs-affinity-item.need     { background: #e2ecfa; border-color: transparent; }
+.cs-affinity-item.suggest  { background: #fdf3dd; border-color: transparent; }
+.cs-affinity-item.behavior { background: #e9f3ee; border-color: transparent; }
+
+.cs-finding-n { background: var(--text); border-radius: 8px; }
+.cs-findings .cs-finding:nth-child(2) .cs-finding-n { background: var(--blue); }
+.cs-findings .cs-finding:nth-child(3) .cs-finding-n { background: var(--mint); }
+.cs-findings .cs-finding:nth-child(4) .cs-finding-n { background: var(--coral); }
+
+.cs-compare-col { background: #fbe9e0; border: 1px solid transparent; }
+.cs-compare-col.after { background: #e9f3ee; border: 1px solid transparent; }
+
+.cs-badge { background: #e9f3ee; border: 1px solid transparent; color: var(--mint); }
+.cs-badge.alt { background: #e2ecfa; border: 1px solid transparent; color: var(--blue); }
+
+/* ── BUTTONS ───────────────────────────────────── */
+.btn { font-family: var(--mono); letter-spacing: .12em; text-transform: uppercase; font-size: 11px; }
+.btn-gold {
+  background: var(--text);
+  color: #fff;
+}
+.btn-gold:hover {
+  background: var(--blue);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 153, 255, .3);
+}
+.btn-ghost { border: 1px solid var(--border2); color: var(--text); }
+.btn-ghost:hover { border-color: var(--text); color: var(--text); }
+
+/* ── SKETCH SCENES (research/testing illustrations) ─────────── */
+.cs-scenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
+  margin: 2.4rem 0;
+}
+.cs-scene {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.4rem 1.4rem 1.2rem;
+  transition: transform .3s ease;
+}
+.cs-scene:hover { transform: translateY(-4px); }
+.cs-scene img { width: 100%; height: auto; display: block; margin-bottom: 1rem; }
+.cs-scene-kicker {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: .4rem;
+}
+.cs-scene:nth-child(2) .cs-scene-kicker { color: var(--mint); }
+.cs-scene:nth-child(3) .cs-scene-kicker { color: var(--coral); }
+.cs-scene:nth-child(4) .cs-scene-kicker { color: var(--text); }
+.cs-scene-cap {
+  font-size: .92rem;
+  line-height: 1.55;
+  color: var(--text2);
+}
+.cs-scene-cap strong { color: var(--text); font-weight: 600; }
+
+/* ── MISC ─────────────────────────────────────── */
+.scroll-progress { background: var(--text); height: 2px; }
+.cs-bn-link:hover .cs-bn-title { color: var(--blue); }
+.back-top { background: rgba(255,255,255,.9); color: var(--text2); }
+.back-top:hover { border-color: var(--text); color: var(--text); background: var(--bg2); }
+.cs-role-badge { box-shadow: none; }
+.cs-img, .cs-img-ph { border-radius: 14px; }
+.cs-phone-img { box-shadow: 0 0 0 6px var(--bg2), 0 0 0 7px var(--border), 0 14px 32px rgba(50,64,79,.12); }
