@@ -322,7 +322,7 @@
       .bottom-nav { padding: 40px 24px 60px; flex-wrap: wrap; }
     }
 
-    /* ── NEW CLASSES ─────────────────────────────────────────────── */
+    /* ── NEW CLASSES ────────────────────────────────────────────── */
 
     /* Hero two-col */
     .hero-two-col {
@@ -567,7 +567,7 @@
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* editorial re-theme override — matches homepage */
     :root {
@@ -594,14 +594,30 @@
     .cs-scene { background:#f7f7f7; border:1px solid #e2e2e2; border-radius:18px; padding:22px 22px 18px; transition:transform .3s ease; }
     .cs-scene:hover { transform:translateY(-4px); }
     .cs-scene img { width:100%; height:auto; display:block; margin-bottom:14px; }
-    .cs-scene-kicker { display:block; font-family:"Geist Mono",monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#0099ff; margin-bottom:6px; }
+    .cs-scene-kicker { display:block; font-family:"Inter",sans-serif; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#0099ff; margin-bottom:6px; }
     .cs-scene-cap { font-size:.92rem; line-height:1.55; color:#5b6673; }
     .cs-scene-cap strong { color:#32404f; font-weight:600; }
+
+    .cs-more { margin: 18px 0; }
+    .cs-more > summary { list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+      font-family:"Inter",sans-serif; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+      color:#5b6673; border:1px solid #e2e2e2; border-radius:999px; padding:9px 16px; transition:border-color .2s,color .2s; }
+    .cs-more > summary::-webkit-details-marker { display:none; }
+    .cs-more > summary::after { content:"+"; font-size:14px; line-height:1; color:#999; }
+    .cs-more[open] > summary::after { content:"\2013"; }
+    .cs-more > summary:hover { border-color:#32404f; color:#32404f; }
+    .cs-more[open] > summary { margin-bottom:16px; color:#32404f; border-color:#32404f; }
+    .cs-mail-float { position:fixed; right:1.2rem; bottom:1.2rem; z-index:200;
+      font-family:"Inter",sans-serif; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+      background:#32404f; color:#fff; padding:.7rem 1.2rem; border-radius:999px; text-decoration:none;
+      box-shadow:0 10px 26px rgba(50,64,79,.22); transition:background .2s,transform .2s; }
+    .cs-mail-float:hover { background:#0099ff; transform:translateY(-2px); }
     .eyebrow, .kicker, .sticky-menu a, .back-link, .metric-chip-num,
-    [class*="label"], [class*="tag"] { font-family: "Geist Mono", monospace; }
+    [class*="label"], [class*="tag"] { font-family: "Inter", sans-serif; }
   </style>
 </head>
 <body>
+  <a href="mailto:manche.siddhi@gmail.com" class="cs-mail-float">Email me ↗</a>
 
   <aside class="side-nav">
     <a href="../index.html" class="side-nav-back">&#8592; Home</a>
@@ -683,7 +699,8 @@
 
       <p class="example-label">Let's take an example</p>
       <div class="example-two-col">
-        <div class="example-flow-card">
+        <details class="cs-more"><summary>Walk through the old workflow</summary>
+      <div class="example-flow-card" data-c="1">
           <h4>A typical order, start to finish</h4>
           <div class="example-flow-step">
             <div class="flow-step-dot"></div>
@@ -706,6 +723,7 @@
             The error is discovered at delivery. A complaint is logged by phone.
           </div>
         </div>
+      </details>
         <div class="example-note">
           <p style="margin-bottom: 16px;">This was not an edge case. It was the standard operating procedure.</p>
           <p style="margin-bottom: 16px;">No step in this flow had a digital record shared across teams. Every handoff between sales, warehouse, and merchandising happened verbally or by phone, then got recorded independently in separate tools.</p>
@@ -720,7 +738,8 @@
       <h2 class="section-heading">What was breaking and why</h2>
       <p class="section-sub">Three root problems, all connected to the same gap: no single source of truth.</p>
 
-      <div class="challenge-cards">
+      <details class="cs-more"><summary>Read every challenge in full</summary>
+      <div class="challenge-cards" data-c="1">
         <div class="challenge-card">
           <span class="challenge-num">01</span>
           <h3>No order visibility across teams</h3>
@@ -737,6 +756,7 @@
           <p>All order entry happened by phone and was transcribed by hand. Quantities, size splits, and client details were frequently wrong, and there was no validation layer to catch mistakes before they became fulfilled orders.</p>
         </div>
       </div>
+      </details>
     </section>
 
     <!-- GOALS -->
@@ -763,7 +783,8 @@
         </div>
       </div>
 
-      <div class="goal-cards">
+      <details class="cs-more"><summary>See all product goals</summary>
+      <div class="goal-cards" data-c="1">
         <div class="goal-card">
           <h4>Reduce errors at the point of entry</h4>
           <p>Build validation into order creation so size, quantity, and client mismatches surface before confirmation, not after delivery.</p>
@@ -777,6 +798,7 @@
           <p>The system should handle growth without requiring new spreadsheets. One platform for all product lines, all clients, all teams.</p>
         </div>
       </div>
+      </details>
     </section>
 
     <!-- RESPONSIBILITIES -->
@@ -791,7 +813,8 @@
       </div>
       <p class="section-sub" style="margin-bottom: 32px;">I joined as Product UX Designer on a team of 3 designers and a PM. My ownership covered research through handoff.</p>
 
-      <div class="responsibility-list">
+      <details class="cs-more"><summary>See everything I owned, in full</summary>
+      <div class="responsibility-list" data-c="1">
         <div class="responsibility-item">
           <div class="resp-accent-bar"></div>
           <p class="resp-text"><strong>Stakeholder research:</strong> Led 8 interviews across warehouse, merchandising, and sales. Mapped 30+ operational requirements and grouped them by task frequency and decision urgency to inform the IA.</p>
@@ -813,6 +836,7 @@
           <p class="resp-text"><strong>Dev handoff:</strong> Delivered complete Figma specs including interaction states, edge cases, empty states, and data density variants across all breakpoints.</p>
         </div>
       </div>
+      </details>
     </section>
 
     <!-- USERS -->
@@ -827,7 +851,8 @@
       </div>
       <p class="section-sub" style="margin-bottom: 32px;">Three teams. Different daily tasks. One shared frustration.</p>
 
-      <div class="persona-cards">
+      <details class="cs-more"><summary>Read the full user profiles</summary>
+      <div class="persona-cards" data-c="1">
         <div class="persona-card">
           <p class="persona-name">Rajan Mehta</p>
           <span class="persona-role-label">Warehouse Manager, highest login frequency</span>
@@ -864,14 +889,17 @@
           <p class="persona-quote">Every time I confirm an order, I'm crossing my fingers that stock is actually what the warehouse told me an hour ago.</p>
         </div>
       </div>
+      </details>
 
       <div class="shared-needs">
         <h4>What both users needed from day one</h4>
-        <div class="needs-grid">
+        <details class="cs-more"><summary>See what each team needed</summary>
+      <div class="needs-grid" data-c="1">
           <div class="need-item"><span class="need-dot"></span>Stock data that updates in real time, no manual sync</div>
           <div class="need-item"><span class="need-dot"></span>Order status visible to all teams simultaneously</div>
           <div class="need-item"><span class="need-dot"></span>Fewer clicks to answer the most frequent daily questions</div>
         </div>
+      </details>
       </div>
     </section>
 
@@ -881,7 +909,8 @@
       <h2 class="section-heading">Old flow vs. new architecture</h2>
       <p class="section-sub" style="margin-bottom: 36px;">The goal was not to digitize the spreadsheets. It was to replace the workflow that made spreadsheets necessary.</p>
 
-      <div class="system-columns">
+      <details class="cs-more"><summary>Compare the old and new architecture</summary>
+      <div class="system-columns" data-c="1">
         <div class="sys-col-old">
           <span class="sys-col-label">Before</span>
           <p class="sys-col-title">Five tools, no connection</p>
@@ -902,6 +931,7 @@
           <div class="sys-item">Admin: role-based permissions, configurable alert thresholds per SKU</div>
         </div>
       </div>
+      </details>
     </section>
 
     <!-- DECISIONS -->
@@ -909,7 +939,8 @@
       <div class="section-label">Decisions</div>
       <h2 class="section-heading">Three choices that shaped the product</h2>
 
-      <div class="decision-rows">
+      <details class="cs-more"><summary>Read all three decisions in full</summary>
+      <div class="decision-rows" data-c="1">
 
         <div class="decision-row">
           <div class="decision-row-header">
@@ -978,6 +1009,7 @@
         </div>
 
       </div>
+      </details>
     </section>
 
     <!-- RESULTS -->
@@ -1049,7 +1081,8 @@
       <div class="section-label">Learnings</div>
       <h2 class="section-heading">What I took from this project</h2>
 
-      <div class="learning-list">
+      <details class="cs-more"><summary>Read the full learnings</summary>
+      <div class="learning-list" data-c="1">
         <div class="learning-item">
           <div>
             <span class="learning-item-num">01</span>
@@ -1079,6 +1112,7 @@
           <p>Components were documented after screens were complete, under deadline pressure. By then, spacing and color inconsistencies had accumulated across 30+ screens and were tedious to reconcile. A living library built in parallel would have saved time and produced a cleaner handoff.</p>
         </div>
       </div>
+      </details>
     </section>
 
     <div class="bottom-nav">

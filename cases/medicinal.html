@@ -7,7 +7,7 @@
   <meta name="description" content="Real-time IoT application for identifying medicinal plants through image recognition, bridging traditional botanical knowledge with modern interface design." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/case-study.css" />
   <link rel="stylesheet" href="../css/case-light.css" />
@@ -36,6 +36,7 @@
     <a href="../index.html" class="cs-back">← All Work</a>
     <span class="cs-nav-center">Medicinal Plants</span>
     <div class="cs-nav-right">
+      <a href="mailto:manche.siddhi@gmail.com" class="cs-next-link cs-mail-nav">Email ↗</a>
       <a href="../index.html#work" class="cs-next-link">All Work →</a>
       <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span>◐</span></button>
     </div>
@@ -105,7 +106,9 @@
       <div class="cs-sec-label">The Problem</div>
       <h2 class="cs-sec-title">Centuries of Knowledge, <em>Zero Access</em></h2>
       <p class="cs-text">Traditional botanical knowledge about medicinal plants is vast but almost entirely inaccessible, locked in expert memory, dense reference books, and academic databases that everyday users cannot navigate. Meanwhile, people encounter these plants daily in their gardens, parks, and forests with no reliable way to identify them or understand their properties.</p>
+      <details class="cs-more"><summary>Read the full write-up</summary>
       <p class="cs-text">The stakes are not academic. Misidentifying a medicinal plant as a safe edible, or misidentifying a toxic plant as a medicinal one, carries real health consequences. The challenge: <strong>how do you translate centuries of botanical expertise into an interface that anyone can use correctly in seconds, in the field, possibly without internet access?</strong></p>
+      </details>
 
       <div class="cs-metrics">
         <div class="cs-metric"><div class="cs-metric-n">∞</div><div class="cs-metric-l">Botanical species to identify</div></div>
@@ -114,11 +117,13 @@
         <div class="cs-metric"><div class="cs-metric-n">IoT</div><div class="cs-metric-l">Hardware + software bridge</div></div>
       </div>
 
-      <div class="cs-hmw">
+      <details class="cs-more"><summary>See the full How-Might-We framing</summary>
+      <div class="cs-hmw" data-c="1">
         <div class="cs-hmw-item">How might we make expert botanical knowledge instantly available to a non-expert user standing in a field without internet access?</div>
         <div class="cs-hmw-item">How might we present safety-critical identification results in a way that never allows overconfidence in an uncertain match?</div>
         <div class="cs-hmw-item">How might we design an interface that works in bright sunlight, with one hand, while the user is actively moving through terrain?</div>
       </div>
+      </details>
     </div>
   </div>
 
@@ -152,7 +157,8 @@
             <div class="cs-pd-item"><span class="cs-pd-label">Occupation</span><span class="cs-pd-value">Botanist / Field Researcher</span></div>
           </div>
           <p class="cs-persona-narrative">Dr. Sharma runs field surveys in the Western Ghats biodiversity hotspot. She has 20 years of botanical expertise but routinely encounters plants at the edge of her knowledge, especially in the transition zones between ecosystems where species are hybridising. Today she's 2km from the nearest road and has found an unfamiliar Solanum specimen that could be either a valuable medicinal plant or a toxic lookalike.</p>
-          <div class="cs-persona-steps">
+          <details class="cs-more"><summary>Walk through the scenario step by step</summary>
+      <div class="cs-persona-steps" data-c="1">
             <div class="cs-persona-step">
               <span class="cs-persona-step-n">01</span>
               <div class="cs-persona-step-body">
@@ -182,7 +188,9 @@
               </div>
             </div>
           </div>
-          <div class="cs-persona-cols">
+      </details>
+          <details class="cs-more"><summary>See goals &amp; frustrations in full</summary>
+      <div class="cs-persona-cols" data-c="1">
             <div class="cs-persona-col goals">
               <h5>Goals</h5>
               <ul>
@@ -200,6 +208,7 @@
               </ul>
             </div>
           </div>
+      </details>
         </div>
       </div>
 
@@ -214,7 +223,8 @@
       <div class="cs-sec-label">Empathy Map, Dr. Priya Sharma</div>
       <h2 class="cs-sec-title">What the <em>Field Demands</em></h2>
 
-      <div class="cs-empathy">
+      <details class="cs-more"><summary>Read the full empathy map</summary>
+      <div class="cs-empathy" data-c="1">
         <div class="cs-empathy-quad">
           <div class="cs-empathy-label">👁 Sees</div>
           <ul>
@@ -256,6 +266,7 @@
           </ul>
         </div>
       </div>
+      </details>
     </div>
   </div>
 
@@ -274,7 +285,8 @@
       <h2 class="cs-sec-title">Image Recognition <em>Meets Field UX</em></h2>
       <p class="cs-text">The solution combines <strong>computer vision (on-device image recognition)</strong> with a clean, minimal mobile interface built specifically for field conditions. The user points their camera at a plant; the system identifies it in real time and surfaces the relevant botanical and medicinal information, without requiring an internet connection.</p>
 
-      <div class="cs-features">
+      <details class="cs-more"><summary>See every feature, in detail</summary>
+      <div class="cs-features" data-c="1">
         <div class="cs-feature">
           <div class="cs-feat-num">◈</div>
           <h4>Real-Time Camera Interface</h4>
@@ -296,6 +308,7 @@
           <p>Core identification works completely without internet. The botanical database lives on-device. Scan history queues for sync when connectivity returns. For Dr. Sharma 2km into the Western Ghats: zero difference to the experience.</p>
         </div>
       </div>
+      </details>
     </div>
   </div>
 
@@ -314,7 +327,8 @@
       <h2 class="cs-sec-title">Clarity Under <em>Field Conditions</em></h2>
       <p class="cs-text">The interface was designed for three specific environmental realities: <strong>bright sunlight that washes out screens, one-handed use while navigating terrain, and the safety-critical nature of the identification task</strong>. Every design decision was filtered through these constraints before it was approved.</p>
 
-      <div class="cs-findings">
+      <details class="cs-more"><summary>Read all findings in full</summary>
+      <div class="cs-findings" data-c="1">
         <div class="cs-finding">
           <div class="cs-finding-n">P1</div>
           <div class="cs-finding-body">
@@ -337,8 +351,10 @@
           </div>
         </div>
       </div>
+      </details>
 
-      <div class="cs-affinity">
+      <details class="cs-more"><summary>Open the full synthesis board</summary>
+      <div class="cs-affinity" data-c="1">
         <div class="cs-affinity-col">
           <div class="cs-affinity-header">Design Decisions</div>
           <div class="cs-affinity-item need">High-contrast color system for sunlight legibility</div>
@@ -368,9 +384,10 @@
           <div class="cs-affinity-item pain">Camera angle, identification from leaf-side vs. stem-side</div>
         </div>
       </div>
+      </details>
 
-      <div class="cs-img"><div class="cs-img-ph">CAMERA VIEW, REAL-TIME PLANT IDENTIFICATION</div><div class="cs-img-caption">Live viewfinder with bounding box and confidence score. Identification happens while the camera is active, no capture required. "Offline" indicator visible when no connectivity.</div></div>
-      <div class="cs-img"><div class="cs-img-ph">PLANT DETAIL, BOTANICAL INFORMATION SCREEN</div><div class="cs-img-caption">Result screen: safety classification prominent at top, then common name → scientific name → medicinal properties → traditional uses → toxic lookalikes. Expandable sections for depth without overwhelming the initial view.</div></div>
+      <div class="cs-img"><img src="../assets/sketches/plant-scan.svg" alt="Sketch: live camera identifying a plant with a confidence score" loading="lazy" /><div class="cs-img-caption">Live viewfinder: the detection box shows what the model is actually looking at, a confidence score sits under it, and an offline badge stays visible so the user always knows nothing is leaving the device.</div></div>
+      <div class="cs-img"><img src="../assets/sketches/plant-detail.svg" alt="Sketch: plant result screen with safety classification and toxic lookalike warning" loading="lazy" /><div class="cs-img-caption">Result screen: safety classification sits above everything else, names and properties follow, and toxic lookalikes use a visually distinct alert that cannot be mistaken for a normal result.</div></div>
     </div>
   </div>
 
@@ -389,7 +406,8 @@
       <h2 class="cs-sec-title">Bridging the <em>Knowledge Gap</em></h2>
       <p class="cs-text">The project demonstrated that specialised scientific knowledge, typically confined to experts, can be made universally accessible through thoughtful interface design paired with appropriate technology. The hardest design problem wasn't the visual layer; it was <strong>deciding how much information to show, in what order, and what to suppress to prevent dangerous overconfidence</strong>.</p>
 
-      <div class="cs-compare">
+      <details class="cs-more"><summary>Read the full comparison</summary>
+      <div class="cs-compare" data-c="1">
         <div class="cs-compare-col">
           <div class="cs-compare-label">Key Challenges</div>
           <ul>
@@ -411,6 +429,7 @@
           </ul>
         </div>
       </div>
+      </details>
 
       <div class="cs-quote">"The hardest part of this project wasn't the computer vision. It was designing what to show when the computer vision isn't sure, and making that feel safe."</div>
 
@@ -448,6 +467,7 @@
     </a>
   </nav>
   <footer class="cs-footer">
+    <a class="cs-mail-foot" href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a>
     <span>© 2025 Siddhi Manche</span>
     <span>05 / 05, Medicinal Plants</span>
   </footer>
