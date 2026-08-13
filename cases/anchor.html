@@ -7,7 +7,7 @@
   <meta name="description" content="AI-driven financial wellness app IRB-approved research with 24 participants, two rounds of usability testing, proactive budgeting that shifts from reactive reporting to real-time intervention." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/case-study.css" />
   <link rel="stylesheet" href="../css/case-light.css" />
@@ -36,6 +36,7 @@
     <a href="../index.html" class="cs-back">← All Work</a>
     <span class="cs-nav-center">Money Anchor</span>
     <div class="cs-nav-right">
+      <a href="mailto:manche.siddhi@gmail.com" class="cs-next-link cs-mail-nav">Email ↗</a>
       <a href="ir2go.html" class="cs-next-link">IRS2GO →</a>
       <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span>◐</span></button>
     </div>
@@ -105,7 +106,9 @@
       <div class="cs-sec-label">The Problem</div>
       <h2 class="cs-sec-title">Money Feels <em>Fake</em></h2>
       <p class="cs-text">Young adults are increasingly struggling with financial management due to the <strong>"decoupling effect"</strong> of digital wallets and credit cards. When you tap a phone instead of handing over cash, money loses its psychological weight, it feels abstract, disconnected from reality. The result: impulsive spending, "zombie subscription" leaks, and a growing cycle of financial anxiety.</p>
+      <details class="cs-more"><summary>Read the full write-up</summary>
       <p class="cs-text">Current financial tools make this worse. Mint, YNAB, Rocket Money, they're all <strong>reactive</strong>. They show you what you've already spent. Historical graphs of your mistakes. Abstract pie charts that don't tell you how to change. Users don't open these apps because they feel like report cards, not tools. The clinical term for this is <em>app avoidance</em>.</p>
+      </details>
 
       <div class="cs-stat-row">
         <div class="cs-stat-box">
@@ -125,11 +128,13 @@
         </div>
       </div>
 
-      <div class="cs-hmw">
+      <details class="cs-more"><summary>See the full How-Might-We framing</summary>
+      <div class="cs-hmw" data-c="1">
         <div class="cs-hmw-item">How might we shift financial apps from reactive reporting to proactive, real-time intervention before a mistake happens?</div>
         <div class="cs-hmw-item">How might we provide personalized financial guidance without triggering the shame and anxiety that causes users to avoid the app entirely?</div>
         <div class="cs-hmw-item">How might we make money feel real again when digital payments have stripped away the psychological "pain of paying"?</div>
       </div>
+      </details>
     </div>
   </div>
 
@@ -159,7 +164,8 @@
 
       <p class="cs-text">We ran a two-phase research programme, first a literature review and competitive benchmarking to understand the landscape, then direct user engagement through individual interviews and focus groups. All research conducted under <strong>IRB Approval #HUM00280873</strong>.</p>
 
-      <div class="cs-findings">
+      <details class="cs-more"><summary>Read all findings in full</summary>
+      <div class="cs-findings" data-c="1">
         <div class="cs-finding">
           <div class="cs-finding-n">P1</div>
           <div class="cs-finding-body">
@@ -175,8 +181,10 @@
           </div>
         </div>
       </div>
+      </details>
 
-      <div class="cs-user-quotes">
+      <details class="cs-more"><summary>Read the participant quotes</summary>
+      <div class="cs-user-quotes" data-c="1">
         <blockquote class="cs-quote-item">"For me, it's more the want, the window shopping. If I free up some money, I go spend it on something else. My eyes get big when I see something I want."</blockquote>
         <blockquote class="cs-quote-item">"If my friends are going out, I'm going out too. Even if I had considered staying back, I just don't want to be left out."</blockquote>
         <blockquote class="cs-quote-item">"I spend more when I'm bored. Surfing online equals unnecessary spending."</blockquote>
@@ -184,6 +192,7 @@
         <blockquote class="cs-quote-item">"I like when I get positive messages like 'You saved $50 this week!' It makes me want to keep going."</blockquote>
         <blockquote class="cs-quote-item">"If an app said 'Everyone slips up sometimes' instead of scolding you, it'd feel encouraging."</blockquote>
       </div>
+      </details>
     </div>
   </div>
 
@@ -201,7 +210,8 @@
       </div>
       <p class="cs-text">We extracted 50+ raw quotes and "Critical Incidents" from the interviews and FGIs. Using affinity mapping in FigJam, we clustered them into four core themes that defined our design requirements.</p>
 
-      <div class="cs-affinity">
+      <details class="cs-more"><summary>Open the full synthesis board</summary>
+      <div class="cs-affinity" data-c="1">
         <div class="cs-affinity-col">
           <div class="cs-affinity-header">😰 Anxiety</div>
           <div class="cs-affinity-item pain">Opening a bank app feels like getting a report card</div>
@@ -231,8 +241,10 @@
           <div class="cs-affinity-item behavior">"Setting small weekly goals helps me stick to the bigger plan"</div>
         </div>
       </div>
+      </details>
 
-      <div class="cs-findings">
+      <details class="cs-more"><summary>Read all findings in full</summary>
+      <div class="cs-findings" data-c="1">
         <div class="cs-finding">
           <div class="cs-finding-n">I1</div>
           <div class="cs-finding-body">
@@ -255,6 +267,7 @@
           </div>
         </div>
       </div>
+      </details>
     </div>
   </div>
 
@@ -281,14 +294,19 @@
               <span class="cs-persona-type">The Anxious Avoider</span>
             </div>
           </div>
-          <div class="cs-persona-details">
+          <details class="cs-more"><summary>See persona details</summary>
+      <div class="cs-persona-details" data-c="1">
             <div class="cs-pd-item"><span class="cs-pd-label">Age</span><span class="cs-pd-value">26</span></div>
             <div class="cs-pd-item"><span class="cs-pd-label">Status</span><span class="cs-pd-value">Graduate Student</span></div>
             <div class="cs-pd-item"><span class="cs-pd-label">Pattern</span><span class="cs-pd-value">Checks account once a month</span></div>
             <div class="cs-pd-item"><span class="cs-pd-label">Trigger</span><span class="cs-pd-value">Social spending, boredom</span></div>
           </div>
-          <p class="cs-persona-narrative">Maya knows she spends too much when she's stressed or bored, but opening her bank app feels like a judgment she's not ready for. She checks her balance once a month and often avoids it entirely when she knows she's overspent. She needs a voice that checks in without making her feel like a failure.</p>
-          <div class="cs-persona-steps">
+      </details>
+          <details class="cs-more"><summary>Read the persona narrative</summary>
+      <p class="cs-persona-narrative">Maya knows she spends too much when she's stressed or bored, but opening her bank app feels like a judgment she's not ready for. She checks her balance once a month and often avoids it entirely when she knows she's overspent. She needs a voice that checks in without making her feel like a failure.</p>
+      </details>
+          <details class="cs-more"><summary>Walk through the scenario step by step</summary>
+      <div class="cs-persona-steps" data-c="1">
             <div class="cs-persona-step">
               <span class="cs-persona-step-n">01</span>
               <div class="cs-persona-step-body">
@@ -318,7 +336,9 @@
               </div>
             </div>
           </div>
-          <div class="cs-persona-cols">
+      </details>
+          <details class="cs-more"><summary>See goals &amp; frustrations in full</summary>
+      <div class="cs-persona-cols" data-c="1">
             <div class="cs-persona-col goals">
               <h5>Needs</h5>
               <ul>
@@ -336,6 +356,7 @@
               </ul>
             </div>
           </div>
+      </details>
         </div>
 
         <div class="cs-persona">
@@ -346,14 +367,19 @@
               <span class="cs-persona-type">The Precision Planner</span>
             </div>
           </div>
-          <div class="cs-persona-details">
+          <details class="cs-more"><summary>See persona details</summary>
+      <div class="cs-persona-details" data-c="1">
             <div class="cs-pd-item"><span class="cs-pd-label">Age</span><span class="cs-pd-value">34</span></div>
             <div class="cs-pd-item"><span class="cs-pd-label">Status</span><span class="cs-pd-value">Product Manager</span></div>
             <div class="cs-pd-item"><span class="cs-pd-label">Pattern</span><span class="cs-pd-value">Checks finances daily</span></div>
             <div class="cs-pd-item"><span class="cs-pd-label">Trigger</span><span class="cs-pd-value">Wants to see ripple effects</span></div>
           </div>
-          <p class="cs-persona-narrative">Jordan checks his finances every morning, but existing apps only show him what's already happened. He wants to see how a $5 coffee today affects a flight he's saving for in 6 months. He needs forward-looking intelligence, not a transaction log.</p>
-          <div class="cs-persona-steps">
+      </details>
+          <details class="cs-more"><summary>Read the persona narrative</summary>
+      <p class="cs-persona-narrative">Jordan checks his finances every morning, but existing apps only show him what's already happened. He wants to see how a $5 coffee today affects a flight he's saving for in 6 months. He needs forward-looking intelligence, not a transaction log.</p>
+      </details>
+          <details class="cs-more"><summary>Walk through the scenario step by step</summary>
+      <div class="cs-persona-steps" data-c="1">
             <div class="cs-persona-step">
               <span class="cs-persona-step-n">01</span>
               <div class="cs-persona-step-body">
@@ -383,7 +409,9 @@
               </div>
             </div>
           </div>
-          <div class="cs-persona-cols">
+      </details>
+          <details class="cs-more"><summary>See goals &amp; frustrations in full</summary>
+      <div class="cs-persona-cols" data-c="1">
             <div class="cs-persona-col goals">
               <h5>Needs</h5>
               <ul>
@@ -401,6 +429,7 @@
               </ul>
             </div>
           </div>
+      </details>
         </div>
       </div>
     </div>
@@ -420,7 +449,9 @@
       <div class="cs-sec-label">Ideation</div>
       <h2 class="cs-sec-title">100 Ideas. <em>10 Features.</em></h2>
 
+      <details class="cs-more"><summary>Read the full write-up</summary>
       <p class="cs-text">We took 50+ clustered research notes and ran a full ideation sprint, 4 team members × 25 ideas each = 100 total across 7 themes. Every idea, realistic or not, went into the pool. Then we voted.</p>
+      </details>
 
       <div class="cs-funnel">
         <div class="cs-funnel-stage">
@@ -462,7 +493,9 @@
       <div class="cs-sec-label">High-Fidelity Design</div>
       <h2 class="cs-sec-title">From Research <em>to Real Screens</em></h2>
 
+      <details class="cs-more"><summary>Read the full write-up</summary>
       <p class="cs-text">Wireframes translated into a fully interactive Figma prototype with a consistent design system. Design system: Inter (headings) + SF Pro (body) · Primary #1E3A8A · Success #15823D · Error #E64045 · Warning #F59E0B. Every screen tied back to a specific research finding.</p>
+      </details>
 
       <div class="cs-phone-grid">
         <div class="cs-phone-wrap">
@@ -513,10 +546,13 @@
         </figure>
       </div>
 
+      <details class="cs-more"><summary>Read the full write-up</summary>
       <p class="cs-text">We used Maze (integrated with our Figma prototype) and Zoom to run two rounds of moderated usability testing with 16 total participants. Four core tasks per session, think-aloud protocol throughout. After Round 1, we redesigned. Then tested again.</p>
+      </details>
 
 
-      <div class="cs-compare">
+      <details class="cs-more"><summary>Read the full comparison</summary>
+      <div class="cs-compare" data-c="1">
         <div class="cs-compare-col">
           <div class="cs-compare-label">Round 1 Key Findings</div>
           <ul>
@@ -538,6 +574,7 @@
           </ul>
         </div>
       </div>
+      </details>
 
       <!-- Round 1 iteration -->
       <div style="margin: 1.5rem 0;">
@@ -571,7 +608,9 @@
       <div class="cs-sec-label">Conclusion &amp; Learnings</div>
       <h2 class="cs-sec-title">What We Proved. <em>What We Learned.</em></h2>
 
+      <details class="cs-more"><summary>Read the full write-up</summary>
       <p class="cs-text">Money Anchor successfully demonstrated that a shift from reactive reporting to proactive, AI-driven intervention is both technically feasible and genuinely preferred by users. Usability testing showed high task success and positive sentiment, especially for AI recommendations and budgeting features, while surfacing real challenges in discoverability and initial AI trust.</p>
+      </details>
 
       <div class="cs-metrics">
         <div class="cs-metric"><div class="cs-metric-n">100%</div><div class="cs-metric-l">Task success rate on core flows in Round 2</div></div>
@@ -580,7 +619,8 @@
         <div class="cs-metric"><div class="cs-metric-n">2×</div><div class="cs-metric-l">Rounds of testing, with full prototype iteration between rounds</div></div>
       </div>
 
-      <div class="cs-findings">
+      <details class="cs-more"><summary>Read all findings in full</summary>
+      <div class="cs-findings" data-c="1">
         <div class="cs-finding">
           <div class="cs-finding-n">L1</div>
           <div class="cs-finding-body">
@@ -610,6 +650,7 @@
           </div>
         </div>
       </div>
+      </details>
 
       <div class="cs-badge-row">
         <span class="cs-badge alt">Figma · Maze · FigJam · Otter.ai · Zoom</span>
@@ -627,7 +668,7 @@
       <h2 class="cs-proto-title">See It in <em>Figma</em></h2>
       <p class="cs-proto-desc">The full interactive prototype, all 5 core flows, the AI Anchor assistant, subscription management, and spending reports, is live in Figma.</p>
       <div class="cs-proto-actions">
-        <a href="#" class="btn btn-gold magnetic">View Prototype →</a>
+        <a href="mailto:manche.siddhi@gmail.com?subject=Walkthrough%20request%3A%20Money%20Anchor" class="btn btn-gold magnetic">Request a walkthrough →</a>
         <a href="ir2go.html" class="btn btn-ghost magnetic">Next Case Study →</a>
       </div>
     </div>
@@ -645,6 +686,7 @@
     </a>
   </nav>
   <footer class="cs-footer">
+    <a class="cs-mail-foot" href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a>
     <span>© 2025 Siddhi Manche</span>
     <span>01 / 05 Money Anchor</span>
   </footer>

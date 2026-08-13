@@ -7,7 +7,7 @@
   <meta name="description" content="Unified EV charging experience, solving range anxiety through aggregated networks, universal payment, and battery-health-aware routing." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/case-study.css" />
   <link rel="stylesheet" href="../css/case-light.css" />
@@ -36,6 +36,7 @@
     <a href="../index.html" class="cs-back">← All Work</a>
     <span class="cs-nav-center">EV Charging</span>
     <div class="cs-nav-right">
+      <a href="mailto:manche.siddhi@gmail.com" class="cs-next-link cs-mail-nav">Email ↗</a>
       <a href="grocgenie.html" class="cs-next-link">GrocGenie →</a>
       <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span>◐</span></button>
     </div>
@@ -105,7 +106,9 @@
       <div class="cs-sec-label">The Problem</div>
       <h2 class="cs-sec-title">Range Anxiety is a <em>Design Problem</em></h2>
       <p class="cs-text">The electric vehicle marketplace is fragmented. Drivers suffer from "Range Anxiety", not because cars lack range, but because the <strong>charging infrastructure is unreliable and the software experience is broken</strong>. Users are forced to juggle multiple apps, carry physical RFID cards, and frequently arrive at broken chargers with no recourse.</p>
+      <details class="cs-more"><summary>Read the full write-up</summary>
       <p class="cs-text">This isn't an engineering problem. The chargers exist. The network exists. The failure is in the <strong>interface layer</strong>, the apps that are supposed to make EV ownership effortless have become a source of anxiety themselves.</p>
+      </details>
 
       <div class="cs-metrics">
         <div class="cs-metric"><div class="cs-metric-n">#1</div><div class="cs-metric-l">Reliability, top pain point</div></div>
@@ -114,11 +117,13 @@
         <div class="cs-metric"><div class="cs-metric-n">3</div><div class="cs-metric-l">Research sources triangulated</div></div>
       </div>
 
-      <div class="cs-hmw">
+      <details class="cs-more"><summary>See the full How-Might-We framing</summary>
+      <div class="cs-hmw" data-c="1">
         <div class="cs-hmw-item">How might we give EV drivers confidence that a charger will work before they arrive, not after?</div>
         <div class="cs-hmw-item">How might we eliminate the need for multiple apps, RFID cards, and separate accounts across charging networks?</div>
         <div class="cs-hmw-item">How might we surface safety and amenity information that makes night-time charging feel as safe as a gas station?</div>
       </div>
+      </details>
     </div>
   </div>
 
@@ -165,7 +170,8 @@
         </div>
       </div>
 
-      <div class="cs-affinity">
+      <details class="cs-more"><summary>Open the full synthesis board</summary>
+      <div class="cs-affinity" data-c="1">
         <div class="cs-affinity-col">
           <div class="cs-affinity-header">Challenges &amp; Pain</div>
           <div class="cs-affinity-item pain">Broken chargers with no real-time status update</div>
@@ -199,6 +205,7 @@
           <div class="cs-affinity-item behavior">Charges more than needed due to reliability anxiety</div>
         </div>
       </div>
+      </details>
     </div>
   </div>
 
@@ -225,14 +232,19 @@
               <span class="cs-persona-type">The Range-Anxious Driver</span>
             </div>
           </div>
-          <div class="cs-persona-details">
+          <details class="cs-more"><summary>See persona details</summary>
+      <div class="cs-persona-details" data-c="1">
             <div class="cs-pd-item"><span class="cs-pd-label">Age</span><span class="cs-pd-value">31</span></div>
             <div class="cs-pd-item"><span class="cs-pd-label">Gender</span><span class="cs-pd-value">Female</span></div>
             <div class="cs-pd-item"><span class="cs-pd-label">Location</span><span class="cs-pd-value">Austin, TX</span></div>
             <div class="cs-pd-item"><span class="cs-pd-label">Occupation</span><span class="cs-pd-value">Marketing Manager</span></div>
           </div>
-          <p class="cs-persona-narrative">Sam bought a Chevy Bolt six months ago, she was excited about the environmental impact and lower fuel costs. She commutes 18 miles daily with no issues. But today she's planning her first road trip to San Antonio, 80 miles away. She's never charged anywhere other than her home charger, and the prospect of finding a working station en-route fills her with genuine anxiety.</p>
-          <div class="cs-persona-steps">
+      </details>
+          <details class="cs-more"><summary>Read the persona narrative</summary>
+      <p class="cs-persona-narrative">Sam bought a Chevy Bolt six months ago, she was excited about the environmental impact and lower fuel costs. She commutes 18 miles daily with no issues. But today she's planning her first road trip to San Antonio, 80 miles away. She's never charged anywhere other than her home charger, and the prospect of finding a working station en-route fills her with genuine anxiety.</p>
+      </details>
+          <details class="cs-more"><summary>Walk through the scenario step by step</summary>
+      <div class="cs-persona-steps" data-c="1">
             <div class="cs-persona-step">
               <span class="cs-persona-step-n">01</span>
               <div class="cs-persona-step-body">
@@ -262,7 +274,9 @@
               </div>
             </div>
           </div>
-          <div class="cs-persona-cols">
+      </details>
+          <details class="cs-more"><summary>See goals &amp; frustrations in full</summary>
+      <div class="cs-persona-cols" data-c="1">
             <div class="cs-persona-col goals">
               <h5>Goals</h5>
               <ul>
@@ -280,6 +294,7 @@
               </ul>
             </div>
           </div>
+      </details>
         </div>
       </div>
     </div>
@@ -292,7 +307,8 @@
       <div class="cs-sec-label">Empathy Map, Sam Rivera</div>
       <h2 class="cs-sec-title">The Real Cost of <em>Charging Anxiety</em></h2>
 
-      <div class="cs-empathy">
+      <details class="cs-more"><summary>Read the full empathy map</summary>
+      <div class="cs-empathy" data-c="1">
         <div class="cs-empathy-quad">
           <div class="cs-empathy-label">👁 Sees</div>
           <ul>
@@ -334,6 +350,7 @@
           </ul>
         </div>
       </div>
+      </details>
     </div>
   </div>
 
@@ -358,7 +375,8 @@
       </div>
       <p class="cs-text">We mapped user flows across market leaders (EVgo, ChargePoint) and OEM apps (Tesla, Nissan) to pinpoint exactly where users drop off or feel frustrated. The competitive matrix confirmed that no existing app addresses the full end-to-end charging experience.</p>
 
-      <div class="cs-comp-wrap">
+      <details class="cs-more"><summary>Open the full competitive matrix</summary>
+      <div class="cs-comp-wrap" data-c="1">
         <table class="cs-comp-table">
           <thead>
             <tr>
@@ -401,6 +419,7 @@
           </tbody>
         </table>
       </div>
+      </details>
     </div>
   </div>
 
@@ -419,7 +438,8 @@
       <h2 class="cs-sec-title">Beyond <em>Just a Map</em></h2>
       <p class="cs-text">Based on the competitive gaps and research findings, we brainstormed features that address not just location-finding but the <strong>full end-to-end charging experience</strong>, from pre-trip planning to active session management to post-charge battery insights.</p>
 
-      <div class="cs-features">
+      <details class="cs-more"><summary>See every feature, in detail</summary>
+      <div class="cs-features" data-c="1">
         <div class="cs-feature">
           <div class="cs-feat-num">F1</div>
           <h4>Battery Health Monitor</h4>
@@ -441,8 +461,10 @@
           <p>User-generated ratings on reliability, safety, amenities, and wait times. "Well-lit lot, 24hr Whataburger across the street, charger worked perfectly last Tuesday." The information Sam actually needs before committing to a 38-mile detour.</p>
         </div>
       </div>
+      </details>
 
-      <div class="cs-findings">
+      <details class="cs-more"><summary>Read all findings in full</summary>
+      <div class="cs-findings" data-c="1">
         <div class="cs-finding">
           <div class="cs-finding-n">T1</div>
           <div class="cs-finding-body"><h4>Sign Up &amp; Car Profile</h4><p>Account Creation → Login → Enter Car Brand/Model → Save Profile. Car profile enables smarter recommendations: compatible charger types, estimated range on current battery, optimal charging curve suggestions.</p></div>
@@ -460,6 +482,7 @@
           <div class="cs-finding-body"><h4>In-App Charging Payment</h4><p>Select Station → Start Session → App monitors session in real-time (kWh delivered, cost, time remaining) → Payment auto-processes at session end. One flow. Zero app-switching. Zero RFID.</p></div>
         </div>
       </div>
+      </details>
     </div>
   </div>
 
@@ -499,7 +522,8 @@
       <h2 class="cs-sec-title">Designing for a <em>Moving Target</em></h2>
       <p class="cs-text">EV charging is an infrastructure problem that's being solved with software. The lesson from this project: the hardware gap is closing fast, but the UX gap is widening. As charging networks expand, the complexity of navigating them increases, and the role of the interface layer becomes more critical, not less.</p>
 
-      <div class="cs-compare">
+      <details class="cs-more"><summary>Read the full comparison</summary>
+      <div class="cs-compare" data-c="1">
         <div class="cs-compare-col">
           <div class="cs-compare-label">Design Decisions</div>
           <ul>
@@ -519,6 +543,7 @@
           </ul>
         </div>
       </div>
+      </details>
 
       <div class="cs-quote">"If I knew the charger was going to work before I drove there, I wouldn't need 80% of the anxiety-management features I've invented for myself."<br><small style="font-size:.75rem; color: var(--text3); font-style: normal;">EV Owner Interview Participant</small></div>
     </div>
@@ -549,6 +574,7 @@
     </a>
   </nav>
   <footer class="cs-footer">
+    <a class="cs-mail-foot" href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a>
     <span>© 2025 Siddhi Manche</span>
     <span>03 / 05, EV Charging</span>
   </footer>
