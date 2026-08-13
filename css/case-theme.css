@@ -316,7 +316,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   border-radius: 4px;
 }
 
-/* ── MISC ──────────────────────────────────────────────────── */
+/* ── MISC ───────────────────────────────────────────────────── */
 .scroll-progress { background: var(--text); height: 2px; }
 .cs-bn-link:hover .cs-bn-title { color: var(--blue); }
 .back-top { background: rgba(255,255,255,.9); color: var(--text2); }
