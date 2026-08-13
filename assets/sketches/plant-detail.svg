@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <style>
+    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
+    .safe{animation:pop 5s ease-in-out infinite;transform-origin:200px 92px}
+    .warn{animation:pulse 2.4s ease-in-out infinite;transform-origin:318px 196px}
+    .r1{animation:rise 5s ease-in-out infinite}
+    .r2{animation:rise 5s ease-in-out .5s infinite}
+    .r3{animation:rise 5s ease-in-out 1s infinite}
+    @keyframes pop{0%,10%{opacity:0;transform:scale(.7)}25%,100%{opacity:1;transform:scale(1)}}
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.07);opacity:1}}
+    @keyframes rise{0%,25%{opacity:0;transform:translateY(8px)}45%,100%{opacity:1;transform:translateY(0)}}
+  </style>
+  <ellipse cx="200" cy="185" rx="172" ry="100" fill="#c7d4f2" opacity=".45"/>
+  <!-- phone / result card -->
+  <rect class="ink" x="118" y="42" width="164" height="230" rx="18" fill="#fff"/>
+  <!-- safety banner: the most critical thing, at the top -->
+  <g class="safe">
+    <rect x="132" y="72" width="136" height="40" rx="8" fill="#03ae6f"/>
+    <path d="M150 92 l6 7 l11 -14" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="200" y="97" font-family="monospace" font-size="11" fill="#fff" text-anchor="middle">SAFE · MEDICINAL</text>
+  </g>
+  <!-- name block -->
+  <g class="r1">
+    <line class="ink" x1="132" y1="132" x2="230" y2="132" stroke-width="5"/>
+    <line class="ink" x1="132" y1="146" x2="200" y2="146" opacity=".45"/>
+  </g>
+  <!-- properties rows -->
+  <g class="r2">
+    <line class="ink" x1="132" y1="170" x2="268" y2="170" opacity=".35"/>
+    <line class="ink" x1="132" y1="182" x2="248" y2="182" opacity=".35"/>
+  </g>
+  <g class="r3">
+    <line class="ink" x1="132" y1="204" x2="268" y2="204" opacity=".35"/>
+    <line class="ink" x1="132" y1="216" x2="236" y2="216" opacity=".35"/>
+  </g>
+  <!-- expandable section chevron -->
+  <g class="r3">
+    <rect class="ink" x="132" y="234" width="136" height="22" rx="6" fill="#f7f7f7"/>
+    <path class="ink" d="M252 242 l5 5 l5 -5" stroke-width="2.5"/>
+  </g>
+  <!-- toxic lookalike warning card, kept visually distinct -->
+  <g class="warn">
+    <rect x="288" y="168" width="60" height="56" rx="10" fill="#e6612e"/>
+    <path d="M318 184 v14" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="318" cy="208" r="2.6" fill="#fff"/>
+  </g>
+  <text x="318" y="240" font-family="monospace" font-size="9" fill="#32404f" text-anchor="middle">LOOKALIKE</text>
+  <!-- small leaf marker -->
+  <path class="ink" d="M62 196 q-18 -10 -22 -26 q18 2 22 26" fill="#cde7d8"/>
+  <path class="ink" d="M62 196 q2 -18 0 -30" opacity=".6"/>
+</svg>

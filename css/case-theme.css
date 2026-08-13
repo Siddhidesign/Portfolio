@@ -1,11 +1,12 @@
 /* ============================================================
    CASE STUDIES — EDITORIAL RE-THEME
    Loads AFTER style.css + case-study.css + case-light.css.
-   Matches the homepage: white · slate ink · Instrument Serif
-   headlines · Geist Mono labels · Inter body · blue accent.
+   Matches the homepage: white · slate ink · two typefaces only —
+   Instrument Serif (display) + Inter (body, and uppercase/tracked
+   for the label voice) · blue accent.
    ============================================================ */
 
-/* ── PALETTE ──────────────────────────────────── */
+/* ── PALETTE ───────────────────────────────────────────────── */
 :root,
 html[data-theme="dark"],
 html[data-theme="light"] {
@@ -27,7 +28,7 @@ html[data-theme="light"] {
 
   --serif: "Instrument Serif", Georgia, serif;
   --sans:  "Inter", -apple-system, "Helvetica Neue", sans-serif;
-  --mono:  "Geist Mono", "SF Mono", monospace;
+  --mono:  "Inter", -apple-system, sans-serif;  /* label voice: same family, uppercase + tracked */
 
   /* color pops → homepage palette */
   --coral:  #e6612e;
@@ -39,7 +40,7 @@ html[data-theme="light"] {
   --grad:   none;
 }
 
-/* ── TYPOGRAPHY ─────────────────────────────────── */
+/* ── TYPOGRAPHY ─────────────────────────────────────────────── */
 body {
   font-family: var(--sans);
   font-weight: 400;
@@ -103,7 +104,7 @@ body {
   font-weight: 400;
 }
 
-/* ── SECTION CHROME ─────────────────────────────── */
+/* ── SECTION CHROME ────────────────────────────────────────── */
 .cs-sec-num {
   background: none;
   color: var(--text3);
@@ -133,7 +134,7 @@ body {
 .cs-metrics .cs-metric:nth-child(3) .cs-metric-n { color: var(--coral); }
 .cs-metrics .cs-metric:nth-child(4) .cs-metric-n { color: var(--text); }
 
-/* ── NAV pill → flat editorial bar ────────────────────── */
+/* ── NAV pill → flat editorial bar ─────────────────────────────── */
 .cs-nav {
   background: rgba(255, 255, 255, .85);
   backdrop-filter: blur(12px);
@@ -194,7 +195,7 @@ body {
 .cs-badge { background: #e9f3ee; border: 1px solid transparent; color: var(--mint); }
 .cs-badge.alt { background: #e2ecfa; border: 1px solid transparent; color: var(--blue); }
 
-/* ── BUTTONS ───────────────────────────────────── */
+/* ── BUTTONS ───────────────────────────────────────────────── */
 .btn { font-family: var(--mono); letter-spacing: .12em; text-transform: uppercase; font-size: 11px; }
 .btn-gold {
   background: var(--text);
@@ -209,7 +210,7 @@ body {
 .btn-ghost { border: 1px solid var(--border2); color: var(--text); }
 .btn-ghost:hover { border-color: var(--text); color: var(--text); }
 
-/* ── SKETCH SCENES (research/testing illustrations) ─────────── */
+/* ── SKETCH SCENES (research/testing illustrations) ───────── */
 .cs-scenes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -244,7 +245,67 @@ body {
 }
 .cs-scene-cap strong { color: var(--text); font-weight: 600; }
 
-/* ── MISC ─────────────────────────────────────── */
+/* ── EMAIL: one click from every page ─────────────────────── */
+.cs-mail-nav { margin-right: .4rem; }
+
+.cs-mail-foot {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  color: var(--blue);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+.cs-mail-foot:hover { border-bottom-color: var(--blue); }
+
+.cs-mail-float {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 200;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: var(--text);
+  color: #fff;
+  padding: .7rem 1.2rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(50, 64, 79, .22);
+  transition: background .2s ease, transform .2s ease;
+}
+.cs-mail-float:hover { background: var(--blue); transform: translateY(-2px); }
+
+/* ── PROGRESSIVE DISCLOSURE ────────────────────────────────── */
+.cs-more { margin: 1.4rem 0; }
+.cs-more > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: .6rem 1.1rem;
+  transition: border-color .2s ease, color .2s ease;
+}
+.cs-more > summary::-webkit-details-marker { display: none; }
+.cs-more > summary::after {
+  content: "+";
+  font-size: 14px;
+  line-height: 1;
+  color: var(--text3);
+}
+.cs-more[open] > summary::after { content: "–"; }
+.cs-more > summary:hover { border-color: var(--text); color: var(--text); }
+.cs-more[open] > summary { margin-bottom: 1.2rem; color: var(--text); border-color: var(--text); }
+
+/* ── MISC ──────────────────────────────────────────────────── */
 .scroll-progress { background: var(--text); height: 2px; }
 .cs-bn-link:hover .cs-bn-title { color: var(--blue); }
 .back-top { background: rgba(255,255,255,.9); color: var(--text2); }
