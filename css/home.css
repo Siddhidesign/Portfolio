@@ -15,7 +15,7 @@
   --bg: #ffffff;
 
   --serif: "Instrument Serif", Georgia, serif;
-  --mono: "Geist Mono", "SF Mono", monospace;
+  --mono: "Inter", -apple-system, sans-serif;   /* label voice: same family, uppercase + tracked */
   --sans: "Inter", -apple-system, sans-serif;
 
   --max: 1200px;
@@ -42,14 +42,14 @@ a { color: inherit; text-decoration: none; }
 .gray     { color: var(--gray); }
 .sm-only  { display: none; }
 
-/* ── REVEAL ─────────────────────────────────────── */
+/* ── REVEAL ─────────────────────────────────────────────────── */
 .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
 .rv.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .rv { opacity: 1; transform: none; transition: none; }
 }
 
-/* ── NAV ────────────────────────────────────────── */
+/* ── NAV ────────────────────────────────────────────────────── */
 .topnav {
   position: fixed; inset: 0 0 auto 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -80,7 +80,7 @@ a { color: inherit; text-decoration: none; }
 }
 .topnav-cta:hover { background: var(--ink); color: #fff; }
 
-/* ── HERO ───────────────────────────────────────── */
+/* ── HERO ───────────────────────────────────────────────────── */
 .hero {
   max-width: var(--max); margin: 0 auto;
   padding: 140px var(--pad) 40px;
@@ -117,22 +117,45 @@ a { color: inherit; text-decoration: none; }
   50% { margin-top: -8px; }
 }
 
-.hero-hello {
+.hero-claim {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(72px, 14vw, 190px);
-  line-height: 1; letter-spacing: -.02em;
+  font-size: clamp(40px, 7.4vw, 104px);
+  line-height: 1.04; letter-spacing: -.02em;
   position: relative; z-index: 2;
+  max-width: 15ch; margin: 0 auto;
 }
 
 .hero-line {
-  font-family: var(--serif);
-  font-size: clamp(24px, 3.4vw, 40px);
-  line-height: 1.25; margin-top: 18px;
+  font-family: var(--sans);
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.55; margin-top: 22px;
+  color: var(--soft); max-width: 62ch; margin-inline: auto;
 }
+
+.hero-proof {
+  margin-top: 26px;
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+}
+.proof {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--soft);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 14px;
+}
+.proof b { color: var(--ink); font-weight: 600; }
+
+.hero-cta {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase;
+  background: var(--ink); color: #fff;
+  border-radius: 999px; padding: 12px 26px;
+  transition: background .2s ease, transform .2s ease;
+}
+.hero-cta:hover { background: var(--blue); transform: translateY(-2px); }
 
 .hero-meta {
   margin-top: 26px;
-  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px;
 }
 .chip {
   display: inline-flex; align-items: center; gap: 8px;
@@ -149,7 +172,7 @@ a { color: inherit; text-decoration: none; }
 @keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(3, 174, 111, .08); } }
 .hero-sub { color: var(--soft); font-size: 15px; max-width: 420px; }
 
-/* ── MARQUEE ────────────────────────────────────── */
+/* ── MARQUEE ────────────────────────────────────────────────── */
 .marquee {
   overflow: hidden; white-space: nowrap;
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
@@ -167,7 +190,7 @@ a { color: inherit; text-decoration: none; }
 .marquee-track .sp { color: var(--orange); }
 @keyframes scroll { to { transform: translateX(-50%); } }
 
-/* ── SECTIONS ───────────────────────────────────── */
+/* ── SECTIONS ───────────────────────────────────────────────── */
 .sec { max-width: var(--max); margin: 0 auto; padding: 64px var(--pad); }
 
 .sec-head {
@@ -187,7 +210,7 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 48px;
 }
 
-/* ── WORK CARDS ─────────────────────────────────── */
+/* ── WORK CARDS ─────────────────────────────────────────────── */
 .work-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: clamp(24px, 4vw, 56px) clamp(20px, 3vw, 40px);
@@ -226,7 +249,7 @@ a { color: inherit; text-decoration: none; }
 .tag-live { color: var(--green); }
 .tag-new  { color: var(--orange); }
 
-/* ── INTERLUDE ──────────────────────────────────── */
+/* ── INTERLUDE ──────────────────────────────────────────────── */
 .interlude {
   max-width: var(--max); margin: 0 auto;
   padding: 72px var(--pad);
@@ -254,7 +277,7 @@ a { color: inherit; text-decoration: none; }
 }
 .interlude-links a:hover { color: var(--blue); border-color: var(--blue); }
 
-/* ── ABOUT / PHOTOBOOK ────────────────────────────── */
+/* ── ABOUT / PHOTOBOOK ──────────────────────────────────────── */
 .about-grid {
   display: grid; grid-template-columns: 5fr 6fr;
   gap: clamp(28px, 5vw, 72px);
@@ -289,7 +312,7 @@ a { color: inherit; text-decoration: none; }
 .about-copy strong { font-weight: 600; }
 .sig { font-family: var(--serif); font-style: italic; font-size: 28px; }
 
-/* ── EXPERIENCE ─────────────────────────────────── */
+/* ── EXPERIENCE ─────────────────────────────────────────────── */
 .xp { margin-top: 80px; }
 .xp-row {
   display: grid; grid-template-columns: 160px 1fr;
@@ -307,7 +330,7 @@ a.xp-row:hover { background: #fafafa; }
 .xp-open { border: 1px dashed var(--gray); border-radius: 16px; padding: 26px 22px; margin-top: 26px; }
 .xp-open:hover { border-color: var(--blue); background: #f7fbff; }
 
-/* ── TOOLS + SKILLS ───────────────────────────────── */
+/* ── TOOLS + SKILLS ─────────────────────────────────────────── */
 .tools { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 56px; }
 .tool {
   display: inline-flex; align-items: center; gap: 8px;
@@ -328,7 +351,7 @@ a.xp-row:hover { background: #fafafa; }
 .skill-name { font-family: var(--serif); font-size: 24px; }
 .skill-desc { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; color: var(--gray); text-align: right; }
 
-/* ── FAQ ───────────────────────────────────────── */
+/* ── FAQ ────────────────────────────────────────────────────── */
 .faq { border-top: 1px solid var(--line); }
 .faq-item { border-bottom: 1px solid var(--line); }
 .faq-item summary {
@@ -343,7 +366,7 @@ a.xp-row:hover { background: #fafafa; }
 .faq-item[open] .faq-x { transform: rotate(45deg); color: var(--orange); }
 .faq-item p { padding: 0 0 24px 44px; color: var(--soft); max-width: 720px; }
 
-/* ── TESTIMONIAL ────────────────────────────────── */
+/* ── TESTIMONIAL ────────────────────────────────────────────── */
 .quote-card {
   border: 1px solid var(--line); border-radius: 20px;
   padding: clamp(28px, 4vw, 48px);
@@ -361,7 +384,7 @@ a.xp-row:hover { background: #fafafa; }
 .quote-name { display: block; font-weight: 600; font-size: 15px; }
 .quote-title { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--gray); }
 
-/* ── FOOTER ────────────────────────────────────── */
+/* ── FOOTER ─────────────────────────────────────────────────── */
 .footer {
   max-width: var(--max); margin: 0 auto;
   padding: 90px var(--pad) 48px;
@@ -397,7 +420,7 @@ a.xp-row:hover { background: #fafafa; }
   color: var(--gray);
 }
 
-/* ── RESPONSIVE ─────────────────────────────────── */
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }
   .photobook { position: static; max-width: 440px; }
