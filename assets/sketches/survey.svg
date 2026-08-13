@@ -1,47 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
   <style>
-    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
-    .c1{animation:pop 5s ease-in-out infinite}
-    .c2{animation:pop 5s ease-in-out 1.2s infinite}
-    .c3{animation:pop 5s ease-in-out 2.4s infinite}
-    .pen{animation:write 2.6s ease-in-out infinite;transform-origin:286px 190px}
-    .bar1{animation:grow 5s ease-in-out infinite;transform-origin:318px 232px}
-    .bar2{animation:grow 5s ease-in-out .6s infinite;transform-origin:334px 232px}
-    .bar3{animation:grow 5s ease-in-out 1.2s infinite;transform-origin:350px 232px}
-    @keyframes pop{0%,15%{opacity:0;transform:scale(.5)}28%,100%{opacity:1;transform:scale(1)}}
-    @keyframes write{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(5deg)}}
-    @keyframes grow{0%,10%{transform:scaleY(.15)}45%,100%{transform:scaleY(1)}}
+    .s{stroke:#32404f;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:none}
+    .c1{animation:ck 6s ease-in-out infinite;transform-origin:132px 92px}
+    .c2{animation:ck 6s ease-in-out 1.1s infinite;transform-origin:132px 128px}
+    .c3{animation:ck 6s ease-in-out 2.2s infinite;transform-origin:132px 164px}
+    .pen{animation:write 6s ease-in-out infinite}
+    .b1{animation:grow 6s ease-in-out 3s infinite;transform-origin:308px 246px}
+    .b2{animation:grow 6s ease-in-out 3.3s infinite;transform-origin:328px 246px}
+    .b3{animation:grow 6s ease-in-out 3.6s infinite;transform-origin:348px 246px}
+    @keyframes ck{0%,6%{opacity:0;transform:scale(.4)}16%,100%{opacity:1;transform:scale(1)}}
+    @keyframes write{0%,100%{transform:translate(0,0) rotate(0deg)}
+      20%{transform:translate(-2px,36px) rotate(-2deg)}
+      40%{transform:translate(-1px,72px) rotate(1deg)}
+      60%{transform:translate(0,40px) rotate(0deg)}}
+    @keyframes grow{0%,10%{transform:scaleY(.08)}40%,100%{transform:scaleY(1)}}
   </style>
-  <ellipse cx="200" cy="180" rx="170" ry="98" fill="#cde7d8" opacity=".45"/>
-  <!-- clipboard -->
-  <rect class="ink" x="120" y="56" width="150" height="190" rx="10" fill="#fff"/>
-  <rect class="ink" x="172" y="46" width="46" height="20" rx="8" fill="#fad29d"/>
-  <!-- q rows with animated checks -->
-  <g class="c1" style="transform-origin:146px 100px"><rect class="ink" x="136" y="90" width="20" height="20" rx="5" fill="#cde7d8"/><path class="ink" d="M141 100 l4 5 l8 -10"/></g>
-  <line class="ink" x1="168" y1="96" x2="248" y2="96" opacity=".45"/>
-  <line class="ink" x1="168" y1="105" x2="230" y2="105" opacity=".3"/>
-  <g class="c2" style="transform-origin:146px 142px"><rect class="ink" x="136" y="132" width="20" height="20" rx="5" fill="#c7d4f2"/><path class="ink" d="M141 142 l4 5 l8 -10"/></g>
-  <line class="ink" x1="168" y1="138" x2="248" y2="138" opacity=".45"/>
-  <line class="ink" x1="168" y1="147" x2="222" y2="147" opacity=".3"/>
-  <g class="c3" style="transform-origin:146px 184px"><rect class="ink" x="136" y="174" width="20" height="20" rx="5" fill="#fad29d"/><path class="ink" d="M141 184 l4 5 l8 -10"/></g>
-  <line class="ink" x1="168" y1="180" x2="248" y2="180" opacity=".45"/>
-  <line class="ink" x1="168" y1="189" x2="236" y2="189" opacity=".3"/>
-  <!-- rating dots -->
-  <circle cx="140" cy="222" r="5" fill="#e6612e"/>
-  <circle cx="158" cy="222" r="5" fill="#e6612e"/>
-  <circle cx="176" cy="222" r="5" fill="#e6612e"/>
-  <circle class="ink" cx="194" cy="222" r="5"/>
-  <circle class="ink" cx="212" cy="222" r="5"/>
-  <!-- pencil -->
+
+  <ellipse cx="200" cy="192" rx="178" ry="88" fill="#cde7d8" opacity=".42"/>
+
+  <!-- ================= CLIPBOARD ================= -->
+  <path class="s" d="M104 52 h150 a9 9 0 0 1 9 9 v186 a9 9 0 0 1 -9 9 h-150 a9 9 0 0 1 -9 -9 v-186 a9 9 0 0 1 9 -9 z" fill="#fff"/>
+  <!-- metal clip -->
+  <path class="s" d="M158 40 h42 a6 6 0 0 1 6 6 v14 h-54 v-14 a6 6 0 0 1 6 -6 z" fill="#fad29d"/>
+  <path class="s n" d="M170 40 v-6 a9 9 0 0 1 18 0 v6" opacity=".7"/>
+
+  <!-- form title -->
+  <path class="s n" d="M118 74 h58" stroke-width="3.6" opacity=".6"/>
+
+  <!-- Q1 -->
+  <g class="c1"><rect class="s" x="120" y="80" width="22" height="22" rx="5" fill="#cde7d8"/><path class="s n" d="M126 91 l4 4.5 l7 -9"/></g>
+  <path class="s n" d="M154 86 h84 M154 96 h64" opacity=".4"/>
+  <!-- Q2 -->
+  <g class="c2"><rect class="s" x="120" y="116" width="22" height="22" rx="5" fill="#c7d4f2"/><path class="s n" d="M126 127 l4 4.5 l7 -9"/></g>
+  <path class="s n" d="M154 122 h84 M154 132 h56" opacity=".4"/>
+  <!-- Q3 -->
+  <g class="c3"><rect class="s" x="120" y="152" width="22" height="22" rx="5" fill="#fad29d"/><path class="s n" d="M126 163 l4 4.5 l7 -9"/></g>
+  <path class="s n" d="M154 158 h84 M154 168 h72" opacity=".4"/>
+
+  <!-- likert scale -->
+  <path class="s n" d="M120 196 h118" opacity=".3"/>
+  <circle class="s" cx="128" cy="212" r="7" fill="#c2410c"/>
+  <circle class="s" cx="156" cy="212" r="7" fill="#c2410c"/>
+  <circle class="s" cx="184" cy="212" r="7" fill="#c2410c"/>
+  <circle class="s n" cx="212" cy="212" r="7"/>
+  <circle class="s n" cx="240" cy="212" r="7"/>
+  <path class="s n" d="M120 232 h60" opacity=".3"/>
+
+  <!-- ================= HAND + PENCIL ================= -->
   <g class="pen">
-    <rect class="ink" x="278" y="140" width="16" height="64" rx="4" fill="#fad29d" transform="rotate(28 286 172)"/>
-    <path class="ink" d="M304 202 l12 20 l-21 -6 z" fill="#fff"/>
+    <!-- forearm -->
+    <path class="s" d="M330 122 c-16 -6 -34 -4 -46 6" fill="#c7d4f2"/>
+    <!-- hand -->
+    <path class="s" d="M288 124 c-10 2 -16 10 -14 18 c1 6 7 10 14 9 c7 -1 12 -6 13 -13 c1 -8 -5 -15 -13 -14 z" fill="#eec9a8"/>
+    <!-- pencil -->
+    <path class="s" d="M296 138 l30 -44" stroke-width="9" stroke-linecap="butt" stroke="#fad29d"/>
+    <path class="s n" d="M296 138 l30 -44" stroke-width="9" stroke-linecap="butt"/>
+    <path class="s" d="M322 98 l10 -14 l4 12 z" fill="#fff"/>
+    <path class="s" d="M290 146 l7 -10 l5 4 z" fill="#32404f"/>
   </g>
-  <!-- tiny chart -->
-  <g>
-    <line class="ink" x1="310" y1="232" x2="360" y2="232"/>
-    <rect class="bar1" x="312" y="204" width="10" height="28" rx="2" fill="#c7d4f2"/>
-    <rect class="bar2" x="328" y="192" width="10" height="40" rx="2" fill="#03ae6f"/>
-    <rect class="bar3" x="344" y="212" width="10" height="20" rx="2" fill="#e6612e"/>
-  </g>
+
+  <!-- ================= RESULT CHART ================= -->
+  <path class="s n" d="M296 246 h64" opacity=".5"/>
+  <rect class="b1 s" x="300" y="214" width="14" height="32" rx="2" fill="#c7d4f2"/>
+  <rect class="b2 s" x="320" y="198" width="14" height="48" rx="2" fill="#0a7a4d"/>
+  <rect class="b3 s" x="340" y="222" width="14" height="24" rx="2" fill="#c2410c"/>
 </svg>

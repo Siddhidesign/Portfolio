@@ -1,57 +1,89 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
   <style>
-    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
-    .bob{animation:bob 3.4s ease-in-out infinite}
-    .bob2{animation:bob 3.4s ease-in-out .9s infinite}
-    .bub{animation:pulse 2.6s ease-in-out infinite;transform-origin:120px 70px}
-    .dots circle{animation:blink 1.8s ease-in-out infinite}
-    .dots circle:nth-child(2){animation-delay:.3s}
-    .dots circle:nth-child(3){animation-delay:.6s}
-    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-    @keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+    .s{stroke:#32404f;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:none}
+    .breathe{animation:br 4.4s ease-in-out infinite}
+    .breathe2{animation:br 4.4s ease-in-out 1.2s infinite}
+    .bub{animation:pop 3.2s ease-in-out infinite;transform-origin:118px 62px}
+    .d1{animation:bl 1.8s ease-in-out infinite}
+    .d2{animation:bl 1.8s ease-in-out .25s infinite}
+    .d3{animation:bl 1.8s ease-in-out .5s infinite}
+    .steam{animation:st 3.6s ease-in-out infinite}
+    @keyframes br{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+    @keyframes pop{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    @keyframes bl{0%,100%{opacity:.3}50%{opacity:1}}
+    @keyframes st{0%{opacity:0;transform:translateY(2px)}40%{opacity:.55}100%{opacity:0;transform:translateY(-9px)}}
   </style>
-  <ellipse cx="200" cy="190" rx="165" ry="95" fill="#c7d4f2" opacity=".45"/>
-  <!-- table -->
-  <line class="ink" x1="120" y1="215" x2="280" y2="215"/>
-  <line class="ink" x1="140" y1="215" x2="132" y2="258"/>
-  <line class="ink" x1="260" y1="215" x2="268" y2="258"/>
-  <!-- coffee cup -->
-  <path class="ink" d="M188 202 h20 l-3 13 h-14 z"/>
-  <path class="ink" d="M196 194 q2 -5 0 -9" opacity=".5"/>
-  <!-- participant (left) -->
-  <g class="bob">
-    <circle class="ink" cx="120" cy="140" r="21"/>
-    <path class="ink" d="M104 132 q6 -12 24 -8" opacity=".6"/>
-    <circle fill="#32404f" cx="114" cy="141" r="2.4"/>
-    <circle fill="#32404f" cx="127" cy="141" r="2.4"/>
-    <path class="ink" d="M116 151 q5 4 10 0"/>
-    <path class="ink" d="M120 161 q-24 8 -26 54"/>
-    <path class="ink" d="M120 161 q20 7 24 34 l16 16"/>
+
+  <ellipse cx="200" cy="196" rx="176" ry="86" fill="#c7d4f2" opacity=".38"/>
+
+  <!-- ============ PARTICIPANT (left, 3/4 facing right) ============ -->
+  <g class="breathe">
+    <!-- far arm -->
+    <g><path d="M112 176 c-14 8 -18 22 -16 32" stroke="#32404f" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M112 176 c-14 8 -18 22 -16 32" stroke="#aebfe8" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+    <!-- torso / blouse -->
+    <path class="s" d="M100 214 c-2 -26 2 -44 10 -52 c6 -6 12 -8 18 -8 c7 0 13 3 18 9 c7 9 10 27 8 51 z" fill="#c7d4f2"/>
+    <!-- collar -->
+    <path class="s n" d="M120 155 l8 9 l8 -9"/>
+    <!-- near arm resting on table -->
+    <g><path d="M146 174 c12 7 20 16 24 26" stroke="#32404f" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M146 174 c12 7 20 16 24 26" stroke="#c7d4f2" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+    <circle class="s" cx="173" cy="203" r="6.5" fill="#eec9a8"/>
+    <!-- neck -->
+    <path class="s" d="M121 148 h14 v9 h-14 z" fill="#eec9a8"/>
+    <!-- head -->
+    <ellipse class="s" cx="128" cy="126" rx="21" ry="23" fill="#eec9a8"/>
+    <!-- hair: side-parted with bun -->
+    <path class="s" d="M107 124 c-2 -18 10 -28 22 -28 c12 0 22 9 21 25 c-4 -9 -12 -13 -20 -12 c-9 1 -17 6 -23 15 z" fill="#2f3a46"/>
+    <circle class="s" cx="106" cy="118" r="8" fill="#2f3a46"/>
+    <!-- face -->
+    <circle fill="#32404f" cx="122" cy="127" r="2.1"/>
+    <circle fill="#32404f" cx="136" cy="127" r="2.1"/>
+    <path class="s n" d="M124 136 c3 3 7 3 10 0"/>
+    <path class="s n" d="M118 119 c2 -2 5 -2.5 8 -1.5" opacity=".8"/>
+    <path class="s n" d="M132 117.5 c3 -1 6 0 8 2" opacity=".8"/>
   </g>
+
   <!-- speech bubble -->
   <g class="bub">
-    <rect class="ink" x="88" y="52" width="64" height="36" rx="12" fill="#fff"/>
-    <path class="ink" d="M112 88 l-4 12 l12 -12" fill="#fff"/>
-    <g class="dots">
-      <circle fill="#e6612e" cx="106" cy="70" r="3.4"/>
-      <circle fill="#e6612e" cx="120" cy="70" r="3.4"/>
-      <circle fill="#e6612e" cx="134" cy="70" r="3.4"/>
-    </g>
+    <path class="s" d="M86 42 h64 a12 12 0 0 1 12 12 v20 a12 12 0 0 1 -12 12 h-30 l-14 12 l3 -12 h-23 a12 12 0 0 1 -12 -12 v-20 a12 12 0 0 1 12 -12 z" fill="#fff"/>
+    <circle class="d1" fill="#c2410c" cx="104" cy="64" r="4"/>
+    <circle class="d2" fill="#c2410c" cx="118" cy="64" r="4"/>
+    <circle class="d3" fill="#c2410c" cx="132" cy="64" r="4"/>
   </g>
-  <!-- researcher (right) with notepad -->
-  <g class="bob2">
-    <circle class="ink" cx="282" cy="136" r="21"/>
-    <path class="ink" d="M266 128 q10 -14 30 -4" opacity=".6"/>
-    <circle fill="#32404f" cx="276" cy="137" r="2.4"/>
-    <circle fill="#32404f" cx="289" cy="137" r="2.4"/>
-    <path class="ink" d="M278 147 q5 3.5 9 0"/>
-    <path class="ink" d="M282 157 q24 8 26 58"/>
-    <path class="ink" d="M282 157 q-18 6 -24 30 l-14 14"/>
-    <!-- notepad -->
-    <rect class="ink" x="222" y="190" width="34" height="42" rx="4" fill="#fad29d"/>
-    <line class="ink" x1="229" y1="202" x2="249" y2="202" opacity=".55"/>
-    <line class="ink" x1="229" y1="211" x2="249" y2="211" opacity=".55"/>
-    <line class="ink" x1="229" y1="220" x2="243" y2="220" opacity=".55"/>
+
+  <!-- ============ TABLE ============ -->
+  <path class="s" d="M92 212 h216 v7 h-216 z" fill="#fff"/>
+  <path class="s n" d="M118 219 l-8 40 M282 219 l8 40"/>
+
+  <!-- mug -->
+  <path class="steam n" stroke="#32404f" stroke-width="2" stroke-linecap="round" d="M196 196 c3 -5 -3 -8 0 -13"/>
+  <path class="s" d="M188 200 h18 l-2.5 12 h-13 z" fill="#fff"/>
+  <path class="s n" d="M206 202 c5 0 5 6 0 6"/>
+
+  <!-- notepad -->
+  <g class="breathe2">
+    <path class="s" d="M222 186 l34 -5 l5 30 l-34 5 z" fill="#fad29d"/>
+    <path class="s n" d="M229 194 l20 -3 M230 201 l20 -3 M231 208 l13 -2" opacity=".55"/>
+  </g>
+
+  <!-- ============ RESEARCHER (right, 3/4 facing left) ============ -->
+  <g class="breathe2">
+    <g><path d="M296 176 c14 8 18 22 16 32" stroke="#32404f" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M296 176 c14 8 18 22 16 32" stroke="#b6dcc6" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+    <path class="s" d="M308 214 c2 -26 -2 -44 -10 -52 c-6 -6 -12 -8 -18 -8 c-7 0 -13 3 -18 9 c-7 9 -10 27 -8 51 z" fill="#cde7d8"/>
+    <path class="s n" d="M288 155 l-8 9 l-8 -9"/>
+    <!-- writing arm reaching to notepad -->
+    <g><path d="M262 174 c-13 5 -22 12 -28 20" stroke="#32404f" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M262 174 c-13 5 -22 12 -28 20" stroke="#cde7d8" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+    <circle class="s" cx="230" cy="197" r="6.5" fill="#eec9a8"/>
+    <!-- pen -->
+    <path class="s" d="M226 194 l-9 -13" stroke="#c2410c" stroke-width="3"/>
+    <path class="s" d="M273 148 h14 v9 h-14 z" fill="#eec9a8"/>
+    <ellipse class="s" cx="280" cy="126" rx="21" ry="23" fill="#eec9a8"/>
+    <!-- short cropped hair -->
+    <path class="s" d="M259 124 c-2 -19 11 -28 21 -28 c11 0 22 9 21 27 c-3 -8 -6 -13 -13 -15 c-9 -2 -21 5 -29 16 z" fill="#3d3327"/>
+    <circle fill="#32404f" cx="274" cy="127" r="2.1"/>
+    <circle fill="#32404f" cx="288" cy="127" r="2.1"/>
+    <path class="s n" d="M276 136 c3 2.5 7 2.5 10 0"/>
+    <path class="s n" d="M270 118 c2 -2 5 -2.5 8 -1.5" opacity=".8"/>
+    <path class="s n" d="M284 116.5 c3 -1 6 0 8 2" opacity=".8"/>
   </g>
 </svg>

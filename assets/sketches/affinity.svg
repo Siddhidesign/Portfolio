@@ -1,42 +1,83 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
   <style>
-    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
-    .bob{animation:bob 3.4s ease-in-out infinite}
-    .n1{animation:tilt 3s ease-in-out infinite;transform-origin:150px 90px}
-    .fly{animation:fly 4.5s ease-in-out infinite;transform-origin:290px 120px}
-    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    @keyframes tilt{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
-    @keyframes fly{0%{opacity:0;transform:translate(30px,40px) rotate(12deg)}35%,80%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:1;transform:translate(0,0)}}
+    .s{stroke:#32404f;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:none}
+    .breathe{animation:br 4.6s ease-in-out infinite}
+    .arm{animation:reach 5s ease-in-out infinite;transform-origin:300px 170px}
+    .fly{animation:fly 5s ease-in-out infinite}
+    .t1{animation:tilt 4s ease-in-out infinite;transform-origin:160px 96px}
+    .t2{animation:tilt 4s ease-in-out .9s infinite;transform-origin:118px 140px}
+    @keyframes br{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    @keyframes reach{0%,100%{transform:rotate(0deg)}45%{transform:rotate(-7deg)}}
+    @keyframes fly{0%{opacity:0;transform:translate(26px,34px) rotate(14deg)}40%,85%{opacity:1;transform:translate(0,0) rotate(-2deg)}100%{opacity:1}}
+    @keyframes tilt{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
   </style>
-  <ellipse cx="200" cy="185" rx="170" ry="98" fill="#fad29d" opacity=".4"/>
-  <!-- wall / board -->
-  <rect class="ink" x="88" y="52" width="230" height="150" rx="8" fill="#fff"/>
-  <!-- sticky notes -->
-  <rect x="104" y="70" width="34" height="34" rx="3" fill="#c7d4f2"/>
-  <g class="n1"><rect x="148" y="70" width="34" height="34" rx="3" fill="#fad29d"/></g>
-  <rect x="192" y="70" width="34" height="34" rx="3" fill="#cde7d8"/>
-  <rect x="104" y="114" width="34" height="34" rx="3" fill="#cde7d8"/>
-  <rect x="148" y="114" width="34" height="34" rx="3" fill="#c7d4f2"/>
-  <rect x="192" y="114" width="34" height="34" rx="3" fill="#f6c9b4"/>
-  <rect x="104" y="158" width="34" height="34" rx="3" fill="#fad29d"/>
-  <rect x="148" y="158" width="34" height="34" rx="3" fill="#f6c9b4"/>
+
+  <ellipse cx="200" cy="196" rx="176" ry="86" fill="#fad29d" opacity=".34"/>
+
+  <!-- ============ WHITEBOARD ============ -->
+  <path class="s" d="M62 40 h236 a6 6 0 0 1 6 6 v152 a6 6 0 0 1 -6 6 h-236 a6 6 0 0 1 -6 -6 v-152 a6 6 0 0 1 6 -6 z" fill="#fff"/>
+  <!-- board tray -->
+  <path class="s" d="M70 204 h60 v5 h-60 z" fill="#eef1f5"/>
+
+  <!-- cluster rings drawn in marker -->
+  <ellipse class="s n" cx="112" cy="92" rx="42" ry="34" stroke="#c2410c" stroke-width="1.8" stroke-dasharray="7 6" opacity=".55"/>
+  <ellipse class="s n" cx="228" cy="150" rx="52" ry="38" stroke="#0069c2" stroke-width="1.8" stroke-dasharray="7 6" opacity=".5"/>
+
+  <!-- sticky notes: slight rotations, soft shadow -->
+  <g>
+    <rect class="s" x="76" y="62" width="38" height="38" rx="2" fill="#c7d4f2" transform="rotate(-3 95 81)"/>
+    <path class="s n" d="M83 74 h22 M83 82 h17" opacity=".4" transform="rotate(-3 95 81)"/>
+  </g>
+  <g class="t1">
+    <rect class="s" x="122" y="58" width="38" height="38" rx="2" fill="#fad29d"/>
+    <path class="s n" d="M129 70 h22 M129 78 h15" opacity=".4"/>
+  </g>
+  <g class="t2">
+    <rect class="s" x="80" y="112" width="38" height="38" rx="2" fill="#cde7d8" transform="rotate(2 99 131)"/>
+    <path class="s n" d="M87 124 h22 M87 132 h18" opacity=".4" transform="rotate(2 99 131)"/>
+  </g>
+  <g>
+    <rect class="s" x="126" y="116" width="38" height="38" rx="2" fill="#f6c9b4" transform="rotate(-2 145 135)"/>
+    <path class="s n" d="M133 128 h22 M133 136 h14" opacity=".4" transform="rotate(-2 145 135)"/>
+  </g>
+  <g>
+    <rect class="s" x="186" y="120" width="38" height="38" rx="2" fill="#c7d4f2" transform="rotate(3 205 139)"/>
+    <path class="s n" d="M193 132 h22 M193 140 h16" opacity=".4" transform="rotate(3 205 139)"/>
+  </g>
+  <g>
+    <rect class="s" x="232" y="116" width="38" height="38" rx="2" fill="#fad29d" transform="rotate(-3 251 135)"/>
+    <path class="s n" d="M239 128 h22 M239 136 h13" opacity=".4" transform="rotate(-3 251 135)"/>
+  </g>
+  <g>
+    <rect class="s" x="208" y="164" width="38" height="38" rx="2" fill="#cde7d8" transform="rotate(2 227 183)"/>
+    <path class="s n" d="M215 176 h22 M215 184 h17" opacity=".4" transform="rotate(2 227 183)"/>
+  </g>
   <!-- note being placed -->
-  <g class="fly"><rect x="236" y="114" width="34" height="34" rx="3" fill="#e6612e" opacity=".85"/></g>
-  <!-- scribbles on notes -->
-  <line class="ink" x1="110" y1="82" x2="130" y2="82" opacity=".35"/>
-  <line class="ink" x1="110" y1="90" x2="126" y2="90" opacity=".35"/>
-  <line class="ink" x1="154" y1="126" x2="174" y2="126" opacity=".35"/>
-  <line class="ink" x1="198" y1="82" x2="218" y2="82" opacity=".35"/>
-  <!-- cluster circle -->
-  <ellipse class="ink" cx="121" cy="139" rx="30" ry="42" opacity=".4" stroke-dasharray="6 7"/>
-  <!-- person reaching -->
-  <g class="bob">
-    <circle class="ink" cx="322" cy="150" r="20"/>
-    <path class="ink" d="M306 143 q9 -13 28 -5" opacity=".6"/>
-    <circle fill="#32404f" cx="317" cy="151" r="2.3"/>
-    <circle fill="#32404f" cx="329" cy="151" r="2.3"/>
-    <path class="ink" d="M319 161 q4.5 3.5 9 0"/>
-    <path class="ink" d="M322 170 q14 10 12 68"/>
-    <path class="ink" d="M322 170 q-20 -6 -46 -32"/>
+  <g class="fly">
+    <rect class="s" x="254" y="164" width="38" height="38" rx="2" fill="#f6c9b4"/>
+    <path class="s n" d="M261 176 h22 M261 184 h15" opacity=".45"/>
+  </g>
+
+  <!-- ============ RESEARCHER at the board (back 3/4 view) ============ -->
+  <g class="breathe">
+    <!-- legs -->
+    <g><path d="M318 234 c-3 20 -2 33 0 42" stroke="#32404f" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M318 234 c-3 20 -2 33 0 42" stroke="#55606e" stroke-width="13" stroke-linecap="round" fill="none"/></g>
+    <g><path d="M340 234 c4 20 3 33 1 42" stroke="#32404f" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M340 234 c4 20 3 33 1 42" stroke="#55606e" stroke-width="13" stroke-linecap="round" fill="none"/></g>
+    <path class="s" d="M304 278 h22 M334 278 h22" stroke-width="4"/>
+    <!-- torso -->
+    <path class="s" d="M310 236 c-6 -30 -4 -52 4 -60 c6 -6 12 -8 18 -8 c7 0 13 3 18 9 c8 9 9 31 4 59 z" fill="#c7d4f2"/>
+    <!-- reaching arm -->
+    <g class="arm">
+      <g><path d="M314 180 c-10 -4 -21 -9 -30 -15" stroke="#32404f" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M314 180 c-10 -4 -21 -9 -30 -15" stroke="#c7d4f2" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+      <circle class="s" cx="277" cy="161" r="7" fill="#eec9a8"/>
+    </g>
+    <!-- resting arm -->
+    <g><path d="M352 182 c8 10 10 21 9 31" stroke="#32404f" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M352 182 c8 10 10 21 9 31" stroke="#c7d4f2" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+    <path class="s" d="M325 164 h14 v10 h-14 z" fill="#eec9a8"/>
+    <ellipse class="s" cx="332" cy="142" rx="21" ry="23" fill="#eec9a8"/>
+    <!-- hair, back of head with low bun -->
+    <path class="s" d="M311 144 c-3 -21 10 -31 21 -31 c12 0 23 10 21 29 c-4 -9 -11 -14 -20 -13 c-9 1 -16 6 -22 15 z" fill="#2f3a46"/>
+    <circle class="s" cx="352" cy="146" r="9" fill="#2f3a46"/>
   </g>
 </svg>

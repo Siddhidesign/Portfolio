@@ -1,41 +1,66 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
   <style>
-    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
-    .mag{animation:mag 5.5s ease-in-out infinite}
-    .m1{animation:mark 5.5s ease-in-out infinite}
-    .m2{animation:mark 5.5s ease-in-out 1.8s infinite}
-    .m3{animation:mark 5.5s ease-in-out 3.6s infinite}
-    @keyframes mag{0%,100%{transform:translate(0,0)}33%{transform:translate(96px,6px)}66%{transform:translate(192px,-4px)}}
-    @keyframes mark{0%,20%{opacity:0;transform:scale(.5)}30%,100%{opacity:1;transform:scale(1)}}
+    .s{stroke:#32404f;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:none}
+    .mag{animation:sweep 7s ease-in-out infinite}
+    .m1{animation:mk 7s ease-in-out .6s infinite;transform-origin:132px 66px}
+    .m2{animation:mk 7s ease-in-out 2.9s infinite;transform-origin:236px 66px}
+    .m3{animation:mk 7s ease-in-out 5.2s infinite;transform-origin:340px 66px}
+    @keyframes sweep{0%,100%{transform:translate(0,0)}
+      14%,28%{transform:translate(0,0)}
+      42%,56%{transform:translate(104px,4px)}
+      70%,88%{transform:translate(208px,-2px)}}
+    @keyframes mk{0%,8%{opacity:0;transform:scale(.4)}18%,100%{opacity:1;transform:scale(1)}}
   </style>
-  <ellipse cx="200" cy="180" rx="172" ry="98" fill="#c7d4f2" opacity=".4"/>
-  <!-- three phones -->
+
+  <ellipse cx="200" cy="186" rx="180" ry="92" fill="#c7d4f2" opacity=".34"/>
+
+  <!-- ================= PHONE 1 (fails) ================= -->
   <g>
-    <rect class="ink" x="72" y="70" width="72" height="140" rx="12" fill="#fff"/>
-    <line class="ink" x1="96" y1="82" x2="120" y2="82" opacity=".4"/>
-    <rect class="ink" x="84" y="94" width="48" height="26" rx="4" opacity=".5"/>
-    <line class="ink" x1="84" y1="132" x2="132" y2="132" opacity=".4"/>
-    <line class="ink" x1="84" y1="142" x2="122" y2="142" opacity=".4"/>
-    <rect class="ink" x="84" y="156" width="48" height="12" rx="6" opacity=".5"/>
-    <g class="m1" style="transform-origin:140px 78px"><circle cx="140" cy="78" r="11" fill="#e6612e"/><path d="M135.5 73.5 l9 9 M144.5 73.5 l-9 9" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g>
+    <path class="s" d="M62 44 h68 a13 13 0 0 1 13 13 v152 a13 13 0 0 1 -13 13 h-68 a13 13 0 0 1 -13 -13 v-152 a13 13 0 0 1 13 -13 z" fill="#fff"/>
+    <path class="s n" d="M84 55 h24" stroke-width="3.4" opacity=".5"/>
+    <!-- cramped, unlabelled UI -->
+    <path class="s n" d="M60 74 h30" opacity=".45"/>
+    <rect class="s n" x="60" y="84" width="72" height="15" rx="2" opacity=".45"/>
+    <rect class="s n" x="60" y="103" width="72" height="15" rx="2" opacity=".45"/>
+    <rect class="s n" x="60" y="122" width="72" height="15" rx="2" opacity=".45"/>
+    <rect class="s" x="60" y="148" width="46" height="15" rx="3" fill="#dfe4ea"/>
+    <path class="s n" d="M60 178 h72 M60 188 h52" opacity=".3"/>
+    <path class="s n" d="M49 198 h94" opacity=".35"/>
+    <g class="m1"><circle cx="132" cy="66" r="12" fill="#c2410c"/><path d="M127 61 l10 10 M137 61 l-10 10" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g>
   </g>
+
+  <!-- ================= PHONE 2 (fails) ================= -->
   <g>
-    <rect class="ink" x="164" y="70" width="72" height="140" rx="12" fill="#fff"/>
-    <rect class="ink" x="176" y="86" width="48" height="40" rx="4" opacity=".5"/>
-    <line class="ink" x1="176" y1="140" x2="224" y2="140" opacity=".4"/>
-    <line class="ink" x1="176" y1="150" x2="212" y2="150" opacity=".4"/>
-    <g class="m2" style="transform-origin:232px 78px"><circle cx="232" cy="78" r="11" fill="#e6612e"/><path d="M227.5 73.5 l9 9 M236.5 73.5 l-9 9" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g>
+    <path class="s" d="M166 44 h68 a13 13 0 0 1 13 13 v152 a13 13 0 0 1 -13 13 h-68 a13 13 0 0 1 -13 -13 v-152 a13 13 0 0 1 13 -13 z" fill="#fff"/>
+    <path class="s n" d="M188 55 h24" stroke-width="3.4" opacity=".5"/>
+    <rect class="s n" x="164" y="72" width="72" height="46" rx="3" opacity=".45"/>
+    <path class="s n" d="M164 130 h72 M164 140 h58 M164 150 h66" opacity=".33"/>
+    <rect class="s" x="164" y="166" width="72" height="16" rx="8" fill="#dfe4ea"/>
+    <path class="s n" d="M153 198 h94" opacity=".35"/>
+    <g class="m2"><circle cx="236" cy="66" r="12" fill="#c2410c"/><path d="M231 61 l10 10 M241 61 l-10 10" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g>
   </g>
+
+  <!-- ================= PHONE 3 (passes) ================= -->
   <g>
-    <rect class="ink" x="256" y="70" width="72" height="140" rx="12" fill="#fff"/>
-    <circle class="ink" cx="292" cy="106" r="18" opacity=".5"/>
-    <line class="ink" x1="268" y1="140" x2="316" y2="140" opacity=".4"/>
-    <rect class="ink" x="268" y="152" width="48" height="12" rx="6" opacity=".5"/>
-    <g class="m3" style="transform-origin:324px 78px"><circle cx="324" cy="78" r="11" fill="#03ae6f"/><path d="M319 78 l4 4 l7 -8" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <path class="s" d="M270 44 h68 a13 13 0 0 1 13 13 v152 a13 13 0 0 1 -13 13 h-68 a13 13 0 0 1 -13 -13 v-152 a13 13 0 0 1 13 -13 z" fill="#fff"/>
+    <path class="s n" d="M292 55 h24" stroke-width="3.4" opacity=".5"/>
+    <!-- clear labelled UI -->
+    <path class="s n" d="M268 74 h34" opacity=".5"/>
+    <rect class="s n" x="268" y="82" width="72" height="17" rx="3" opacity=".5"/>
+    <path class="s n" d="M268 108 h30" opacity=".5"/>
+    <rect class="s n" x="268" y="116" width="72" height="17" rx="3" opacity=".5"/>
+    <rect class="s" x="268" y="146" width="72" height="18" rx="9" fill="#c7d4f2"/>
+    <path class="s n" d="M257 198 h94" opacity=".35"/>
+    <g class="m3"><circle cx="340" cy="66" r="12" fill="#0a7a4d"/><path d="M334 66 l4.5 4.5 l7.5 -8.5" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
   </g>
-  <!-- magnifier sweeping -->
+
+  <!-- ================= MAGNIFIER ================= -->
   <g class="mag">
-    <circle class="ink" cx="96" cy="230" r="26" fill="#fff" opacity=".9" stroke-width="4"/>
-    <line class="ink" x1="115" y1="249" x2="136" y2="268" stroke-width="5"/>
+    <circle cx="96" cy="240" r="30" fill="#fff" fill-opacity=".55"/>
+    <circle class="s n" cx="96" cy="240" r="30" stroke-width="4"/>
+    <circle class="s n" cx="96" cy="240" r="24" stroke-width="1.2" opacity=".35"/>
+    <path class="s" d="M117 261 l17 17" stroke-width="6"/>
+    <path class="s n" d="M84 231 c4 -5 12 -6 17 -2" stroke-width="2" opacity=".5"/>
   </g>
 </svg>
