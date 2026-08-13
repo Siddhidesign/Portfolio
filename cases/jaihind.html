@@ -235,8 +235,8 @@
       font-size: 0.875rem; color: var(--text-secondary); display: flex;
       gap: 8px; align-items: flex-start; line-height: 1.5;
     }
-    .ba-before-list li::before { content: '✕'; color: #ef4444; font-weight: 700; flex-shrink: 0; }
-    .ba-after-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+    .ba-before-list li::before { content: '✕'; color: #b91c1c; font-weight: 700; flex-shrink: 0; }
+    .ba-after-list li::before { content: '✓'; color: #15803d; font-weight: 700; flex-shrink: 0; }
     .design-frames { display: flex; flex-direction: column; gap: 32px; }
     .design-frame { width: 100%; }
     .design-frame img {
@@ -322,7 +322,7 @@
       .bottom-nav { padding: 40px 24px 60px; flex-wrap: wrap; }
     }
 
-    /* ── NEW CLASSES ─────────────────────────────────────────────── */
+    /* ── NEW CLASSES ──────────────────────────────────────────────── */
 
     /* Hero two-col */
     .hero-two-col {
@@ -569,14 +569,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* editorial re-theme override — matches homepage */
+    /* editorial re-theme override, matches homepage */
     :root {
-      --accent: #0099ff;
+      --accent: #0069c2;
       --accent-tint: #eaf5ff;
       --navy: #32404f;
       --text-primary: #32404f;
-      --text-secondary: #5b6673;
-      --text-muted: #999999;
+      --text-secondary: #55606e;
+      --text-muted: #5f6b7a;
       --bg: #ffffff;
       --bg-card: #ffffff;
       --bg-light: #f7f7f7;
@@ -594,24 +594,24 @@
     .cs-scene { background:#f7f7f7; border:1px solid #e2e2e2; border-radius:18px; padding:22px 22px 18px; transition:transform .3s ease; }
     .cs-scene:hover { transform:translateY(-4px); }
     .cs-scene img { width:100%; height:auto; display:block; margin-bottom:14px; }
-    .cs-scene-kicker { display:block; font-family:"Inter",sans-serif; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#0099ff; margin-bottom:6px; }
-    .cs-scene-cap { font-size:.92rem; line-height:1.55; color:#5b6673; }
+    .cs-scene-kicker { display:block; font-family:"Inter",sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#0069c2; margin-bottom:6px; }
+    .cs-scene-cap { font-size:.92rem; line-height:1.55; color:#55606e; }
     .cs-scene-cap strong { color:#32404f; font-weight:600; }
 
     .cs-more { margin: 18px 0; }
     .cs-more > summary { list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
-      font-family:"Inter",sans-serif; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
-      color:#5b6673; border:1px solid #e2e2e2; border-radius:999px; padding:9px 16px; transition:border-color .2s,color .2s; }
+      font-family:"Inter",sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+      color:#55606e; border:1px solid #e2e2e2; border-radius:999px; padding:9px 16px; transition:border-color .2s,color .2s; }
     .cs-more > summary::-webkit-details-marker { display:none; }
-    .cs-more > summary::after { content:"+"; font-size:14px; line-height:1; color:#999; }
+    .cs-more > summary::after { content:"+"; font-size:14px; line-height:1; color:#5f6b7a; }
     .cs-more[open] > summary::after { content:"\2013"; }
     .cs-more > summary:hover { border-color:#32404f; color:#32404f; }
     .cs-more[open] > summary { margin-bottom:16px; color:#32404f; border-color:#32404f; }
     .cs-mail-float { position:fixed; right:1.2rem; bottom:1.2rem; z-index:200;
-      font-family:"Inter",sans-serif; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+      font-family:"Inter",sans-serif; font-size:12px; letter-spacing:.12em; text-transform:uppercase;
       background:#32404f; color:#fff; padding:.7rem 1.2rem; border-radius:999px; text-decoration:none;
       box-shadow:0 10px 26px rgba(50,64,79,.22); transition:background .2s,transform .2s; }
-    .cs-mail-float:hover { background:#0099ff; transform:translateY(-2px); }
+    .cs-mail-float:hover { background:#0069c2; transform:translateY(-2px); }
     .eyebrow, .kicker, .sticky-menu a, .back-link, .metric-chip-num,
     [class*="label"], [class*="tag"] { font-family: "Inter", sans-serif; }
   </style>
@@ -688,7 +688,7 @@
       <div class="cs-scenes">
         <figure class="cs-scene">
           <img src="../assets/sketches/field.svg" alt="Sketch: field research" loading="lazy" />
-          <figcaption><span class="cs-scene-kicker">FIELD RESEARCH</span><span class="cs-scene-cap">Three teams, <strong>five disconnected spreadsheets</strong>, and orders held together by phone calls — I shadowed the workflow before designing anything.</span></figcaption>
+          <figcaption><span class="cs-scene-kicker">FIELD RESEARCH</span><span class="cs-scene-cap">Three teams, <strong>five disconnected spreadsheets</strong>, and orders held together by phone calls. I shadowed the workflow before designing anything.</span></figcaption>
         </figure>
       </div>
 
