@@ -6,7 +6,7 @@
    for the label voice) · blue accent.
    ============================================================ */
 
-/* ── PALETTE ───────────────────────────────────────────────── */
+/* ── PALETTE ────────────────────────────────────────────────── */
 :root,
 html[data-theme="dark"],
 html[data-theme="light"] {
@@ -15,11 +15,11 @@ html[data-theme="light"] {
   --bg3:       #f0f0f0;
   --surface:   #ffffff;
   --text:      #32404f;
-  --text2:     #5b6673;
-  --text3:     #999999;
+  --text2:     #55606e;   /* 6.4:1 on white */
+  --text3:     #5f6b7a;   /* 5.4:1 on white */
 
   /* accent slots → editorial blue */
-  --gold:      #0099ff;
+  --gold:      #0069c2;
   --gold-dim:  rgba(0, 153, 255, .10);
   --gold-glow: rgba(0, 153, 255, .06);
 
@@ -31,12 +31,12 @@ html[data-theme="light"] {
   --mono:  "Inter", -apple-system, sans-serif;  /* label voice: same family, uppercase + tracked */
 
   /* color pops → homepage palette */
-  --coral:  #e6612e;
+  --coral:  #c2410c;   /* 5.2:1 */
   --violet: #32404f;
-  --blue:   #0099ff;
+  --blue:   #0069c2;   /* 4.9:1 */
   --lemon:  #fad29d;
-  --mint:   #03ae6f;
-  --pink:   #e6612e;
+  --mint:   #0a7a4d;   /* 5.4:1 */
+  --pink:   #c2410c;
   --grad:   none;
 }
 
@@ -104,7 +104,7 @@ body {
   font-weight: 400;
 }
 
-/* ── SECTION CHROME ────────────────────────────────────────── */
+/* ── SECTION CHROME ─────────────────────────────────────────── */
 .cs-sec-num {
   background: none;
   color: var(--text3);
@@ -134,7 +134,7 @@ body {
 .cs-metrics .cs-metric:nth-child(3) .cs-metric-n { color: var(--coral); }
 .cs-metrics .cs-metric:nth-child(4) .cs-metric-n { color: var(--text); }
 
-/* ── NAV pill → flat editorial bar ─────────────────────────────── */
+/* ── NAV pill → flat editorial bar ──────────────────────────────── */
 .cs-nav {
   background: rgba(255, 255, 255, .85);
   backdrop-filter: blur(12px);
@@ -143,7 +143,7 @@ body {
   border-radius: 999px;
   box-shadow: 0 8px 24px rgba(50, 64, 79, .08);
 }
-.cs-back, .cs-next-link { font-size: 10px; }
+.cs-back, .cs-next-link { font-size: 12px; }
 .cs-back:hover, .cs-next-link:hover {
   color: #fff;
   background: var(--text);
@@ -192,11 +192,11 @@ body {
 .cs-compare-col { background: #fbe9e0; border: 1px solid transparent; }
 .cs-compare-col.after { background: #e9f3ee; border: 1px solid transparent; }
 
-.cs-badge { background: #e9f3ee; border: 1px solid transparent; color: var(--mint); }
-.cs-badge.alt { background: #e2ecfa; border: 1px solid transparent; color: var(--blue); }
+.cs-badge { background: #e9f3ee; border: 1px solid transparent; color: #0a5c3a; }
+.cs-badge.alt { background: #e2ecfa; border: 1px solid transparent; color: #004f8f; }
 
-/* ── BUTTONS ───────────────────────────────────────────────── */
-.btn { font-family: var(--mono); letter-spacing: .12em; text-transform: uppercase; font-size: 11px; }
+/* ── BUTTONS ────────────────────────────────────────────────── */
+.btn { font-family: var(--mono); letter-spacing: .12em; text-transform: uppercase; font-size: 12px; }
 .btn-gold {
   background: var(--text);
   color: #fff;
@@ -210,7 +210,7 @@ body {
 .btn-ghost { border: 1px solid var(--border2); color: var(--text); }
 .btn-ghost:hover { border-color: var(--text); color: var(--text); }
 
-/* ── SKETCH SCENES (research/testing illustrations) ───────── */
+/* ── SKETCH SCENES (research/testing illustrations) ─────────── */
 .cs-scenes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -229,7 +229,7 @@ body {
 .cs-scene-kicker {
   display: block;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--blue);
@@ -245,12 +245,12 @@ body {
 }
 .cs-scene-cap strong { color: var(--text); font-weight: 600; }
 
-/* ── EMAIL: one click from every page ─────────────────────── */
+/* ── EMAIL: one click from every page ─────────────────────────── */
 .cs-mail-nav { margin-right: .4rem; }
 
 .cs-mail-foot {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: .1em;
   color: var(--blue);
   border-bottom: 1px solid transparent;
@@ -264,7 +264,7 @@ body {
   bottom: 1.2rem;
   z-index: 200;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: .12em;
   text-transform: uppercase;
   background: var(--text);
@@ -276,7 +276,7 @@ body {
 }
 .cs-mail-float:hover { background: var(--blue); transform: translateY(-2px); }
 
-/* ── PROGRESSIVE DISCLOSURE ────────────────────────────────── */
+/* ── PROGRESSIVE DISCLOSURE ──────────────────────────────────── */
 .cs-more { margin: 1.4rem 0; }
 .cs-more > summary {
   list-style: none;
@@ -285,7 +285,7 @@ body {
   align-items: center;
   gap: .6rem;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--text2);
@@ -305,7 +305,18 @@ body {
 .cs-more > summary:hover { border-color: var(--text); color: var(--text); }
 .cs-more[open] > summary { margin-bottom: 1.2rem; color: var(--text); border-color: var(--text); }
 
-/* ── MISC ──────────────────────────────────────────────────── */
+/* ── LEGACY COLOUR OVERRIDES (case-study.css shipped sub-AA reds) ── */
+.cs-empathy-quad.pain .cs-empathy-label,
+.cs-comp-gap { color: #b91c1c; }          /* was #e74c3c at 3.5:1 → now 5.9:1 */
+
+/* ── FOCUS VISIBILITY (WCAG 2.4.7) ─────────────────────────── */
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── MISC ───────────────────────────────────────────────────── */
 .scroll-progress { background: var(--text); height: 2px; }
 .cs-bn-link:hover .cs-bn-title { color: var(--blue); }
 .back-top { background: rgba(255,255,255,.9); color: var(--text2); }
