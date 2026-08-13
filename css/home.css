@@ -26,6 +26,8 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+/* fixed nav is ~64px: keep anchored sections clear of it */
+:target, section[id], header[id] { scroll-margin-top: 90px; }
 
 body {
   background: var(--bg);
@@ -67,6 +69,10 @@ h2.label { font-size: 12px; font-weight: 400; }
 .rv.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .rv { opacity: 1; transform: none; transition: none; }
+  .marquee-track, .hc, .chip i { animation: none !important; }
+  .card:hover .card-media, .card:hover .card-media img,
+  .tool:hover, .hero-cta:hover { transform: none; }
+  html { scroll-behavior: auto; }
 }
 
 /* ── NAV ────────────────────────────────────────────────────── */
@@ -320,13 +326,33 @@ h2.label { font-size: 12px; font-weight: 400; }
 }
 .pb-stage img.on { opacity: 1; }
 .pb-stage img[hidden] { display: block; }
+/* Footer height is LOCKED. The caption text changes every 2.6s, and if the
+   counter is allowed to wrap the card resizes and the whole sticky column
+   jumps. Reserve one fixed line and let the caption truncate instead. */
 .pb-foot {
-  display: flex; justify-content: space-between; gap: 12px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
   margin-top: 14px;
+  min-height: 20px;
   font-family: var(--mono); font-size: 12px; letter-spacing: .12em;
   color: var(--ink);
 }
-.pb-cap { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pb-cap {
+  flex: 1 1 auto; min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.pb-count { flex: 0 0 auto; white-space: nowrap; }
+
+/* pause control for the auto-advancing photobook (WCAG 2.2.2) */
+.pb-pause {
+  position: absolute; top: 10px; right: 10px; z-index: 3;
+  width: 30px; height: 30px; border-radius: 50%;
+  border: none; cursor: pointer;
+  background: rgba(255, 255, 255, .92); color: var(--ink);
+  font-size: 12px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(50, 64, 79, .25);
+}
+.pb-pause:hover { background: #fff; }
 
 .about-copy p { margin-bottom: 18px; color: var(--ink); font-size: 16.5px; }
 .about-copy strong { font-weight: 600; }
