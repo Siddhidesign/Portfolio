@@ -1,54 +1,71 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
   <style>
-    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
-    .bob{animation:bob 3.4s ease-in-out infinite}
-    .ring{animation:ring 2.4s ease-in-out infinite;transform-origin:96px 96px}
-    .p1{animation:drift 5s ease-in-out infinite}
-    .p2{animation:drift 5s ease-in-out 1.4s infinite}
-    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    @keyframes ring{0%,100%{transform:rotate(-8deg)}20%{transform:rotate(10deg)}40%{transform:rotate(-8deg)}}
-    @keyframes drift{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-3deg)}}
+    .s{stroke:#32404f;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:none}
+    .breathe{animation:br 4.2s ease-in-out infinite}
+    .ring{animation:rg 2.6s ease-in-out infinite;transform-origin:78px 108px}
+    .p1{animation:drift 5.5s ease-in-out infinite}
+    .p2{animation:drift 5.5s ease-in-out 1.6s infinite}
+    .p3{animation:drift 5.5s ease-in-out 3.1s infinite}
+    .drop{animation:dp 3.4s ease-in-out infinite}
+    @keyframes br{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    @keyframes rg{0%,60%,100%{transform:rotate(0deg)}10%{transform:rotate(-11deg)}20%{transform:rotate(11deg)}30%{transform:rotate(-8deg)}40%{transform:rotate(6deg)}}
+    @keyframes drift{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-7px) rotate(-3deg)}}
+    @keyframes dp{0%{opacity:0;transform:translateY(-3px)}40%{opacity:.9}100%{opacity:0;transform:translateY(9px)}}
   </style>
-  <ellipse cx="200" cy="190" rx="172" ry="95" fill="#fad29d" opacity=".4"/>
-  <!-- stacked boxes -->
-  <rect class="ink" x="236" y="160" width="58" height="50" rx="4" fill="#fff"/>
-  <rect class="ink" x="252" y="118" width="58" height="42" rx="4" fill="#fff"/>
-  <line class="ink" x1="236" y1="184" x2="294" y2="184" opacity=".4"/>
-  <line class="ink" x1="265" y1="160" x2="265" y2="210" opacity=".4"/>
-  <path class="ink" d="M252 138 h58" opacity=".4"/>
-  <rect class="ink" x="300" y="176" width="44" height="34" rx="4" fill="#cde7d8"/>
-  <!-- flying spreadsheets -->
+
+  <ellipse cx="200" cy="200" rx="180" ry="86" fill="#fad29d" opacity=".34"/>
+
+  <!-- ================= DESK ================= -->
+  <path class="s" d="M46 226 h308 v7 h-308 z" fill="#fff"/>
+
+  <!-- ================= RINGING DESK PHONE ================= -->
+  <g class="ring">
+    <path class="s" d="M58 190 h40 a5 5 0 0 1 5 5 v26 a5 5 0 0 1 -5 5 h-40 a5 5 0 0 1 -5 -5 v-26 a5 5 0 0 1 5 -5 z" fill="#dfe4ea"/>
+    <path class="s" d="M56 186 c0 -8 6 -13 22 -13 c16 0 22 5 22 13 c-6 0 -9 3 -9 7 h-26 c0 -4 -3 -7 -9 -7 z" fill="#fff"/>
+    <path class="s n" d="M40 176 c-7 6 -10 14 -10 22 M116 176 c7 6 10 14 10 22" opacity=".5"/>
+  </g>
+
+  <!-- ================= STACKED PAPER / SPREADSHEETS ================= -->
   <g class="p1">
-    <rect class="ink" x="66" y="150" width="56" height="44" rx="4" fill="#fff"/>
-    <line class="ink" x1="66" y1="164" x2="122" y2="164" opacity=".5"/>
-    <line class="ink" x1="66" y1="178" x2="122" y2="178" opacity=".5"/>
-    <line class="ink" x1="85" y1="150" x2="85" y2="194" opacity=".5"/>
-    <line class="ink" x1="104" y1="150" x2="104" y2="194" opacity=".5"/>
+    <path class="s" d="M46 128 h66 a4 4 0 0 1 4 4 v46 a4 4 0 0 1 -4 4 h-66 a4 4 0 0 1 -4 -4 v-46 a4 4 0 0 1 4 -4 z" fill="#fff"/>
+    <path class="s n" d="M42 142 h74 M42 156 h74 M42 170 h74 M64 128 v56 M90 128 v56" opacity=".45"/>
   </g>
   <g class="p2">
-    <rect class="ink" x="96" y="206" width="56" height="44" rx="4" fill="#c7d4f2"/>
-    <line class="ink" x1="96" y1="220" x2="152" y2="220" opacity=".5"/>
-    <line class="ink" x1="96" y1="234" x2="152" y2="234" opacity=".5"/>
-    <line class="ink" x1="115" y1="206" x2="115" y2="250" opacity=".5"/>
-    <line class="ink" x1="134" y1="206" x2="134" y2="250" opacity=".5"/>
+    <path class="s" d="M290 118 h66 a4 4 0 0 1 4 4 v46 a4 4 0 0 1 -4 4 h-66 a4 4 0 0 1 -4 -4 v-46 a4 4 0 0 1 4 -4 z" fill="#c7d4f2"/>
+    <path class="s n" d="M286 132 h74 M286 146 h74 M286 160 h74 M308 118 v54 M334 118 v54" opacity=".45"/>
   </g>
-  <!-- phone ringing -->
-  <g class="ring">
-    <rect class="ink" x="82" y="78" width="28" height="44" rx="8" fill="#fff"/>
-    <path class="ink" d="M70 74 q-8 22 0 44" opacity=".5"/>
-    <path class="ink" d="M122 74 q8 22 0 44" opacity=".5"/>
+  <g class="p3">
+    <path class="s" d="M296 186 h58 a4 4 0 0 1 4 4 v34 a4 4 0 0 1 -4 4 h-58 a4 4 0 0 1 -4 -4 v-34 a4 4 0 0 1 4 -4 z" fill="#cde7d8"/>
+    <path class="s n" d="M292 198 h66 M292 210 h66 M314 186 v42" opacity=".45"/>
   </g>
-  <!-- person in the middle, juggling it all -->
-  <g class="bob">
-    <circle class="ink" cx="196" cy="120" r="22"/>
-    <path class="ink" d="M179 112 q9 -14 30 -6" opacity=".6"/>
-    <circle fill="#32404f" cx="190" cy="121" r="2.4"/>
-    <circle fill="#32404f" cx="203" cy="121" r="2.4"/>
-    <path class="ink" d="M192 132 q5 3 9 0"/>
-    <path class="ink" d="M196 142 q-4 30 -2 96" />
-    <path class="ink" d="M196 148 q-30 4 -60 -14"/>
-    <path class="ink" d="M196 148 q30 6 52 20"/>
+
+  <!-- ================= PERSON, OVERLOADED ================= -->
+  <g class="breathe">
+    <!-- chair back -->
+    <path class="s n" d="M162 232 v34 M238 232 v34" opacity=".35"/>
+    <!-- torso -->
+    <path class="s" d="M170 226 c-4 -34 0 -56 10 -65 c7 -7 13 -9 20 -9 c8 0 14 3 20 10 c9 10 12 32 9 64 z" fill="#c7d4f2"/>
+    <path class="s n" d="M190 155 l10 11 l10 -11"/>
+    <!-- both arms flung out to the piles -->
+    <g><path d="M176 180 c-17 -2 -32 -12 -44 -24" stroke="#32404f" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M176 180 c-17 -2 -32 -12 -44 -24" stroke="#c7d4f2" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+    <circle class="s" cx="126" cy="149" r="7.5" fill="#eec9a8"/>
+    <g><path d="M224 180 c17 -2 34 -8 47 -17" stroke="#32404f" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M224 180 c17 -2 34 -8 47 -17" stroke="#c7d4f2" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+    <circle class="s" cx="279" cy="157" r="7.5" fill="#eec9a8"/>
+    <!-- neck + head -->
+    <path class="s" d="M192 146 h16 v11 h-16 z" fill="#eec9a8"/>
+    <ellipse class="s" cx="200" cy="122" rx="23" ry="25" fill="#eec9a8"/>
+    <!-- hair -->
+    <path class="s" d="M177 122 c-3 -22 11 -33 23 -33 c13 0 25 11 23 31 c-5 -10 -12 -15 -22 -14 c-10 1 -18 7 -24 16 z" fill="#3a2b20"/>
+    <path class="s" d="M177 120 c-6 15 -5 32 1 45 c5 -9 6 -24 4 -37 z" fill="#3a2b20"/>
+    <path class="s" d="M223 120 c6 15 5 32 -1 45 c-5 -9 -6 -24 -4 -37 z" fill="#3a2b20"/>
+    <!-- worried face -->
+    <path class="s n" d="M186 116 c3 -3 8 -3 11 0" opacity=".85"/>
+    <path class="s n" d="M203 116 c3 -3 8 -3 11 0" opacity=".85"/>
+    <circle fill="#32404f" cx="192" cy="124" r="2.2"/>
+    <circle fill="#32404f" cx="209" cy="124" r="2.2"/>
+    <path class="s n" d="M194 135 c4 -3 9 -3 13 0"/>
   </g>
   <!-- sweat drop -->
-  <path class="ink" d="M226 96 q6 8 0 12 q-6 -4 0 -12" fill="#c7d4f2"/>
+  <path class="drop s" d="M228 100 c7 9 0 15 -5 12 c-4 -2 -3 -8 5 -12 z" fill="#c7d4f2"/>
 </svg>

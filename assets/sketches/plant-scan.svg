@@ -1,49 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
   <style>
-    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
-    .box{animation:lock 4.5s ease-in-out infinite}
-    .conf{animation:fade 4.5s ease-in-out infinite}
-    .leafa{animation:sway 4s ease-in-out infinite;transform-origin:150px 210px}
-    .off{animation:blink 3s ease-in-out infinite}
-    @keyframes lock{0%,15%{opacity:0;transform:scale(1.15)}30%,100%{opacity:1;transform:scale(1)}}
-    @keyframes fade{0%,35%{opacity:0}50%,100%{opacity:1}}
-    @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
-    @keyframes blink{0%,100%{opacity:.35}50%{opacity:1}}
+    .s{stroke:#32404f;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:none}
+    .box{animation:lock 5.5s ease-in-out infinite;transform-origin:264px 168px}
+    .conf{animation:fade 5.5s ease-in-out infinite}
+    .sway{animation:sw 5s ease-in-out infinite;transform-origin:120px 258px}
+    .sway2{animation:sw 5s ease-in-out .8s infinite;transform-origin:120px 258px}
+    .off{animation:bl 3.2s ease-in-out infinite}
+    .hold{animation:hd 5.5s ease-in-out infinite}
+    @keyframes lock{0%,12%{opacity:0;transform:scale(1.18)}26%,100%{opacity:1;transform:scale(1)}}
+    @keyframes fade{0%,38%{opacity:0}52%,100%{opacity:1}}
+    @keyframes sw{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+    @keyframes bl{0%,100%{opacity:.4}50%{opacity:1}}
+    @keyframes hd{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
   </style>
-  <ellipse cx="200" cy="190" rx="172" ry="98" fill="#cde7d8" opacity=".5"/>
-  <!-- plant in the field -->
-  <g class="leafa">
-    <path class="ink" d="M150 250 q2 -34 0 -58"/>
-    <path class="ink" d="M150 208 q-26 -12 -32 -34 q26 2 32 34" fill="#cde7d8"/>
-    <path class="ink" d="M150 220 q26 -10 32 -32 q-26 2 -32 32" fill="#cde7d8"/>
-    <path class="ink" d="M150 196 q-4 -22 8 -36 q10 18 -8 36" fill="#cde7d8"/>
+
+  <ellipse cx="200" cy="212" rx="180" ry="78" fill="#cde7d8" opacity=".5"/>
+
+  <!-- ================= PLANT IN THE FIELD ================= -->
+  <g class="sway">
+    <path class="s" d="M120 262 c2 -34 1 -58 -1 -78" fill="none"/>
+    <path class="s" d="M119 206 c-22 -6 -34 -22 -36 -42 c22 4 34 20 36 42 z" fill="#a9d4bb"/>
+    <path class="s" d="M121 222 c22 -8 32 -24 33 -44 c-21 5 -32 22 -33 44 z" fill="#a9d4bb"/>
   </g>
-  <!-- phone held up, scanning -->
-  <rect class="ink" x="212" y="70" width="112" height="186" rx="16" fill="#fff"/>
-  <line class="ink" x1="252" y1="84" x2="284" y2="84" opacity=".4"/>
-  <!-- viewfinder plant -->
-  <path class="ink" d="M268 214 q2 -26 0 -44" opacity=".7"/>
-  <path class="ink" d="M268 182 q-18 -9 -22 -24 q18 1 22 24" fill="#cde7d8" opacity=".8"/>
-  <path class="ink" d="M268 190 q18 -7 22 -22 q-18 1 -22 22" fill="#cde7d8" opacity=".8"/>
-  <!-- detection box -->
-  <g class="box" style="transform-origin:268px 176px">
-    <path d="M232 140 h-8 v-8 M304 140 h8 v-8 M232 212 h-8 v8 M304 212 h8 v8" stroke="#e6612e" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-    <rect x="224" y="132" width="88" height="88" rx="4" stroke="#e6612e" stroke-width="1.5" stroke-dasharray="4 6" fill="none" opacity=".5"/>
+  <g class="sway2">
+    <path class="s" d="M119 186 c-6 -22 2 -40 14 -50 c7 20 1 38 -14 50 z" fill="#bfe0cd"/>
   </g>
-  <!-- confidence chip -->
-  <g class="conf">
-    <rect x="228" y="228" width="80" height="20" rx="10" fill="#03ae6f"/>
-    <text x="268" y="242" font-family="monospace" font-size="11" fill="#fff" text-anchor="middle">87% MATCH</text>
+  <!-- ground -->
+  <path class="s n" d="M84 264 c22 6 52 6 74 0" opacity=".45"/>
+
+  <!-- ================= HAND HOLDING PHONE ================= -->
+  <g class="hold">
+    <!-- phone body -->
+    <path class="s" d="M214 66 h146 a15 15 0 0 1 15 15 v168 a15 15 0 0 1 -15 15 h-146 a15 15 0 0 1 -15 -15 v-168 a15 15 0 0 1 15 -15 z" fill="#fff"/>
+    <!-- notch -->
+    <path class="s" d="M262 66 h50 a0 0 0 0 1 0 0 v6 a7 7 0 0 1 -7 7 h-36 a7 7 0 0 1 -7 -7 v-6 z" fill="#eef1f5"/>
+    <!-- viewfinder plant -->
+    <path class="s n" d="M287 222 c2 -26 1 -44 -1 -60" opacity=".8"/>
+    <path class="s" d="M286 180 c-17 -5 -26 -17 -27 -32 c17 3 26 15 27 32 z" fill="#bfe0cd"/>
+    <path class="s" d="M288 192 c17 -6 24 -18 25 -33 c-16 4 -24 17 -25 33 z" fill="#bfe0cd"/>
+    <!-- detection frame -->
+    <g class="box">
+      <path d="M232 124 v-10 h10 M296 114 h10 v10 M232 212 v10 h10 M296 222 h10 v-10"
+            stroke="#c2410c" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <rect x="232" y="114" width="74" height="108" rx="4" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5 6" fill="none" opacity=".45"/>
+    </g>
+    <!-- confidence chip -->
+    <g class="conf">
+      <rect class="s" x="228" y="230" width="118" height="24" rx="12" fill="#0a7a4d"/>
+      <text x="287" y="246" font-family="Inter, sans-serif" font-size="12" letter-spacing="1.2" fill="#fff" text-anchor="middle">87% MATCH</text>
+    </g>
+    <!-- offline badge -->
+    <g class="off">
+      <rect class="s" x="228" y="88" width="118" height="22" rx="11" fill="#fad29d"/>
+      <text x="287" y="103" font-family="Inter, sans-serif" font-size="11" letter-spacing="1.2" fill="#32404f" text-anchor="middle">WORKS OFFLINE</text>
+    </g>
+    <!-- thumbs gripping the edges -->
+    <!-- hands gripping the phone -->
+    <path class="s" d="M206 168 c-18 -2 -31 7 -32 21 c-1 15 12 25 30 24 z" fill="#eec9a8"/>
+    <path class="s n" d="M204 178 c-10 1 -16 7 -16 14 c0 7 6 12 15 12" opacity=".55"/>
+    <path class="s" d="M368 168 c18 -2 31 7 32 21 c1 15 -12 25 -30 24 z" fill="#eec9a8"/>
+    <path class="s n" d="M370 178 c10 1 16 7 16 14 c0 7 -6 12 -15 12" opacity=".55"/>
   </g>
-  <!-- offline badge -->
-  <g class="off">
-    <rect class="ink" x="228" y="94" width="80" height="20" rx="10" fill="#fad29d"/>
-    <text x="268" y="108" font-family="monospace" font-size="10" fill="#32404f" text-anchor="middle">OFFLINE OK</text>
-  </g>
-  <!-- hand holding phone -->
-  <path class="ink" d="M212 232 q-24 6 -34 26"/>
-  <path class="ink" d="M324 232 q22 8 30 26"/>
+
   <!-- sun -->
-  <circle class="ink" cx="72" cy="70" r="16" fill="#fad29d"/>
-  <path class="ink" d="M72 44 v-8 M72 104 v8 M46 70 h-8 M98 70 h8" opacity=".6"/>
+  <circle class="s" cx="60" cy="62" r="17" fill="#fad29d"/>
+  <path class="s n" d="M60 34 v-9 M60 90 v9 M32 62 h-9 M88 62 h9 M40 42 l-6 -6 M80 82 l6 6" opacity=".55"/>
 </svg>

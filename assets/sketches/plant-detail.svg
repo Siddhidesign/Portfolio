@@ -1,51 +1,67 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
   <style>
-    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
-    .safe{animation:pop 5s ease-in-out infinite;transform-origin:200px 92px}
-    .warn{animation:pulse 2.4s ease-in-out infinite;transform-origin:318px 196px}
-    .r1{animation:rise 5s ease-in-out infinite}
-    .r2{animation:rise 5s ease-in-out .5s infinite}
-    .r3{animation:rise 5s ease-in-out 1s infinite}
-    @keyframes pop{0%,10%{opacity:0;transform:scale(.7)}25%,100%{opacity:1;transform:scale(1)}}
-    @keyframes pulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.07);opacity:1}}
-    @keyframes rise{0%,25%{opacity:0;transform:translateY(8px)}45%,100%{opacity:1;transform:translateY(0)}}
+    .s{stroke:#32404f;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:none}
+    .safe{animation:pop 6s ease-in-out infinite;transform-origin:200px 96px}
+    .warn{animation:pulse 2.6s ease-in-out infinite;transform-origin:326px 196px}
+    .r1{animation:rise 6s ease-in-out infinite}
+    .r2{animation:rise 6s ease-in-out .5s infinite}
+    .r3{animation:rise 6s ease-in-out 1s infinite}
+    .chev{animation:nudge 2.4s ease-in-out infinite}
+    @keyframes pop{0%,8%{opacity:0;transform:scale(.75)}22%,100%{opacity:1;transform:scale(1)}}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+    @keyframes rise{0%,20%{opacity:0;transform:translateY(7px)}40%,100%{opacity:1;transform:translateY(0)}}
+    @keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
   </style>
-  <ellipse cx="200" cy="185" rx="172" ry="100" fill="#c7d4f2" opacity=".45"/>
-  <!-- phone / result card -->
-  <rect class="ink" x="118" y="42" width="164" height="230" rx="18" fill="#fff"/>
-  <!-- safety banner: the most critical thing, at the top -->
-  <g class="safe">
-    <rect x="132" y="72" width="136" height="40" rx="8" fill="#03ae6f"/>
-    <path d="M150 92 l6 7 l11 -14" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <text x="200" y="97" font-family="monospace" font-size="11" fill="#fff" text-anchor="middle">SAFE · MEDICINAL</text>
-  </g>
-  <!-- name block -->
+
+  <ellipse cx="200" cy="196" rx="180" ry="90" fill="#c7d4f2" opacity=".42"/>
+
+  <!-- ================= PHONE ================= -->
+  <path class="s" d="M126 30 h148 a15 15 0 0 1 15 15 v210 a15 15 0 0 1 -15 15 h-148 a15 15 0 0 1 -15 -15 v-210 a15 15 0 0 1 15 -15 z" fill="#fff"/>
+  <path class="s" d="M174 30 h52 v6 a7 7 0 0 1 -7 7 h-38 a7 7 0 0 1 -7 -7 z" fill="#eef1f5"/>
+
+  <!-- specimen thumbnail -->
   <g class="r1">
-    <line class="ink" x1="132" y1="132" x2="230" y2="132" stroke-width="5"/>
-    <line class="ink" x1="132" y1="146" x2="200" y2="146" opacity=".45"/>
+    <rect class="s" x="126" y="54" width="148" height="34" fill="#e8f2ec"/>
+    <path class="s" d="M200 84 c2 -12 1 -20 -1 -26" opacity=".7"/>
+    <path class="s" d="M199 68 c-11 -3 -17 -10 -18 -20 c11 2 17 10 18 20 z" fill="#a9d4bb"/>
+    <path class="s" d="M201 74 c11 -4 16 -11 17 -21 c-11 3 -16 11 -17 21 z" fill="#a9d4bb"/>
   </g>
-  <!-- properties rows -->
+
+  <!-- safety banner: most critical, sits first -->
+  <g class="safe">
+    <rect class="s" x="126" y="96" width="148" height="34" fill="#0a7a4d"/>
+    <path d="M152 113 l5 6 l10 -13" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="208" y="118" font-family="Inter, sans-serif" font-size="12" letter-spacing="1.4" fill="#fff" text-anchor="middle">SAFE · MEDICINAL</text>
+  </g>
+
+  <!-- names -->
   <g class="r2">
-    <line class="ink" x1="132" y1="170" x2="268" y2="170" opacity=".35"/>
-    <line class="ink" x1="132" y1="182" x2="248" y2="182" opacity=".35"/>
+    <path class="s n" d="M140 148 h84" stroke-width="4.4"/>
+    <path class="s n" d="M140 162 h60" opacity=".45"/>
   </g>
+
+  <!-- property rows -->
   <g class="r3">
-    <line class="ink" x1="132" y1="204" x2="268" y2="204" opacity=".35"/>
-    <line class="ink" x1="132" y1="216" x2="236" y2="216" opacity=".35"/>
+    <path class="s n" d="M140 186 h120 M140 198 h96" opacity=".35"/>
+    <path class="s n" d="M140 214 h120 M140 226 h84" opacity=".35"/>
   </g>
-  <!-- expandable section chevron -->
+
+  <!-- expandable section -->
   <g class="r3">
-    <rect class="ink" x="132" y="234" width="136" height="22" rx="6" fill="#f7f7f7"/>
-    <path class="ink" d="M252 242 l5 5 l5 -5" stroke-width="2.5"/>
+    <rect class="s" x="140" y="242" width="120" height="26" rx="6" fill="#f2f5f8"/>
+    <path class="s n chev" d="M240 252 l6 6 l6 -6" stroke-width="2.6"/>
   </g>
-  <!-- toxic lookalike warning card, kept visually distinct -->
+
+  <!-- ================= TOXIC LOOKALIKE ALERT ================= -->
   <g class="warn">
-    <rect x="288" y="168" width="60" height="56" rx="10" fill="#e6612e"/>
-    <path d="M318 184 v14" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
-    <circle cx="318" cy="208" r="2.6" fill="#fff"/>
+    <path class="s" d="M326 160 l30 52 h-60 z" fill="#c2410c"/>
+    <path d="M326 180 v14" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/>
+    <circle cx="326" cy="203" r="2.8" fill="#fff"/>
   </g>
-  <text x="318" y="240" font-family="monospace" font-size="9" fill="#32404f" text-anchor="middle">LOOKALIKE</text>
-  <!-- small leaf marker -->
-  <path class="ink" d="M62 196 q-18 -10 -22 -26 q18 2 22 26" fill="#cde7d8"/>
-  <path class="ink" d="M62 196 q2 -18 0 -30" opacity=".6"/>
+  <text x="326" y="232" font-family="Inter, sans-serif" font-size="11" letter-spacing="1.2" fill="#32404f" text-anchor="middle">LOOKALIKE</text>
+
+  <!-- reference leaf -->
+  <path class="s" d="M62 214 c-16 -5 -25 -16 -26 -31 c16 3 25 15 26 31 z" fill="#a9d4bb"/>
+  <path class="s n" d="M62 214 c2 -16 0 -26 -3 -34" opacity=".6"/>
 </svg>

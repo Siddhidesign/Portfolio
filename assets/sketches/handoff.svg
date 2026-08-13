@@ -1,53 +1,76 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
   <style>
-    .ink{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
-    .bob{animation:bob 3.4s ease-in-out infinite}
-    .bob2{animation:bob 3.4s ease-in-out 1s infinite}
-    .doc{animation:pass 5s ease-in-out infinite}
-    .arrow{stroke-dasharray:6 8;animation:dash 1.6s linear infinite}
-    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    @keyframes pass{0%,100%{transform:translate(0,0) rotate(-2deg)}50%{transform:translate(14px,-8px) rotate(3deg)}}
-    @keyframes dash{to{stroke-dashoffset:-14}}
+    .s{stroke:#32404f;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:none}
+    .breathe{animation:br 4.4s ease-in-out infinite}
+    .breathe2{animation:br 4.4s ease-in-out 1.4s infinite}
+    .doc{animation:pass 6s ease-in-out infinite}
+    .flow{stroke-dasharray:7 9;animation:dash 1.8s linear infinite}
+    @keyframes br{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+    @keyframes pass{0%,100%{transform:translate(0,0) rotate(-2deg)}50%{transform:translate(16px,-6px) rotate(2deg)}}
+    @keyframes dash{to{stroke-dashoffset:-16}}
   </style>
-  <ellipse cx="200" cy="190" rx="172" ry="95" fill="#c7d4f2" opacity=".45"/>
-  <!-- designer (left) -->
-  <g class="bob">
-    <circle class="ink" cx="96" cy="118" r="22"/>
-    <path class="ink" d="M79 110 q9 -14 30 -6" opacity=".6"/>
-    <circle fill="#32404f" cx="90" cy="119" r="2.4"/>
-    <circle fill="#32404f" cx="103" cy="119" r="2.4"/>
-    <path class="ink" d="M92 130 q5 3.5 9 0"/>
-    <path class="ink" d="M96 140 q-16 12 -14 100"/>
-    <path class="ink" d="M96 146 q32 8 56 26"/>
+
+  <ellipse cx="200" cy="204" rx="180" ry="82" fill="#c7d4f2" opacity=".38"/>
+
+  <!-- ================= DESIGNER (left) ================= -->
+  <g class="breathe">
+    <g><path d="M60 240 c-3 18 -2 31 0 38" stroke="#32404f" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M60 240 c-3 18 -2 31 0 38" stroke="#55606e" stroke-width="13" stroke-linecap="round" fill="none"/></g>
+    <g><path d="M82 240 c3 18 2 31 0 38" stroke="#32404f" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M82 240 c3 18 2 31 0 38" stroke="#55606e" stroke-width="13" stroke-linecap="round" fill="none"/></g>
+    <path class="s" d="M48 278 h22 M74 278 h22" stroke-width="4"/>
+    <path class="s" d="M54 242 c-5 -32 -2 -52 6 -60 c6 -6 12 -8 18 -8 c7 0 13 3 18 9 c8 10 10 30 6 59 z" fill="#c7d4f2"/>
+    <path class="s n" d="M68 176 l10 10 l10 -10"/>
+    <!-- arm offering the spec -->
+    <g><path d="M98 198 c15 2 28 8 40 16" stroke="#32404f" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M98 198 c15 2 28 8 40 16" stroke="#c7d4f2" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+    <circle class="s" cx="146" cy="218" r="7.5" fill="#eec9a8"/>
+    <path class="s" d="M70 168 h15 v10 h-15 z" fill="#eec9a8"/>
+    <ellipse class="s" cx="78" cy="145" rx="22" ry="24" fill="#eec9a8"/>
+    <path class="s" d="M56 145 c-3 -21 11 -32 22 -32 c12 0 24 11 22 30 c-5 -10 -12 -14 -21 -13 c-10 1 -17 6 -23 15 z" fill="#2f3a46"/>
+    <circle class="s" cx="56" cy="150" r="8.5" fill="#2f3a46"/>
+    <circle fill="#32404f" cx="71" cy="147" r="2.2"/>
+    <circle fill="#32404f" cx="86" cy="147" r="2.2"/>
+    <path class="s n" d="M73 157 c3.5 3 7.5 3 11 0"/>
   </g>
-  <!-- spec doc in the middle -->
+
+  <!-- ================= SPEC DOC (centre) ================= -->
   <g class="doc">
-    <rect class="ink" x="160" y="140" width="76" height="96" rx="8" fill="#fff"/>
-    <rect x="170" y="152" width="24" height="24" rx="4" fill="#fad29d"/>
-    <line class="ink" x1="202" y1="158" x2="226" y2="158" opacity=".5"/>
-    <line class="ink" x1="202" y1="168" x2="220" y2="168" opacity=".5"/>
-    <line class="ink" x1="170" y1="188" x2="226" y2="188" opacity=".4"/>
-    <line class="ink" x1="170" y1="198" x2="214" y2="198" opacity=".4"/>
-    <rect class="ink" x="170" y="208" width="56" height="16" rx="8" opacity=".55"/>
-    <!-- measurement marks -->
-    <path class="ink" d="M170 232 h24 M170 228 v8 M194 228 v8" stroke="#e6612e"/>
+    <path class="s" d="M162 140 h74 a7 7 0 0 1 7 7 v96 a7 7 0 0 1 -7 7 h-74 a7 7 0 0 1 -7 -7 v-96 a7 7 0 0 1 7 -7 z" fill="#fff"/>
+    <!-- artboard preview -->
+    <rect class="s" x="169" y="152" width="26" height="26" rx="4" fill="#fad29d"/>
+    <path class="s n" d="M203 158 h30 M203 168 h22" opacity=".45"/>
+    <path class="s n" d="M169 190 h64 M169 200 h50" opacity=".38"/>
+    <rect class="s" x="169" y="210" width="64" height="16" rx="8" fill="#c7d4f2"/>
+    <!-- redline measurement -->
+    <path class="s n" d="M169 236 h30" stroke="#c2410c" stroke-width="2"/>
+    <path class="s n" d="M169 232 v8 M199 232 v8" stroke="#c2410c" stroke-width="2"/>
+    <path class="s n" d="M247 152 v34" stroke="#c2410c" stroke-width="2"/>
+    <path class="s n" d="M243 152 h8 M243 186 h8" stroke="#c2410c" stroke-width="2"/>
   </g>
-  <!-- animated arrow to dev -->
-  <path class="ink arrow" d="M244 180 q28 -10 48 0"/>
-  <path class="ink" d="M288 174 l6 6 l-8 3"/>
-  <!-- developer (right) with laptop -->
-  <g class="bob2">
-    <circle class="ink" cx="316" cy="120" r="22"/>
-    <path class="ink" d="M299 112 q9 -14 30 -6" opacity=".6"/>
-    <rect class="ink" x="304" y="114" width="11" height="9" rx="2"/>
-    <rect class="ink" x="319" y="114" width="11" height="9" rx="2"/>
-    <line class="ink" x1="315" y1="118" x2="319" y2="118"/>
-    <path class="ink" d="M312 132 q5 3.5 9 0"/>
-    <path class="ink" d="M316 142 q16 12 14 98"/>
-    <path class="ink" d="M316 148 q-26 8 -46 24"/>
-    <!-- laptop -->
-    <rect class="ink" x="286" y="196" width="60" height="38" rx="5" fill="#cde7d8"/>
-    <path class="ink" d="M296 208 l-6 7 l6 7 M336 208 l6 7 l-6 7" />
-    <line class="ink" x1="318" y1="206" x2="312" y2="228"/>
+
+  <!-- flow arrow -->
+  <path class="s n flow" d="M252 196 c14 -8 26 -8 38 0"/>
+  <path class="s n" d="M285 190 l7 6 l-8 4"/>
+
+  <!-- ================= DEVELOPER (right) ================= -->
+  <g class="breathe2">
+    <g><path d="M318 240 c-3 18 -2 31 0 38" stroke="#32404f" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M318 240 c-3 18 -2 31 0 38" stroke="#55606e" stroke-width="13" stroke-linecap="round" fill="none"/></g>
+    <g><path d="M340 240 c3 18 2 31 0 38" stroke="#32404f" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M340 240 c3 18 2 31 0 38" stroke="#55606e" stroke-width="13" stroke-linecap="round" fill="none"/></g>
+    <path class="s" d="M306 278 h22 M332 278 h22" stroke-width="4"/>
+    <path class="s" d="M312 242 c-5 -32 -2 -52 6 -60 c6 -6 12 -8 18 -8 c7 0 13 3 18 9 c8 10 10 30 6 59 z" fill="#cde7d8"/>
+    <path class="s n" d="M326 176 l10 10 l10 -10"/>
+    <!-- arm receiving -->
+    <g><path d="M316 200 c-13 4 -22 10 -30 16" stroke="#32404f" stroke-width="15" stroke-linecap="round" fill="none"/><path d="M316 200 c-13 4 -22 10 -30 16" stroke="#cde7d8" stroke-width="11" stroke-linecap="round" fill="none"/></g>
+    <circle class="s" cx="278" cy="222" r="7.5" fill="#d9a884"/>
+    <path class="s" d="M328 168 h15 v10 h-15 z" fill="#d9a884"/>
+    <ellipse class="s" cx="336" cy="145" rx="22" ry="24" fill="#d9a884"/>
+    <path class="s" d="M314 143 c-2 -20 11 -30 22 -30 c12 0 23 10 22 29 c-5 -9 -10 -13 -19 -13 c-10 0 -18 5 -25 14 z" fill="#2f3a46"/>
+    <!-- glasses -->
+    <rect class="s n" x="322" y="141" width="12" height="10" rx="3"/>
+    <rect class="s n" x="338" y="141" width="12" height="10" rx="3"/>
+    <path class="s n" d="M334 146 h4"/>
+    <path class="s n" d="M326 159 c4 3 8 3 12 0"/>
+    <!-- laptop with code -->
+    <path class="s" d="M296 244 h64 a4 4 0 0 1 4 4 v26 h-72 v-26 a4 4 0 0 1 4 -4 z" fill="#cde7d8"/>
+    <path class="s n" d="M312 254 l-7 7 l7 7 M348 254 l7 7 l-7 7 M336 251 l-8 20"/>
   </g>
 </svg>
