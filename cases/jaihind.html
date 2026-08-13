@@ -597,13 +597,14 @@
     .cs-scene-kicker { display:block; font-family:"Inter",sans-serif; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#0099ff; margin-bottom:6px; }
     .cs-scene-cap { font-size:.92rem; line-height:1.55; color:#5b6673; }
     .cs-scene-cap strong { color:#32404f; font-weight:600; }
+
     .cs-more { margin: 18px 0; }
     .cs-more > summary { list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
       font-family:"Inter",sans-serif; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
       color:#5b6673; border:1px solid #e2e2e2; border-radius:999px; padding:9px 16px; transition:border-color .2s,color .2s; }
     .cs-more > summary::-webkit-details-marker { display:none; }
     .cs-more > summary::after { content:"+"; font-size:14px; line-height:1; color:#999; }
-    .cs-more[open] > summary::after { content:"\2013"; }
+    .cs-more[open] > summary::after { content:"\\2013"; }
     .cs-more > summary:hover { border-color:#32404f; color:#32404f; }
     .cs-more[open] > summary { margin-bottom:16px; color:#32404f; border-color:#32404f; }
     .cs-mail-float { position:fixed; right:1.2rem; bottom:1.2rem; z-index:200;
