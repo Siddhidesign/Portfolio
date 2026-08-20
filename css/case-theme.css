@@ -316,6 +316,33 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   border-radius: 4px;
 }
 
+
+/* ── DECISION BRIDGE: the "why" between one phase and the next ── */
+.cs-decision {
+  margin: 2.2rem 0 .5rem;
+  padding: 1.3rem 1.5rem;
+  border-left: 4px solid var(--blue);
+  background: #f4f8fc;
+  border-radius: 0 14px 14px 0;
+}
+.cs-decision-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: .5rem;
+}
+.cs-decision p { font-size: 1rem; line-height: 1.6; color: var(--text); margin: 0; }
+.cs-decision strong { font-weight: 600; }
+.cs-decision .cs-decision-next {
+  display: block;
+  margin-top: .6rem;
+  font-size: .9rem;
+  color: var(--text2);
+}
+
 /* ── MISC ───────────────────────────────────────────────────── */
 .scroll-progress { background: var(--text); height: 2px; }
 .cs-bn-link:hover .cs-bn-title { color: var(--blue); }

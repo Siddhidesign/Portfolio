@@ -141,7 +141,12 @@
         <span class="cs-badge alt">3 Core Task Flows Redesigned</span>
         <span class="cs-badge">✓ WCAG 2.1 AA</span>
       </div>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>A 2.8-star app with 45% task abandonment could have justified a full rebuild. <strong>Instead I scoped the study to exactly three tasks</strong>: check a refund, make a payment, find free tax help. Those three carried the abandonment and are what people actually open the app to do.<span class="cs-decision-next">Everything that follows is measured against those three tasks, not against the app as a whole.</span></p>
+      </div>
+</div>
   </div>
 
   <!-- 02 RESEARCH -->
@@ -219,7 +224,12 @@
           <div class="cs-stat-source">Source: Accessibility Audit · Wave + Manual Review</div>
         </div>
       </div>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>The heuristic evaluation failed on hierarchy, consistency and error prevention, not on aesthetics. <strong>So I treated this as a structural problem rather than a visual refresh</strong>, and put the effort into information architecture and labelling instead of restyling the existing screens.<span class="cs-decision-next">That choice is why the redesign changes what fields say and where tasks live, not just how they look.</span></p>
+      </div>
+</div>
   </div>
 
   <!-- 03 PERSONA -->
@@ -311,7 +321,12 @@
       </details>
         </div>
       </div>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>Alex checks a refund at his most anxious moment: hurried, one-handed, on a phone. <strong>So I designed for the worst-case context rather than the ideal one</strong>: larger touch targets, one primary action per screen, and no step that assumes a calm user with time to read.<span class="cs-decision-next">This ruled out the dense, multi-column layouts the old app relied on.</span></p>
+      </div>
+</div>
   </div>
 
   <!-- 04 EMPATHY MAP -->
@@ -368,7 +383,12 @@
         </div>
       </div>
       </details>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>The emotional weight came from not knowing where the money was, not from missing features. <strong>So plain-language status replaced IRS terminology</strong>, and the refund state is written as a sentence a person can act on rather than a processing code they have to interpret.<span class="cs-decision-next">Reassurance became a design requirement, not a copy detail.</span></p>
+      </div>
+</div>
   </div>
 
   <!-- 05 JOURNEY MAP -->
@@ -430,7 +450,12 @@
         </div>
       </div>
       </details>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>The journey map showed the breaks happening at hand-offs, where the app pushed people out to the IRS website mid-task. <strong>So all three tasks had to complete inside the app</strong>. The target became zero redirects, which is what the next section is named for.<span class="cs-decision-next">The tax-help locator moved from an external link to a primary tab because of this.</span></p>
+      </div>
+</div>
   </div>
 
   <!-- 06 IDEATION -->
@@ -477,7 +502,12 @@
 
       <div class="cs-img"><img src="../assets/irs2go/ideation-1.png" alt="Storyboarded user scenarios for refund status, payments and tax help" loading="lazy" /><div class="cs-img-caption">User scenarios storyboarded for all three tasks: a first-time filer checking refund status, the same user paying a balance owed, and a senior citizen locating free tax help.</div></div>
       <div class="cs-img"><img src="../assets/irs2go/ideation-2.png" alt="Before and after comparison of the refund status screen" loading="lazy" /><div class="cs-img-caption"><strong>Before → after, Task 1 (Refund).</strong> Same screen, same crop: unlabelled inline fields become a clear form with visible labels, required markers, a sample-form link and an accessibility shortcut.</div></div>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>Scenarios were storyboarded for all three user types before any screen was drawn, <strong>so that concepts were selected on whether they removed a documented friction point</strong>, not on whether they looked new. Ideas that did not map to an observed failure were cut here.<span class="cs-decision-next">The surviving concepts became the three flows in the next section.</span></p>
+      </div>
+</div>
   </div>
 
   <!-- 07 HIGH-FIDELITY DESIGN -->
@@ -501,7 +531,12 @@
       <div class="cs-img"><img src="../assets/irs2go/irs2go-refund-status-result.png" alt="Refund status result screen with progress timeline" loading="lazy" /><div class="cs-img-caption">Flow 1 result: refund status as a plain-language progress state rather than a code, so users know where their money is without interpreting IRS terminology.</div></div>
       <div class="cs-img"><img src="../assets/irs2go/irs2go-payment-methods.png" alt="Payment methods screen" loading="lazy" /><div class="cs-img-caption">Flow 2: payment methods presented as explicit, comparable choices with fees stated before commitment, not after.</div></div>
       <div class="cs-img"><img src="../assets/irs2go/irs2go-tax-help-local-office.png" alt="Tax help local office locator screen" loading="lazy" /><div class="cs-img-caption">Flow 3: the free tax-help locator surfaced as a primary tab. Previously this required leaving the app for the IRS website.</div></div>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p><strong>Every field is labelled, every required field marked, and help text sits above the input rather than after the error.</strong> That came directly from the error-prevention heuristic failure. The old form let people submit wrong data and only then explained the rules.<span class="cs-decision-next">The persistent four-tab bar exists for the same reason: the old navigation buried two of the three core tasks.</span></p>
+      </div>
+</div>
   </div>
 
   <!-- 08 TESTING -->
@@ -564,7 +599,12 @@
       </details>
 
       <div class="cs-img"><img src="../assets/irs2go/testing-2.png" alt="Data analysis charts showing SUS score rising from 31.3 to 78.25" loading="lazy" /><div class="cs-img-caption"><strong>SUS: 31.3 → 78.25.</strong> Per-screen positive/negative response counts for the old vs. redesigned app, with the raw and final System Usability Scale scores.</div></div>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>Testing changed two things I had wrong. <strong>Users would not sign in just to check a refund, so guest access became the primary call to action</strong>; and payment with no confirmation step caused visible anxiety, so a full summary modal was added before submit.<span class="cs-decision-next">Both changes came from watching the sessions, not from the SUS number alone.</span></p>
+      </div>
+</div>
   </div>
 
   <!-- 09 OUTCOMES -->
