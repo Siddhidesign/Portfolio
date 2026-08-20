@@ -124,7 +124,12 @@
         <div class="cs-hmw-item">How might we design an interface that works in bright sunlight, with one hand, while the user is actively moving through terrain?</div>
       </div>
       </details>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>A wrong identification here has health consequences, so the design problem was never just recognition. <strong>I treated it as a safety-communication problem</strong>, which is why uncertainty and toxic lookalikes get more interface weight than the match itself.<span class="cs-decision-next">That reframing set both the persona work and the interface rules.</span></p>
+      </div>
+</div>
   </div>
 
   <!-- 02 PERSONA -->
@@ -213,7 +218,12 @@
       </div>
 
       <div class="cs-text" style="margin-top: 2rem;">We also designed for a <strong>secondary persona</strong>: the everyday nature enthusiast, a hiker or home gardener with zero botanical expertise who encounters an unfamiliar plant and wants to understand if it's safe. The interface had to serve both users without compromising safety for either.</div>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>Dr. Sharma works two kilometres from a road with no signal. <strong>So offline-first stopped being a technical preference and became a design constraint</strong>: if the identification needs a network, the product does not work where it is needed most.<span class="cs-decision-next">Every later decision inherits this constraint.</span></p>
+      </div>
+</div>
   </div>
 
   <!-- 03 EMPATHY MAP -->
@@ -267,7 +277,12 @@
         </div>
       </div>
       </details>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>The field demands legibility in sunlight, one-handed use and speed. <strong>So the interface was designed against the environment, not the feature list</strong>, with high contrast, large targets and the critical answer above the fold.</p>
+      </div>
+</div>
   </div>
 
   <!-- 04 APPROACH -->
@@ -309,7 +324,12 @@
         </div>
       </div>
       </details>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>On-device processing was chosen over a stronger cloud model. <strong>Accuracy was traded for availability and privacy deliberately</strong>, because a slightly less accurate answer that works offline beats a better one that never loads.</p>
+      </div>
+</div>
   </div>
 
   <!-- 05 DESIGN -->
@@ -388,7 +408,12 @@
 
       <div class="cs-img"><img src="../assets/sketches/plant-scan.svg" alt="Sketch: live camera identifying a plant with a confidence score" loading="lazy" /><div class="cs-img-caption">Live viewfinder: the detection box shows what the model is actually looking at, a confidence score sits under it, and an offline badge stays visible so the user always knows nothing is leaving the device.</div></div>
       <div class="cs-img"><img src="../assets/sketches/plant-detail.svg" alt="Sketch: plant result screen with safety classification and toxic lookalike warning" loading="lazy" /><div class="cs-img-caption">Result screen: safety classification sits above everything else, names and properties follow, and toxic lookalikes use a visually distinct alert that cannot be mistaken for a normal result.</div></div>
-    </div>
+    
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>Confidence is always shown because a confident wrong answer is the dangerous failure here. <strong>An honest "I am not sure" state was designed to be more trustworthy than a certain-sounding guess</strong>, and safety warnings use a visual system that cannot be mistaken for a normal result.</p>
+      </div>
+</div>
   </div>
 
   <!-- 06 OUTCOMES -->
