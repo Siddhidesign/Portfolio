@@ -343,6 +343,33 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   color: var(--text2);
 }
 
+
+/* ── PHONE SHOTS: portrait screens shown side by side ──────────
+   .cs-img img is width:100%, which stretches a 402px-wide phone
+   screenshot across the column and leaves a tall empty block. ── */
+.cs-shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.6rem 1.4rem;
+  margin: 2.4rem 0;
+  align-items: start;
+}
+.cs-shot { margin: 0; }
+.cs-shot img {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin: 0 auto .9rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(50, 64, 79, .14);
+}
+.cs-shot figcaption {
+  font-size: .88rem;
+  line-height: 1.55;
+  color: var(--text2);
+}
+
 /* ── MISC ───────────────────────────────────────────────────── */
 .scroll-progress { background: var(--text); height: 2px; }
 .cs-bn-link:hover .cs-bn-title { color: var(--blue); }
