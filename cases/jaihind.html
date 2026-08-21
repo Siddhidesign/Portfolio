@@ -591,6 +591,21 @@
     }
 
 
+
+    .cs-tldr { max-width:1100px; margin:0 auto; padding:40px 20px 8px; }
+    .cs-tldr-inner { border:1px solid #e2e2e2; border-radius:22px; background:#f7f7f7; padding:32px; }
+    .cs-tldr-label { display:block; font-family:"Inter",sans-serif; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#0069c2; margin-bottom:14px; }
+    .cs-tldr-lede { font-family:"Instrument Serif",Georgia,serif; font-weight:400; font-size:24px; line-height:1.42; color:#32404f; margin:0 0 28px; }
+    .cs-tldr-body { display:grid; grid-template-columns:1.9fr 1fr; gap:36px; border-top:1px solid #e2e2e2; padding-top:26px; }
+    .cs-tldr-sub, .cs-tldr-facts dt { display:block; font-family:"Inter",sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#5f6b7a; margin-bottom:12px; }
+    .cs-tldr-steps { list-style:none; margin:0; padding:0; }
+    .cs-tldr-steps li { display:flex; gap:12px; font-size:.97rem; line-height:1.55; color:#55606e; padding:8px 0; border-bottom:1px dashed #e2e2e2; }
+    .cs-tldr-steps li:last-child { border-bottom:0; }
+    .cs-tldr-n { flex:0 0 auto; font-family:"Inter",sans-serif; font-size:12px; letter-spacing:.08em; color:#0069c2; padding-top:3px; }
+    .cs-tldr-facts { margin:0; }
+    .cs-tldr-facts > div { margin-bottom:18px; }
+    .cs-tldr-facts dd { margin:0; font-size:.97rem; line-height:1.5; color:#32404f; }
+    @media (max-width:760px){ .cs-tldr-body { grid-template-columns:1fr; } }
     .cs-decision { margin:34px 0 8px; padding:20px 24px; border-left:4px solid #0069c2; background:#f4f8fc; border-radius:0 14px 14px 0; }
     .cs-decision-label { display:block; font-family:"Inter",sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#0069c2; margin-bottom:8px; }
     .cs-decision p { font-size:1rem; line-height:1.6; color:#32404f; margin:0; }
@@ -650,6 +665,30 @@
     </div>
 
     <!-- OVERVIEW -->
+
+  <!-- AT A GLANCE -->
+  <section class="cs-tldr" aria-label="Project summary">
+    <div class="cs-tldr-inner">
+      <span class="cs-tldr-label">At a glance</span>
+      <p class="cs-tldr-lede">My first design role. A B2B uniform supplier ran three teams on phone calls and five disconnected spreadsheets, with no shared view of stock. I led the work from research through developer handoff to replace it with one real-time dashboard, cutting user errors 27% and speeding workflows 40%.</p>
+      <div class="cs-tldr-body">
+        <div class="cs-tldr-how">
+          <span class="cs-tldr-sub">How I worked</span>
+          <ol class="cs-tldr-steps">
+          <li><span class="cs-tldr-n">01</span>Shadowed three teams to learn how the business actually ran, not how it was described.</li>
+          <li><span class="cs-tldr-n">02</span>Unified five overlapping data sources into one model before designing a single screen.</li>
+          <li><span class="cs-tldr-n">03</span>Built the reusable components and patterns the whole dashboard runs on.</li>
+          <li><span class="cs-tldr-n">04</span>Handed off specs, tokens and documentation so the system held its shape after I left.</li>
+          </ol>
+        </div>
+        <dl class="cs-tldr-facts">
+          <div><dt>My role</dt><dd>Product UX Designer, end to end</dd></div>
+          <div><dt>Timeline</dt><dd>2023&#8211;24</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
     <section id="overview" class="cs-section">
       <div class="hero-meta">
         <span class="meta-pill">B2B Dashboard</span>
