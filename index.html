@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Siddhi Manche · UX Designer</title>
-  <meta name="description" content="Siddhi Manche, UX designer and researcher. Mixed-methods and IRB-approved research, design systems and WCAG 2.1 AA accessible interfaces for govtech, fintech and B2B SaaS. M.S. University of Michigan." />
+  <meta name="description" content="Siddhi Manche, UX designer and researcher. Mixed-methods and IRB-approved research, design systems and WCAG 2.1 AA accessible interfaces for fintech, banking, govtech and B2B SaaS. M.S. University of Michigan." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,12 +47,12 @@
 
     <h1 class="hero-claim">Research that changes<br />what gets <span class="serif-it">built.</span></h1>
 
-    <p class="hero-line rv"><strong class="hero-sectors">Design systems and accessibility for govtech, fintech and B2B SaaS.</strong><span class="hero-sub-line">Siddhi Manche, UX designer and researcher. Mixed methods, IRB-approved studies, and the design decisions that come out of them, from first interview to developer handoff.</span></p>
+    <p class="hero-line rv"><strong class="hero-sectors">Design systems and accessibility for fintech, banking, govtech and B2B SaaS.</strong><span class="hero-sub-line">Siddhi Manche, UX designer and researcher. Mixed methods, IRB-approved studies, and the design decisions that come out of them, from first interview to developer handoff.</span></p>
 
     <div class="hero-proof rv">
-      <span class="proof"><b>31 → 78</b> SUS, WCAG 2.1 AA</span>
-      <span class="proof"><b>30+</b> designers critiqued &amp; mentored</span>
-      <span class="proof"><b>27%</b> fewer errors at Jai Hind</span>
+      <span class="proof"><b><span class="count" data-from="31" data-to="78">31</span></b> SUS score, WCAG 2.1 AA</span>
+      <span class="proof"><b><span class="count" data-to="24">0</span></b> research participants, IRB approved</span>
+      <span class="proof"><b><span class="count" data-to="27" data-suffix="%">0</span></b> fewer errors at Jai Hind</span>
     </div>
 
     <div class="hero-meta rv">
@@ -83,9 +83,19 @@
       <span class="label-right">2023 to 2026</span>
     </div>
 
+    <div class="filters rv" role="group" aria-label="Filter work by method or industry">
+      <button class="filter is-on" type="button" data-filter="all" aria-pressed="true">All work <span class="filter-n"></span></button>
+      <button class="filter" type="button" data-filter="research" aria-pressed="false">User research <span class="filter-n"></span></button>
+      <button class="filter" type="button" data-filter="accessibility" aria-pressed="false">Accessibility <span class="filter-n"></span></button>
+      <button class="filter" type="button" data-filter="system" aria-pressed="false">Design systems <span class="filter-n"></span></button>
+      <button class="filter" type="button" data-filter="fintech" aria-pressed="false">Fintech <span class="filter-n"></span></button>
+      <button class="filter" type="button" data-filter="govb2b" aria-pressed="false">Govtech &amp; B2B <span class="filter-n"></span></button>
+    </div>
+    <p class="filter-status" id="filterStatus" role="status" aria-live="polite">Showing all 4 projects</p>
+
     <div class="work-grid">
 
-      <a class="card rv" href="cases/ir2go.html">
+      <a class="card rv" href="cases/ir2go.html" data-tags="research accessibility govb2b">
         <div class="card-media" style="background:#fad29d;">
           <img src="assets/ir2go-thumbnail.png" alt="Three IRS2GO screens: the refund status result, the redesigned refund form with labelled required fields, and payment methods" loading="lazy" />
         </div>
@@ -93,7 +103,7 @@
         <span class="card-meta">IRS2GO • GOVTECH • ACCESSIBILITY • <em class="tag-live">WCAG 2.1 AA</em></span>
       </a>
 
-      <a class="card rv" href="cases/anchor.html">
+      <a class="card rv" href="cases/anchor.html" data-tags="research fintech system">
         <div class="card-media" style="background:#c7d4f2;">
           <img src="assets/moneyanchor-thumbnail.png" alt="Three Money Anchor screens: the AI Anchor chat assistant, the budget home screen showing balance and spending, and linked accounts" loading="lazy" />
         </div>
@@ -101,7 +111,7 @@
         <span class="card-meta">MONEY ANCHOR • AI PRODUCT • <em class="tag-new">0→1</em></span>
       </a>
 
-      <a class="card rv" href="cases/ev.html">
+      <a class="card rv" href="cases/ev.html" data-tags="research">
         <div class="card-media" style="background:#cde7d8;">
           <img src="assets/ev/ev-thumbnail.png" alt="Two EV charging app screens showing route planning with charging stops and estimated journey times" loading="lazy" />
         </div>
@@ -109,7 +119,7 @@
         <span class="card-meta">EV CHARGING • HUMAN FACTORS • IOT</span>
       </a>
 
-      <a class="card rv" href="cases/jaihind.html">
+      <a class="card rv" href="cases/jaihind.html" data-tags="research system govb2b accessibility">
         <div class="card-media" style="background:#ecdfd0;">
           <img src="assets/jaihind-thumbnail.svg" alt="Two Jai Hind Group screens: the B2B operations dashboard with order and sales trends, and the data table view" loading="lazy" />
         </div>
