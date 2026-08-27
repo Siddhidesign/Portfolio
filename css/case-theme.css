@@ -518,6 +518,43 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .csx-range:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 
+
+/* ── RAW ARTIFACTS: the messy middle, shown on purpose ─────── */
+.cs-raw {
+  margin: 2.2rem 0;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg2);
+}
+.cs-raw-label {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text2);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
+  margin-bottom: .9rem;
+}
+.cs-raw img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+.cs-raw figcaption {
+  margin-top: .9rem;
+  font-size: .92rem;
+  line-height: 1.55;
+  color: var(--text2);
+}
+
 /* ── MISC ───────────────────────────────────────────────────── */
 .scroll-progress { background: var(--text); height: 2px; }
 .cs-bn-link:hover .cs-bn-title { color: var(--blue); }
