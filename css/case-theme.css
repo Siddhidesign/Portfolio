@@ -104,7 +104,7 @@ body {
   font-weight: 400;
 }
 
-/* ── SECTION CHROME ────────────────────────────────────────── */
+/* ── SECTION CHROME ─────────────────────────────────────────── */
 .cs-sec-num {
   background: none;
   color: var(--text3);
@@ -134,7 +134,7 @@ body {
 .cs-metrics .cs-metric:nth-child(3) .cs-metric-n { color: var(--coral); }
 .cs-metrics .cs-metric:nth-child(4) .cs-metric-n { color: var(--text); }
 
-/* ── NAV pill → flat editorial bar ─────────────────────────── */
+/* ── NAV pill → flat editorial bar ──────────────────────────── */
 .cs-nav {
   background: rgba(255, 255, 255, .85);
   backdrop-filter: blur(12px);
@@ -276,7 +276,7 @@ body {
 }
 .cs-mail-float:hover { background: var(--blue); transform: translateY(-2px); }
 
-/* ── PROGRESSIVE DISCLOSURE ───────────────────────────────── */
+/* ── PROGRESSIVE DISCLOSURE ─────────────────────────────────── */
 .cs-more { margin: 1.4rem 0; }
 .cs-more > summary {
   list-style: none;
@@ -309,7 +309,7 @@ body {
 .cs-empathy-quad.pain .cs-empathy-label,
 .cs-comp-gap { color: #b91c1c; }          /* was #e74c3c at 3.5:1 → now 5.9:1 */
 
-/* ── FOCUS VISIBILITY (WCAG 2.4.7) ────────────────────────── */
+/* ── FOCUS VISIBILITY (WCAG 2.4.7) ─────────────────────────── */
 a:focus-visible, button:focus-visible, summary:focus-visible {
   outline: 3px solid var(--blue);
   outline-offset: 3px;
@@ -448,7 +448,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 
-/* ── BEFORE / AFTER SLIDER ────────────────────────────────── */
+/* ── BEFORE / AFTER SLIDER ──────────────────────────────────── */
 .csx { margin: 2.4rem 0; --pos: 50%; }
 .csx-frame {
   position: relative;
