@@ -145,10 +145,10 @@ h2.label { font-size: 12px; font-weight: 400; }
 
 .hero-claim {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(46px, 8.2vw, 108px);
-  line-height: .98; letter-spacing: -.025em;
+  font-size: clamp(40px, 6.6vw, 88px);
+  line-height: 1.02; letter-spacing: -.022em;
   position: relative; z-index: 2;
-  max-width: 11ch; margin: 0 auto;
+  max-width: 17ch; margin: 0 auto;
 }
 
 .hero-line {
