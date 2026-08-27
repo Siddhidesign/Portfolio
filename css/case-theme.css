@@ -104,7 +104,7 @@ body {
   font-weight: 400;
 }
 
-/* ── SECTION CHROME ─────────────────────────────────────────── */
+/* ── SECTION CHROME ────────────────────────────────────────── */
 .cs-sec-num {
   background: none;
   color: var(--text3);
@@ -134,7 +134,7 @@ body {
 .cs-metrics .cs-metric:nth-child(3) .cs-metric-n { color: var(--coral); }
 .cs-metrics .cs-metric:nth-child(4) .cs-metric-n { color: var(--text); }
 
-/* ── NAV pill → flat editorial bar ──────────────────────────── */
+/* ── NAV pill → flat editorial bar ─────────────────────────── */
 .cs-nav {
   background: rgba(255, 255, 255, .85);
   backdrop-filter: blur(12px);
@@ -276,7 +276,7 @@ body {
 }
 .cs-mail-float:hover { background: var(--blue); transform: translateY(-2px); }
 
-/* ── PROGRESSIVE DISCLOSURE ─────────────────────────────────── */
+/* ── PROGRESSIVE DISCLOSURE ───────────────────────────────── */
 .cs-more { margin: 1.4rem 0; }
 .cs-more > summary {
   list-style: none;
@@ -309,7 +309,7 @@ body {
 .cs-empathy-quad.pain .cs-empathy-label,
 .cs-comp-gap { color: #b91c1c; }          /* was #e74c3c at 3.5:1 → now 5.9:1 */
 
-/* ── FOCUS VISIBILITY (WCAG 2.4.7) ─────────────────────────── */
+/* ── FOCUS VISIBILITY (WCAG 2.4.7) ────────────────────────── */
 a:focus-visible, button:focus-visible, summary:focus-visible {
   outline: 3px solid var(--blue);
   outline-offset: 3px;
@@ -446,6 +446,77 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 @media (max-width: 760px) {
   .cs-tldr-body { grid-template-columns: 1fr; }
 }
+
+
+/* ── BEFORE / AFTER SLIDER ────────────────────────────────── */
+.csx { margin: 2.4rem 0; --pos: 50%; }
+.csx-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+  line-height: 0;
+}
+.csx-img { display: block; width: 100%; height: auto; }
+.csx-clip {
+  position: absolute; inset: 0;
+  width: var(--pos);
+  overflow: hidden;
+}
+.csx-clip .csx-img { width: auto; height: 100%; max-width: none; }
+.csx-line {
+  position: absolute; top: 0; bottom: 0; left: var(--pos);
+  width: 2px; background: #fff;
+  box-shadow: 0 0 0 1px rgba(50,64,79,.25);
+  transform: translateX(-1px);
+  pointer-events: none;
+}
+.csx-grip {
+  position: absolute; top: 50%; left: 50%;
+  width: 42px; height: 42px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 3px 14px rgba(50,64,79,.32);
+}
+.csx-grip::before, .csx-grip::after {
+  content: ''; position: absolute; top: 50%; width: 0; height: 0;
+  border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+  transform: translateY(-50%);
+}
+.csx-grip::before { left: 11px; border-right: 7px solid var(--text); }
+.csx-grip::after  { right: 11px; border-left: 7px solid var(--text); }
+.csx-tag {
+  position: absolute; top: 14px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 6px 12px; border-radius: 999px;
+  background: rgba(255,255,255,.94); color: var(--text);
+  box-shadow: 0 2px 8px rgba(50,64,79,.18);
+  line-height: 1; pointer-events: none;
+}
+.csx-tag-before { left: 14px; }
+.csx-tag-after  { right: 14px; }
+/* the range sits over the whole frame and does the dragging */
+.csx-range {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  margin: 0; padding: 0;
+  background: transparent; border: 0;
+  appearance: none; -webkit-appearance: none;
+  cursor: ew-resize;
+}
+.csx-range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: transparent; cursor: ew-resize;
+}
+.csx-range::-moz-range-thumb {
+  width: 46px; height: 46px; border: 0; border-radius: 50%;
+  background: transparent; cursor: ew-resize;
+}
+.csx-range:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 
 /* ── MISC ───────────────────────────────────────────────────── */
 .scroll-progress { background: var(--text); height: 2px; }

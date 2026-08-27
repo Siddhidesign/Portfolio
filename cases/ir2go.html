@@ -525,7 +525,18 @@
       </details>
 
       <div class="cs-img"><img src="../assets/irs2go/ideation-1.png" alt="Storyboarded user scenarios for refund status, payments and tax help" loading="lazy" /><div class="cs-img-caption">User scenarios storyboarded for all three tasks: a first-time filer checking refund status, the same user paying a balance owed, and a senior citizen locating free tax help.</div></div>
-      <div class="cs-img"><img src="../assets/irs2go/ideation-2.png" alt="Before and after comparison of the refund status screen" loading="lazy" /><div class="cs-img-caption"><strong>Before → after, Task 1 (Refund).</strong> Same screen, same crop: unlabelled inline fields become a clear form with visible labels, required markers, a sample-form link and an accessibility shortcut.</div></div>
+      <figure class="csx" data-compare>
+        <div class="csx-frame">
+          <img class="csx-img csx-after" src="../assets/irs2go/irs2go-after.png" alt="Redesigned refund status form with labelled fields, required markers and a sample-form link" loading="lazy" />
+          <div class="csx-clip"><img class="csx-img csx-before" src="../assets/irs2go/irs2go-before.png" alt="Original IRS2GO refund status form with unlabelled inline fields" loading="lazy" /></div>
+          <span class="csx-line" aria-hidden="true"><span class="csx-grip"></span></span>
+          <span class="csx-tag csx-tag-before">Before</span>
+          <span class="csx-tag csx-tag-after">After</span>
+          <input class="csx-range" type="range" min="0" max="100" value="50" step="0.1"
+                 aria-label="Drag to compare the original and redesigned refund form" />
+        </div>
+        <figcaption class="cs-img-caption">Drag the handle. Same screen, same crop. The original left every field unlabelled and explained the rules only after a failed submit; the redesign labels every field, marks what is required, and puts help text before the input.</figcaption>
+      </figure>
     
       <div class="cs-decision">
         <span class="cs-decision-label">THE DECISION THIS FORCED</span>
@@ -720,5 +731,16 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>
+  (function () {
+    document.querySelectorAll('[data-compare]').forEach(function (root) {
+      var range = root.querySelector('.csx-range');
+      var set = function (v) { root.style.setProperty('--pos', v + '%'); };
+      set(range.value);
+      range.addEventListener('input', function () { set(range.value); });
+    });
+  })();
+  </script>
+
 </body>
 </html>
