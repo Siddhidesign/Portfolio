@@ -445,12 +445,47 @@ a.xp-row:hover { background: #fafafa; }
 .tool:hover img { filter: none; opacity: 1; }
 
 .skills { border-top: 1px solid var(--line); }
+.skill-head,
 .skill-row {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 20px;
-  padding: 18px 0; border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1.15fr 1.5fr 1fr auto;
+  align-items: baseline;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
 }
+.skill-head {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--gray);
+  padding: 10px 0;
+}
+.skill-head span:last-child { text-align: right; }
 .skill-name { font-family: var(--serif); font-size: 24px; }
-.skill-desc { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; color: var(--gray); text-align: right; }
+.skill-desc { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; color: var(--gray); }
+.skill-tools { font-size: 14px; color: var(--soft); }
+.skill-proof {
+  justify-self: end;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
+  white-space: nowrap;
+}
+.skill-proof:hover { border-bottom-color: var(--blue); }
+
+@media (max-width: 860px) {
+  .skill-head { display: none; }
+  .skill-row {
+    grid-template-columns: 1fr auto;
+    row-gap: 8px;
+    align-items: center;
+  }
+  .skill-name { grid-column: 1; }
+  .skill-proof { grid-column: 2; grid-row: 1; }
+  .skill-desc { grid-column: 1 / -1; }
+  .skill-tools { grid-column: 1 / -1; }
+}
 
 
 /* ── SYSTEMS NOTE ───────────────────────────────────────────── */
