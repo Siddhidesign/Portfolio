@@ -18,6 +18,7 @@
 
   <!-- ===================== NAV ===================== -->
   <nav class="topnav" aria-label="Main navigation">
+    <span class="scroll-bar" id="scrollBar" aria-hidden="true"></span>
     <a class="brand" href="#top">
       <span class="brand-name">Siddhi</span>
       <span class="brand-role">UX DESIGNER + RESEARCHER</span>
@@ -58,6 +59,7 @@
     <div class="hero-meta rv">
       <span class="chip"><i></i>OPEN TO WORK ACROSS US</span>
       <a class="hero-cta" href="mailto:manche.siddhi@gmail.com">Email me ↗</a>
+      <button class="copy-mail" type="button" id="copyMail" data-mail="manche.siddhi@gmail.com" aria-label="Copy my email address"><span class="copy-label">Copy address</span></button>
     </div>
   </header>
 
@@ -163,6 +165,8 @@
           <img src="assets/photobook/19.jpeg" alt="" data-cap="" hidden />
           <img src="assets/photobook/20.jpeg" alt="" data-cap="" hidden />
           <img src="assets/photobook/21.jpeg" alt="" data-cap="finally, i got graduated 🎓" hidden />
+          <button class="pb-nav pb-prev" id="pbPrev" type="button" aria-label="Previous photo">&#8249;</button>
+          <button class="pb-nav pb-next" id="pbNext" type="button" aria-label="Next photo">&#8250;</button>
           <button class="pb-pause" id="pbPause" type="button" aria-label="Pause photobook">&#10073;&#10073;</button>
         </div>
         <figcaption class="pb-foot">

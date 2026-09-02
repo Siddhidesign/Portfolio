@@ -77,6 +77,15 @@ if (stage) {
   };
 
   pauseBtn.addEventListener('click', () => (timer ? stop() : play()));
+
+  // manual arrows: stepping always stops the auto-advance so control stays put
+  const step = n => { stop(); show(i + n); };
+  qs('#pbPrev').addEventListener('click', () => step(-1));
+  qs('#pbNext').addEventListener('click', () => step(1));
+  stage.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  { step(-1); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { step(1);  e.preventDefault(); }
+  });
   // don't auto-advance for people who asked for less motion
   calm.matches ? stop() : play();
   calm.addEventListener('change', e => (e.matches ? stop() : play()));
@@ -159,4 +168,59 @@ qsa('.faq-item').forEach(d => {
     });
     apply(btn.dataset.filter);
   }));
+})();
+
+/* ── SCROLL PROGRESS ───────────────────────────────────────── */
+(() => {
+  const bar = qs('#scrollBar');
+  if (!bar) return;
+  const set = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+  };
+  addEventListener('scroll', set, { passive: true });
+  addEventListener('resize', set);
+  set();
+})();
+
+/* ── COPY EMAIL ADDRESS ────────────────────────────────────── */
+(() => {
+  const btn = qs('#copyMail');
+  if (!btn) return;
+  const label = qs('.copy-label', btn);
+  const original = label.textContent;
+  btn.addEventListener('click', async () => {
+    const mail = btn.dataset.mail;
+    try {
+      await navigator.clipboard.writeText(mail);
+    } catch {
+      // clipboard blocked (http, permissions): fall back to a selectable range
+      const t = document.createElement('textarea');
+      t.value = mail; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); } catch {}
+      t.remove();
+    }
+    label.textContent = 'Copied';
+    btn.classList.add('is-done');
+    setTimeout(() => { label.textContent = original; btn.classList.remove('is-done'); }, 2000);
+  });
+})();
+
+/* ── HERO COLLAGE: gentle parallax ─────────────────────────── */
+(() => {
+  const cards = qsa('.hc');
+  const hero = qs('.hero-collage');
+  if (!hero || !cards.length) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (matchMedia('(hover: none)').matches) return;   // no parallax on touch
+
+  const depth = [10, 6, 14, 8];
+  addEventListener('mousemove', e => {
+    const x = (e.clientX / innerWidth - 0.5) * 2;
+    const y = (e.clientY / innerHeight - 0.5) * 2;
+    cards.forEach((c, i) => {
+      const d = depth[i % depth.length];
+      c.style.translate = `${(-x * d).toFixed(1)}px ${(-y * d * 0.5).toFixed(1)}px`;
+    });
+  }, { passive: true });
 })();
