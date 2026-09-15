@@ -14,9 +14,11 @@ addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ── NAV: active link ──────────────────────────────────────── */
-const navLinks = qsa('.topnav-links a');
+/* only in-page anchors are selectors: a link out (Resume, mailto) is not */
+const navLinks = qsa('.topnav-links a')
+  .filter(a => (a.getAttribute('href') || '').startsWith('#'));
 const sections = navLinks
-  .map(a => qs(a.getAttribute('href')))
+  .map(a => { try { return qs(a.getAttribute('href')); } catch { return null; } })
   .filter(Boolean);
 
 const navSpy = new IntersectionObserver(entries => {

@@ -65,10 +65,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible, details:focus-visi
 h2.label { font-size: 12px; font-weight: 400; }
 
 /* ── REVEAL ─────────────────────────────────────────────────── */
-.rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-.rv.in { opacity: 1; transform: none; }
+/* content is visible by default; only JS-capable pages hide it to animate in,
+   so a script failure can never leave the page blank */
+.js .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.js .rv.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .rv { opacity: 1; transform: none; transition: none; }
+  .js .rv { opacity: 1; transform: none; transition: none; }
   .marquee-track, .hc, .chip i { animation: none !important; }
   .card:hover .card-media, .card:hover .card-media img,
   .tool:hover, .hero-cta:hover { transform: none; }
