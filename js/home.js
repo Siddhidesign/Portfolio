@@ -41,55 +41,6 @@ qsa('.marquee-track').forEach(track => {
   track.innerHTML += track.innerHTML;
 });
 
-/* ── PHOTOBOOK: auto-flip, pausable ────────────────────────── */
-const stage = qs('#pbStage');
-if (stage) {
-  const imgs = qsa('img', stage);
-  const cap = qs('#pbCap');
-  const count = qs('#pbCount');
-  const pauseBtn = qs('#pbPause');
-  const base = cap.textContent;
-  const calm = matchMedia('(prefers-reduced-motion: reduce)');
-  let i = 0, timer = null;
-
-  imgs.forEach(img => img.removeAttribute('hidden'));
-  imgs[0].classList.add('on');
-
-  const show = n => {
-    imgs[i].classList.remove('on');
-    i = (n + imgs.length) % imgs.length;
-    imgs[i].classList.add('on');
-    const c = imgs[i].dataset.cap;
-    cap.textContent = c ? c.toUpperCase() : base;
-    count.textContent = String(i + 1).padStart(2, '0') + ' / ' + imgs.length;
-  };
-
-  const play = () => {
-    if (timer) return;
-    timer = setInterval(() => show(i + 1), 2600);
-    pauseBtn.innerHTML = '&#10073;&#10073;';
-    pauseBtn.setAttribute('aria-label', 'Pause photobook');
-  };
-  const stop = () => {
-    clearInterval(timer); timer = null;
-    pauseBtn.innerHTML = '&#9654;';
-    pauseBtn.setAttribute('aria-label', 'Play photobook');
-  };
-
-  pauseBtn.addEventListener('click', () => (timer ? stop() : play()));
-
-  // manual arrows: stepping always stops the auto-advance so control stays put
-  const step = n => { stop(); show(i + n); };
-  qs('#pbPrev').addEventListener('click', () => step(-1));
-  qs('#pbNext').addEventListener('click', () => step(1));
-  stage.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft')  { step(-1); e.preventDefault(); }
-    if (e.key === 'ArrowRight') { step(1);  e.preventDefault(); }
-  });
-  // don't auto-advance for people who asked for less motion
-  calm.matches ? stop() : play();
-  calm.addEventListener('change', e => (e.matches ? stop() : play()));
-}
 
 /* ── FAQ: close others on open ─────────────────────────────── */
 qsa('.faq-item').forEach(d => {
@@ -223,4 +174,21 @@ qsa('.faq-item').forEach(d => {
       c.style.translate = `${(-x * d).toFixed(1)}px ${(-y * d * 0.5).toFixed(1)}px`;
     });
   }, { passive: true });
+})();
+
+/* ── CRAFT STRIP: duplicate for a seamless loop, pausable ──── */
+(() => {
+  const track = qs('.craft-track');
+  const btn = qs('#craftPause');
+  if (!track || !btn) return;
+  track.innerHTML += track.innerHTML;          // second copy makes -50% seamless
+
+  let paused = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const render = () => {
+    track.style.animationPlayState = paused ? 'paused' : 'running';
+    btn.innerHTML = paused ? '&#9654;' : '&#10073;&#10073;';
+    btn.setAttribute('aria-label', paused ? 'Play the craft strip' : 'Pause the craft strip');
+  };
+  render();
+  btn.addEventListener('click', () => { paused = !paused; render(); });
 })();

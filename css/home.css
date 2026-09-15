@@ -147,6 +147,129 @@ h2.label { font-size: 12px; font-weight: 400; }
 .pb-nav:focus-visible { opacity: 1; }
 .pb-nav:hover { background: #fff; }
 
+
+/* ── HERO: two column, text left, portrait right ────────────── */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  text-align: left;
+}
+.hero-role {
+  font-family: var(--mono); font-size: 13px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--gray);
+  margin-bottom: 22px;
+}
+.hero-claim { text-align: left; margin: 0; max-width: 15ch; }
+.hero-intro {
+  margin-top: 26px;
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.68;
+  color: var(--soft);
+  max-width: 62ch;
+}
+.hero-book {
+  margin-top: 24px;
+  font-size: 17px; color: var(--ink);
+}
+.hero-book a {
+  color: var(--blue);
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 1px;
+}
+.hero-book a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.hero .hero-meta { justify-content: flex-start; }
+
+.hero-portrait {
+  position: relative;
+  border-radius: 18px; overflow: hidden;
+  aspect-ratio: 3 / 4;
+  box-shadow: 0 18px 44px rgba(50, 64, 79, .2);
+  background: #f2f2f2;
+}
+.hero-portrait video { width: 100%; height: 100%; object-fit: cover; }
+.hero-portrait figcaption {
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  font-family: var(--mono); font-size: 12px;
+  background: rgba(255, 255, 255, .92); color: var(--ink);
+  padding: 4px 12px; border-radius: 999px; white-space: nowrap;
+}
+
+/* ── WORK CARDS: summary + explicit CTA ─────────────────────── */
+.card-sum {
+  margin-top: 10px;
+  font-size: 15px; line-height: 1.6;
+  color: var(--soft);
+}
+.card-go {
+  display: inline-block; margin-top: 14px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--blue);
+}
+.card:hover .card-go { text-decoration: underline; }
+
+/* ── CRAFT STRIP ────────────────────────────────────────────── */
+.craft-strip {
+  position: relative;
+  margin: 34px 0 44px;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+}
+.craft-track {
+  display: flex; gap: 18px; list-style: none;
+  width: max-content;
+  animation: craftScroll 46s linear infinite;
+}
+.craft-track li { flex: 0 0 auto; }
+.craft-track img {
+  height: clamp(150px, 19vw, 230px); width: auto;
+  border-radius: 12px; border: 1px solid var(--line);
+  background: #fff;
+}
+@keyframes craftScroll { to { transform: translateX(-50%); } }
+.craft-strip:hover .craft-track { animation-play-state: paused; }
+.craft-pause {
+  position: absolute; top: 10px; right: 10px; z-index: 3;
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--line); cursor: pointer;
+  background: rgba(255, 255, 255, .94); color: var(--ink);
+  font-size: 11px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── LIFE BEYOND WORK ───────────────────────────────────────── */
+.life-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+}
+.life-cell { margin: 0; }
+.life-cell img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: 14px;
+  transition: transform .4s ease;
+}
+.life-cell:hover img { transform: scale(1.03); }
+.life-cell figcaption {
+  margin-top: 8px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .08em;
+  color: var(--gray);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .craft-track { animation: none; }
+  .life-cell:hover img { transform: none; }
+}
+
+@media (max-width: 860px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-portrait { max-width: 320px; margin-inline: auto; order: -1; }
+  .hero-claim { max-width: none; }
+}
+
 /* ── MARQUEE: pause when the reader wants to read it ────────── */
 .marquee:hover .marquee-track,
 .marquee:focus-within .marquee-track { animation-play-state: paused; }
