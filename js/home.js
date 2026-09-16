@@ -43,7 +43,6 @@ qsa('.marquee-track').forEach(track => {
   track.innerHTML += track.innerHTML;
 });
 
-
 /* ── FAQ: close others on open ─────────────────────────────── */
 qsa('.faq-item').forEach(d => {
   d.addEventListener('toggle', () => {
@@ -73,54 +72,6 @@ qsa('.faq-item').forEach(d => {
     es.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
   }, { threshold: 0.6 });
   els.forEach(el => io.observe(el));
-})();
-
-/* ── FILTER WORK BY METHOD / INDUSTRY ──────────────────────── */
-(() => {
-  const btns = qsa('.filter');
-  const cards = qsa('.card[data-tags]');
-  const status = qs('#filterStatus');
-  if (!btns.length || !cards.length) return;
-
-  // fill each chip's count from the actual card tags, so they can never drift
-  btns.forEach(b => {
-    const key = b.dataset.filter;
-    const n = key === 'all'
-      ? cards.length
-      : cards.filter(c => c.dataset.tags.split(' ').includes(key)).length;
-    b.querySelector('.filter-n').textContent = n;
-    if (n === 0) b.hidden = true;
-  });
-
-  const apply = key => {
-    let shown = 0;
-    cards.forEach(card => {
-      const match = key === 'all' || card.dataset.tags.split(' ').includes(key);
-      if (match) shown++;
-      card.classList.toggle('is-out', !match);
-      // wait for the fade before removing from layout
-      if (match) {
-        card.classList.remove('is-hidden');
-      } else {
-        setTimeout(() => {
-          if (card.classList.contains('is-out')) card.classList.add('is-hidden');
-        }, 320);
-      }
-    });
-    const label = btns.find(b => b.dataset.filter === key).textContent.replace(/\s+\d+$/, '').trim();
-    status.textContent = key === 'all'
-      ? `Showing all ${shown} projects`
-      : `Showing ${shown} project${shown === 1 ? '' : 's'} tagged ${label}`;
-  };
-
-  btns.forEach(btn => btn.addEventListener('click', () => {
-    btns.forEach(b => {
-      const on = b === btn;
-      b.classList.toggle('is-on', on);
-      b.setAttribute('aria-pressed', String(on));
-    });
-    apply(btn.dataset.filter);
-  }));
 })();
 
 /* ── SCROLL PROGRESS ───────────────────────────────────────── */
