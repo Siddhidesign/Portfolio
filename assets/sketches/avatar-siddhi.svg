@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none" role="img" aria-label="Illustrated portrait of Siddhi Manche, smiling, under cherry blossoms">
+  <style>
+    .s{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .t{stroke:#32404f;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:none}
+    .bloom1{animation:bob 5.2s ease-in-out infinite;transform-origin:78px 96px}
+    .bloom2{animation:bob 5.2s ease-in-out .9s infinite;transform-origin:322px 84px}
+    .bloom3{animation:bob 5.2s ease-in-out 1.8s infinite;transform-origin:342px 150px}
+    @keyframes bob{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-4px) rotate(3deg)}}
+    @media (prefers-reduced-motion: reduce){ .bloom1,.bloom2,.bloom3{animation:none} }
+  </style>
+
+  <!-- soft blossom-toned backdrop -->
+  <circle cx="200" cy="200" r="190" fill="#f6c9b4" opacity=".42"/>
+  <circle cx="200" cy="200" r="190" class="n" stroke="#32404f" stroke-width="2.4" opacity=".22"/>
+
+  <!-- ===== BLOSSOM BRANCH, a nod to the real photo ===== -->
+  <path class="t n" d="M26 128 c46 -26 96 -40 140 -42" opacity=".5"/>
+  <path class="t n" d="M374 108 c-40 -8 -74 -2 -100 12" opacity=".5"/>
+
+  <g class="bloom1">
+    <circle cx="70" cy="90" r="9" fill="#f6c9b4"/><circle cx="86" cy="86" r="8" fill="#f6c9b4"/>
+    <circle cx="80" cy="104" r="8" fill="#f6c9b4"/><circle cx="64" cy="105" r="7" fill="#f6c9b4"/>
+    <circle cx="76" cy="96" r="4" fill="#fad29d"/>
+  </g>
+  <g class="bloom2">
+    <circle cx="316" cy="78" r="9" fill="#f6c9b4"/><circle cx="332" cy="82" r="8" fill="#f6c9b4"/>
+    <circle cx="324" cy="96" r="8" fill="#f6c9b4"/><circle cx="310" cy="92" r="7" fill="#f6c9b4"/>
+    <circle cx="322" cy="86" r="4" fill="#fad29d"/>
+  </g>
+  <g class="bloom3">
+    <circle cx="338" cy="146" r="7" fill="#f6c9b4"/><circle cx="350" cy="152" r="6" fill="#f6c9b4"/>
+    <circle cx="340" cy="160" r="6" fill="#f6c9b4"/>
+    <circle cx="343" cy="152" r="3" fill="#fad29d"/>
+  </g>
+
+  <!-- ===== HAIR, back mass: long, centre parted, past the shoulders ===== -->
+  <path class="s" d="M112 196 c-6 -74 34 -122 88 -122 c54 0 94 48 88 122
+                     c-2 34 2 68 10 104 c-26 12 -56 18 -98 18 c-42 0 -72 -6 -98 -18
+                     c8 -36 12 -70 10 -104 z" fill="#2b2b33"/>
+
+  <!-- ===== NECK ===== -->
+  <path class="s" d="M176 242 c2 16 2 28 0 40 h48 c-2 -12 -2 -24 0 -40 z" fill="#d9a377"/>
+  <path class="t n" d="M180 250 c12 9 28 9 40 0" opacity=".4"/>
+
+  <!-- ===== SHOULDERS, in the yellow top from the photo ===== -->
+  <path class="s" d="M96 344 c10 -34 40 -56 78 -62 c16 14 36 14 52 0 c38 6 68 28 78 62
+                     c-38 10 -82 14 -104 14 c-22 0 -66 -4 -104 -14 z" fill="#f2dc8e"/>
+  <path class="t n" d="M180 282 c12 13 28 13 40 0" opacity=".45"/>
+
+  <!-- ===== FACE ===== -->
+  <ellipse class="s" cx="200" cy="184" rx="66" ry="74" fill="#e8b48a"/>
+
+  <!-- ears + small studs -->
+  <ellipse class="s" cx="135" cy="188" rx="9" ry="14" fill="#e8b48a"/>
+  <ellipse class="s" cx="265" cy="188" rx="9" ry="14" fill="#e8b48a"/>
+  <circle cx="136" cy="201" r="4" fill="#ffffff" stroke="#32404f" stroke-width="2"/>
+  <circle cx="264" cy="201" r="4" fill="#ffffff" stroke="#32404f" stroke-width="2"/>
+
+  <!-- brows: dark, softly arched -->
+  <path class="s n" d="M158 158 c10 -9 26 -10 36 -3"/>
+  <path class="s n" d="M206 155 c10 -7 26 -6 36 3"/>
+
+  <!-- eyes: closed and crinkled, the way she smiles -->
+  <path class="s n" d="M157 184 c9 -12 26 -12 35 0"/>
+  <path class="s n" d="M208 184 c9 -12 26 -12 35 0"/>
+  <!-- smile creases at the outer corners -->
+  <path class="t n" d="M148 176 l-8 -5 M152 190 l-9 4" opacity=".55"/>
+  <path class="t n" d="M252 176 l8 -5 M248 190 l9 4" opacity=".55"/>
+
+  <!-- nose -->
+  <path class="s n" d="M199 190 c-3 12 -6 18 -1 22 c3 2 7 2 10 0"/>
+
+  <!-- wide open smile with teeth -->
+  <path class="s" d="M166 218 c12 26 56 26 68 0 c-10 6 -58 6 -68 0 z" fill="#5b3140"/>
+  <path d="M170 220 c10 5 50 5 60 0 c-2 6 -6 10 -10 12 c-14 4 -26 4 -40 0 c-4 -2 -8 -6 -10 -12 z" fill="#ffffff"/>
+  <path class="t n" d="M166 218 c12 26 56 26 68 0" />
+  <!-- cheeks -->
+  <ellipse cx="156" cy="206" rx="13" ry="8" fill="#e08a72" opacity=".38"/>
+  <ellipse cx="244" cy="206" rx="13" ry="8" fill="#e08a72" opacity=".38"/>
+
+  <!-- ===== HAIR, front: centre part framing the face ===== -->
+  <path class="s" d="M200 110 c-44 0 -70 30 -72 74 c14 -26 30 -40 48 -46
+                     c10 -4 18 -12 24 -22 z" fill="#2b2b33"/>
+  <path class="s" d="M200 110 c44 0 70 30 72 74 c-14 -26 -30 -40 -48 -46
+                     c-10 -4 -18 -12 -24 -22 z" fill="#2b2b33"/>
+  <!-- a few strand lines so the hair reads as hair, not a helmet -->
+  <path class="t n" d="M150 150 c-8 20 -10 44 -8 64" stroke="#5c5c68" opacity=".7"/>
+  <path class="t n" d="M250 150 c8 20 10 44 8 64" stroke="#5c5c68" opacity=".7"/>
+  <path class="t n" d="M128 232 c-4 28 -2 54 4 78" stroke="#5c5c68" opacity=".55"/>
+  <path class="t n" d="M272 232 c4 28 2 54 -4 78" stroke="#5c5c68" opacity=".55"/>
+</svg>
