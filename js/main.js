@@ -1,5 +1,5 @@
 /* ============================================================
-   ALEX RIVERA — UX PORTFOLIO
+   SIDDHI MANCHE — UX PORTFOLIO
    main.js — Interactions, Animations, Utilities
    ============================================================ */
 
