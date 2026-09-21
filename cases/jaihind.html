@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jai Hind Group: B2B Dashboard | Siddhi Manche</title>
+  <title>Jai Hind Group: B2B Commerce and Inventory Platform | Siddhi Manche</title>
+  <meta name="description" content="Internal B2B commerce and inventory platform for a wholesale clothing supplier. Order to fulfillment: customer records, order creation, cart, checkout, inventory check, and tracking across six states. Cut user errors 27% and sped workflows 40%.">
   <style>
     :root {
       --accent: #f4604c;
@@ -625,7 +626,7 @@
       color:#55606e; border:1px solid #e2e2e2; border-radius:999px; padding:9px 16px; transition:border-color .2s,color .2s; }
     .cs-more > summary::-webkit-details-marker { display:none; }
     .cs-more > summary::after { content:"+"; font-size:14px; line-height:1; color:#5f6b7a; }
-    .cs-more[open] > summary::after { content:"\2013"; }
+    .cs-more[open] > summary::after { content:"\2212"; }
     .cs-more > summary:hover { border-color:#32404f; color:#32404f; }
     .cs-more[open] > summary { margin-bottom:16px; color:#32404f; border-color:#32404f; }
     .cs-mail-float { position:fixed; right:1.2rem; bottom:1.2rem; z-index:200;
@@ -633,6 +634,63 @@
       background:#32404f; color:#fff; padding:.7rem 1.2rem; border-radius:999px; text-decoration:none;
       box-shadow:0 10px 26px rgba(50,64,79,.22); transition:background .2s,transform .2s; }
     .cs-mail-float:hover { background:#0069c2; transform:translateY(-2px); }
+
+    /* COMMERCE FLOW (all text uses --text-primary / --text-secondary: both AA on white) */
+    .commerce-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 52px; }
+    .commerce-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-top: 3px solid var(--accent); border-radius: 16px; padding: 30px;
+    }
+    .commerce-num {
+      display: block; font-family: "Inter", sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.14em; color: var(--text-secondary); margin-bottom: 10px;
+    }
+    .commerce-title { font-size: 1.12rem; line-height: 1.3; color: var(--text-primary); margin-bottom: 12px; }
+    .commerce-card p { font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 12px; }
+    .commerce-card p:last-child { margin-bottom: 0; }
+    .commerce-card strong { color: var(--text-primary); font-weight: 600; }
+
+    .fulfil-heading { font-size: 1.3rem; line-height: 1.3; color: var(--text-primary); margin-bottom: 10px; }
+    .fulfil-intro { font-size: 0.97rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 26px; max-width: 70ch; }
+    .fulfil-track { list-style: none; counter-reset: fulfil; display: grid; gap: 0; margin-bottom: 34px; }
+    .fulfil-step {
+      display: grid; grid-template-columns: 18px minmax(120px, 160px) 1fr;
+      gap: 6px 16px; align-items: start;
+      padding: 18px 0; border-bottom: 1px solid var(--border);
+    }
+    .fulfil-step:last-child { border-bottom: 0; }
+    .fulfil-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
+      margin-top: 7px; flex-shrink: 0;
+    }
+    .fulfil-name {
+      font-family: "Inter", sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-primary); padding-top: 4px;
+    }
+    .fulfil-what { font-size: 0.95rem; line-height: 1.55; color: var(--text-primary); }
+    .fulfil-note { grid-column: 3; font-size: 0.9rem; line-height: 1.55; color: var(--text-secondary); }
+    @media (max-width: 640px) {
+      .fulfil-step { grid-template-columns: 18px 1fr; }
+      .fulfil-note { grid-column: 2; }
+    }
+
+    /* SELF-DIRECTED CONCEPT */
+    .concept-flag {
+      background: var(--bg-light); border-left: 4px solid var(--text-primary);
+      border-radius: 0 12px 12px 0; padding: 16px 20px; margin-bottom: 28px;
+      font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary);
+    }
+    .concept-flag strong { color: var(--text-primary); font-weight: 700; }
+    .concept-list { list-style: none; counter-reset: c; margin-bottom: 34px; }
+    .concept-item {
+      display: grid; grid-template-columns: minmax(180px, 250px) 1fr; gap: 6px 20px;
+      padding: 16px 0; border-bottom: 1px solid var(--border);
+    }
+    .concept-item:last-child { border-bottom: 0; }
+    .concept-item-name { font-size: 0.97rem; font-weight: 600; color: var(--text-primary); }
+    .concept-item-note { font-size: 0.92rem; line-height: 1.55; color: var(--text-secondary); }
+    @media (max-width: 640px) { .concept-item { grid-template-columns: 1fr; } }
+
     .eyebrow, .kicker, .sticky-menu a, .back-link, .metric-chip-num,
     [class*="label"], [class*="tag"] { font-family: "Inter", sans-serif; }
   </style>
@@ -651,9 +709,11 @@
         <li><a href="#responsibilities">My Role</a></li>
         <li><a href="#users">Users</a></li>
         <li><a href="#system">System</a></li>
+        <li><a href="#commerce">Commerce Flow</a></li>
         <li><a href="#decisions">Decisions</a></li>
         <li><a href="#results">Results</a></li>
         <li><a href="#learnings">Learnings</a></li>
+        <li><a href="#concept">What Came Next</a></li>
       </ul>
     </nav>
   </aside>
@@ -670,7 +730,7 @@
   <section class="cs-tldr" aria-label="Project summary">
     <div class="cs-tldr-inner">
       <span class="cs-tldr-label">At a glance</span>
-      <p class="cs-tldr-lede">My first design role. A B2B uniform supplier ran three teams on phone calls and five disconnected spreadsheets, with no shared view of stock. I led the work from research through developer handoff to replace it with one real-time dashboard, cutting user errors 27% and speeding workflows 40%.</p>
+      <p class="cs-tldr-lede">My first design role. A B2B uniform supplier ran three teams on phone calls and five disconnected spreadsheets, with no shared view of stock. Customers phoned their orders in and staff placed them by hand. Working with 3 designers and 1 PM, I owned research through developer handoff on one internal platform that carries the whole order path: customer record, product selection, cart, checkout, inventory check on approval, and tracking across six fulfillment states. User errors fell 27% and workflows ran 40% faster.</p>
       <div class="cs-tldr-body">
         <div class="cs-tldr-how">
           <span class="cs-tldr-sub">How I worked</span>
@@ -683,7 +743,7 @@
         </div>
         <dl class="cs-tldr-facts">
           <div><dt>My role</dt><dd>Product UX Designer, end to end</dd></div>
-          <div><dt>Timeline</dt><dd>2023&#8211;24</dd></div>
+          <div><dt>Timeline</dt><dd>Feb 2023 to Jul 2024</dd></div>
         </dl>
       </div>
     </div>
@@ -691,17 +751,18 @@
 
     <section id="overview" class="cs-section">
       <div class="hero-meta">
-        <span class="meta-pill">B2B Dashboard</span>
+        <span class="meta-pill">B2B Commerce Platform</span>
+        <span class="meta-pill">Order to Fulfillment</span>
+        <span class="meta-pill">Inventory</span>
         <span class="meta-pill">Wholesale Clothing</span>
-        <span class="meta-pill">Web</span>
         <span class="meta-pill">2023 to 2024</span>
         <span class="meta-pill">Product UX Designer</span>
       </div>
-      <h1 class="hero-title">Five spreadsheets.<br>Three teams.<br>One dashboard.</h1>
-      <p class="hero-subtitle">How Jai Hind Group replaced a phone-and-spreadsheet operation with a unified internal platform built for the people actually using it daily.</p>
+      <h1 class="hero-title">Five spreadsheets.<br>Three teams.<br>One commerce platform.</h1>
+      <p class="hero-subtitle">How Jai Hind Group replaced a phone-and-spreadsheet operation with one internal platform that carries a wholesale order from customer record to delivery, built for the three teams using it daily.</p>
 
       <div class="hero-two-col">
-        <p class="hero-desc-text">Jai Hind Group is a B2B uniform and clothing supplier serving hotels, schools, and vendors across the region. When I joined, the entire operation ran on phone calls, printed business cards, and five disconnected spreadsheets owned by three different teams. Orders were missed. Stock was miscounted. New staff took weeks to learn a system that nobody had designed on purpose.</p>
+        <p class="hero-desc-text">Jai Hind Group is a B2B uniform and clothing supplier serving hotels, schools, and vendors across the region. When I joined, the entire operation ran on phone calls, printed business cards, and five disconnected spreadsheets owned by three different teams. Customers placed orders by phone and staff entered them by hand. Orders were missed. Stock was miscounted. New staff took weeks to learn a system that nobody had designed on purpose. What we built is commerce software: it just happens to be operated by staff rather than by the customer.</p>
         <div class="hero-meta-block">
           <div class="hero-meta-item">
             <span class="hero-meta-item-label">My Role</span>
@@ -709,7 +770,7 @@
           </div>
           <div class="hero-meta-item">
             <span class="hero-meta-item-label">Team</span>
-            <span class="hero-meta-item-val">3 designers, 1 PM</span>
+            <span class="hero-meta-item-val">3 designers and 1 PM. I owned research through developer handoff.</span>
           </div>
           <div class="hero-meta-item">
             <span class="hero-meta-item-label">Duration</span>
@@ -717,7 +778,7 @@
           </div>
           <div class="hero-meta-item">
             <span class="hero-meta-item-label">Platform</span>
-            <span class="hero-meta-item-val">Internal web dashboard</span>
+            <span class="hero-meta-item-val">Internal B2B commerce and inventory platform, web</span>
           </div>
         </div>
       </div>
@@ -1004,6 +1065,97 @@
       </div>
 </section>
 
+    <!-- COMMERCE FLOW -->
+    <section id="commerce" class="cs-section">
+      <div class="section-label">Commerce Flow</div>
+      <h2 class="section-heading">One order, end to end</h2>
+      <p class="section-sub" style="margin-bottom: 36px;">The platform is not a reporting dashboard with an order form bolted on. It carries a wholesale order through its whole life: a customer record is created or found, products are selected into a cart, the order is summarised and checked out, stock is verified against the requested quantities, the order is approved or flagged, and fulfillment is tracked to delivery. Staff operate it on the customer's behalf, so every screen is built for someone doing this forty times a day rather than once.</p>
+
+      <div class="commerce-grid">
+        <div class="commerce-card">
+          <span class="commerce-num">01</span>
+          <h3 class="commerce-title">Customer Creation</h3>
+          <p class="commerce-what">A phone-first customer record: name, address, map location, and save-as tags for quick lookup.</p>
+          <p class="commerce-why"><strong>The decision it forced.</strong> The phone number became the primary key rather than the company name, because the number is what the caller gives first and what staff search by under time pressure.</p>
+          <p class="commerce-prevented"><strong>What it prevented.</strong> This stopped duplicate records piling up when the same hotel called from three different extensions and got entered three different ways.</p>
+        </div>
+        <div class="commerce-card">
+          <span class="commerce-num">02</span>
+          <h3 class="commerce-title">Create Sales Order</h3>
+          <p class="commerce-what">Customer lookup, product selection into a cart, and delivery and payment details handled in one flow.</p>
+          <p class="commerce-why"><strong>The decision it forced.</strong> It stayed on a single screen instead of becoming a step-by-step wizard, because staff take these orders while the customer is still on the line and cannot afford to lose context between steps.</p>
+          <p class="commerce-prevented"><strong>What it prevented.</strong> This removed the paper middle step, where details were scribbled during the call and typed in later, which is exactly where transcription errors entered.</p>
+        </div>
+        <div class="commerce-card">
+          <span class="commerce-num">03</span>
+          <h3 class="commerce-title">Order Summary and Checkout</h3>
+          <p class="commerce-what">An itemized review with discounts, advance payment, and a final total before the order is placed.</p>
+          <p class="commerce-why"><strong>The decision it forced.</strong> The full itemized total had to be visible before the order could be committed, not generated afterward on the invoice.</p>
+          <p class="commerce-prevented"><strong>What it prevented.</strong> This prevented the pricing disputes that previously surfaced only once the invoice reached the customer, when renegotiating meant unwinding a shipped order.</p>
+        </div>
+        <div class="commerce-card">
+          <span class="commerce-num">04</span>
+          <h3 class="commerce-title">Inventory Check on Approval</h3>
+          <p class="commerce-what">A live stock check against requested quantities, flagging understocked items before an order can be approved.</p>
+          <p class="commerce-why"><strong>The decision it forced.</strong> The check blocks approval rather than showing a warning, because in the spreadsheet years a warning was something people learned to click past.</p>
+          <p class="commerce-prevented"><strong>What it prevented.</strong> This is what moved stockouts from being discovered at delivery to being caught while the order was still editable.</p>
+        </div>
+        <div class="commerce-card">
+          <span class="commerce-num">05</span>
+          <h3 class="commerce-title">Orders Management</h3>
+          <p class="commerce-what">A filterable order list with status tabs, bulk actions, challan printing, and CSV and PDF export.</p>
+          <p class="commerce-why"><strong>The decision it forced.</strong> Status became the primary axis of navigation rather than date, because every team opened the screen asking what is waiting on me, not what came in today.</p>
+          <p class="commerce-prevented"><strong>What it prevented.</strong> This stopped orders stalling silently in the gap between teams, where nobody owned them because nobody could see them.</p>
+        </div>
+      </div>
+
+      <h3 class="fulfil-heading">The six states an order moves through</h3>
+      <p class="fulfil-intro">Status is the spine of the product. Each state exists because it unblocks a specific team, which is why status, not date, became the primary way to navigate orders.</p>
+      <ol class="fulfil-track">
+          <li class="fulfil-step">
+            <span class="fulfil-dot" aria-hidden="true"></span>
+            <span class="fulfil-name">Pending</span>
+            <span class="fulfil-what">Order placed and awaiting review.</span>
+            <span class="fulfil-note">Tells merchandising there is something new to triage.</span>
+          </li>
+          <li class="fulfil-step">
+            <span class="fulfil-dot" aria-hidden="true"></span>
+            <span class="fulfil-name">Flagged</span>
+            <span class="fulfil-what">The inventory check found a shortfall.</span>
+            <span class="fulfil-note">Tells warehouse to restock, or sales to renegotiate the quantity while the order is still open.</span>
+          </li>
+          <li class="fulfil-step">
+            <span class="fulfil-dot" aria-hidden="true"></span>
+            <span class="fulfil-name">Approved</span>
+            <span class="fulfil-what">Stock confirmed and the order authorised.</span>
+            <span class="fulfil-note">Releases the order to warehouse to begin picking.</span>
+          </li>
+          <li class="fulfil-step">
+            <span class="fulfil-dot" aria-hidden="true"></span>
+            <span class="fulfil-name">Processing</span>
+            <span class="fulfil-what">Being picked and packed.</span>
+            <span class="fulfil-note">Gives sales a real answer when the customer calls to ask where the order is.</span>
+          </li>
+          <li class="fulfil-step">
+            <span class="fulfil-dot" aria-hidden="true"></span>
+            <span class="fulfil-name">Shipped</span>
+            <span class="fulfil-what">Left the warehouse against a printed challan.</span>
+            <span class="fulfil-note">Tells accounts the order is billable.</span>
+          </li>
+          <li class="fulfil-step">
+            <span class="fulfil-dot" aria-hidden="true"></span>
+            <span class="fulfil-name">In-Transit</span>
+            <span class="fulfil-what">With the carrier.</span>
+            <span class="fulfil-note">Closes the loop for sales on delivery timing.</span>
+          </li>
+      </ol>
+
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
+        <p>Because three teams share one order, the status model had to be a single shared vocabulary rather than each team's private notion of done. <strong>Every state was defined by the action it unblocks for a named team</strong>, which is what let warehouse, merchandising and sales work the same queue without a phone call to confirm where things stood.</p>
+      </div>
+    </section>
+
     <!-- DECISIONS -->
     <section id="decisions" class="cs-section">
       <div class="section-label">Decisions</div>
@@ -1188,6 +1340,68 @@
         </div>
       </div>
       </details>
+    </section>
+
+    <!-- WHAT CAME NEXT: SELF-DIRECTED CONCEPT, 2026 -->
+    <section id="concept" class="cs-section">
+      <div class="section-label">What came next</div>
+      <h2 class="section-heading">Customer ordering concept</h2>
+      <p class="concept-flag"><strong>Self-directed concept, 2026.</strong> Not part of the 2023 to 2024 engagement. Nothing below was built, shipped or tested at Jai Hind Group.</p>
+
+      <p class="section-sub" style="margin-bottom: 28px;">One constraint sat underneath everything in the original project: customers placed orders by phone. Every order therefore consumed staff time, and every order passed through a person transcribing what they heard. That transcription step is where a measurable share of the errors entered, and no amount of internal screen design removes it, because the error happens before anyone touches a screen.</p>
+
+      <p class="section-sub" style="margin-bottom: 28px;">That raises a question the engagement never had scope to answer: what would a direct customer ordering channel look like, and how would it connect to the platform staff already use? In 2026, on my own time, I worked through it as a concept. The point of the exercise is not a second product. It is that a customer channel only works if it shares one order lifecycle with the internal one, rather than running a parallel system that staff then reconcile by hand.</p>
+
+      <h3 class="fulfil-heading">What the concept covers</h3>
+      <ol class="concept-list">
+          <li class="concept-item">
+            <span class="concept-item-name">Storefront landing</span>
+            <span class="concept-item-note">The entry point for a returning trade buyer, built around reordering rather than browsing.</span>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item-name">Product listing with filters</span>
+            <span class="concept-item-note">Filtering by category, size range and fabric, the same axes merchandising already used internally.</span>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item-name">Product detail</span>
+            <span class="concept-item-note">Bulk pricing tiers and customization options, the two things that decided every phone order.</span>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item-name">Cart</span>
+            <span class="concept-item-note">The same cart model as the internal Create Sales Order screen, so one definition of an order line exists.</span>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item-name">Checkout</span>
+            <span class="concept-item-note">Delivery, payment terms and advance, mirroring the internal checkout rather than inventing a second one.</span>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item-name">Order confirmation</span>
+            <span class="concept-item-note">The moment the customer gets what previously only staff could see.</span>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item-name">Order tracking</span>
+            <span class="concept-item-note">The same six states the internal platform already tracks, surfaced to the person waiting on the delivery.</span>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item-name">Account order history with reorder</span>
+            <span class="concept-item-note">Reorder from a past order, which is what most of the phone calls actually were.</span>
+          </li>
+      </ol>
+
+      <div class="cs-decision">
+        <span class="cs-decision-label">THE DESIGN POINT</span>
+        <p><strong>One order lifecycle, two audiences, one shared status model.</strong> The customer sees the same six states the warehouse sees, named the same way, driven by the same events. A second status vocabulary would mean the phone calls come back, just rephrased as customers asking what their status actually means.</p>
+      </div>
+
+      <!-- Screens in progress. To add one, paste a block in this pattern inside a <div class="design-frames"> above:
+      <div class="design-frame">
+        <img src="../assets/jaihind/CONCEPT-SCREEN-NAME.jpg" alt="Describe the screen">
+        <div class="caption-bar">
+          <span class="caption-title">Screen name</span>
+          <span class="caption-desc">What the screen does</span>
+        </div>
+      </div>
+      -->
     </section>
 
     <div class="bottom-nav">
