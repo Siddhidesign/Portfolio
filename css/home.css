@@ -64,7 +64,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, details:focus-visi
 /* .label doubles as a section heading: strip default h2 sizing */
 h2.label { font-size: 12px; font-weight: 400; }
 
-/* ── REVEAL ────────────────────────────────────────────────── */
+/* ── REVEAL ─────────────────────────────────────────────────── */
 /* content is visible by default; only JS-capable pages hide it to animate in,
    so a script failure can never leave the page blank */
 .js .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
@@ -77,7 +77,7 @@ h2.label { font-size: 12px; font-weight: 400; }
   html { scroll-behavior: auto; }
 }
 
-/* ── NAV ─────────────────────────────────────────────────────── */
+/* ── NAV ────────────────────────────────────────────────────── */
 .topnav {
   position: fixed; inset: 0 0 auto 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -178,7 +178,7 @@ h2.label { font-size: 12px; font-weight: 400; }
   padding: 4px 12px; border-radius: 999px; white-space: nowrap;
 }
 
-/* ── WORK CARDS: summary + explicit CTA ────────────────────── */
+/* ── WORK CARDS: summary + explicit CTA ─────────────────────── */
 .card-sum {
   margin-top: 10px;
   font-size: 15px; line-height: 1.6;
@@ -214,7 +214,7 @@ h2.label { font-size: 12px; font-weight: 400; }
   line-height: 1.6; color: var(--soft);
 }
 
-/* ── CRAFT STRIP ───────────────────────────────────────────── */
+/* ── CRAFT STRIP ────────────────────────────────────────────── */
 .craft-strip {
   position: relative;
   margin: 34px 0 44px;
@@ -245,7 +245,7 @@ h2.label { font-size: 12px; font-weight: 400; }
   display: flex; align-items: center; justify-content: center;
 }
 
-/* ── LIFE BEYOND WORK ──────────────────────────────────────── */
+/* ── LIFE BEYOND WORK ───────────────────────────────────────── */
 .life-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -279,11 +279,11 @@ h2.label { font-size: 12px; font-weight: 400; }
 .marquee:hover .marquee-track,
 .marquee:focus-within .marquee-track { animation-play-state: paused; }
 
-/* ── HERO COLLAGE: gentle parallax, motion-safe ────────────── */
+/* ── HERO COLLAGE: gentle parallax, motion-safe ─────────────── */
 @media (prefers-reduced-motion: no-preference) {
 }
 
-/* ── HERO ────────────────────────────────────────────────── */
+/* ── HERO ───────────────────────────────────────────────────── */
 .hero {
   max-width: var(--max); margin: 0 auto;
   padding: 140px var(--pad) 40px;
@@ -331,7 +331,7 @@ h2.label { font-size: 12px; font-weight: 400; }
 }
 @keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(3, 174, 111, .08); } }
 
-/* ── MARQUEE ─────────────────────────────────────────────── */
+/* ── MARQUEE ────────────────────────────────────────────────── */
 .marquee {
   overflow: hidden; white-space: nowrap;
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
@@ -349,7 +349,7 @@ h2.label { font-size: 12px; font-weight: 400; }
 .marquee-track .sp { color: var(--orange); }
 @keyframes scroll { to { transform: translateX(-50%); } }
 
-/* ── SECTIONS ────────────────────────────────────────────── */
+/* ── SECTIONS ───────────────────────────────────────────────── */
 .sec { max-width: var(--max); margin: 0 auto; padding: 64px var(--pad); }
 
 .sec-head {
@@ -369,7 +369,7 @@ h2.label { font-size: 12px; font-weight: 400; }
   margin-bottom: 48px;
 }
 
-/* ── WORK CARDS ──────────────────────────────────────────── */
+/* ── WORK CARDS ─────────────────────────────────────────────── */
 .work-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: clamp(24px, 4vw, 56px) clamp(20px, 3vw, 40px);
@@ -411,11 +411,11 @@ h2.label { font-size: 12px; font-weight: 400; }
 .tag-new  { color: var(--orange); }
 
 
-/* ── COUNTERS ────────────────────────────────────────────── */
+/* ── COUNTERS ───────────────────────────────────────────────── */
 .count { font-variant-numeric: tabular-nums; }
 
 
-/* ── ABOUT / PHOTOBOOK ───────────────────────────────────── */
+/* ── ABOUT / PHOTOBOOK ──────────────────────────────────────── */
 .about-grid {
   display: grid; grid-template-columns: 5fr 6fr;
   gap: clamp(28px, 5vw, 72px);
@@ -431,7 +431,7 @@ h2.label { font-size: 12px; font-weight: 400; }
 .about-copy strong { font-weight: 600; }
 .sig { font-family: var(--serif); font-style: italic; font-size: 28px; }
 
-/* ── EXPERIENCE ──────────────────────────────────────────── */
+/* ── EXPERIENCE ─────────────────────────────────────────────── */
 .xp { margin-top: 80px; }
 .xp-row {
   display: grid; grid-template-columns: 160px 1fr;
@@ -449,7 +449,7 @@ a.xp-row:hover { background: #fafafa; }
 .xp-open { border: 1px dashed var(--gray); border-radius: 16px; padding: 26px 22px; margin-top: 26px; }
 .xp-open:hover { border-color: var(--blue); background: #f7fbff; }
 
-/* ── TOOLS + SKILLS ─────────────────────────────────────── */
+/* ── TOOLS + SKILLS ─────────────────────────────────────────── */
 .tools { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 56px; }
 .tool {
   display: inline-flex; align-items: center; gap: 8px;
@@ -506,7 +506,7 @@ a.xp-row:hover { background: #fafafa; }
 }
 
 
-/* ── SYSTEMS NOTE ───────────────────────────────────────── */
+/* ── SYSTEMS NOTE ───────────────────────────────────────────── */
 .sysnote {
   margin-top: 48px;
   border: 1px solid var(--line);
@@ -560,7 +560,7 @@ a.xp-row:hover { background: #fafafa; }
   font-size: 14px; line-height: 1.6; color: var(--soft);
 }
 
-/* ── FAQ ─────────────────────────────────────────────────── */
+/* ── FAQ ────────────────────────────────────────────────────── */
 .faq { border-top: 1px solid var(--line); }
 .faq-item { border-bottom: 1px solid var(--line); }
 .faq-item summary {
@@ -575,7 +575,7 @@ a.xp-row:hover { background: #fafafa; }
 .faq-item[open] .faq-x { transform: rotate(45deg); color: var(--orange); }
 .faq-item p { padding: 0 0 24px 44px; color: var(--soft); max-width: 720px; }
 
-/* ── TESTIMONIAL ────────────────────────────────────────── */
+/* ── TESTIMONIAL ────────────────────────────────────────────── */
 .quote-card {
   border: 1px solid var(--line); border-radius: 20px;
   padding: clamp(28px, 4vw, 48px);
@@ -593,7 +593,7 @@ a.xp-row:hover { background: #fafafa; }
 .quote-name { display: block; font-weight: 600; font-size: 15px; }
 .quote-title { display: block; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--gray); }
 
-/* ── FOOTER ──────────────────────────────────────────────── */
+/* ── FOOTER ─────────────────────────────────────────────────── */
 .footer {
   max-width: var(--max); margin: 0 auto;
   padding: 90px var(--pad) 48px;
@@ -629,7 +629,7 @@ a.xp-row:hover { background: #fafafa; }
   color: var(--gray);
 }
 
-/* ── RESPONSIVE ──────────────────────────────────────────── */
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }
   .footer-base { flex-direction: column; align-items: center; text-align: center; }
