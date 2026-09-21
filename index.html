@@ -41,7 +41,7 @@
 
         <h1 class="hero-claim">Helping businesses<br />build <span class="serif-it">solutions.</span></h1>
 
-        <p class="hero-intro rv">I'm Siddhi, a UX designer and researcher working across fintech, banking, govtech and B2B SaaS. I run IRB-approved studies, design the systems that come out of them, and carry the work all the way to developer handoff. I turn dense, high-stakes flows into something people can finish on the first try.</p>
+        <p class="hero-intro rv"><strong class="hero-position">Engineer turned designer who researches, designs, and ships the code.</strong><span class="hero-position-sub">Two years across commerce, consumer finance, and public-sector products, with accessibility verified rather than claimed.</span></p>
 
         <div class="hero-proof rv">
           <span class="proof"><b><span class="count" data-from="31" data-to="78">31</span></b> SUS score, WCAG 2.1 AA</span>
@@ -82,7 +82,8 @@
         <div class="card-media" style="background:#fad29d;">
           <img src="assets/ir2go-thumbnail.png" alt="Three IRS2GO screens: the refund status result, the redesigned refund form with labelled required fields, and payment methods" loading="lazy" />
         </div>
-        <h3 class="card-title">More than doubling usability for the app millions check at their most anxious moment</h3>
+        <span class="card-scale">The IRS mobile app. Millions of US taxpayers. 45% abandoned the refund task before finishing.</span>
+        <h3 class="card-title">Usability from 31.3 to 78.25 on the System Usability Scale</h3>
         <p class="card-sum">Millions check their refund status on this app at their most anxious moment. I rebuilt the flows and the form so the answer arrives without a phone call.</p>
         <span class="card-meta">IRS2GO • GOVTECH • ACCESSIBILITY • <em class="tag-live">WCAG 2.1 AA</em></span>
         <span class="card-go">View case study <span aria-hidden="true">↗</span></span>
@@ -92,7 +93,8 @@
         <div class="card-media" style="background:#c7d4f2;">
           <img src="assets/moneyanchor-thumbnail.png" alt="Three Money Anchor screens: the AI Anchor chat assistant, the budget home screen showing balance and spending, and linked accounts" loading="lazy" />
         </div>
-        <h3 class="card-title">Raising user trust to 75% with a proactive AI budgeting coach built from zero</h3>
+        <span class="card-scale">Consumer finance, built 0 to 1. IRB-approved study with 24 participants across two rounds of testing.</span>
+        <h3 class="card-title">100% task success in round two, and 75% trusted the AI once it explained itself</h3>
         <p class="card-sum">People avoid budgeting apps because they feel like a report card. I designed an AI coach that explains its reasoning, built 0 to 1 from 24 IRB-approved interviews.</p>
         <span class="card-meta">MONEY ANCHOR • AI PRODUCT • <em class="tag-new">0→1</em></span>
         <span class="card-go">View case study <span aria-hidden="true">↗</span></span>
@@ -102,9 +104,10 @@
         <div class="card-media" style="background:#cde7d8;">
           <img src="assets/ev/ev-thumbnail.png" alt="Two EV charging app screens showing route planning with charging stops and estimated journey times" loading="lazy" />
         </div>
-        <h3 class="card-title">Replacing a wallet of charging apps with one reliable flow for first-time EV drivers</h3>
+        <span class="card-scale">First-time EV drivers. Four competitor apps audited task by task.</span>
+        <h3 class="card-title">Closing the loop none of the four charging apps closed</h3>
         <p class="card-sum">First-time EV drivers carry a wallet of charging apps and still get stranded. I designed one flow from finding a working charger to paying for it.</p>
-        <span class="card-meta">EV CHARGING • HUMAN FACTORS • IOT</span>
+        <span class="card-meta">EV CHARGING • HUMAN FACTORS • <em class="tag-new">CONCEPT, NOT SHIPPED</em></span>
         <span class="card-go">View case study <span aria-hidden="true">↗</span></span>
       </a>
 
@@ -112,7 +115,8 @@
         <div class="card-media" style="background:#ecdfd0;">
           <img src="assets/jaihind-thumbnail.png" alt="Two Jai Hind Group screens: the B2B operations dashboard with order and sales trends, and the data table view" loading="lazy" />
         </div>
-        <h3 class="card-title">Turning five disconnected spreadsheets into one dashboard that cut errors 27%</h3>
+        <span class="card-scale">A B2B supplier serving hotels, schools and vendors. Five spreadsheets across three teams.</span>
+        <h3 class="card-title">40% faster workflows and 27% fewer user errors</h3>
         <p class="card-sum">A B2B supplier ran on phone calls and five disconnected spreadsheets. I designed the dashboard and the component system three teams now use daily.</p>
         <span class="card-meta">JAI HIND GROUP • B2B • DESIGN SYSTEM • <em class="tag-live">SHIPPED</em></span>
         <span class="card-go">View case study <span aria-hidden="true">↗</span></span>
@@ -177,6 +181,28 @@
       <span class="label">A SMALL PROOF</span>
       <h3>This site runs on the same discipline</h3>
       <p>Two typefaces and one locked scale. Colour kept as named tokens with the measured contrast ratio written beside each one in the stylesheet, so nobody later "improves" a value back into failure. Every text and background pair verified against WCAG 2.1 AA before it shipped, the lowest sitting at 4.83:1. Keyboard focus states, a skip link, reduced-motion support, and a pause control on anything that moves. Hand-built in HTML, CSS and JavaScript.</p>
+    </div>
+
+    <div class="sysnote rv">
+      <span class="label">A SECOND PROOF</span>
+      <h3>The component libraries behind two products</h3>
+      <p>Money Anchor and Jai Hind Group both shipped on libraries I built rather than on one-off screens. Each defines its type scale, spacing steps and colour as named tokens, then builds every screen from the same components, so a change to a token moves every screen at once instead of thirty files by hand.</p>
+      <p class="sysnote-pending">Exact component and token counts for both libraries are still being pulled from the Figma files and will be stated here rather than estimated.</p>
+      <div class="comp-demo">
+        <span class="comp-demo-label">One component, its variants and states</span>
+        <div class="comp-row">
+          <span class="comp-chip">Primary</span>
+          <span class="comp-chip comp-hover">Primary, hover</span>
+          <span class="comp-chip comp-disabled">Primary, disabled</span>
+          <span class="comp-chip comp-focus">Primary, focus</span>
+        </div>
+        <div class="comp-row">
+          <span class="comp-chip comp-ghost">Secondary</span>
+          <span class="comp-chip comp-ghost comp-hover">Secondary, hover</span>
+          <span class="comp-chip comp-ghost comp-disabled">Secondary, disabled</span>
+        </div>
+        <p class="comp-demo-note">The button component as documented for handoff: two variants, four states each, every pair verified against WCAG 2.1 AA before it went to a developer. Disabled is the one state most libraries let fail contrast; it is called out here because it is the one that gets missed.</p>
+      </div>
     </div>
 
   </section>
@@ -296,7 +322,7 @@
       </details>
       <details class="faq-item rv">
         <summary><span class="faq-num">05</span>How do you use AI in your work?<span class="faq-x">+</span></summary>
-        <p>As a tool in the loop, not the driver. I've used LLMs for data analysis and synthesizing research, and designed AI features that explain themselves. AI is transforming the work, but empathy and research stay irreplaceable.</p>
+        <p>Specifically: I use Claude for research synthesis, for exploring directions early, and for documentation. It is fast at clustering interview transcripts into themes I then check by hand against the raw quotes.</p><p>Where I do not use it: final visual decisions, information architecture, and deciding what a user should be told. Those are judgement calls that need someone accountable for them, and they are the parts of the job where being confidently wrong is most expensive. I have also designed AI features that explain their own reasoning, which is where the 75% trust figure on Money Anchor came from.</p>
       </details>
       <details class="faq-item rv">
         <summary><span class="faq-num">06</span>Why should we hire you?<span class="faq-x">+</span></summary>
