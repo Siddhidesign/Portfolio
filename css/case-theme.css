@@ -6,7 +6,7 @@
    for the label voice) · blue accent.
    ============================================================ */
 
-/* ── PALETTE ────────────────────────────────────────────────── */
+/* ── PALETTE ───────────────────────────────────────────────── */
 :root,
 html[data-theme="dark"],
 html[data-theme="light"] {
@@ -40,7 +40,7 @@ html[data-theme="light"] {
   --grad:   none;
 }
 
-/* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+/* ── TYPOGRAPHY ───────────────────────────────────────────── */
 body {
   font-family: var(--sans);
   font-weight: 400;
@@ -104,7 +104,7 @@ body {
   font-weight: 400;
 }
 
-/* ── SECTION CHROME ─────────────────────────────────────────── */
+/* ── SECTION CHROME ──────────────────────────────────────── */
 .cs-sec-num {
   background: none;
   color: var(--text3);
@@ -134,7 +134,7 @@ body {
 .cs-metrics .cs-metric:nth-child(3) .cs-metric-n { color: var(--coral); }
 .cs-metrics .cs-metric:nth-child(4) .cs-metric-n { color: var(--text); }
 
-/* ── NAV pill → flat editorial bar ──────────────────────────── */
+/* ── NAV pill → flat editorial bar ─────────────────────────── */
 .cs-nav {
   background: rgba(255, 255, 255, .85);
   backdrop-filter: blur(12px);
@@ -195,7 +195,7 @@ body {
 .cs-badge { background: #e9f3ee; border: 1px solid transparent; color: #0a5c3a; }
 .cs-badge.alt { background: #e2ecfa; border: 1px solid transparent; color: #004f8f; }
 
-/* ── BUTTONS ────────────────────────────────────────────────── */
+/* ── BUTTONS ─────────────────────────────────────────────── */
 .btn { font-family: var(--mono); letter-spacing: .12em; text-transform: uppercase; font-size: 12px; }
 .btn-gold {
   background: var(--text);
@@ -245,7 +245,7 @@ body {
 }
 .cs-scene-cap strong { color: var(--text); font-weight: 600; }
 
-/* ── EMAIL: one click from every page ───────────────────────── */
+/* ── EMAIL: one click from every page ─────────────────────── */
 .cs-mail-nav { margin-right: .4rem; }
 
 .cs-mail-foot {
@@ -276,7 +276,7 @@ body {
 }
 .cs-mail-float:hover { background: var(--blue); transform: translateY(-2px); }
 
-/* ── PROGRESSIVE DISCLOSURE ─────────────────────────────────── */
+/* ── PROGRESSIVE DISCLOSURE ───────────────────────────────── */
 .cs-more { margin: 1.4rem 0; }
 .cs-more > summary {
   list-style: none;
@@ -301,7 +301,7 @@ body {
   line-height: 1;
   color: var(--text3);
 }
-.cs-more[open] > summary::after { content: "–"; }
+.cs-more[open] > summary::after { content: "\2212"; }
 .cs-more > summary:hover { border-color: var(--text); color: var(--text); }
 .cs-more[open] > summary { margin-bottom: 1.2rem; color: var(--text); border-color: var(--text); }
 
@@ -309,7 +309,7 @@ body {
 .cs-empathy-quad.pain .cs-empathy-label,
 .cs-comp-gap { color: #b91c1c; }          /* was #e74c3c at 3.5:1 → now 5.9:1 */
 
-/* ── FOCUS VISIBILITY (WCAG 2.4.7) ─────────────────────────── */
+/* ── FOCUS VISIBILITY (WCAG 2.4.7) ────────────────────────── */
 a:focus-visible, button:focus-visible, summary:focus-visible {
   outline: 3px solid var(--blue);
   outline-offset: 3px;
@@ -448,7 +448,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 
-/* ── BEFORE / AFTER SLIDER ──────────────────────────────────── */
+/* ── BEFORE / AFTER SLIDER ───────────────────────────────── */
 .csx { margin: 2.4rem 0; --pos: 50%; }
 .csx-frame {
   position: relative;
@@ -555,7 +555,33 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   color: var(--text2);
 }
 
-/* ── MISC ───────────────────────────────────────────────────── */
+
+/* ── PROCESS ARC (the whole shape of the project in one strip) ─ */
+.cs-arc { max-width: 1100px; margin: 0 auto 8px; padding: 0 clamp(20px, 4vw, 48px); }
+.cs-arc-track {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px;
+}
+.cs-arc-step { margin: 0; }
+.cs-arc-step a {
+  display: block; padding: 12px 14px;
+  border: 1px solid var(--border); border-radius: 12px;
+  text-decoration: none; background: var(--surface);
+  transition: border-color .2s ease, transform .2s ease;
+}
+.cs-arc-step a:hover { border-color: var(--text); transform: translateY(-2px); }
+.cs-arc-step a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.cs-arc-n {
+  display: block; font-family: var(--mono); font-size: 11px;
+  letter-spacing: .14em; color: var(--blue); margin-bottom: 4px;
+}
+.cs-arc-label {
+  display: block; font-family: var(--mono); font-size: 13px;
+  line-height: 1.35; color: var(--text); text-transform: none; letter-spacing: 0;
+}
+@media (prefers-reduced-motion: reduce) { .cs-arc-step a:hover { transform: none; } }
+
+/* ── MISC ────────────────────────────────────────────────── */
 .scroll-progress { background: var(--text); height: 2px; }
 .cs-bn-link:hover .cs-bn-title { color: var(--blue); }
 .back-top { background: rgba(255,255,255,.9); color: var(--text2); }
