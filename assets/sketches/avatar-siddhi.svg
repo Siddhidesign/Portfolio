@@ -1,92 +1,131 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none" role="img" aria-label="Illustrated portrait of Siddhi Manche, smiling, under cherry blossoms">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none" role="img" aria-label="Illustrated portrait of Siddhi Manche, smiling in clear-framed glasses, framed by cherry blossoms">
+  <defs>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2c69f"/>
+      <stop offset="1" stop-color="#dca87d"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#3a3a46"/>
+      <stop offset="1" stop-color="#1e1e26"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6e6a2"/>
+      <stop offset="1" stop-color="#e8cf78"/>
+    </linearGradient>
+  </defs>
+
   <style>
     .s{stroke:#32404f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
     .t{stroke:#32404f;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
     .n{fill:none}
-    .bloom1{animation:bob 5.2s ease-in-out infinite;transform-origin:78px 96px}
-    .bloom2{animation:bob 5.2s ease-in-out .9s infinite;transform-origin:322px 84px}
-    .bloom3{animation:bob 5.2s ease-in-out 1.8s infinite;transform-origin:342px 150px}
+    .bloom1{animation:bob 5.2s ease-in-out infinite;transform-origin:76px 96px}
+    .bloom2{animation:bob 5.2s ease-in-out .9s infinite;transform-origin:322px 86px}
+    .bloom3{animation:bob 5.2s ease-in-out 1.8s infinite;transform-origin:344px 152px}
     @keyframes bob{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-4px) rotate(3deg)}}
     @media (prefers-reduced-motion: reduce){ .bloom1,.bloom2,.bloom3{animation:none} }
   </style>
 
-  <!-- soft blossom-toned backdrop -->
+  <!-- backdrop -->
   <circle cx="200" cy="200" r="190" fill="#f6c9b4" opacity=".42"/>
-  <circle cx="200" cy="200" r="190" class="n" stroke="#32404f" stroke-width="2.4" opacity=".22"/>
+  <circle cx="200" cy="200" r="190" class="n" stroke="#32404f" stroke-width="2.4" opacity=".2"/>
 
-  <!-- ===== BLOSSOM BRANCH, a nod to the real photo ===== -->
-  <path class="t n" d="M26 128 c46 -26 96 -40 140 -42" opacity=".5"/>
-  <path class="t n" d="M374 108 c-40 -8 -74 -2 -100 12" opacity=".5"/>
-
+  <!-- blossom branch, a nod to the real photo -->
+  <path class="t n" d="M26 128 c46 -26 96 -40 140 -42" opacity=".45"/>
+  <path class="t n" d="M374 110 c-40 -8 -74 -2 -100 12" opacity=".45"/>
   <g class="bloom1">
     <circle cx="70" cy="90" r="9" fill="#f6c9b4"/><circle cx="86" cy="86" r="8" fill="#f6c9b4"/>
     <circle cx="80" cy="104" r="8" fill="#f6c9b4"/><circle cx="64" cy="105" r="7" fill="#f6c9b4"/>
     <circle cx="76" cy="96" r="4" fill="#fad29d"/>
   </g>
   <g class="bloom2">
-    <circle cx="316" cy="78" r="9" fill="#f6c9b4"/><circle cx="332" cy="82" r="8" fill="#f6c9b4"/>
-    <circle cx="324" cy="96" r="8" fill="#f6c9b4"/><circle cx="310" cy="92" r="7" fill="#f6c9b4"/>
-    <circle cx="322" cy="86" r="4" fill="#fad29d"/>
+    <circle cx="316" cy="80" r="9" fill="#f6c9b4"/><circle cx="332" cy="84" r="8" fill="#f6c9b4"/>
+    <circle cx="324" cy="98" r="8" fill="#f6c9b4"/><circle cx="310" cy="94" r="7" fill="#f6c9b4"/>
+    <circle cx="322" cy="88" r="4" fill="#fad29d"/>
   </g>
   <g class="bloom3">
-    <circle cx="338" cy="146" r="7" fill="#f6c9b4"/><circle cx="350" cy="152" r="6" fill="#f6c9b4"/>
-    <circle cx="340" cy="160" r="6" fill="#f6c9b4"/>
-    <circle cx="343" cy="152" r="3" fill="#fad29d"/>
+    <circle cx="338" cy="148" r="7" fill="#f6c9b4"/><circle cx="350" cy="154" r="6" fill="#f6c9b4"/>
+    <circle cx="340" cy="162" r="6" fill="#f6c9b4"/>
+    <circle cx="343" cy="154" r="3" fill="#fad29d"/>
   </g>
 
-  <!-- ===== HAIR, back mass: long, centre parted, past the shoulders ===== -->
-  <path class="s" d="M112 196 c-6 -74 34 -122 88 -122 c54 0 94 48 88 122
-                     c-2 34 2 68 10 104 c-26 12 -56 18 -98 18 c-42 0 -72 -6 -98 -18
-                     c8 -36 12 -70 10 -104 z" fill="#2b2b33"/>
+  <!-- hair, back mass -->
+  <path class="s" d="M110 200 c-6 -78 36 -128 90 -128 c54 0 96 50 90 128
+                     c-2 36 2 70 10 106 c-28 12 -58 18 -100 18 c-42 0 -72 -6 -100 -18
+                     c8 -36 12 -70 10 -106 z" fill="url(#hair)"/>
 
-  <!-- ===== NECK ===== -->
-  <path class="s" d="M176 242 c2 16 2 28 0 40 h48 c-2 -12 -2 -24 0 -40 z" fill="#d9a377"/>
-  <path class="t n" d="M180 250 c12 9 28 9 40 0" opacity=".4"/>
+  <!-- neck -->
+  <path class="s" d="M176 246 c2 16 2 28 0 40 h48 c-2 -12 -2 -24 0 -40 z" fill="#d49b71"/>
+  <path class="t n" d="M180 254 c12 9 28 9 40 0" opacity=".38"/>
 
-  <!-- ===== SHOULDERS, in the yellow top from the photo ===== -->
-  <path class="s" d="M96 344 c10 -34 40 -56 78 -62 c16 14 36 14 52 0 c38 6 68 28 78 62
-                     c-38 10 -82 14 -104 14 c-22 0 -66 -4 -104 -14 z" fill="#f2dc8e"/>
-  <path class="t n" d="M180 282 c12 13 28 13 40 0" opacity=".45"/>
+  <!-- shoulders -->
+  <path class="s" d="M96 346 c10 -34 40 -56 78 -62 c16 14 36 14 52 0 c38 6 68 28 78 62
+                     c-38 10 -82 14 -104 14 c-22 0 -66 -4 -104 -14 z" fill="url(#top)"/>
+  <path class="t n" d="M180 286 c12 13 28 13 40 0" opacity=".4"/>
 
-  <!-- ===== FACE ===== -->
-  <ellipse class="s" cx="200" cy="184" rx="66" ry="74" fill="#e8b48a"/>
+  <!-- face -->
+  <ellipse class="s" cx="200" cy="186" rx="68" ry="76" fill="url(#skin)"/>
 
-  <!-- ears + small studs -->
-  <ellipse class="s" cx="135" cy="188" rx="9" ry="14" fill="#e8b48a"/>
-  <ellipse class="s" cx="265" cy="188" rx="9" ry="14" fill="#e8b48a"/>
-  <circle cx="136" cy="201" r="4" fill="#ffffff" stroke="#32404f" stroke-width="2"/>
-  <circle cx="264" cy="201" r="4" fill="#ffffff" stroke="#32404f" stroke-width="2"/>
+  <!-- ears + studs -->
+  <ellipse class="s" cx="133" cy="192" rx="9" ry="15" fill="#e2b183"/>
+  <ellipse class="s" cx="267" cy="192" rx="9" ry="15" fill="#e2b183"/>
+  <circle cx="134" cy="205" r="4" fill="#ffffff" stroke="#32404f" stroke-width="2"/>
+  <circle cx="266" cy="205" r="4" fill="#ffffff" stroke="#32404f" stroke-width="2"/>
 
-  <!-- brows: dark, softly arched -->
-  <path class="s n" d="M158 158 c10 -9 26 -10 36 -3"/>
-  <path class="s n" d="M206 155 c10 -7 26 -6 36 3"/>
+  <!-- brows -->
+  <path d="M152 146 c11 -9 27 -10 38 -4" stroke="#241f26" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <path d="M210 142 c11 -8 27 -7 38 4" stroke="#241f26" stroke-width="7" stroke-linecap="round" fill="none"/>
 
-  <!-- eyes: closed and crinkled, the way she smiles -->
-  <path class="s n" d="M157 184 c9 -12 26 -12 35 0"/>
-  <path class="s n" d="M208 184 c9 -12 26 -12 35 0"/>
-  <!-- smile creases at the outer corners -->
-  <path class="t n" d="M148 176 l-8 -5 M152 190 l-9 4" opacity=".55"/>
-  <path class="t n" d="M252 176 l8 -5 M248 190 l9 4" opacity=".55"/>
+  <!-- eyes, open -->
+  <ellipse cx="173" cy="182" rx="17" ry="15" fill="#ffffff" stroke="#32404f" stroke-width="2.4"/>
+  <ellipse cx="227" cy="182" rx="17" ry="15" fill="#ffffff" stroke="#32404f" stroke-width="2.4"/>
+  <circle cx="175" cy="183" r="9.5" fill="#4a2c1d"/>
+  <circle cx="225" cy="183" r="9.5" fill="#4a2c1d"/>
+  <circle cx="175" cy="183" r="4.4" fill="#1b0f07"/>
+  <circle cx="225" cy="183" r="4.4" fill="#1b0f07"/>
+  <circle cx="171.5" cy="179" r="3.1" fill="#ffffff"/>
+  <circle cx="221.5" cy="179" r="3.1" fill="#ffffff"/>
+  <!-- lash line -->
+  <path class="t n" d="M158 176 c8 -6 22 -7 31 -2" stroke-width="2.6"/>
+  <path class="t n" d="M211 174 c9 -5 23 -4 31 2" stroke-width="2.6"/>
 
   <!-- nose -->
-  <path class="s n" d="M199 190 c-3 12 -6 18 -1 22 c3 2 7 2 10 0"/>
+  <path class="s n" d="M199 194 c-3 12 -6 18 -1 22 c3 2 7 2 10 0" stroke-width="2.6"/>
 
-  <!-- wide open smile with teeth -->
-  <path class="s" d="M166 218 c12 26 56 26 68 0 c-10 6 -58 6 -68 0 z" fill="#5b3140"/>
-  <path d="M170 220 c10 5 50 5 60 0 c-2 6 -6 10 -10 12 c-14 4 -26 4 -40 0 c-4 -2 -8 -6 -10 -12 z" fill="#ffffff"/>
-  <path class="t n" d="M166 218 c12 26 56 26 68 0" />
-  <!-- cheeks -->
-  <ellipse cx="156" cy="206" rx="13" ry="8" fill="#e08a72" opacity=".38"/>
-  <ellipse cx="244" cy="206" rx="13" ry="8" fill="#e08a72" opacity=".38"/>
+  <!-- smile, open with teeth -->
+  <path class="s" d="M166 226 c12 28 56 28 68 0 c-10 7 -58 7 -68 0 z" fill="#5b3140"/>
+  <path d="M170 228 c10 5 50 5 60 0 c-2 7 -6 11 -10 13 c-14 4 -26 4 -40 0 c-4 -2 -8 -6 -10 -13 z" fill="#ffffff"/>
+  <path class="t n" d="M166 226 c12 28 56 28 68 0"/>
 
-  <!-- ===== HAIR, front: centre part framing the face ===== -->
-  <path class="s" d="M200 110 c-44 0 -70 30 -72 74 c14 -26 30 -40 48 -46
-                     c10 -4 18 -12 24 -22 z" fill="#2b2b33"/>
-  <path class="s" d="M200 110 c44 0 70 30 72 74 c-14 -26 -30 -40 -48 -46
-                     c-10 -4 -18 -12 -24 -22 z" fill="#2b2b33"/>
-  <!-- a few strand lines so the hair reads as hair, not a helmet -->
-  <path class="t n" d="M150 150 c-8 20 -10 44 -8 64" stroke="#5c5c68" opacity=".7"/>
-  <path class="t n" d="M250 150 c8 20 10 44 8 64" stroke="#5c5c68" opacity=".7"/>
-  <path class="t n" d="M128 232 c-4 28 -2 54 4 78" stroke="#5c5c68" opacity=".55"/>
-  <path class="t n" d="M272 232 c4 28 2 54 -4 78" stroke="#5c5c68" opacity=".55"/>
+  <!-- cheeks + the small mark on her left cheek -->
+  <ellipse cx="152" cy="212" rx="13" ry="8" fill="#e08a72" opacity=".35"/>
+  <ellipse cx="248" cy="212" rx="13" ry="8" fill="#e08a72" opacity=".35"/>
+  <circle cx="234" cy="211" r="2.3" fill="#8a5a3c" opacity=".8"/>
+
+  <!-- hair, front: centre part -->
+  <path class="s" d="M200 108 c-46 0 -74 32 -76 78 c14 -28 32 -42 50 -48
+                     c9 -4 16 -11 20 -24 z" fill="url(#hair)"/>
+  <path class="s" d="M200 108 c46 0 74 32 76 78 c-14 -28 -32 -42 -50 -48
+                     c-9 -4 -16 -11 -20 -24 z" fill="url(#hair)"/>
+  <path class="t n" d="M150 144 c-8 20 -11 44 -9 66" stroke="#6a6a78" opacity=".6"/>
+  <path class="t n" d="M250 144 c8 20 11 44 9 66" stroke="#6a6a78" opacity=".6"/>
+  <path class="t n" d="M126 236 c-4 28 -2 54 4 78" stroke="#6a6a78" opacity=".45"/>
+  <path class="t n" d="M274 236 c4 28 2 54 -4 78" stroke="#6a6a78" opacity=".45"/>
+
+  <!-- ===== GLASSES: clear tan frames, rounded square, worn over the eyes ===== -->
+  <g>
+    <!-- lenses: centred on the eyes, clear enough to see the face through -->
+    <rect x="150" y="164" width="46" height="38" rx="13" fill="#e8d2b6" fill-opacity=".14"
+          stroke="#b99268" stroke-width="3"/>
+    <rect x="204" y="164" width="46" height="38" rx="13" fill="#e8d2b6" fill-opacity=".14"
+          stroke="#b99268" stroke-width="3"/>
+    <!-- bridge -->
+    <path d="M196 174 c2 -4 6 -5 8 0" stroke="#b99268" stroke-width="3"
+          fill="none" stroke-linecap="round"/>
+    <!-- temples out to the ears -->
+    <path d="M150 176 c-7 1 -12 4 -16 9" stroke="#b99268" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M250 176 c7 1 12 4 16 9" stroke="#b99268" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- a soft glint, not a slash -->
+    <path d="M157 171 l11 0 l-12 13 l0 -9 z" fill="#ffffff" opacity=".32"/>
+    <path d="M211 171 l11 0 l-12 13 l0 -9 z" fill="#ffffff" opacity=".32"/>
+  </g>
 </svg>
