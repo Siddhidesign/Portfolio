@@ -3,7 +3,7 @@
    New York Aesthetics · Dark/Light Mode · GitHub Pages Ready
    ============================================================ */
 
-/* ── CUSTOM PROPERTIES ─────────────────────────────────────── */
+/* ── CUSTOM PROPERTIES ──────────────────────────────────────── */
 :root {
   /* Dark palette (default) */
   --bg:           #090909;
@@ -50,7 +50,7 @@
   --border2:      rgba(0,0,0,.13);
 }
 
-/* ── RESET ─────────────────────────────────────────────────── */
+/* ── RESET ───────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
@@ -86,7 +86,7 @@ button { cursor: none; }
   background-size: 220px;
 }
 
-/* ── SCROLL PROGRESS ───────────────────────────────────────── */
+/* ── SCROLL PROGRESS ─────────────────────────────────────────── */
 .scroll-progress {
   position: fixed;
   top: 0; left: 0;
@@ -97,7 +97,7 @@ button { cursor: none; }
   transition: width .1s linear;
 }
 
-/* ── CURSOR ───────────────────────────────────────────────── */
+/* ── CURSOR ──────────────────────────────────────────────────── */
 .cursor-dot,
 .cursor-ring {
   position: fixed;
@@ -126,7 +126,7 @@ button { cursor: none; }
 body.cursor-hover .cursor-dot  { width: 10px; height: 10px; }
 body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
 
-/* ── LOADER ────────────────────────────────────────────────── */
+/* ── LOADER ──────────────────────────────────────────────────── */
 .loader {
   position: fixed;
   inset: 0;
@@ -200,7 +200,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
 @keyframes slideUp  { to { transform: translateY(0); } }
 @keyframes fadeIn   { to { opacity: 1; } }
 
-/* ── NAVIGATION ─────────────────────────────────────────────── */
+/* ── NAVIGATION ──────────────────────────────────────────────── */
 .nav {
   position: fixed;
   inset-inline: 0;
@@ -311,7 +311,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   50%      { opacity:.65; transform:scale(.85); }
 }
 
-/* ── HELPERS ────────────────────────────────────────────────── */
+/* ── HELPERS ─────────────────────────────────────────────────── */
 .pad-h { padding-inline: var(--pad); }
 
 .label {
@@ -347,7 +347,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
 
 .reveal-item.in { opacity: 1; transform: none; }
 
-/* ── HERO ──────────────────────────────────────────────────── */
+/* ── HERO ────────────────────────────────────────────────────── */
 .hero {
   position: relative;
   min-height: 100svh;
@@ -445,7 +445,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   animation-delay: 2.3s;
 }
 
-/* ── BUTTONS ──────────────────────────────────────────────── */
+/* ── BUTTONS ─────────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -532,7 +532,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   animation-delay: 2.5s;
 }
 
-/* ── MARQUEE ──────────────────────────────────────────────── */
+/* ── MARQUEE ─────────────────────────────────────────────────── */
 .marquee-section {
   overflow: hidden;
   border-block: 1px solid var(--border);
@@ -564,7 +564,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   to   { transform: translateX(-50%); }
 }
 
-/* ── WORK SECTION ──────────────────────────────────────────── */
+/* ── WORK SECTION ────────────────────────────────────────────── */
 .work {
   padding-bottom: var(--sec);
 }
@@ -750,7 +750,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   color: var(--text2);
 }
 
-/* ── ABOUT ──────────────────────────────────────────────────── */
+/* ── ABOUT ───────────────────────────────────────────────────── */
 .about {
   padding-block: var(--sec);
   border-top: 1px solid var(--border);
@@ -885,7 +885,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   background: var(--gold-dim);
 }
 
-/* ── PROCESS ──────────────────────────────────────────────── */
+/* ── PROCESS ─────────────────────────────────────────────────── */
 .process {
   padding-bottom: var(--sec);
   border-top: 1px solid var(--border);
@@ -938,7 +938,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   line-height: 1.75;
 }
 
-/* ── SERVICES ─────────────────────────────────────────────── */
+/* ── SERVICES ────────────────────────────────────────────────── */
 .services {
   padding-block: var(--sec);
   border-top: 1px solid var(--border);
@@ -985,7 +985,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   line-height: 1.72;
 }
 
-/* ── CONTACT ──────────────────────────────────────────────── */
+/* ── CONTACT ─────────────────────────────────────────────────── */
 .contact {
   padding-top: var(--sec);
   border-top: 1px solid var(--border);
@@ -1071,7 +1071,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
 .soc-link:hover { color: var(--text); }
 .soc-link:hover::after { width: 100%; }
 
-/* ── FOOTER ───────────────────────────────────────────────── */
+/* ── FOOTER ──────────────────────────────────────────────────── */
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -1084,13 +1084,13 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   color: var(--text3);
 }
 
-/* ── MAGNETIC ELEMENTS ─────────────────────────────────────── */
+/* ── MAGNETIC ELEMENTS ───────────────────────────────────────── */
 .magnetic {
   display: inline-block;
   will-change: transform;
 }
 
-/* ── RESPONSIVE ────────────────────────────────────────────── */
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .work-list         { grid-template-columns: 1fr; }
   .process-grid      { grid-template-columns: 1fr 1fr; }
@@ -1118,7 +1118,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   .stats-row { grid-template-columns: repeat(2,1fr); gap: 1rem; }
 }
 
-/* ── EXPERIENCE ────────────────────────────────────────────── */
+/* ── EXPERIENCE ──────────────────────────────────────────────── */
 .experience {
   padding-bottom: var(--sec);
   border-top: 1px solid var(--border);
@@ -1227,7 +1227,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   color: var(--text2);
 }
 
-/* ── TESTIMONIAL ───────────────────────────────────────────── */
+/* ── TESTIMONIAL ─────────────────────────────────────────────── */
 .testimonial {
   padding-block: var(--sec);
   border-top: 1px solid var(--border);
@@ -1322,7 +1322,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   text-transform: uppercase;
 }
 
-/* ── EXPERIENCE RESPONSIVE ──────────────────────────────────── */
+/* ── EXPERIENCE RESPONSIVE ───────────────────────────────────── */
 @media (max-width: 900px) {
   .exp-item {
     grid-template-columns: 1fr;
@@ -1334,7 +1334,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; opacity: .3; }
   }
 }
 
-/* ── PAGE TRANSITIONS ───────────────────────────────────────── */
+/* ── PAGE TRANSITIONS ────────────────────────────────────────── */
 body {
   animation: pageEnter .55s var(--ease) both;
 }
@@ -1351,7 +1351,7 @@ body.page-exit {
   pointer-events: none;
 }
 
-/* ── TOOLS GRID ─────────────────────────────────────────────── */
+/* ── TOOLS GRID ──────────────────────────────────────────────── */
 .tools-block { margin-top: .5rem; }
 
 .tools-grid {
@@ -1428,7 +1428,7 @@ body.page-exit {
 
 .tool-item:hover > span { color: var(--text2); }
 
-/* ── ABOUT INTERESTS ──────────────────────────────────────── */
+/* ── ABOUT INTERESTS ─────────────────────────────────────────── */
 .about-interests {
   margin-top: 3rem;
   padding-top: 2.5rem;
@@ -1521,7 +1521,7 @@ body.page-exit {
   aspect-ratio: 2/1;
 }
 
-/* ── ADDITIONAL HOVER POLISH ───────────────────────────────── */
+/* ── ADDITIONAL HOVER POLISH ─────────────────────────────────── */
 .nav-logo {
   transition: color var(--t1), letter-spacing var(--t2) var(--ease);
 }
@@ -1570,7 +1570,7 @@ body.page-exit {
   transition: letter-spacing var(--t2) var(--ease);
 }
 
-/* ── BEYOND DESIGN SECTION ──────────────────────────────────── */
+/* ── BEYOND DESIGN SECTION ───────────────────────────────────── */
 .beyond {
   border-top: 1px solid var(--border);
   padding: var(--sec) 0 0;
@@ -1597,7 +1597,7 @@ body.page-exit {
 
 [data-theme="light"] .tool-icon-wrap.tool-mark img { filter: none; }
 
-/* ── ABOUT RESPONSIVE ───────────────────────────────────────── */
+/* ── ABOUT RESPONSIVE ────────────────────────────────────────── */
 @media (max-width: 640px) {
   .interest-grid { grid-template-columns: 1fr; }
 }
