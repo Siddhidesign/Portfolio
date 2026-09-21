@@ -693,6 +693,30 @@
 
     .eyebrow, .kicker, .sticky-menu a, .back-link, .metric-chip-num,
     [class*="label"], [class*="tag"] { font-family: "Inter", sans-serif; }
+  
+    .cs-arc { max-width: 1100px; margin: 0 auto 8px; padding: 0 clamp(20px,4vw,48px); }
+    .cs-arc-track {
+      list-style: none; margin: 0; padding: 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px;
+    }
+    .cs-arc-step { margin: 0; }
+    .cs-arc-step a {
+      display: block; padding: 12px 14px;
+      border: 1px solid #e2e2e2; border-radius: 12px;
+      text-decoration: none; background: #fff;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .cs-arc-step a:hover { border-color: #32404f; transform: translateY(-2px); }
+    .cs-arc-step a:focus-visible { outline: 3px solid #0069c2; outline-offset: 3px; }
+    .cs-arc-n {
+      display: block; font-family: "Inter", sans-serif; font-size: 11px;
+      letter-spacing: .14em; color: #0069c2; margin-bottom: 4px;
+    }
+    .cs-arc-label {
+      display: block; font-family: "Inter", sans-serif; font-size: 13px;
+      line-height: 1.35; color: #32404f;
+    }
+    @media (prefers-reduced-motion: reduce) { .cs-arc-step a:hover { transform: none; } }
   </style>
 </head>
 <body>
@@ -744,12 +768,41 @@
         <dl class="cs-tldr-facts">
           <div><dt>My role</dt><dd>Product UX Designer, end to end</dd></div>
           <div><dt>Timeline</dt><dd>Feb 2023 to Jul 2024</dd></div>
+          <div><dt>Team size</dt><dd>3 designers and 1 PM</dd></div>
+          <div><dt>Platform</dt><dd>Internal B2B commerce and inventory platform, web</dd></div>
+          <div><dt>My contribution</dt><dd>Owned research through developer handoff, including the component library.</dd></div>
+          <div><dt>Outcome</dt><dd>27% fewer user errors. 40% faster workflows.</dd></div>
         </dl>
       </div>
     </div>
   </section>
 
-    <section id="overview" class="cs-section">
+    
+    
+  <nav class="cs-arc" aria-label="Process overview: jump to a phase">
+    <ol class="cs-arc-track">
+      <li class="cs-arc-step">
+        <a href="#users"><span class="cs-arc-n">01</span><span class="cs-arc-label">Research</span></a>
+      </li>
+      <li class="cs-arc-step">
+        <a href="#challenges"><span class="cs-arc-n">02</span><span class="cs-arc-label">Problem framing</span></a>
+      </li>
+      <li class="cs-arc-step">
+        <a href="#system"><span class="cs-arc-n">03</span><span class="cs-arc-label">Ideation and low-fi</span></a>
+      </li>
+      <li class="cs-arc-step">
+        <a href="#commerce"><span class="cs-arc-n">04</span><span class="cs-arc-label">High-fidelity</span></a>
+      </li>
+      <li class="cs-arc-step">
+        <a href="#decisions"><span class="cs-arc-n">05</span><span class="cs-arc-label">Validation</span></a>
+      </li>
+      <li class="cs-arc-step">
+        <a href="#results"><span class="cs-arc-n">06</span><span class="cs-arc-label">Outcome</span></a>
+      </li>
+    </ol>
+  </nav>
+
+<section id="overview" class="cs-section">
       <div class="hero-meta">
         <span class="meta-pill">B2B Commerce Platform</span>
         <span class="meta-pill">Order to Fulfillment</span>
