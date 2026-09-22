@@ -87,29 +87,6 @@ qsa('.faq-item').forEach(d => {
   set();
 })();
 
-/* ── COPY EMAIL ADDRESS ────────────────────────────────────── */
-(() => {
-  const btn = qs('#copyMail');
-  if (!btn) return;
-  const label = qs('.copy-label', btn);
-  const original = label.textContent;
-  btn.addEventListener('click', async () => {
-    const mail = btn.dataset.mail;
-    try {
-      await navigator.clipboard.writeText(mail);
-    } catch {
-      // clipboard blocked (http, permissions): fall back to a selectable range
-      const t = document.createElement('textarea');
-      t.value = mail; document.body.appendChild(t); t.select();
-      try { document.execCommand('copy'); } catch {}
-      t.remove();
-    }
-    label.textContent = 'Copied';
-    btn.classList.add('is-done');
-    setTimeout(() => { label.textContent = original; btn.classList.remove('is-done'); }, 2000);
-  });
-})();
-
 /* ── HERO COLLAGE: gentle parallax ─────────────────────────── */
 (() => {
   const cards = qsa('.hc');

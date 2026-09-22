@@ -117,18 +117,6 @@ h2.label { font-size: 12px; font-weight: 400; }
   transition: width .08s linear;
 }
 
-/* ── COPY EMAIL ─────────────────────────────────────────────── */
-.copy-mail {
-  font-family: var(--mono); font-size: 12px; letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--soft); background: #fff;
-  border: 1px solid var(--line); border-radius: 999px;
-  padding: 12px 20px; cursor: pointer;
-  transition: border-color .2s ease, color .2s ease;
-}
-.copy-mail:hover { border-color: var(--ink); color: var(--ink); }
-.copy-mail.is-done { border-color: var(--green); color: var(--green); }
-
 
 /* ── HERO: two column, text left, portrait right ────────────── */
 .hero-inner {
