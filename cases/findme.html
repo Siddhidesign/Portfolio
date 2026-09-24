@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FindMe LLC, Case Study · Siddhi Manche</title>
+  <meta name="description" content="UX/UI design internship at FindMe LLC, New York: growing a design system library of reusable components, patterns and visual standards while shipping responsive web and mobile features in agile sprints." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/case-study.css" />
+  <link rel="stylesheet" href="../css/case-light.css" />
+  <link rel="stylesheet" href="../css/case-theme.css" />
+</head>
+<body>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-content">
+      <div class="loader-words">
+        <div class="loader-word"><span>FINDME</span></div>
+        <div class="loader-word accent"><span>LLC</span></div>
+      </div>
+      <div class="loader-line-wrap"><div class="loader-line-bar"></div></div>
+      <p class="loader-sub">Loading Case Study</p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="cs-nav" id="nav" role="banner">
+    <a href="../index.html" class="cs-back">← All Work</a>
+    <span class="cs-nav-center">FindMe LLC</span>
+    <div class="cs-nav-right">
+      <a href="mailto:manche.siddhi@gmail.com" class="cs-next-link cs-mail-nav">Email ↗</a>
+      <a href="omkar.html" class="cs-next-link">Omkar Labels →</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span>◐</span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="cs-hero">
+    <div class="cs-hero-bg" aria-hidden="true">FM</div>
+    <div class="cs-hero-glow" aria-hidden="true"></div>
+
+    <div class="cs-hero-inner">
+      <div class="cs-hero-index">
+        <span>2025</span>
+        <span class="idx-line"></span>
+        <span>Design System · Web &amp; Mobile · Agile</span>
+      </div>
+
+      <h1 class="cs-hero-title">
+        <div class="line-mask"><span class="line-inner">FindMe LLC</span></div>
+        <div class="line-mask italic"><span class="line-inner">A System That Kept Up.</span></div>
+      </h1>
+
+      <div class="cs-hero-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <span class="cs-meta-value">UX/UI Design Intern</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Company</span>
+          <span class="cs-meta-value">FindMe LLC, New York</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Type</span>
+          <span class="cs-meta-value">Responsive Web &amp; Mobile · Design System</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Duration</span>
+          <span class="cs-meta-value">May to Aug 2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="cs-tldr" aria-label="Project summary">
+    <div class="cs-tldr-inner">
+      <span class="cs-tldr-label">At a glance</span>
+      <p class="cs-tldr-lede">A summer inside a fast-moving consumer startup in New York. The product was growing faster than its design system, so my work ran on two tracks at once: adding the reusable components, patterns and visual standards that kept new screens consistent, and carrying features from discovery through to delivered UI alongside engineering and product.</p>
+      <div class="cs-tldr-body">
+        <div class="cs-tldr-how">
+          <span class="cs-tldr-sub">How I worked</span>
+          <ol class="cs-tldr-steps">
+          <li><span class="cs-tldr-n">01</span>Took features from discovery and research through wireframes and prototypes to delivered UI, in Figma.</li>
+          <li><span class="cs-tldr-n">02</span>Designed every screen responsive from the start, for web and mobile, rather than adapting desktop later.</li>
+          <li><span class="cs-tldr-n">03</span>Added reusable components, patterns and visual standards to the library as the product expanded.</li>
+          <li><span class="cs-tldr-n">04</span>Worked inside the agile team, in backlog refinement and sprint planning, and handed off UI that engineering could build from directly.</li>
+          </ol>
+        </div>
+        <dl class="cs-tldr-facts">
+          <div><dt>My role</dt><dd>UX/UI Design Intern</dd></div>
+          <div><dt>Timeline</dt><dd>May 2025 to Aug 2025</dd></div>
+          <div><dt>Team</dt><dd>Agile team with engineering and product</dd></div>
+          <div><dt>Platform</dt><dd>Responsive web and mobile, consumer product</dd></div>
+          <div><dt>My contribution</dt><dd>Design system components and patterns, feature design from research to UI, and developer handoff.</dd></div>
+          <div><dt>Outcome</dt><dd>Outcome figures are being confirmed and will be added here.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 CONTEXT -->
+  <div class="cs-section reveal-item" id="phase-01">
+    <div class="cs-sec-num">01</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">Context</div>
+      <h2 class="cs-sec-title">A Product Growing Faster <em>Than Its System</em></h2>
+      <p class="cs-text">FindMe is a consumer product built by a small team moving quickly. Features shipped every sprint, and each new screen was a chance for the interface to drift: a slightly different button, a new spacing value, a pattern solved twice in two different ways.</p>
+      <p class="cs-text">That is the problem a design system exists to prevent, and it is also the one that is easiest to postpone when the roadmap is full. <strong>My job was to keep the system growing at the same pace as the product</strong>, so consistency came from the library rather than from someone catching mistakes in review.</p>
+    </div>
+  </div>
+
+  <!-- 02 DESIGN SYSTEM -->
+  <div class="cs-section alt-bg reveal-item" id="phase-02">
+    <div class="cs-sec-num">02</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">Design System</div>
+      <h2 class="cs-sec-title">Components, Patterns <em>and Standards</em></h2>
+      <p class="cs-text">I added reusable components, interaction patterns and visual standards to FindMe's design system library in Figma. The aim was practical: when a new feature needed a card, a form or a list, the answer should already exist in the library, with its variants and states defined, instead of being redrawn from scratch.</p>
+      <p class="cs-text">Keeping files, patterns and naming consistent mattered as much as the components themselves. A library that engineers cannot navigate does not get used, and a component that is not used does not keep anything consistent.</p>
+
+      <!-- Screens coming: paste design-system screenshots here in this pattern.
+      <div class="cs-img"><img src="../assets/findme/COMPONENTS.png" alt="Describe the components" loading="lazy" /><div class="cs-img-caption">Caption</div></div>
+      -->
+    </div>
+  </div>
+
+  <!-- 03 FEATURE DESIGN -->
+  <div class="cs-section reveal-item" id="phase-03">
+    <div class="cs-sec-num">03</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">Feature Design</div>
+      <h2 class="cs-sec-title">From Discovery <em>to Delivered UI</em></h2>
+      <p class="cs-text">Alongside the system work I designed responsive web and mobile interfaces end to end: discovery and research first, then wireframes, then interactive prototypes, then the final UI. Designing responsive from the first wireframe meant the mobile layout was a decision, not an afterthought squeezed out of the desktop version.</p>
+
+      <!-- Screens coming: paste feature screens here.
+      <div class="cs-img"><img src="../assets/findme/FEATURE.png" alt="Describe the screen" loading="lazy" /><div class="cs-img-caption">Caption</div></div>
+      -->
+    </div>
+  </div>
+
+  <!-- 04 WORKING WITH ENGINEERING -->
+  <div class="cs-section alt-bg reveal-item" id="phase-04">
+    <div class="cs-sec-num">04</div>
+    <div class="cs-sec-content">
+      <div class="cs-sec-label">Working With Engineering</div>
+      <h2 class="cs-sec-title">Inside the <em>Sprint</em></h2>
+      <p class="cs-text">I worked inside the agile team with engineering and product, joining backlog refinement and sprint planning rather than handing designs over the wall at the end. Being in those conversations meant design questions surfaced while they were still cheap to answer.</p>
+      <p class="cs-text">Handoff was built to be read by developers directly: components referenced by their library names, states specified, and implementation worked through with the developers building it, so the shipped screens matched the designed ones.</p>
+
+      <div class="cs-quote">"Siddhi brought a rare mix of curiosity and rigor to our team. She dug into the research, listened carefully to users, and turned messy problems into clear, thoughtful design decisions. She's proactive, easy to collaborate with, and consistently raised the quality of everything she touched."<br><small style="font-size:.75rem; color: var(--text3); font-style: normal;">Shabaan Hossain, FindMe LLC</small></div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="cs-bottom-nav" aria-label="Case study navigation">
+    <a href="jaihind.html" class="cs-bn-link">
+      <span class="cs-bn-label">← Previous</span>
+      <span class="cs-bn-title">Jai Hind Group</span>
+    </a>
+    <a href="omkar.html" class="cs-bn-link right">
+      <span class="cs-bn-label">Next Case Study →</span>
+      <span class="cs-bn-title">Omkar Labels</span>
+    </a>
+  </nav>
+  <footer class="cs-footer">
+    <a class="cs-mail-foot" href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a>
+    <span>© 2026 Siddhi Manche</span>
+    <span>FindMe LLC</span>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
