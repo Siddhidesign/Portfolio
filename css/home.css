@@ -175,7 +175,7 @@ h2.label { font-size: 12px; font-weight: 400; }
   color: var(--soft);
 }
 .card-go {
-  display: inline-block; margin-top: 14px;
+  display: block; width: fit-content; margin-top: 14px;
   font-family: var(--mono); font-size: 12px; letter-spacing: .12em;
   text-transform: uppercase; color: var(--blue);
 }
@@ -223,6 +223,12 @@ h2.label { font-size: 12px; font-weight: 400; }
   line-height: 1; letter-spacing: -.02em; color: var(--ink);
 }
 .card-cover-sub { font-size: 14px; color: var(--soft); }
+/* a real brand mark in place of the typeset name; overrides .card-media img */
+.card-media .card-cover-logo {
+  width: min(80%, 320px); height: auto;
+  object-fit: contain; border-radius: 0;
+  margin: 4px 0 6px;
+}
 
 /* ── CRAFT STRIP ────────────────────────────────────────────── */
 .craft-strip {
