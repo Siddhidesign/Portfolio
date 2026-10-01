@@ -12,6 +12,18 @@
   <link rel="stylesheet" href="../css/case-study.css" />
   <link rel="stylesheet" href="../css/case-light.css" />
   <link rel="stylesheet" href="../css/case-theme.css" />
+  <style>
+    /* company photography from the Omkar Labels catalogue */
+    .omk-native { max-width: 794px; }
+    .omk-pair, .omk-grid { display: grid; gap: 12px; margin: 1.8rem 0 2.2rem; }
+    .omk-pair { grid-template-columns: 1fr 1fr; max-width: 520px; }
+    .omk-grid { grid-template-columns: repeat(4, 1fr); max-width: 1040px; }
+    .omk-pair figure, .omk-grid figure { margin: 0; border-radius: 14px; overflow: hidden; background: var(--bg2); }
+    .omk-pair img { width: 100%; aspect-ratio: 341 / 719; object-fit: cover; display: block; }
+    .omk-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+    .omk-cap { grid-column: 1 / -1; margin: 4px 0 0; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; line-height: 1.6; color: var(--text3); }
+    @media (max-width: 640px) { .omk-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -124,7 +136,15 @@
     <div class="cs-sec-content">
       <div class="cs-sec-label">Context</div>
       <h2 class="cs-sec-title">A Manufacturer's <em>Shop Window</em></h2>
-      <p class="cs-text">Omkar Labels makes labels for other businesses, and its customers include major US retail chains. For a B2B manufacturer the website does a specific job: it is where a buyer checks what the company makes before picking up the phone. A product page that renders wrong, or a listing that is out of date, costs trust with exactly the people the company needs to impress.</p>
+      <p class="cs-text">Omkar Labels has made labels since 1999: printed wash-care labels, woven labels, hang tags, tapes and ribbons, and the packaging that goes with them, for apparel and home-textile brands. Its customers include major US retail chains. Production runs across two factories, one in Thane on the edge of Mumbai and one in Narmadapuram, Madhya Pradesh, on flexographic, digital and offset presses, including a Heidelberg Speedmaster.</p>
+      <div class="cs-img omk-native"><img src="../assets/jaihind/omkar-press.jpg" alt="An offset printing press on Omkar Labels' factory floor" loading="lazy" /><div class="cs-img-caption">Offset printing on the factory floor. Every photo on this page comes from Omkar Labels' own catalogue.</div></div>
+      <p class="cs-text">Quality is the thing the company sells. Every order passes a four-point check: raw materials as they arrive, each production stage against the approved artwork, the finished goods, and the packaging before dispatch. The company carries OEKO-TEX, FSC and Global Recycled Standard certification.</p>
+      <div class="omk-pair">
+        <figure><img src="../assets/jaihind/omkar-qc-crockmeter.jpg" alt="A crock meter, used to test how well a label's colour holds up to rubbing" loading="lazy" /></figure>
+        <figure><img src="../assets/jaihind/omkar-qc-spectro.jpg" alt="A handheld spectrophotometer reading a row of colour swatches" loading="lazy" /></figure>
+        <p class="omk-cap">Testing colour fastness and colour accuracy, part of the four-point quality check.</p>
+      </div>
+      <p class="cs-text">For a manufacturer like that, the website does a specific job: it is where a buyer checks what the company makes before picking up the phone. A product page that renders wrong, or a listing that is out of date, costs trust with exactly the people the company needs to impress.</p>
     </div>
   </div>
 
@@ -136,6 +156,14 @@
       <h2 class="cs-sec-title">From Design File <em>to Working Page</em></h2>
       <p class="cs-text">The designer produced the interface; I turned it into pages that worked. That meant building responsive layouts in HTML and CSS, adding behaviour in JavaScript and jQuery, and using Bootstrap's grid so pages held together on every screen size, all inside a WordPress site.</p>
       <p class="cs-text">Alongside new pages I maintained the product listing pages across a catalog of more than 50 products, keeping them accurate and consistent as products changed.</p>
+
+      <div class="omk-grid">
+        <figure><img src="../assets/jaihind/omkar-washcare.jpg" alt="A printed wash-care label sewn into a blue shirt" loading="lazy" /></figure>
+        <figure><img src="../assets/jaihind/omkar-hangtag.jpg" alt="A printed hang tag showing size and price on a plaid shirt" loading="lazy" /></figure>
+        <figure><img src="../assets/jaihind/omkar-tape.jpg" alt="A roll of printed tape beside a stack of printed labels" loading="lazy" /></figure>
+        <figure><img src="../assets/jaihind/omkar-labels-press.jpg" alt="Printed fabric labels fresh off the press" loading="lazy" /></figure>
+        <p class="omk-cap">The kind of products those listings carried: wash-care labels, hang tags, printed tapes, and labels fresh off the press.</p>
+      </div>
 
       <div class="cs-metrics">
         <div class="cs-metric"><div class="cs-metric-n">HTML</div><div class="cs-metric-l">Structure</div></div>
