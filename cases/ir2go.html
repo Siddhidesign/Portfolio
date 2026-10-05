@@ -1,780 +1,233 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="day">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IRS2GO Redesign, Case Study · Siddhi Manche</title>
-  <meta name="description" content="Complete UX/UI overhaul of the IRS2GO mobile app, SUS score improved from 31.3 to 78.25, 100% WCAG compliance, 45% drop-off eliminated." />
+  <meta name="description" content="Redesigning the IRS's official app around the 3 things people open it for. The usability score went from 31.3 to 78.25, with WCAG 2.1 AA on every redesigned screen." />
+  <meta name="theme-color" content="#f7f7f7" />
+  <script>
+    (function () {
+      var d = document.documentElement, t;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      var q = location.search.match(/theme=(day|night)/); if (q) t = q[1];
+      if (t !== 'day' && t !== 'night') { t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'; }
+      d.setAttribute('data-theme', t); d.classList.add('js');
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/case-study.css" />
-  <link rel="stylesheet" href="../css/case-light.css" />
-  <link rel="stylesheet" href="../css/case-theme.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/site.css" />
 </head>
-<body>
+<body class="has-dock">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap case-top"><a href="../index.html#work">&#8592; All work</a></div>
 
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader-content">
-      <div class="loader-words">
-        <div class="loader-word"><span>IRS</span></div>
-        <div class="loader-word accent"><span>2GO</span></div>
+  <main id="main">
+    <!-- OVERVIEW -->
+    <section id="overview" class="wrap case-hero">
+      <span class="kicker">IRS2GO · HCI course project · 2025</span>
+      <h1 class="h1">Making the IRS app easy to use</h1>
+      <p class="lede">IRS2GO is the IRS's official app. It was rated 2.8 stars, and 45% of people quit before finishing a task. I redesigned the three things people open it for: checking a refund, making a payment and finding free tax help.</p>
+      <div class="chips"><span class="chip">Mobile app</span><span class="chip">Government</span><span class="chip">Accessibility</span><span class="chip">Usability testing</span></div>
+      <p class="case-note note-hand">usability score: 31.3 → 78.25! <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
+      <div class="media" style="background: var(--lemon);">
+        <video data-live src="../assets/live/ir2go.mp4" poster="../assets/live/ir2go.jpg" width="1280" height="800" muted loop playsinline preload="metadata" aria-label="IRS2GO redesign screens"></video>
+        <span class="live">LIVE</span>
+        <button class="vbtn" type="button">Pause</button>
       </div>
-      <div class="loader-line-wrap"><div class="loader-line-bar"></div></div>
-      <p class="loader-sub">Loading Case Study</p>
-    </div>
-  </div>
+      <dl class="facts">
+        <div class="fact"><dt>My role</dt><dd>UX/UI Designer, solo</dd></div>
+        <div class="fact"><dt>Timeline</dt><dd>4 months, 2025</dd></div>
+        <div class="fact"><dt>Context</dt><dd>HCI course project</dd></div>
+        <div class="fact"><dt>Platform</dt><dd>iOS and Android app</dd></div>
+      </dl>
+    </section>
 
-  <!-- NAV -->
-  <header class="cs-nav" id="nav" role="banner">
-    <a href="../index.html" class="cs-back">← All Work</a>
-    <span class="cs-nav-center">IRS2GO Redesign</span>
-    <div class="cs-nav-right">
-      <a href="mailto:manche.siddhi@gmail.com" class="cs-next-link cs-mail-nav">Email ↗</a>
-      <a href="ev.html" class="cs-next-link">EV Charging →</a>
-      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span>◐</span></button>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="cs-hero">
-    <div class="cs-hero-bg" aria-hidden="true">IRS</div>
-    <div class="cs-hero-glow" aria-hidden="true"></div>
-
-    <div class="cs-hero-inner">
-      <div class="cs-hero-index">
-        <span>02 / 05</span>
-        <span class="idx-line"></span>
-        <span>HCI · Government · Finance</span>
-      </div>
-
-      <h1 class="cs-hero-title">
-        <div class="line-mask"><span class="line-inner">IRS2GO</span></div>
-        <div class="line-mask italic"><span class="line-inner">Making Tax Season Less Taxing</span></div>
-      </h1>
-
-      <div class="cs-hero-meta">
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">My Role</span>
-          <span class="cs-meta-value">UX/UI Designer</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Context</span>
-          <span class="cs-meta-value">HCI Course Project</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Duration</span>
-          <span class="cs-meta-value">4 Months</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Type</span>
-          <span class="cs-meta-value">Mobile App Redesign</span>
+    <!-- NUMBERS -->
+    <section class="band band-alt" aria-labelledby="nums-title">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="kicker">Results</span><h2 class="h2" id="nums-title">What changed</h2></div></div>
+        <div class="nums">
+          <div class="num"><b>31 → 78</b><span>usability score (SUS), before and after</span></div>
+          <div class="num"><b>150%</b><span>better usability score</span></div>
+          <div class="num"><b>100%</b><span>of redesigned screens meet WCAG 2.1 AA</span></div>
+          <div class="num"><b>0</b><span>trips out to the website in all three tasks</span></div>
         </div>
       </div>
+    </section>
 
-      <div class="cs-hero-stats">
-        <div>
-          <div class="cs-stat-n">31.3</div>
-          <div class="cs-stat-l">Original SUS Score</div>
-        </div>
-        <div>
-          <div class="cs-stat-n">78.25</div>
-          <div class="cs-stat-l">Redesign SUS Score</div>
-        </div>
-        <div>
-          <div class="cs-stat-n">45%</div>
-          <div class="cs-stat-l">Original Drop-off Rate</div>
-        </div>
-        <div>
-          <div class="cs-stat-n">100%</div>
-          <div class="cs-stat-l">WCAG 2.1 AA Compliance</div>
+    <!-- SHORT VERSION -->
+    <section class="band" aria-labelledby="short-title">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="kicker">In 30 seconds</span><h2 class="h2" id="short-title">The short version</h2></div></div>
+        <div class="cards3">
+          <div class="card"><span class="kicker">The problem</span><h3>A confusing government app</h3><p>Seven equal menu items, vague statuses like "Return Received", and payments that jumped out to the website halfway through.</p></div>
+          <div class="card"><span class="kicker">What I did</span><h3>Research to tested redesign</h3><p>Read 150+ reviews, interviewed taxpayers and watched people use the app. Then I redesigned the 3 core tasks and tested before and after.</p></div>
+          <div class="card"><span class="kicker">The result</span><h3>Usability more than doubled</h3><p>The SUS score went from 31.3 ("Poor") to 78.25 ("Excellent"), and every redesigned screen meets WCAG 2.1 AA.</p></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 01 OVERVIEW -->
+    <!-- PROCESS -->
+    <section id="process" class="band band-alt" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="kicker">How I did it</span><h2 class="h2" id="process-title">Five steps, from reviews to a tested app</h2></div></div>
+        <div class="steps">
 
-  <!-- AT A GLANCE -->
-  <section class="cs-tldr" aria-label="Project summary">
-    <div class="cs-tldr-inner">
-      <span class="cs-tldr-label">At a glance</span>
-      <p class="cs-tldr-lede">The IRS's official mobile app, rated 2.8 stars, where 45% of people abandoned a task before finishing it. Over four months I rebuilt the three things people actually open it for, checking a refund, making a payment and finding free tax help, as an accessibility-first redesign. The System Usability Scale score more than doubled, from 31.3 to 78.25, at full WCAG 2.1 AA.</p>
-      <div class="cs-tldr-body">
-        <div class="cs-tldr-how">
-          <span class="cs-tldr-sub">How I worked</span>
-          <ol class="cs-tldr-steps">
-          <li><span class="cs-tldr-n">01</span>Audited the live app against Nielsen's heuristics and interviewed taxpayers about the moment they check a refund.</li>
-          <li><span class="cs-tldr-n">02</span>Scoped to three core tasks and mapped exactly where each one broke.</li>
-          <li><span class="cs-tldr-n">03</span>Rebuilt the structure underneath: labelling, hierarchy and error prevention, with every task completing in-app.</li>
-          <li><span class="cs-tldr-n">04</span>Tested before and after. Guest access and a payment confirmation step both came out of watching people struggle.</li>
-          </ol>
-        </div>
-        <dl class="cs-tldr-facts">
-          <div><dt>My role</dt><dd>UX/UI Designer, solo</dd></div>
-          <div><dt>Timeline</dt><dd>4 months, 2025</dd></div>
-          <div><dt>Team size</dt><dd>Solo. HCI course project.</dd></div>
-          <div><dt>Platform</dt><dd>IRS2Go, iOS and Android mobile app</dd></div>
-          <div><dt>My contribution</dt><dd>Research, journey mapping, the redesigned refund and payment flows, and the accessibility audit.</dd></div>
-          <div><dt>Outcome</dt><dd>SUS 31.3 to 78.25. Full WCAG 2.1 AA.</dd></div>
-        </dl>
-      </div>
-    </div>
-  </section>
-
-  
-  <nav class="cs-arc" aria-label="Process overview: jump to a phase">
-    <ol class="cs-arc-track">
-      <li class="cs-arc-step">
-        <a href="#phase-02"><span class="cs-arc-n">01</span><span class="cs-arc-label">Research</span></a>
-      </li>
-      <li class="cs-arc-step">
-        <a href="#phase-05"><span class="cs-arc-n">02</span><span class="cs-arc-label">Problem framing</span></a>
-      </li>
-      <li class="cs-arc-step">
-        <a href="#phase-06"><span class="cs-arc-n">03</span><span class="cs-arc-label">Ideation and low-fi</span></a>
-      </li>
-      <li class="cs-arc-step">
-        <a href="#phase-07"><span class="cs-arc-n">04</span><span class="cs-arc-label">High-fidelity</span></a>
-      </li>
-      <li class="cs-arc-step">
-        <a href="#phase-08"><span class="cs-arc-n">05</span><span class="cs-arc-label">Validation</span></a>
-      </li>
-      <li class="cs-arc-step">
-        <a href="#phase-09"><span class="cs-arc-n">06</span><span class="cs-arc-label">Outcome</span></a>
-      </li>
-    </ol>
-  </nav>
-
-<div class="cs-section reveal-item" id="phase-01">
-    <div class="cs-sec-num">01</div>
-    <div class="cs-sec-content">
-      <div class="cs-sec-label">Project Overview</div>
-      <h2 class="cs-sec-title">A Government Tool <em>People Dreaded</em></h2>
-      <figure class="cs-raw">
-        <span class="cs-raw-label">Where the problem was documented</span>
-        <img src="../assets/irs2go/problem-1.png" alt="Analysis of the problems with the existing IRS2GO app" loading="lazy" />
-        <figcaption>The starting audit: what people came to the app to do, and where each of those journeys broke down.</figcaption>
-      </figure>
-
-      <p class="cs-text">IRS2GO is the official mobile app of the Internal Revenue Service, used by millions of American taxpayers to check refund status, make secure payments, and find free tax assistance. Despite being essential, the app received a <strong>2.8★ average App Store rating</strong> and a <strong>45% user drop-off rate</strong>, meaning nearly half of users who opened it left before completing any task.</p>
-      <details class="cs-more"><summary>Read the full write-up</summary>
-      <p class="cs-text">The core problems were structural: visual clutter buried simple answers, inconsistent design patterns eroded trust, and accessibility failures shut out a significant portion of users who needed the app most. Our challenge was a complete UX/UI overhaul under the constraint of maintaining the app's government brand and legal requirements.</p>
-      </details>
-
-      <details class="cs-more"><summary>Read the full comparison</summary>
-      <div class="cs-compare" data-c="1">
-        <div class="cs-compare-col">
-          <div class="cs-compare-label">Before: Pain Points</div>
-          <ul>
-            <li>Information overload made it impossible to find "Where is my refund?"</li>
-            <li>Inconsistent UI patterns across screens eroded trust in critical payment flows</li>
-            <li>Constant browser redirects broke the experience, users left and never returned</li>
-            <li>Failed WCAG contrast ratios and non-compliant navigation patterns</li>
-            <li>12-second average load times with no feedback during waiting</li>
-          </ul>
-        </div>
-        <div class="cs-compare-col after">
-          <div class="cs-compare-label">After: Design Goals</div>
-          <ul>
-            <li>Clear, scannable navigation across all three core tasks</li>
-            <li>Trustworthy payment flow with full confirmation before submission</li>
-            <li>Complete all tasks inside the app, zero browser redirects</li>
-            <li>100% WCAG 2.1 AA compliance throughout all screens</li>
-            <li>Guest access without account creation for refund status checks</li>
-          </ul>
-        </div>
-      </div>
-      </details>
-
-      <div class="cs-badge-row">
-        <span class="cs-badge alt">4 Months · HCI Course</span>
-        <span class="cs-badge alt">Figma · Think-Aloud Protocol · SUS</span>
-        <span class="cs-badge alt">3 Core Task Flows Redesigned</span>
-        <span class="cs-badge">✓ WCAG 2.1 AA</span>
-      </div>
-    
-      <div class="cs-decision">
-        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
-        <p>A 2.8-star app with 45% task abandonment could have justified a full rebuild. <strong>Instead I scoped the study to exactly three tasks</strong>: check a refund, make a payment, find free tax help. Those three carried the abandonment and are what people actually open the app to do.<span class="cs-decision-next">Everything that follows is measured against those three tasks, not against the app as a whole.</span></p>
-      </div>
-</div>
-  </div>
-
-  <!-- 02 RESEARCH -->
-  <div class="cs-section alt-bg reveal-item" id="phase-02">
-    <div class="cs-sec-num">02</div>
-    <div class="cs-sec-content">
-      <div class="cs-role-badge">
-        <div class="cs-role-icon">🔍</div>
-        <div class="cs-role-text">
-          <div class="cs-role-phase">In this phase</div>
-          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
-        </div>
-      </div>
-      <div class="cs-sec-label">Research</div>
-      <h2 class="cs-sec-title">Uncovering <em>Real Frustrations</em></h2>
-      <div class="cs-scenes">
-        <figure class="cs-scene">
-          <img src="../assets/sketches/audit.svg" alt="Sketch: heuristic evaluation" loading="lazy" />
-          <figcaption><span class="cs-scene-kicker">HEURISTIC EVALUATION</span><span class="cs-scene-cap">The existing app scored against <strong>Nielsen's 10 heuristics</strong>. Hierarchy, consistency, and error prevention all failed.</span></figcaption>
-        </figure>
-        <figure class="cs-scene">
-          <img src="../assets/sketches/interview.svg" alt="Sketch: user interviews" loading="lazy" />
-          <figcaption><span class="cs-scene-kicker">USER INTERVIEWS</span><span class="cs-scene-cap">Taxpayers walked me through <strong>the moment they check a refund</strong>, anxious, hurried, and on a phone.</span></figcaption>
-        </figure>
-      </div>
-      <p class="cs-text">Research combined <strong>diary studies, App Store review analysis, surveys, and structured user interviews</strong>. We focused on exactly 3 core tasks to keep the study focused, check refund status, make a payment, and find free tax assistance, and mapped the specific friction points causing abandonment in each.</p>
-
-      <div class="cs-metrics">
-        <div class="cs-metric"><div class="cs-metric-n">2.8★</div><div class="cs-metric-l">App Store Rating</div></div>
-        <div class="cs-metric"><div class="cs-metric-n">45%</div><div class="cs-metric-l">Task Drop-off Rate</div></div>
-        <div class="cs-metric"><div class="cs-metric-n">12s</div><div class="cs-metric-l">Avg. Load Time</div></div>
-        <div class="cs-metric"><div class="cs-metric-n">3</div><div class="cs-metric-l">Core Tasks Analysed</div></div>
-      </div>
-
-      <details class="cs-more"><summary>Read all findings in full</summary>
-      <div class="cs-findings" data-c="1">
-        <div class="cs-finding">
-          <div class="cs-finding-n">T1</div>
-          <div class="cs-finding-body">
-            <h4>Check Refund Status, Most Attempted, Most Failed</h4>
-            <p>Users were confused by vague status messages like "Return Received" with no estimated date. The input fields required specific formatting with no guidance, causing repeat submission errors. 68% of users who attempted this task left without getting a clear answer.</p>
-          </div>
-        </div>
-        <div class="cs-finding">
-          <div class="cs-finding-n">T2</div>
-          <div class="cs-finding-body">
-            <h4>Make a Payment, Anxiety at Every Step</h4>
-            <p>The payment flow consistently redirected users to the IRS website mid-process. No confirmation summary before submission created genuine anxiety about accidentally double-paying taxes, one of users' most significant fears.</p>
-          </div>
-        </div>
-        <div class="cs-finding">
-          <div class="cs-finding-n">T3</div>
-          <div class="cs-finding-body">
-            <h4>Free Tax Help, Unreliable and Outdated</h4>
-            <p>The VITA/TCE location finder returned zero results for valid zip codes, showed outdated hours, and provided no way to filter by language availability. Users who needed this feature most, those with limited English, were the ones most likely to find it broken.</p>
-          </div>
-        </div>
-      </div>
-      </details>
-
-      <div class="cs-stat-row">
-        <div class="cs-stat-box">
-          <div class="cs-stat-big">68%</div>
-          <div class="cs-stat-desc">Of users who attempted to check refund status left without finding a clear answer</div>
-          <div class="cs-stat-source">Source: App Store Review Analysis · 150+ Reviews</div>
-        </div>
-        <div class="cs-stat-box">
-          <div class="cs-stat-big">3×</div>
-          <div class="cs-stat-desc">Users were redirected to the browser during a single payment task, each redirect caused significant drop-off</div>
-          <div class="cs-stat-source">Source: Task Flow Analysis · Diary Study</div>
-        </div>
-        <div class="cs-stat-box">
-          <div class="cs-stat-big">0</div>
-          <div class="cs-stat-desc">WCAG 2.1 AA compliant screens in the original app, every single screen failed at least one criterion</div>
-          <div class="cs-stat-source">Source: Accessibility Audit · Wave + Manual Review</div>
-        </div>
-      </div>
-    
-      <div class="cs-decision">
-        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
-        <p>The heuristic evaluation failed on hierarchy, consistency and error prevention, not on aesthetics. <strong>So I treated this as a structural problem rather than a visual refresh</strong>, and put the effort into information architecture and labelling instead of restyling the existing screens.<span class="cs-decision-next">That choice is why the redesign changes what fields say and where tasks live, not just how they look.</span></p>
-      </div>
-</div>
-  </div>
-
-  <!-- 03 PERSONA -->
-  <div class="cs-section reveal-item" id="phase-03">
-    <div class="cs-sec-num">03</div>
-    <div class="cs-sec-content">
-      <div class="cs-role-badge">
-        <div class="cs-role-icon">👤</div>
-        <div class="cs-role-text">
-          <div class="cs-role-phase">In this phase</div>
-          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
-        </div>
-      </div>
-      <div class="cs-sec-label">Persona</div>
-      <h2 class="cs-sec-title">The <em>Stressed Taxpayer</em></h2>
-      <p class="cs-text">Our primary persona emerged from combining diary study data, interview analysis, and App Store review sentiment. He represents the majority of IRS2GO users: a working adult who files their own taxes, is not a financial expert, and is using the app specifically because they are <strong>waiting on money they urgently need</strong>.</p>
-
-      <div class="cs-persona-grid" style="grid-template-columns: 1fr;">
-        <div class="cs-persona">
-          <div class="cs-persona-header">
-            <div class="cs-persona-avatar">A</div>
-            <div class="cs-persona-header-text">
-              <h3>Alex Chen</h3>
-              <span class="cs-persona-type">The Stressed Taxpayer</span>
-            </div>
-          </div>
-          <details class="cs-more"><summary>See persona details</summary>
-      <div class="cs-persona-details" data-c="1">
-            <div class="cs-pd-item"><span class="cs-pd-label">Age</span><span class="cs-pd-value">29</span></div>
-            <div class="cs-pd-item"><span class="cs-pd-label">Gender</span><span class="cs-pd-value">Male</span></div>
-            <div class="cs-pd-item"><span class="cs-pd-label">Location</span><span class="cs-pd-value">Seattle, WA</span></div>
-            <div class="cs-pd-item"><span class="cs-pd-label">Occupation</span><span class="cs-pd-value">Software Engineer</span></div>
-          </div>
-      </details>
-          <details class="cs-more"><summary>Read the persona narrative</summary>
-      <p class="cs-persona-narrative">Alex filed his taxes three weeks ago expecting a $2,100 refund, he's counting on it to cover a vet bill. He opens IRS2GO for the first time, having heard it lets you track refund status. He's not a financial expert and has never used a government app before. He just wants a simple answer: "Where is my money?"</p>
-      </details>
-          <details class="cs-more"><summary>Walk through the scenario step by step</summary>
-      <div class="cs-persona-steps" data-c="1">
-            <div class="cs-persona-step">
-              <span class="cs-persona-step-n">01</span>
-              <div class="cs-persona-step-body">
-                <p>Alex downloads IRS2GO. The home screen shows seven different menu options in equal visual weight, Tax Records, Free Tax Return Prep, VITA Locator, Newsroom, and more. He can't immediately find "Where is my refund?"</p>
-                <span class="cs-persona-emotion">😕 Confused, expected one clear option</span>
-              </div>
-            </div>
-            <div class="cs-persona-step">
-              <span class="cs-persona-step-n">02</span>
-              <div class="cs-persona-step-body">
-                <p>He finds "Refund Status" buried in a secondary menu. He enters his SSN and filing status, but the field format is wrong, it rejects his input with a generic "Invalid entry" error and no guidance on the correct format.</p>
-                <span class="cs-persona-emotion">😤 Frustrated, the error tells him nothing</span>
-              </div>
-            </div>
-            <div class="cs-persona-step">
-              <span class="cs-persona-step-n">03</span>
-              <div class="cs-persona-step-body">
-                <p>After two more attempts he gets through. The result: "Return Received." No estimated date, no explanation of what comes next, no indication of how long "Received" typically takes to become "Refund Sent."</p>
-                <span class="cs-persona-emotion">😶 Unsatisfied, he's no better informed than before</span>
-              </div>
-            </div>
-            <div class="cs-persona-step">
-              <span class="cs-persona-step-n">04</span>
-              <div class="cs-persona-step-body">
-                <p>He taps a help link to understand what "Return Received" means. The app opens Safari and redirects him to irs.gov, which times out. He closes the app and Googles "IRS refund status" instead, finding the answer in 10 seconds on a third-party site.</p>
-                <span class="cs-persona-emotion">😠 Angry, the official app is less useful than Google</span>
-              </div>
-            </div>
-          </div>
-      </details>
-          <details class="cs-more"><summary>See goals &amp; frustrations in full</summary>
-      <div class="cs-persona-cols" data-c="1">
-            <div class="cs-persona-col goals">
-              <h5>Goals</h5>
-              <ul>
-                <li>Know exactly when his refund arrives with a real estimated date</li>
-                <li>Make a tax payment quickly without anxiety about double-charging</li>
-                <li>Complete everything inside one app, no browser switching</li>
+          <div class="step">
+            <div class="step-text">
+              <span class="step-n">01</span>
+              <h3>Research: find where it breaks</h3>
+              <p>I read 150+ app reviews, interviewed taxpayers, asked people to complete tasks in the old app, and checked it against 10 standard usability rules (Nielsen's heuristics).</p>
+              <ul class="ticks">
+                <li><strong>Refunds:</strong> a vague status with no date, and forms with no format hints. 68% of people who tried left without a clear answer.</li>
+                <li><strong>Payments:</strong> the app sent people to the website mid-task, with no summary before paying.</li>
+                <li><strong>Tax help:</strong> the office finder showed no results for valid zip codes.</li>
+                <li><strong>Accessibility:</strong> none of the original screens met WCAG 2.1 AA.</li>
               </ul>
             </div>
-            <div class="cs-persona-col">
-              <h5>Frustrations</h5>
-              <ul>
-                <li>App feels like a government form, not a mobile app</li>
-                <li>Browser redirects feel like the app doesn't trust him</li>
-                <li>Vague status messages give no actionable information</li>
+            <div class="gallery">
+              <figure class="shot wide"><a class="shot-frame" href="../assets/irs2go/problem-1.png" target="_blank" rel="noopener"><img src="../assets/irs2go/problem-1.png" width="1860" height="936" loading="lazy" alt="Collage of App Store and Play Store reviews averaging 2.8 stars, forum posts and online research"></a><figcaption class="cap">What people were saying: 2.8 stars and the same complaints everywhere.</figcaption></figure>
+              <figure class="shot"><a class="shot-frame" href="../assets/irs2go/scope-1.png" target="_blank" rel="noopener"><img src="../assets/irs2go/scope-1.png" width="1772" height="892" loading="lazy" alt="Task test slide: people tried to check their refund status in the old app"></a><figcaption class="cap">Task test on the old app.</figcaption></figure>
+              <figure class="shot"><a class="shot-frame" href="../assets/irs2go/problem-2.png" target="_blank" rel="noopener"><img src="../assets/irs2go/problem-2.png" width="1808" height="862" loading="lazy" alt="Old IRS2GO screens with notes marking what went wrong"></a><figcaption class="cap">Old screens, marked up.</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="step full">
+            <div class="step-text">
+              <span class="step-n">02</span>
+              <h3>Who I designed for</h3>
+            </div>
+            <div class="person">
+              <div class="person-av" aria-hidden="true">A</div>
+              <div>
+                <h4>Meet Alex, 29</h4>
+                <p>He filed three weeks ago and is waiting on a $2,100 refund to pay a vet bill. He's not a tax expert and has never used a government app. He just wants to know one thing: where is my money?</p>
+              </div>
+            </div>
+            <ol class="journey" aria-label="Alex's journey in the old app">
+              <li><strong>Can't find it</strong>Seven menu items all look equally important.</li>
+              <li><strong>Gets blocked</strong>"Invalid entry", three times, with no hint.</li>
+              <li><strong>Gets no answer</strong>"Return Received." No date, no next step.</li>
+              <li><strong>Gives up</strong>Help opens a slow website. He Googles it instead.</li>
+            </ol>
+          </div>
+
+          <div class="step flip">
+            <div class="step-text">
+              <span class="step-n">03</span>
+              <h3>Ideas: sketch the fixes</h3>
+              <p>I storyboarded each task as a short comic first, so every idea had to fix a problem I had actually seen.</p>
+              <ul class="ticks">
+                <li><strong>3 clear choices on Home</strong> instead of 7 equal menu items.</li>
+                <li><strong>A refund timeline:</strong> Received, Approved, Sent.</li>
+                <li><strong>Check before you pay:</strong> a summary before any payment.</li>
+                <li><strong>No account needed</strong> to check a refund.</li>
               </ul>
             </div>
-          </div>
-      </details>
-        </div>
-      </div>
-    
-      <div class="cs-decision">
-        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
-        <p>Alex checks a refund at his most anxious moment: hurried, one-handed, on a phone. <strong>So I designed for the worst-case context rather than the ideal one</strong>: larger touch targets, one primary action per screen, and no step that assumes a calm user with time to read.<span class="cs-decision-next">This ruled out the dense, multi-column layouts the old app relied on.</span></p>
-      </div>
-</div>
-  </div>
-
-  <!-- 04 EMPATHY MAP -->
-  <div class="cs-section alt-bg reveal-item" id="phase-04">
-    <div class="cs-sec-num">04</div>
-    <div class="cs-sec-content">
-      <div class="cs-sec-label">Empathy Map, Alex Chen</div>
-      <h2 class="cs-sec-title">The Emotional Weight of <em>Tax Season</em></h2>
-      <details class="cs-more"><summary>Read the full write-up</summary>
-      <p class="cs-text">Tax season carries a specific emotional charge, the stakes are real, the amounts are significant, and the consequences of errors feel severe. Alex isn't just annoyed by bad UX; he's <strong>genuinely anxious</strong> about money he's owed and payments he's making.</p>
-      </details>
-
-      <details class="cs-more"><summary>Read the full empathy map</summary>
-      <div class="cs-empathy" data-c="1">
-        <div class="cs-empathy-quad">
-          <div class="cs-empathy-label">👁 Sees</div>
-          <ul>
-            <li>Seven menu items of equal weight, no clear hierarchy</li>
-            <li>Generic error messages with no explanation or fix guidance</li>
-            <li>A status that says "Return Received", which means nothing to him</li>
-            <li>Friends checking refund status in 30 seconds via the IRS website</li>
-            <li>A browser opening mid-task, breaking the app experience entirely</li>
-          </ul>
-        </div>
-        <div class="cs-empathy-quad">
-          <div class="cs-empathy-label">👂 Hears</div>
-          <ul>
-            <li>"It usually takes 21 days after filing to get your refund."</li>
-            <li>"The IRS app is basically useless, just use the website."</li>
-            <li>His bank notification: no deposit pending</li>
-            <li>"Invalid entry", three times, with no hint of what's wrong</li>
-            <li>App Store reviews warning: "Watch out, the payment flow is broken"</li>
-          </ul>
-        </div>
-        <div class="cs-empathy-quad pain">
-          <div class="cs-empathy-label">💔 Pain</div>
-          <ul>
-            <li>Fear of accidentally paying twice when making a tax payment</li>
-            <li>Embarrassment at not being able to use a government app correctly</li>
-            <li>Anxiety about whether his return was actually received</li>
-            <li>Time wasted re-entering the same information due to unclear errors</li>
-            <li>Distrust of the system, if the app is broken, is my return okay?</li>
-          </ul>
-        </div>
-        <div class="cs-empathy-quad gain">
-          <div class="cs-empathy-label">✨ Gain</div>
-          <ul>
-            <li>Clarity, a real estimated refund date, not a vague status word</li>
-            <li>Confidence, a summary screen before payment confirms everything</li>
-            <li>Efficiency, complete refund check in under 60 seconds</li>
-            <li>Trust, the app stays in the app, no browser switches</li>
-            <li>Accessibility, readable font sizes and clear contrast for all users</li>
-          </ul>
-        </div>
-      </div>
-      </details>
-    
-      <div class="cs-decision">
-        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
-        <p>The emotional weight came from not knowing where the money was, not from missing features. <strong>So plain-language status replaced IRS terminology</strong>, and the refund state is written as a sentence a person can act on rather than a processing code they have to interpret.<span class="cs-decision-next">Reassurance became a design requirement, not a copy detail.</span></p>
-      </div>
-</div>
-  </div>
-
-  <!-- 05 JOURNEY MAP -->
-  <div class="cs-section reveal-item" id="phase-05">
-    <div class="cs-sec-num">05</div>
-    <div class="cs-sec-content">
-      <div class="cs-sec-label">Customer Journey Map, Refund Status Task</div>
-      <h2 class="cs-sec-title">Where the <em>Experience Breaks</em></h2>
-      <details class="cs-more"><summary>Read the full write-up</summary>
-      <p class="cs-text">Mapping Alex's journey through the single most common task, checking his refund status, reveals <strong>three distinct failure points</strong> where the original app destroys user confidence. Each failure compounds the next.</p>
-      </details>
-
-      <details class="cs-more"><summary>Open the full journey map</summary>
-      <div class="cs-journey" data-c="1">
-        <div class="cs-journey-stages" data-c="1">
-          <div class="cs-journey-stage">
-            <div class="cs-journey-stage-name">Downloads App</div>
-            <div class="cs-journey-actions">
-              <p class="cs-journey-action" data-n="1.">Searches "IRS refund status app", finds IRS2GO with 2.8★ rating, downloads anyway</p>
-              <p class="cs-journey-action" data-n="2.">Expects a single clear entry point to refund status on launch</p>
+            <div class="gallery">
+              <figure class="shot wide"><a class="shot-frame" href="../assets/irs2go/ideation-1.png" target="_blank" rel="noopener"><img src="../assets/irs2go/ideation-1.png" width="1740" height="1010" loading="lazy" alt="Comic-strip storyboards for checking a refund, paying a tax bill and finding tax help"></a><figcaption class="cap">Storyboards for the three tasks.</figcaption></figure>
+              <figure class="shot wide"><a class="shot-frame" href="../assets/irs2go/ideation-2.png" target="_blank" rel="noopener"><img src="../assets/irs2go/ideation-2.png" width="1964" height="1102" loading="lazy" alt="The old crowded refund screen next to the new step-by-step flow"></a><figcaption class="cap">Refund task: old design, then the new flow.</figcaption></figure>
             </div>
-            <div class="cs-journey-emotion">🤞 Hopeful but cautious</div>
           </div>
-          <div class="cs-journey-stage">
-            <div class="cs-journey-stage-name">Navigates Home</div>
-            <div class="cs-journey-actions">
-              <p class="cs-journey-action" data-n="1.">Confronted with 7 equal-weight menu items, scans for "refund" or "status"</p>
-              <p class="cs-journey-action" data-n="2.">Can't find it immediately, scans twice before locating buried option</p>
+
+          <div class="step">
+            <div class="step-text">
+              <span class="step-n">04</span>
+              <h3>Final design: every task finishes inside the app</h3>
+              <p>Clear labels, one main action per screen, big tap targets, and a tab bar (Refunds, Payments, Tax Help, More) so no task is buried.</p>
+              <p>Drag the slider to compare the refund form. Before, the rules only appeared after an error. Now every field is labelled and help comes first.</p>
             </div>
-            <div class="cs-journey-emotion">😕 Already confused, not what he expected</div>
+            <figure class="csx" data-compare>
+              <div class="csx-frame">
+                <img class="csx-img csx-after" src="../assets/irs2go/irs2go-after.png" width="760" height="1040" alt="Redesigned refund form with labelled, required fields" loading="lazy" />
+                <div class="csx-clip"><img class="csx-img csx-before" src="../assets/irs2go/irs2go-before.png" width="760" height="1040" alt="Original refund form with unlabelled fields" loading="lazy" /></div>
+                <span class="csx-line" aria-hidden="true"><span class="csx-grip"></span></span>
+                <span class="csx-tag csx-tag-before">Before</span>
+                <span class="csx-tag csx-tag-after">After</span>
+                <input class="csx-range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Drag to compare the old and new refund form" />
+              </div>
+            </figure>
           </div>
-          <div class="cs-journey-stage">
-            <div class="cs-journey-stage-name">Enters Info</div>
-            <div class="cs-journey-actions">
-              <p class="cs-journey-action" data-n="1.">Inputs SSN, filing status, refund amount</p>
-              <p class="cs-journey-action" data-n="2.">Gets "Invalid entry" with no format hint, retries twice</p>
-              <p class="cs-journey-action" data-n="3.">Formats SSN differently on third attempt, finally accepted</p>
+
+          <div class="step full">
+            <div class="phones">
+              <figure><img src="../assets/irs2go/irs2go-onboarding-1.png" width="402" height="872" loading="lazy" alt="Welcome screen of the new IRS2GO" /><figcaption>A short welcome</figcaption></figure>
+              <figure><img src="../assets/irs2go/irs2go-login.png" width="402" height="872" loading="lazy" alt="Log in screen with an Explore without signing in option" /><figcaption>Explore without signing in</figcaption></figure>
+              <figure><img src="../assets/irs2go/irs2go-refund-status-form.png" width="402" height="872" loading="lazy" alt="Refund status form with labelled fields" /><figcaption>A clear refund form</figcaption></figure>
+              <figure><img src="../assets/irs2go/irs2go-refund-status-result.png" width="402" height="872" loading="lazy" alt="Refund result as a three-step timeline" /><figcaption>The answer as a timeline</figcaption></figure>
+              <figure><img src="../assets/irs2go/irs2go-payment-methods.png" width="402" height="872" loading="lazy" alt="Payment options side by side" /><figcaption>Payment options, explained</figcaption></figure>
+              <figure><img src="../assets/irs2go/irs2go-tax-help-local-office.png" width="402" height="872" loading="lazy" alt="Find a local IRS office screen" /><figcaption>Tax help, in the app</figcaption></figure>
             </div>
-            <div class="cs-journey-emotion">😤 Frustrated, form design is hostile</div>
           </div>
-          <div class="cs-journey-stage">
-            <div class="cs-journey-stage-name">Gets Status</div>
-            <div class="cs-journey-actions">
-              <p class="cs-journey-action" data-n="1.">Result: "Return Received", no date, no explanation, no next step</p>
-              <p class="cs-journey-action" data-n="2.">Taps a "What does this mean?" link</p>
-              <p class="cs-journey-action" data-n="3.">Safari opens, irs.gov loads slowly, times out</p>
+
+          <div class="step flip">
+            <div class="step-text">
+              <span class="step-n">05</span>
+              <h3>Testing: did it work?</h3>
+              <p>People did the same tasks on the old app and the new one while thinking out loud, then filled in the System Usability Scale, a standard 10-question survey scored out of 100. The score went from 31.3 to 78.25.</p>
             </div>
-            <div class="cs-journey-emotion">😶 Deflated, got an answer that isn't an answer</div>
-          </div>
-          <div class="cs-journey-stage">
-            <div class="cs-journey-stage-name">Abandons</div>
-            <div class="cs-journey-actions">
-              <p class="cs-journey-action" data-n="1.">Closes IRS2GO, gives it 1 star in App Store</p>
-              <p class="cs-journey-action" data-n="2.">Finds answer on third-party site in 10 seconds via Google</p>
-              <p class="cs-journey-action" data-n="3.">Never opens IRS2GO again</p>
+            <div class="gallery">
+              <figure class="shot wide"><a class="shot-frame" href="../assets/irs2go/testing-2.png" target="_blank" rel="noopener"><img src="../assets/irs2go/testing-2.png" width="1862" height="998" loading="lazy" alt="Charts of responses per screen, and the SUS score rising from 31.3 to 78.25"></a><figcaption class="cap">The SUS score, before and after.</figcaption></figure>
+              <figure class="shot wide"><a class="shot-frame" href="../assets/irs2go/testing-1.png" target="_blank" rel="noopener"><img src="../assets/irs2go/testing-1.png" width="1858" height="1006" loading="lazy" alt="Test method slide: think-aloud sessions and the SUS survey"></a><figcaption class="cap">How I tested.</figcaption></figure>
             </div>
-            <div class="cs-journey-emotion">😠 Angry, the official app failed him</div>
           </div>
-        </div>
-      </div>
-      </details>
-    
-      <div class="cs-decision">
-        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
-        <p>The journey map showed the breaks happening at hand-offs, where the app pushed people out to the IRS website mid-task. <strong>So all three tasks had to complete inside the app</strong>. The target became zero redirects, which is what the next section is named for.<span class="cs-decision-next">The tax-help locator moved from an external link to a primary tab because of this.</span></p>
-      </div>
-</div>
-  </div>
 
-  <!-- 06 IDEATION -->
-  <div class="cs-section alt-bg reveal-item" id="phase-06">
-    <div class="cs-sec-num">06</div>
-    <div class="cs-sec-content">
-      <div class="cs-role-badge">
-        <div class="cs-role-icon">💡</div>
-        <div class="cs-role-text">
-          <div class="cs-role-phase">In this phase</div>
-          <div class="cs-role-title">Siddhi as <em>UX Designer</em></div>
-        </div>
-      </div>
-      <div class="cs-sec-label">Ideation</div>
-      <h2 class="cs-sec-title">User Scenarios &amp; <em>Solutions</em></h2>
-      <details class="cs-more"><summary>Read the full write-up</summary>
-      <p class="cs-text">We visualised user journeys through <strong>comic-strip scenario narratives</strong>, this helped us empathise with the specific emotional context of tax anxiety, and particularly the fear of making irreversible payment errors. Brainstorming focused on two imperatives: keep users inside the app, and confirm every critical action before it becomes irreversible.</p>
-      </details>
-
-      <details class="cs-more"><summary>See every feature, in detail</summary>
-      <div class="cs-features" data-c="1">
-        <div class="cs-feature">
-          <div class="cs-feat-num">S1</div>
-          <h4>Three Clear Pillars on Home</h4>
-          <p>Reduce the home screen from 7 equal-weight items to 3 clearly labelled pillars: "Where's My Refund?", "Make a Payment", "Find Tax Help". The most common task is always one tap away, no scanning required.</p>
-        </div>
-        <div class="cs-feature">
-          <div class="cs-feat-num">S2</div>
-          <h4>Real Estimated Refund Date</h4>
-          <p>Replace the vague "Return Received" status message with a timeline: Received → Processing → Approved → Sent, with an estimated date range for each stage. Users always know what comes next.</p>
-        </div>
-        <div class="cs-feature">
-          <div class="cs-feat-num">S3</div>
-          <h4>Pre-Payment Confirmation Modal</h4>
-          <p>Before any tax payment processes, show a full summary modal: amount, account, date, and a plain-English explanation of what will happen. Users must confirm before submission, eliminating the double-payment anxiety entirely.</p>
-        </div>
-        <div class="cs-feature">
-          <div class="cs-feat-num">S4</div>
-          <h4>Guest Access, No Account Required</h4>
-          <p>The most common task (refund status check) should require zero account creation. "Continue as Guest" is promoted to the primary CTA, Login moved to secondary. Reduces friction from first launch to first value.</p>
-        </div>
-      </div>
-      </details>
-
-      <div class="cs-img"><img src="../assets/irs2go/ideation-1.png" alt="Storyboarded user scenarios for refund status, payments and tax help" loading="lazy" /><div class="cs-img-caption">User scenarios storyboarded for all three tasks: a first-time filer checking refund status, the same user paying a balance owed, and a senior citizen locating free tax help.</div></div>
-      <figure class="csx" data-compare>
-        <div class="csx-frame">
-          <img class="csx-img csx-after" src="../assets/irs2go/irs2go-after.png" alt="Redesigned refund status form with labelled fields, required markers and a sample-form link" loading="lazy" />
-          <div class="csx-clip"><img class="csx-img csx-before" src="../assets/irs2go/irs2go-before.png" alt="Original IRS2GO refund status form with unlabelled inline fields" loading="lazy" /></div>
-          <span class="csx-line" aria-hidden="true"><span class="csx-grip"></span></span>
-          <span class="csx-tag csx-tag-before">Before</span>
-          <span class="csx-tag csx-tag-after">After</span>
-          <input class="csx-range" type="range" min="0" max="100" value="50" step="0.1"
-                 aria-label="Drag to compare the original and redesigned refund form" />
-        </div>
-        <figcaption class="cs-img-caption">Drag the handle. Same screen, same crop. The original left every field unlabelled and explained the rules only after a failed submit; the redesign labels every field, marks what is required, and puts help text before the input.</figcaption>
-      </figure>
-    
-      <div class="cs-decision">
-        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
-        <p>Scenarios were storyboarded for all three user types before any screen was drawn, <strong>so that concepts were selected on whether they removed a documented friction point</strong>, not on whether they looked new. Ideas that did not map to an observed failure were cut here.<span class="cs-decision-next">The surviving concepts became the three flows in the next section.</span></p>
-      </div>
-</div>
-  </div>
-
-  <!-- 07 HIGH-FIDELITY DESIGN -->
-  <div class="cs-section reveal-item" id="phase-07">
-    <div class="cs-sec-num">07</div>
-    <div class="cs-sec-content">
-      <div class="cs-role-badge">
-        <div class="cs-role-icon">🎨</div>
-        <div class="cs-role-text">
-          <div class="cs-role-phase">In this phase</div>
-          <div class="cs-role-title">Siddhi as <em>UI Designer</em></div>
-        </div>
-      </div>
-      <div class="cs-sec-label">High-Fidelity Design</div>
-      <h2 class="cs-sec-title">Three Flows, <em>Zero Redirects</em></h2>
-      <details class="cs-more"><summary>Read the full write-up</summary>
-      <p class="cs-text">Moving from wireframes to final UI, we applied a new visual identity that feels trustworthy and official while remaining warm and approachable. The design language uses strong typography for hierarchy, confident colour application for status states, and a layout system that always puts the user's most needed information at the top of the screen. Every task completes end-to-end inside the app.</p>
-      </details>
-
-            <div class="cs-shots">
-        <figure class="cs-shot">
-          <img src="../assets/irs2go/irs2go-refund-status-form.png" alt="Redesigned refund status form with labelled fields" loading="lazy" />
-          <figcaption>The redesigned entry point: every field labelled and marked required, help text up front, and a persistent four-tab bar (Refunds, Payments, Tax Help, More) replacing the old buried navigation.</figcaption>
-        </figure>
-        <figure class="cs-shot">
-          <img src="../assets/irs2go/irs2go-refund-status-result.png" alt="Refund status result screen with progress timeline" loading="lazy" />
-          <figcaption>Flow 1 result: refund status as a plain-language progress state rather than a code, so users know where their money is without interpreting IRS terminology.</figcaption>
-        </figure>
-        <figure class="cs-shot">
-          <img src="../assets/irs2go/irs2go-payment-methods.png" alt="Payment methods screen" loading="lazy" />
-          <figcaption>Flow 2: payment methods presented as explicit, comparable choices with fees stated before commitment, not after.</figcaption>
-        </figure>
-        <figure class="cs-shot">
-          <img src="../assets/irs2go/irs2go-tax-help-local-office.png" alt="Tax help local office locator screen" loading="lazy" />
-          <figcaption>Flow 3: the free tax-help locator surfaced as a primary tab. Previously this required leaving the app for the IRS website.</figcaption>
-        </figure>
-      </div>
-    
-      <div class="cs-decision">
-        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
-        <p><strong>Every field is labelled, every required field marked, and help text sits above the input rather than after the error.</strong> That came directly from the error-prevention heuristic failure. The old form let people submit wrong data and only then explained the rules.<span class="cs-decision-next">The persistent four-tab bar exists for the same reason: the old navigation buried two of the three core tasks.</span></p>
-      </div>
-</div>
-  </div>
-
-  <!-- 08 TESTING -->
-  <div class="cs-section alt-bg reveal-item" id="phase-08">
-    <div class="cs-sec-num">08</div>
-    <div class="cs-sec-content">
-      <div class="cs-role-badge">
-        <div class="cs-role-icon">🧪</div>
-        <div class="cs-role-text">
-          <div class="cs-role-phase">In this phase</div>
-          <div class="cs-role-title">Siddhi as <em>UX Researcher</em></div>
-        </div>
-      </div>
-      <div class="cs-sec-label">Usability Testing &amp; Validation</div>
-      <h2 class="cs-sec-title">SUS Score: 31 → <em>78</em></h2>
-      <div class="cs-scenes">
-        <figure class="cs-scene">
-          <img src="../assets/sketches/usability-test.svg" alt="Sketch: usability testing" loading="lazy" />
-          <figcaption><span class="cs-scene-kicker">USABILITY TESTING</span><span class="cs-scene-cap">Task-based sessions before and after the redesign. <strong>SUS more than doubled</strong>: 31.3 → 78.25.</span></figcaption>
-        </figure>
-      </div>
-      <details class="cs-more"><summary>Read the full write-up</summary>
-      <p class="cs-text">Usability testing used the <strong>Think-Aloud Protocol</strong> alongside the <strong>System Usability Scale (SUS)</strong>. The redesign jumped from a "Poor" SUS score of 31.3 to an "Excellent" score of 78.25, a 150% improvement. Post-testing, participants consistently described the redesigned app as feeling "more official," "trustworthy," and "like it was actually designed for real people."</p>
-      </details>
-
-      <div class="cs-metrics">
-        <div class="cs-metric"><div class="cs-metric-n">31.3</div><div class="cs-metric-l">Before: "Poor" SUS</div></div>
-        <div class="cs-metric"><div class="cs-metric-n">78.25</div><div class="cs-metric-l">After: "Excellent" SUS</div></div>
-        <div class="cs-metric"><div class="cs-metric-n">150%</div><div class="cs-metric-l">SUS Score Improvement</div></div>
-        <div class="cs-metric"><div class="cs-metric-n">60%</div><div class="cs-metric-l">Fewer Reported Problems</div></div>
-      </div>
-
-      <details class="cs-more"><summary>See what testing changed, before &amp; after</summary>
-      <div class="cs-ba-pairs" data-c="1">
-        <div class="cs-ba-pair">
-          <div class="cs-ba-side">
-            <div class="cs-ba-label">Issue Found, Testing</div>
-            <h4>Login Required to Check Refund</h4>
-            <p>Users attempting to check refund status were immediately prompted to create an account or log in. Many dropped off at this screen, they just wanted a quick answer, not a commitment.</p>
+          <div class="step full">
+            <div class="compare">
+              <div class="was"><h4>What testing showed</h4><ul><li>People wouldn't log in just to check a refund, and many quit at the login screen.</li><li>3 of 6 people hesitated to pay because they couldn't see a summary first.</li></ul></div>
+              <div class="now"><h4>What I changed</h4><ul><li>"Explore without signing in" became the main button. Nobody dropped off at login after that.</li><li>A confirmation screen before paying. After that, 0 of 6 were worried about paying.</li></ul></div>
+            </div>
           </div>
-          <div class="cs-ba-side after">
-            <div class="cs-ba-label">Iteration, Shipped ✓</div>
-            <h4>Guest Access as Primary CTA</h4>
-            <p>"Explore without signing in" promoted to primary action on the launch screen. Login moved to secondary. Post-iteration: zero drop-offs at the login prompt for the refund status task.</p>
-          </div>
-        </div>
-        <div class="cs-ba-pair">
-          <div class="cs-ba-side">
-            <div class="cs-ba-label">Issue Found, Testing</div>
-            <h4>Payment Anxiety, No Confirmation</h4>
-            <p>During testing, 3/6 participants hesitated or abandoned the payment flow because they couldn't confirm the amount before it processed. One participant said: "I'm scared to tap Submit, what if it goes through twice?"</p>
-          </div>
-          <div class="cs-ba-side after">
-            <div class="cs-ba-label">Iteration, Shipped ✓</div>
-            <h4>Full Confirmation Modal Before Submit</h4>
-            <p>Summary modal added: amount, account, date, and type of payment, all confirmed before the final "Confirm Payment" button. Post-iteration: 0/6 participants expressed payment anxiety during testing.</p>
-          </div>
+
         </div>
       </div>
-      </details>
+    </section>
 
-      <div class="cs-img"><img src="../assets/irs2go/testing-2.png" alt="Data analysis charts showing SUS score rising from 31.3 to 78.25" loading="lazy" /><div class="cs-img-caption"><strong>SUS: 31.3 → 78.25.</strong> Per-screen positive/negative response counts for the old vs. redesigned app, with the raw and final System Usability Scale scores.</div></div>
-    
-      <div class="cs-decision">
-        <span class="cs-decision-label">THE DECISION THIS FORCED</span>
-        <p>Testing changed two things I had wrong. <strong>Users would not sign in just to check a refund, so guest access became the primary call to action</strong>; and payment with no confirmation step caused visible anxiety, so a full summary modal was added before submit.<span class="cs-decision-next">Both changes came from watching the sessions, not from the SUS number alone.</span></p>
-      </div>
-</div>
-  </div>
-
-  <!-- 09 OUTCOMES -->
-  <div class="cs-section reveal-item" id="phase-09">
-    <div class="cs-sec-num">09</div>
-    <div class="cs-sec-content">
-      <div class="cs-role-badge">
-        <div class="cs-role-icon">🧭</div>
-        <div class="cs-role-text">
-          <div class="cs-role-phase">In this phase</div>
-          <div class="cs-role-title">Siddhi as <em>Product UX Designer</em></div>
+    <!-- RESULTS -->
+    <section id="results" class="band" aria-labelledby="results-title">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="kicker">Results and learnings</span><h2 class="h2" id="results-title">When trust is the product</h2></div></div>
+        <ul class="result-list">
+          <li><b>31.3 → 78.25</b><span>Usability score, from "Poor" to "Excellent".</span></li>
+          <li><b>WCAG 2.1 AA</b><span>On every redesigned screen.</span></li>
+          <li><b>0 redirects</b><span>All three tasks finish inside the app.</span></li>
+          <li><b>No account</b><span>Needed to check a refund.</span></li>
+        </ul>
+        <div class="cards3" style="margin-top: 14px;">
+          <div class="card"><span class="kicker">Learning 1</span><h3>Bad UX costs trust</h3><p>In a government app, a confusing screen makes people doubt the government itself.</p></div>
+          <div class="card"><span class="kicker">Learning 2</span><h3>Guests first</h3><p>Letting people in without an account isn't a shortcut. It's how they reach the answer.</p></div>
+          <div class="card"><span class="kicker">Learning 3</span><h3>Confirm what matters</h3><p>A summary before paying calmed people more than any form design could.</p></div>
         </div>
+        <blockquote class="quote"><p>"When I saw the new home screen, I immediately knew what to do. That's never happened with a government app before."</p><cite>Usability testing participant</cite></blockquote>
+        <a class="btn btn-accent" href="https://www.figma.com/proto/RHTthzwRZGf3j0rqaM6Hbh/IRS2GO--REDESIGN?page-id=0%3A1&amp;node-id=1-1564&amp;starting-point-node-id=1%3A1299&amp;t=TPSclTN0t7PQbSQ5-1" target="_blank" rel="noopener">Try the Figma prototype ↗</a>
       </div>
-      <div class="cs-sec-label">Outcomes &amp; Learnings</div>
-      <h2 class="cs-sec-title">When Trust is the <em>Product</em></h2>
-      <details class="cs-more"><summary>Read the full write-up</summary>
-      <p class="cs-text">The IRS2GO redesign taught us that government UX carries a unique burden: when users don't trust the interface, they don't trust the institution behind it. A confusing payment screen isn't just bad UX, it actively undermines public trust in the IRS. <strong>Design is governance, in the hands of real people.</strong></p>
-      </details>
+    </section>
 
-      <details class="cs-more"><summary>Read the full comparison</summary>
-      <div class="cs-compare" data-c="1">
-        <div class="cs-compare-col">
-          <div class="cs-compare-label">Key Outcomes</div>
-          <ul>
-            <li>SUS score improved from 31.3 (Poor) to 78.25 (Excellent)</li>
-            <li>100% WCAG 2.1 AA compliance achieved across all redesigned screens</li>
-            <li>Zero browser redirects in any of the three redesigned flows</li>
-            <li>Guest access for refund status eliminated the login drop-off point</li>
-          </ul>
-        </div>
-        <div class="cs-compare-col after">
-          <div class="cs-compare-label">Key Learnings</div>
-          <ul>
-            <li>Government apps carry trust burdens that commercial apps don't, every friction point erodes institutional credibility</li>
-            <li>Guest access before account creation is a conversion strategy, not a compromise</li>
-            <li>A confirmation modal is worth 5x more than a well-designed payment form</li>
-            <li>Accessibility is not a nice-to-have in government, it's a legal and ethical obligation</li>
-          </ul>
-        </div>
+    <!-- NEXT -->
+    <section class="band band-alt" aria-label="More case studies">
+      <div class="wrap">
+        <nav class="nextprev" aria-label="More case studies">
+          <a class="np" href="omkar.html"><small>&#8592; Previous</small><span>Omkar Labels</span></a>
+          <a class="np right" href="anchor.html"><small>Next &#8594;</small><span>Money Anchor</span></a>
+        </nav>
       </div>
-      </details>
+    </section>
+  </main>
 
-      <div class="cs-quote">"When I saw the new home screen, I immediately knew what to do. That's never happened with a government app before."<br><small style="font-size:.75rem; color: var(--text3); font-style: normal;">Usability Testing Participant</small></div>
-    </div>
-  </div>
+  <footer class="case-foot">© 2026 Siddhi Manche · <a href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a></footer>
 
-  <!-- PROTOTYPE CTA -->
-  <section class="cs-proto">
-    <div class="cs-proto-inner">
-      <div class="label">VIEW IN ACTION</div>
-      <h2 class="cs-proto-title">Interact with the <em>Prototype</em></h2>
-      <p class="cs-proto-desc">Explore the fully clickable high-fidelity Figma prototype covering all three redesigned flows, Refund Status, Payment, and Tax Help.</p>
-      <div class="cs-proto-actions">
-        <a href="https://www.figma.com/proto/RHTthzwRZGf3j0rqaM6Hbh/IRS2GO--REDESIGN?page-id=0%3A1&node-id=1-1564&starting-point-node-id=1%3A1299&t=TPSclTN0t7PQbSQ5-1" target="_blank" rel="noopener" class="btn btn-gold magnetic">View Figma Prototype →</a>
-        <a href="../index.html#work" class="btn btn-ghost magnetic">← Back to Work</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOTTOM NAV -->
-  <nav class="cs-bottom-nav" aria-label="Case study navigation">
-    <a href="anchor.html" class="cs-bn-link">
-      <span class="cs-bn-label">← Previous</span>
-      <span class="cs-bn-title">Money Anchor</span>
-    </a>
-    <a href="ev.html" class="cs-bn-link right">
-      <span class="cs-bn-label">Next Case Study →</span>
-      <span class="cs-bn-title">EV Charging</span>
-    </a>
+  <nav class="dock" aria-label="Page sections">
+    <a href="../index.html#work">&#8592; Work</a>
+    <a href="#overview">Overview</a>
+    <a href="#process">Process</a>
+    <a href="#results">Results</a>
+    <span class="sep" aria-hidden="true"></span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to night mode"><span class="ic" aria-hidden="true">&#9728;</span><span class="tx">Day</span></button>
+    <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
   </nav>
-  <footer class="cs-footer">
-    <a class="cs-mail-foot" href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a>
-    <span>© 2025 Siddhi Manche</span>
-    <span>02 / 05, IRS2GO Redesign</span>
-  </footer>
-
-  <script src="../js/main.js"></script>
-  <script>
-  (function () {
-    document.querySelectorAll('[data-compare]').forEach(function (root) {
-      var range = root.querySelector('.csx-range');
-      var set = function (v) { root.style.setProperty('--pos', v + '%'); };
-      set(range.value);
-      range.addEventListener('input', function () { set(range.value); });
-    });
-  })();
-  </script>
-
+  <script src="../js/site.js"></script>
 </body>
 </html>
