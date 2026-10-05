@@ -8,30 +8,31 @@ Hand-built in HTML, CSS and JavaScript. No framework, no build step. Push to `ma
 
 ```
 index.html            Homepage
-css/home.css          Homepage styles (loaded only by index.html)
-css/style.css         Case study base
-css/case-study.css    Case study layout
-css/case-light.css    Light theme
-css/case-theme.css    Case study override layer, loaded last
-js/home.js            Homepage interactions
-js/main.js            Case study interactions
-cases/*.html          Case studies
-assets/               Images, video, sketches, resume
+css/site.css          The design system: day and night tokens, components, homepage and project page layouts
+js/site.js            Day/night switch, live video play/pause, chat, dock, desk game, sliders, reveal
+cases/*.html          Project pages (all use css/site.css and js/site.js;
+                      jaihind.html keeps its own inline styles for its storefront-style layout)
+assets/live/          Looping preview videos (mp4) and their poster frames, one per project
+assets/home/          Hero backgrounds, cut-out "things", photo stickers (st-*), desk polaroids (snap-*), chat avatar
+assets/               Other images, photobook, video of me
 .nojekyll             Tells Pages to serve files starting with underscores
 ```
 
-`cases/jaihind.html` carries its own inline `<style>` block rather than using the shared case stylesheets.
+The older stylesheets (`css/home.css`, `css/style.css`, `css/case-*.css`, `js/home.js`, `js/main.js`) are only used by the two archived pages, `cases/grocgenie.html` and `cases/medicinal.html`.
+
+The preview videos in `assets/live/` are rendered from real project screens with a small Python script (PIL plus ffmpeg, H.264, 1280x800, about 9 seconds, no audio, seamless loop).
 
 ## House rules
 
 These are deliberate. Please do not "fix" them back.
 
-- **Two typefaces only.** Instrument Serif for display, Inter for everything else, including the uppercase tracked label style.
-- **Colour lives in named tokens** with the measured contrast ratio written beside each one in the stylesheet. Every text and background pair meets WCAG 2.1 AA. If you change a value, re-measure it.
+- **Two typefaces, plus one hand for notes.** Instrument Serif for display, Inter for everything else. Caveat is used only for short handwritten notes, and a note never carries the only copy of a fact.
+- **Day and night.** Every colour is a named token in `css/site.css`, defined once for day and once for night, with the measured contrast ratio written beside it. Every text pair passes WCAG 2.1 AA in both themes. The visitor's choice is remembered; the first visit follows the device setting. Add `?theme=night` or `?theme=day` to any URL to force one.
 - **No em dashes or en dashes** in any copy.
-- **Reveal animations are gated behind a `.js` class** set by an inline script in `<head>`. Content is visible by default, so a JavaScript error cannot blank the page.
-- **Anything that moves has a pause control**, and everything respects `prefers-reduced-motion`.
+- **Nothing can be hidden by a script failure.** Reveal animations only switch on once `js/site.js` is running, and the chat in the hero shows itself after seven seconds no matter what.
+- **Anything that moves has a pause control**: every video has a Pause button, the logo strip has one too, and `prefers-reduced-motion` pauses all of it.
 - **Keep the skip link and visible focus states.**
+- **Games are real buttons.** The desk on the homepage works with a keyboard, Escape puts the photo away, and each photo is announced to screen readers. The FAQ is plain `<details>`, so it works without JavaScript.
 - **Internal links are relative.** No root-relative (`/path`) or absolute self-referencing URLs anywhere, which is what lets the domain change without edits.
 
 ## Custom domain

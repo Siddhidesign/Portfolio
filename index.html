@@ -1,413 +1,379 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="day">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Siddhi Manche · UX Designer</title>
-  <meta name="description" content="Siddhi Manche, UX designer and researcher. Mixed-methods and IRB-approved research, design systems and WCAG 2.1 AA accessible interfaces for fintech, banking, govtech and B2B SaaS. M.S. University of Michigan." />
-
+  <meta name="description" content="Siddhi Manche, UX designer and researcher. Engineer turned designer who researches, designs and ships the code: government, fintech and retail products, WCAG 2.1 AA accessible. M.S. University of Michigan." />
+  <meta name="theme-color" content="#f7f7f7" />
+  <script>
+    (function () {
+      var d = document.documentElement, t;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      var q = location.search.match(/theme=(day|night)/); if (q) t = q[1];
+      if (t !== 'day' && t !== 'night') { t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'; }
+      d.setAttribute('data-theme', t);
+      d.classList.add('js');
+      setTimeout(function () { d.classList.add('chat-done'); }, 7000);
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="css/home.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
 </head>
-<body>
+<body class="has-dock">
+  <a class="skip" href="#work">Skip to work</a>
 
-  <a class="skip-link" href="#work">Skip to work</a>
-
-  <!-- ===================== NAV ===================== -->
-  <nav class="topnav" aria-label="Main navigation">
-    <span class="scroll-bar" id="scrollBar" aria-hidden="true"></span>
-    <a class="brand" href="#top">
-      <span class="brand-name">Siddhi</span>
-      <span class="brand-role">UX DESIGNER + RESEARCHER</span>
-    </a>
-    <div class="topnav-links">
-      <a href="#work">Work</a>
-      <a href="#craft">Craft</a>
-      <a href="#about">About</a>
-    </div>
-    <a class="topnav-cta" href="mailto:manche.siddhi@gmail.com">Contact ↗</a>
-  </nav>
-
-  <!-- ===================== HERO ===================== -->
+  <!-- HERO: a messaging window on the left, the intro card on the right -->
   <header class="hero" id="top">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <p class="hero-role rv">UX Designer | Research | Design Systems</p>
-
-        <h1 class="hero-claim">Helping businesses<br />build <span class="serif-it">solutions.</span></h1>
-
-        <p class="hero-intro rv"><strong class="hero-position">Engineer turned designer who researches, designs, and ships the code.</strong><span class="hero-position-sub">Two years across commerce, consumer finance, and public-sector products, with accessibility verified rather than claimed.</span></p>
-
-        <div class="hero-proof rv">
-          <span class="proof"><b><span class="count" data-from="31" data-to="78">31</span></b> SUS score, WCAG 2.1 AA</span>
-          <span class="proof"><b><span class="count" data-to="24">0</span></b> research participants, IRB approved</span>
-          <span class="proof"><b><span class="count" data-to="27" data-suffix="%">0</span></b> fewer errors at Jai Hind</span>
-        </div>
-
-        <p class="hero-book rv">Let's catch up! <a href="mailto:manche.siddhi@gmail.com?subject=Let's%20chat">Book a chat</a></p>
-
-        <div class="hero-meta rv">
-          <span class="chip"><i></i>OPEN TO WORK ACROSS US</span>
-        </div>
+    <div class="chat" role="group" aria-label="A quick chat with Siddhi">
+      <div class="chat-top">
+        <img src="assets/home/avatar.jpg" alt="" width="40" height="40" />
+        <div><b>Siddhi Manche</b><span>open to UX roles</span></div>
+        <i class="call" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="13" height="12" rx="3" /><path d="M15.5 10.5 21 7.5v9l-5.5-3" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.6 4.2-2.2 1.5a12 12 0 0 0 7.2 7.2l1.5-2.2 4.2 1.6V19a1.9 1.9 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a1.9 1.9 0 0 1 2-2z" /></svg>
+        </i>
       </div>
+      <div class="chat-body">
+        <span class="chat-date">Today</span>
+        <p class="bubble them">hey 👋 what do you do?<time datetime="09:41">9:41 AM</time></p>
+        <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
+        <p class="bubble me">I make complicated things feel simple. Taxes, budgets, store orders.<time datetime="09:41">9:41 AM</time></p>
+        <p class="bubble them">ok, but can you prove it?<time datetime="09:42">9:42 AM</time></p>
+        <div class="bubble me attach">
+          <div class="media">
+            <video data-live src="assets/live/ir2go.mp4" poster="assets/live/ir2go.jpg" width="1280" height="800" muted loop playsinline preload="metadata" aria-label="IRS2GO redesign preview video"></video>
+            <button class="vbtn" type="button">Pause</button>
+          </div>
+          <p>My IRS app redesign. Usability score: 31.3 → 78.25<time datetime="09:42">9:42 AM</time></p>
+        </div>
+        <p class="bubble me">5 more case studies below 👇 <a href="#work">See my work</a><time datetime="09:42">9:42 AM</time></p>
+      </div>
+      <a class="say-hi" href="mailto:manche.siddhi@gmail.com?subject=Hi%20Siddhi"><span>Say hi, it opens your email</span><b aria-hidden="true">&#10148;</b></a>
+    </div>
 
-      <figure class="hero-portrait rv">
-        <img src="assets/photobook/21.jpeg" alt="Siddhi Manche at her University of Michigan graduation, in cap and gown, holding her degree and a bouquet" />
-        <figcaption>that's me! 🎓</figcaption>
-      </figure>
+    <div class="intro">
+      <p class="intro-note">WCAG 2.1 AA on every page.<br />Yes, I checked. Twice.</p>
+      <div class="intro-body">
+        <div class="me-wrap">
+          <figure class="me-sticker taped">
+            <div class="media">
+              <video data-live src="assets/video/hero-new.mp4" poster="assets/video/hero-new-poster.jpg" width="660" height="760" muted loop playsinline preload="metadata" aria-label="video of Siddhi smiling under cherry blossoms"></video>
+              <button class="vbtn" type="button">Pause</button>
+            </div>
+          </figure>
+          <span class="me-note note-hand" aria-hidden="true"><svg class="arrow" viewBox="0 0 46 34"><path d="M44 8 C 31 2, 15 7, 8 25 M8 25 L 5 15 M8 25 L 17 21" /></svg>that's me!</span>
+        </div>
+        <h1 class="sr">Siddhi Manche, UX designer</h1>
+        <p>Hi, I'm <span class="name">Siddhi</span>, a <b>UX designer</b> who started as an <b>engineer</b> <span class="key" aria-hidden="true">&lt;/&gt;</span> → studied <b>human-centered design</b> at the <b>University of Michigan</b> <img class="stk" src="assets/home/st-grad.jpg" width="160" height="160" alt="" /> → now designing in the <b>United States</b> <img class="stk r" src="assets/home/st-chicago.jpg" width="160" height="160" alt="" /></p>
+        <p>Before design, I built websites line by line in <b>HTML, CSS and JavaScript</b> for a label manufacturer <span class="logo-stk"><img src="assets/jaihind/omkar-logo.svg" alt="Omkar Labels" /></span></p>
+        <p>Since then I've designed for <b>taxes</b> <img class="stk" src="assets/home/st-irs.jpg" width="160" height="160" alt="" />, <b>money</b> <img class="stk tall r" src="assets/home/st-anchor.jpg" width="120" height="183" alt="" /> and <b>retail</b> <img class="stk" src="assets/home/st-jaihind.jpg" width="160" height="160" alt="" />. An IRS app redesign that more than doubled its usability score, an AI budgeting coach people trusted, and an order platform that cut user errors <b>27%</b>.</p>
+        <p>I care about the quiet stuff: <b>clear labels</b>, <b>readable color</b>, and <span class="scribble">the one button you actually need.</span></p>
+      </div>
+      <div class="worked">
+        <span class="worked-label">Worked with</span>
+        <div class="ticker">
+          <div class="ticker-track">
+            <span>Jai Hind Group</span><span class="star" aria-hidden="true">&#10022;</span>
+            <img src="assets/findme-logo.svg" alt="FindMe" /><span class="star" aria-hidden="true">&#10022;</span>
+            <img src="assets/jaihind/omkar-logo.svg" alt="Omkar Labels" /><span class="star" aria-hidden="true">&#10022;</span>
+            <span>University of Michigan</span><span class="star" aria-hidden="true">&#10022;</span>
+            <span aria-hidden="true">Jai Hind Group</span><span class="star" aria-hidden="true">&#10022;</span>
+            <img src="assets/findme-logo.svg" alt="" aria-hidden="true" /><span class="star" aria-hidden="true">&#10022;</span>
+            <img src="assets/jaihind/omkar-logo.svg" alt="" aria-hidden="true" /><span class="star" aria-hidden="true">&#10022;</span>
+            <span aria-hidden="true">University of Michigan</span><span class="star" aria-hidden="true">&#10022;</span>
+          </div>
+        </div>
+        <button class="tick-btn" type="button">Pause</button>
+      </div>
     </div>
   </header>
 
+  <main id="main">
 
-  <main>
-
-  <!-- ===================== WORK ===================== -->
-  <section class="sec" id="work" aria-label="Selected work">
-    <div class="sec-head rv">
-      <h2 class="label">SELECTED WORK</h2>
-      <span class="label-right">2022 to 2026</span>
+    <!-- WORK -->
+    <div class="work-bar">
+      <div class="wrap">
+        <div class="switch">
+          <a href="#work" class="is-on">case studies</a>
+          <button class="knob" type="button" aria-label="Jump between case studies and side quests"></button>
+          <a href="#play">side quests</a>
+          <span class="flip-note note-hand" aria-hidden="true"><svg class="arrow" viewBox="0 0 46 34" style="width: 34px; height: 26px;"><path d="M42 20 C 32 26, 18 26, 6 16 M6 16 L 16 14 M6 16 L 10 25" /></svg>flip me</span>
+        </div>
+        <span class="count">6 case studies</span>
+      </div>
     </div>
 
-    <div class="work-grid">
+    <section id="work" class="wrap" aria-labelledby="work-title">
+      <h2 id="work-title" class="sr">Case studies</h2>
+      <div class="projects">
 
-      <a class="card rv" href="cases/ir2go.html">
-        <div class="card-media" style="background:#fad29d;">
-          <img src="assets/ir2go-thumbnail.png" alt="Three IRS2GO screens: the refund status result, the redesigned refund form with labelled required fields, and payment methods" loading="lazy" />
+        <article class="project rv" style="--tilt: -1deg;">
+          <div class="media" style="background: var(--lemon);">
+            <video data-live src="assets/live/ir2go.mp4" poster="assets/live/ir2go.jpg" width="1280" height="800" muted loop playsinline preload="none" aria-label="IRS2GO preview video"></video>
+            <span class="live">LIVE</span>
+            <button class="vbtn" type="button">Pause</button>
+          </div>
+          <div>
+            <span class="pnote note-hand" aria-hidden="true">usability score more than doubled!</span>
+            <div class="project-org"><img class="org-icon" src="assets/home/st-irs.jpg" width="160" height="160" alt="" />IRS2GO · HCI course project</div>
+            <h3><a href="cases/ir2go.html">Making the IRS app easy to use</a></h3>
+            <p>I redesigned refunds, payments and tax help in the IRS's official app. The usability score went from 31.3 to 78.25.</p>
+            <div class="chips"><span class="chip">Mobile</span><span class="chip">Government</span><span class="chip">Accessibility</span></div>
+            <div class="project-meta"><span class="read">Read the case study · 4 min ↗</span><span class="status">Course project, 2025</span></div>
+          </div>
+        </article>
+
+        <article class="project rv" style="--tilt: 1deg;">
+          <div class="media" style="background: var(--sky);">
+            <video data-live src="assets/live/anchor.mp4" poster="assets/live/anchor.jpg" width="1280" height="800" muted loop playsinline preload="none" aria-label="Money Anchor preview video"></video>
+            <span class="live">LIVE</span>
+            <button class="vbtn" type="button">Pause</button>
+          </div>
+          <div>
+            <div class="project-org"><img class="org-icon tall" src="assets/home/st-anchor.jpg" width="120" height="183" alt="" />Money Anchor · Team of 4</div>
+            <h3><a href="cases/anchor.html">An AI budgeting coach people trust</a></h3>
+            <p>Built 0 to 1 from research with 24 people. Once the AI explained itself, 75% of testers completely trusted it.</p>
+            <div class="chips"><span class="chip">Mobile</span><span class="chip">Fintech</span><span class="chip">AI</span></div>
+            <div class="project-meta"><span class="read">Read the case study · 4 min ↗</span><span class="status">Course project, 2025</span></div>
+          </div>
+        </article>
+
+        <article class="project rv" style="--tilt: -1deg;">
+          <div class="media" style="background: var(--mint);">
+            <video data-live src="assets/live/ev.mp4" poster="assets/live/ev.jpg" width="1280" height="800" muted loop playsinline preload="none" aria-label="EV Charging preview video"></video>
+            <span class="live">LIVE</span>
+            <button class="vbtn" type="button">Pause</button>
+          </div>
+          <div>
+            <div class="project-org"><span class="org-txt" aria-hidden="true">EV</span>EV Charging · Human Factors course</div>
+            <h3><a href="cases/ev.html">One app for every charger</a></h3>
+            <p>New EV drivers juggle several charging apps and still find broken chargers. I designed one flow from finding a working charger to paying for it.</p>
+            <div class="chips"><span class="chip">Mobile</span><span class="chip">Mobility</span><span class="chip">Concept</span></div>
+            <div class="project-meta"><span class="read">Read the case study · 3 min ↗</span><span class="status">Concept, 2024</span></div>
+          </div>
+        </article>
+
+        <article class="project rv" style="--tilt: 1deg;">
+          <div class="media" style="background: var(--sand);">
+            <video data-live src="assets/live/jaihind.mp4" poster="assets/live/jaihind.jpg" width="1280" height="800" muted loop playsinline preload="none" aria-label="Jai Hind preview video"></video>
+            <span class="live">LIVE</span>
+            <button class="vbtn" type="button">Pause</button>
+          </div>
+          <div>
+            <span class="pnote note-hand" aria-hidden="true">shipped to 3 teams!</span>
+            <div class="project-org"><img class="org-icon" src="assets/home/st-jaihind.jpg" width="160" height="160" alt="" />Jai Hind Group · Retail</div>
+            <h3><a href="cases/jaihind.html">One front door for customers and staff</a></h3>
+            <p>The order platform my team shipped cut user errors 27%. My redesign gives it the brand's look, a phone layout, and one welcome screen.</p>
+            <div class="chips"><span class="chip">Web + mobile</span><span class="chip">Retail</span><span class="chip">Dashboard</span></div>
+            <div class="project-meta"><span class="read">Read the case study · 5 min ↗</span><span class="status">Shipped, then redesigned</span></div>
+          </div>
+        </article>
+
+        <article class="project rv" style="--tilt: -1deg;">
+          <div class="media" style="background: var(--peach);">
+            <div class="cover-logo">
+              <img src="assets/findme-logo.svg" alt="FindMe logo" />
+              <div class="bits" aria-hidden="true"><i></i><i></i><i></i></div>
+              <span>Design system · Web and mobile</span>
+            </div>
+          </div>
+          <div>
+            <div class="project-org"><img class="org-logo" src="assets/findme-logo.svg" alt="" />FindMe LLC · New York</div>
+            <h3><a href="cases/findme.html">Growing a design system while the product kept shipping</a></h3>
+            <p>Reusable components and patterns for a career portfolio startup, designed in agile sprints with engineering.</p>
+            <div class="chips"><span class="chip">Web + mobile</span><span class="chip">Startup</span><span class="chip">Design system</span></div>
+            <div class="project-meta"><span class="read">Read the case study · 2 min ↗</span><span class="status">Internship, 2025</span></div>
+          </div>
+        </article>
+
+        <article class="project rv" style="--tilt: 1deg;">
+          <div class="media" style="background: var(--ice);">
+            <video data-live src="assets/live/omkar.mp4" poster="assets/live/omkar.jpg" width="1280" height="800" muted loop playsinline preload="none" aria-label="Omkar Labels preview video"></video>
+            <span class="live">LIVE</span>
+            <button class="vbtn" type="button">Pause</button>
+          </div>
+          <div>
+            <div class="project-org"><img class="org-logo" src="assets/jaihind/omkar-logo.svg" alt="" />Omkar Labels · Mumbai</div>
+            <h3><a href="cases/omkar.html">Before I designed interfaces, I built them</a></h3>
+            <p>Front-end developer for a label manufacturer's WordPress site: responsive pages and a catalog of 50+ products.</p>
+            <div class="chips"><span class="chip">Web</span><span class="chip">Front-end</span><span class="chip">WordPress</span></div>
+            <div class="project-meta"><span class="read">Read the case study · 2 min ↗</span><span class="status">Part-time, 2022</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PLAY: polaroids -->
+    <section id="play" class="section" aria-labelledby="play-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="kicker">Side quests</span>
+            <h2 class="h2" id="play-title">Life between deadlines</h2>
+            <p class="lede">Food, cities, waterfalls and one graduation. The photobook from my master's years.</p>
+          </div>
+          <span class="note-hand" aria-hidden="true">mostly food, no regrets</span>
         </div>
-        <span class="card-scale">The IRS mobile app. Millions of US taxpayers. 45% abandoned the refund task before finishing.</span>
-        <h3 class="card-title">Usability from 31.3 to 78.25 on the System Usability Scale</h3>
-        <p class="card-sum">Millions check their refund status on this app at their most anxious moment. I rebuilt the flows and the form so the answer arrives without a phone call.</p>
-        <span class="card-meta">IRS2GO • GOVTECH • ACCESSIBILITY • <em class="tag-live">WCAG 2.1 AA</em></span>
-        <span class="card-go">View case study <span aria-hidden="true">↗</span></span>
-      </a>
-
-      <a class="card rv" href="cases/anchor.html">
-        <div class="card-media" style="background:#c7d4f2;">
-          <img src="assets/moneyanchor-thumbnail.png" alt="Three Money Anchor screens: the AI Anchor chat assistant, the budget home screen showing balance and spending, and linked accounts" loading="lazy" />
+        <div class="wall">
+          <figure class="pic taped rv" style="--rot: -2deg;"><img src="assets/photobook/21.jpeg" width="1200" height="1600" loading="lazy" alt="Siddhi in cap and gown holding her degree and a bouquet" /><figcaption>finally graduated!</figcaption></figure>
+          <figure class="pic taped corner rv" style="--rot: 2deg;"><img src="assets/photobook/16.jpeg" width="1200" height="1599" loading="lazy" alt="Siddhi in a knit hat smiling by the water with tall buildings behind her" /><figcaption>solo half-day in Chicago</figcaption></figure>
+          <figure class="pic rv" style="--rot: -1deg;"><img src="assets/photobook/12.jpeg" width="1200" height="1600" loading="lazy" alt="Siddhi smiling with a plate of tiramisu" /><figcaption>happy when eating tiramisu</figcaption></figure>
+          <figure class="pic taped rv" style="--rot: 3deg;"><img src="assets/photobook/19.jpeg" width="1200" height="1600" loading="lazy" alt="Siddhi in front of a waterfall" /><figcaption>chasing waterfalls</figcaption></figure>
+          <figure class="pic rv" style="--rot: -3deg;"><img src="assets/photobook/04.jpeg" width="900" height="1600" loading="lazy" alt="A Ghirardelli sundae held up in front of city buildings" /><figcaption>I love ice cream!</figcaption></figure>
+          <figure class="pic taped corner rv" style="--rot: 2deg;"><img src="assets/photobook/17.jpeg" width="1200" height="1600" loading="lazy" alt="A gelato cone in front of the Amorino gelato sign" /><figcaption>gelato at Amorino</figcaption></figure>
+          <figure class="pic taped rv" style="--rot: 1deg;"><img src="assets/photobook/20.jpeg" width="1200" height="1600" loading="lazy" alt="Siddhi in cap and gown in front of the University of Michigan Dearborn sign" /><figcaption>graduation day</figcaption></figure>
+          <figure class="pic rv" style="--rot: -1deg;"><img src="assets/photobook/11.jpeg" width="1200" height="1600" loading="lazy" alt="Siddhi in a pink saree beside a framed painting" /><figcaption>dressed up in pink</figcaption></figure>
         </div>
-        <span class="card-scale">Consumer finance, built 0 to 1. IRB-approved study with 24 participants across two rounds of testing.</span>
-        <h3 class="card-title">100% task success in round two, and 75% trusted the AI once it explained itself</h3>
-        <p class="card-sum">People avoid budgeting apps because they feel like a report card. I designed an AI coach that explains its reasoning, built 0 to 1 from 24 IRB-approved interviews.</p>
-        <span class="card-meta">MONEY ANCHOR • AI PRODUCT • <em class="tag-new">0→1</em></span>
-        <span class="card-go">View case study <span aria-hidden="true">↗</span></span>
-      </a>
+      </div>
+    </section>
 
-      <a class="card rv" href="cases/ev.html">
-        <div class="card-media" style="background:#cde7d8;">
-          <img src="assets/ev/ev-thumbnail.png" alt="Two EV charging app screens showing route planning with charging stops and estimated journey times" loading="lazy" />
-        </div>
-        <span class="card-scale">First-time EV drivers. Four competitor apps audited task by task.</span>
-        <h3 class="card-title">Closing the loop none of the four charging apps closed</h3>
-        <p class="card-sum">First-time EV drivers carry a wallet of charging apps and still get stranded. I designed one flow from finding a working charger to paying for it.</p>
-        <span class="card-meta">EV CHARGING • HUMAN FACTORS • <em class="tag-new">CONCEPT, NOT SHIPPED</em></span>
-        <span class="card-go">View case study <span aria-hidden="true">↗</span></span>
-      </a>
-
-      <a class="card rv" href="cases/jaihind.html">
-        <div class="card-media" style="background:#ecdfd0;">
-          <img src="assets/jaihind-thumbnail.png" alt="Two Jai Hind Group screens: the B2B operations dashboard with order and sales trends, and the data table view" loading="lazy" />
-        </div>
-        <span class="card-scale">A B2B supplier serving hotels, schools and vendors. Five spreadsheets across three teams.</span>
-        <h3 class="card-title">40% faster workflows and 27% fewer user errors</h3>
-        <p class="card-sum">A B2B supplier ran on phone calls and five disconnected spreadsheets. I designed the dashboard and the component system three teams now use daily.</p>
-        <span class="card-meta">JAI HIND GROUP • B2B • DESIGN SYSTEM • <em class="tag-live">SHIPPED</em></span>
-        <span class="card-go">View case study <span aria-hidden="true">↗</span></span>
-      </a>
-
-      <a class="card rv" href="cases/findme.html">
-        <div class="card-media" style="background:#f6c9b4;">
-          <div class="card-cover" aria-hidden="true">
-            <span class="card-cover-kicker">UX/UI Design · 2025</span>
-            <img class="card-cover-logo" src="assets/findme-logo.svg" alt="" />
-            <span class="card-cover-sub">Design system · Web and mobile</span>
+    <!-- TIMELINE -->
+    <section id="timeline" class="section" aria-labelledby="tl-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="kicker">Timeline</span>
+            <h2 class="h2" id="tl-title">How I got here, the short version</h2>
           </div>
         </div>
-        <span class="card-scale">A career portfolio platform, built by a startup in New York. Responsive web and mobile, shipped in agile sprints.</span>
-        <h3 class="card-title">Growing a design system while the product kept shipping</h3>
-        <p class="card-sum">I added reusable components, patterns and visual standards to FindMe's library, and carried features from research to delivered UI alongside engineering and product.</p>
-        <span class="card-meta">FINDME LLC • DESIGN SYSTEM • <em class="tag-new">INTERNSHIP</em></span>
-        <span class="card-go">View case study <span aria-hidden="true">↗</span></span>
-      </a>
+        <div class="tl">
+          <div class="tl-photos" aria-hidden="true">
+            <figure class="taped" style="--rot: -5deg;"><img src="assets/home/snap-07.jpg" width="460" height="575" alt="" loading="lazy" /><figcaption>coffee runs</figcaption></figure>
+            <figure style="--rot: 4deg;"><img src="assets/home/snap-16.jpg" width="460" height="575" alt="" loading="lazy" /><figcaption>Chicago</figcaption></figure>
+            <figure class="taped" style="--rot: -3deg;"><img src="assets/home/snap-20.jpg" width="460" height="575" alt="" loading="lazy" /><figcaption>Dearborn</figcaption></figure>
+            <figure style="--rot: 5deg;"><img src="assets/home/snap-21.jpg" width="460" height="575" alt="" loading="lazy" /><figcaption>graduated!</figcaption></figure>
+          </div>
+          <ol class="tl-track">
+            <li><span class="tl-year">2022</span><b>Omkar Labels</b><span>Front-end developer, part-time. Built pages in HTML, CSS and JavaScript.</span></li>
+            <li><span class="tl-year">2023</span><b>Jai Hind Group</b><span>My first design role: Product UX Designer, until July 2024.</span><span class="note-hand" aria-hidden="true">my first design job!</span></li>
+            <li><span class="tl-year">2024</span><b>University of Michigan</b><span>Started my master's in Human-Centered Design and Engineering.</span><span class="note-hand" aria-hidden="true">hello, Michigan!</span></li>
+            <li><span class="tl-year">2025</span><b>FindMe LLC</b><span>UX/UI design intern at a New York startup.</span></li>
+            <li><span class="tl-year">2025</span><b>Teaching Assistant</b><span>Weekly design critiques for 30+ students.</span></li>
+            <li><span class="tl-year">2026</span><b>Graduated</b><span>Master's complete.</span></li>
+            <li class="next"><span class="tl-year">Next</span><b>Your team?</b><span>Open to UX roles across the US.</span><span class="note-hand" aria-hidden="true">this could be you</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
-      <a class="card rv" href="cases/omkar.html">
-        <div class="card-media" style="background:#e2ecfa;">
-          <div class="card-cover" aria-hidden="true">
-            <span class="card-cover-kicker">Front-End · 2022</span>
-            <img class="card-cover-logo" src="assets/jaihind/omkar-logo.svg" alt="" />
-            <span class="card-cover-sub">HTML · CSS · JavaScript · WordPress</span>
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="kicker">About</span>
+            <h2 class="h2" id="about-title">The stuff that's not on my résumé</h2>
           </div>
         </div>
-        <span class="card-scale">A B2B label manufacturer supplying major US retail chains. A catalog of 50-plus products.</span>
-        <h3 class="card-title">Before I designed interfaces, I built them</h3>
-        <p class="card-sum">As a part-time front-end developer I turned the designer's files into responsive pages, and learned exactly where designs break on the way to production.</p>
-        <span class="card-meta">OMKAR LABELS • FRONT-END • WORDPRESS</span>
-        <span class="card-go">View case study <span aria-hidden="true">↗</span></span>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ===================== CRAFT ===================== -->
-  <section class="sec" id="craft" aria-label="Tools and skills">
-    <div class="sec-head rv">
-      <span class="label">MY CRAFT</span>
-      <span class="label-right">TOOLS + SKILLS</span>
-    </div>
-
-    <h2 class="head-xl rv"><span class="gray">Good design ships</span><br />and keeps <span class="serif-it">moving.</span></h2>
-
-    <div class="craft-strip rv">
-      <ul class="craft-track">
-        <li><img src="cases/img/moneyanchor/screen-home.jpg" alt="Money Anchor budget home screen" loading="lazy" /></li>
-        <li><img src="assets/jaihind/YOUR-MAIN-DASHBOARD.jpg" alt="Jai Hind Group operations dashboard" loading="lazy" /></li>
-        <li><img src="cases/img/moneyanchor/screen-ai-chat.jpg" alt="Money Anchor AI assistant conversation" loading="lazy" /></li>
-        <li><img src="assets/ev/ev-trip-planning.png" alt="EV charging trip planner with charging stops" loading="lazy" /></li>
-        <li><img src="cases/img/moneyanchor/screen-reports.jpg" alt="Money Anchor monthly spending reports" loading="lazy" /></li>
-        <li><img src="cases/img/moneyanchor/screen-transactions.jpg" alt="Money Anchor auto-categorised transactions" loading="lazy" /></li>
-        <li><img src="cases/img/moneyanchor/screen-accounts.jpg" alt="Money Anchor linked accounts and goals" loading="lazy" /></li>
-      </ul>
-      <button class="craft-pause" id="craftPause" type="button" aria-label="Pause the craft strip">&#10073;&#10073;</button>
-    </div>
-
-
-    <div class="tools rv">
-      <span class="tool"><img src="https://cdn.simpleicons.org/figma" alt="" loading="lazy" />Figma</span>
-      <span class="tool"><img src="https://cdn.simpleicons.org/miro" alt="" loading="lazy" />Miro</span>
-      <span class="tool"><img src="assets/icons/maze.svg" alt="" loading="lazy" />Maze</span>
-      <span class="tool"><img src="https://cdn.simpleicons.org/framer" alt="" loading="lazy" />Framer</span>
-      <span class="tool"><img src="assets/icons/adobeillustrator.svg" alt="" loading="lazy" />Illustrator</span>
-      <span class="tool"><img src="https://cdn.simpleicons.org/notion" alt="" loading="lazy" />Notion</span>
-      <span class="tool"><img src="https://cdn.simpleicons.org/webflow" alt="" loading="lazy" />Webflow</span>
-      <span class="tool"><img src="assets/icons/visualstudiocode.svg" alt="" loading="lazy" />VS Code</span>
-      <span class="tool"><img src="https://cdn.simpleicons.org/github" alt="" loading="lazy" />GitHub</span>
-      <span class="tool"><img src="https://cdn.simpleicons.org/html5" alt="" loading="lazy" />HTML5</span>
-      <span class="tool"><img src="https://cdn.simpleicons.org/css" alt="" loading="lazy" />CSS3</span>
-      <span class="tool"><img src="https://cdn.simpleicons.org/javascript" alt="" loading="lazy" />JavaScript</span>
-      <span class="tool"><img src="assets/icons/slack.svg" alt="" loading="lazy" />Slack</span>
-      <span class="tool"><img src="https://cdn.simpleicons.org/trello" alt="" loading="lazy" />Trello</span>
-    </div>
-
-    <div class="skills">
-      <div class="skill-head" aria-hidden="true">
-        <span>Skill</span><span>Tools I use for it</span><span>Where it is proven</span>
-      </div>
-      <div class="skill-row rv"><span class="skill-name">Design Systems</span><span class="skill-desc">TOKENS, COMPONENTS &amp; DOCUMENTATION</span><span class="skill-tools">Figma · Tokens · Storybook</span><a class="skill-proof" href="cases/jaihind.html">Jai Hind Group <span aria-hidden="true">↗</span></a></div>
-      <div class="skill-row rv"><span class="skill-name">Accessibility</span><span class="skill-desc">WCAG 2.1 · CONTRAST, KEYBOARD NAV &amp; AA COMPLIANCE</span><span class="skill-tools">WAVE · Stark · Contrast checks</span><a class="skill-proof" href="cases/ir2go.html">IRS2GO <span aria-hidden="true">↗</span></a></div>
-      <div class="skill-row rv"><span class="skill-name">Product Design</span><span class="skill-desc">0→1 FLOWS, WIREFRAMES &amp; HI-FI UI</span><span class="skill-tools">Figma · FigJam · Framer</span><a class="skill-proof" href="cases/anchor.html">Money Anchor <span aria-hidden="true">↗</span></a></div>
-      <div class="skill-row rv"><span class="skill-name">UX Research</span><span class="skill-desc">INTERVIEWS, SURVEYS, IRB STUDIES &amp; SYNTHESIS</span><span class="skill-tools">Miro · Otter · Google Forms</span><a class="skill-proof" href="cases/anchor.html">Money Anchor <span aria-hidden="true">↗</span></a></div>
-      <div class="skill-row rv"><span class="skill-name">Usability Testing</span><span class="skill-desc">MODERATED &amp; UNMODERATED, TWO-ROUND</span><span class="skill-tools">Maze · Zoom · SUS</span><a class="skill-proof" href="cases/ir2go.html">IRS2GO <span aria-hidden="true">↗</span></a></div>
-      <div class="skill-row rv"><span class="skill-name">Dev Handoff</span><span class="skill-desc">SPECS, TOKENS &amp; ZERO GUESSWORK</span><span class="skill-tools">Figma Dev Mode · GitHub</span><a class="skill-proof" href="cases/jaihind.html">Jai Hind Group <span aria-hidden="true">↗</span></a></div>
-    </div>
-
-    <div class="sysnote rv">
-      <span class="label">A SMALL PROOF</span>
-      <h3>This site runs on the same discipline</h3>
-      <p>Two typefaces and one locked scale. Colour kept as named tokens with the measured contrast ratio written beside each one in the stylesheet, so nobody later "improves" a value back into failure. Every text and background pair verified against WCAG 2.1 AA before it shipped, the lowest sitting at 4.83:1. Keyboard focus states, a skip link, reduced-motion support, and a pause control on anything that moves. Hand-built in HTML, CSS and JavaScript.</p>
-    </div>
-
-    <div class="sysnote rv">
-      <span class="label">A SECOND PROOF</span>
-      <h3>The component libraries behind two products</h3>
-      <p>Money Anchor and Jai Hind Group both shipped on libraries I built rather than on one-off screens. Each defines its type scale, spacing steps and colour as named tokens, then builds every screen from the same components, so a change to a token moves every screen at once instead of thirty files by hand.</p>
-      <p class="sysnote-pending">Exact component and token counts for both libraries are still being pulled from the Figma files and will be stated here rather than estimated.</p>
-      <div class="comp-demo">
-        <span class="comp-demo-label">One component, its variants and states</span>
-        <div class="comp-row">
-          <span class="comp-chip">Primary</span>
-          <span class="comp-chip comp-hover">Primary, hover</span>
-          <span class="comp-chip comp-disabled">Primary, disabled</span>
-          <span class="comp-chip comp-focus">Primary, focus</span>
+        <div class="about">
+          <div class="desk rv" data-desk>
+            <p class="desk-hint note-hand" id="desk-hint">click my stuff! <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
+            <button class="thing" type="button" style="--h: 128px;" aria-expanded="false" aria-controls="snap" aria-describedby="desk-hint" data-flash data-shots='[{"src":"assets/home/snap-08.jpg","alt":"Siddhi, seen from behind, looking out over city lights at night from a high window","cap":"city lights, way up high"},{"src":"assets/home/snap-14.jpg","alt":"A bakery display case full of pastries","cap":"window shopping, bakery edition"}]'>
+              <img src="assets/home/thing-camera.png" width="354" height="420" loading="lazy" alt="Instant camera" />
+              <span>always snapping</span>
+            </button>
+            <button class="thing" type="button" style="--h: 132px;" aria-expanded="false" aria-controls="snap" aria-describedby="desk-hint" data-shots='[{"src":"assets/home/snap-02.jpg","alt":"Two slices of cheesecake topped with whipped cream","cap":"cheesecake, obviously"},{"src":"assets/home/snap-13.jpg","alt":"A cookie and a sugar dusted bun on a tray","cap":"cookie + bun"},{"src":"assets/home/snap-01.jpg","alt":"A bowl of noodles topped with grilled chicken","cap":"noodle night"}]'>
+              <img src="assets/home/thing-ben-jerrys.png" width="362" height="420" loading="lazy" alt="Tub of Ben and Jerry's ice cream" />
+              <span>certified foodie</span>
+            </button>
+            <button class="thing" type="button" style="--h: 118px;" aria-expanded="false" aria-controls="snap" aria-describedby="desk-hint" data-shots='[{"src":"assets/home/snap-10.jpg","alt":"A mirror selfie with the phone covering her face","cap":"mirror check"}]'>
+              <img src="assets/home/thing-rhode.png" width="98" height="420" loading="lazy" alt="rhode lip tint" />
+              <span>skincare obsessed</span>
+            </button>
+            <button class="thing" type="button" style="--h: 140px;" aria-expanded="false" aria-controls="snap" aria-describedby="desk-hint" data-shots='[{"src":"assets/home/snap-15.jpg","alt":"A coffee cup held up in front of a wall that spells Chicago","cap":"ok, coffee counts too"},{"src":"assets/home/snap-07.jpg","alt":"Siddhi holding an iced drink outside Tatte Bakery and Cafe","cap":"Tatte run"}]'>
+              <img src="assets/home/thing-diet-coke.png" width="221" height="420" loading="lazy" alt="Can of Diet Coke" />
+              <span>diet coke &gt; coffee</span>
+            </button>
+            <figure class="snap" id="snap" hidden>
+              <img src="assets/home/snap-08.jpg" width="460" height="575" loading="lazy" alt="" />
+              <figcaption></figcaption>
+              <button class="close" type="button" aria-label="Put the photo away">&#215;</button>
+            </figure>
+            <span class="flash" aria-hidden="true"></span>
+            <p class="sr" aria-live="polite" data-snap-say></p>
+          </div>
+          <div class="about-copy rv">
+            <p>After my engineering degree, I wasn't sure design was the right call. In 2024 I started my master's anyway, and the next two years answered that question for me.</p>
+            <p>Today I can carry a product from research all the way to developer handoff. <strong>Because I used to write the code, my handoffs come with specs, states and zero guesswork.</strong></p>
+            <p>The thing I like most about myself? <strong>I love trying new things.</strong> The photo wall above is proof.</p>
+            <div class="chips">
+              <span class="chip">UX research</span><span class="chip">Usability testing</span><span class="chip">Accessibility, WCAG 2.1 AA</span>
+              <span class="chip">Design systems</span><span class="chip">Prototyping in Figma</span><span class="chip">HTML, CSS, JavaScript</span>
+            </div>
+            <blockquote class="quote">
+              <p>"Siddhi brought a rare mix of curiosity and rigor to our team. She dug into the research, listened carefully to users, and turned messy problems into clear, thoughtful design decisions."</p>
+              <cite>Shabaan Hossain, Founder of FindMe</cite>
+            </blockquote>
+          </div>
         </div>
-        <div class="comp-row">
-          <span class="comp-chip comp-ghost">Secondary</span>
-          <span class="comp-chip comp-ghost comp-hover">Secondary, hover</span>
-          <span class="comp-chip comp-ghost comp-disabled">Secondary, disabled</span>
-        </div>
-        <p class="comp-demo-note">The button component as documented for handoff: two variants, four states each, every pair verified against WCAG 2.1 AA before it went to a developer. Disabled is the one state most libraries let fail contrast; it is called out here because it is the one that gets missed.</p>
-      </div>
-    </div>
 
-  </section>
-
-
-  <!-- ===================== ABOUT / PHOTOBOOK ===================== -->
-  <section class="sec" id="about" aria-label="About Siddhi">
-    <div class="sec-head rv">
-      <span class="label">LIFE BEYOND WORK</span>
-      <span class="label-right">UNITED STATES</span>
-    </div>
-
-    <h2 class="head-xl rv"><span class="gray">Making things with intention,</span><br />not just <span class="serif-it">attention.</span></h2>
-
-    <div class="about-grid">
-      <div class="life-grid rv">
-        <figure class="life-cell">
-          <img src="assets/photobook/21.jpeg" alt="" loading="lazy" />
-          <figcaption>finally, i got graduated 🎓</figcaption>
-        </figure>
-        <figure class="life-cell">
-          <img src="assets/photobook/16.jpeg" alt="" loading="lazy" />
-          <figcaption>solo half-day in chicago</figcaption>
-        </figure>
-        <figure class="life-cell">
-          <img src="assets/photobook/12.jpeg" alt="" loading="lazy" />
-          <figcaption>happy when eating tiramisu</figcaption>
-        </figure>
-        <figure class="life-cell">
-          <img src="assets/photobook/04.jpeg" alt="" loading="lazy" />
-          <figcaption>i love icecream!</figcaption>
-        </figure>
-        <figure class="life-cell">
-          <img src="assets/photobook/20.jpeg" alt="" loading="lazy" />
-          <figcaption>graduation day</figcaption>
-        </figure>
-        <figure class="life-cell">
-          <img src="assets/photobook/19.jpeg" alt="" loading="lazy" />
-          <figcaption>chasing waterfalls</figcaption>
-        </figure>
-      </div>
-
-      <div class="about-copy rv">
-        <p>After completing my engineering, I started this journey with questions. <span class="serif-it">"Will I be able to do this?" "Did I make the right choice?"</span> In 2024 I began my master's anyway, and these two years answered me in ways I never expected.</p>
-        <p>The master's taught me far more than design: creative arts, marketing, web development, data analysis, and human-AI teaming. Every project stretched a different muscle, and somewhere along the way I stopped asking whether I belonged here.</p>
-        <p>So here is who those two years made me. Professionally, <strong>a full-scale designer who can carry a product from research all the way to developer handoff.</strong> Personally, a learner who can survive any situation. And the one thing I like most about myself: <strong>I love trying new things.</strong></p>
-        <p>The photobook next to this is proof that I enjoyed every bit of it while learning too. The outings, the food, the little adventures. They all happened between the deadlines.</p>
-        <span class="sig">Siddhi Manche</span>
-      </div>
-    </div>
-
-    <!-- Experience -->
-    <div class="xp">
-      <div class="sec-head rv">
-        <span class="label">WHERE I'VE BEEN</span>
-      </div>
-
-      <div class="xp-row rv">
-        <span class="xp-when">2025 to 2026</span>
-        <div class="xp-body">
-          <h3>Teaching Assistant · HCD/HCDE <span class="xp-org">University of Michigan</span></h3>
-          <p>Running weekly design critiques for 30+ students and guiding their work from first research question to final prototype. Most of the role is design review: giving structured, actionable feedback and holding one consistent standard across many designers at once.</p>
+        <h3 class="h3" style="margin: 72px 0 10px;">Questions recruiters ask me</h3>
+        <p class="qa-hint note-hand">tap a question to see my answer <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
+        <div class="qa">
+          <details>
+            <summary class="bubble them">What kind of role are you looking for?</summary>
+            <p class="bubble me">A UX role where research shapes the product, ideally in fintech, the public sector or B2B tools with real accessibility needs. I'm open to work across the US.</p>
+          </details>
+          <details>
+            <summary class="bubble them">What's your design process?</summary>
+            <p class="bubble me">Research before pixels: interviews and audits first, then sketches, wireframes and a prototype, then usability testing, usually two rounds. I treat every misclick as a design question, not a user error.</p>
+          </details>
+          <details>
+            <summary class="bubble them">How do you use AI in your work?</summary>
+            <p class="bubble me">I use Claude for research synthesis, early exploration and documentation, and I check its themes against the raw quotes by hand. I don't use it for final visual decisions, information architecture, or deciding what a user should be told.</p>
+          </details>
+          <details>
+            <summary class="bubble them">How do you work with developers?</summary>
+            <p class="bubble me">I come from engineering and know HTML, CSS and JavaScript, so my handoffs come with specs, tokens and states, and I can talk through implementation on the developers' terms.</p>
+          </details>
         </div>
       </div>
-
-      <div class="xp-row rv">
-        <span class="xp-when">2025</span>
-        <div class="xp-body">
-          <h3>UX/UI Design Intern <span class="xp-org">FindMe LLC</span></h3>
-          <p>Helped build a scalable design system at a fast-moving startup, working on reusable components and patterns and the product flows that used them. Worked directly with developers on implementation, so the system held together in code as well as in Figma.</p>
-        </div>
-      </div>
-
-      <a class="xp-row rv" href="cases/jaihind.html">
-        <span class="xp-when">2023 to 2024</span>
-        <div class="xp-body">
-          <h3>Product UX Designer <span class="xp-org">Jai Hind Group</span></h3>
-          <p>My first design role, at a B2B supplier running on phone calls and disconnected spreadsheets. Designed its digital tooling end to end, including the information architecture and the component patterns three teams used daily. <span class="xp-link">VIEW CASE STUDY ↗</span></p>
-        </div>
-      </a>
-
-      <a class="xp-row xp-open rv" href="mailto:manche.siddhi@gmail.com">
-        <span class="xp-when">NEXT</span>
-        <div class="xp-body">
-          <h3>This box is waiting for <span class="serif-it">your company's name</span></h3>
-          <p>Actively looking for a new role. <span class="xp-link">SAY HELLO ↗</span></p>
-        </div>
-      </a>
-    </div>
-  </section>
-
-
-  <!-- ===================== Q&A ===================== -->
-  <section class="sec" id="think" aria-label="Questions recruiters ask">
-    <div class="sec-head rv">
-      <span class="label">RECRUITER FAQ</span>
-    </div>
-
-    <h2 class="head-xl rv"><span class="gray">Questions recruiters</span><br />tend to <span class="serif-it">ask me.</span></h2>
-
-    <div class="faq">
-      <details class="faq-item rv">
-        <summary><span class="faq-num">01</span>What kind of role are you looking for?<span class="faq-x">+</span></summary>
-        <p>A UX role where research actually drives the product, and where the design system is treated as real product work rather than cleanup. Public sector, fintech and B2B are where I have the most to offer, complex, workflow-heavy tools with an accessibility obligation. I'm open to work across the US and happiest on teams that care about the "why" behind every decision.</p>
-      </details>
-      <details class="faq-item rv">
-        <summary><span class="faq-num">02</span>Walk me through your design process.<span class="faq-x">+</span></summary>
-        <p>Research before pixels. I map the problem with interviews, competitive audits, and stakeholder input, then move into ideation, prototyping, and usability testing, usually two rounds. I treat every misclick as a design question, not a user error.</p>
-      </details>
-      <details class="faq-item rv">
-        <summary><span class="faq-num">03</span>What's a project you're proud of?<span class="faq-x">+</span></summary>
-        <p>Money Anchor, an AI budgeting coach we built 0→1. Grounded in IRB-approved research with 24 participants, surfacing the "why" behind AI suggestions pushed user trust to 75%. On IRS2GO, an accessibility-first redesign more than doubled the SUS score and reached full WCAG 2.1 AA.</p>
-      </details>
-      <details class="faq-item rv">
-        <summary><span class="faq-num">04</span>How do you work with developers?<span class="faq-x">+</span></summary>
-        <p>I speak both languages. Coming from an engineering background and knowing HTML, CSS, and JS, my handoffs come with specs, tokens, and zero guesswork, so my designs respect the realities of the people building them.</p>
-      </details>
-      <details class="faq-item rv">
-        <summary><span class="faq-num">05</span>How do you use AI in your work?<span class="faq-x">+</span></summary>
-        <p>Specifically: I use Claude for research synthesis, for exploring directions early, and for documentation. It is fast at clustering interview transcripts into themes I then check by hand against the raw quotes.</p><p>Where I do not use it: final visual decisions, information architecture, and deciding what a user should be told. Those are judgement calls that need someone accountable for them, and they are the parts of the job where being confidently wrong is most expensive. I have also designed AI features that explain their own reasoning, which is where the 75% trust figure on Money Anchor came from.</p>
-      </details>
-      <details class="faq-item rv">
-        <summary><span class="faq-num">06</span>Why should we hire you?<span class="faq-x">+</span></summary>
-        <p>I find the signal in the research and make it intuitive. I've watched users call an app easy while the data showed them lost. Closing that gap between perceived and actual usability is where I do my best work.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- ===================== TESTIMONIAL ===================== -->
-  <section class="sec" aria-label="Testimonials">
-    <div class="sec-head rv">
-      <h2 class="label">IN THEIR WORDS…</h2>
-    </div>
-
-    <div class="quote-card rv">
-      <p class="quote-text">Siddhi brought a rare mix of <strong>curiosity and rigor</strong> to our team. She dug into the research, listened carefully to users, and turned messy problems into clear, thoughtful design decisions. She's proactive, easy to collaborate with, and <strong>consistently raised the quality of everything she touched.</strong></p>
-      <div class="quote-who">
-        <span class="quote-avatar">SH</span>
-        <div>
-          <span class="quote-name">Shabaan Hossain</span>
-          <span class="quote-title">Founder, FindMe LLC</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== MARQUEE 2 ===================== -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>WIREFRAMING</span><span class="sp">✦</span>
-      <span>USABILITY TESTING</span><span class="sp">✦</span>
-      <span>DESIGN TOKENS</span><span class="sp">✦</span>
-      <span>INFORMATION ARCHITECTURE</span><span class="sp">✦</span>
-      <span>FIGMA DEEP CUTS</span><span class="sp">✦</span>
-      <span>INTERFACE OBSESSED</span><span class="sp">✦</span>
-      <span>HEADING TO THE ARB</span><span class="sp">✦</span>
-    </div>
-  </div>
-
+    </section>
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="footer" aria-label="Contact">
-    <p class="footer-kicker rv">LET'S DESIGN &amp; BUILD INCREDIBLE WORK TOGETHER</p>
-    <p class="footer-name rv" aria-hidden="true">Siddhi<span class="italic">.</span></p>
-
-    <div class="footer-links rv">
-      <a href="https://www.linkedin.com/in/siddhi-manche/" target="_blank" rel="noopener">LINKEDIN</a>
-      <a href="mailto:manche.siddhi@gmail.com">EMAIL</a>
-      <a href="#work">WORK</a>
-      <a href="#top">BACK TO TOP ↑</a>
+  <!-- FOOTER -->
+  <footer class="foot" id="contact">
+    <div class="foot-stickers" aria-hidden="true">
+      <img class="s1" src="assets/home/thing-ben-jerrys.png" width="362" height="420" loading="lazy" alt="" />
+      <img class="s2" src="assets/home/thing-camera.png" width="354" height="420" loading="lazy" alt="" />
+      <img class="s3" src="assets/home/st-irs.jpg" width="160" height="160" loading="lazy" alt="" />
     </div>
-
-    <div class="footer-base rv">
-      <span>© 2026 SIDDHI MANCHE. DESIGNED WITH INTENTION, BUILT WITH CODE.</span>
-      <span>BASED IN THE UNITED STATES. JUST SAYING.</span>
+    <div class="wrap">
+      <span class="kicker">Say hi</span>
+      <p class="foot-big">Let's make <span class="pill">hard things</span> feel <span class="pill alt">easy.</span></p>
+      <div class="foot-row">
+        <a class="btn btn-accent" href="mailto:manche.siddhi@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/siddhi-manche/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="#top">Back to top ↑</a>
+      </div>
+      <p class="foot-note note-hand"><svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M40 28 C 30 27, 14 22, 9 7 M9 7 L 5 17 M9 7 L 17 12" /></svg>say hi, I don't bite!</p>
+      <div class="foot-base">
+        <span>© 2026 Siddhi Manche. Designed with intention, built with code.</span>
+        <span>Based in the United States.</span>
+      </div>
     </div>
+    <figure class="foot-me taped">
+      <div class="media">
+        <video data-live src="assets/video/hero-zoom.mp4" poster="assets/video/hero-zoom-poster.jpg" width="680" height="780" muted loop playsinline preload="none" aria-label="video of Siddhi smiling"></video>
+        <button class="vbtn" type="button">Pause</button>
+      </div>
+    </figure>
   </footer>
 
-  <script src="js/home.js"></script>
+  <nav class="dock" aria-label="Page sections">
+    <a href="#work">Work</a>
+    <a href="#play">Play</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#about">About</a>
+    <span class="sep" aria-hidden="true"></span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to night mode"><span class="ic" aria-hidden="true">&#9728;</span><span class="tx">Day</span></button>
+    <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
+  </nav>
+
+  <script src="js/site.js"></script>
 </body>
 </html>
