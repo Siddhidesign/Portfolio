@@ -1,221 +1,139 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="day">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Omkar Labels, Case Study · Siddhi Manche</title>
-  <meta name="description" content="Junior front-end developer at Omkar Labels, a B2B label manufacturer supplying major US retail chains: turning designer files into responsive pages in HTML, CSS and JavaScript on WordPress, and maintaining a 50-plus product catalog." />
+  <meta name="description" content="Front-end developer at Omkar Labels, a label manufacturer supplying major US retail chains: responsive WordPress pages built from the designer's files, and a catalog of 50+ products kept accurate." />
+  <meta name="theme-color" content="#f7f7f7" />
+  <script>
+    (function () {
+      var d = document.documentElement, t;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      var q = location.search.match(/theme=(day|night)/); if (q) t = q[1];
+      if (t !== 'day' && t !== 'night') { t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'; }
+      d.setAttribute('data-theme', t); d.classList.add('js');
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/case-study.css" />
-  <link rel="stylesheet" href="../css/case-light.css" />
-  <link rel="stylesheet" href="../css/case-theme.css" />
-  <style>
-    /* company photography from the Omkar Labels catalogue */
-    .omk-native { max-width: 794px; }
-    .omk-pair, .omk-grid { display: grid; gap: 12px; margin: 1.8rem 0 2.2rem; }
-    .omk-pair { grid-template-columns: 1fr 1fr; max-width: 520px; }
-    .omk-grid { grid-template-columns: repeat(4, 1fr); max-width: 1040px; }
-    .omk-pair figure, .omk-grid figure { margin: 0; border-radius: 14px; overflow: hidden; background: var(--bg2); }
-    .omk-pair img { width: 100%; aspect-ratio: 341 / 719; object-fit: cover; display: block; }
-    .omk-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
-    .omk-cap { grid-column: 1 / -1; margin: 4px 0 0; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; line-height: 1.6; color: var(--text3); }
-    @media (max-width: 640px) { .omk-grid { grid-template-columns: 1fr 1fr; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/site.css" />
 </head>
-<body>
+<body class="has-dock">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap case-top"><a href="../index.html#work">&#8592; All work</a></div>
 
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader-content">
-      <div class="loader-words">
-        <div class="loader-word"><span>OMKAR</span></div>
-        <div class="loader-word accent"><span>LABELS</span></div>
+  <main id="main">
+    <section id="overview" class="wrap case-hero">
+      <span class="kicker">Omkar Labels · Mumbai · 2022</span>
+      <h1 class="h1">Before I designed interfaces, I built them</h1>
+      <p class="lede">Omkar Labels makes clothing labels, hang tags and tapes for apparel brands, including major US retail chains. As a part-time front-end developer, I turned the designer's files into responsive pages on its WordPress site.</p>
+      <div class="chips"><span class="chip">Web</span><span class="chip">Front-end</span><span class="chip">WordPress</span><span class="chip">B2B</span></div>
+      <p class="case-note note-hand">the job that made my handoffs better <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
+      <div class="media" style="background: var(--ice);">
+        <video data-live src="../assets/live/omkar.mp4" poster="../assets/live/omkar.jpg" width="1280" height="800" muted loop playsinline preload="metadata" aria-label="Omkar Labels product photos"></video>
+        <span class="live">LIVE</span>
+        <button class="vbtn" type="button">Pause</button>
       </div>
-      <div class="loader-line-wrap"><div class="loader-line-bar"></div></div>
-      <p class="loader-sub">Loading Case Study</p>
-    </div>
-  </div>
+      <dl class="facts">
+        <div class="fact"><dt>My role</dt><dd>Junior Front-End Developer, part-time</dd></div>
+        <div class="fact"><dt>Timeline</dt><dd>May 2022 to Jan 2023</dd></div>
+        <div class="fact"><dt>Team</dt><dd>Worked directly with the designer</dd></div>
+        <div class="fact"><dt>Platform</dt><dd>WordPress website</dd></div>
+      </dl>
+    </section>
 
-  <!-- NAV -->
-  <header class="cs-nav" id="nav" role="banner">
-    <a href="../index.html" class="cs-back">← All Work</a>
-    <span class="cs-nav-center">Omkar Labels</span>
-    <div class="cs-nav-right">
-      <a href="mailto:manche.siddhi@gmail.com" class="cs-next-link cs-mail-nav">Email ↗</a>
-      <a href="ir2go.html" class="cs-next-link">IRS2GO →</a>
-      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span>◐</span></button>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="cs-hero">
-    <div class="cs-hero-bg" aria-hidden="true">&lt;/&gt;</div>
-    <div class="cs-hero-glow" aria-hidden="true"></div>
-
-    <div class="cs-hero-inner">
-      <div class="cs-hero-index">
-        <span>2022</span>
-        <span class="idx-line"></span>
-        <span>Front-End · WordPress · B2B Manufacturing</span>
-      </div>
-
-      <h1 class="cs-hero-title">
-        <div class="line-mask"><span class="line-inner">Omkar Labels</span></div>
-        <div class="line-mask italic"><span class="line-inner">Before I Designed, I Built.</span></div>
-      </h1>
-
-      <div class="cs-hero-meta">
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">My Role</span>
-          <span class="cs-meta-value">Junior Front-End Developer, Part-Time</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Company</span>
-          <span class="cs-meta-value">Omkar Labels, Mumbai</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Type</span>
-          <span class="cs-meta-value">B2B Website · WordPress</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Duration</span>
-          <span class="cs-meta-value">May 2022 to Jan 2023</span>
+    <section class="band band-alt" aria-labelledby="short-title">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="kicker">In 30 seconds</span><h2 class="h2" id="short-title">The short version</h2></div></div>
+        <div class="cards3">
+          <div class="card"><span class="kicker">The problem</span><h3>A website buyers judge</h3><p>Buyers check what the company makes before they call. A broken page or an old listing costs trust with exactly those people.</p></div>
+          <div class="card"><span class="kicker">What I did</span><h3>Design files into working pages</h3><p>Responsive pages in HTML, CSS, JavaScript, jQuery and Bootstrap, plus a catalog of 50+ products kept accurate.</p></div>
+          <div class="card"><span class="kicker">What it changed</span><h3>Why my handoffs are detailed</h3><p>I've been the developer on the other side, so my handoffs spell out states, spacing and behavior.</p></div>
         </div>
       </div>
+    </section>
 
-      <div class="cs-hero-stats">
-        <div>
-          <div class="cs-stat-n">50+</div>
-          <div class="cs-stat-l">Product Pages Maintained</div>
+    <section id="process" class="band" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="kicker">The work</span><h2 class="h2" id="process-title">From the factory floor to the browser</h2></div></div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-text">
+              <span class="step-n">01</span>
+              <h3>Context: a manufacturer's shop window</h3>
+              <p>Omkar Labels has made labels since 1999, in two factories: one in Thane, near Mumbai, and one in Narmadapuram, Madhya Pradesh. Every order passes a four-point quality check, and the company holds OEKO-TEX, FSC and Global Recycled Standard certifications.</p>
+              <p>The website is where buyers check all of that before picking up the phone.</p>
+            </div>
+            <div class="gallery">
+              <figure class="shot wide"><a class="shot-frame" href="../assets/jaihind/omkar-press.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-press.jpg" width="794" height="596" loading="lazy" alt="An offset printing press on the factory floor"></a><figcaption class="cap">Offset printing on the factory floor.</figcaption></figure>
+              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-qc-crockmeter.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-qc-crockmeter.jpg" width="341" height="719" loading="lazy" alt="A crock meter testing how well label color holds up to rubbing"></a><figcaption class="cap">Testing color fastness.</figcaption></figure>
+              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-qc-spectro.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-qc-spectro.jpg" width="341" height="718" loading="lazy" alt="A handheld spectrophotometer reading color swatches"></a><figcaption class="cap">Checking color accuracy.</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="step flip">
+            <div class="step-text">
+              <span class="step-n">02</span>
+              <h3>The build: from design file to working page</h3>
+              <p>The designer made the interface; I made it work. Responsive layouts in HTML and CSS, behavior in JavaScript and jQuery, and Bootstrap's grid so pages held together on every screen, all inside WordPress.</p>
+              <p>I also kept the product pages for a catalog of 50+ products accurate as things changed. The photos here are the kinds of products those pages carried.</p>
+            </div>
+            <div class="gallery">
+              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-washcare.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-washcare.jpg" width="304" height="302" loading="lazy" alt="A printed wash-care label sewn into a shirt"></a><figcaption class="cap">Wash-care labels.</figcaption></figure>
+              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-hangtag.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-hangtag.jpg" width="794" height="795" loading="lazy" alt="A printed hang tag on a plaid shirt"></a><figcaption class="cap">Hang tags.</figcaption></figure>
+              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-tape.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-tape.jpg" width="303" height="303" loading="lazy" alt="A roll of printed tape beside printed labels"></a><figcaption class="cap">Printed tapes.</figcaption></figure>
+              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-labels-press.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-labels-press.jpg" width="719" height="719" loading="lazy" alt="Printed fabric labels fresh off the press"></a><figcaption class="cap">Labels fresh off the press.</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="step full">
+            <div class="step-text">
+              <span class="step-n">03</span>
+              <h3>Working with the designer: where designs meet reality</h3>
+              <ul class="ticks">
+                <li>When the design file and the browser didn't match, I raised it early and we solved it together before release.</li>
+                <li>When a layout broke in one browser and not another, I traced the cause in Chrome DevTools and fixed the code, not the symptom.</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div>
-          <div class="cs-stat-n">5</div>
-          <div class="cs-stat-l">Front-End Technologies</div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- AT A GLANCE -->
-  <section class="cs-tldr" aria-label="Project summary">
-    <div class="cs-tldr-inner">
-      <span class="cs-tldr-label">At a glance</span>
-      <p class="cs-tldr-lede">Before I moved into design I was on the other side of the handoff. At Omkar Labels, a B2B label manufacturer supplying major US retail chains, I took the designer's interface files and built them into working, responsive pages on the company's WordPress site, and kept a catalog of more than 50 products accurate and rendering correctly across browsers.</p>
-      <div class="cs-tldr-body">
-        <div class="cs-tldr-how">
-          <span class="cs-tldr-sub">How I worked</span>
-          <ol class="cs-tldr-steps">
-          <li><span class="cs-tldr-n">01</span>Built designer-provided interface files into responsive pages in HTML, CSS, JavaScript, jQuery and Bootstrap.</li>
-          <li><span class="cs-tldr-n">02</span>Worked directly with the designer on feasibility, closing gaps between the design file and the build before release.</li>
-          <li><span class="cs-tldr-n">03</span>Maintained the product listing pages across a catalog of more than 50 products.</li>
-          <li><span class="cs-tldr-n">04</span>Tracked down cross-browser layout issues in Chrome DevTools and fixed them at the source.</li>
-          </ol>
-        </div>
-        <dl class="cs-tldr-facts">
-          <div><dt>My role</dt><dd>Junior Front-End Developer, part-time</dd></div>
-          <div><dt>Timeline</dt><dd>May 2022 to Jan 2023</dd></div>
-          <div><dt>Team</dt><dd>Worked directly with the company's designer</dd></div>
-          <div><dt>Platform</dt><dd>WordPress website for a B2B manufacturer</dd></div>
-          <div><dt>My contribution</dt><dd>Responsive front-end build, product catalog pages, and cross-browser fixes.</dd></div>
-          <div><dt>Outcome</dt><dd>A catalog of 50-plus products kept live and consistent for a manufacturer selling to US retail chains.</dd></div>
-        </dl>
+    <section id="results" class="band band-alt" aria-labelledby="results-title">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="kicker">What it changed</span><h2 class="h2" id="results-title">Why every designer should build something</h2></div></div>
+        <ul class="result-list">
+          <li><b>50+</b><span>product pages kept accurate and consistent.</span></li>
+          <li><b>5</b><span>front-end tools: HTML, CSS, JavaScript, jQuery, Bootstrap.</span></li>
+        </ul>
+        <p class="lede" style="margin-top: 22px;">Having been the developer receiving the file, I know which questions a handoff leaves open. That's why my handoffs specify states, spacing and behavior, and why I can talk through HTML and CSS with front-end developers on their terms.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 01 CONTEXT -->
-  <div class="cs-section reveal-item" id="phase-01">
-    <div class="cs-sec-num">01</div>
-    <div class="cs-sec-content">
-      <div class="cs-sec-label">Context</div>
-      <h2 class="cs-sec-title">A Manufacturer's <em>Shop Window</em></h2>
-      <p class="cs-text">Omkar Labels has made labels since 1999: printed wash-care labels, woven labels, hang tags, tapes and ribbons, and the packaging that goes with them, for apparel and home-textile brands. Its customers include major US retail chains. Production runs across two factories, one in Thane on the edge of Mumbai and one in Narmadapuram, Madhya Pradesh, on flexographic, digital and offset presses, including a Heidelberg Speedmaster.</p>
-      <div class="cs-img omk-native"><img src="../assets/jaihind/omkar-press.jpg" alt="An offset printing press on Omkar Labels' factory floor" loading="lazy" /><div class="cs-img-caption">Offset printing on the factory floor. Every photo on this page comes from Omkar Labels' own catalogue.</div></div>
-      <p class="cs-text">Quality is the thing the company sells. Every order passes a four-point check: raw materials as they arrive, each production stage against the approved artwork, the finished goods, and the packaging before dispatch. The company carries OEKO-TEX, FSC and Global Recycled Standard certification.</p>
-      <div class="omk-pair">
-        <figure><img src="../assets/jaihind/omkar-qc-crockmeter.jpg" alt="A crock meter, used to test how well a label's colour holds up to rubbing" loading="lazy" /></figure>
-        <figure><img src="../assets/jaihind/omkar-qc-spectro.jpg" alt="A handheld spectrophotometer reading a row of colour swatches" loading="lazy" /></figure>
-        <p class="omk-cap">Testing colour fastness and colour accuracy, part of the four-point quality check.</p>
+    <section class="band" aria-label="More case studies">
+      <div class="wrap">
+        <nav class="nextprev" aria-label="More case studies">
+          <a class="np" href="findme.html"><small>&#8592; Previous</small><span>FindMe LLC</span></a>
+          <a class="np right" href="ir2go.html"><small>Next &#8594;</small><span>IRS2GO</span></a>
+        </nav>
       </div>
-      <p class="cs-text">For a manufacturer like that, the website does a specific job: it is where a buyer checks what the company makes before picking up the phone. A product page that renders wrong, or a listing that is out of date, costs trust with exactly the people the company needs to impress.</p>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <!-- 02 THE BUILD -->
-  <div class="cs-section alt-bg reveal-item" id="phase-02">
-    <div class="cs-sec-num">02</div>
-    <div class="cs-sec-content">
-      <div class="cs-sec-label">The Build</div>
-      <h2 class="cs-sec-title">From Design File <em>to Working Page</em></h2>
-      <p class="cs-text">The designer produced the interface; I turned it into pages that worked. That meant building responsive layouts in HTML and CSS, adding behaviour in JavaScript and jQuery, and using Bootstrap's grid so pages held together on every screen size, all inside a WordPress site.</p>
-      <p class="cs-text">Alongside new pages I maintained the product listing pages across a catalog of more than 50 products, keeping them accurate and consistent as products changed.</p>
+  <footer class="case-foot">© 2026 Siddhi Manche · <a href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a></footer>
 
-      <div class="omk-grid">
-        <figure><img src="../assets/jaihind/omkar-washcare.jpg" alt="A printed wash-care label sewn into a blue shirt" loading="lazy" /></figure>
-        <figure><img src="../assets/jaihind/omkar-hangtag.jpg" alt="A printed hang tag showing size and price on a plaid shirt" loading="lazy" /></figure>
-        <figure><img src="../assets/jaihind/omkar-tape.jpg" alt="A roll of printed tape beside a stack of printed labels" loading="lazy" /></figure>
-        <figure><img src="../assets/jaihind/omkar-labels-press.jpg" alt="Printed fabric labels fresh off the press" loading="lazy" /></figure>
-        <p class="omk-cap">The kind of products those listings carried: wash-care labels, hang tags, printed tapes, and labels fresh off the press.</p>
-      </div>
-
-      <div class="cs-metrics">
-        <div class="cs-metric"><div class="cs-metric-n">HTML</div><div class="cs-metric-l">Structure</div></div>
-        <div class="cs-metric"><div class="cs-metric-n">CSS</div><div class="cs-metric-l">Responsive layout</div></div>
-        <div class="cs-metric"><div class="cs-metric-n">JS</div><div class="cs-metric-l">JavaScript and jQuery</div></div>
-        <div class="cs-metric"><div class="cs-metric-n">WP</div><div class="cs-metric-l">WordPress, Bootstrap grid</div></div>
-      </div>
-
-      <!-- Screens coming: paste site screenshots here in this pattern.
-      <div class="cs-img"><img src="../assets/omkar/PAGE.png" alt="Describe the page" loading="lazy" /><div class="cs-img-caption">Caption</div></div>
-      -->
-    </div>
-  </div>
-
-  <!-- 03 WORKING WITH THE DESIGNER -->
-  <div class="cs-section reveal-item" id="phase-03">
-    <div class="cs-sec-num">03</div>
-    <div class="cs-sec-content">
-      <div class="cs-sec-label">Working With the Designer</div>
-      <h2 class="cs-sec-title">Where Designs <em>Meet Reality</em></h2>
-      <p class="cs-text">Not everything in a design file survives contact with a browser. I worked directly with the designer on feasibility, raising the places where the file and the build would not match, and resolving them together before release rather than shipping a compromise nobody had agreed to.</p>
-      <p class="cs-text">When layouts broke in one browser and not another, I traced the cause in Chrome DevTools and fixed it in the code, instead of patching over the symptom.</p>
-    </div>
-  </div>
-
-  <!-- 04 WHAT IT CHANGED -->
-  <div class="cs-section alt-bg reveal-item" id="phase-04">
-    <div class="cs-sec-num">04</div>
-    <div class="cs-sec-content">
-      <div class="cs-sec-label">What It Changed</div>
-      <h2 class="cs-sec-title">Why a Designer <em>Should Have Built Things</em></h2>
-      <p class="cs-text">This is the role that shaped how I design now. Having been the developer receiving the file, I know which questions a handoff leaves unanswered and which details get lost on the way to production. <strong>It is why my handoffs specify states, spacing and behaviour instead of leaving them to be guessed</strong>, and why I can talk through HTML and CSS implementation with front-end developers on their terms.</p>
-    </div>
-  </div>
-
-  <!-- BOTTOM NAV -->
-  <nav class="cs-bottom-nav" aria-label="Case study navigation">
-    <a href="findme.html" class="cs-bn-link">
-      <span class="cs-bn-label">← Previous</span>
-      <span class="cs-bn-title">FindMe LLC</span>
-    </a>
-    <a href="ir2go.html" class="cs-bn-link right">
-      <span class="cs-bn-label">Next Case Study →</span>
-      <span class="cs-bn-title">IRS2GO Redesign</span>
-    </a>
+  <nav class="dock" aria-label="Page sections">
+    <a href="../index.html#work">&#8592; Work</a>
+    <a href="#overview">Overview</a>
+    <a href="#process">The work</a>
+    <a href="#results">Impact</a>
+    <span class="sep" aria-hidden="true"></span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to night mode"><span class="ic" aria-hidden="true">&#9728;</span><span class="tx">Day</span></button>
+    <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
   </nav>
-  <footer class="cs-footer">
-    <a class="cs-mail-foot" href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a>
-    <span>© 2026 Siddhi Manche</span>
-    <span>Omkar Labels</span>
-  </footer>
-
-  <script src="../js/main.js"></script>
+  <script src="../js/site.js"></script>
 </body>
 </html>
