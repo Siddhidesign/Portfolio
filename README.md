@@ -35,7 +35,7 @@ assets/               Other images: real photos, hand-drawn sketches, fallbacks 
 .nojekyll             Tells Pages to serve files starting with underscores
 ```
 
-The older stylesheets (`css/home.css`, `css/style.css`, `css/case-*.css`, `js/home.js`, `js/main.js`) are only used by the two archived pages, `cases/grocgenie.html` and `cases/medicinal.html`.
+The older files `css/style.css`, `css/case-light.css`, `css/case-study.css`, `css/case-theme.css` and `js/main.js` are only used by the two archived pages, `cases/grocgenie.html` and `cases/medicinal.html`, which no live page links to.
 
 The preview videos in `assets/live/` are rendered from real project screens with a small Python script (PIL plus ffmpeg, H.264, 1280x800, about 9 seconds, no audio, seamless loop).
 
