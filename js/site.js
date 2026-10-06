@@ -1,4 +1,4 @@
-/* Site behaviour: theme switch, live videos, chat, dock, desk game, reveal.
+/* Site behaviour: theme switch, live videos, chat, dock, sliders, reveal.
    Every feature is wrapped on its own, so one failure cannot take the page down.
    Content never depends on this file: without it, everything is simply visible. */
 (function () {
@@ -135,51 +135,6 @@
       set(range.value);
       range.addEventListener('input', function () { set(range.value); });
     });
-  });
-
-  /* ── Desk game: click a thing, a polaroid pops out ───────── */
-  safe(function () {
-    var desk = document.querySelector('[data-desk]');
-    if (!desk) return;
-    var snap = desk.querySelector('.snap');
-    if (!snap) return;
-    var img = snap.querySelector('img');
-    var cap = snap.querySelector('figcaption');
-    var close = snap.querySelector('.close');
-    var flash = desk.querySelector('.flash');
-    var say = desk.querySelector('[data-snap-say]');
-    var things = Array.prototype.slice.call(desk.querySelectorAll('.thing'));
-    var current = null;
-    function replay(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
-    function hide(returnFocus) {
-      snap.hidden = true;
-      things.forEach(function (t) { t.setAttribute('aria-expanded', 'false'); });
-      if (returnFocus && current) current.focus();
-      current = null;
-    }
-    things.forEach(function (t) {
-      var shots = [];
-      try { shots = JSON.parse(t.getAttribute('data-shots') || '[]'); } catch (e) {}
-      var i = -1;
-      // Warm the first photo so the polaroid never pops out empty.
-      t.addEventListener('pointerenter', function () { if (shots[0]) { var p = new Image(); p.src = shots[0].src; } }, { once: true });
-      t.addEventListener('click', function () {
-        if (!shots.length) return;
-        i = (i + 1) % shots.length;
-        var s = shots[i];
-        img.src = s.src; img.alt = s.alt; cap.textContent = s.cap;
-        things.forEach(function (o) { o.setAttribute('aria-expanded', o === t ? 'true' : 'false'); });
-        snap.hidden = false;
-        current = t;
-        if (!reduce) {
-          replay(snap, 'pop');
-          if (flash && t.hasAttribute('data-flash')) replay(flash, 'go');
-        }
-        if (say) say.textContent = s.cap + '. ' + s.alt + '.' + (shots.length > 1 ? ' Click again for another photo.' : '');
-      });
-    });
-    if (close) close.addEventListener('click', function () { hide(true); });
-    document.addEventListener('keydown', function (e) { if ((e.key === 'Escape' || e.key === 'Esc') && !snap.hidden) hide(true); });
   });
 
   /* ── Reveal on scroll (only once this script is running) ─── */
