@@ -10,11 +10,28 @@ Hand-built in HTML, CSS and JavaScript. No framework, no build step. Push to `ma
 index.html            Homepage
 css/site.css          The design system: day and night tokens, components, homepage and project page layouts
 js/site.js            Day/night switch, live video play/pause, chat, dock, desk game, sliders, reveal
-cases/*.html          Project pages (all use css/site.css and js/site.js;
-                      jaihind.html keeps its own inline styles for its storefront-style layout)
-assets/live/          Looping preview videos (mp4) and their poster frames, one per project
+cases/*.html          Project pages (all use css/site.css and js/site.js; jaihind.html also has a small inline style block)
+
+Coded product screens (each project's screens rebuilt in HTML, CSS and JavaScript)
+css/jh-app.css        Jai Hind console: tokens, layouts, wireframe/before/after modes, desktop and phone
+js/jh-app.js          Jai Hind console: dashboard, orders, customers, 4-step sales order
+js/jh-research.js     Jai Hind research blocks: audit filter, persona tabs, journeys, style guide, components
+css/proto.css         Phone prototype shell shared by IRS2GO, Money Anchor and EV: frame, controls,
+js/proto.js           "Things to try" checklist, sheets, toasts, coded before/after slider
+css/ir-app.css        IRS2GO redesign and the original app ("Old app" mode with problem pins)
+js/ir-app.js
+css/ma-app.css        Money Anchor: budget, AI chat and explanations, Design notes and Before fixes modes
+js/ma-app.js
+css/ev-app.css        EV charging: map, routes, stations, check-in and payment
+js/ev-app.js
+css/case-kit.css      Coded research and testing blocks used across case pages (sources, tables,
+js/case-kit.js        tabbed charts, score scales, personas, funnels, flows, wireframes)
+css/lab.css           Omkar resizable catalog recreation and FindMe component states playground
+js/lab.js
+
+assets/live/          Looping preview videos (mp4) and their poster frames, one per project (used on the homepage)
 assets/home/          Hero backgrounds, cut-out "things", photo stickers (st-*), desk polaroids (snap-*), chat avatar
-assets/               Other images, photobook, video of me
+assets/               Other images: real photos, hand-drawn sketches, fallbacks shown if JavaScript is off
 .nojekyll             Tells Pages to serve files starting with underscores
 ```
 
@@ -30,9 +47,12 @@ These are deliberate. Please do not "fix" them back.
 - **Day and night.** Every colour is a named token in `css/site.css`, defined once for day and once for night, with the measured contrast ratio written beside it. Every text pair passes WCAG 2.1 AA in both themes. The visitor's choice is remembered; the first visit follows the device setting. Add `?theme=night` or `?theme=day` to any URL to force one.
 - **No em dashes or en dashes** in any copy.
 - **Nothing can be hidden by a script failure.** Reveal animations only switch on once `js/site.js` is running, and the chat in the hero shows itself after seven seconds no matter what.
-- **Anything that moves has a pause control**: every video has a Pause button, the logo strip has one too, and `prefers-reduced-motion` pauses all of it.
+- **Anything that moves has a pause control**: every video has a Pause button, the logo strip has one too, and `prefers-reduced-motion` pauses all of it. Inside the prototypes nothing moves on its own except brief, user-started feedback (a spinner, a typing indicator, pins that pulse three times).
 - **Keep the skip link and visible focus states.**
 - **Games are real buttons.** The desk on the homepage works with a keyboard, Escape puts the photo away, and each photo is announced to screen readers. The FAQ is plain `<details>`, so it works without JavaScript.
+- **Screens are code, not screenshots.** Product screens are rebuilt in HTML, CSS and JavaScript from the Figma files, so visitors can use them. Real photos and hand-drawn sketches stay as images. Each prototype has an image fallback inside it for when JavaScript is off.
+- **Coded replicas keep the product's own look** (its colors and the closest open font) inside their frame; the page around them keeps the site's two typefaces. Product grays are darkened where needed to pass AA.
+- **Sample data is labeled as sample.** Nothing typed into a prototype is stored or sent. Sign-in, payments, calls and AI answers are simulated or scripted, and say so. No real phone numbers, emails or SSNs; brand logos are never drawn, only text wordmarks.
 - **Internal links are relative.** No root-relative (`/path`) or absolute self-referencing URLs anywhere, which is what lets the domain change without edits.
 
 ## Custom domain
