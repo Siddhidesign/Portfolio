@@ -1,0 +1,129 @@
+/* ============================================================
+   LAB DEMOS: small coded demos on the Omkar and FindMe pages.
+   1. A resizable catalog page (responsive front-end work)
+   2. A component states playground (design system method)
+   Both are recreations or illustrations, and say so on the page.
+   ============================================================ */
+.lab { margin-top: 26px; }
+.lab-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 14px; }
+.lab-seg { display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); }
+.lab-seg button, .lab-tog { font: 600 13px/1 var(--sans); color: var(--ink); background: transparent; border: 0; border-radius: 999px; padding: 8px 13px; cursor: pointer; white-space: nowrap; }
+.lab-seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.lab-tog { border: 1px solid var(--line); background: var(--surface); }
+.lab-tog[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.lab-range { display: inline-flex; align-items: center; gap: 10px; font: 600 13px/1 var(--sans); color: var(--text-2); }
+.lab-range input { width: 180px; accent-color: var(--accent); }
+.lab-range output { min-width: 54px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.lab-hint { font-family: "Caveat", "Segoe Print", cursive; font-weight: 600; font-size: 1.35rem; line-height: 1; color: var(--accent); margin-right: auto; }
+.lab-cap { font-size: 14px; color: var(--muted); margin-top: 12px; }
+.lab, .lab-stage { contain: inline-size; min-width: 0; }
+
+/* 1. Resizable catalog */
+.lab-stage { position: relative; display: flex; justify-content: center; padding: 18px; border-radius: var(--r); background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
+.lab-win { position: relative; width: min(var(--w, 1140px), 100%); flex: none; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 18px 40px rgba(10, 17, 25, .16), 0 0 0 1px rgba(127, 127, 127, .25); transition: width .25s ease; }
+.lab-chrome { display: flex; align-items: center; gap: 7px; height: 34px; padding: 0 12px; background: #EEF0F3; border-bottom: 1px solid #D9DDE3; font: 500 12px/1 "Inter", sans-serif; color: #4A5260; }
+.lab-chrome i { width: 10px; height: 10px; border-radius: 50%; background: #C9CED6; }
+.lab-chrome span { margin-left: 8px; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lab-chrome b { padding: 4px 7px; border-radius: 6px; background: #1F2937; color: #fff; font: 700 11px/1 "SFMono-Regular", Menlo, Consolas, monospace; }
+.lab-handle { position: absolute; top: 50%; width: 14px; height: 64px; margin-top: -32px; border-radius: 8px; background: var(--ink); cursor: ew-resize; opacity: .85; touch-action: none; }
+.lab-handle::before { content: ""; position: absolute; inset: 18px 5px; border-left: 2px solid var(--surface); border-right: 2px solid var(--surface); }
+
+.lab-site { container: site / inline-size; position: relative; font-family: "Inter", system-ui, sans-serif; color: #1E2430; font-size: 14px; line-height: 1.5; text-align: left; }
+.lab-site *, .lab-site *::before, .lab-site *::after { box-sizing: border-box; }
+.lab-site :where(h3, h4, p, ul) { margin: 0; padding: 0; list-style: none; }
+.lab-site button { font: inherit; cursor: pointer; }
+.ls-nav { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 20px; border-bottom: 1px solid #E6E8EC; }
+.ls-logo { font-weight: 800; letter-spacing: -.01em; color: #7A1F2B; font-size: 17px; }
+.ls-logo span { font-weight: 500; color: #1E2430; }
+.ls-links { display: flex; align-items: center; gap: 18px; font-size: 13.5px; font-weight: 500; }
+.ls-links a { color: #1E2430; text-decoration: none; }
+.ls-links a:hover { color: #7A1F2B; }
+.ls-cta { padding: 9px 14px; border-radius: 8px; border: 0; background: #7A1F2B; color: #fff; font-weight: 600; font-size: 13px; }
+.ls-menu { display: none; padding: 8px 12px; border-radius: 8px; border: 1px solid #C9CED6; background: #fff; color: #1E2430; font-weight: 600; font-size: 13px; }
+.ls-drop { display: none; }
+.ls-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 20px; align-items: center; padding: 26px 20px; background: #F7F2EE; }
+.ls-hero h3 { font-size: 26px; line-height: 1.15; font-weight: 800; color: #2A1218; }
+.ls-hero p { margin-top: 8px; color: #4A5260; font-size: 14px; }
+.ls-hero .row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.ls-btn2 { padding: 9px 14px; border-radius: 8px; border: 1.5px solid #7A1F2B; background: #fff; color: #7A1F2B; font-weight: 600; font-size: 13px; }
+.ls-hero img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; display: block; }
+.ls-sec { padding: 20px; }
+.ls-sec h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+.ls-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.ls-chips button { padding: 7px 12px; border-radius: 999px; border: 1px solid #C9CED6; background: #fff; color: #1E2430; font-size: 12.5px; font-weight: 600; }
+.ls-chips button[aria-pressed="true"] { background: #1E2430; border-color: #1E2430; color: #fff; }
+.ls-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.ls-card { position: relative; display: flex; flex-direction: column; border: 1px solid #E6E8EC; border-radius: 10px; overflow: hidden; background: #fff; }
+.ls-card[hidden] { display: none; }
+.ls-card img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #F2F3F5; }
+.ls-card .b { display: flex; flex-direction: column; gap: 4px; flex: 1; padding: 12px; }
+.ls-card b { font-size: 14.5px; }
+.ls-card p { font-size: 12.5px; color: #4A5260; flex: 1; }
+.ls-card button { margin-top: 8px; padding: 8px 10px; border-radius: 8px; border: 1px solid #7A1F2B; background: #fff; color: #7A1F2B; font-weight: 600; font-size: 12.5px; }
+.ls-card button:hover { background: #7A1F2B; color: #fff; }
+.ls-card .col { display: none; position: absolute; top: 8px; left: 8px; padding: 3px 6px; border-radius: 5px; background: rgba(31, 41, 55, .9); color: #fff; font: 700 10.5px/1 "SFMono-Regular", Menlo, Consolas, monospace; }
+.ls-say { min-height: 1.4em; margin-top: 10px; font-size: 13px; color: #1B5E20; font-weight: 600; }
+.ls-qa { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 18px 20px; background: #1E2430; color: #fff; }
+.ls-qa p { font-size: 13.5px; color: #E5E7EB; }
+.ls-qa b { display: block; font-size: 15px; color: #fff; margin-bottom: 2px; }
+.ls-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.ls-badges span { padding: 6px 9px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, .5); font-size: 11.5px; font-weight: 700; letter-spacing: .04em; }
+.ls-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; padding: 12px 20px; font-size: 12px; color: #4A5260; border-top: 1px solid #E6E8EC; }
+.lab-site a:focus-visible, .lab-site button:focus-visible { outline: 3px solid #2563EB; outline-offset: 2px; }
+
+@container site (max-width: 991px) { .ls-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container site (max-width: 767px) {
+  .ls-links, .ls-nav > .ls-cta { display: none; }
+  .ls-menu { display: inline-block; }
+  .ls-drop.open { display: grid; position: absolute; z-index: 3; top: 100%; left: 0; right: 0; padding: 8px 20px 14px; background: #fff; border-bottom: 1px solid #E6E8EC; box-shadow: 0 10px 20px rgba(0, 0, 0, .08); }
+  .ls-drop a { padding: 10px 0; color: #1E2430; text-decoration: none; font-weight: 600; border-top: 1px solid #F0F1F3; }
+  .ls-hero { grid-template-columns: minmax(0, 1fr); }
+  .ls-hero h3 { font-size: 22px; }
+  .ls-qa { grid-template-columns: minmax(0, 1fr); }
+}
+@container site (max-width: 575px) { .ls-grid { grid-template-columns: minmax(0, 1fr); } .ls-hero img { aspect-ratio: 16 / 9; } }
+
+/* Grid overlay and spacing view (developer-tools style) */
+.lab-gridov { display: none; position: absolute; inset: 34px 20px 0; pointer-events: none; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; z-index: 4; }
+.lab-gridov i { background: rgba(224, 83, 63, .13); border-left: 1px solid rgba(224, 83, 63, .5); border-right: 1px solid rgba(224, 83, 63, .5); }
+.lab-win.grid .lab-gridov { display: grid; }
+.lab-win.grid .ls-card .col { display: block; }
+.lab-win.spec .ls-card .b { outline: 1px dashed #E0533F; outline-offset: -1px; position: relative; }
+.lab-win.spec .ls-card .b::before { content: "padding 12"; position: absolute; top: 2px; right: 4px; font: 700 10px/1 "SFMono-Regular", Menlo, monospace; color: #B42318; }
+.lab-win.spec .ls-grid { outline: 1px dashed #2563EB; outline-offset: 6px; }
+.lab-win.spec .ls-sec h4::after { content: "  gap 16 between cards"; font: 700 10.5px/1 "SFMono-Regular", Menlo, monospace; color: #1D4ED8; }
+.lab-win.spec .ls-nav { outline: 1px dashed #E0533F; outline-offset: -3px; }
+.lab-win.spec .ls-nav::after { content: "padding 12 / 20"; position: absolute; right: 6px; bottom: 2px; font: 700 10px/1 "SFMono-Regular", Menlo, monospace; color: #B42318; }
+
+/* 2. Component states playground */
+.lab-spec { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.lab-ctrls { display: grid; align-content: start; gap: 14px; padding: 18px; }
+.lab-ctrls h5, .lab-out h5 { font: 600 12px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.lab-ctrls .lab-seg { flex-wrap: wrap; }
+.lab-out { display: grid; align-content: start; gap: 14px; padding: 18px; }
+.lab-preview { display: grid; place-items: center; min-height: 130px; border-radius: 14px; background: repeating-conic-gradient(#F3F4F6 0 25%, #FFFFFF 0 50%) 0 0 / 16px 16px; border: 1px solid var(--line); }
+.lab-name { display: grid; gap: 6px; }
+.lab-name code { display: block; padding: 10px 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); font: 600 13.5px/1.4 "SFMono-Regular", Menlo, Consolas, monospace; color: var(--ink); overflow-wrap: anywhere; }
+.lab-tokens { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 0; font-size: 14px; }
+.lab-tokens dt { color: var(--muted); }
+.lab-tokens dd { margin: 0; color: var(--ink); font-family: "SFMono-Regular", Menlo, Consolas, monospace; font-size: 13px; }
+.lab-note { margin: 0; padding: 12px 14px; border-radius: 12px; background: var(--surface); border-left: 4px solid var(--accent); font-size: 14.5px; color: var(--ink); }
+
+/* The sample button (a drawing of a component, not a control) */
+.lab-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: "Inter", sans-serif; font-weight: 600; border-radius: 10px; border: 1.5px solid transparent; transition: background-color .15s ease, box-shadow .15s ease; }
+.lab-btn.sm { height: 32px; padding: 0 12px; font-size: 13px; border-radius: 8px; }
+.lab-btn.md { height: 40px; padding: 0 16px; font-size: 14px; }
+.lab-btn.lg { height: 48px; padding: 0 20px; font-size: 16px; border-radius: 12px; }
+.lab-btn.primary { background: #5B3CC4; color: #fff; }
+.lab-btn.primary.hover { background: #4A2FA8; }
+.lab-btn.secondary { background: #fff; color: #4A2FA8; border-color: #5B3CC4; }
+.lab-btn.secondary.hover { background: #F2EEFF; }
+.lab-btn.ghost { background: transparent; color: #4A2FA8; }
+.lab-btn.ghost.hover { background: #F2EEFF; }
+.lab-btn.focus { box-shadow: 0 0 0 3px #fff, 0 0 0 6px #2563EB; }
+.lab-btn.disabled { background: #E5E7EB; color: #4B5563; border-color: #E5E7EB; }
+.lab-btn.ghost.disabled { background: transparent; border-color: transparent; }
+.lab-btn .sp { width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: lab-spin .8s linear infinite; }
+@keyframes lab-spin { to { transform: rotate(360deg); } }
+@media (max-width: 860px) { .lab-spec { grid-template-columns: minmax(0, 1fr); } .lab-range input { width: 140px; } }
+@media (prefers-reduced-motion: reduce) { .lab-win { transition: none; } .lab-btn .sp { animation: none; border-right-color: currentColor; opacity: .6; } }

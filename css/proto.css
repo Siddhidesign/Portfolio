@@ -1,0 +1,93 @@
+/* ============================================================
+   PHONE PROTOTYPE SHELL (IRS2GO, Money Anchor, EV Charging)
+   A phone frame, controls and a "things to try" list around an
+   app that is built in HTML, CSS and JavaScript. The frame follows
+   the page theme; the app inside keeps the product's own colors.
+   ============================================================ */
+.pr-demo { margin-top: 26px; --pr-h: min(812px, 86vh); }
+.pr-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 14px; }
+.pr-hint { font-family: "Caveat", "Segoe Print", cursive; font-weight: 600; font-size: 1.35rem; line-height: 1; color: var(--accent); margin-right: auto; }
+.pr-seg { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 999px; background: var(--surface-2, var(--bg-2)); border: 1px solid var(--line); }
+.pr-seg button, .pr-go button { font: 600 13px/1 var(--sans); color: var(--ink); background: transparent; border: 0; border-radius: 999px; padding: 8px 13px; cursor: pointer; white-space: nowrap; }
+.pr-seg button:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.pr-seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface, var(--bg)); }
+.pr-seg-l { font: 600 11px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 0 6px 0 8px; align-self: center; }
+.pr-go { display: inline-flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.pr-go button { border: 1px solid var(--line); background: var(--surface, var(--bg)); }
+.pr-go button:hover { border-color: var(--ink); }
+.pr-go button[aria-current="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.pr-wrap { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 460px); gap: clamp(20px, 4vw, 48px); align-items: start; justify-content: center; }
+.pr-wrap.solo { grid-template-columns: minmax(0, 400px); }
+.pr-phone { position: relative; width: min(395px, 100%); height: var(--pr-h); margin: 0 auto; display: flex; flex-direction: column; border: 10px solid #0b0d10; border-radius: 52px; overflow: hidden; background: var(--pr-bar, #ffffff); box-shadow: 0 30px 60px rgba(10, 17, 25, .22), 0 0 0 1px rgba(127, 127, 127, .25); isolation: isolate; }
+.pr-status { flex: none; position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; height: 40px; padding: 4px 26px 0 30px; font: 600 14px/1 -apple-system, "SF Pro Text", "Inter", system-ui, sans-serif; color: var(--pr-bar-ink, #0b0d10); background: var(--pr-bar, #ffffff); }
+.pr-status::after { content: ""; position: absolute; left: 50%; top: 8px; width: 96px; height: 26px; border-radius: 20px; background: #0b0d10; transform: translateX(-50%); }
+.pr-status svg { display: inline-block; height: 12px; width: auto; fill: currentColor; vertical-align: middle; margin-left: 5px; }
+.pr-phone[data-tone="dark"] { --pr-bar: var(--pr-dark, #003264); --pr-bar-ink: #ffffff; }
+.pr-screen { position: relative; flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; container: pr / inline-size; scroll-behavior: smooth; }
+.pr-screen { scrollbar-width: none; } .pr-screen::-webkit-scrollbar { display: none; }
+.pr-screen:focus-visible { outline: 3px solid #2563EB; outline-offset: -3px; }
+.pr-app { min-height: 100%; display: flex; flex-direction: column; }
+.pr-app > * { flex: 1 0 auto; }
+.pr-app [tabindex="-1"]:focus-visible, .pr-layer [tabindex="-1"]:focus-visible { outline: none; }
+.pr-layer { position: absolute; inset: 40px 0 0 0; z-index: 30; pointer-events: none; }
+.pr-layer > * { pointer-events: auto; }
+.pr-toast { position: absolute; left: 50%; bottom: 84px; transform: translate(-50%, 8px); width: max-content; max-width: calc(100% - 28px); display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-radius: 14px; background: #101418; color: #fff; font: 500 13.5px/1.35 "Inter", system-ui, sans-serif; box-shadow: 0 14px 34px rgba(0, 0, 0, .35); opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease; }
+.pr-toast.on { opacity: 1; transform: translate(-50%, 0); }
+.pr-toast:empty { padding: 0; }
+.pr-toast i { width: 20px; height: 20px; flex: none; border-radius: 50%; background: #1f9d55; display: grid; place-items: center; }
+.pr-toast i svg { width: 12px; height: 12px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.pr-scrim { position: absolute; inset: 0; display: flex; align-items: flex-end; background: rgba(8, 12, 18, .5); }
+.pr-scrim.center { align-items: center; justify-content: center; padding: 22px; }
+.pr-sheet { width: 100%; max-height: 92%; overflow: auto; background: #fff; color: #1d2024; border-radius: 24px 24px 0 0; padding: 10px 20px 24px; font-family: "Inter", system-ui, sans-serif; box-shadow: 0 -10px 40px rgba(0, 0, 0, .25); }
+.pr-scrim.center .pr-sheet { border-radius: 20px; max-height: 100%; padding: 22px 20px 20px; }
+.pr-sheet::before { content: ""; display: block; width: 40px; height: 5px; border-radius: 3px; background: #d4d7dc; margin: 0 auto 14px; }
+.pr-scrim.center .pr-sheet::before { display: none; }
+.pr-sheet :focus-visible, .pr-app :focus-visible { outline: 3px solid #2563EB; outline-offset: 2px; border-radius: 8px; }
+/* Page rules such as ".step p" must not leak into the app */
+.pr-app p, .pr-layer p, .pr-cmp p { color: inherit; margin: 0; }
+.pr-app h3, .pr-layer h3, .pr-cmp h3 { font-family: inherit; font-size: inherit; line-height: inherit; margin: 0; }
+.pr-app .sr, .pr-layer .sr, .pr-tour .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Things to try: a checklist that ticks itself as you use the app */
+.pr-tour { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r, 18px); padding: 20px 22px; position: sticky; top: 90px; }
+.pr-tour h4 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; line-height: 1.15; color: var(--ink); }
+.pr-tour > p { font-size: 14px; color: var(--text-2, var(--text)); margin: 4px 0 12px; }
+.pr-bar { height: 6px; border-radius: 3px; background: var(--surface-2, var(--bg-2)); border: 1px solid var(--line); overflow: hidden; margin-bottom: 6px; }
+.pr-bar i { display: block; height: 100%; width: var(--p, 0%); background: var(--accent); transition: width .4s ease; }
+.pr-count { font: 600 12px/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.pr-tasks { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 6px; }
+.pr-tasks li { display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2, var(--bg-2)); font-size: 14.5px; color: var(--ink); }
+.pr-tasks li .box { width: 22px; height: 22px; border-radius: 7px; border: 2px solid var(--muted); display: grid; place-items: center; }
+.pr-tasks li.done .box { background: #1f9d55; border-color: #1f9d55; }
+.pr-tasks li.done .box svg { display: block; }
+.pr-tasks li .box svg { display: none; width: 13px; height: 13px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.pr-tasks li.done span.t { text-decoration: line-through; text-decoration-thickness: 1px; color: var(--muted); }
+.pr-tasks button { font: 600 12.5px/1 var(--sans); padding: 7px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; white-space: nowrap; }
+.pr-tasks button:hover { border-color: var(--ink); }
+.pr-tour .pr-note { font-size: 13px; color: var(--muted); margin-top: 12px; }
+.pr-cheer { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: #e3f4ea; color: #173d29; font-size: 14px; }
+.pr-cheer[hidden] { display: none; }
+.pr-cap { font-size: 14px; color: var(--muted); margin-top: 12px; }
+.pr-fallback { display: block; width: min(395px, 100%); margin: 0 auto; border-radius: 40px; border: 1px solid var(--line); }
+[data-proto] { contain: inline-size; min-width: 0; }
+@media (max-width: 860px) {
+  .pr-wrap { grid-template-columns: minmax(0, 1fr); }
+  .pr-tour { position: static; }
+}
+@media (max-width: 480px) {
+  .pr-demo { --pr-h: 78vh; }
+  .pr-phone { border-width: 6px; border-radius: 34px; }
+  .pr-status::after { width: 76px; height: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { .pr-screen { scroll-behavior: auto; } }
+
+/* Coded before/after comparison (two small screens, one slider) */
+.pr-cmp { --pos: 50%; position: relative; isolation: isolate; max-width: 340px; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); background: #fff; box-shadow: 0 18px 40px rgba(10, 17, 25, .14); }
+.pr-cmp .side { width: 100%; position: relative; z-index: 1; }
+.pr-cmp .side.before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); z-index: 2; }
+.pr-cmp .line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, .25); z-index: 3; pointer-events: none; }
+.pr-cmp .grip { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: #fff; box-shadow: 0 3px 12px rgba(0, 0, 0, .3); display: grid; place-items: center; font: 700 14px/1 sans-serif; color: #1d2024; }
+.pr-cmp .tag { position: absolute; top: 12px; z-index: 4; font: 600 11px/1 "Inter", sans-serif; letter-spacing: .1em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: rgba(255, 255, 255, .95); color: #1d2024; box-shadow: 0 2px 8px rgba(0, 0, 0, .18); pointer-events: none; }
+.pr-cmp .tag.l { left: 12px; } .pr-cmp .tag.r { right: 12px; }
+.pr-cmp input[type="range"] { position: absolute; inset: 0; z-index: 5; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.pr-cmp input[type="range"]:focus-visible + .line { box-shadow: 0 0 0 3px #2563EB; }
