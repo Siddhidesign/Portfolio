@@ -19,6 +19,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/site.css" />
+  <link rel="stylesheet" href="../css/proto.css" />
+  <link rel="stylesheet" href="../css/ma-app.css" />
+  <link rel="stylesheet" href="../css/case-kit.css" />
 </head>
 <body class="has-dock">
   <a class="skip" href="#main">Skip to content</a>
@@ -31,11 +34,10 @@
       <p class="lede">Tapping a phone doesn't feel like spending, and most budgeting apps only show you what you already spent. Our team built an AI coach that speaks up before you spend, and explains why.</p>
       <div class="chips"><span class="chip">Mobile app</span><span class="chip">Fintech</span><span class="chip">AI</span><span class="chip">IRB research</span></div>
       <p class="case-note note-hand">75% of testers completely trusted it! <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
-      <div class="media" style="background: var(--sky);">
-        <video data-live src="../assets/live/anchor.mp4" poster="../assets/live/anchor.jpg" width="1280" height="800" muted loop playsinline preload="metadata" aria-label="Money Anchor app screens"></video>
-        <span class="live">LIVE</span>
-        <button class="vbtn" type="button">Pause</button>
+      <div id="ma-main" data-proto="anchor" data-hint="it's real code, ask the AI!" data-label="Money Anchor, interactive prototype">
+        <img class="pr-fallback" src="../assets/moneyanchor/ai-anchor.png" width="393" height="852" alt="The AI Anchor chat screen of Money Anchor" />
       </div>
+      <p class="pr-cap">Rebuilt in HTML, CSS and JavaScript from our final screens. Switch to "Design notes" for the reason behind each screen, or "Before fixes" for the version we tested.</p>
       <dl class="facts">
         <div class="fact"><dt>My role</dt><dd>UX Researcher and Designer</dd></div>
         <div class="fact"><dt>Team</dt><dd>Brandan, Giselle, Shreeraj and me</dd></div>
@@ -72,7 +74,7 @@
         <div class="sec-head"><div><span class="kicker">How we did it</span><h2 class="h2" id="process-title">Six steps, from stories to a tested app</h2><p class="lede">I ran the IRB-approved study and designed the AI coach and budgeting flows.</p></div></div>
         <div class="steps">
 
-          <div class="step">
+          <div class="step full">
             <div class="step-text">
               <span class="step-n">01</span>
               <h3>Research: 24 people, real stories</h3>
@@ -82,13 +84,30 @@
                 <li>"If an app said 'Everyone slips up sometimes' instead of scolding you, it'd feel encouraging."</li>
               </ul>
             </div>
-            <div class="gallery">
-              <figure class="shot wide"><a class="shot-frame" href="img/moneyanchor/user-research-quotes.jpg" target="_blank" rel="noopener"><img src="img/moneyanchor/user-research-quotes.jpg" width="1500" height="844" loading="lazy" alt="Research method slide: 8 interviews, 4 focus groups of 4, and participant quotes"></a><figcaption class="cap">How we ran the research, with real quotes.</figcaption></figure>
-              <figure class="shot wide"><a class="shot-frame" href="img/moneyanchor/problem-statement.jpg" target="_blank" rel="noopener"><img src="img/moneyanchor/problem-statement.jpg" width="1500" height="844" loading="lazy" alt="Problem statement and objective slide"></a><figcaption class="cap">The problem statement we designed against.</figcaption></figure>
+            <div class="cx">
+              <div class="cx-h"><h4>How we listened</h4><p>Two formats under one protocol: interviews for private habits, focus groups for the social side of spending.</p></div>
+              <div class="cx-stats">
+                <div class="cx-stat cx-card"><b>8</b><span>one-on-one interviews, ages 20 to 32, about how people sort money in their heads</span></div>
+                <div class="cx-stat cx-card"><b>4 &times; 4</b><span>focus groups of four, 16 people, about social spending and peer pressure</span></div>
+                <div class="cx-stat cx-card"><b>IRB</b><span>approved protocol, so every session handled people's data ethically</span></div>
+              </div>
+              <div class="cx-quotes">
+                <blockquote class="cx-quote">For me, it's more the want, the window shopping. If I free up some money, I go spend it on something else.<cite>Research participant</cite></blockquote>
+                <blockquote class="cx-quote">I spend more when I'm bored. Surfing online equals unnecessary spending.<cite>Research participant</cite></blockquote>
+                <blockquote class="cx-quote">For me, it's juggling everything, bills, assignments, cooking, planning. I can manage money, but I can't manage everything at once.<cite>Research participant</cite></blockquote>
+                <blockquote class="cx-quote">I want an app that stops me before I make the mistake, not one that scolds me after.<cite>Research participant</cite></blockquote>
+              </div>
+            </div>
+            <div class="cx">
+              <div class="cx-h"><h4>What we set out to fix</h4></div>
+              <div class="cx-pair">
+                <div class="cx-card"><h5>The problem</h5><p>Digital wallets make money feel fake, which leads to impulse spending and forgotten "zombie" subscriptions. Most money apps only report what already happened, with graphs that cause stress and make people avoid the app.</p></div>
+                <div class="cx-card"><h5>Our objective</h5><p>An AI coach that steps in before you spend, puts dollars in real-world terms like hours of work, and explains every nudge it gives.</p></div>
+              </div>
             </div>
           </div>
 
-          <div class="step flip">
+          <div class="step full">
             <div class="step-text">
               <span class="step-n">02</span>
               <h3>Synthesis: 50+ quotes, 4 themes</h3>
@@ -100,13 +119,18 @@
               </ul>
               <p>Each theme became a requirement: show dollars as hours of work, use a friendly chat instead of scary charts, and support group goals. I used Claude to suggest first-pass themes from the transcripts, then checked every theme against the raw quotes by hand.</p>
             </div>
-            <div class="gallery">
-              <figure class="shot wide"><a class="shot-frame" href="img/moneyanchor/affinity-map.jpg" target="_blank" rel="noopener"><img src="img/moneyanchor/affinity-map.jpg" width="1500" height="844" loading="lazy" alt="Affinity map clustering more than 50 quotes into four themes"></a><figcaption class="cap">The affinity map.</figcaption></figure>
-              <figure class="shot wide"><a class="shot-frame" href="img/moneyanchor/key-insights.jpg" target="_blank" rel="noopener"><img src="img/moneyanchor/key-insights.jpg" width="1500" height="844" loading="lazy" alt="Top three insights, each turned into a design requirement"></a><figcaption class="cap">Insights turned into requirements.</figcaption></figure>
+            <div class="cx">
+              <div class="cx-h"><h4>Three insights, and what each one asked us to build</h4></div>
+              <div class="cx-req">
+                <div class="cx-card"><span class="n">Insight 1</span><b>"The pain of paying" is dead</b><p>Digital wallets make money feel fake.</p><span class="to">&#8594; Visual anchors</span></div>
+                <div class="cx-card"><span class="n">Insight 2</span><b>Graphs cause stress</b><p>Complex charts make people avoid the app.</p><span class="to">&#8594; A conversational UI</span></div>
+                <div class="cx-card"><span class="n">Insight 3</span><b>Social pressure is the #1 budget killer</b><p>"If my friends are going out, I'm going out too."</p><span class="to">&#8594; Group goal tracking</span></div>
+              </div>
             </div>
+            <figure class="shot" style="max-width: 760px;"><a class="shot-frame" href="img/moneyanchor/affinity-map.jpg" target="_blank" rel="noopener"><img src="img/moneyanchor/affinity-map.jpg" width="1500" height="844" loading="lazy" alt="Affinity map clustering more than 50 research notes into themes"></a><figcaption class="cap">The affinity map we sorted the notes on.</figcaption></figure>
           </div>
 
-          <div class="step">
+          <div class="step full">
             <div class="step-text">
               <span class="step-n">03</span>
               <h3>Personas: two very different money habits</h3>
@@ -116,42 +140,79 @@
               </ul>
               <p>One tone couldn't serve both, so the AI explains its reasoning instead of giving orders.</p>
             </div>
-            <figure class="shot"><a class="shot-frame" href="img/moneyanchor/personas.jpg" target="_blank" rel="noopener"><img src="img/moneyanchor/personas.jpg" width="1500" height="844" loading="lazy" alt="Two persona cards: the anxious avoider and the precision planner"></a><figcaption class="cap">Our two personas.</figcaption></figure>
+            <div class="cx">
+              <div class="cx-tablist" role="tablist" aria-label="Personas" data-cx-tablist="ma-personas">
+                <button type="button" role="tab" id="ma-tab-sarah" aria-controls="ma-p-sarah" aria-selected="true" data-v="sarah">Sarah, 23</button>
+                <button type="button" role="tab" id="ma-tab-james" aria-controls="ma-p-james" aria-selected="false" tabindex="-1" data-v="james">James, 25</button>
+              </div>
+              <div class="cx-personas" id="ma-personas">
+                <div class="cx-persona cx-card" role="tabpanel" id="ma-p-sarah" aria-labelledby="ma-tab-sarah" data-panel="sarah" tabindex="0">
+                  <div class="who"><span class="av" aria-hidden="true">S</span><h5>Sarah, 23</h5><p class="role">Early-career marketing assistant</p><blockquote>"Budgeting apps should feel friendly, not judgmental. If they're fun and easy, more people my age would actually use them."</blockquote><div class="tags"><span>Emotional</span><span>Experience-focused</span><span>Impulsive</span><span>Freedom-seeking</span></div></div>
+                  <div class="cols"><div><h6>Goals</h6><ul><li>Save for vacations and special experiences</li><li>Feel more in control of impulse spending</li><li>Build stress-free money habits</li></ul></div><div><h6>Needs</h6><ul><li>An encouraging tone, not scolding</li><li>Visual progress and small wins</li><li>Optional streaks, milestones and confetti</li><li>Clear, simple insights</li></ul></div><div><h6>Pain points</h6><ul><li>Feels judged by budgeting tools</li><li>Overwhelmed by notifications</li><li>Finds apps cluttered and unfriendly</li></ul></div></div>
+                </div>
+                <div class="cx-persona cx-card" role="tabpanel" id="ma-p-james" aria-labelledby="ma-tab-james" data-panel="james" tabindex="0">
+                  <div class="who"><span class="av" aria-hidden="true">J</span><h5>James, 25</h5><p class="role">Graduate student with a part-time job</p><blockquote>"Most apps tell you what you already did wrong. I want one that helps before I make the mistake."</blockquote><div class="tags"><span>Analytical</span><span>Detail-oriented</span><span>Curious</span><span>Cautiously proactive</span></div></div>
+                  <div class="cols"><div><h6>Goals</h6><ul><li>Build a steady emergency fund</li><li>Save for a car down payment</li><li>Grow long-term money awareness and self-control</li></ul></div><div><h6>Needs</h6><ul><li>A friendly coach, never a nag</li><li>Simple visuals of what is left and goal progress</li><li>Money in real-world terms, like "That's three days of groceries"</li></ul></div><div><h6>Pain points</h6><ul><li>Apps only warn him after he overspends</li><li>Dashboards feel cluttered</li><li>Impulse spending on food delivery</li></ul></div></div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="step flip">
+          <div class="step full">
             <div class="step-text">
               <span class="step-n">04</span>
               <h3>Ideas: 100 ideas, 10 features</h3>
               <p>Four of us wrote 25 ideas each, then scored all 100 from "Not feasible" to "Must have". 64 made the idea book, and 10 became features, like a budget builder, AI predictions, subscription canceling, auto-categorizing and savings goals.</p>
             </div>
-            <div class="gallery">
-              <figure class="shot wide"><a class="shot-frame" href="img/moneyanchor/idea-book.jpg" target="_blank" rel="noopener"><img src="img/moneyanchor/idea-book.jpg" width="1500" height="844" loading="lazy" alt="Idea book with 100 ideas scored on a rating rubric"></a><figcaption class="cap">The idea book and its scoring rubric.</figcaption></figure>
-              <figure class="shot wide"><a class="shot-frame" href="img/moneyanchor/ideation-brainstorm.jpg" target="_blank" rel="noopener"><img src="img/moneyanchor/ideation-brainstorm.jpg" width="1500" height="844" loading="lazy" alt="Brainstorm board filtering 100 ideas into seven themes"></a><figcaption class="cap">Filtering 100 ideas into seven themes.</figcaption></figure>
+            <div class="cx">
+              <div class="cx-grid2">
+                <div class="cx-funnel">
+                  <div style="--w:100%"><b>100</b><span>ideas, 25 from each of us, realistic and far-fetched</span></div>
+                  <div style="--w:64%"><b>64</b><span>made the idea book after the vote</span></div>
+                  <div style="--w:10%"><b>10</b><span>became features</span></div>
+                </div>
+                <div class="cx-card" style="padding: 18px;"><h5 class="cx-k">7 themes from the affinity map</h5><div class="cx-chips"><span>Proactive awareness</span><span>Emotional motivation</span><span>AI</span><span>Trust</span><span>Simplification</span><span>Accountability</span><span>Real-life goals</span></div></div>
+              </div>
+              <h5 class="cx-k" style="margin-top: 20px;">How we voted: each of us rated every idea</h5>
+              <div class="cx-rubric"><div class="cx-card"><i aria-hidden="true">&#9733;</i>Not feasible</div><div class="cx-card"><i aria-hidden="true">&#9733;&#9733;</i>Can skip</div><div class="cx-card"><i aria-hidden="true">&#9733;&#9733;&#9733;</i>Optional</div><div class="cx-card"><i aria-hidden="true">&#9733;&#9733;&#9733;&#9733;</i>Considerable</div><div class="cx-card"><i aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</i>Must have</div></div>
+              <div class="cx-pair" style="margin-top: 12px;">
+                <div class="cx-card"><h5>Picked to build</h5><ul><li>Budget builder and savings tracker</li><li>AI-powered predictions</li><li>Subscription cancellation</li><li>Automatic transaction categories</li></ul></div>
+                <div class="cx-card parked"><h5>Too far out, used only in storyboards</h5><ul><li>AR affordability scores</li><li>An emotion-tracking app</li><li>Biometric card lock</li></ul></div>
+              </div>
             </div>
           </div>
 
-          <div class="step">
+          <div class="step full">
             <div class="step-text">
               <span class="step-n">05</span>
               <h3>Design: from wireframes to real screens</h3>
               <p>Every wireframe carries the reason behind it: progress bars because graphs caused stress, a chat because a dashboard reads like a report card, auto-categorizing because manual logging was where people gave up.</p>
             </div>
-            <figure class="shot"><a class="shot-frame" href="img/moneyanchor/wireframes-lofi.jpg" target="_blank" rel="noopener"><img src="img/moneyanchor/wireframes-lofi.jpg" width="1500" height="844" loading="lazy" alt="Low-fidelity wireframes with the design decision noted beside each screen"></a><figcaption class="cap">Wireframes, with the reasoning attached.</figcaption></figure>
-          </div>
-
-          <div class="step full">
-            <div class="phones">
-              <figure><img src="../assets/Homepage-Budget.png" width="1572" height="3408" loading="lazy" alt="Home screen with total balance and budget overview" /><figcaption>Home budget</figcaption></figure>
-              <figure><img src="../assets/moneyanchor/ai-anchor.png" width="393" height="852" loading="lazy" alt="AI Anchor chat assistant" /><figcaption>AI Anchor chat</figcaption></figure>
-              <figure><img src="../assets/moneyanchor/reports-insights.png" width="786" height="1704" loading="lazy" alt="AI insights on spending patterns" /><figcaption>AI insights</figcaption></figure>
-              <figure><img src="../assets/moneyanchor/Accounts.png" width="393" height="852" loading="lazy" alt="Linked bank accounts" /><figcaption>Accounts</figcaption></figure>
-              <figure><img src="../assets/moneyanchor/Transactions%20page.png" width="393" height="852" loading="lazy" alt="Categorized transactions" /><figcaption>Transactions</figcaption></figure>
-              <figure><img src="../assets/moneyanchor/Reports%20Main%20Page.png" width="393" height="852" loading="lazy" alt="Spending reports" /><figcaption>Reports</figcaption></figure>
+            <div class="cx">
+              <div class="cx-h"><h4>The wireframes, drawn in code</h4><p>Low fidelity on purpose, so we argued about structure, not colors.</p></div>
+              <div class="cx-wires"><figure class="cx-wire"><div class="ph" aria-hidden="true"><div class="t">My Accounts</div><div class="b d" style="height:62px"></div><div class="row"><div class="b" style="height:26px"></div><div class="b" style="height:26px"></div></div><div class="b" style="height:22px"></div><div class="t">Quick Actions</div><div class="b m" style="height:22px"></div><div class="row"><div class="b" style="height:16px"></div><div class="b" style="height:16px"></div><div class="b" style="height:16px"></div></div><div class="t">Goals</div><div class="l" style="width:90%"></div><div class="b m" style="height:6px;width:70%"></div><div class="l" style="width:80%"></div><div class="b m" style="height:6px;width:45%"></div><div class="tabs"></div></div><figcaption>My Accounts<small>Budgets, goals and accounts</small></figcaption></figure><figure class="cx-wire"><div class="ph" aria-hidden="true"><div class="b d" style="height:24px"></div><div class="t">Have a budgeting question?</div><div class="b" style="height:18px"></div><div class="t">Quick Actions</div><div class="l" style="width:60%"></div><div class="l" style="width:82%"></div><div class="l" style="width:70%"></div><div class="l" style="width:64%"></div><div class="t">AI-Powered Insights</div><div class="b" style="height:44px"></div><div class="b" style="height:44px"></div><div class="b m" style="height:20px"></div><div class="tabs"></div></div><figcaption>AI Assistant<small>Questions, nudges, insights</small></figcaption></figure><figure class="cx-wire"><div class="ph" aria-hidden="true"><div class="t">Transactions</div><div class="b" style="height:74px;display:grid;place-items:center"><div class="donut"></div></div><div class="b" style="height:16px"></div><div class="row"><span class="ci"></span><span class="ci"></span><span class="ci"></span><span class="ci"></span><span class="ci"></span></div><div class="t">Recent Transactions</div><div class="row"><span class="ci"></span><div class="l" style="margin-top:7px"></div></div><div class="row"><span class="ci"></span><div class="l" style="margin-top:7px"></div></div><div class="row"><span class="ci"></span><div class="l" style="margin-top:7px"></div></div><div class="row"><span class="ci"></span><div class="l" style="margin-top:7px"></div></div><div class="tabs"></div></div><figcaption>Transactions<small>Sorted automatically</small></figcaption></figure><figure class="cx-wire"><div class="ph" aria-hidden="true"><div class="t">Analytics</div><div class="b" style="height:46px"></div><div class="b d" style="height:16px"></div><div class="b" style="height:16px"></div><div class="wave" style="height:70px"></div><div class="t">By category</div><div class="l" style="width:85%"></div><div class="l" style="width:60%"></div><div class="l" style="width:72%"></div><div class="tabs"></div></div><figcaption>Analytics<small>Monthly breakdowns</small></figcaption></figure></div>
+            </div>
+            <div class="cx">
+              <div class="cx-h"><h4>The decisions behind the screens</h4><p>Each one is pinned in the prototype's "Design notes" view.</p></div>
+              <ol class="cx-dec"><li class="cx-card"><span class="n" aria-hidden="true">1</span><span>Clear progress bars and a budget snapshot on the dashboard<small>Graphs caused stress in research.</small></span><button type="button" data-pr-go="#ma-main" data-mode="why" data-screen="home" aria-label="Show design note 1 in the prototype">Show me &#8593;</button></li><li class="cx-card"><span class="n" aria-hidden="true">2</span><span>Conversational AI with personal, transparent nudges<small>A dashboard reads like a report card.</small></span><button type="button" data-pr-go="#ma-main" data-mode="why" data-screen="chat" aria-label="Show design note 2 in the prototype">Show me &#8593;</button></li><li class="cx-card"><span class="n" aria-hidden="true">3</span><span>A bank-like view that matches what people already know<small>Nothing new to learn.</small></span><button type="button" data-pr-go="#ma-main" data-mode="why" data-screen="accounts" aria-label="Show design note 3 in the prototype">Show me &#8593;</button></li><li class="cx-card"><span class="n" aria-hidden="true">4</span><span>Real-time categorized transactions with trend alerts<small>Manual logging was where people gave up.</small></span><button type="button" data-pr-go="#ma-main" data-mode="why" data-screen="tx" aria-label="Show design note 4 in the prototype">Show me &#8593;</button></li><li class="cx-card"><span class="n" aria-hidden="true">5</span><span>Monthly visual spending reports with full breakdowns<small>For the people who want the detail.</small></span><button type="button" data-pr-go="#ma-main" data-mode="why" data-screen="reports" aria-label="Show design note 5 in the prototype">Show me &#8593;</button></li><li class="cx-card"><span class="n" aria-hidden="true">6</span><span>The AI explains every suggestion before you accept it<small>People want the why, and the final say.</small></span><button type="button" data-pr-go="#ma-main" data-mode="why" data-screen="analysis" aria-label="Show design note 6 in the prototype">Show me &#8593;</button></li></ol>
             </div>
           </div>
 
-          <div class="step flip">
+          <div class="step full">
+            <div class="cx" style="margin-top: 0;">
+            <div class="cx-h"><h4>Jump to any screen</h4><p>Each one opens in the working prototype at the top of the page.</p></div>
+            <div class="cx-tiles">
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ma-main" data-mode="final" data-screen="home"><b>Home budget</b><span>Balance, budgets and quick fixes</span><i>Show me &#8593;</i></button>
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ma-main" data-mode="final" data-screen="chat"><b>AI Anchor chat</b><span>Ask it about your budget</span><i>Show me &#8593;</i></button>
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ma-main" data-mode="final" data-screen="analysis"><b>AI analysis</b><span>A suggestion you can check and undo</span><i>Show me &#8593;</i></button>
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ma-main" data-mode="final" data-screen="insights"><b>AI insights</b><span>Patterns in your spending</span><i>Show me &#8593;</i></button>
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ma-main" data-mode="final" data-screen="tx"><b>Transactions</b><span>Search, filter and scan receipts</span><i>Show me &#8593;</i></button>
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ma-main" data-mode="final" data-screen="reports"><b>Reports</b><span>Weekly, monthly and yearly</span><i>Show me &#8593;</i></button>
+            </div>
+            </div>
+          </div>
+
+          <div class="step full">
             <div class="step-text">
               <span class="step-n">06</span>
               <h3>Testing: two rounds, real fixes</h3>
@@ -163,10 +224,36 @@
               </ul>
               <p>In round two, the same task hit 100% success with no misclicks.</p>
             </div>
-            <div class="gallery">
-              <figure class="shot wide"><a class="shot-frame" href="img/moneyanchor/testing-round1-tasks.jpg" target="_blank" rel="noopener"><img src="img/moneyanchor/testing-round1-tasks.jpg" width="1500" height="844" loading="lazy" alt="Round one results: 22.2% success on explore the app, 87.5% on AI advice"></a><figcaption class="cap">Round one results.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/moneyanchor/testing-iteration-1.jpg" target="_blank" rel="noopener"><img src="../assets/moneyanchor/testing-iteration-1.jpg" width="1058" height="1126" loading="lazy" alt="Before and after: the AI moved to a floating bubble and the buttons got clear labels"></a><figcaption class="cap">Fix after round one.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/moneyanchor/testing_iteration_2.jpg" target="_blank" rel="noopener"><img src="../assets/moneyanchor/testing_iteration_2.jpg" width="888" height="944" loading="lazy" alt="Before and after: the AI explanation link rewritten as See AI Explanation"></a><figcaption class="cap">Fix after round two.</figcaption></figure>
+            <div class="cx">
+              <div class="cx-grid2">
+                <div class="cx-card cx-tablewrap"><table class="cx-table"><caption>Round one results</caption><thead><tr><th scope="col"><span class="sr">Measure</span></th><th scope="col">Explore the app</th><th scope="col">Use the AI's advice</th></tr></thead><tbody><tr><th scope="row">Task success</th><td>22.2%</td><td>87.5%</td></tr><tr><th scope="row">Average time</th><td>130.3 s</td><td>58.2 s</td></tr><tr><th scope="row">Misclick rate</th><td>29%</td><td>28.4%</td></tr></tbody></table></div>
+                <div class="cx-card cx-ba">
+                  <h5>"Explore the app": task success</h5>
+                  <div class="r"><span>Round 1</span><span class="track" aria-hidden="true"><i style="--w:22.2%"></i></span><b>22.2%</b></div>
+                  <div class="r new"><span>Round 2</span><span class="track" aria-hidden="true"><i style="--w:100%"></i></span><b>100%</b></div>
+                  <h5>"Explore the app": misclicks</h5>
+                  <div class="r"><span>Round 1</span><span class="track" aria-hidden="true"><i style="--w:29%"></i></span><b>29%</b></div>
+                  <div class="r new"><span>Round 2</span><span class="track" aria-hidden="true"><i style="--w:0%"></i></span><b>0%</b></div>
+                </div>
+              </div>
+            </div>
+            <div class="cx">
+              <div class="cx-h"><h4>The version we tested, rebuilt</h4><p>Red pins mark what testing found. Tap one to see the fix, or switch to Final.</p></div>
+              <div class="cx-oldwrap">
+                <div id="ma-r1" data-proto="anchor" data-mode="r1" data-tour="off" data-controls="mode,reset" data-hint="tap the red pins" data-label="Money Anchor before the testing fixes">
+                  <img class="pr-fallback" src="../assets/moneyanchor/testing-iteration-1.jpg" width="1058" height="1126" alt="Before and after: the AI moved from the nav bar to a floating bubble, and the buttons got clear labels" />
+                </div>
+                <div class="cx-side">
+                  <h5>What round one told us</h5>
+                  <ul class="cx-notes"><li>Most people got around easily, but a few hit unclear icons, labels and buttons that didn't work yet.</li><li>The AI insights helped people spot habits and cut costs, but some couldn't find the feature at all.</li></ul>
+                  <h5>What we changed</h5>
+                  <ol class="cx-task">
+                    <li><span>The AI moved out of the nav bar into a floating chat bubble.</span></li>
+                    <li><span>The + and &#8722; buttons became "Adjust Income" and "Add Expense".</span></li>
+                    <li><span>"Why this suggestion?" became "See AI Explanation", after round two.</span></li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -214,5 +301,8 @@
     <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
   </nav>
   <script src="../js/site.js"></script>
+  <script src="../js/proto.js"></script>
+  <script src="../js/ma-app.js"></script>
+  <script src="../js/case-kit.js"></script>
 </body>
 </html>

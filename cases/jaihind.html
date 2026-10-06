@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jai Hind: One Front Door for Customers and Staff | Siddhi Manche</title>
-  <meta name="description" content="UX case study: redesigning Jai Hind's staff order dashboard to match the brand, work on phones, and share one welcome screen with the shop website. Research, sketches, wireframes, style guide, 26 screens and a clickable prototype.">
+  <meta name="description" content="UX case study: redesigning Jai Hind's staff order dashboard to match the brand, work on phones, and share one welcome screen with the shop website. The screens on this page are rebuilt in code, so you can click through them.">
   <meta name="theme-color" content="#f7f7f7">
   <script>
     (function () {
@@ -17,7 +17,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
   <style>
     /* Tokens: the same named colors as the homepage. Contrast on white:
        --ink #32404f 10.4:1, --text #55606e 6.4:1, --muted #5f6b7a 5.4:1,
@@ -233,8 +233,11 @@
     /* One handwritten note in the hero, same as the other project pages. Caveat is for notes only. */
     .case-note { display: flex; align-items: flex-end; gap: 6px; width: fit-content; margin: 22px 0 -14px; transform: rotate(-2deg); transform-origin: left; font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive; font-weight: 600; font-size: 1.65rem; line-height: 1.05; color: var(--accent); }
     .case-note .arrow { width: 40px; height: 30px; flex: none; }
+    .jr-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .compare .jr-try { font-size: 12px; padding: 6px 11px; }
     .case-note .arrow path { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
   </style>
+  <link rel="stylesheet" href="../css/jh-app.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -269,11 +272,11 @@
           <a class="btn btn-primary" href="#compare">See before and after</a>
           <a class="btn btn-ghost" href="#process">How I did it</a>
         </div>
-        <p class="case-note">one welcome screen for shoppers and staff <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
-        <figure class="shot">
-          <div class="hero-shot"><video data-live src="../assets/live/jaihind.mp4" poster="../assets/live/jaihind.jpg" width="1280" height="800" muted loop playsinline preload="metadata" aria-label="Jai Hind redesign: welcome screen, dashboard, orders and sales order"></video><span class="live">LIVE</span><button class="vbtn" type="button">Pause</button></div>
-          <figcaption class="cap">A quick tour: the new welcome screen, then the staff dashboard, orders and a sales order.</figcaption>
-        </figure>
+        <p class="case-note">this is code, not a screenshot. click anything! <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
+        <div id="jh-main" data-jh data-view="welcome" data-label="Interactive Jai Hind console, recreated in code. Start on the Welcome screen.">
+          <img class="jh-fallback" src="../assets/jaihind/jh-13-final-dashboard.jpg" width="1784" height="2486" alt="The redesigned Jai Hind dashboard on desktop and phone">
+        </div>
+        <p class="jh-cap">The redesign, rebuilt in HTML, CSS and JavaScript from my Figma file. Pick a door, approve an order, take a phone order, or flip to Before and Wireframe. All data is placeholder, as in the file, and nothing is sent anywhere.</p>
         <dl class="facts">
           <div class="fact"><dt>My role</dt><dd>Product UX Designer, Jai Hind Group</dd></div>
           <div class="fact"><dt>Timeline</dt><dd>Role: Feb 2023 to Jul 2024. Redesign: self-directed.</dd></div>
@@ -325,43 +328,22 @@
           <p class="sub">Staff still do the same daily work. What changed is how it looks, where it works, and how few mistakes it allows.</p>
         </div>
 
-        <div class="pair">
-          <figure class="shot crop">
-            <span class="tag">Before</span>
-            <a class="shot-frame" href="../assets/jaihind/jh-02-before-dashboard.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-02-before-dashboard.jpg" width="1440" height="2173" loading="lazy" alt="Before: the team's dashboard in generic teal, with order and sales charts, a donut chart and a calendar picker."></a>
-            <figcaption class="cap">Before: generic teal, desktop only.</figcaption>
-          </figure>
-          <figure class="shot crop">
-            <span class="tag is-after">After</span>
-            <a class="shot-frame" href="../assets/jaihind/jh-13-final-dashboard.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-13-final-dashboard.jpg" width="1784" height="2486" loading="lazy" alt="After: the redesigned dashboard with a black top bar, a navy banner, key numbers, black bar charts with the selected month in red, and a phone version beside it."></a>
-            <figcaption class="cap">After: Jai Hind's own colors and fonts, with a phone version of every screen.</figcaption>
-          </figure>
+        <div id="jh-ba" data-jh data-view="dashboard" data-mode="before" data-modes="before,after" data-controls="mode,device" data-hint="flip it, then tap the red pins" data-label="Before and after: the team's original console and the redesign, in code">
+          <img class="jh-fallback" src="../assets/jaihind/jh-02-before-dashboard.jpg" width="1440" height="2173" alt="Before: the team's dashboard in generic teal">
         </div>
-
-        <div class="pair">
-          <figure class="shot">
-            <span class="tag">Before</span>
-            <a class="shot-frame" href="../assets/jaihind/jh-03-before-orders.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-03-before-orders.jpg" width="1440" height="1383" loading="lazy" alt="Before: the old orders list, with status tabs running off the right edge of the screen."></a>
-            <figcaption class="cap">Before: order status tabs ran off the screen.</figcaption>
-          </figure>
-          <figure class="shot">
-            <span class="tag is-after">After</span>
-            <a class="shot-frame" href="../assets/jaihind/jh-14-final-orders.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-14-final-orders.jpg" width="2000" height="1873" loading="lazy" alt="After: the orders page with all status tabs and counts in a navy banner, a table with one colored status label per order, and a phone version with order cards."></a>
-            <figcaption class="cap">After: all 9 statuses visible, each with a count.</figcaption>
-          </figure>
-        </div>
+        <p class="jh-cap" style="margin-bottom:28px">Before shows the team's console as it was, with the audit's findings pinned in red. Tap a pin to read the finding, then See the fix.</p>
 
         <table class="compare">
           <caption class="cap" style="caption-side: bottom; text-align: left;">Every change above came from the audit in step 1.</caption>
-          <thead><tr><th scope="col">What</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+          <thead><tr><th scope="col">What</th><th scope="col">Before</th><th scope="col">After</th><th scope="col"><span class="jr-sr">Try it</span></th></tr></thead>
           <tbody>
-            <tr><th scope="row">Look</th><td class="was">Generic teal, no logo</td><td class="now">Jai Hind's colors, fonts and photos</td></tr>
-            <tr><th scope="row">Phones</th><td class="was">Desktop only</td><td class="now">Every screen has a phone layout</td></tr>
-            <tr><th scope="row">Order status</th><td class="was">Tabs cut off at the edge</td><td class="now">All 9 tabs visible, each with a count</td></tr>
-            <tr><th scope="row">Stock</th><td class="was">Checked after approving</td><td class="now">Checked before approving</td></tr>
-            <tr><th scope="row">Phone orders</th><td class="was">"No customer found" was a dead end</td><td class="now">Add the customer right there</td></tr>
-            <tr><th scope="row">Cart</th><td class="was">Could show 0 items by mistake</td><td class="now">One live cart, always correct</td></tr>
-            <tr><th scope="row">Way in</th><td class="was">Separate places for shoppers and staff</td><td class="now">One welcome screen, two doors</td></tr>
+            <tr><th scope="row">Look</th><td class="was">Generic teal, no logo</td><td class="now">Jai Hind's colors, fonts and photos</td><td><button type="button" class="jr-try" data-jh-go="#jh-ba" data-view="dashboard" data-mode="before">See it</button></td></tr>
+            <tr><th scope="row">Phones</th><td class="was">Desktop only</td><td class="now">Every screen has a phone layout</td><td><button type="button" class="jr-try" data-jh-go="#jh-ba" data-view="dashboard" data-mode="before" data-device="phone">See it</button></td></tr>
+            <tr><th scope="row">Order status</th><td class="was">Tabs cut off at the edge</td><td class="now">All 9 tabs visible, each with a count</td><td><button type="button" class="jr-try" data-jh-go="#jh-ba" data-view="orders" data-mode="before">See it</button></td></tr>
+            <tr><th scope="row">Stock</th><td class="was">Checked after approving</td><td class="now">Checked before approving</td><td><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="orders" data-mode="after" data-do="approve">See it</button></td></tr>
+            <tr><th scope="row">Phone orders</th><td class="was">"No customer found" was a dead end</td><td class="now">Add the customer right there</td><td><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="new" data-mode="after">See it</button></td></tr>
+            <tr><th scope="row">Cart</th><td class="was">Could show 0 items by mistake</td><td class="now">One live cart, always correct</td><td><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="new" data-mode="after">See it</button></td></tr>
+            <tr><th scope="row">Way in</th><td class="was">Separate places for shoppers and staff</td><td class="now">One welcome screen, two doors</td><td><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="welcome" data-mode="after">See it</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -379,35 +361,124 @@
         <div class="steps">
 
           <!-- 01 -->
-          <div class="step">
+          <div class="step full">
             <div class="step-text">
               <span class="step-n">01</span>
               <h3>Research: find out what's broken, and for whom</h3>
-              <p>I studied the live website (21 pages) and the team's dashboard (26 screens), then checked the dashboard against 10 standard usability rules.</p>
-              <ul class="ticks">
-                <li>Found 10 problems. The 3 biggest: an off-brand look, no phone layouts, order tabs cut off.</li>
-                <li>Wrote 3 personas: Rohan the shopper, Priya the store manager, Amit the floor associate. They're educated guesses until real staff test them.</li>
-                <li>Mapped their journeys. Shoppers get stuck choosing a store; staff feel the most pressure on phone orders.</li>
-              </ul>
+              <p>I studied the live website (21 pages) and the team's dashboard (26 screens), then checked the dashboard against 10 standard usability rules. Everything below is coded from my research boards, so you can filter it, flip through it and open each finding in the console.</p>
             </div>
-            <div class="gallery">
-              <figure class="shot">
-                <a class="shot-frame" href="../assets/jaihind/jh-04-research-audit.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-04-research-audit.jpg" width="1600" height="1473" loading="lazy" alt="Audit board: thumbnails of the old screens above a table of 10 problems, each rated high, medium or low."></a>
-                <figcaption class="cap">Audit: 10 problems, ranked by impact.</figcaption>
-              </figure>
-              <figure class="shot">
-                <a class="shot-frame" href="../assets/jaihind/jh-05-research-personas.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-05-research-personas.jpg" width="1600" height="1444" loading="lazy" alt="Three persona cards for Rohan, Priya and Amit, with goals, frustrations and needs."></a>
-                <figcaption class="cap">3 personas: a shopper, a manager, a floor associate.</figcaption>
-              </figure>
-              <figure class="shot wide">
-                <a class="shot-frame" href="../assets/jaihind/jh-06-research-journey.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-06-research-journey.jpg" width="2000" height="807" loading="lazy" alt="Two journey maps, for a shopper and a store manager, with a feeling curve and the lowest point marked in red."></a>
-                <figcaption class="cap">Journey maps: where each person hits their low point.</figcaption>
-              </figure>
-              <figure class="shot wide">
-                <a class="shot-frame" href="../assets/jaihind/jh-07-research-flows.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-07-research-flows.jpg" width="2000" height="1421" loading="lazy" alt="Three user flow diagrams: choosing a door, taking a phone order, and changing an order's status."></a>
-                <figcaption class="cap">Key flows: pick a door, take a phone order, update an order's status.</figcaption>
-              </figure>
-            </div>
+<div class="jr" id="jr-audit">
+<div class="jr-h"><div><h4>Heuristic review: 10 findings</h4><p>The team's 26 screens covered the right jobs. The problems were brand, mobile, status visibility and data consistency, not missing features. Filter by impact, then open any finding in the live console.</p></div>
+<div class="jr-filters" role="group" aria-label="Filter findings by impact" data-jr-filter="#jr-audit-t">
+<button type="button" data-v="all" aria-pressed="true">All 10</button>
+<button type="button" data-v="high" aria-pressed="false">High 3</button>
+<button type="button" data-v="medium" aria-pressed="false">Medium 4</button>
+<button type="button" data-v="low" aria-pressed="false">Low 3</button>
+</div></div>
+<div class="jr-card"><table class="jr-table" id="jr-audit-t"><caption class="sr">Audit findings, their usability heuristic and the fix in the redesign</caption>
+<thead><tr><th scope="col">Impact</th><th scope="col">Finding</th><th scope="col">Heuristic</th><th scope="col">How the redesign fixes it</th><th scope="col"><span class="sr">See it</span></th></tr></thead><tbody>
+<tr data-sev="high"><td><span class="sev-chip high">High</span></td><td data-l="Finding">The visual language doesn&#x27;t match the Jaihind brand: teal accents, generic type, no logo treatment.</td><td data-l="Heuristic">Consistency and standards</td><td data-l="Fix">Site palette, ZCOOL headings, a black header and navy silk page banners.</td><td><button type="button" class="jr-try" data-jh-go="#jh-ba" data-mode="before" data-view="dashboard">See it</button></td></tr>
+<tr data-sev="high"><td><span class="sev-chip high">High</span></td><td data-l="Finding">No mobile layouts for staff working on the shop floor.</td><td data-l="Heuristic">Flexibility and efficiency of use</td><td data-l="Fix">26 mobile screens: cards, bottom sheets, a tab bar and a sticky cart bar.</td><td><button type="button" class="jr-try" data-jh-go="#jh-ba" data-mode="before" data-view="dashboard" data-device="phone">See it</button></td></tr>
+<tr data-sev="high"><td><span class="sev-chip high">High</span></td><td data-l="Finding">Order status tabs run off the screen: In-Transit, Delivered and Cancelled are cut off.</td><td data-l="Heuristic">Visibility of system status</td><td data-l="Fix">Tabs with counts sit in the page banner; scrollable pills on mobile.</td><td><button type="button" class="jr-try" data-jh-go="#jh-ba" data-mode="before" data-view="orders">See it</button></td></tr>
+<tr data-sev="medium"><td><span class="sev-chip medium">Medium</span></td><td data-l="Finding">&quot;Edit&quot; opens a panel titled &quot;Create Customer&quot; with a Create button.</td><td data-l="Heuristic">Match between system and real world</td><td data-l="Fix">A dedicated Edit Customer drawer with Save Changes.</td><td><button type="button" class="jr-try" data-jh-go="#jh-main" data-mode="after" data-view="customers">See it</button></td></tr>
+<tr data-sev="medium"><td><span class="sev-chip medium">Medium</span></td><td data-l="Finding">The cart shows 0 items while a product says &quot;1 added&quot;.</td><td data-l="Heuristic">Visibility of system status</td><td data-l="Fix">One cart state across the product list, cart and checkout.</td><td><button type="button" class="jr-try" data-jh-go="#jh-main" data-mode="after" data-view="new">See it</button></td></tr>
+<tr data-sev="medium"><td><span class="sev-chip medium">Medium</span></td><td data-l="Finding">Totals don&#x27;t add up: a preview shows 2,960 for rows totalling 2,760, and checkout totals conflict.</td><td data-l="Heuristic">Error prevention</td><td data-l="Fix">Recalculated, consistent totals on every step.</td><td><button type="button" class="jr-try" data-jh-go="#jh-main" data-mode="after" data-view="new">See it</button></td></tr>
+<tr data-sev="medium"><td><span class="sev-chip medium">Medium</span></td><td data-l="Finding">Placeholder data mixes regions: Dhaka delivery zones, +880 and 01600000000 phone numbers.</td><td data-l="Heuristic">Match between system and real world</td><td data-l="Fix">Mumbai and Pune zones, +91 numbers and varied, realistic rows.</td><td><button type="button" class="jr-try" data-jh-go="#jh-ba" data-mode="before" data-view="dashboard">See it</button></td></tr>
+<tr data-sev="low"><td><span class="sev-chip low">Low</span></td><td data-l="Finding">&quot;Proceed to Checkout&quot; is disabled with no hint of what is missing.</td><td data-l="Heuristic">Help users recognize and recover from errors</td><td data-l="Fix">A step indicator shows progress; completing fields unlocks the step.</td><td><button type="button" class="jr-try" data-jh-go="#jh-main" data-mode="after" data-view="new">See it</button></td></tr>
+<tr data-sev="low"><td><span class="sev-chip low">Low</span></td><td data-l="Finding">No visible account menu or log out.</td><td data-l="Heuristic">User control and freedom</td><td data-l="Fix">An account menu on desktop and an account sheet on mobile, each with Log out.</td><td><button type="button" class="jr-try" data-jh-go="#jh-main" data-mode="after" data-view="dashboard">See it</button></td></tr>
+<tr data-sev="low"><td><span class="sev-chip low">Low</span></td><td data-l="Finding">Identical repeated rows make tables hard to scan in reviews.</td><td data-l="Heuristic">Recognition rather than recall</td><td data-l="Fix">Varied sample data, status chips and linked customer names.</td><td><button type="button" class="jr-try" data-jh-go="#jh-ba" data-mode="before" data-view="orders">See it</button></td></tr>
+</tbody></table></div><p class="jr-live sr" aria-live="polite" data-jr-count></p></div>
+<div class="jr" id="jr-personas">
+<div class="jr-h"><div><h4>Three proto-personas</h4><p>Assumption-based profiles that guided the design. They are hypotheses to test with real customers and store staff, not research findings.</p></div></div>
+<div class="jr-tabs" role="tablist" aria-label="Personas" hidden>
+<button type="button" role="tab" id="jr-pt-rohan" aria-controls="jr-pp-rohan" aria-selected="true" tabindex="0"><span class="jr-av s" style="--c:#2B6CB0" aria-hidden="true">R</span>Rohan</button>
+<button type="button" role="tab" id="jr-pt-priya" aria-controls="jr-pp-priya" aria-selected="false" tabindex="-1"><span class="jr-av s" style="--c:#C53030" aria-hidden="true">P</span>Priya</button>
+<button type="button" role="tab" id="jr-pt-amit" aria-controls="jr-pp-amit" aria-selected="false" tabindex="-1"><span class="jr-av s" style="--c:#2C7A7B" aria-hidden="true">A</span>Amit</button>
+</div><div class="jr-pgrid">
+<article class="jr-card jr-persona" role="tabpanel" id="jr-pp-rohan" aria-labelledby="jr-pt-rohan" tabindex="0">
+<div class="jr-p-top"><span class="jr-av" style="--c:#2B6CB0" aria-hidden="true">R</span><div><h5>Rohan, 27</h5><p>The occasion shopper</p></div></div>
+<p class="jr-tags"><span>Customer</span><span class="amber">Proto-persona · assumption</span></p><p class="jr-bio">Lives in Pune. Shops for weddings, festivals and office wear. Finds brands on Instagram and Google Maps.</p>
+<div class="jr-p-cols"><div><h6>Goals</h6><ul class="jr-dots g"><li>See what’s new before visiting a store</li><li>Find the nearest store and get directions</li><li>Browse by occasion: ethnic, formal, blazers and suits</li></ul></div><div><h6>Frustrations</h6><ul class="jr-dots r"><li>Hard to tell which store carries Jaihind or Mewar</li><li>Long pages on a phone before reaching store links</li></ul></div><div><h6>Needs from the design</h6><ul class="jr-dots k"><li>One tap from Welcome to the store</li><li>Collections and store links in the menu and footer</li></ul></div></div>
+<div class="jr-p-foot"><span>Devices: Phone first, sometimes laptop</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="shop" data-mode="after">Walk Rohan’s door ↗</button></div></article>
+<article class="jr-card jr-persona" role="tabpanel" id="jr-pp-priya" aria-labelledby="jr-pt-priya" tabindex="0">
+<div class="jr-p-top"><span class="jr-av" style="--c:#C53030" aria-hidden="true">P</span><div><h5>Priya, 34</h5><p>Store manager, Laxmi Road</p></div></div>
+<p class="jr-tags"><span>Employee</span><span class="amber">Proto-persona · assumption</span></p><p class="jr-bio">Runs daily orders for walk-in and phone customers. Works at the billing counter on desktop and walks the floor with her phone.</p>
+<div class="jr-p-cols"><div><h6>Goals</h6><ul class="jr-dots g"><li>Approve and dispatch orders quickly</li><li>Spot flagged, delayed or understocked orders</li><li>Look up a customer’s history before calling them</li></ul></div><div><h6>Frustrations</h6><ul class="jr-dots r"><li>Status tabs and wide tables that don’t fit the screen</li><li>Tools that don’t work on a phone</li><li>Stock problems discovered only after approving</li></ul></div><div><h6>Needs from the design</h6><ul class="jr-dots k"><li>Status at a glance with counts</li><li>Bulk status change and an inventory check before approving</li><li>The same screens on mobile</li></ul></div></div>
+<div class="jr-p-foot"><span>Devices: Desktop at the counter, plus phone</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="orders" data-mode="after" data-do="approve">Approve an order as Priya ↗</button></div></article>
+<article class="jr-card jr-persona" role="tabpanel" id="jr-pp-amit" aria-labelledby="jr-pt-amit" tabindex="0">
+<div class="jr-p-top"><span class="jr-av" style="--c:#2C7A7B" aria-hidden="true">A</span><div><h5>Amit, 23</h5><p>Floor associate</p></div></div>
+<p class="jr-tags"><span>Employee</span><span class="amber">Proto-persona · assumption</span></p><p class="jr-bio">Helps customers find sizes. Places an order on his phone when an item is out of stock in the store.</p>
+<div class="jr-p-cols"><div><h6>Goals</h6><ul class="jr-dots g"><li>Find a customer by phone number in seconds</li><li>Add products and place the order without losing the customer</li><li>Tell the customer when to expect delivery</li></ul></div><div><h6>Frustrations</h6><ul class="jr-dots r"><li>Small tap targets and long forms</li><li>No way to see the cart while adding items</li></ul></div><div><h6>Needs from the design</h6><ul class="jr-dots k"><li>Bottom tab bar and a sticky cart bar</li><li>A step indicator through the order</li><li>Short, one-column forms</li></ul></div></div>
+<div class="jr-p-foot"><span>Devices: Phone only</span><button type="button" class="jr-try" data-jh-go="#jh-phone" data-view="new" data-mode="after" data-device="phone">Take an order on Amit’s phone ↗</button></div></article>
+</div></div>
+<div class="jr" id="jr-journeys">
+<div class="jr-h"><div><h4>Journey maps</h4><p>Assumed end-to-end journeys for a shopper and a store manager, from first touch to done. Feelings are hypotheses to validate in store interviews. Pick a stage to see what goes wrong, and what the redesign does about it.</p></div></div>
+<div class="jr-tabs" role="tablist" aria-label="Journeys" hidden>
+<button type="button" role="tab" id="jr-jt-rohan" aria-controls="jr-jp-rohan" aria-selected="true" tabindex="0"><span class="jr-av s" style="--c:#2B6CB0" aria-hidden="true">R</span>Rohan</button>
+<button type="button" role="tab" id="jr-jt-priya" aria-controls="jr-jp-priya" aria-selected="false" tabindex="-1"><span class="jr-av s" style="--c:#C53030" aria-hidden="true">P</span>Priya</button>
+</div>
+<section class="jr-card jr-journey" role="tabpanel" id="jr-jp-rohan" aria-labelledby="jr-jt-rohan" data-jr-journey>
+<div class="jr-j-top"><span class="jr-av" style="--c:#2B6CB0" aria-hidden="true">R</span><div><h5>Rohan, the occasion shopper <span class="jr-tags"><span>Customer</span><span class="amber">Proto-persona · assumption</span></span></h5><p>Scenario: Needs a blazer for a friend’s wedding next weekend and wants to try it on at a store near him.</p></div></div>
+<div class="jr-stages" role="group" aria-label="Stages of Rohan’s journey">
+<button type="button" class="jr-stage" data-i="0" aria-pressed="false"><span>01</span>Discover</button>
+<button type="button" class="jr-stage" data-i="1" aria-pressed="false"><span>02</span>Land</button>
+<button type="button" class="jr-stage" data-i="2" aria-pressed="false"><span>03</span>Explore</button>
+<button type="button" class="jr-stage low" data-i="3" aria-pressed="true"><span>04</span>Decide</button>
+<button type="button" class="jr-stage" data-i="4" aria-pressed="false"><span>05</span>Visit</button>
+</div><div class="jr-feel"><svg class="jr-curve" viewBox="0 0 600 150" aria-hidden="true" focusable="false" preserveAspectRatio="none"><line x1="20" x2="580" y1="75" y2="75" class="base" vector-effect="non-scaling-stroke"/><line x1="120" x2="120" y1="8" y2="142" class="div" vector-effect="non-scaling-stroke"/><line x1="240" x2="240" y1="8" y2="142" class="div" vector-effect="non-scaling-stroke"/><line x1="360" x2="360" y1="8" y2="142" class="div" vector-effect="non-scaling-stroke"/><line x1="480" x2="480" y1="8" y2="142" class="div" vector-effect="non-scaling-stroke"/><path d="M60 49 C120 49, 120 75, 180 75 C240 75, 240 23, 300 23 C360 23, 360 127, 420 127 C480 127, 480 49, 540 49" class="line" vector-effect="non-scaling-stroke"/></svg><div class="jr-feel-l">
+<i class="jr-dot pos" style="--x:10%;--y:32.7%"></i><span class="pos" style="--x:10%;--y:32.7%">Curious</span>
+<i class="jr-dot neu" style="--x:30%;--y:50.0%"></i><span class="neu" style="--x:30%;--y:50.0%">Unsure</span>
+<i class="jr-dot pos" style="--x:50%;--y:15.3%"></i><span class="pos" style="--x:50%;--y:15.3%">Inspired</span>
+<i class="jr-dot neg low" style="--x:70%;--y:84.7%"></i><span class="neg" style="--x:70%;--y:84.7%">Frustrated</span>
+<i class="jr-dot pos" style="--x:90%;--y:32.7%"></i><span class="pos" style="--x:90%;--y:32.7%">Ready to go</span>
+</div></div>
+<div class="jr-detail" data-i="0" hidden><div class="jr-d-grid"><div><h6>Doing</h6><p>Sees a festive-wear post on Instagram and searches &quot;Jaihind Pune&quot;.</p><h6>Touchpoints</h6><p class="jr-chips"><span>Instagram</span><span>Google search</span></p></div><div class="jr-pain"><h6>Pain point</h6><p>Results mix store listings, social profiles and the website.</p></div><div class="jr-op in"><h6>Opportunity</h6><span class="jr-op-tag in">✓ In this design</span><p>One front door: a Welcome screen for shoppers and staff.</p></div></div><p class="jr-d-foot"><span>Stage 01 · Discover · feeling: curious</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="welcome" data-mode="after">See this screen ↗</button></p></div>
+<div class="jr-detail" data-i="1" hidden><div class="jr-d-grid"><div><h6>Doing</h6><p>Opens jaihindretail.com on his phone and meets a long home page.</p><h6>Touchpoints</h6><p class="jr-chips"><span>Home page</span><span>Hero carousel</span></p></div><div class="jr-pain"><h6>Pain point</h6><p>No obvious first step; store links sit far down the page.</p></div><div class="jr-op in"><h6>Opportunity</h6><span class="jr-op-tag in">✓ In this design</span><p>&quot;Explore the store&quot; as the single, clear first action.</p></div></div><p class="jr-d-foot"><span>Stage 02 · Land · feeling: unsure</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="welcome" data-mode="after" data-device="phone">See this screen ↗</button></p></div>
+<div class="jr-detail" data-i="2" hidden><div class="jr-d-grid"><div><h6>Doing</h6><p>Opens the menu, then Collections, then Blazers and Suits, and browses the looks.</p><h6>Touchpoints</h6><p class="jr-chips"><span>Header menu</span><span>Collection pages</span></p></div><div class="jr-pain"><h6>Pain point</h6><p>Category names differ between the menu and the footer (&quot;Ocassional Wear&quot;).</p></div><div class="jr-op in"><h6>Opportunity</h6><span class="jr-op-tag in">✓ In this design</span><p>Every header, menu and footer link wired on desktop and mobile.</p></div></div><p class="jr-d-foot"><span>Stage 03 · Explore · feeling: inspired</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="shop" data-mode="after">See this screen ↗</button></p></div>
+<div class="jr-detail" data-i="3"><div class="jr-d-grid"><div><h6>Doing</h6><p>Tries to work out which store stocks the brand he likes, and when it opens.</p><h6>Touchpoints</h6><p class="jr-chips"><span>Brand pages</span><span>Our Stores</span></p></div><div class="jr-pain"><h6>Pain point</h6><p>Brand, store and opening details are spread across pages.</p></div><div class="jr-op next"><h6>Opportunity</h6><span class="jr-op-tag next">→ Recommended next</span><p>List the stores that carry each brand, with opening hours.</p></div></div><p class="jr-d-foot"><span>Stage 04 · Decide · feeling: frustrated</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="shop" data-mode="after">See this screen ↗</button></p></div>
+<div class="jr-detail" data-i="4" hidden><div class="jr-d-grid"><div><h6>Doing</h6><p>Taps a store card and follows directions in Google Maps.</p><h6>Touchpoints</h6><p class="jr-chips"><span>Store card</span><span>Google Maps</span></p></div><div class="jr-pain"><h6>Pain point</h6><p>Store cards jump straight to Maps, with no phone number or hours.</p></div><div class="jr-op next"><h6>Opportunity</h6><span class="jr-op-tag next">→ Recommended next</span><p>Add &quot;Call store&quot; and opening hours to every store card.</p></div></div><p class="jr-d-foot"><span>Stage 05 · Visit · feeling: ready to go</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="shop" data-mode="after">See this screen ↗</button></p></div>
+</section>
+<section class="jr-card jr-journey" role="tabpanel" id="jr-jp-priya" aria-labelledby="jr-jt-priya" data-jr-journey>
+<div class="jr-j-top"><span class="jr-av" style="--c:#C53030" aria-hidden="true">P</span><div><h5>Priya, store manager <span class="jr-tags"><span>Employee</span><span class="amber">Proto-persona · assumption</span></span></h5><p>Scenario: A busy Saturday at Laxmi Road: walk-ins, phone orders and the evening dispatch.</p></div></div>
+<div class="jr-stages" role="group" aria-label="Stages of Priya’s journey">
+<button type="button" class="jr-stage" data-i="0" aria-pressed="false"><span>01</span>Sign in</button>
+<button type="button" class="jr-stage" data-i="1" aria-pressed="false"><span>02</span>Check the day</button>
+<button type="button" class="jr-stage" data-i="2" aria-pressed="false"><span>03</span>Process orders</button>
+<button type="button" class="jr-stage low" data-i="3" aria-pressed="true"><span>04</span>Phone order</button>
+<button type="button" class="jr-stage" data-i="4" aria-pressed="false"><span>05</span>Close out</button>
+</div><div class="jr-feel"><svg class="jr-curve" viewBox="0 0 600 150" aria-hidden="true" focusable="false" preserveAspectRatio="none"><line x1="20" x2="580" y1="75" y2="75" class="base" vector-effect="non-scaling-stroke"/><line x1="120" x2="120" y1="8" y2="142" class="div" vector-effect="non-scaling-stroke"/><line x1="240" x2="240" y1="8" y2="142" class="div" vector-effect="non-scaling-stroke"/><line x1="360" x2="360" y1="8" y2="142" class="div" vector-effect="non-scaling-stroke"/><line x1="480" x2="480" y1="8" y2="142" class="div" vector-effect="non-scaling-stroke"/><path d="M60 75 C120 75, 120 49, 180 49 C240 49, 240 101, 300 101 C360 101, 360 127, 420 127 C480 127, 480 49, 540 49" class="line" vector-effect="non-scaling-stroke"/></svg><div class="jr-feel-l">
+<i class="jr-dot neu" style="--x:10%;--y:50.0%"></i><span class="neu" style="--x:10%;--y:50.0%">Routine</span>
+<i class="jr-dot pos" style="--x:30%;--y:32.7%"></i><span class="pos" style="--x:30%;--y:32.7%">In control</span>
+<i class="jr-dot neg" style="--x:50%;--y:67.3%"></i><span class="neg" style="--x:50%;--y:67.3%">Slowed down</span>
+<i class="jr-dot neg low" style="--x:70%;--y:84.7%"></i><span class="neg" style="--x:70%;--y:84.7%">Under pressure</span>
+<i class="jr-dot pos" style="--x:90%;--y:32.7%"></i><span class="pos" style="--x:90%;--y:32.7%">Relieved</span>
+</div></div>
+<div class="jr-detail" data-i="0" hidden><div class="jr-d-grid"><div><h6>Doing</h6><p>Opens the staff console on the billing-counter PC and signs in.</p><h6>Touchpoints</h6><p class="jr-chips"><span>Employee login</span></p></div><div class="jr-pain"><h6>Pain point</h6><p>Staff tools live at a separate address that looks nothing like Jaihind.</p></div><div class="jr-op in"><h6>Opportunity</h6><span class="jr-op-tag in">✓ In this design</span><p>&quot;Employee login&quot; on the shared Welcome screen.</p></div></div><p class="jr-d-foot"><span>Stage 01 · Sign in · feeling: routine</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="welcome" data-mode="after">See this screen ↗</button></p></div>
+<div class="jr-detail" data-i="1" hidden><div class="jr-d-grid"><div><h6>Doing</h6><p>Scans order count, sales, order rate and cycle time for her store.</p><h6>Touchpoints</h6><p class="jr-chips"><span>Dashboard</span><span>Period menu</span></p></div><div class="jr-pain"><h6>Pain point</h6><p>A generic teal dashboard with placeholder data from another region.</p></div><div class="jr-op in"><h6>Opportunity</h6><span class="jr-op-tag in">✓ In this design</span><p>Jaihind-branded KPIs and charts with clear periods and comparisons.</p></div></div><p class="jr-d-foot"><span>Stage 02 · Check the day · feeling: in control</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="dashboard" data-mode="after">See this screen ↗</button></p></div>
+<div class="jr-detail" data-i="2" hidden><div class="jr-d-grid"><div><h6>Doing</h6><p>Filters pending orders, checks stock and approves them in bulk.</p><h6>Touchpoints</h6><p class="jr-chips"><span>All Orders</span><span>Status tabs</span><span>Change Status</span></p></div><div class="jr-pain"><h6>Pain point</h6><p>Status tabs run off the screen; stock problems surface only after approving.</p></div><div class="jr-op in"><h6>Opportunity</h6><span class="jr-op-tag in">✓ In this design</span><p>Tabs with counts, bulk Change Status and an inventory check on Approve.</p></div></div><p class="jr-d-foot"><span>Stage 03 · Process orders · feeling: slowed down</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="orders" data-mode="after" data-do="approve">See this screen ↗</button></p></div>
+<div class="jr-detail" data-i="3"><div class="jr-d-grid"><div><h6>Doing</h6><p>A regular calls: she finds him by phone number, adds items and checks out.</p><h6>Touchpoints</h6><p class="jr-chips"><span>Create Sales Order</span><span>Product search</span><span>Cart</span></p></div><div class="jr-pain"><h6>Pain point</h6><p>&quot;No customer found&quot; is a dead end while the caller waits; the cart shows 0.</p></div><div class="jr-op in"><h6>Opportunity</h6><span class="jr-op-tag in">✓ In this design</span><p>Add the customer inline, a 4-step indicator and one live cart.</p></div></div><p class="jr-d-foot"><span>Stage 04 · Phone order · feeling: under pressure</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="new" data-mode="after">See this screen ↗</button></p></div>
+<div class="jr-detail" data-i="4" hidden><div class="jr-d-grid"><div><h6>Doing</h6><p>Assigns delivery partners and marks orders In-Transit or Delivered.</p><h6>Touchpoints</h6><p class="jr-chips"><span>Change Status</span><span>Preview table</span><span>Toast</span></p></div><div class="jr-pain"><h6>Pain point</h6><p>Preview totals don’t add up and nothing confirms the change.</p></div><div class="jr-op in"><h6>Opportunity</h6><span class="jr-op-tag in">✓ In this design</span><p>A preview with correct totals, then a toast confirming the update.</p></div></div><p class="jr-d-foot"><span>Stage 05 · Close out · feeling: relieved</span><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="orders" data-mode="after">See this screen ↗</button></p></div>
+</section>
+<div class="jr-insights"><div><i style="--c:#2B6CB0"></i><h6>Shoppers drop off at Decide</h6><p>The site inspires, but brand, store and opening details are scattered. The redesign gives one clear way in; richer store details are the next fix.</p></div><div><i style="--c:#C53030"></i><h6>Staff stress peaks on phone orders</h6><p>The customer is waiting on the line. Inline Add customer, a step indicator and one cart state keep the order moving.</p></div><div><i style="--c:#A8834A"></i><h6>One front door serves both</h6><p>A shared Welcome screen removes the which-site question and makes the console feel like part of Jaihind.</p></div></div></div>
+<div class="jr" id="jr-flows">
+<div class="jr-h"><div><h4>User flows</h4><p>The three flows that carry the most weight. Each one maps to screens in the redesign, so each one opens in the live console.</p></div>
+<p class="jr-legend" aria-hidden="true"><span class="jr-node start">Start / end</span><span class="jr-node">Screen</span><span class="jr-node dec">Decision</span><span class="jr-node ok">Feedback</span><span class="jr-node err">Error state</span></p></div>
+<div class="jr-card jr-flow"><div class="jr-flow-h"><span class="jr-num">1</span><div><h5>Entry: choose a door</h5><p>Everyone starts on Welcome. Shoppers go straight to the store; staff sign in and land on Dashboard.</p></div><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="welcome" data-mode="after">Try this flow ↗</button></div>
+<ol class="jr-path"><li><span class="jr-node start">Open jaihindretail.com</span></li><li><span class="jr-node ">Welcome</span></li><li><span class="jr-node dec">Shopper or staff?</span></li></ol>
+<div class="jr-branches"><div class="jr-br"><b>Explore the store</b><p><span class="jr-node ">Home</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ">Collections and brands</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ">Store locations</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ext">Directions in Google Maps</span></p></div><div class="jr-br"><b>Employee login</b><p><span class="jr-node ">Employee login</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node dec">ID and password valid?</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ">Dashboard</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node start">Start the day</span></p><p class="jr-alt">If not valid: <span class="jr-node err">Inline error</span>, and try again</p></div></div>
+<ul class="jr-notes"><li>Back on Employee login, and Log out in the console, both return to Welcome.</li><li>On mobile the two doors stack; Employee login opens full screen with the same fields.</li><li>Customers never see staff navigation. Staff always land on Dashboard after signing in.</li></ul></div>
+<div class="jr-card jr-flow"><div class="jr-flow-h"><span class="jr-num">2</span><div><h5>Create a sales order</h5><p>A customer calls or walks in. Staff find them by phone number, build the cart and check out. Every dead end has a way forward.</p></div><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="new" data-mode="after">Try this flow ↗</button></div>
+<div class="jr-stage-row">
+<div class="jr-st"><b>1 · Customer</b><p><span class="jr-node start">New Order</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ">Search customer by phone</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node dec">Customer found?</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ">Customer details and order history</span></p><p class="jr-alt">Not found: <span class="jr-node err">No customer found</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ">Create customer</span></p></div>
+<div class="jr-st"><b>2 · Products</b><p><span class="jr-node ">Search products, add to cart</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node dec">Cart empty?</span></p><p class="jr-alt">Empty: <span class="jr-node err">No products in cart</span>, back to search</p></div>
+<div class="jr-st"><b>3 · Delivery and payment</b><p><span class="jr-node ">Delivery and payment</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node dec">Address and payment set?</span></p><p class="jr-alt">Not set: <span class="jr-node ">Add new address</span>, then continue</p></div>
+<div class="jr-st"><b>4 · Checkout</b><p><span class="jr-node ">Checkout, review order</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ok">Order placed</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node start">Order lands in Pending</span></p></div>
+</div><p class="jr-flow-meta"><span>10 screens</span><span>4 stages</span><span>Desktop and mobile</span></p></div>
+<div class="jr-card jr-flow"><div class="jr-flow-h"><span class="jr-num">3</span><div><h5>Change order status</h5><p>Select one or many orders, choose a new status, and confirm. Approve checks stock first; In-Transit and Delivered show a preview before anything changes.</p></div><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="orders" data-mode="after" data-do="approve">Try this flow ↗</button></div>
+<ol class="jr-path"><li><span class="jr-node start">Orders list</span></li><li><span class="jr-node ">Select one or more orders</span></li><li><span class="jr-node ">Action menu, Change status</span></li><li><span class="jr-node ">Pick the new status</span></li><li><span class="jr-node dec">Which status?</span></li></ol>
+<div class="jr-branches three"><div class="jr-br"><b>Approved</b><p><span class="jr-node ">Approve order, inventory check</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node dec">Enough stock?</span></p><p class="jr-alt">Yes: <span class="jr-node ">Approve</span> · No: <span class="jr-node ">Approve and create sub-order</span></p></div><div class="jr-br"><b>In-Transit</b><p><span class="jr-node ">Assign delivery partner</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ">Preview orders</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ">Confirm</span></p></div><div class="jr-br"><b>Delivered</b><p><span class="jr-node ">Preview with totals</span><span class="jr-ar" aria-hidden="true">→</span><span class="jr-node ">Confirm</span></p></div><div class="jr-br"><b>Flagged, Processing, Shipped, Cancelled, Returned, Damaged</b><p><span class="jr-node ">Confirm</span></p></div></div>
+<ol class="jr-path end"><li><span class="jr-node ok">Status updated</span></li><li><span class="jr-node start">Tabs and counts refresh</span></li></ol>
+<ul class="jr-notes"><li>Works for one order or a bulk selection; the dialog says how many are selected.</li><li>Cancel or close leaves every order unchanged.</li><li>Status chips use one color per status across tabs, tables, dialogs and charts.</li></ul></div></div>
           </div>
 
           <!-- 02 -->
@@ -429,7 +500,7 @@
           </div>
 
           <!-- 03 -->
-          <div class="step">
+          <div class="step full">
             <div class="step-text">
               <span class="step-n">03</span>
               <h3>Wireframes: get the layout right in gray first</h3>
@@ -439,20 +510,13 @@
                 <li>Sales order: 4 clear stages (Customer, Products, Delivery and payment, Checkout), with the cart always in view.</li>
               </ul>
             </div>
-            <div class="gallery">
-              <figure class="shot">
-                <a class="shot-frame" href="../assets/jaihind/jh-09-wireframe-dashboard.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-09-wireframe-dashboard.jpg" width="1590" height="1865" loading="lazy" alt="Gray wireframe of the dashboard on desktop and phone, with numbered blue notes."></a>
-                <figcaption class="cap">Dashboard wireframe, desktop and phone.</figcaption>
-              </figure>
-              <figure class="shot">
-                <a class="shot-frame" href="../assets/jaihind/jh-10-wireframe-sales-order.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-10-wireframe-sales-order.jpg" width="1988" height="1272" loading="lazy" alt="Gray wireframe of the sales order product search step on desktop and phone."></a>
-                <figcaption class="cap">Sales order wireframe: find products, watch the cart update.</figcaption>
-              </figure>
+            <div id="jh-wire" data-jh data-view="dashboard" data-mode="wire" data-modes="wire,after" data-controls="mode,device" data-hint="blue pins are my notes" data-label="The dashboard wireframe, in code, with numbered notes">
+              <img class="jh-fallback" src="../assets/jaihind/jh-09-wireframe-dashboard.jpg" width="1590" height="1865" alt="Gray wireframe of the dashboard on desktop and phone">
             </div>
           </div>
 
           <!-- 04 -->
-          <div class="step flip">
+          <div class="step full">
             <div class="step-text">
               <span class="step-n">04</span>
               <h3>Style guide: borrow the brand, don't invent one</h3>
@@ -466,16 +530,53 @@
                 <div class="spec" role="listitem"><b>4 pt</b><span>spacing scale</span></div>
               </div>
             </div>
-            <div class="gallery">
-              <figure class="shot">
-                <a class="shot-frame" href="../assets/jaihind/jh-11-colors.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-11-colors.jpg" width="1600" height="1633" loading="lazy" alt="Color board: brand colors, surface and text colors, and ten status colors."></a>
-                <figcaption class="cap">Colors, taken from the website.</figcaption>
-              </figure>
-              <figure class="shot">
-                <a class="shot-frame" href="../assets/jaihind/jh-12-components.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-12-components.jpg" width="2000" height="836" loading="lazy" alt="Components board: buttons, inputs, status labels, checkboxes, filter pills, a product row and pagination."></a>
-                <figcaption class="cap">Components: build once, reuse on every screen.</figcaption>
-              </figure>
-            </div>
+<div class="jr" id="jr-style">
+<div class="jr-h"><div><h4>The style guide, live</h4><p>The 37 color variables and 17 text styles from the Figma file, pulled from the Jaihind website. Every fill in the console is bound to one of these. Tap any swatch to copy its hex.</p></div></div>
+<div class="jr-card jr-pad"><h5 class="jr-sub">Brand</h5><p class="jr-cap">From the website: near-black ink, navy silk, the red of the logo and a warm gold.</p><div class="jr-swg"><button type="button" class="jr-sw" data-copy="#0A1119" style="--c:#0A1119"><i></i><b>brand/ink</b><code>#0A1119</code><small>Top bar, primary buttons, charts</small></button><button type="button" class="jr-sw" data-copy="#000000" style="--c:#000000"><i></i><b>brand/black</b><code>#000000</code><small>Website header</small></button><button type="button" class="jr-sw" data-copy="#121C27" style="--c:#121C27"><i></i><b>brand/navy</b><code>#121C27</code><small>Banner overlay, Welcome</small></button><button type="button" class="jr-sw" data-copy="#D9262E" style="--c:#D9262E"><i></i><b>brand/red</b><code>#D9262E</code><small>Accent, staff actions, links</small></button><button type="button" class="jr-sw" data-copy="#FBE9EA" style="--c:#FBE9EA"><i></i><b>brand/red-soft</b><code>#FBE9EA</code><small>Selected rows, alerts</small></button><button type="button" class="jr-sw" data-copy="#A8834A" style="--c:#A8834A"><i></i><b>brand/gold</b><code>#A8834A</code><small>VIP, highlights</small></button><button type="button" class="jr-sw" data-copy="#F6EFE3" style="--c:#F6EFE3"><i></i><b>brand/gold-soft</b><code>#F6EFE3</code><small>VIP chip background</small></button></div>
+<h5 class="jr-sub">Surface, border and text</h5><p class="jr-cap">Warm off-white pages with white cards; two border weights; four text levels.</p><div class="jr-swg"><button type="button" class="jr-sw" data-copy="#F6F5F2" style="--c:#F6F5F2"><i></i><b>surface/page</b><code>#F6F5F2</code><small>Page background</small></button><button type="button" class="jr-sw" data-copy="#FFFFFF" style="--c:#FFFFFF"><i></i><b>surface/card</b><code>#FFFFFF</code><small>Cards, modals, drawers</small></button><button type="button" class="jr-sw" data-copy="#FAF9F7" style="--c:#FAF9F7"><i></i><b>surface/subtle</b><code>#FAF9F7</code><small>Table headers, fields</small></button><button type="button" class="jr-sw" data-copy="#F1EFEB" style="--c:#F1EFEB"><i></i><b>surface/muted</b><code>#F1EFEB</code><small>Tags, hover, empty states</small></button><button type="button" class="jr-sw" data-copy="#E7E4DF" style="--c:#E7E4DF"><i></i><b>border/default</b><code>#E7E4DF</code><small>Card and table lines</small></button><button type="button" class="jr-sw" data-copy="#D7D8D9" style="--c:#D7D8D9"><i></i><b>border/strong</b><code>#D7D8D9</code><small>Inputs, outline buttons</small></button><button type="button" class="jr-sw" data-copy="#121315" style="--c:#121315"><i></i><b>text/primary</b><code>#121315</code><small>Headings and body</small></button><button type="button" class="jr-sw" data-copy="#4B535D" style="--c:#4B535D"><i></i><b>text/secondary</b><code>#4B535D</code><small>Supporting text</small></button><button type="button" class="jr-sw" data-copy="#8A9099" style="--c:#8A9099"><i></i><b>text/muted</b><code>#8A9099</code><small>Labels and captions</small></button><button type="button" class="jr-sw" data-copy="#FFFFFF" style="--c:#FFFFFF"><i></i><b>text/inverse</b><code>#FFFFFF</code><small>Text on dark</small></button></div>
+<h5 class="jr-sub">Status</h5><p class="jr-cap">Ten order statuses, each a text color on a tinted background. Used for chips, tabs, charts and the order-rate legend.</p><div class="jr-stg">
+<div class="jr-stc"><span class="jh-chip pending">Pending</span><div><button type="button" class="jr-sw" data-copy="#B7791F" style="--c:#B7791F"><i></i><b>pending</b><code>#B7791F</code><small>text and charts</small></button><button type="button" class="jr-sw" data-copy="#FDF3E1" style="--c:#FDF3E1"><i></i><b>pending-bg</b><code>#FDF3E1</code><small>chip background</small></button></div></div>
+<div class="jr-stc"><span class="jh-chip flagged">Flagged</span><div><button type="button" class="jr-sw" data-copy="#C53030" style="--c:#C53030"><i></i><b>flagged</b><code>#C53030</code><small>text and charts</small></button><button type="button" class="jr-sw" data-copy="#FDE8E8" style="--c:#FDE8E8"><i></i><b>flagged-bg</b><code>#FDE8E8</code><small>chip background</small></button></div></div>
+<div class="jr-stc"><span class="jh-chip approved">Approved</span><div><button type="button" class="jr-sw" data-copy="#2C7A7B" style="--c:#2C7A7B"><i></i><b>approved</b><code>#2C7A7B</code><small>text and charts</small></button><button type="button" class="jr-sw" data-copy="#E2F4F4" style="--c:#E2F4F4"><i></i><b>approved-bg</b><code>#E2F4F4</code><small>chip background</small></button></div></div>
+<div class="jr-stc"><span class="jh-chip processing">Processing</span><div><button type="button" class="jr-sw" data-copy="#2B6CB0" style="--c:#2B6CB0"><i></i><b>processing</b><code>#2B6CB0</code><small>text and charts</small></button><button type="button" class="jr-sw" data-copy="#E6F0FA" style="--c:#E6F0FA"><i></i><b>processing-bg</b><code>#E6F0FA</code><small>chip background</small></button></div></div>
+<div class="jr-stc"><span class="jh-chip shipped">Shipped</span><div><button type="button" class="jr-sw" data-copy="#6B46C1" style="--c:#6B46C1"><i></i><b>shipped</b><code>#6B46C1</code><small>text and charts</small></button><button type="button" class="jr-sw" data-copy="#EFEAFB" style="--c:#EFEAFB"><i></i><b>shipped-bg</b><code>#EFEAFB</code><small>chip background</small></button></div></div>
+<div class="jr-stc"><span class="jh-chip transit">In-Transit</span><div><button type="button" class="jr-sw" data-copy="#4C51BF" style="--c:#4C51BF"><i></i><b>transit</b><code>#4C51BF</code><small>text and charts</small></button><button type="button" class="jr-sw" data-copy="#EBECFA" style="--c:#EBECFA"><i></i><b>transit-bg</b><code>#EBECFA</code><small>chip background</small></button></div></div>
+<div class="jr-stc"><span class="jh-chip delivered">Delivered</span><div><button type="button" class="jr-sw" data-copy="#2F855A" style="--c:#2F855A"><i></i><b>delivered</b><code>#2F855A</code><small>text and charts</small></button><button type="button" class="jr-sw" data-copy="#E3F4EA" style="--c:#E3F4EA"><i></i><b>delivered-bg</b><code>#E3F4EA</code><small>chip background</small></button></div></div>
+<div class="jr-stc"><span class="jh-chip cancelled">Cancelled</span><div><button type="button" class="jr-sw" data-copy="#6B7280" style="--c:#6B7280"><i></i><b>cancelled</b><code>#6B7280</code><small>text and charts</small></button><button type="button" class="jr-sw" data-copy="#EEEFF1" style="--c:#EEEFF1"><i></i><b>cancelled-bg</b><code>#EEEFF1</code><small>chip background</small></button></div></div>
+<div class="jr-stc"><span class="jh-chip returned">Returned</span><div><button type="button" class="jr-sw" data-copy="#C05621" style="--c:#C05621"><i></i><b>returned</b><code>#C05621</code><small>text and charts</small></button><button type="button" class="jr-sw" data-copy="#FDEDE3" style="--c:#FDEDE3"><i></i><b>returned-bg</b><code>#FDEDE3</code><small>chip background</small></button></div></div>
+<div class="jr-stc"><span class="jh-chip damaged">Damaged</span><div><button type="button" class="jr-sw" data-copy="#9B2C2C" style="--c:#9B2C2C"><i></i><b>damaged</b><code>#9B2C2C</code><small>text and charts</small></button><button type="button" class="jr-sw" data-copy="#F9E3E3" style="--c:#F9E3E3"><i></i><b>damaged-bg</b><code>#F9E3E3</code><small>chip background</small></button></div></div>
+</div><p class="jr-live sr" aria-live="polite" data-jr-copied></p></div>
+<div class="jr-card jr-pad"><h5 class="jr-sub">Type</h5><p class="jr-cap">Two families: ZCOOL XiaoWei for display, navigation, buttons and numbers; Figtree for everything you read.</p><ul class="jr-type">
+<li><span><b>Display/XL 44</b><small>ZCOOL XiaoWei · 44/52</small></span><span class="jr-spec" style="font-family:'ZCOOL XiaoWei',Georgia,serif;font-size:44px;line-height:52px;letter-spacing:1px;text-transform:uppercase">Dashboard</span></li>
+<li><span><b>Display/L 32</b><small>ZCOOL XiaoWei · 32/40</small></span><span class="jr-spec" style="font-family:'ZCOOL XiaoWei',Georgia,serif;font-size:32px;line-height:40px;letter-spacing:0.5px">Create sales order</span></li>
+<li><span><b>Display/M 28</b><small>ZCOOL XiaoWei · 28/34</small></span><span class="jr-spec" style="font-family:'ZCOOL XiaoWei',Georgia,serif;font-size:28px;line-height:34px;letter-spacing:1px;text-transform:uppercase">Order placed</span></li>
+<li><span><b>Heading/H2 22</b><small>ZCOOL XiaoWei · 22/28</small></span><span class="jr-spec" style="font-family:'ZCOOL XiaoWei',Georgia,serif;font-size:22px;line-height:28px;letter-spacing:0.6px;text-transform:uppercase">Approve order</span></li>
+<li><span><b>Heading/H3 18</b><small>ZCOOL XiaoWei · 18/24</small></span><span class="jr-spec" style="font-family:'ZCOOL XiaoWei',Georgia,serif;font-size:18px;line-height:24px;letter-spacing:0.3px">Orders trends</span></li>
+<li><span><b>Nav/Item 15</b><small>ZCOOL XiaoWei · 15/20</small></span><span class="jr-spec" style="font-family:'ZCOOL XiaoWei',Georgia,serif;font-size:15px;line-height:20px;letter-spacing:1.2px;text-transform:uppercase">Orders</span></li>
+<li><span><b>Button/Label 15</b><small>ZCOOL XiaoWei · 15/20</small></span><span class="jr-spec" style="font-family:'ZCOOL XiaoWei',Georgia,serif;font-size:15px;line-height:20px;letter-spacing:0.2px">Place Order</span></li>
+<li><span><b>Button/Label S 13</b><small>ZCOOL XiaoWei · 13/18</small></span><span class="jr-spec" style="font-family:'ZCOOL XiaoWei',Georgia,serif;font-size:13px;line-height:18px;letter-spacing:0.2px">Add to Cart</span></li>
+<li><span><b>Body/M 14</b><small>Figtree Regular · 14/20</small></span><span class="jr-spec" style="font-family:Figtree,system-ui,sans-serif;font-weight:400;font-size:14px;line-height:20px;letter-spacing:0px">Track, approve and dispatch orders across every store</span></li>
+<li><span><b>Body/M Medium 14</b><small>Figtree Medium · 14/20</small></span><span class="jr-spec" style="font-family:Figtree,system-ui,sans-serif;font-weight:500;font-size:14px;line-height:20px;letter-spacing:0px">Manohar Pandey</span></li>
+<li><span><b>Body/M SemiBold 14</b><small>Figtree SemiBold · 14/20</small></span><span class="jr-spec" style="font-family:Figtree,system-ui,sans-serif;font-weight:600;font-size:14px;line-height:20px;letter-spacing:0px">₹ 3,371.25</span></li>
+<li><span><b>Body/S 13</b><small>Figtree Regular · 13/18</small></span><span class="jr-spec" style="font-family:Figtree,system-ui,sans-serif;font-weight:400;font-size:13px;line-height:18px;letter-spacing:0px">Average count: 15</span></li>
+<li><span><b>Body/S SemiBold 13</b><small>Figtree SemiBold · 13/18</small></span><span class="jr-spec" style="font-family:Figtree,system-ui,sans-serif;font-weight:600;font-size:13px;line-height:18px;letter-spacing:0px">HF12893712</span></li>
+<li><span><b>Label/Caps 11</b><small>Figtree SemiBold · 11/14</small></span><span class="jr-spec" style="font-family:Figtree,system-ui,sans-serif;font-weight:600;font-size:11px;line-height:14px;letter-spacing:0.9px;text-transform:uppercase">Total order count</span></li>
+<li><span><b>Caption 12</b><small>Figtree Regular · 12/16</small></span><span class="jr-spec" style="font-family:Figtree,system-ui,sans-serif;font-weight:400;font-size:12px;line-height:16px;letter-spacing:0px">Sep 7, 2021 to Sep 7, 2022</span></li>
+<li><span><b>Number/KPI 36</b><small>ZCOOL XiaoWei · 36/44</small></span><span class="jr-spec" style="font-family:'ZCOOL XiaoWei',Georgia,serif;font-size:36px;line-height:44px;letter-spacing:0.5px">12,632,129</span></li>
+<li><span><b>Number/Stat 24</b><small>ZCOOL XiaoWei · 24/30</small></span><span class="jr-spec" style="font-family:'ZCOOL XiaoWei',Georgia,serif;font-size:24px;line-height:30px;letter-spacing:0.3px">1,499 hrs</span></li>
+</ul></div>
+<div class="jr-h" style="margin-top:26px"><div><h4>The components, live</h4><p>10 of the file’s 13 components are below, so you can press them. The other three, the desktop top bar, the mobile top bar and the tab bar, run the console itself.</p></div></div>
+<div class="jh jr-board" aria-label="Live components">
+<div class="jh-card"><h5 class="jr-bh">Button</h5><p class="cap">Pill buttons in seven styles and two sizes. Primary marks the one main action in a view.</p><div class="jr-row"><button type="button" class="b pri">Button</button><button type="button" class="b pri s">Button</button><button type="button" class="b sec">Button</button><button type="button" class="b sec s">Button</button><span class="jr-dark"><button type="button" class="b light">Button</button><button type="button" class="b ghost-l">Button</button></span><button type="button" class="b red">Button</button><button type="button" class="b red s">Button</button><button type="button" class="b pri" disabled>Button</button><button type="button" class="b ghost">Button</button></div></div>
+<div class="jh-card"><h5 class="jr-bh">Input</h5><p class="cap">Text, select, search and date fields. The label sits inside the field, like the website’s forms.</p><div class="jr-row2"><label class="jh-field"><small>Customer name</small><input value="Manohar Pandey"></label><label class="jh-field"><small>Pick-up location</small><select><option>Alibaug Warehouse</option><option>Mumbai Warehouse</option></select></label><label class="jh-field has-ico"><small>Search customer</small><input type="search" value="96730"><svg class="ji" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></label><label class="jh-field"><small>Order date</small><input type="date" value="2024-08-02"></label></div></div>
+<div class="jh-card"><h5 class="jr-bh">Icon button</h5><p class="cap">Circular, icon-only actions for well-known jobs, in four styles and two sizes. Each has a label for screen readers.</p><div class="jr-row"><button type="button" class="ib" aria-label="Refresh"><svg class="ji" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.4 5.8"/><path d="M20 4v7h-7"/></svg></button><button type="button" class="ib" style="background:#F1EFEB;border-color:#F1EFEB" aria-label="Refresh"><svg class="ji" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.4 5.8"/><path d="M20 4v7h-7"/></svg></button><button type="button" class="ib dark" aria-label="Next"><svg class="ji" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button><span class="jr-dark"><button type="button" class="ib on-dark" aria-label="Refresh"><svg class="ji" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.4 5.8"/><path d="M20 4v7h-7"/></svg></button></span></div></div>
+<div class="jh-card"><h5 class="jr-bh">Status chip</h5><p class="cap">One chip per order status, plus VIP and Fraud tags for customers.</p><div class="jr-row"><span class="jh-chip pending">Pending</span><span class="jh-chip flagged">Flagged</span><span class="jh-chip approved">Approved</span><span class="jh-chip processing">Processing</span><span class="jh-chip shipped">Shipped</span><span class="jh-chip transit">In-Transit</span><span class="jh-chip delivered">Delivered</span><span class="jh-chip cancelled">Cancelled</span><span class="jh-chip returned">Returned</span><span class="jh-chip damaged">Damaged</span><span class="jh-chip vip">VIP</span><span class="jh-chip fraud">Fraud</span></div></div>
+<div class="jh-card"><h5 class="jr-bh">Selection</h5><p class="cap">Radio buttons for a single choice; checkboxes for bulk selection in tables.</p><div class="jr-row" role="radiogroup" aria-label="Payment"><label class="jr-opt"><input type="radio" name="jr-r" checked> Cash on Delivery</label><label class="jr-opt"><input type="radio" name="jr-r"> UPI</label></div><div class="jr-row"><label class="jr-opt"><input type="checkbox" checked> HF12893712</label><label class="jr-opt"><input type="checkbox"> HF12893725</label></div></div>
+<div class="jh-card"><h5 class="jr-bh">Filters and tabs</h5><p class="cap">Filter pills for zones and periods; status tabs with counts in the orders banner. Tap them.</p><div class="jr-row" role="group" aria-label="Zone"><button type="button" class="jr-pill" aria-pressed="true">Mumbai</button><button type="button" class="jr-pill" aria-pressed="false">Pune</button><button type="button" class="jr-pill" aria-pressed="false">Nashik</button></div><div class="jr-tabsdemo" role="group" aria-label="Status tabs"><button type="button" class="jh-tab" aria-pressed="true">Pending<b>2080</b></button><button type="button" class="jh-tab" aria-pressed="false">Flagged<b>20</b></button><button type="button" class="jh-tab" aria-pressed="false">Approved<b>2082</b></button></div></div>
+<div class="jh-card"><h5 class="jr-bh">Product row</h5><p class="cap">Add to Cart turns into a quantity stepper once added. Try it.</p><div data-jr-prod><div class="jh-prod"><span class="jh-thumb"><svg viewBox="0 0 48 48" aria-hidden="true"><g><path d="M14 7 20 5Q24 9.5 28 5L34 7 42 15 36 20.5 33 17.5V42H15V17.5L12 20.5 6 15Z" fill="#C9A27A" stroke="rgba(0,0,0,.3)"/><path d="M20 5 24 11 28 5" fill="none" stroke="rgba(0,0,0,.3)"/></g></svg></span><span class="nm"><b>Polo Shirt- Brown</b><small>₹ 275.00</small></span><span data-jr-ctl></span></div></div></div>
+<div class="jh-card"><h5 class="jr-bh">Pagination</h5><p class="cap">Compact pagination for long tables, with first, previous, pages and next.</p><div class="jh-pager" data-jr-pager role="group" aria-label="Pages"></div><p class="cap" data-jr-page aria-live="polite" style="margin-top:8px">Page 1 of 12</p></div>
+</div>
+</div>
           </div>
 
           <!-- 05 -->
@@ -485,19 +586,10 @@
               <h3>Final design: 26 screens, desktop and phone</h3>
               <p>Every screen from the team's dashboard, redesigned at desktop and phone sizes, plus the new welcome and login screens. The work staff already knew stayed the same; the friction went away.</p>
             </div>
-            <div class="tiles">
-              <div class="tile">
-                <a href="../assets/jaihind/jh-15-final-sales-order.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-15-final-sales-order.jpg" width="2000" height="1520" loading="lazy" alt="Create sales order: a four-stage progress bar, a customer card with a VIP tag, product results with quantity buttons, and a floating cart showing 9 items."></a>
-                <div class="tile-body"><h4>Take a phone order</h4><p>Find the customer by phone number, add products, and watch the cart update live.</p></div>
-              </div>
-              <div class="tile">
-                <a href="../assets/jaihind/jh-16-final-approve.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-16-final-approve.jpg" width="2000" height="1058" loading="lazy" alt="Approve order pop-up with a stock table and a warning that one product is short, offering Approve and create sub-order."></a>
-                <div class="tile-body"><h4>Check stock before approving</h4><p>If an item is short, staff see it before the order moves, and can split it into a sub-order.</p></div>
-              </div>
-              <div class="tile">
-                <a href="../assets/jaihind/jh-17-final-checkout.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-17-final-checkout.jpg" width="2000" height="1819" loading="lazy" alt="Checkout screen with the customer, delivery details and an order summary with a Place order button, plus the phone version."></a>
-                <div class="tile-body"><h4>Review and place the order</h4><p>Everything on one screen, with totals that update on every change.</p></div>
-              </div>
+            <div class="jr-tiles">
+              <div class="jr-tile"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><h4>Take a phone order</h4><p>Find the customer by phone number, add products, and watch one cart update everywhere.</p><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="new" data-mode="after">Try it ↗</button></div>
+              <div class="jr-tile"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></span><h4>Check stock before approving</h4><p>If an item is short, staff see it before the order moves, and can split it into a sub-order.</p><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="orders" data-mode="after" data-do="approve">Try it ↗</button></div>
+              <div class="jr-tile"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h4>Review and place the order</h4><p>Everything on one screen, with totals that add up on every change.</p><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="new" data-step="chk" data-mode="after">Try it ↗</button></div>
             </div>
           </div>
 
@@ -506,17 +598,16 @@
             <div class="step-text">
               <span class="step-n">06</span>
               <h3>Prototype: click through it like the real thing</h3>
-              <p>I connected 118 screens with 2,104 interactions into one prototype, with separate desktop and phone flows.</p>
+              <p>In Figma I connected 118 screens with 2,104 interactions into one prototype, with separate desktop and phone flows. Beside this is the phone version rebuilt in code: same screens, a tab bar, cards instead of tables and a sticky cart bar.</p>
               <ul class="ticks">
                 <li>Welcome, then Explore the store, opens the shop website.</li>
                 <li>Welcome, then Employee login, opens the dashboard, orders, customers and the 10-step sales order.</li>
                 <li>Log out always brings you back to Welcome.</li>
               </ul>
             </div>
-            <figure class="shot">
-              <a class="shot-frame" href="../assets/jaihind/jh-18-prototype-mobile.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/jh-18-prototype-mobile.jpg" width="2000" height="684" loading="lazy" alt="A row of phone screens from the prototype: dashboard, customers, orders, the sales order steps and checkout."></a>
-              <figcaption class="cap">The phone version of the staff dashboard, from the prototype.</figcaption>
-            </figure>
+            <div id="jh-phone" data-jh data-view="dashboard" data-device="phone" data-modes="after" data-controls="jump" data-label="The phone version of the staff console, in code">
+              <img class="jh-fallback" src="../assets/jaihind/jh-18-prototype-mobile.jpg" width="2000" height="684" alt="Phone screens from the prototype">
+            </div>
           </div>
         </div>
       </div>
@@ -586,6 +677,8 @@
   <footer class="foot">© 2026 Siddhi Manche · Names, numbers and orders in the screens are placeholder data.</footer>
 
   <script src="../js/site.js"></script>
+  <script src="../js/jh-app.js"></script>
+  <script src="../js/jh-research.js"></script>
   <script>
     // Highlight the current section in the sticky nav. Content never depends on this.
     (function () {

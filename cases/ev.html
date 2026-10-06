@@ -19,6 +19,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/site.css" />
+  <link rel="stylesheet" href="../css/proto.css" />
+  <link rel="stylesheet" href="../css/ev-app.css" />
+  <link rel="stylesheet" href="../css/case-kit.css" />
 </head>
 <body class="has-dock">
   <a class="skip" href="#main">Skip to content</a>
@@ -31,11 +34,10 @@
       <p class="lede">Electric cars have the range. What fails drivers is the software: too many apps, RFID cards, and chargers that turn out to be broken. I designed one app that finds a working charger and pays for it.</p>
       <div class="chips"><span class="chip">Mobile app</span><span class="chip">Mobility</span><span class="chip">Human factors</span><span class="chip">Concept</span></div>
       <p class="case-note note-hand">one app, one payment, every network <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
-      <div class="media" style="background: var(--mint);">
-        <video data-live src="../assets/live/ev.mp4" poster="../assets/live/ev.jpg" width="1280" height="800" muted loop playsinline preload="metadata" aria-label="EV charging app screens"></video>
-        <span class="live">LIVE</span>
-        <button class="vbtn" type="button">Pause</button>
+      <div id="ev-main" data-proto="ev" data-hint="it's real code, plan a trip!" data-label="EV charging app, interactive prototype">
+        <img class="pr-fallback" src="../assets/ev/ev-checkin.png" width="1528" height="1164" alt="Station check-in screens of the EV charging app" />
       </div>
+      <p class="pr-cap">Rebuilt in HTML, CSS and JavaScript from my Figma file. The map is a drawing and the stations are sample data.</p>
       <dl class="facts">
         <div class="fact"><dt>My role</dt><dd>UX Designer, solo</dd></div>
         <div class="fact"><dt>Timeline</dt><dd>Human Factors course, 2024</dd></div>
@@ -93,7 +95,7 @@
             </ol>
           </div>
 
-          <div class="step">
+          <div class="step full">
             <div class="step-text">
               <span class="step-n">02</span>
               <h3>Audit: where today's apps fall short</h3>
@@ -105,9 +107,14 @@
               </ul>
               <p>No app closes the loop from finding a charger to paying for it. That gap became the product.</p>
             </div>
-            <div class="gallery">
-              <figure class="shot wide"><a class="shot-frame" href="../assets/ev/competitor-analysis.png" target="_blank" rel="noopener"><img src="../assets/ev/competitor-analysis.png" width="2486" height="1218" loading="lazy" alt="Feature comparison matrix across four EV charging apps"></a><figcaption class="cap">Feature by feature, across four apps.</figcaption></figure>
-              <figure class="shot wide"><a class="shot-frame" href="../assets/ev/competitor-flow.png" target="_blank" rel="noopener"><img src="../assets/ev/competitor-flow.png" width="1836" height="1338" loading="lazy" alt="A competitor's charging flow with pain points marked"></a><figcaption class="cap">A competitor's flow, with the pain points marked.</figcaption></figure>
+            <div class="cx">
+              <div class="cx-h"><h4>Seven apps, side by side</h4><p>Some have great driver reviews but no payments. Others take payment but only inside their own network. None did everything.</p></div>
+              <div class="cx-bar-row"><button type="button" class="cx-go" data-cx-gaps="ev-matrix" data-cx-out="ev-matrix-out" aria-pressed="false">Show only the gaps</button><span class="cx-count" id="ev-matrix-out" aria-live="polite"></span></div>
+              <div class="cx-scroll" role="region" aria-label="Feature comparison of seven charging apps, scrolls sideways" tabindex="0"><table class="cx-matrix" id="ev-matrix"><caption>Seven apps, feature by feature (my 2024 audit)</caption><thead><tr><th scope="col">Feature</th><th scope="col">PlugShare</th><th scope="col">ChargePoint</th><th scope="col">ChargeMap</th><th scope="col">Chargeway</th><th scope="col">Electrify America</th><th scope="col">ChargeHub</th><th scope="col">EVgo</th></tr></thead><tbody><tr><th scope="row">Primary function</th><td>Station locator and reviews</td><td>Charging network, station locator</td><td>Station map and payment service</td><td>Charging guide, color and number system</td><td>Charging network, payment service</td><td>Station locator</td><td>Charging network, payment service</td></tr><tr><th scope="row">Availability</th><td>Worldwide</td><td>Worldwide</td><td>Worldwide</td><td>US, expanding to other regions</td><td>USA (national network)</td><td>North America</td><td>USA</td></tr><tr><th scope="row">Supported networks</th><td>Multiple networks</td><td>ChargePoint</td><td>Multiple networks, globally</td><td>Multiple networks</td><td>Electrify America</td><td>Multiple networks</td><td>EVgo</td></tr><tr><th scope="row">Real-time data</th><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr><tr class="has-no"><th scope="row">Payment in the app</th><td class="no">No (information only)</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">No (information only)</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr><tr class="has-no"><th scope="row">Station reviews</th><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="no">No</td></tr><tr><th scope="row">Availability status</th><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr><tr class="has-no"><th scope="row">Trip planning</th><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes (limited)</td><td class="yes">Yes</td><td class="no">No</td></tr><tr><th scope="row">Platforms</th><td>iOS, Android</td><td>iOS, Android</td><td>iOS, Android</td><td>iOS, Android</td><td>iOS, Android</td><td>iOS, Android</td><td>iOS, Android</td></tr><tr><th scope="row">Filters</th><td>Network, connector type</td><td>Connector, network</td><td>Connector type, network, pricing</td><td>Chargeway color and number</td><td>Power level, connector</td><td>Connector, network</td><td>Connector, power level</td></tr><tr><th scope="row">In-app navigation</th><td class="yes">Yes (with maps)</td><td class="yes">Yes</td><td class="yes">Yes (with maps)</td><td class="yes">Yes (with maps)</td><td class="yes">Yes</td><td class="yes">Yes (with maps)</td><td class="yes">Yes</td></tr><tr class="has-no"><th scope="row">Pricing info</th><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr><tr><th scope="row">Account needed</th><td>Optional (required for advanced features)</td><td>Required for payment</td><td>Optional</td><td>Optional</td><td>Required for payment</td><td>Optional</td><td>Required for payment</td></tr><tr class="has-no"><th scope="row">Rewards or discounts</th><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes (loyalty program)</td><td class="no">No</td><td class="yes">Yes (member discounts)</td></tr><tr><th scope="row">Stands out for</th><td>Lots of driver reviews and data</td><td>A leading charging network</td><td>Global coverage</td><td>Color and number system</td><td>Ultra-fast charging</td><td>Community reviews, pricing info</td><td>Fast charging in major cities</td></tr></tbody></table></div>
+            </div>
+            <div class="cx">
+              <div class="cx-h"><h4>One competitor's flow, with the pain points</h4><p>EVgo's app as I tested it in 2024, step by step. The notes are from my audit.</p></div>
+              <ol class="cx-steps-h"><li class="cx-card"><b>Find a charger</b><span>A station card with chargers and their speed.</span><span class="pain">No reviews, and no amenities or station info.</span></li><li class="cx-card"><b>Charger map</b><span>Nearby stations on a map, with distance.</span></li><li class="cx-card"><b>Charging session</b><span>Battery level, estimated cost and time.</span><span class="pain">A session time limit, and a fee just to use the charger.</span></li><li class="cx-card"><b>Pay as you go</b><span>Prices change by time of day.</span><span class="pain">Costly next to other networks.</span></li><li class="cx-card"><b>Monthly plan</b><span>Cheaper rates for a monthly fee.</span><span class="pain">Their most expensive plan is a monthly one.</span></li><li class="cx-card"><b>RFID card</b><span>A physical card, mailed to you, to start a session.</span><span class="pain">No digital wallet at the charger: card or app only.</span></li></ol>
             </div>
           </div>
 
@@ -132,11 +139,15 @@
               <h3>Flows: the four core tasks</h3>
               <p>Each feature maps to one task, mapped step by step before any screen was drawn.</p>
             </div>
-            <div class="gallery">
-              <figure class="shot"><a class="shot-frame" href="../assets/ev/flow-signup.png" target="_blank" rel="noopener"><img src="../assets/ev/flow-signup.png" width="1528" height="1470" loading="lazy" alt="Flow: sign up and save your car's make and model"></a><figcaption class="cap">Sign up and add your car.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/ev/flow-traffic.png" target="_blank" rel="noopener"><img src="../assets/ev/flow-traffic.png" width="1196" height="1224" loading="lazy" alt="Flow: get live traffic and charging suggestions on a trip"></a><figcaption class="cap">Plan a trip with live traffic.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/ev/flow-battery.png" target="_blank" rel="noopener"><img src="../assets/ev/flow-battery.png" width="1256" height="992" loading="lazy" alt="Flow: low battery alert leads to a nearby working station"></a><figcaption class="cap">Low battery: find a working station.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/ev/flow-payment.png" target="_blank" rel="noopener"><img src="../assets/ev/flow-payment.png" width="1570" height="1124" loading="lazy" alt="Flow: pay for charging inside the app"></a><figcaption class="cap">Pay inside the app.</figcaption></figure>
+            <div class="cx">
+              <div class="cx-tablist" role="tablist" aria-label="Task flows" data-cx-tablist="ev-flows"><button type="button" role="tab" id="ev-tab-signup" aria-controls="ev-f-signup" aria-selected="true" data-v="signup">Sign up</button><button type="button" role="tab" id="ev-tab-traffic" aria-controls="ev-f-traffic" aria-selected="false" tabindex="-1" data-v="traffic">Live traffic</button><button type="button" role="tab" id="ev-tab-battery" aria-controls="ev-f-battery" aria-selected="false" tabindex="-1" data-v="battery">Low battery</button><button type="button" role="tab" id="ev-tab-payment" aria-controls="ev-f-payment" aria-selected="false" tabindex="-1" data-v="payment">Pay in the app</button></div>
+              <div class="cx-panelset" id="ev-flows">
+<div class="cx-flow cx-card" role="tabpanel" id="ev-f-signup" aria-labelledby="ev-tab-signup" data-panel="signup" tabindex="0"><div class="task"><b>User task</b>Sign up and add your car.<p class="cx-count" style="margin-top:10px">Sign-up is not part of the prototype.</p></div><ol aria-label="Sign up, step by step"><li><span class="cx-node">Welcome logo</span></li><li><span class="cx-node sys">Create a new account</span><span class="cx-br"><span class="sr">Side path: </span><span class="lab">Sign up with Gmail or Apple ID</span><span class="lab">Account created</span></span></li><li><span class="cx-node act">Username</span></li><li><span class="cx-node act">Password</span></li><li><span class="cx-node">Log in</span></li><li><span class="cx-node end">Enter car brand</span></li><li><span class="cx-node end">Enter car model</span></li><li><span class="cx-node sys">Save</span></li></ol></div>
+<div class="cx-flow cx-card" role="tabpanel" id="ev-f-traffic" aria-labelledby="ev-tab-traffic" data-panel="traffic" tabindex="0"><div class="task"><b>User task</b>Get a real-time traffic update on a trip.<button type="button" class="cx-go" data-pr-go="#ev-main" data-screen="map" data-extra="{&quot;routes&quot;: true, &quot;route&quot;: &quot;a&quot;, &quot;open&quot;: false, &quot;calc&quot;: false}">Try it in the prototype &#8593;</button></div><ol aria-label="Live traffic, step by step"><li><span class="cx-node">Open the app</span></li><li><span class="cx-node sys">Enter location</span><span class="cx-br"><span class="sr">Side path: </span><span class="lab">EV charging station list</span><span class="lab">Select a charging station</span></span></li><li><span class="cx-node act">Check reviews and ratings</span></li><li><span class="cx-node act">Check distance</span></li><li><span class="cx-node">Live traffic data</span></li><li><span class="cx-node">Suggestions</span></li></ol></div>
+<div class="cx-flow cx-card" role="tabpanel" id="ev-f-battery" aria-labelledby="ev-tab-battery" data-panel="battery" tabindex="0"><div class="task"><b>User task</b>Get a notification when the battery runs low.<button type="button" class="cx-go" data-pr-go="#ev-main" data-screen="map" data-extra="{&quot;low&quot;: true}">Try it in the prototype &#8593;</button></div><ol aria-label="Low battery, step by step"><li><span class="cx-node">Open the app</span></li><li><span class="cx-node sys">Low-battery notification</span></li><li><span class="cx-node sys">Find nearby stations</span><span class="cx-br"><span class="sr">Side path: </span><span class="lab">Time suggestion</span><span class="lab">Select a charging station</span></span></li><li><span class="cx-node act">Check reviews and ratings</span></li><li><span class="cx-node act">Check distance</span></li></ol></div>
+<div class="cx-flow cx-card" role="tabpanel" id="ev-f-payment" aria-labelledby="ev-tab-payment" data-panel="payment" tabindex="0"><div class="task"><b>User task</b>Pay for charging inside the app.<button type="button" class="cx-go" data-pr-go="#ev-main" data-screen="checkin" data-extra="{}">Try it in the prototype &#8593;</button></div><ol aria-label="Pay in the app, step by step"><li><span class="cx-node">Open the app</span></li><li><span class="cx-node sys">Enter location</span><span class="cx-br"><span class="sr">Side path: </span><span class="lab">EV charging station list</span><span class="lab">Select a charging station</span><span class="lab">Charge</span><span class="lab">Payment in the app</span></span></li><li><span class="cx-node act">Check reviews and ratings</span></li><li><span class="cx-node act">Check distance</span></li><li><span class="cx-node">Ask the AI chatbot</span></li></ol></div>
+              </div>
+              <p class="cx-flowkey" aria-hidden="true"><span><i style="background:#72C77E"></i>Screen</span><span><i style="background:#BDEBC4"></i>Action</span><span><i style="background:#D6D4D5"></i>System step</span><span><i style="background:#F5C2B6"></i>Side path</span></p>
             </div>
           </div>
 
@@ -146,10 +157,23 @@
               <h3>Final design: readable in two seconds</h3>
               <p>People use this standing at a charger, one-handed, often at night. So color carries the meaning first: green works, red doesn't, amber is unknown.</p>
             </div>
-            <div class="gallery">
-              <figure class="shot wide"><a class="shot-frame" href="../assets/ev/ev-trip-planning.png" target="_blank" rel="noopener"><img src="../assets/ev/ev-trip-planning.png" width="1394" height="746" loading="lazy" alt="Trip planning screens with charging stops and live travel times"></a><figcaption class="cap">Trip planning: working stops on the route, with live times.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/ev/ev-checkin.png" target="_blank" rel="noopener"><img src="../assets/ev/ev-checkin.png" width="1528" height="1164" loading="lazy" alt="Station check-in screens with one Connect to start charging button"></a><figcaption class="cap">Check in and start charging, no RFID card.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/ev/ev-station-amenities.png" target="_blank" rel="noopener"><img src="../assets/ev/ev-station-amenities.png" width="1626" height="1114" loading="lazy" alt="Station details with availability, connector type and nearby amenities"></a><figcaption class="cap">Station details and nearby amenities.</figcaption></figure>
+            <div class="cx">
+              <div class="cx-status">
+                <div class="cx-card"><span class="dot ok" aria-hidden="true">&#10003;</span><div><b>Working</b><span>Green. A driver checked in recently.</span></div></div>
+                <div class="cx-card"><span class="dot down" aria-hidden="true">&#10007;</span><div><b>Out of service</b><span>Red. Reported by other drivers.</span></div></div>
+                <div class="cx-card"><span class="dot unknown" aria-hidden="true">?</span><div><b>Unknown</b><span>Amber. No reports lately.</span></div></div>
+              </div>
+            </div>
+            <div class="cx">
+              <div class="cx-h"><h4>Jump to any screen</h4><p>Each one opens in the working prototype at the top of the page.</p></div>
+              <div class="cx-tiles">
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ev-main" data-screen="map" data-extra="{&quot;routes&quot;: true, &quot;route&quot;: &quot;a&quot;, &quot;open&quot;: false, &quot;low&quot;: false}"><b>Plan a trip</b><span>Three routes, with live times</span><i>Show me &#8593;</i></button>
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ev-main" data-screen="map" data-extra="{&quot;routes&quot;: true, &quot;route&quot;: &quot;a&quot;, &quot;open&quot;: true, &quot;low&quot;: false}"><b>Chargers on the way</b><span>Working stops, price and distance</span><i>Show me &#8593;</i></button>
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ev-main" data-screen="station" data-extra="{&quot;st&quot;: &quot;autel&quot;, &quot;amen&quot;: false}"><b>Station details</b><span>Free chargers, connector, status</span><i>Show me &#8593;</i></button>
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ev-main" data-screen="station" data-extra="{&quot;st&quot;: &quot;autel&quot;, &quot;amen&quot;: true}"><b>Nearby while you charge</b><span>Food and shopping around it</span><i>Show me &#8593;</i></button>
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ev-main" data-screen="checkin" data-extra="{}"><b>Check in</b><span>Start charging with no RFID card</span><i>Show me &#8593;</i></button>
+              <button type="button" class="cx-tile cx-card" data-pr-go="#ev-main" data-screen="map" data-extra="{&quot;low&quot;: true, &quot;routes&quot;: false}"><b>Low battery</b><span>An alert that points to a working charger</span><i>Show me &#8593;</i></button>
+              </div>
             </div>
           </div>
 
@@ -192,5 +216,8 @@
     <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
   </nav>
   <script src="../js/site.js"></script>
+  <script src="../js/proto.js"></script>
+  <script src="../js/ev-app.js"></script>
+  <script src="../js/case-kit.js"></script>
 </body>
 </html>

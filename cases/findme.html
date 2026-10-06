@@ -19,6 +19,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/site.css" />
+  <link rel="stylesheet" href="../css/case-kit.css" />
+  <link rel="stylesheet" href="../css/lab.css" />
 </head>
 <body class="has-dock">
   <a class="skip" href="#main">Skip to content</a>
@@ -70,6 +72,19 @@
                 <li>Clear, consistent naming, because a library engineers can't navigate doesn't get used.</li>
                 <li>Variants and states defined for each component, so nothing was left to guess.</li>
               </ul>
+            </div>
+            <div class="lab cx">
+              <div class="cx-h"><h4>How I define a component</h4><p>An illustration of the method, built for this page. FindMe's own library is private, so this is not one of their components.</p></div>
+              <div class="lab-spec" data-lab="spec">
+                <div class="lab-ctrls cx-card"><div><h5>Variant</h5><div class="lab-seg" role="group" aria-label="Variant"><button type="button" data-k="v" data-v="primary" aria-pressed="true">Primary</button><button type="button" data-k="v" data-v="secondary" aria-pressed="false">Secondary</button><button type="button" data-k="v" data-v="ghost" aria-pressed="false">Ghost</button></div></div><div><h5>Size</h5><div class="lab-seg" role="group" aria-label="Size"><button type="button" data-k="s" data-v="sm" aria-pressed="false">Small</button><button type="button" data-k="s" data-v="md" aria-pressed="true">Medium</button><button type="button" data-k="s" data-v="lg" aria-pressed="false">Large</button></div></div><div><h5>State</h5><div class="lab-seg" role="group" aria-label="State"><button type="button" data-k="t" data-v="default" aria-pressed="true">Default</button><button type="button" data-k="t" data-v="hover" aria-pressed="false">Hover</button><button type="button" data-k="t" data-v="focus" aria-pressed="false">Focus</button><button type="button" data-k="t" data-v="disabled" aria-pressed="false">Disabled</button><button type="button" data-k="t" data-v="loading" aria-pressed="false">Loading</button></div></div>
+                  <div class="lab-preview" role="img" aria-label="Preview: Button, Primary, Medium, Default"><span class="lab-btn primary md">Save project</span></div>
+                </div>
+                <div class="lab-out cx-card">
+                  <div class="lab-name"><h5>Library name</h5><code>Button / Primary / Medium / Default</code></div>
+                  <div><h5>Spec</h5><dl class="lab-tokens"><dt>Height</dt><dd>40px</dd><dt>Padding</dt><dd>0 16px</dd><dt>Radius</dt><dd>10px</dd><dt>Label</dt><dd>14px, semibold</dd><dt>Background</dt><dd>color.brand.600</dd><dt>Text</dt><dd>color.white</dd><dt>Border</dt><dd>none</dd></dl></div>
+                  <div><h5>State note for handoff</h5><p class="lab-note">Resting state. Every other state is a change from this one.</p></div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="step full">
@@ -123,5 +138,6 @@
     <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
   </nav>
   <script src="../js/site.js"></script>
+  <script src="../js/lab.js"></script>
 </body>
 </html>

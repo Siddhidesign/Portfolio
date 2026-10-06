@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/site.css" />
+  <link rel="stylesheet" href="../css/lab.css" />
 </head>
 <body class="has-dock">
   <a class="skip" href="#main">Skip to content</a>
@@ -31,10 +32,38 @@
       <p class="lede">Omkar Labels makes clothing labels, hang tags and tapes for apparel brands, including major US retail chains. As a part-time front-end developer, I turned the designer's files into responsive pages on its WordPress site.</p>
       <div class="chips"><span class="chip">Web</span><span class="chip">Front-end</span><span class="chip">WordPress</span><span class="chip">B2B</span></div>
       <p class="case-note note-hand">the job that made my handoffs better <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
-      <div class="media" style="background: var(--ice);">
-        <video data-live src="../assets/live/omkar.mp4" poster="../assets/live/omkar.jpg" width="1280" height="800" muted loop playsinline preload="metadata" aria-label="Omkar Labels product photos"></video>
-        <span class="live">LIVE</span>
-        <button class="vbtn" type="button">Pause</button>
+      <div class="lab" data-lab="catalog">
+        <div class="lab-bar">
+          <span class="lab-hint" aria-hidden="true">drag the handle, watch it reflow!</span>
+          <div class="lab-seg" role="group" aria-label="Screen size"><button type="button" data-w="375" aria-pressed="false">Phone</button><button type="button" data-w="768" aria-pressed="false">Tablet</button><button type="button" data-w="max" aria-pressed="true">Desktop</button></div>
+          <label class="lab-range">Width <input type="range" min="320" max="1140" value="1140" step="1"><output>1140px</output></label>
+          <button type="button" class="lab-tog" data-tog="grid" aria-pressed="false">Show grid</button>
+          <button type="button" class="lab-tog" data-tog="spec" aria-pressed="false">Show spacing</button>
+        </div>
+        <div class="lab-stage">
+          <div class="lab-win">
+            <div class="lab-chrome"><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i><span>Product catalog, a recreation</span><b>lg</b></div>
+            <div class="lab-site">
+              <div class="ls-nav"><span class="ls-logo">Omkar <span>Labels</span></span>
+                <nav class="ls-links" aria-label="Catalog demo"><a href="#ls-products">Products</a><a href="#ls-quality">Quality</a><a href="#ls-contact">Contact</a></nav>
+                <button type="button" class="ls-cta" data-quote>Get a quote</button>
+                <button type="button" class="ls-menu" aria-expanded="false" aria-controls="ls-drop">Menu</button>
+                <div class="ls-drop" id="ls-drop"><a href="#ls-products">Products</a><a href="#ls-quality">Quality</a><a href="#ls-contact">Contact</a></div>
+              </div>
+              <div class="ls-hero"><div><h3>Labels, hang tags and tapes for apparel brands</h3><p>Made in two factories, in Thane and Narmadapuram, since 1999.</p><div class="row"><a class="ls-cta" href="#ls-products" style="text-decoration: none;">Browse products</a><button type="button" class="ls-btn2" data-quote>Request a quote</button></div></div><img src="../assets/jaihind/omkar-press.jpg" width="794" height="596" alt="An offset printing press on the factory floor"></div>
+              <div class="ls-sec" id="ls-products"><h4>Products</h4>
+                <div class="ls-chips" role="group" aria-label="Filter products"><button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="labels" aria-pressed="false">Labels</button><button type="button" data-f="tags" aria-pressed="false">Hang tags</button><button type="button" data-f="tapes" aria-pressed="false">Tapes</button></div>
+                <div class="ls-grid"><div class="ls-card" data-c="labels"><span class="col" aria-hidden="true">col-lg-3</span><img src="../assets/jaihind/omkar-washcare.jpg" width="304" height="302" loading="lazy" alt="A printed wash-care label sewn into a shirt"><div class="b"><b>Wash-care labels</b><p>Printed care instructions for garments.</p><button type="button" data-quote>Request a quote</button></div></div><div class="ls-card" data-c="tags"><span class="col" aria-hidden="true">col-lg-3</span><img src="../assets/jaihind/omkar-hangtag.jpg" width="794" height="795" loading="lazy" alt="A printed hang tag on a plaid shirt"><div class="b"><b>Hang tags</b><p>Printed tags for retail garments.</p><button type="button" data-quote>Request a quote</button></div></div><div class="ls-card" data-c="tapes"><span class="col" aria-hidden="true">col-lg-3</span><img src="../assets/jaihind/omkar-tape.jpg" width="303" height="303" loading="lazy" alt="A roll of printed tape beside printed labels"><div class="b"><b>Printed tapes</b><p>Branded tape on the roll.</p><button type="button" data-quote>Request a quote</button></div></div><div class="ls-card" data-c="labels"><span class="col" aria-hidden="true">col-lg-3</span><img src="../assets/jaihind/omkar-labels-press.jpg" width="719" height="719" loading="lazy" alt="Printed fabric labels fresh off the press"><div class="b"><b>Fabric labels</b><p>Printed fabric labels, fresh off the press.</p><button type="button" data-quote>Request a quote</button></div></div></div>
+                <p class="ls-say" aria-live="polite"></p>
+              </div>
+              <div class="ls-qa" id="ls-quality"><div><b>A four-point quality check on every order</b><p>Including color accuracy and color fastness, before anything ships.</p></div><div class="ls-badges"><span>OEKO-TEX</span><span>FSC</span><span><abbr title="Global Recycled Standard" style="text-decoration: none;">GRS</abbr></span></div></div>
+              <div class="ls-foot" id="ls-contact"><span>Thane, Maharashtra · Narmadapuram, Madhya Pradesh</span><span>A recreation for this portfolio</span></div>
+            </div>
+            <div class="lab-gridov" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="lab-handle" aria-hidden="true"></div>
+        </div>
+        <p class="lab-cap">A recreation of the kind of catalog page I built, not the live site. Plain HTML and CSS: the layout reflows with container queries, the way Bootstrap's grid did on the real pages.</p>
       </div>
       <dl class="facts">
         <div class="fact"><dt>My role</dt><dd>Junior Front-End Developer, part-time</dd></div>
@@ -135,5 +164,6 @@
     <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
   </nav>
   <script src="../js/site.js"></script>
+  <script src="../js/lab.js"></script>
 </body>
 </html>
