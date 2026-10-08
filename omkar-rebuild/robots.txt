@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /Portfolio/omkar-rebuild/
+Disallow: /Portfolio/omkar-rebuild/request-a-quote/received/
+
+Sitemap: https://siddhidesign.github.io/Portfolio/omkar-rebuild/sitemap.xml

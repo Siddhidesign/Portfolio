@@ -137,7 +137,7 @@
     var sp = spentBy(s), inc = s.income;
     var rows = ORDER.slice(0, s.showAll ? 4 : 3).map(function (k) {
       var c = CATS[k], v = spentBy(s, k), b = s.budgets[k];
-      return '<li><button type="button" class="ma-row" data-a="cat" data-v="' + k + '" data-k="cat-' + k + '" aria-label="' + c.name + ', ' + money(v) + ' of ' + money(b) + ' spent"><span class="ic" aria-hidden="true">' + ic(c.ic, 20) + '</span><span class="nm">' + c.name + '</span><span class="amt">' + bar(v, b) + '<span>' + money(v) + ' / ' + money(b) + '</span></span></button></li>';
+      return '<li><button type="button" class="ma-row" data-a="cat" data-v="' + k + '" data-k="cat-' + k + '" aria-label="' + c.name + ' ' + money(v) + ' / ' + money(b) + ' spent"><span class="ic" aria-hidden="true">' + ic(c.ic, 20) + '</span><span class="nm">' + c.name + '</span><span class="amt">' + bar(v, b) + '<span>' + money(v) + ' / ' + money(b) + '</span></span></button></li>';
     }).join('');
     var acts = s.mode === 'r1'
       ? '<div class="ma-acts dark ma-pos">' + issue(s, 'i2', 2) + '<button type="button" class="ma-dark" data-a="expense" data-k="exp"><i aria-hidden="true">' + ic('minus', 18) + '</i>Add Expense</button><button type="button" class="ma-dark" data-a="income" data-k="inc"><i aria-hidden="true">' + ic('plus', 18) + '</i>Add Income</button></div>' +

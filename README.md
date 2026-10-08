@@ -28,6 +28,9 @@ css/case-kit.css      Coded research and testing blocks used across case pages (
 js/case-kit.js        tabbed charts, score scales, personas, funnels, flows, wireframes)
 css/lab.css           Omkar resizable catalog recreation and FindMe component states playground
 js/lab.js
+css/codeview.css      Omkar "code + live preview": file tabs, highlighted excerpts, notes that run
+js/codeview.js        their code in the preview, an inspector, phone/tablet/desktop sizes
+omkar-rebuild/        Static export of my 2026 Next.js rebuild of the Omkar Labels site, shown in that preview
 
 assets/live/          Looping preview videos (mp4) and their poster frames, one per project (used on the homepage)
 assets/home/          Hero backgrounds, cut-out "things" and photo stickers (st-*), timeline polaroids (snap-*), chat avatar
@@ -51,7 +54,9 @@ These are deliberate. Please do not "fix" them back.
 - **Screens are code, not screenshots.** Product screens are rebuilt in HTML, CSS and JavaScript from the Figma files, so visitors can use them. Real photos and hand-drawn sketches stay as images. Each prototype has an image fallback inside it for when JavaScript is off.
 - **Coded replicas keep the product's own look** (its colors and the closest open font) inside their frame; the page around them keeps the site's two typefaces. Product grays are darkened where needed to pass AA.
 - **Sample data is labeled as sample.** Nothing typed into a prototype is stored or sent. Sign-in, payments, calls and AI answers are simulated or scripted, and say so. No real phone numbers, emails or SSNs; brand logos are never drawn, only text wordmarks.
-- **Internal links are relative.** No root-relative (`/path`) or absolute self-referencing URLs anywhere, which is what lets the domain change without edits.
+- **Internal links are relative.** No root-relative (`/path`) or absolute self-referencing URLs anywhere, which is what lets the domain change without edits. One exception: `omkar-rebuild/` is a Next.js static export, and Next.js writes root-relative paths, so it is built for `/Portfolio/omkar-rebuild/`. If the site moves to a custom domain, rebuild it with `basePath` set to `/omkar-rebuild`.
+- **Code excerpts are real.** The Omkar excerpts are copied from the project by a script, with their real line numbers, never retyped. The page says plainly that the rebuild was made with an AI coding assistant.
+- **The preview copy is labeled.** `omkar-rebuild/` differs from the project in six ways, all for static hosting or privacy: static export settings, forms that validate but send nothing, a generic quote confirmation, masked names, phone numbers and street addresses, a "portfolio preview, not the official site" banner with noindex, and sub-path URLs in `sitemap.xml` and `robots.txt`.
 
 ## Custom domain
 

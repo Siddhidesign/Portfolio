@@ -142,7 +142,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .dock .sep { width: 1px; height: 22px; background: var(--line); margin: 0 4px; flex: none; }
 .dock .say { background: var(--accent); color: var(--on-accent); font-weight: 600; }
 .dock .say:hover { background: var(--accent); color: var(--on-accent); filter: brightness(1.08); }
-.theme-toggle { display: inline-flex; align-items: center; gap: 6px; }
+.theme-toggle { display: none; align-items: center; gap: 6px; } /* it needs JavaScript, so it only shows with it */
+.js .theme-toggle { display: inline-flex; }
 .theme-toggle .ic { font-size: 16px; line-height: 1; }
 .has-dock { padding-bottom: 96px; }
 
@@ -168,6 +169,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .bubble.me { align-self: flex-end; background: var(--bubble-me); border-bottom-right-radius: 4px; }
 .bubble.me time { color: var(--text-2); }
 .bubble a { color: var(--accent); font-weight: 600; }
+.bubble.me a { color: #00579f; } /* 5.6:1 on --bubble-me; --accent was 4.2:1 here */
+html[data-theme="night"] .bubble.me a { color: var(--accent); } /* 6.0:1 on night --bubble-me */
 .js .chat .bubble, .js .chat .typing { opacity: 0; transform: translateY(10px) scale(.98); transition: opacity .45s ease, transform .45s ease; }
 .js .chat .is-in { opacity: 1; transform: none; }
 .typing { align-self: flex-start; display: inline-flex; gap: 4px; background: var(--bubble-them); padding: 12px 14px; border-radius: 16px; box-shadow: var(--shadow-sm); }

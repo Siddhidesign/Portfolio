@@ -15,7 +15,8 @@
       if (meta) meta.setAttribute('content', t === 'night' ? '#0e1319' : '#f7f7f7');
       each('[data-theme-toggle]', function (b) {
         var night = t === 'night';
-        b.setAttribute('aria-label', night ? 'Switch to day mode' : 'Switch to night mode');
+        // The name starts with the word on screen (WCAG 2.5.3, Label in Name).
+        b.setAttribute('aria-label', night ? 'Night mode. Switch to day mode' : 'Day mode. Switch to night mode');
         b.setAttribute('aria-pressed', night ? 'true' : 'false');
         var ic = b.querySelector('.ic'); if (ic) ic.textContent = night ? '☾' : '☀';
         var tx = b.querySelector('.tx'); if (tx) tx.textContent = night ? 'Night' : 'Day';

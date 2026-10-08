@@ -1,0 +1,11 @@
+:HL["/Portfolio/omkar-rebuild/_next/static/chunks/11f3302ah-6s7.css","style"]
+:HL["/Portfolio/omkar-rebuild/_next/static/chunks/2fhv91tlil9pw.css","style"]
+:HL["/Portfolio/omkar-rebuild/_next/static/media/instrument_sans_bold-s.p.1u3zznnpe1kz_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Portfolio/omkar-rebuild/_next/static/media/instrument_sans_medium-s.p.1eggatm68an7u.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Portfolio/omkar-rebuild/_next/static/media/instrument_sans_regular-s.p.3xgfxban9f743.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Portfolio/omkar-rebuild/_next/static/media/instrument_sans_semibold-s.p.3fqsgcs0cl_0g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Portfolio/omkar-rebuild/_next/static/media/newsreader_light-s.p.11-26pjaip496.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Portfolio/omkar-rebuild/_next/static/media/newsreader_light_italic-s.p.0y9ntyj5o4egh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Portfolio/omkar-rebuild/_next/static/media/newsreader_regular-s.p.1zqdvo8tou4dd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Portfolio/omkar-rebuild/_next/static/chunks/132v923f2ijil.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"products","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"q-CjzNwafGli4jHdPc5P0"}
