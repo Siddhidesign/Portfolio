@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jai Hind: One Front Door for Customers and Staff | Siddhi Manche</title>
-  <meta name="description" content="UX case study: redesigning Jai Hind's staff order dashboard to match the brand, work on phones, and share one welcome screen with the shop website. The screens on this page are rebuilt in code, so you can click through them.">
+  <meta name="description" content="UX case study: both sides of Jai Hind Group's menswear business. The public website's structure (2 brands, 10 stores, 8 collections), the staff order platform that replaced 5 systems, and a redesign you can click through in code.">
   <meta name="theme-color" content="#f7f7f7">
   <script>
     (function () {
@@ -236,13 +236,24 @@
     .jr-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     .compare .jr-try { font-size: 12px; padding: 6px 11px; }
     .case-note .arrow path { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    /* Two halves: labeled number rows (scope numbers in ink, measured results in accent), decision cards, three result cards */
+    .nums-label { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+    .nums + .nums-label { margin-top: 28px; }
+    .num.scope b { color: var(--ink); }
+    .card .why { margin-top: 10px; color: var(--ink); }
+    .results.three { grid-template-columns: repeat(3, 1fr); }
+    .results.three .stat { grid-template-columns: 96px 1fr; }
+    .results.three .stat b { font-size: 2rem; }
+    .dnote { font-size: 14px; color: rgba(255,255,255,.82); margin-top: 14px; }
+    @media (max-width: 1060px) { .results.three { grid-template-columns: 1fr 1fr; } .results.three .dcard:last-child { grid-column: 1 / -1; } }
+    @media (max-width: 860px) { .results.three { grid-template-columns: 1fr; } }
   </style>
   <link rel="stylesheet" href="../css/jh-app.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <p class="promo">UX case study · Jai Hind Group · Retail order dashboard · 5 minute read</p>
+  <p class="promo">UX case study · Jai Hind Group · Consumer website and staff order platform · 6 minute read</p>
 
   <header class="pnav">
     <div class="wrap">
@@ -250,6 +261,8 @@
       <span class="pnav-name">Jai Hind Group</span>
       <nav class="pnav-links" aria-label="Case study sections">
         <a href="#overview">Overview</a>
+        <a href="#customers">Customers</a>
+        <a href="#staff">Staff</a>
         <a href="#compare">Before &amp; After</a>
         <a href="#process">Process</a>
         <a href="#results">Results</a>
@@ -265,23 +278,23 @@
     <!-- HERO -->
     <section id="overview" class="hero">
       <div class="wrap">
-        <span class="eyebrow">UX case study · Retail · Web and mobile</span>
+        <span class="eyebrow">UX case study · Retail · Consumer web and staff platform</span>
         <h1 class="h1">One front door for customers and staff.</h1>
-        <p class="lede">Jai Hind's shoppers saw a polished brand website. Its store staff worked in a plain teal dashboard that only ran on a computer. I redesigned the staff dashboard to look like Jai Hind, work on phones, and share one welcome screen with the shop website.</p>
+        <p class="lede">Jai Hind Group has sold menswear in Maharashtra since 1980. As its Product UX Designer, I worked on both sides of the counter: the public website where shoppers find a collection or a store, and the internal order platform that saved staff from typing the same order into five systems.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#compare">See before and after</a>
+          <a class="btn btn-primary" href="#customers">See both halves</a>
           <a class="btn btn-ghost" href="#process">How I did it</a>
         </div>
         <p class="case-note">this is code, not a screenshot. click anything! <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
         <div id="jh-main" data-jh data-view="welcome" data-label="Interactive Jai Hind console, recreated in code. Start on the Welcome screen.">
           <img class="jh-fallback" src="../assets/jaihind/jh-13-final-dashboard.jpg" width="1784" height="2486" alt="The redesigned Jai Hind dashboard on desktop and phone">
         </div>
-        <p class="jh-cap">The redesign, rebuilt in HTML, CSS and JavaScript from my Figma file. Pick a door, approve an order, take a phone order, or flip to Before and Wireframe. All data is placeholder, as in the file, and nothing is sent anywhere.</p>
+        <p class="jh-cap">My self-directed redesign, rebuilt in code from my Figma file. Pick a door, approve an order or take a phone order. All data is placeholder, and nothing is sent anywhere.</p>
         <dl class="facts">
           <div class="fact"><dt>My role</dt><dd>Product UX Designer, Jai Hind Group</dd></div>
           <div class="fact"><dt>Timeline</dt><dd>Role: Feb 2023 to Jul 2024. Redesign: self-directed.</dd></div>
-          <div class="fact"><dt>Team</dt><dd>3 designers and 1 PM on the original platform</dd></div>
-          <div class="fact"><dt>Delivered</dt><dd>52 screens, desktop and phone, and a clickable prototype</dd></div>
+          <div class="fact"><dt>Two audiences</dt><dd>Shoppers on the public website, staff on the order platform</dd></div>
+          <div class="fact"><dt>Team</dt><dd>3 designers and 1 PM on the order platform</dd></div>
         </dl>
       </div>
     </section>
@@ -291,15 +304,23 @@
       <div class="wrap">
         <div class="sec-head">
           <span class="eyebrow">By the numbers</span>
-          <h2 class="h2" id="nums-title">What the original platform achieved</h2>
+          <h2 class="h2" id="nums-title">Scope on one side, results on the other</h2>
         </div>
+        <p class="nums-label">The customer half · public website · scope</p>
         <div class="nums">
-          <div class="num"><b>27%</b><span>fewer user errors</span><small>Original platform, after launch</small></div>
-          <div class="num"><b>40%</b><span>faster workflows</span><small>Original platform, after launch</small></div>
-          <div class="num"><b>5 &#8594; 1</b><span>spreadsheets replaced by one platform</span><small>Used daily by 3 teams</small></div>
-          <div class="num"><b>26</b><span>staff screens redesigned for desktop and phone</span><small>This redesign</small></div>
+          <div class="num scope"><b>2</b><span>brands on one site: Jaihind and Mewar</span></div>
+          <div class="num scope"><b>10</b><span>store locations</span></div>
+          <div class="num scope"><b>4</b><span>cities: Pune, Kolhapur, Nashik and Sambhaji Nagar</span></div>
+          <div class="num scope"><b>8</b><span>collection categories</span></div>
         </div>
-        <p class="note">The first three numbers were measured on the platform my team shipped. The redesign is a prototype and has not been tested with staff yet.</p>
+        <p class="nums-label">The staff half · order platform · measured after launch</p>
+        <div class="nums">
+          <div class="num"><b>5 &#8594; 1</b><span>disconnected systems replaced by one platform</span></div>
+          <div class="num"><b>40%</b><span>more efficient workflows</span></div>
+          <div class="num"><b>27%</b><span>fewer user errors</span></div>
+          <div class="num"><b>3</b><span>business functions on one platform</span></div>
+        </div>
+        <p class="note">Website numbers are scope, not results: I never measured its traffic or enquiries. Platform numbers were measured after launch. The redesign further down is an untested prototype.</p>
       </div>
     </section>
 
@@ -309,12 +330,45 @@
         <div class="sec-head">
           <span class="eyebrow">In 30 seconds</span>
           <h2 class="h2" id="short-title">The short version</h2>
-          <p class="sub">Jai Hind is a Pune fashion retailer with 10 stores. Shoppers find the brand online. Store staff take walk-in and phone orders in an internal dashboard.</p>
+          <p class="sub">Jai Hind Group is a B2B2C, multi-brand menswear retail chain in Maharashtra, India, trading since 1980. One retail business, two audiences.</p>
         </div>
         <div class="cards3">
-          <div class="card"><span class="eyebrow">The problem</span><h3>Two products that looked like two companies</h3><p>The staff dashboard looked nothing like the brand, only worked at a desk, hid order statuses off screen and caught stock problems too late.</p></div>
-          <div class="card"><span class="eyebrow">What I did</span><h3>Research to prototype</h3><p>I audited both, sketched ideas, made wireframes, built a style guide from the brand, then redesigned all 26 staff screens for desktop and phone.</p></div>
-          <div class="card"><span class="eyebrow">The result</span><h3>One front door</h3><p>A clickable prototype that joins the shop website and the staff dashboard behind one welcome screen, ready to test with store staff.</p></div>
+          <div class="card"><span class="eyebrow">The problem</span><h3>Two audiences, two different jobs</h3><p>Shoppers needed to find a collection or a store, fast. Staff needed to stop re-entering the same order across five disconnected systems.</p></div>
+          <div class="card"><span class="eyebrow">What I did</span><h3>Designed both ends</h3><p>I structured the public website around its brands, collections and stores, and designed the order platform that replaced the five systems.</p></div>
+          <div class="card"><span class="eyebrow">The result</span><h3>One front door</h3><p>Shoppers get three ways in: brand, collection and store. The platform cut user errors 27%. The redesign puts both doors behind one welcome screen.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE CUSTOMER HALF -->
+    <section id="customers" class="band band-alt" aria-labelledby="cust-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">The customer half</span>
+          <h2 class="h2" id="cust-title">Find a collection or a store, fast</h2>
+          <p class="sub">Shoppers arrive with two questions: what do you sell, and where are you? I designed the website's structure, its brand and collection architecture, to answer both fast. It's live at <a href="https://jaihindretail.com" target="_blank" rel="noopener">jaihindretail.com</a> but has been rebuilt since I left, so today's pages aren't my work; the structure they sit on is.</p>
+        </div>
+        <div class="cards3">
+          <div class="card"><span class="eyebrow">Brands · 2</span><h3>Two brands, one site</h3><p>Jaihind and Mewar share one website, each with its own entry under Brands.</p><p class="why"><b>Why:</b> shoppers know a name, not the company behind it, and one site means one set of store details to keep right.</p></div>
+          <div class="card"><span class="eyebrow">Collections · 8</span><h3>Named the way people shop</h3><p>Casual, Formal, Ethnic and Occasional for the occasion. Blazers &amp; Suits and Accessories for the garment. Fabrics and Custom Tailoring for clothes made to measure.</p><p class="why"><b>Why:</b> people start from what they're dressing for, and cloth and stitching are part of what the stores sell.</p></div>
+          <div class="card"><span class="eyebrow">Stores · 10</span><h3>Every store is a way in</h3><p>All 10 locations, across Pune, Kolhapur, Nashik and Sambhaji Nagar, have their own place in the structure.</p><p class="why"><b>Why:</b> "where are you?" is half of what shoppers ask, so a store should be as easy to find as a shirt.</p></div>
+        </div>
+        <p class="note">No outcome numbers: I never measured the site's traffic or enquiries, so these are decisions and reasons, not results.</p>
+      </div>
+    </section>
+
+    <!-- THE STAFF HALF -->
+    <section id="staff" class="band" aria-labelledby="staff-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">The staff half</span>
+          <h2 class="h2" id="staff-title">Enter the order once</h2>
+          <p class="sub">Behind the counter, I designed the internal order platform that replaced five disconnected systems, plus the templates and component library that 3 designers and a PM worked from.</p>
+        </div>
+        <div class="cards3">
+          <div class="card"><span class="eyebrow">Before</span><h3>One order, typed five times</h3><p>Staff re-entered the same order in five systems that didn't talk to each other, and every retype was another chance to get it wrong.</p></div>
+          <div class="card"><span class="eyebrow">The decision</span><h3>Enter it once</h3><p>One platform, shared by 3 business functions, where an order is entered once and moves through every status in one place.</p><p class="why"><b>Why:</b> if nobody retypes an order, nobody can retype it wrong.</p></div>
+          <div class="card"><span class="eyebrow">After launch</span><h3>Less retyping, fewer errors</h3><p>Workflow efficiency improved 40% and user errors fell 27% across the 3 business functions.</p></div>
         </div>
       </div>
     </section>
@@ -325,7 +379,7 @@
         <div class="sec-head">
           <span class="eyebrow">Before and after</span>
           <h2 class="h2" id="compare-title">Same jobs. A much better dashboard.</h2>
-          <p class="sub">Staff still do the same daily work. What changed is how it looks, where it works, and how few mistakes it allows.</p>
+          <p class="sub">Working on both halves showed me the gap: shoppers saw the brand, staff saw generic teal at a desk. So in a self-directed redesign, I gave the platform the brand, a phone layout and a front door shared with the website.</p>
         </div>
 
         <div id="jh-ba" data-jh data-view="dashboard" data-mode="before" data-modes="before,after" data-controls="mode,device" data-hint="flip it, then tap the red pins" data-label="Before and after: the team's original console and the redesign, in code">
@@ -354,8 +408,8 @@
       <div class="wrap">
         <div class="sec-head">
           <span class="eyebrow">How I did it</span>
-          <h2 class="h2" id="process-title">Six steps, from research to a clickable prototype</h2>
-          <p class="sub">Understand the problem, explore ideas, fix the layout, style it, design every screen, then wire it up to test.</p>
+          <h2 class="h2" id="process-title">The redesign, in six steps</h2>
+          <p class="sub">From research to a clickable prototype of the staff side.</p>
         </div>
 
         <div class="steps">
@@ -365,7 +419,7 @@
             <div class="step-text">
               <span class="step-n">01</span>
               <h3>Research: find out what's broken, and for whom</h3>
-              <p>I studied the live website (21 pages) and the team's dashboard (26 screens), then checked the dashboard against 10 standard usability rules. Everything below is coded from my research boards, so you can filter it, flip through it and open each finding in the console.</p>
+              <p>I studied the live website (21 pages) and the team's dashboard (26 screens), then checked the dashboard against 10 usability rules.</p>
             </div>
 <div class="jr" id="jr-audit">
 <div class="jr-h"><div><h4>Heuristic review: 10 findings</h4><p>The team's 26 screens covered the right jobs. The problems were brand, mobile, status visibility and data consistency, not missing features. Filter by impact, then open any finding in the live console.</p></div>
@@ -489,8 +543,7 @@
               <p>I sketched 8 ideas in 8 minutes for how shoppers and staff should get in, then sketched every key screen before opening Figma.</p>
               <ul class="ticks">
                 <li>Winner: two equal doors on one welcome screen.</li>
-                <li>Dropped: a login wall for everyone. Shoppers should never need an account just to browse.</li>
-                <li>Dropped: a tiny staff link in the footer. Too easy to miss.</li>
+                <li>Dropped: a login wall, since shoppers shouldn't need an account to browse, and a staff link hidden in the footer.</li>
               </ul>
             </div>
             <figure class="shot">
@@ -504,11 +557,7 @@
             <div class="step-text">
               <span class="step-n">03</span>
               <h3>Wireframes: get the layout right in gray first</h3>
-              <p>Gray boxes only, desktop and phone side by side, with numbered notes that explain each decision. No colors yet, so the conversation stays on structure.</p>
-              <ul class="ticks">
-                <li>Dashboard: key numbers first, then trends, then top products and customers.</li>
-                <li>Sales order: 4 clear stages (Customer, Products, Delivery and payment, Checkout), with the cart always in view.</li>
-              </ul>
+              <p>Gray boxes only, desktop and phone side by side, with numbered notes for each decision. The sales order became 4 clear stages, with the cart always in view.</p>
             </div>
             <div id="jh-wire" data-jh data-view="dashboard" data-mode="wire" data-modes="wire,after" data-controls="mode,device" data-hint="blue pins are my notes" data-label="The dashboard wireframe, in code, with numbered notes">
               <img class="jh-fallback" src="../assets/jaihind/jh-09-wireframe-dashboard.jpg" width="1590" height="1865" alt="Gray wireframe of the dashboard on desktop and phone">
@@ -584,7 +633,7 @@
             <div class="step-text">
               <span class="step-n">05</span>
               <h3>Final design: 26 screens, desktop and phone</h3>
-              <p>Every screen from the team's dashboard, redesigned at desktop and phone sizes, plus the new welcome and login screens. The work staff already knew stayed the same; the friction went away.</p>
+              <p>Every screen from the team's dashboard, redesigned for desktop and phone, plus new welcome and login screens.</p>
             </div>
             <div class="jr-tiles">
               <div class="jr-tile"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><h4>Take a phone order</h4><p>Find the customer by phone number, add products, and watch one cart update everywhere.</p><button type="button" class="jr-try" data-jh-go="#jh-main" data-view="new" data-mode="after">Try it ↗</button></div>
@@ -598,11 +647,9 @@
             <div class="step-text">
               <span class="step-n">06</span>
               <h3>Prototype: click through it like the real thing</h3>
-              <p>In Figma I connected 118 screens with 2,104 interactions into one prototype, with separate desktop and phone flows. Beside this is the phone version rebuilt in code: same screens, a tab bar, cards instead of tables and a sticky cart bar.</p>
+              <p>In Figma I connected 118 screens with 2,104 interactions, with separate desktop and phone flows. Beside this is the phone version, rebuilt in code.</p>
               <ul class="ticks">
-                <li>Welcome, then Explore the store, opens the shop website.</li>
-                <li>Welcome, then Employee login, opens the dashboard, orders, customers and the 10-step sales order.</li>
-                <li>Log out always brings you back to Welcome.</li>
+                <li>Explore the store opens the shop website; Employee login opens the staff console.</li>
               </ul>
             </div>
             <div id="jh-phone" data-jh data-view="dashboard" data-device="phone" data-modes="after" data-controls="jump" data-label="The phone version of the staff console, in code">
@@ -620,14 +667,22 @@
           <span class="eyebrow">Results</span>
           <h2 class="h2" id="results-title">What's proven, and what's next</h2>
         </div>
-        <div class="results">
+        <div class="results three">
           <div class="dcard">
             <span class="chip">Measured</span>
-            <h3>The original platform</h3>
+            <h3>The order platform</h3>
             <div class="stat"><b>27%</b><span>fewer user errors after launch</span></div>
-            <div class="stat"><b>40%</b><span>faster workflows across 3 teams</span></div>
-            <div class="stat"><b>5</b><span>spreadsheets replaced by one platform</span></div>
+            <div class="stat"><b>40%</b><span>more efficient workflows across 3 business functions</span></div>
+            <div class="stat"><b>5</b><span>disconnected systems replaced by one platform</span></div>
             <div class="stat"><b>2</b><span>clicks or fewer for the most frequent tasks</span></div>
+          </div>
+          <div class="dcard">
+            <span class="chip">Shipped, not measured</span>
+            <h3>The public website</h3>
+            <div class="stat"><b>2</b><span>brands on one site</span></div>
+            <div class="stat"><b>8</b><span>collection categories</span></div>
+            <div class="stat"><b>10</b><span>store locations in 4 cities</span></div>
+            <p class="dnote">I didn't measure traffic or enquiries, so I don't claim any.</p>
           </div>
           <div class="dcard">
             <span class="chip">Not yet measured</span>
@@ -647,12 +702,12 @@
       <div class="wrap">
         <div class="sec-head">
           <span class="eyebrow">What I learned</span>
-          <h2 class="h2" id="learned-title">Three things I'd tell my past self</h2>
+          <h2 class="h2" id="learned-title">What each half taught me about the other</h2>
         </div>
         <div class="learn">
-          <div class="card"><b>1</b><h3>Audit your own work with fresh eyes</h3><p>The platform worked, and a simple audit still found 10 problems.</p></div>
-          <div class="card"><b>2</b><h3>Design for the shop floor, not just the desk</h3><p>Staff walk the floor with phones, so every screen now has a phone layout.</p></div>
-          <div class="card"><b>3</b><h3>Label guesses as guesses</h3><p>Personas and targets stay marked as assumptions until real users test them.</p></div>
+          <div class="card"><b>1</b><h3>Shoppers taught me to follow the question</h3><p>Shoppers ask what you sell and where you are, not which company runs which brand. Staff ask where an order is, not which system holds it.</p></div>
+          <div class="card"><b>2</b><h3>Staff taught me to say it once</h3><p>Five copies of one order meant five chances to get it wrong. Shoppers need the same rule: one name per collection, used everywhere.</p></div>
+          <div class="card"><b>3</b><h3>Both taught me it's one company</h3><p>Shoppers saw the brand; staff didn't. A business should feel like itself on both sides of the counter.</p></div>
         </div>
       </div>
     </section>
@@ -661,7 +716,7 @@
     <section class="band band-dark closing" aria-labelledby="close-title">
       <div class="wrap">
         <h2 class="h2" id="close-title">Want the full walkthrough?</h2>
-        <p class="sub">I'm happy to walk through the Figma file and the prototype on a call.</p>
+        <p class="sub">I'm happy to walk through both halves, and the Figma file behind the redesign, on a call.</p>
         <div class="cta-row">
           <a class="btn btn-light" href="mailto:manche.siddhi@gmail.com">Email me</a>
           <a class="btn btn-ghost" style="border-color:#fff;color:#fff;" href="../index.html">Back to all work</a>
