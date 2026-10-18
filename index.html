@@ -26,6 +26,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/store.css">
+  <style>
+    /* Hero photo: the graduation picture, framed on the face, cap and diploma */
+    .portrait .ph { aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--r-lg); border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--bg-2); }
+    .portrait .ph img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: 50% 0; border: 0; border-radius: 0; box-shadow: none; transform: scale(1.8); transform-origin: 53% 45%; }
+  </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -56,7 +61,7 @@
             <div role="listitem"><b>31.3 → 78.25</b><span>usability score, tested redesign</span></div>
           </div>
         </div>
-        <figure class="portrait"><img src="assets/video/hero-new-poster.jpg" alt="Siddhi Manche smiling outdoors under a blossoming tree" width="660" height="760"><figcaption>Open to roles across the US</figcaption></figure>
+        <figure class="portrait"><div class="ph"><img src="assets/photobook/21.jpeg" alt="Siddhi Manche smiling in her graduation cap and gown, holding her University of Michigan-Dearborn diploma and a bouquet" width="1200" height="1600"></div><figcaption>Open to roles across the US</figcaption></figure>
       </div>
     </section>
 
