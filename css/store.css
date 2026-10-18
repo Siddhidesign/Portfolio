@@ -436,3 +436,17 @@ html:has(.steps-nav) { scroll-padding-top: 128px; }
   .cv-funnel li { width: 100% !important; }
 }
 .dec.change.open .dec-n { color: var(--amber); }
+
+/* Next-case card: FindMe has no screenshot, so its small tile shows only the FindMe logo */
+.next .lib-visual { overflow: hidden; }
+.next .mini-lib { width: auto; }
+.next .mini-lib > :not(.findme-logo) { display: none; }
+.next .mini-lib .findme-logo { justify-self: center; height: 32px; width: auto; object-fit: contain; }
+@media (max-width: 560px) { .next .mini-lib .findme-logo { height: 24px; padding: 3px 6px; } }
+
+/* Very small phones: let the illustration use more of its frame and keep the spec on one line */
+@media (max-width: 360px) {
+  .mini-lib { width: 86%; gap: 6px; }
+  .mini-lib .spec { font-size: 9.5px; padding: 5px 7px; }
+  .gal-frame .mini-lib { transform: scale(1.1); }
+}
