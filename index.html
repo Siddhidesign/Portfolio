@@ -1,343 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="day">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siddhi Manche · UX Designer</title>
-  <meta name="description" content="Siddhi Manche, UX designer and researcher. Engineer turned designer who researches, designs and ships the code: government, fintech and retail products, WCAG 2.1 AA accessible. M.S. University of Michigan." />
-  <meta name="theme-color" content="#f7f7f7" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siddhi Manche · Product Designer, B2B and E-commerce</title>
+  <meta name="description" content="Siddhi Manche, product designer for B2B, B2B2C and e-commerce. She designed a retail chain&#x27;s website structure and its order platform, which cut user errors 27%. Research first, and she can build what she designs.">
+  <link rel="canonical" href="https://siddhidesign.github.io/Portfolio/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Siddhi Manche">
+  <meta property="og:title" content="Siddhi Manche · Product Designer, B2B and E-commerce">
+  <meta property="og:description" content="Siddhi Manche, product designer for B2B, B2B2C and e-commerce. She designed a retail chain&#x27;s website structure and its order platform, which cut user errors 27%. Research first, and she can build what she designs.">
+  <meta property="og:url" content="https://siddhidesign.github.io/Portfolio/">
+  <meta property="og:image" content="https://siddhidesign.github.io/Portfolio/assets/og/siddhi-manche.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <script>
     (function () {
       var d = document.documentElement, t;
       try { t = localStorage.getItem('theme'); } catch (e) {}
       var q = location.search.match(/theme=(day|night)/); if (q) t = q[1];
-      if (t !== 'day' && t !== 'night') { t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'; }
-      d.setAttribute('data-theme', t);
-      d.classList.add('js');
-      setTimeout(function () { d.classList.add('chat-done'); }, 7000);
+      d.setAttribute('data-theme', t === 'night' ? 'night' : 'day'); d.classList.add('js');
     })();
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/site.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/store.css">
 </head>
-<body class="has-dock">
-  <a class="skip" href="#work">Skip to work</a>
-
-  <!-- HERO: a messaging window on the left, the intro card on the right -->
-  <header class="hero" id="top">
-    <div class="chat" role="group" aria-label="A quick chat with Siddhi">
-      <div class="chat-top">
-        <img src="assets/home/avatar.jpg" alt="" width="40" height="40" />
-        <div><b>Siddhi Manche</b><span>open to UX roles</span></div>
-        <i class="call" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="13" height="12" rx="3" /><path d="M15.5 10.5 21 7.5v9l-5.5-3" /></svg>
-          <svg viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.6 4.2-2.2 1.5a12 12 0 0 0 7.2 7.2l1.5-2.2 4.2 1.6V19a1.9 1.9 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a1.9 1.9 0 0 1 2-2z" /></svg>
-        </i>
-      </div>
-      <div class="chat-body">
-        <span class="chat-date">Today</span>
-        <p class="bubble them">hey 👋 what do you do?<time datetime="09:41">9:41 AM</time></p>
-        <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
-        <p class="bubble me">I make complicated things feel simple. Taxes, budgets, store orders.<time datetime="09:41">9:41 AM</time></p>
-        <p class="bubble them">ok, but can you prove it?<time datetime="09:42">9:42 AM</time></p>
-        <div class="bubble me attach">
-          <div class="media">
-            <video data-live src="assets/live/ir2go.mp4" poster="assets/live/ir2go.jpg" width="1280" height="800" muted loop playsinline preload="metadata" aria-label="IRS2GO redesign preview video"></video>
-            <button class="vbtn" type="button">Pause</button>
-          </div>
-          <p>My IRS app redesign. Usability score: 31.3 → 78.25<time datetime="09:42">9:42 AM</time></p>
-        </div>
-        <p class="bubble me">5 more case studies below 👇 <a href="#work">See my work</a><time datetime="09:42">9:42 AM</time></p>
-      </div>
-      <a class="say-hi" href="mailto:manche.siddhi@gmail.com?subject=Hi%20Siddhi"><span>Say hi, it opens your email</span><b aria-hidden="true">&#10148;</b></a>
-    </div>
-
-    <div class="intro">
-      <p class="intro-note">WCAG 2.1 AA on every page.<br />Yes, I checked. Twice.</p>
-      <div class="intro-body">
-        <div class="me-wrap">
-          <figure class="me-sticker taped">
-            <div class="media">
-              <video data-live src="assets/video/hero-new.mp4" poster="assets/video/hero-new-poster.jpg" width="660" height="760" muted loop playsinline preload="metadata" aria-label="video of Siddhi smiling under cherry blossoms"></video>
-              <button class="vbtn" type="button">Pause</button>
-            </div>
-          </figure>
-          <span class="me-note note-hand" aria-hidden="true"><svg class="arrow" viewBox="0 0 46 34"><path d="M44 8 C 31 2, 15 7, 8 25 M8 25 L 5 15 M8 25 L 17 21" /></svg>that's me!</span>
-        </div>
-        <h1 class="sr">Siddhi Manche, UX designer</h1>
-        <p>Hi, I'm <span class="name">Siddhi</span>, a <b>UX designer</b> who started as an <b>engineer</b> <span class="key" aria-hidden="true">&lt;/&gt;</span> → studied <b>human-centered design</b> at the <b>University of Michigan</b> <img class="stk" src="assets/home/st-grad.jpg" width="160" height="160" alt="" /> → now designing in the <b>United States</b> <img class="stk r" src="assets/home/st-chicago.jpg" width="160" height="160" alt="" /></p>
-        <p>Before design, I built websites line by line in <b>HTML, CSS and JavaScript</b> for a label manufacturer <span class="logo-stk"><img src="assets/jaihind/omkar-logo.svg" alt="Omkar Labels" /></span></p>
-        <p>Since then I've designed for <b>taxes</b> <img class="stk" src="assets/home/st-irs.jpg" width="160" height="160" alt="" />, <b>money</b> <img class="stk tall r" src="assets/home/st-anchor.jpg" width="120" height="183" alt="" /> and <b>retail</b> <img class="stk" src="assets/home/st-jaihind.jpg" width="160" height="160" alt="" />. An IRS app redesign that more than doubled its usability score, an AI budgeting coach people trusted, and an order platform that cut user errors <b>27%</b>.</p>
-        <p>I care about the quiet stuff: <b>clear labels</b>, <b>readable color</b>, and <span class="scribble">the one button you actually need.</span></p>
-      </div>
-      <div class="worked">
-        <span class="worked-label">Worked with</span>
-        <div class="ticker">
-          <div class="ticker-track">
-            <span>Jai Hind Group</span><span class="star" aria-hidden="true">&#10022;</span>
-            <img src="assets/findme-logo.svg" alt="FindMe" /><span class="star" aria-hidden="true">&#10022;</span>
-            <img src="assets/jaihind/omkar-logo.svg" alt="Omkar Labels" /><span class="star" aria-hidden="true">&#10022;</span>
-            <span>University of Michigan</span><span class="star" aria-hidden="true">&#10022;</span>
-            <span aria-hidden="true">Jai Hind Group</span><span class="star" aria-hidden="true">&#10022;</span>
-            <img src="assets/findme-logo.svg" alt="" aria-hidden="true" /><span class="star" aria-hidden="true">&#10022;</span>
-            <img src="assets/jaihind/omkar-logo.svg" alt="" aria-hidden="true" /><span class="star" aria-hidden="true">&#10022;</span>
-            <span aria-hidden="true">University of Michigan</span><span class="star" aria-hidden="true">&#10022;</span>
-          </div>
-        </div>
-        <button class="tick-btn" type="button">Pause</button>
-      </div>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="hdr">
+    <div class="wrap hdr-in">
+      <a class="logo" href="index.html">Siddhi <em>Manche</em></a>
+      <nav class="nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a class="opt" href="#journey">Journey</a>
+        <a class="opt" href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="Switch to dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
     </div>
   </header>
-
   <main id="main">
-
-    <!-- WORK -->
-    <div class="work-bar">
-      <div class="wrap">
-        <div class="switch">
-          <a href="#work" class="is-on">case studies</a>
-          <button class="knob" type="button" aria-label="Jump between case studies and side quests"></button>
-          <a href="#play">side quests</a>
-          <span class="flip-note note-hand" aria-hidden="true"><svg class="arrow" viewBox="0 0 46 34" style="width: 34px; height: 26px;"><path d="M42 20 C 32 26, 18 26, 6 16 M6 16 L 16 14 M6 16 L 10 25" /></svg>flip me</span>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Product designer · B2B and e-commerce</span>
+          <h1 id="hero-title">I design how people <em>find, order and track.</em></h1>
+          <p class="lede">From the storefront shoppers use to the tools staff run it with. Research first, and I can build what I design.</p>
+          <div class="btn-row"><a class="btn btn-primary" href="#work">See my work</a><a class="btn btn-secondary" href="mailto:manche.siddhi@gmail.com">Email me</a></div>
+          <div class="stats" role="list" aria-label="Results">
+            <div role="listitem"><b>27%</b><span>fewer user errors, shipped platform</span></div>
+            <div role="listitem"><b>40%</b><span>more efficient workflows</span></div>
+            <div role="listitem"><b>31.3 → 78.25</b><span>usability score, tested redesign</span></div>
+          </div>
         </div>
-        <span class="count">6 case studies</span>
-      </div>
-    </div>
-
-    <section id="work" class="wrap" aria-labelledby="work-title">
-      <h2 id="work-title" class="sr">Case studies</h2>
-      <div class="projects">
-
-        <article class="project rv" style="--tilt: -1deg;">
-          <div class="media" style="background: var(--lemon);">
-            <video data-live src="assets/live/ir2go.mp4" poster="assets/live/ir2go.jpg" width="1280" height="800" muted loop playsinline preload="none" aria-label="IRS2GO preview video"></video>
-            <span class="live">LIVE</span>
-            <button class="vbtn" type="button">Pause</button>
-          </div>
-          <div>
-            <span class="pnote note-hand" aria-hidden="true">usability score more than doubled!</span>
-            <div class="project-org"><img class="org-icon" src="assets/home/st-irs.jpg" width="160" height="160" alt="" />IRS2GO · HCI course project</div>
-            <h3><a href="cases/ir2go.html">Making the IRS app easy to use</a></h3>
-            <p>I redesigned refunds, payments and tax help in the IRS's official app. The usability score went from 31.3 to 78.25.</p>
-            <div class="chips"><span class="chip">Mobile</span><span class="chip">Government</span><span class="chip">Accessibility</span></div>
-            <div class="project-meta"><span class="read">Read the case study · 4 min ↗</span><span class="status">Course project, 2025</span></div>
-          </div>
-        </article>
-
-        <article class="project rv" style="--tilt: 1deg;">
-          <div class="media" style="background: var(--sky);">
-            <video data-live src="assets/live/anchor.mp4" poster="assets/live/anchor.jpg" width="1280" height="800" muted loop playsinline preload="none" aria-label="Money Anchor preview video"></video>
-            <span class="live">LIVE</span>
-            <button class="vbtn" type="button">Pause</button>
-          </div>
-          <div>
-            <div class="project-org"><img class="org-icon tall" src="assets/home/st-anchor.jpg" width="120" height="183" alt="" />Money Anchor · Team of 4</div>
-            <h3><a href="cases/anchor.html">An AI budgeting coach people trust</a></h3>
-            <p>Built 0 to 1 from research with 24 people. Once the AI explained itself, 75% of testers completely trusted it.</p>
-            <div class="chips"><span class="chip">Mobile</span><span class="chip">Fintech</span><span class="chip">AI</span></div>
-            <div class="project-meta"><span class="read">Read the case study · 4 min ↗</span><span class="status">Course project, 2025</span></div>
-          </div>
-        </article>
-
-        <article class="project rv" style="--tilt: -1deg;">
-          <div class="media" style="background: var(--mint);">
-            <video data-live src="assets/live/ev.mp4" poster="assets/live/ev.jpg" width="1280" height="800" muted loop playsinline preload="none" aria-label="EV Charging preview video"></video>
-            <span class="live">LIVE</span>
-            <button class="vbtn" type="button">Pause</button>
-          </div>
-          <div>
-            <div class="project-org"><span class="org-txt" aria-hidden="true">EV</span>EV Charging · Human Factors course</div>
-            <h3><a href="cases/ev.html">One app for every charger</a></h3>
-            <p>New EV drivers juggle several charging apps and still find broken chargers. I designed one flow from finding a working charger to paying for it.</p>
-            <div class="chips"><span class="chip">Mobile</span><span class="chip">Mobility</span><span class="chip">Concept</span></div>
-            <div class="project-meta"><span class="read">Read the case study · 3 min ↗</span><span class="status">Concept, 2024</span></div>
-          </div>
-        </article>
-
-        <article class="project rv" style="--tilt: 1deg;">
-          <div class="media" style="background: var(--sand);">
-            <video data-live src="assets/live/jaihind.mp4" poster="assets/live/jaihind.jpg" width="1280" height="800" muted loop playsinline preload="none" aria-label="Jai Hind preview video"></video>
-            <span class="live">LIVE</span>
-            <button class="vbtn" type="button">Pause</button>
-          </div>
-          <div>
-            <span class="pnote note-hand" aria-hidden="true">shipped to 3 teams!</span>
-            <div class="project-org"><img class="org-icon" src="assets/home/st-jaihind.jpg" width="160" height="160" alt="" />Jai Hind Group · Retail</div>
-            <h3><a href="cases/jaihind.html">One front door for customers and staff</a></h3>
-            <p>I structured the public website around 2 brands, 8 collections and 10 stores. Behind the counter, the order platform my team shipped replaced 5 systems and cut user errors 27%.</p>
-            <div class="chips"><span class="chip">Consumer</span><span class="chip">Ecommerce</span><span class="chip">Web + mobile</span><span class="chip">Retail</span><span class="chip">Dashboard</span></div>
-            <div class="project-meta"><span class="read">Read the case study · 6 min ↗</span><span class="status">Shipped, then redesigned</span></div>
-          </div>
-        </article>
-
-        <article class="project rv" style="--tilt: -1deg;">
-          <div class="media" style="background: var(--peach);">
-            <div class="cover-logo">
-              <img src="assets/findme-logo.svg" alt="FindMe logo" />
-              <div class="bits" aria-hidden="true"><i></i><i></i><i></i></div>
-              <span>Design system · Web and mobile</span>
-            </div>
-          </div>
-          <div>
-            <div class="project-org"><img class="org-logo" src="assets/findme-logo.svg" alt="" />FindMe LLC · New York</div>
-            <h3><a href="cases/findme.html">Growing a design system while the product kept shipping</a></h3>
-            <p>Reusable components and patterns for a career portfolio startup, designed in agile sprints with engineering.</p>
-            <div class="chips"><span class="chip">Web + mobile</span><span class="chip">Startup</span><span class="chip">Design system</span></div>
-            <div class="project-meta"><span class="read">Read the case study · 2 min ↗</span><span class="status">Internship, 2025</span></div>
-          </div>
-        </article>
-
-        <article class="project rv" style="--tilt: 1deg;">
-          <div class="media" style="background: var(--ice);">
-            <video data-live src="assets/live/omkar.mp4" poster="assets/live/omkar.jpg" width="1280" height="800" muted loop playsinline preload="none" aria-label="Omkar Labels preview video"></video>
-            <span class="live">LIVE</span>
-            <button class="vbtn" type="button">Pause</button>
-          </div>
-          <div>
-            <span class="pnote note-hand" aria-hidden="true">real code inside!</span>
-            <div class="project-org"><img class="org-logo" src="assets/jaihind/omkar-logo.svg" alt="" />Omkar Labels · Mumbai</div>
-            <h3><a href="cases/omkar.html">Before I designed interfaces, I built them</a></h3>
-            <p>Front-end developer for a label manufacturer's WordPress site in 2022. In 2026 I rebuilt it in Next.js and TypeScript with an AI coding assistant, and you can read the code beside a live preview.</p>
-            <div class="chips"><span class="chip">Web</span><span class="chip">Front-end</span><span class="chip">Next.js</span></div>
-            <div class="project-meta"><span class="read">Read the case study · 4 min ↗</span><span class="status">Part-time 2022, rebuilt 2026</span></div>
-          </div>
-        </article>
-
+        <figure class="portrait"><img src="assets/video/hero-new-poster.jpg" alt="Siddhi Manche smiling outdoors under a blossoming tree" width="660" height="760"><figcaption>Open to roles across the US</figcaption></figure>
       </div>
     </section>
 
-    <!-- PLAY: polaroids -->
-    <section id="play" class="section" aria-labelledby="play-title">
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <span class="kicker">Side quests</span>
-            <h2 class="h2" id="play-title">Life between deadlines</h2>
-            <p class="lede">Food, cities, waterfalls and one graduation. The photobook from my master's years.</p>
-          </div>
-          <span class="note-hand" aria-hidden="true">mostly food, no regrets</span>
-        </div>
-        <div class="wall">
-          <figure class="pic taped rv" style="--rot: -2deg;"><img src="assets/photobook/21.jpeg" width="1200" height="1600" loading="lazy" alt="Siddhi in cap and gown holding her degree and a bouquet" /><figcaption>finally graduated!</figcaption></figure>
-          <figure class="pic taped corner rv" style="--rot: 2deg;"><img src="assets/photobook/16.jpeg" width="1200" height="1599" loading="lazy" alt="Siddhi in a knit hat smiling by the water with tall buildings behind her" /><figcaption>solo half-day in Chicago</figcaption></figure>
-          <figure class="pic rv" style="--rot: -1deg;"><img src="assets/photobook/12.jpeg" width="1200" height="1600" loading="lazy" alt="Siddhi smiling with a plate of tiramisu" /><figcaption>happy when eating tiramisu</figcaption></figure>
-          <figure class="pic taped rv" style="--rot: 3deg;"><img src="assets/photobook/19.jpeg" width="1200" height="1600" loading="lazy" alt="Siddhi in front of a waterfall" /><figcaption>chasing waterfalls</figcaption></figure>
-          <figure class="pic rv" style="--rot: -3deg;"><img src="assets/photobook/04.jpeg" width="900" height="1600" loading="lazy" alt="A Ghirardelli sundae held up in front of city buildings" /><figcaption>I love ice cream!</figcaption></figure>
-          <figure class="pic taped corner rv" style="--rot: 2deg;"><img src="assets/photobook/17.jpeg" width="1200" height="1600" loading="lazy" alt="A gelato cone in front of the Amorino gelato sign" /><figcaption>gelato at Amorino</figcaption></figure>
-          <figure class="pic taped rv" style="--rot: 1deg;"><img src="assets/photobook/20.jpeg" width="1200" height="1600" loading="lazy" alt="Siddhi in cap and gown in front of the University of Michigan Dearborn sign" /><figcaption>graduation day</figcaption></figure>
-          <figure class="pic rv" style="--rot: -1deg;"><img src="assets/photobook/11.jpeg" width="1200" height="1600" loading="lazy" alt="Siddhi in a pink saree beside a framed painting" /><figcaption>dressed up in pink</figcaption></figure>
+    <section class="sec" id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div><span class="eyebrow">About me</span><h2 id="about-title">Engineer first, <em>designer</em> now.</h2></div>
+        <div class="about-text">
+          <p>I started as an engineer, building websites in HTML, CSS and JavaScript. At Jai Hind Group, I designed a retail chain's public website and the order platform its staff use. Then I earned my master's in Human-Centered Design and Engineering at the University of Michigan-Dearborn.</p>
+          <p>I care about the quiet stuff: clear labels, readable color, and the one button you actually need.</p>
+          <ul class="facts" role="list">
+            <li><b>Focus</b><span>B2B, B2B2C and e-commerce</span></li>
+            <li><b>Education</b><span>M.S., University of Michigan-Dearborn</span></li>
+            <li><b>Worked with</b><span>Jai Hind Group, FindMe and Omkar Labels</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- TIMELINE -->
-    <section id="timeline" class="section" aria-labelledby="tl-title">
+    <section class="sec" id="work" aria-labelledby="work-title">
       <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <span class="kicker">Timeline</span>
-            <h2 class="h2" id="tl-title">How I got here, the short version</h2>
-          </div>
-        </div>
-        <div class="tl">
-          <div class="tl-photos" aria-hidden="true">
-            <figure class="taped" style="--rot: -5deg;"><img src="assets/home/snap-07.jpg" width="460" height="575" alt="" loading="lazy" /><figcaption>coffee runs</figcaption></figure>
-            <figure style="--rot: 4deg;"><img src="assets/home/snap-16.jpg" width="460" height="575" alt="" loading="lazy" /><figcaption>Chicago</figcaption></figure>
-            <figure class="taped" style="--rot: -3deg;"><img src="assets/home/snap-20.jpg" width="460" height="575" alt="" loading="lazy" /><figcaption>Dearborn</figcaption></figure>
-            <figure style="--rot: 5deg;"><img src="assets/home/snap-21.jpg" width="460" height="575" alt="" loading="lazy" /><figcaption>graduated!</figcaption></figure>
-          </div>
-          <ol class="tl-track">
-            <li><span class="tl-year">2022</span><b>Omkar Labels</b><span>Front-end developer, part-time. Built pages in HTML, CSS and JavaScript.</span></li>
-            <li><span class="tl-year">2023</span><b>Jai Hind Group</b><span>My first design role: Product UX Designer, until July 2024.</span><span class="note-hand" aria-hidden="true">my first design job!</span></li>
-            <li><span class="tl-year">2024</span><b>University of Michigan</b><span>Started my master's in Human-Centered Design and Engineering.</span><span class="note-hand" aria-hidden="true">hello, Michigan!</span></li>
-            <li><span class="tl-year">2025</span><b>FindMe LLC</b><span>UX/UI design intern at a New York startup.</span></li>
-            <li><span class="tl-year">2025</span><b>Teaching Assistant</b><span>Weekly design critiques for 30+ students.</span></li>
-            <li><span class="tl-year">2026</span><b>Graduated</b><span>Master's complete.</span></li>
-            <li class="next"><span class="tl-year">Next</span><b>Your team?</b><span>Open to UX roles across the US.</span><span class="note-hand" aria-hidden="true">this could be you</span></li>
-          </ol>
+        <div class="sec-head"><span class="eyebrow">Selected work</span><h2 id="work-title">Six case studies, <em>commerce first</em></h2><p>Each one walks through the process step by step, with the key decisions, the thinking behind them, and the results.</p></div>
+        <div class="grid">
+        <article class="card">
+          <div class="card-media"><img src="assets/live/jaihind.jpg" alt="" width="1280" height="800" loading="lazy"></div>
+          <p class="card-label">Shipped · B2B2C retail · 3 min read</p>
+          <h3><a href="cases/jaihind.html">One front door for customers and staff</a></h3>
+          <p class="card-result"><b>27%</b> fewer user errors</p>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/live/omkar.jpg" alt="" width="1280" height="800" loading="lazy"></div>
+          <p class="card-label">Shipped · B2B manufacturer · 3 min read</p>
+          <h3><a href="cases/omkar.html">A B2B catalog buyers check before they call</a></h3>
+          <p class="card-result"><b>50+</b> product pages kept accurate</p>
+        </article>
+        <article class="card">
+          <div class="card-media"><div class="lib-visual"><div class="mini-lib"><img class="findme-logo" src="assets/findme-logo.svg" alt="" width="92" height="26"><div class="row"><span class="pill">Primary</span><span class="pill sec">Secondary</span><span class="pill ghost">Ghost</span></div><div class="row"><span class="pill">Default</span><span class="pill dis">Disabled</span></div><span class="spec">Button / Primary / Medium / Default</span></div></div></div>
+          <p class="card-label">Internship · Startup, New York · 2 min read</p>
+          <h3><a href="cases/findme.html">Growing a design system while the product kept shipping</a></h3>
+          <p class="card-result"><span class="it">"Consistently raised the quality of everything she touched."</span></p>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/live/ir2go.jpg" alt="" width="1280" height="800" loading="lazy"></div>
+          <p class="card-label">Course project · Government app · 4 min read</p>
+          <h3><a href="cases/ir2go.html">Making the IRS app easy to use</a></h3>
+          <p class="card-result"><b>31.3 → 78.25</b> usability score</p>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/live/anchor.jpg" alt="" width="1280" height="800" loading="lazy"></div>
+          <p class="card-label">Capstone · Fintech, AI · 4 min read</p>
+          <h3><a href="cases/anchor.html">An AI budgeting coach people trust</a></h3>
+          <p class="card-result"><b>75%</b> completely trusted the AI</p>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/live/ev.jpg" alt="" width="1280" height="800" loading="lazy"></div>
+          <p class="card-label">Course project · Mobility · 4 min read</p>
+          <h3><a href="cases/ev.html">One app for every charger</a></h3>
+          <p class="card-result"><b>78.75</b> usability score, 10 testers</p>
+        </article>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section" aria-labelledby="about-title">
+    <section class="sec" id="journey" aria-labelledby="journey-title">
       <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <span class="kicker">About</span>
-            <h2 class="h2" id="about-title">What it's like to work with me</h2>
-          </div>
-        </div>
-        <blockquote class="quote rv">
-          <p>"Siddhi brought a rare mix of curiosity and rigor to our team. She dug into the research, listened carefully to users, and turned messy problems into clear, thoughtful design decisions."</p>
-          <cite>Shabaan Hossain, Founder of FindMe</cite>
-        </blockquote>
+        <div class="sec-head"><span class="eyebrow">Journey</span><h2 id="journey-title">How I <em>got here</em></h2></div>
+        <ol class="journey" role="list">
+          <li><span class="when">2025</span><div><h3>Teaching Assistant <span>· University of Michigan-Dearborn</span></h3><p>Weekly design critiques for 30+ students.</p></div></li>
+          <li><span class="when">2025</span><div><h3>UX/UI Design Intern <span>· FindMe LLC, New York</span></h3><p>Grew the design system and designed features inside the sprint.</p></div></li>
+          <li><span class="when">2024 to 2026</span><div><h3>M.S., Human-Centered Design and Engineering <span>· University of Michigan-Dearborn</span></h3><p>Graduated in 2026.</p></div></li>
+          <li><span class="when">2023 to 2024</span><div><h3>Product UX Designer <span>· Jai Hind Group, Mumbai</span></h3><p>A retail chain's website and its order platform, which cut user errors 27%.</p></div></li>
+          <li><span class="when">2022 to 2023</span><div><h3>Front-End Developer, part-time <span>· Omkar Labels, Mumbai</span></h3><p>Built and kept up a B2B catalog website.</p></div></li>
+          <li><span class="when">2020 to 2024</span><div><h3>B.E., Electronics and Telecommunication <span>· Vidyalankar Institute of Technology</span></h3><p>Where the engineer part started.</p></div></li>
+        </ol>
+      </div>
+    </section>
 
-        <h3 class="h3" style="margin: 72px 0 10px;">Questions recruiters ask me</h3>
-        <p class="qa-hint note-hand">tap a question to see my answer <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
-        <div class="qa">
-          <details>
-            <summary class="bubble them">What kind of role are you looking for?</summary>
-            <p class="bubble me">A UX role where research shapes the product, ideally in fintech, the public sector or B2B tools with real accessibility needs. I'm open to work across the US.</p>
-          </details>
-          <details>
-            <summary class="bubble them">What's your design process?</summary>
-            <p class="bubble me">Research before pixels: interviews and audits first, then sketches, wireframes and a prototype, then usability testing, usually two rounds. I treat every misclick as a design question, not a user error.</p>
-          </details>
-          <details>
-            <summary class="bubble them">How do you use AI in your work?</summary>
-            <p class="bubble me">I use Claude for research synthesis, early exploration and documentation, and I check its themes against the raw quotes by hand. I don't use it for final visual decisions, information architecture, or deciding what a user should be told.</p>
-          </details>
-          <details>
-            <summary class="bubble them">How do you work with developers?</summary>
-            <p class="bubble me">I come from engineering and know HTML, CSS and JavaScript, so my handoffs come with specs, tokens and states, and I can talk through implementation on the developers' terms.</p>
-          </details>
+    <section class="sec" id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <div class="sec-head"><span class="eyebrow">Skills</span><h2 id="skills-title">What I <em>work with</em></h2></div>
+        <div class="skills">
+          <div><h3>Design</h3><ul class="tags" role="list"><li>User research</li><li>Usability testing</li><li>Journey maps</li><li>Wireframes</li><li>Prototyping</li><li>Design systems</li><li>Accessibility, WCAG 2.1 AA</li></ul></div>
+          <div><h3>Tools</h3><ul class="tags" role="list"><li>Figma</li><li>Maze</li><li>Framer</li><li>Webflow</li><li>Jira</li><li>GitHub</li><li>Claude Code</li></ul></div>
+          <div><h3>Code</h3><ul class="tags" role="list"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li><li>jQuery</li><li>Bootstrap</li><li>WordPress</li></ul></div>
         </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-label="What people say">
+      <div class="wrap">
+        <figure class="quote"><blockquote><p>"Siddhi brought a rare mix of curiosity and rigor to our team."</p></blockquote><figcaption>Shabaan Hossain, Founder of FindMe</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="sec contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <span class="eyebrow">Contact</span>
+        <h2 id="contact-title">Let's <em>talk</em>.</h2>
+        <p>Open to product design roles in B2B and e-commerce, across the US.</p>
+        <div class="btn-row"><a class="btn btn-primary" href="mailto:manche.siddhi@gmail.com">Email me</a><a class="btn btn-secondary" href="https://www.linkedin.com/in/siddhi-manche/" target="_blank" rel="noopener">LinkedIn<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="sr"> (opens in a new tab)</span></a><a class="btn btn-secondary" href="https://github.com/Siddhidesign" target="_blank" rel="noopener">GitHub<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="sr"> (opens in a new tab)</span></a></div>
       </div>
     </section>
   </main>
-
-  <!-- FOOTER -->
-  <footer class="foot" id="contact">
-    <div class="foot-stickers" aria-hidden="true">
-      <img class="s1" src="assets/home/thing-ben-jerrys.png" width="362" height="420" loading="lazy" alt="" />
-      <img class="s2" src="assets/home/thing-camera.png" width="354" height="420" loading="lazy" alt="" />
-      <img class="s3" src="assets/home/st-irs.jpg" width="160" height="160" loading="lazy" alt="" />
+  <footer class="ftr">
+    <div class="wrap ftr-in">
+      <span>© 2026 Siddhi Manche · Designed by me, coded with Claude Code · WCAG 2.1 AA</span>
+      <span><a href="mailto:manche.siddhi@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/siddhi-manche/" target="_blank" rel="noopener">LinkedIn<span class="sr"> (opens in a new tab)</span></a> · <a href="https://github.com/Siddhidesign" target="_blank" rel="noopener">GitHub<span class="sr"> (opens in a new tab)</span></a></span>
     </div>
-    <div class="wrap">
-      <span class="kicker">Say hi</span>
-      <p class="foot-big">Let's make <span class="pill">hard things</span> feel <span class="pill alt">easy.</span></p>
-      <div class="foot-row">
-        <a class="btn btn-accent" href="mailto:manche.siddhi@gmail.com">Email me</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/siddhi-manche/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a class="btn btn-ghost" href="#top">Back to top ↑</a>
-      </div>
-      <p class="foot-note note-hand"><svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M40 28 C 30 27, 14 22, 9 7 M9 7 L 5 17 M9 7 L 17 12" /></svg>say hi, I don't bite!</p>
-      <div class="foot-base">
-        <span>© 2026 Siddhi Manche. Designed with intention, built with code.</span>
-        <span>Based in the United States.</span>
-      </div>
-    </div>
-    <figure class="foot-me taped">
-      <div class="media">
-        <video data-live src="assets/video/hero-zoom.mp4" poster="assets/video/hero-zoom-poster.jpg" width="680" height="780" muted loop playsinline preload="none" aria-label="video of Siddhi smiling"></video>
-        <button class="vbtn" type="button">Pause</button>
-      </div>
-    </figure>
   </footer>
-
-  <nav class="dock" aria-label="Page sections">
-    <a href="#work">Work</a>
-    <a href="#play">Play</a>
-    <a href="#timeline">Timeline</a>
-    <a href="#about">About</a>
-    <span class="sep" aria-hidden="true"></span>
-    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to night mode"><span class="ic" aria-hidden="true">&#9728;</span><span class="tx">Day</span></button>
-    <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
-  </nav>
-
-  <script src="js/site.js"></script>
+  <p class="sr" aria-live="polite" data-live></p>
+  <script src="js/store.js" defer></script>
 </body>
 </html>

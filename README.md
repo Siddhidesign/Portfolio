@@ -2,65 +2,56 @@
 
 Source for [siddhidesign.github.io/Portfolio](https://siddhidesign.github.io/Portfolio).
 
-Hand-built in HTML, CSS and JavaScript. No framework, no build step. Push to `main` and GitHub Pages serves it.
+Plain HTML, CSS and JavaScript. No framework, no build step on the server. Push to `main` and GitHub Pages serves it.
+
+Designed by Siddhi Manche and coded with Claude Code, an AI coding assistant. She reviews every change and tests it in the browser.
 
 ## Structure
 
 ```
-index.html            Homepage
-css/site.css          The design system: day and night tokens, components, homepage and project page layouts
-js/site.js            Day/night switch, live video play/pause, chat, dock, sliders, reveal
-cases/*.html          Project pages (all use css/site.css and js/site.js; jaihind.html also has a small inline style block)
+index.html            Home: intro, about me, six case studies, journey, skills, contact
+cases/*.html          One case study per project: the whole process step by step, with the
+                      key decisions highlighted, results, "what I'd do now with AI", and feedback
+cases/full/*.html     Long versions of each case study, with the interactive coded prototypes
+css/store.css         Styles for the home page and case studies: day and night tokens, layout,
+                      the step tracker, and small coded charts
+js/store.js           Theme switch, image gallery, step tracker, like + feedback
 
-Coded product screens (each project's screens rebuilt in HTML, CSS and JavaScript)
-css/jh-app.css        Jai Hind console: tokens, layouts, wireframe/before/after modes, desktop and phone
-js/jh-app.js          Jai Hind console: dashboard, orders, customers, 4-step sales order
-js/jh-research.js     Jai Hind research blocks: audit filter, persona tabs, journeys, style guide, components
-css/proto.css         Phone prototype shell shared by IRS2GO, Money Anchor and EV: frame, controls,
-js/proto.js           "Things to try" checklist, sheets, toasts, coded before/after slider
-css/ir-app.css        IRS2GO redesign and the original app ("Old app" mode with problem pins)
-js/ir-app.js
-css/ma-app.css        Money Anchor: budget, AI chat and explanations, Design notes and Before fixes modes
-js/ma-app.js
-css/ev-app.css        EV charging: map, routes, stations, check-in and payment
-js/ev-app.js
-css/case-kit.css      Coded research and testing blocks used across case pages (sources, tables,
-js/case-kit.js        tabbed charts, score scales, personas, funnels, flows, wireframes)
-css/lab.css           Omkar resizable catalog recreation and FindMe component states playground
-js/lab.js
-css/codeview.css      Omkar "code + live preview": file tabs, highlighted excerpts, notes that run
-js/codeview.js        their code in the preview, an inspector, phone/tablet/desktop sizes
-omkar-rebuild/        Static export of my 2026 Next.js rebuild of the Omkar Labels site, shown in that preview
+Used only by the long versions in cases/full/
+css/site.css, js/site.js                  The previous design system
+css/jh-app.css, js/jh-app.js, js/jh-research.js
+                                          Jai Hind console and research blocks
+css/proto.css, js/proto.js                Phone prototype shell for IRS2GO, Money Anchor and EV
+css/ir-app.css, css/ma-app.css, css/ev-app.css (and their js/)
+                                          The coded product screens
+css/case-kit.css, js/case-kit.js          Research and testing blocks
+css/lab.css, js/lab.js                    Omkar catalog recreation and FindMe component playground
+css/codeview.css, js/codeview.js          Omkar "code + live preview"
+omkar-rebuild/                            Static export of my 2026 Next.js rebuild of the Omkar Labels site
 
-assets/live/          Looping preview videos (mp4) and their poster frames, one per project (used on the homepage)
-assets/home/          Hero backgrounds, cut-out "things" and photo stickers (st-*), timeline polaroids (snap-*), chat avatar
-assets/               Other images: real photos, hand-drawn sketches, fallbacks shown if JavaScript is off
+assets/v2/            Phone screens and the audit board used in the case studies
+assets/og/            Share-preview images
+assets/               Project images, sketches and photos
 .nojekyll             Tells Pages to serve files starting with underscores
 ```
-
-The preview videos in `assets/live/` are rendered from real project screens with a small Python script (PIL plus ffmpeg, H.264, 1280x800, about 9 seconds, no audio, seamless loop).
 
 ## House rules
 
 These are deliberate. Please do not "fix" them back.
 
-- **Two typefaces, plus one hand for notes.** Instrument Serif for display, Inter for everything else. Caveat is used only for short handwritten notes, and a note never carries the only copy of a fact.
-- **Day and night.** Every colour is a named token in `css/site.css`, defined once for day and once for night, with the measured contrast ratio written beside it. Every text pair passes WCAG 2.1 AA in both themes. The visitor's choice is remembered; the first visit follows the device setting. Add `?theme=night` or `?theme=day` to any URL to force one.
+- **One typeface, plus an accent.** Manrope for everything. Instrument Serif italic for a few accent words only.
+- **Day and night.** Every color is a token in `css/store.css`, defined once for day and once for night. Every text pair passes WCAG 2.1 AA in both themes, checked with axe-core. The visitor's choice is remembered. Add `?theme=night` or `?theme=day` to any URL to force one.
 - **No em dashes or en dashes** in any copy.
-- **Nothing can be hidden by a script failure.** Reveal animations only switch on once `js/site.js` is running, and the chat in the hero shows itself after seven seconds no matter what.
-- **Anything that moves has a pause control**: every video has a Pause button, the logo strip has one too, and `prefers-reduced-motion` pauses all of it. Inside the prototypes nothing moves on its own except brief, user-started feedback (a spinner, a typing indicator, pins that pulse three times).
+- **Nothing can be hidden by a script failure.** Without JavaScript every page reads in full, the step tracker is a plain list of links, and feedback falls back to an email link.
+- **Only real numbers.** Every result is labeled Measured, Tested, Shipped, Built, Not yet tested, Concept or Pending. Team projects say they were team projects. "What I'd do now with AI" sections are ideas, not built work, and say so.
+- **Feedback goes to email.** The like + feedback box posts to FormSubmit, which emails Siddhi. Nothing else is stored. FormSubmit needs a one-time activation from that inbox.
 - **Keep the skip link and visible focus states.**
-- **The FAQ works without JavaScript.** It is plain `<details>`, so every answer opens with a keyboard or a tap.
-- **Screens are code, not screenshots.** Product screens are rebuilt in HTML, CSS and JavaScript from the Figma files, so visitors can use them. Real photos and hand-drawn sketches stay as images. Each prototype has an image fallback inside it for when JavaScript is off.
-- **Coded replicas keep the product's own look** (its colors and the closest open font) inside their frame; the page around them keeps the site's two typefaces. Product grays are darkened where needed to pass AA.
-- **Sample data is labeled as sample.** Nothing typed into a prototype is stored or sent. Sign-in, payments, calls and AI answers are simulated or scripted, and say so. No real phone numbers, emails or SSNs; brand logos are never drawn, only text wordmarks.
-- **Internal links are relative.** No root-relative (`/path`) or absolute self-referencing URLs anywhere, which is what lets the domain change without edits. One exception: `omkar-rebuild/` is a Next.js static export, and Next.js writes root-relative paths, so it is built for `/Portfolio/omkar-rebuild/`. If the site moves to a custom domain, rebuild it with `basePath` set to `/omkar-rebuild`.
-- **Code excerpts are real.** The Omkar excerpts are copied from the project by a script, with their real line numbers, never retyped. The page says plainly that the rebuild was made with an AI coding assistant.
-- **The preview copy is labeled.** `omkar-rebuild/` differs from the project in six ways, all for static hosting or privacy: static export settings, forms that validate but send nothing, a generic quote confirmation, masked names, phone numbers and street addresses, a "portfolio preview, not the official site" banner with noindex, and sub-path URLs in `sitemap.xml` and `robots.txt`.
+- **Internal links are relative.** No root-relative (`/path`) links, which is what lets the domain change without edits. One exception: `omkar-rebuild/` is a Next.js static export, and Next.js writes root-relative paths, so it is built for `/Portfolio/omkar-rebuild/`. If the site moves to a custom domain, rebuild it with `basePath` set to `/omkar-rebuild`.
+- **Sample data is labeled as sample** inside the prototypes. No real phone numbers, emails or SSNs; brand logos are never drawn.
 
 ## Custom domain
 
-Internal links are already relative, so moving the site to a custom domain needs no code changes beyond the steps below.
+Internal links are already relative, so moving the site to a custom domain needs no code changes beyond the steps below (and updating the canonical and share-preview URLs).
 
 ### 1. Add a CNAME file
 
@@ -110,7 +101,6 @@ DNS takes anywhere from a few minutes to 24 hours to propagate. Once **Settings 
 
 - The old `siddhidesign.github.io/Portfolio` address keeps working and redirects to the new domain.
 - Update the portfolio link on your résumé, LinkedIn and any live applications.
-- Nothing in the HTML or CSS needs to change.
 
 ## Local preview
 
@@ -125,6 +115,6 @@ Then visit `http://localhost:8000`.
 ## Before pushing
 
 1. Check HTML tags balance and CSS braces match.
-2. Re-measure contrast on any colour pair you touched. AA is 4.5:1 for normal text.
+2. Run axe-core (WCAG 2.1 AA) on every page in both themes, at desktop and phone widths.
 3. Search for em and en dashes and remove them.
 4. Confirm every image and link path resolves.

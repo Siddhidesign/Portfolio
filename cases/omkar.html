@@ -1,294 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="day">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omkar Labels, Case Study · Siddhi Manche</title>
-  <meta name="description" content="Front-end developer at Omkar Labels in 2022, building responsive WordPress pages from the designer's files. In 2026 I rebuilt the site in Next.js, React and TypeScript: read the code beside a live preview." />
-  <meta name="theme-color" content="#f7f7f7" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omkar Labels: A B2B catalog buyers check before they call | Siddhi Manche</title>
+  <meta name="description" content="A B2B catalog for a label manufacturer: built in 2022 as a front-end developer, rebuilt in 2026 in Next.js with 0 WCAG 2.1 AA violations.">
+  <link rel="canonical" href="https://siddhidesign.github.io/Portfolio/cases/omkar.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Siddhi Manche">
+  <meta property="og:title" content="Omkar Labels: A B2B catalog buyers check before they call | Siddhi Manche">
+  <meta property="og:description" content="A B2B catalog for a label manufacturer: built in 2022 as a front-end developer, rebuilt in 2026 in Next.js with 0 WCAG 2.1 AA violations.">
+  <meta property="og:url" content="https://siddhidesign.github.io/Portfolio/cases/omkar.html">
+  <meta property="og:image" content="https://siddhidesign.github.io/Portfolio/assets/og/omkar.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <script>
     (function () {
       var d = document.documentElement, t;
       try { t = localStorage.getItem('theme'); } catch (e) {}
       var q = location.search.match(/theme=(day|night)/); if (q) t = q[1];
-      if (t !== 'day' && t !== 'night') { t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'; }
-      d.setAttribute('data-theme', t); d.classList.add('js');
+      d.setAttribute('data-theme', t === 'night' ? 'night' : 'day'); d.classList.add('js');
     })();
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/site.css" />
-  <link rel="stylesheet" href="../css/lab.css" />
-  <link rel="stylesheet" href="../css/codeview.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/store.css">
 </head>
-<body class="has-dock">
+<body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="wrap case-top"><a href="../index.html#work">&#8592; All work</a></div>
-
+  <header class="hdr">
+    <div class="wrap hdr-in">
+      <a class="logo" href="../index.html">Siddhi <em>Manche</em></a>
+      <nav class="nav" aria-label="Main">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#work">Work</a>
+        <a class="opt" href="../index.html#journey">Journey</a>
+        <a class="opt" href="../index.html#skills">Skills</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="Switch to dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </div>
+  </header>
   <main id="main">
-    <section id="overview" class="wrap case-hero">
-      <span class="kicker">Omkar Labels · Mumbai · 2022, rebuilt 2026</span>
-      <h1 class="h1">Before I designed interfaces, I built them</h1>
-      <p class="lede">Omkar Labels makes clothing labels, hang tags and tapes for apparel brands, including major US retail chains. As a part-time front-end developer, I turned the designer's files into responsive pages on its WordPress site. In 2026 I rebuilt the site in Next.js and TypeScript, so you can read the code.</p>
-      <div class="chips"><span class="chip">Web</span><span class="chip">Front-end</span><span class="chip">WordPress</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">B2B</span></div>
-      <p class="cv-jump"><a href="#code">Read the code beside a live preview <span aria-hidden="true">&#8595;</span></a></p>
-      <p class="case-note note-hand">the job that made my handoffs better <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
-      <div class="lab" data-lab="catalog">
-        <div class="lab-bar">
-          <span class="lab-hint" aria-hidden="true">drag the handle, watch it reflow!</span>
-          <div class="lab-seg" role="group" aria-label="Screen size"><button type="button" data-w="375" aria-pressed="false">Phone</button><button type="button" data-w="768" aria-pressed="false">Tablet</button><button type="button" data-w="max" aria-pressed="true">Desktop</button></div>
-          <label class="lab-range">Width <input type="range" min="320" max="1140" value="1140" step="1"><output>1140px</output></label>
-          <button type="button" class="lab-tog" data-tog="grid" aria-pressed="false">Show grid</button>
-          <button type="button" class="lab-tog" data-tog="spec" aria-pressed="false">Show spacing</button>
-        </div>
-        <div class="lab-stage">
-          <div class="lab-win">
-            <div class="lab-chrome"><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i><span>Product catalog, a recreation</span><b>lg</b></div>
-            <div class="lab-site">
-              <div class="ls-nav"><span class="ls-logo">Omkar <span>Labels</span></span>
-                <nav class="ls-links" aria-label="Catalog demo"><a href="#ls-products">Products</a><a href="#ls-quality">Quality</a><a href="#ls-contact">Contact</a></nav>
-                <button type="button" class="ls-cta" data-quote>Get a quote</button>
-                <button type="button" class="ls-menu" aria-expanded="false" aria-controls="ls-drop">Menu</button>
-                <div class="ls-drop" id="ls-drop"><a href="#ls-products">Products</a><a href="#ls-quality">Quality</a><a href="#ls-contact">Contact</a></div>
+    <nav class="crumbs wrap" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="../index.html#work">Work</a></li><li aria-current="page">Omkar Labels</li></ol></nav>
+    <div class="wrap pdp">
+      <figure class="gal"><div class="gal-frame"><img data-gal-main src="../assets/v2/omkar-rebuild.jpg" alt="The home page of the 2026 rebuild: Labels, Tags and Packaging That Carry Your Brand, with Request a Quote."></div><figcaption data-gal-cap>The 2026 rebuild, home page.</figcaption>
+          <ul class="thumbs" role="list" aria-label="More images"><li><a href="../assets/v2/omkar-rebuild.jpg" data-gal data-alt="The home page of the 2026 rebuild: Labels, Tags and Packaging That Carry Your Brand, with Request a Quote." data-cap="The 2026 rebuild, home page." aria-current="true"><img src="../assets/v2/omkar-rebuild.jpg" alt="" width="68" height="50" loading="lazy"><span class="sr">Show image 1: The 2026 rebuild, home page.</span></a></li><li><a href="../assets/live/omkar.jpg" data-gal data-alt="Product photos: a printing press, a hang tag on a shirt and printed labels." data-cap="The kinds of products the catalog carried."><img src="../assets/live/omkar.jpg" alt="" width="68" height="50" loading="lazy"><span class="sr">Show image 2: The kinds of products the catalog carried.</span></a></li><li><a href="../assets/jaihind/omkar-hangtag.jpg" data-gal data-alt="A printed hang tag on a checked shirt." data-cap="Hang tags."><img src="../assets/jaihind/omkar-hangtag.jpg" alt="" width="68" height="50" loading="lazy"><span class="sr">Show image 3: Hang tags.</span></a></li></ul></figure>
+      <div class="buy">
+        <p class="label"><span class="chip c-shipped">Shipped</span><span>B2B manufacturer · 3 min read</span></p>
+        <h1>A B2B catalog buyers check before they call</h1>
+        <p class="summary">Omkar Labels makes clothing labels and tags for apparel brands. In 2022 I built its catalog pages as a front-end developer. In 2026 I rebuilt the site in Next.js; I directed and tested the build, and an AI assistant wrote much of the code.</p>
+        <div class="keys" role="group" aria-label="Key results"><div><b>50+</b><span>product pages kept accurate</span></div><div><b>0</b><span>accessibility violations on the rebuild</span></div><p class="keys-note"><span class="chip c-measured">Measured</span>axe-core, WCAG 2.1 AA, all 6 pages of the rebuild</p></div>
+        <dl class="meta"><div><dt>Role</dt><dd>Front-end developer, part-time</dd></div><div><dt>Timeline</dt><dd>May 2022 to Jan 2023, rebuilt in 2026</dd></div><div><dt>Team</dt><dd>Worked with the designer</dd></div></dl>
+        <div class="links"><a class="btn btn-secondary" href="../omkar-rebuild/" target="_blank" rel="noopener">Live preview of the rebuild<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="sr"> (opens in a new tab)</span></a><a class="btn btn-secondary" href="full/omkar.html">The code, beside the preview<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+    </div>
+
+    <nav class="steps-nav" aria-label="Steps in this case study">
+      <div class="wrap"><ol class="stepper" role="list"><li><a href="#context"><span class="n" aria-hidden="true">1</span>Context</a></li><li><a href="#build"><span class="n" aria-hidden="true">2</span>Build</a></li><li><a href="#handoff"><span class="n" aria-hidden="true">3</span>Handoff</a></li><li><a href="#rebuild"><span class="n" aria-hidden="true">4</span>Rebuild</a></li><li><a href="#testing"><span class="n" aria-hidden="true">5</span>Testing</a></li><li><a href="#results"><span class="n" aria-hidden="true">6</span>Results</a></li></ol></div>
+    </nav>
+
+    <section class="step" id="context" data-step aria-labelledby="context-h">
+      <div class="wrap">
+        <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">1</span>Step 1 of 6 · Context</span><h2 id="context-h">A manufacturer&#x27;s shop window</h2><p>Omkar Labels has made clothing labels, hang tags and tapes since 1999, in two factories, with a four-point quality check on every order. Buyers check all of that on the website before they pick up the phone.</p><p class="why"><b>Why:</b> A broken page or an old listing costs trust with exactly the people about to call.</p></div><figure class="step-visual"><div class="frame wide"><img src="../assets/jaihind/omkar-press.jpg" alt="An offset printing press on the factory floor." loading="lazy"></div><figcaption>Offset printing on the factory floor.</figcaption></figure></div>
+      </div>
+    </section>
+
+    <section class="step hl" id="build" data-step aria-labelledby="build-h">
+      <div class="wrap">
+        <div class="step-grid solo"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">2</span>Step 2 of 6 · Build</span><h2 id="build-h">From design file to working page</h2><p>In 2022, as a part-time front-end developer, I turned the designer&#x27;s files into responsive pages on the company&#x27;s WordPress site: HTML and CSS for layout, JavaScript and jQuery for behavior, and Bootstrap&#x27;s grid so pages held up on every screen.</p></div></div><div class="step-sub"><span class="eyebrow">Key decision</span><ol class="decisions" role="list">
+            <li class="dec key"><figure class="dec-visual"><div class="frame wide"><img src="../assets/live/omkar.jpg" alt="Product photos from the catalog: a printing press, a hang tag on a shirt and printed labels." loading="lazy"></div><figcaption>The kinds of products the catalog carried.</figcaption></figure>
+              <div>
+                <span class="dec-n">Key decision 1</span>
+                <h3>Keep every product page true</h3>
+                <p class="thinking"><b>The thinking:</b> Buyers check what a manufacturer makes before they call, so one outdated listing costs trust. I kept the catalog of 50+ products accurate as things changed.</p>
+                <p class="dec-result"><span class="chip c-shipped">Shipped</span><span>50+ product pages kept accurate in 2022.</span></p>
               </div>
-              <div class="ls-hero"><div><h3>Labels, hang tags and tapes for apparel brands</h3><p>Made in two factories, in Thane and Narmadapuram, since 1999.</p><div class="row"><a class="ls-cta" href="#ls-products" style="text-decoration: none;">Browse products</a><button type="button" class="ls-btn2" data-quote>Request a quote</button></div></div><img src="../assets/jaihind/omkar-press.jpg" width="794" height="596" alt="An offset printing press on the factory floor"></div>
-              <div class="ls-sec" id="ls-products"><h4>Products</h4>
-                <div class="ls-chips" role="group" aria-label="Filter products"><button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="labels" aria-pressed="false">Labels</button><button type="button" data-f="tags" aria-pressed="false">Hang tags</button><button type="button" data-f="tapes" aria-pressed="false">Tapes</button></div>
-                <div class="ls-grid"><div class="ls-card" data-c="labels"><span class="col" aria-hidden="true">col-lg-3</span><img src="../assets/jaihind/omkar-washcare.jpg" width="304" height="302" loading="lazy" alt="A printed wash-care label sewn into a shirt"><div class="b"><b>Wash-care labels</b><p>Printed care instructions for garments.</p><button type="button" data-quote>Request a quote</button></div></div><div class="ls-card" data-c="tags"><span class="col" aria-hidden="true">col-lg-3</span><img src="../assets/jaihind/omkar-hangtag.jpg" width="794" height="795" loading="lazy" alt="A printed hang tag on a plaid shirt"><div class="b"><b>Hang tags</b><p>Printed tags for retail garments.</p><button type="button" data-quote>Request a quote</button></div></div><div class="ls-card" data-c="tapes"><span class="col" aria-hidden="true">col-lg-3</span><img src="../assets/jaihind/omkar-tape.jpg" width="303" height="303" loading="lazy" alt="A roll of printed tape beside printed labels"><div class="b"><b>Printed tapes</b><p>Branded tape on the roll.</p><button type="button" data-quote>Request a quote</button></div></div><div class="ls-card" data-c="labels"><span class="col" aria-hidden="true">col-lg-3</span><img src="../assets/jaihind/omkar-labels-press.jpg" width="719" height="719" loading="lazy" alt="Printed fabric labels fresh off the press"><div class="b"><b>Fabric labels</b><p>Printed fabric labels, fresh off the press.</p><button type="button" data-quote>Request a quote</button></div></div></div>
-                <p class="ls-say" aria-live="polite"></p>
+            </li>
+          </ol></div>
+      </div>
+    </section>
+
+    <section class="step" id="handoff" data-step aria-labelledby="handoff-h">
+      <div class="wrap">
+        <div class="step-grid solo"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">3</span>Step 3 of 6 · Handoff</span><h2 id="handoff-h">Where designs meet reality</h2><p>When the design file and the browser didn&#x27;t match, I raised it early and we solved it together before release. When a layout broke in one browser and not another, I traced the cause in Chrome DevTools and fixed the code, not the symptom.</p><p class="why"><b>Why:</b> I&#x27;ve been the developer on the other side of a handoff, so my own handoffs now spell out states, spacing and behavior.</p></div></div>
+      </div>
+    </section>
+
+    <section class="step hl" id="rebuild" data-step aria-labelledby="rebuild-h">
+      <div class="wrap">
+        <div class="step-grid solo"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">4</span>Step 4 of 6 · Rebuild</span><h2 id="rebuild-h">The same site, in code you can read</h2><p>I no longer had the 2022 code, so in 2026 I rebuilt the site from the designer&#x27;s Figma files in Next.js 16, React 19 and TypeScript. I planned and directed the build, reviewed the code and tested every page. An AI coding assistant wrote much of the code.</p></div></div><div class="step-sub"><span class="eyebrow">Key decisions</span><ol class="decisions" role="list">
+            <li class="dec key"><figure class="dec-visual"><div class="frame wide"><img src="../assets/v2/omkar-quote.jpg" alt="The rebuilt quote form after an empty submit: a summary message and an error under each required field." loading="lazy"></div><figcaption>The rebuilt quote form, after an empty submit.</figcaption></figure>
+              <div>
+                <span class="dec-n">Key decision 2</span>
+                <h3>Catch mistakes before the quote is sent</h3>
+                <p class="thinking"><b>The thinking:</b> A quote request with a typo is a lost lead. The form checks every field in the browser and again on the server, and ties each error to its field so screen readers read them together.</p>
+                <p class="dec-result"><span class="chip c-measured">Measured</span><span>0 axe-core violations of WCAG 2.1 AA.</span></p>
               </div>
-              <div class="ls-qa" id="ls-quality"><div><b>A four-point quality check on every order</b><p>Including color accuracy and color fastness, before anything ships.</p></div><div class="ls-badges"><span>OEKO-TEX</span><span>FSC</span><span><abbr title="Global Recycled Standard" style="text-decoration: none;">GRS</abbr></span></div></div>
-              <div class="ls-foot" id="ls-contact"><span>Thane, Maharashtra · Narmadapuram, Madhya Pradesh</span><span>A recreation for this portfolio</span></div>
-            </div>
-            <div class="lab-gridov" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
-          <div class="lab-handle" aria-hidden="true"></div>
-        </div>
-        <p class="lab-cap">A recreation of the kind of catalog page I built, not the live site. Plain HTML and CSS: the layout reflows with container queries, the way Bootstrap's grid did on the real pages.</p>
-      </div>
-      <dl class="facts">
-        <div class="fact"><dt>My role</dt><dd>Junior Front-End Developer, part-time</dd></div>
-        <div class="fact"><dt>Timeline</dt><dd>May 2022 to Jan 2023</dd></div>
-        <div class="fact"><dt>Team</dt><dd>Worked directly with the designer</dd></div>
-        <div class="fact"><dt>Platform</dt><dd>WordPress website</dd></div>
-      </dl>
-    </section>
-
-    <section class="band band-alt" aria-labelledby="short-title">
-      <div class="wrap">
-        <div class="sec-head"><div><span class="kicker">In 30 seconds</span><h2 class="h2" id="short-title">The short version</h2></div></div>
-        <div class="cards3">
-          <div class="card"><span class="kicker">The problem</span><h3>A website buyers judge</h3><p>Buyers check what the company makes before they call. A broken page or an old listing costs trust with exactly those people.</p></div>
-          <div class="card"><span class="kicker">What I did</span><h3>Design files into working pages</h3><p>Responsive pages in HTML, CSS, JavaScript, jQuery and Bootstrap, plus a catalog of 50+ products kept accurate.</p></div>
-          <div class="card"><span class="kicker">What it changed</span><h3>Why my handoffs are detailed</h3><p>I've been the developer on the other side, so my handoffs spell out states, spacing and behavior.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CODEVIEW:START generated by build_codeview.py from ~/Desktop/omkar-labels-website; edit the script, not this block -->
-    <section id="code" class="band" aria-labelledby="code-title">
-      <div class="wrap">
-        <div class="sec-head"><div>
-          <span class="kicker">Rebuilt in 2026</span>
-          <h2 class="h2" id="code-title">The same site, rebuilt in code you can read</h2>
-          <p class="lede">I don't have the 2022 code anymore, so in 2026 I rebuilt the site from the designer's Figma files with Next.js 16, React 19 and TypeScript. I planned and directed the build, reviewed the code and tested every page; an AI coding assistant wrote much of the code.</p>
-        </div></div>
-
-        <div class="cv" data-cv>
-          <p class="cv-how">Pick a note to see that code running in the live preview.</p>
-          <ol class="cv-notes">
-          <li class="cv-note" data-note="1">
-            <span class="cv-num" aria-hidden="true">1</span>
-            <div class="cv-note-b">
-              <span class="cv-tag">Accessibility</span>
-              <h3 id="cv-note-1-h">A menu built on a native &lt;dialog&gt;</h3>
-              <p><code>showModal()</code> traps focus, Esc closes it and the page behind it goes inert, with no extra library. The close button gets focus first.</p>
-              <div class="cv-acts"><button type="button" class="cv-try" data-run="1" aria-describedby="cv-note-1-h">Show me in the preview</button></div>
-            </div>
-          </li>
-          <li class="cv-note" data-note="2">
-            <span class="cv-num" aria-hidden="true">2</span>
-            <div class="cv-note-b">
-              <span class="cv-tag">Forms</span>
-              <h3 id="cv-note-2-h">Checked in the browser, then on the server</h3>
-              <p>An invalid form stops before sending and focus jumps to the first problem. The same rules in <code>lib/forms.ts</code> run again on the server.</p>
-              <div class="cv-acts"><button type="button" class="cv-try" data-run="2" aria-describedby="cv-note-2-h">Show me in the preview</button></div>
-            </div>
-          </li>
-          <li class="cv-note" data-note="3">
-            <span class="cv-num" aria-hidden="true">3</span>
-            <div class="cv-note-b">
-              <span class="cv-tag">Accessibility</span>
-              <h3 id="cv-note-3-h">Every error is tied to its field</h3>
-              <p><code>aria-invalid</code> and <code>aria-describedby</code> link each message to its input, so a screen reader reads the error with the field.</p>
-              <div class="cv-acts"><button type="button" class="cv-try" data-run="3" aria-describedby="cv-note-3-h">Show me in the preview</button></div>
-            </div>
-          </li>
-          <li class="cv-note" data-note="4">
-            <span class="cv-num" aria-hidden="true">4</span>
-            <div class="cv-note-b">
-              <span class="cv-tag">Works without JavaScript</span>
-              <h3 id="cv-note-4-h">An FAQ on native &lt;details&gt;</h3>
-              <p>The browser handles the keyboard and screen readers. Answers that share a <code>name</code> open one at a time.</p>
-              <div class="cv-acts"><button type="button" class="cv-try" data-run="4" aria-describedby="cv-note-4-h">Show me in the preview</button></div>
-            </div>
-          </li>
-          <li class="cv-note" data-note="5">
-            <span class="cv-num" aria-hidden="true">5</span>
-            <div class="cv-note-b">
-              <span class="cv-tag">SEO</span>
-              <h3 id="cv-note-5-h">Ready for search engines</h3>
-              <p>Each page gets a title, description and canonical URL, the home page adds structured business data, and the sitemap and robots.txt are generated at build time.</p>
-              <div class="cv-acts"><button type="button" class="cv-try" data-run="5" aria-describedby="cv-note-5-h">Show me in the preview</button><button type="button" class="cv-try cv-try-2" data-go="sitemap.xml">Open sitemap.xml</button></div>
-            </div>
-          </li>
-          <li class="cv-note" data-note="6">
-            <span class="cv-num" aria-hidden="true">6</span>
-            <div class="cv-note-b">
-              <span class="cv-tag">Responsive</span>
-              <h3 id="cv-note-6-h">Design tokens from the Figma file</h3>
-              <p>Colors, type and spacing are CSS variables. Spacing steps down at 1100px and 768px, between the 1440px desktop and 390px phone frames.</p>
-              <div class="cv-acts"><button type="button" class="cv-try" data-run="6" aria-describedby="cv-note-6-h">Show me in the preview</button></div>
-            </div>
-          </li>
-          </ol>
-
-          <div class="cv-panes">
-            <div class="cv-code">
-              <div class="cv-tabs" role="tablist" aria-label="Source files"><button type="button" role="tab" class="cv-tab" id="cv-tab-menu" aria-controls="cv-panel-menu" aria-selected="true">MobileMenu.tsx</button><button type="button" role="tab" class="cv-tab" id="cv-tab-hook" aria-controls="cv-panel-hook" aria-selected="false">useFormFeedback.ts</button><button type="button" role="tab" class="cv-tab" id="cv-tab-fields" aria-controls="cv-panel-fields" aria-selected="false">Fields.tsx</button><button type="button" role="tab" class="cv-tab" id="cv-tab-faq" aria-controls="cv-panel-faq" aria-selected="false">Faq.tsx</button><button type="button" role="tab" class="cv-tab" id="cv-tab-seo" aria-controls="cv-panel-seo" aria-selected="false">page.tsx</button><button type="button" role="tab" class="cv-tab" id="cv-tab-css" aria-controls="cv-panel-css" aria-selected="false">globals.css</button></div>
-          <div class="cv-panel" role="tabpanel" id="cv-panel-menu" aria-labelledby="cv-tab-menu" data-ex="menu">
-            <div class="cv-file"><code>src/components/layout/MobileMenu.tsx</code><span>lines 15 to 53</span><button type="button" class="cv-copy" aria-label="Copy MobileMenu.tsx excerpt">Copy</button></div>
-            <pre class="cv-pre" tabindex="0" aria-label="MobileMenu.tsx, lines 15 to 53"><code><span class="cv-l" data-ln="15"><span class="cv-n" aria-hidden="true">15</span><span class="t-c">/**</span></span><span class="cv-l" data-ln="16"><span class="cv-n" aria-hidden="true">16</span><span class="t-c"> * Full-screen menu for tablets and phones, matching the "Mobile Menu" overlay</span></span><span class="cv-l" data-ln="17"><span class="cv-n" aria-hidden="true">17</span><span class="t-c"> * in the Figma prototype. Built on a modal &lt;dialog&gt;, which gives focus</span></span><span class="cv-l" data-ln="18"><span class="cv-n" aria-hidden="true">18</span><span class="t-c"> * trapping, Escape to close and an inert page behind it for free.</span></span><span class="cv-l" data-ln="19"><span class="cv-n" aria-hidden="true">19</span><span class="t-c"> */</span></span><span class="cv-l" data-ln="20"><span class="cv-n" aria-hidden="true">20</span><span class="t-k">export</span> <span class="t-k">function</span> MobileMenu() {</span><span class="cv-l" data-ln="21"><span class="cv-n" aria-hidden="true">21</span>  <span class="t-k">const</span> dialogRef = useRef&lt;<span class="t-t">HTMLDialogElement</span>&gt;(<span class="t-m">null</span>);</span><span class="cv-l" data-ln="22"><span class="cv-n" aria-hidden="true">22</span>  <span class="t-k">const</span> [open, setOpen] = useState(<span class="t-m">false</span>);</span><span class="cv-l" data-ln="23"><span class="cv-n" aria-hidden="true">23</span></span><span class="cv-l" data-ln="24" data-notes="1"><span class="cv-n" aria-hidden="true">24</span>  <span class="t-k">const</span> show = useCallback(() =&gt; {</span><span class="cv-l" data-ln="25" data-notes="1"><span class="cv-n" aria-hidden="true">25</span>    dialogRef.current?.showModal();<button type="button" class="cv-pin" data-run="1" aria-label="Note 1: A menu built on a native dialog. Show it in the preview">1</button></span><span class="cv-l" data-ln="26" data-notes="1"><span class="cv-n" aria-hidden="true">26</span>    setOpen(<span class="t-m">true</span>);</span><span class="cv-l" data-ln="27" data-notes="1"><span class="cv-n" aria-hidden="true">27</span>  }, []);</span><span class="cv-l" data-ln="28"><span class="cv-n" aria-hidden="true">28</span></span><span class="cv-l" data-ln="29"><span class="cv-n" aria-hidden="true">29</span>  <span class="t-k">const</span> close = useCallback(() =&gt; {</span><span class="cv-l" data-ln="30"><span class="cv-n" aria-hidden="true">30</span>    dialogRef.current?.close();</span><span class="cv-l" data-ln="31"><span class="cv-n" aria-hidden="true">31</span>  }, []);</span><span class="cv-l" data-ln="32"><span class="cv-n" aria-hidden="true">32</span></span><span class="cv-l" data-ln="33"><span class="cv-n" aria-hidden="true">33</span>  <span class="t-k">return</span> (</span><span class="cv-l" data-ln="34"><span class="cv-n" aria-hidden="true">34</span>    &lt;&gt;</span><span class="cv-l" data-ln="35"><span class="cv-n" aria-hidden="true">35</span>      &lt;<span class="t-t">button</span></span><span class="cv-l" data-ln="36"><span class="cv-n" aria-hidden="true">36</span>        <span class="t-a">type</span>=<span class="t-s">"button"</span></span><span class="cv-l" data-ln="37"><span class="cv-n" aria-hidden="true">37</span>        <span class="t-a">className</span>={styles.trigger}</span><span class="cv-l" data-ln="38"><span class="cv-n" aria-hidden="true">38</span>        <span class="t-a">aria-label</span>=<span class="t-s">"Open menu"</span></span><span class="cv-l" data-ln="39"><span class="cv-n" aria-hidden="true">39</span>        <span class="t-a">aria-haspopup</span>=<span class="t-s">"dialog"</span></span><span class="cv-l" data-ln="40"><span class="cv-n" aria-hidden="true">40</span>        <span class="t-a">aria-expanded</span>={open}</span><span class="cv-l" data-ln="41"><span class="cv-n" aria-hidden="true">41</span>        <span class="t-a">aria-controls</span>=<span class="t-s">"site-menu"</span></span><span class="cv-l" data-ln="42"><span class="cv-n" aria-hidden="true">42</span>        <span class="t-a">onClick</span>={show}</span><span class="cv-l" data-ln="43"><span class="cv-n" aria-hidden="true">43</span>      &gt;</span><span class="cv-l" data-ln="44"><span class="cv-n" aria-hidden="true">44</span>        &lt;<span class="t-t">MenuIcon</span> <span class="t-a">size</span>={<span class="t-m">20</span>} <span class="t-a">strokeWidth</span>={<span class="t-m">1.75</span>} /&gt;</span><span class="cv-l" data-ln="45"><span class="cv-n" aria-hidden="true">45</span>      &lt;/<span class="t-t">button</span>&gt;</span><span class="cv-l" data-ln="46"><span class="cv-n" aria-hidden="true">46</span></span><span class="cv-l" data-ln="47" data-notes="1"><span class="cv-n" aria-hidden="true">47</span>      &lt;<span class="t-t">dialog</span></span><span class="cv-l" data-ln="48" data-notes="1"><span class="cv-n" aria-hidden="true">48</span>        <span class="t-a">id</span>=<span class="t-s">"site-menu"</span></span><span class="cv-l" data-ln="49" data-notes="1"><span class="cv-n" aria-hidden="true">49</span>        <span class="t-a">ref</span>={dialogRef}</span><span class="cv-l" data-ln="50" data-notes="1"><span class="cv-n" aria-hidden="true">50</span>        <span class="t-a">className</span>={styles.dialog}</span><span class="cv-l" data-ln="51" data-notes="1"><span class="cv-n" aria-hidden="true">51</span>        <span class="t-a">aria-label</span>=<span class="t-s">"Menu"</span></span><span class="cv-l" data-ln="52" data-notes="1"><span class="cv-n" aria-hidden="true">52</span>        <span class="t-a">onClose</span>={() =&gt; setOpen(<span class="t-m">false</span>)}</span><span class="cv-l" data-ln="53" data-notes="1"><span class="cv-n" aria-hidden="true">53</span>      &gt;</span></code></pre>
-          </div>
-          <div class="cv-panel" role="tabpanel" id="cv-panel-hook" aria-labelledby="cv-tab-hook" data-ex="hook">
-            <div class="cv-file"><code>src/components/forms/useFormFeedback.ts</code><span>lines 11 to 55</span><button type="button" class="cv-copy" aria-label="Copy useFormFeedback.ts excerpt">Copy</button></div>
-            <pre class="cv-pre" tabindex="0" aria-label="useFormFeedback.ts, lines 11 to 55"><code><span class="cv-l" data-ln="11"><span class="cv-n" aria-hidden="true">11</span><span class="t-c">/**</span></span><span class="cv-l" data-ln="12"><span class="cv-n" aria-hidden="true">12</span><span class="t-c"> * Wraps a server action with instant client-side validation.</span></span><span class="cv-l" data-ln="13"><span class="cv-n" aria-hidden="true">13</span><span class="t-c"> *</span></span><span class="cv-l" data-ln="14"><span class="cv-n" aria-hidden="true">14</span><span class="t-c"> * - Invalid submissions are stopped in the browser and the first invalid field is focused.</span></span><span class="cv-l" data-ln="15"><span class="cv-n" aria-hidden="true">15</span><span class="t-c"> * - Valid submissions go to the server action, which validates again.</span></span><span class="cv-l" data-ln="16"><span class="cv-n" aria-hidden="true">16</span><span class="t-c"> * - Editing a field clears its error.</span></span><span class="cv-l" data-ln="17"><span class="cv-n" aria-hidden="true">17</span><span class="t-c"> */</span></span><span class="cv-l" data-ln="18"><span class="cv-n" aria-hidden="true">18</span><span class="t-k">export</span> <span class="t-k">function</span> useFormFeedback&lt;K <span class="t-k">extends</span> <span class="t-k">string</span>&gt;(</span><span class="cv-l" data-ln="19"><span class="cv-n" aria-hidden="true">19</span>  action: <span class="t-k">Action</span>&lt;K&gt;,</span><span class="cv-l" data-ln="20"><span class="cv-n" aria-hidden="true">20</span>  validate: (formData: <span class="t-k">FormData</span>) =&gt; FieldErrors&lt;K&gt;,</span><span class="cv-l" data-ln="21"><span class="cv-n" aria-hidden="true">21</span>  fieldOrder: <span class="t-k">readonly</span> K[],</span><span class="cv-l" data-ln="22"><span class="cv-n" aria-hidden="true">22</span>) {</span><span class="cv-l" data-ln="23"><span class="cv-n" aria-hidden="true">23</span>  <span class="t-k">const</span> [state, formAction, pending] = useActionState(action, { status: <span class="t-s">"idle"</span> } <span class="t-k">as</span> FormState&lt;K&gt;);</span><span class="cv-l" data-ln="24"><span class="cv-n" aria-hidden="true">24</span>  <span class="t-k">const</span> [errors, setErrors] = useState&lt;FieldErrors&lt;K&gt;&gt;({});</span><span class="cv-l" data-ln="25"><span class="cv-n" aria-hidden="true">25</span>  <span class="t-k">const</span> [seenKey, setSeenKey] = useState(state.key);</span><span class="cv-l" data-ln="26"><span class="cv-n" aria-hidden="true">26</span>  <span class="t-k">const</span> formRef = useRef&lt;HTMLFormElement&gt;(<span class="t-m">null</span>);</span><span class="cv-l" data-ln="27"><span class="cv-n" aria-hidden="true">27</span></span><span class="cv-l" data-ln="28"><span class="cv-n" aria-hidden="true">28</span>  <span class="t-c">// Adopt the server's errors whenever a new response arrives.</span></span><span class="cv-l" data-ln="29"><span class="cv-n" aria-hidden="true">29</span>  <span class="t-k">if</span> (state.key !== seenKey) {</span><span class="cv-l" data-ln="30"><span class="cv-n" aria-hidden="true">30</span>    setSeenKey(state.key);</span><span class="cv-l" data-ln="31"><span class="cv-n" aria-hidden="true">31</span>    setErrors(state.errors ?? {});</span><span class="cv-l" data-ln="32"><span class="cv-n" aria-hidden="true">32</span>  }</span><span class="cv-l" data-ln="33"><span class="cv-n" aria-hidden="true">33</span></span><span class="cv-l" data-ln="34"><span class="cv-n" aria-hidden="true">34</span>  <span class="t-k">const</span> focusField = (name: <span class="t-k">K</span> | <span class="t-m">undefined</span>) =&gt; {</span><span class="cv-l" data-ln="35"><span class="cv-n" aria-hidden="true">35</span>    <span class="t-k">if</span> (!name) <span class="t-k">return</span>;</span><span class="cv-l" data-ln="36"><span class="cv-n" aria-hidden="true">36</span>    formRef.current?.querySelector&lt;HTMLElement&gt;(<span class="t-s">`</span><span class="t-s">[name="</span><span class="t-s">${</span>name<span class="t-s">}</span><span class="t-s">"]</span><span class="t-s">`</span>)?.focus();</span><span class="cv-l" data-ln="37"><span class="cv-n" aria-hidden="true">37</span>  };</span><span class="cv-l" data-ln="38"><span class="cv-n" aria-hidden="true">38</span></span><span class="cv-l" data-ln="39" data-notes="2"><span class="cv-n" aria-hidden="true">39</span>  <span class="t-c">// After a server-side validation error, move focus to the first invalid field.</span></span><span class="cv-l" data-ln="40" data-notes="2"><span class="cv-n" aria-hidden="true">40</span>  useEffect(() =&gt; {</span><span class="cv-l" data-ln="41" data-notes="2"><span class="cv-n" aria-hidden="true">41</span>    <span class="t-k">if</span> (state.status === <span class="t-s">"error"</span> &amp;&amp; state.errors) {</span><span class="cv-l" data-ln="42" data-notes="2"><span class="cv-n" aria-hidden="true">42</span>      formRef.current</span><span class="cv-l" data-ln="43" data-notes="2"><span class="cv-n" aria-hidden="true">43</span>        ?.querySelector&lt;HTMLElement&gt;(<span class="t-s">`</span><span class="t-s">[name="</span><span class="t-s">${</span>fieldOrder.find((key) =&gt; state.errors?.[key])<span class="t-s">}</span><span class="t-s">"]</span><span class="t-s">`</span>)</span><span class="cv-l" data-ln="44" data-notes="2"><span class="cv-n" aria-hidden="true">44</span>        ?.focus();</span><span class="cv-l" data-ln="45" data-notes="2"><span class="cv-n" aria-hidden="true">45</span>    }</span><span class="cv-l" data-ln="46" data-notes="2"><span class="cv-n" aria-hidden="true">46</span>  }, [state, fieldOrder]);</span><span class="cv-l" data-ln="47" data-notes="2"><span class="cv-n" aria-hidden="true">47</span></span><span class="cv-l" data-ln="48" data-notes="2"><span class="cv-n" aria-hidden="true">48</span>  <span class="t-k">const</span> onSubmit = (event: <span class="t-k">FormEvent</span>&lt;HTMLFormElement&gt;) =&gt; {<button type="button" class="cv-pin" data-run="2" aria-label="Note 2: Checked in the browser, then on the server. Show it in the preview">2</button></span><span class="cv-l" data-ln="49" data-notes="2"><span class="cv-n" aria-hidden="true">49</span>    <span class="t-k">const</span> found = validate(new FormData(event.currentTarget));</span><span class="cv-l" data-ln="50" data-notes="2"><span class="cv-n" aria-hidden="true">50</span>    <span class="t-k">if</span> (<span class="t-f">Object</span>.keys(found).length &gt; <span class="t-m">0</span>) {</span><span class="cv-l" data-ln="51" data-notes="2"><span class="cv-n" aria-hidden="true">51</span>      event.preventDefault();</span><span class="cv-l" data-ln="52" data-notes="2"><span class="cv-n" aria-hidden="true">52</span>      setErrors(found);</span><span class="cv-l" data-ln="53" data-notes="2"><span class="cv-n" aria-hidden="true">53</span>      focusField(fieldOrder.find((key) =&gt; found[key]));</span><span class="cv-l" data-ln="54" data-notes="2"><span class="cv-n" aria-hidden="true">54</span>    }</span><span class="cv-l" data-ln="55" data-notes="2"><span class="cv-n" aria-hidden="true">55</span>  };</span></code></pre>
-          </div>
-          <div class="cv-panel" role="tabpanel" id="cv-panel-fields" aria-labelledby="cv-tab-fields" data-ex="fields">
-            <div class="cv-file"><code>src/components/forms/Fields.tsx</code><span>lines 20 to 23 and 63 to 78</span><button type="button" class="cv-copy" aria-label="Copy Fields.tsx excerpt">Copy</button></div>
-            <pre class="cv-pre" tabindex="0" aria-label="Fields.tsx, lines 20 to 23 and 63 to 78"><code><span class="cv-l" data-ln="20" data-notes="3"><span class="cv-n" aria-hidden="true">20</span><span class="t-k">function</span> describedBy(name: <span class="t-k">string</span>, error?: <span class="t-k">string</span>, hint?: <span class="t-k">ReactNode</span>) {</span><span class="cv-l" data-ln="21" data-notes="3"><span class="cv-n" aria-hidden="true">21</span>  <span class="t-k">const</span> ids = [error ? <span class="t-s">`</span><span class="t-s">${</span>name<span class="t-s">}</span><span class="t-s">-error</span><span class="t-s">`</span> : <span class="t-m">null</span>, hint ? <span class="t-s">`</span><span class="t-s">${</span>name<span class="t-s">}</span><span class="t-s">-hint</span><span class="t-s">`</span> : <span class="t-m">null</span>].filter(<span class="t-f">Boolean</span>);</span><span class="cv-l" data-ln="22" data-notes="3"><span class="cv-n" aria-hidden="true">22</span>  <span class="t-k">return</span> ids.length ? ids.join(<span class="t-s">" "</span>) : <span class="t-m">undefined</span>;</span><span class="cv-l" data-ln="23" data-notes="3"><span class="cv-n" aria-hidden="true">23</span>}</span><span class="cv-gap" aria-hidden="true">…</span><span class="cv-l" data-ln="63"><span class="cv-n" aria-hidden="true">63</span><span class="t-k">export</span> <span class="t-k">function</span> TextField({ name, label, required, markRequired, error, hint, className, <span class="t-k">type</span> = <span class="t-s">"text"</span>, ...input }: TextFieldProps) {</span><span class="cv-l" data-ln="64"><span class="cv-n" aria-hidden="true">64</span>  <span class="t-k">return</span> (</span><span class="cv-l" data-ln="65"><span class="cv-n" aria-hidden="true">65</span>    &lt;<span class="t-t">FieldShell</span> {<span class="t-a">...</span>{ <span class="t-a">name</span>, <span class="t-a">label</span>, <span class="t-a">required</span>, <span class="t-a">markRequired</span>, <span class="t-a">error</span>, <span class="t-a">hint</span>, <span class="t-a">className</span> }}&gt;</span><span class="cv-l" data-ln="66"><span class="cv-n" aria-hidden="true">66</span>      &lt;<span class="t-t">input</span></span><span class="cv-l" data-ln="67"><span class="cv-n" aria-hidden="true">67</span>        <span class="t-a">id</span>={name}</span><span class="cv-l" data-ln="68"><span class="cv-n" aria-hidden="true">68</span>        <span class="t-a">name</span>={name}</span><span class="cv-l" data-ln="69"><span class="cv-n" aria-hidden="true">69</span>        <span class="t-a">type</span>={<span class="t-k">type</span>}</span><span class="cv-l" data-ln="70"><span class="cv-n" aria-hidden="true">70</span>        <span class="t-a">required</span>={required}</span><span class="cv-l" data-ln="71" data-notes="3"><span class="cv-n" aria-hidden="true">71</span>        <span class="t-a">aria-invalid</span>={error ? true : <span class="t-k">undefined</span>}</span><span class="cv-l" data-ln="72" data-notes="3"><span class="cv-n" aria-hidden="true">72</span>        <span class="t-a">aria-describedby</span>={describedBy(name, error, hint)}<button type="button" class="cv-pin" data-run="3" aria-label="Note 3: Every error is tied to its field. Show it in the preview">3</button></span><span class="cv-l" data-ln="73"><span class="cv-n" aria-hidden="true">73</span>        <span class="t-a">className</span>={styles.control}</span><span class="cv-l" data-ln="74"><span class="cv-n" aria-hidden="true">74</span>        {<span class="t-a">...input</span>}</span><span class="cv-l" data-ln="75"><span class="cv-n" aria-hidden="true">75</span>      /&gt;</span><span class="cv-l" data-ln="76"><span class="cv-n" aria-hidden="true">76</span>    &lt;/<span class="t-t">FieldShell</span>&gt;</span><span class="cv-l" data-ln="77"><span class="cv-n" aria-hidden="true">77</span>  );</span><span class="cv-l" data-ln="78"><span class="cv-n" aria-hidden="true">78</span>}</span></code></pre>
-          </div>
-          <div class="cv-panel" role="tabpanel" id="cv-panel-faq" aria-labelledby="cv-tab-faq" data-ex="faq">
-            <div class="cv-file"><code>src/components/ui/Faq.tsx</code><span>lines 5 to 24</span><button type="button" class="cv-copy" aria-label="Copy Faq.tsx excerpt">Copy</button></div>
-            <pre class="cv-pre" tabindex="0" aria-label="Faq.tsx, lines 5 to 24"><code><span class="cv-l" data-ln="5" data-notes="4"><span class="cv-n" aria-hidden="true">5</span><span class="t-c">/**</span></span><span class="cv-l" data-ln="6" data-notes="4"><span class="cv-n" aria-hidden="true">6</span><span class="t-c"> * Accordion built on native &lt;details&gt;, so it works without JavaScript and is</span></span><span class="cv-l" data-ln="7" data-notes="4"><span class="cv-n" aria-hidden="true">7</span><span class="t-c"> * keyboard and screen-reader friendly. Items sharing a `name` open one at a time.</span></span><span class="cv-l" data-ln="8" data-notes="4"><span class="cv-n" aria-hidden="true">8</span><span class="t-c"> */</span></span><span class="cv-l" data-ln="9"><span class="cv-n" aria-hidden="true">9</span><span class="t-k">export</span> <span class="t-k">function</span> FaqList({ items, name }: { items: <span class="t-k">FaqItem</span>[]; name: <span class="t-k">string</span> }) {</span><span class="cv-l" data-ln="10"><span class="cv-n" aria-hidden="true">10</span>  <span class="t-k">return</span> (</span><span class="cv-l" data-ln="11"><span class="cv-n" aria-hidden="true">11</span>    &lt;<span class="t-t">div</span> <span class="t-a">className</span>={styles.list}&gt;</span><span class="cv-l" data-ln="12"><span class="cv-n" aria-hidden="true">12</span>      {items.map((item, index) =&gt; (</span><span class="cv-l" data-ln="13" data-notes="4"><span class="cv-n" aria-hidden="true">13</span>        &lt;<span class="t-t">details</span> <span class="t-a">key</span>={item.question} <span class="t-a">name</span>={name} <span class="t-a">open</span>={index === <span class="t-m">0</span>} <span class="t-a">className</span>={styles.item}&gt;<button type="button" class="cv-pin" data-run="4" aria-label="Note 4: An FAQ on native details. Show it in the preview">4</button></span><span class="cv-l" data-ln="14"><span class="cv-n" aria-hidden="true">14</span>          &lt;<span class="t-t">summary</span> <span class="t-a">className</span>={styles.question}&gt;</span><span class="cv-l" data-ln="15"><span class="cv-n" aria-hidden="true">15</span>            &lt;<span class="t-t">span</span>&gt;{item.question}&lt;/<span class="t-t">span</span>&gt;</span><span class="cv-l" data-ln="16"><span class="cv-n" aria-hidden="true">16</span>            &lt;<span class="t-t">PlusIcon</span> <span class="t-a">size</span>={<span class="t-m">22</span>} <span class="t-a">strokeWidth</span>={<span class="t-m">1.5</span>} <span class="t-a">className</span>={styles.plus} /&gt;</span><span class="cv-l" data-ln="17"><span class="cv-n" aria-hidden="true">17</span>            &lt;<span class="t-t">MinusIcon</span> <span class="t-a">size</span>={<span class="t-m">22</span>} <span class="t-a">strokeWidth</span>={<span class="t-m">1.5</span>} <span class="t-a">className</span>={styles.minus} /&gt;</span><span class="cv-l" data-ln="18"><span class="cv-n" aria-hidden="true">18</span>          &lt;/<span class="t-t">summary</span>&gt;</span><span class="cv-l" data-ln="19"><span class="cv-n" aria-hidden="true">19</span>          &lt;<span class="t-t">p</span> <span class="t-a">className</span>={styles.answer}&gt;{item.answer}&lt;/<span class="t-t">p</span>&gt;</span><span class="cv-l" data-ln="20"><span class="cv-n" aria-hidden="true">20</span>        &lt;/<span class="t-t">details</span>&gt;</span><span class="cv-l" data-ln="21"><span class="cv-n" aria-hidden="true">21</span>      ))}</span><span class="cv-l" data-ln="22"><span class="cv-n" aria-hidden="true">22</span>    &lt;/<span class="t-t">div</span>&gt;</span><span class="cv-l" data-ln="23"><span class="cv-n" aria-hidden="true">23</span>  );</span><span class="cv-l" data-ln="24"><span class="cv-n" aria-hidden="true">24</span>}</span></code></pre>
-          </div>
-          <div class="cv-panel" role="tabpanel" id="cv-panel-seo" aria-labelledby="cv-tab-seo" data-ex="seo">
-            <div class="cv-file"><code>src/app/page.tsx</code><span>lines 15 to 51</span><button type="button" class="cv-copy" aria-label="Copy page.tsx excerpt">Copy</button></div>
-            <pre class="cv-pre" tabindex="0" aria-label="page.tsx, lines 15 to 51"><code><span class="cv-l" data-ln="15" data-notes="5"><span class="cv-n" aria-hidden="true">15</span><span class="t-k">export</span> <span class="t-k">const</span> metadata: <span class="t-k">Metadata</span> = {</span><span class="cv-l" data-ln="16" data-notes="5"><span class="cv-n" aria-hidden="true">16</span>  title: { absolute: <span class="t-s">"Omkar Labels · Labels, Tags, Trims &amp; Packaging Since 1999"</span> },</span><span class="cv-l" data-ln="17" data-notes="5"><span class="cv-n" aria-hidden="true">17</span>  description: <span class="t-k">site.description</span>,</span><span class="cv-l" data-ln="18" data-notes="5"><span class="cv-n" aria-hidden="true">18</span>  alternates: { canonical: <span class="t-s">"/"</span> },</span><span class="cv-l" data-ln="19" data-notes="5"><span class="cv-n" aria-hidden="true">19</span>};</span><span class="cv-l" data-ln="20"><span class="cv-n" aria-hidden="true">20</span></span><span class="cv-l" data-ln="21" data-notes="5"><span class="cv-n" aria-hidden="true">21</span><span class="t-c">/** Structured data so search engines can show the business details. */</span></span><span class="cv-l" data-ln="22" data-notes="5"><span class="cv-n" aria-hidden="true">22</span><span class="t-k">function</span> OrganizationJsonLd() {<button type="button" class="cv-pin" data-run="5" aria-label="Note 5: Ready for search engines. Show it in the preview">5</button></span><span class="cv-l" data-ln="23" data-notes="5"><span class="cv-n" aria-hidden="true">23</span>  <span class="t-k">const</span> data = {</span><span class="cv-l" data-ln="24" data-notes="5"><span class="cv-n" aria-hidden="true">24</span>    <span class="t-s">"@context"</span>: <span class="t-s">"https://schema.org"</span>,</span><span class="cv-l" data-ln="25" data-notes="5"><span class="cv-n" aria-hidden="true">25</span>    <span class="t-s">"@type"</span>: <span class="t-s">"Organization"</span>,</span><span class="cv-l" data-ln="26" data-notes="5"><span class="cv-n" aria-hidden="true">26</span>    name: <span class="t-k">site.name</span>,</span><span class="cv-l" data-ln="27" data-notes="5"><span class="cv-n" aria-hidden="true">27</span>    url: <span class="t-k">site.url</span>,</span><span class="cv-l" data-ln="28" data-notes="5"><span class="cv-n" aria-hidden="true">28</span>    description: <span class="t-k">site.description</span>,</span><span class="cv-l" data-ln="29" data-notes="5"><span class="cv-n" aria-hidden="true">29</span>    foundingDate: <span class="t-k">String</span>(site.foundedYear),</span><span class="cv-l" data-ln="30" data-notes="5"><span class="cv-n" aria-hidden="true">30</span>    contactPoint: <span class="t-k">site.phones.map</span>((phone) =&gt; ({</span><span class="cv-l" data-ln="31" data-notes="5"><span class="cv-n" aria-hidden="true">31</span>      <span class="t-s">"@type"</span>: <span class="t-s">"ContactPoint"</span>,</span><span class="cv-l" data-ln="32" data-notes="5"><span class="cv-n" aria-hidden="true">32</span>      telephone: <span class="t-k">phone.tel</span>,</span><span class="cv-l" data-ln="33" data-notes="5"><span class="cv-n" aria-hidden="true">33</span>      name: <span class="t-k">phone.name</span>,</span><span class="cv-l" data-ln="34" data-notes="5"><span class="cv-n" aria-hidden="true">34</span>      contactType: <span class="t-s">"sales"</span>,</span><span class="cv-l" data-ln="35" data-notes="5"><span class="cv-n" aria-hidden="true">35</span>      areaServed: <span class="t-s">"IN"</span>,</span><span class="cv-l" data-ln="36" data-notes="5"><span class="cv-n" aria-hidden="true">36</span>    })),</span><span class="cv-l" data-ln="37" data-notes="5"><span class="cv-n" aria-hidden="true">37</span>    address: <span class="t-k">site.units.map</span>((unit) =&gt; ({</span><span class="cv-l" data-ln="38" data-notes="5"><span class="cv-n" aria-hidden="true">38</span>      <span class="t-s">"@type"</span>: <span class="t-s">"PostalAddress"</span>,</span><span class="cv-l" data-ln="39" data-notes="5"><span class="cv-n" aria-hidden="true">39</span>      streetAddress: <span class="t-k">unit.address</span>,</span><span class="cv-l" data-ln="40" data-notes="5"><span class="cv-n" aria-hidden="true">40</span>      addressLocality: <span class="t-k">unit.city</span>,</span><span class="cv-l" data-ln="41" data-notes="5"><span class="cv-n" aria-hidden="true">41</span>      addressCountry: <span class="t-s">"IN"</span>,</span><span class="cv-l" data-ln="42" data-notes="5"><span class="cv-n" aria-hidden="true">42</span>    })),</span><span class="cv-l" data-ln="43" data-notes="5"><span class="cv-n" aria-hidden="true">43</span>  };</span><span class="cv-l" data-ln="44"><span class="cv-n" aria-hidden="true">44</span>  <span class="t-k">return</span> (</span><span class="cv-l" data-ln="45"><span class="cv-n" aria-hidden="true">45</span>    &lt;<span class="t-t">script</span></span><span class="cv-l" data-ln="46"><span class="cv-n" aria-hidden="true">46</span>      <span class="t-a">type</span>=<span class="t-s">"application/ld+json"</span></span><span class="cv-l" data-ln="47"><span class="cv-n" aria-hidden="true">47</span>      // <span class="t-a">JSON.stringify</span> <span class="t-a">output</span> <span class="t-a">is</span> <span class="t-a">safe</span> <span class="t-a">here</span>: <span class="t-a">the</span> <span class="t-a">data</span> <span class="t-a">is</span> <span class="t-a">static</span> <span class="t-a">site</span> <span class="t-a">content.</span></span><span class="cv-l" data-ln="48"><span class="cv-n" aria-hidden="true">48</span>      <span class="t-a">dangerouslySetInnerHTML</span>={{ __html: <span class="t-k">JSON.stringify</span>(data).replace(<span class="t-s">/&lt;/g</span>, <span class="t-s">"\\u003c"</span>) }}</span><span class="cv-l" data-ln="49"><span class="cv-n" aria-hidden="true">49</span>    /&gt;</span><span class="cv-l" data-ln="50"><span class="cv-n" aria-hidden="true">50</span>  );</span><span class="cv-l" data-ln="51"><span class="cv-n" aria-hidden="true">51</span>}</span></code></pre>
-          </div>
-          <div class="cv-panel" role="tabpanel" id="cv-panel-css" aria-labelledby="cv-tab-css" data-ex="css">
-            <div class="cv-file"><code>src/app/globals.css</code><span>lines 38 to 63</span><button type="button" class="cv-copy" aria-label="Copy globals.css excerpt">Copy</button></div>
-            <pre class="cv-pre" tabindex="0" aria-label="globals.css, lines 38 to 63"><code><span class="cv-l" data-ln="38"><span class="cv-n" aria-hidden="true">38</span>  <span class="t-c">/* Type (font variables come from next/font in app/layout.tsx) */</span></span><span class="cv-l" data-ln="39"><span class="cv-n" aria-hidden="true">39</span>  <span class="t-a">--sans</span>: <span class="t-f">var</span>(<span class="t-a">--font-instrument-sans</span>), <span class="t-s">"Helvetica Neue"</span>, Helvetica, Arial, <span class="t-m">sans-serif</span>;</span><span class="cv-l" data-ln="40"><span class="cv-n" aria-hidden="true">40</span>  <span class="t-a">--serif</span>: <span class="t-f">var</span>(<span class="t-a">--font-newsreader</span>), <span class="t-s">"Times New Roman"</span>, Georgia, <span class="t-m">serif</span>;</span><span class="cv-l" data-ln="41"><span class="cv-n" aria-hidden="true">41</span></span><span class="cv-l" data-ln="42" data-notes="6"><span class="cv-n" aria-hidden="true">42</span>  <span class="t-c">/* Layout */</span></span><span class="cv-l" data-ln="43" data-notes="6"><span class="cv-n" aria-hidden="true">43</span>  <span class="t-a">--container</span>: <span class="t-m">1440</span><span class="t-m">px</span>;</span><span class="cv-l" data-ln="44" data-notes="6"><span class="cv-n" aria-hidden="true">44</span>  <span class="t-a">--gutter</span>: <span class="t-m">80</span><span class="t-m">px</span>;</span><span class="cv-l" data-ln="45" data-notes="6"><span class="cv-n" aria-hidden="true">45</span>  <span class="t-a">--section-y</span>: <span class="t-m">112</span><span class="t-m">px</span>;</span><span class="cv-l" data-ln="46" data-notes="6"><span class="cv-n" aria-hidden="true">46</span>  <span class="t-a">--radius</span>: <span class="t-m">2</span><span class="t-m">px</span>;</span><span class="cv-l" data-ln="47" data-notes="6"><span class="cv-n" aria-hidden="true">47</span>  <span class="t-a">--ease</span>: <span class="t-f">cubic-bezier</span>(<span class="t-m">0.2</span>, <span class="t-m">0.7</span>, <span class="t-m">0.2</span>, <span class="t-m">1</span>);</span><span class="cv-l" data-ln="48"><span class="cv-n" aria-hidden="true">48</span>}</span><span class="cv-l" data-ln="49"><span class="cv-n" aria-hidden="true">49</span></span><span class="cv-l" data-ln="50" data-notes="6"><span class="cv-n" aria-hidden="true">50</span>@<span class="t-k">media</span> (<span class="t-a">max-width</span>: <span class="t-a">1100px</span>) {<button type="button" class="cv-pin" data-run="6" aria-label="Note 6: Design tokens from the Figma file. Show it in the preview">6</button></span><span class="cv-l" data-ln="51" data-notes="6"><span class="cv-n" aria-hidden="true">51</span>  :<span class="t-t">root</span> {</span><span class="cv-l" data-ln="52" data-notes="6"><span class="cv-n" aria-hidden="true">52</span>    <span class="t-a">--gutter</span>: <span class="t-m">40</span><span class="t-m">px</span>;</span><span class="cv-l" data-ln="53" data-notes="6"><span class="cv-n" aria-hidden="true">53</span>    <span class="t-a">--section-y</span>: <span class="t-m">96</span><span class="t-m">px</span>;</span><span class="cv-l" data-ln="54" data-notes="6"><span class="cv-n" aria-hidden="true">54</span>  }</span><span class="cv-l" data-ln="55" data-notes="6"><span class="cv-n" aria-hidden="true">55</span>}</span><span class="cv-l" data-ln="56" data-notes="6"><span class="cv-n" aria-hidden="true">56</span></span><span class="cv-l" data-ln="57" data-notes="6"><span class="cv-n" aria-hidden="true">57</span>@<span class="t-k">media</span> (<span class="t-a">max-width</span>: <span class="t-a">767</span>.<span class="t-m">98px</span>) {</span><span class="cv-l" data-ln="58" data-notes="6"><span class="cv-n" aria-hidden="true">58</span>  :<span class="t-t">root</span> {</span><span class="cv-l" data-ln="59" data-notes="6"><span class="cv-n" aria-hidden="true">59</span>    <span class="t-a">--container</span>: <span class="t-m">480</span><span class="t-m">px</span>;</span><span class="cv-l" data-ln="60" data-notes="6"><span class="cv-n" aria-hidden="true">60</span>    <span class="t-a">--gutter</span>: <span class="t-m">20</span><span class="t-m">px</span>;</span><span class="cv-l" data-ln="61" data-notes="6"><span class="cv-n" aria-hidden="true">61</span>    <span class="t-a">--section-y</span>: <span class="t-m">72</span><span class="t-m">px</span>;</span><span class="cv-l" data-ln="62" data-notes="6"><span class="cv-n" aria-hidden="true">62</span>  }</span><span class="cv-l" data-ln="63" data-notes="6"><span class="cv-n" aria-hidden="true">63</span>}</span></code></pre>
-          </div>
-            </div>
-
-            <div class="cv-preview">
-              <div class="cv-bar">
-                <div class="cv-seg" role="group" aria-label="Preview size"><button type="button" data-dev="phone" aria-pressed="false">Phone</button><button type="button" data-dev="tablet" aria-pressed="false">Tablet</button><button type="button" data-dev="desktop" aria-pressed="true">Desktop</button></div>
-                <span class="cv-url"><span class="sr">Preview address: </span><span data-cv-url>omkar-rebuild/</span></span>
-                <a class="cv-open" href="../omkar-rebuild/" target="_blank" rel="noopener">Open full site <span aria-hidden="true">&#8599;</span></a>
+            </li>
+            <li class="dec key text-only">
+              <div>
+                <span class="dec-n">Key decision 3</span>
+                <h3>Pages search engines can read</h3>
+                <p class="thinking"><b>The thinking:</b> B2B buyers often start with a search. Every page has a title, description and canonical link, and 5 of 6 pages are served as plain HTML.</p>
+                <p class="dec-result"><span class="chip c-built">Built</span><span>Built into the rebuild. It&#x27;s a preview, so there&#x27;s no traffic to report.</span></p>
               </div>
-              <div class="cv-stage">
-                <iframe class="cv-frame" src="../omkar-rebuild/" data-base="../omkar-rebuild/" title="Live preview of my Next.js rebuild of the Omkar Labels website" loading="lazy"></iframe>
-              </div>
-              <div class="cv-out"><span class="cv-out-h" aria-hidden="true">Inspector</span><span class="cv-out-t" role="status" aria-live="polite">Pick a note to see that code running here.</span></div>
-            </div>
-          </div>
+            </li>
+          </ol></div>
+      </div>
+    </section>
 
-          <p class="cv-cap">The preview is a static copy of my build for this portfolio: forms check what you type but send nothing, contact details are masked, and it's hidden from search engines.</p>
+    <section class="step" id="testing" data-step aria-labelledby="testing-h">
+      <div class="wrap">
+        <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">5</span>Step 5 of 6 · Testing</span><h2 id="testing-h">Checked, not assumed</h2><p>Before calling the rebuild done, I checked types, code style, accessibility and contrast, at phone and desktop sizes.</p></div><figure class="step-visual"><div class="frame auto"><ul class="cv cv-checks" role="list"><li><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><b>0</b><span>TypeScript errors, in strict mode</span></li><li><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><b>0</b><span>ESLint problems</span></li><li><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><b>0</b><span>axe-core violations of WCAG 2.1 AA, on all 6 pages</span></li><li><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><b>7.1:1</b><span>lowest contrast of any text over a photo; AA asks for 4.5:1</span></li><li><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><b>5 of 6</b><span>pages served as plain HTML</span></li></ul></div><figcaption>Checked on the build, October 2026.</figcaption></figure></div>
+      </div>
+    </section>
 
-          <div class="cv-checks">
-            <h3 class="cv-checks-h">Checked on this build, October 2026</h3>
-            <ul><li><b>0</b><span>TypeScript errors, strict mode</span></li><li><b>0</b><span>ESLint problems</span></li><li><b>0</b><span>axe-core 4.14 violations of WCAG 2.1 AA, on all 6 pages at phone and desktop sizes</span></li><li><b>7.1:1</b><span>lowest contrast of any text over a photo, checked against the worst spot behind it (AA asks for 4.5:1)</span></li><li><b>5 of 6</b><span>pages pre-rendered as static HTML at build time; the quote confirmation renders per request</span></li></ul>
-          </div>
+    <section class="step" id="results" data-step aria-labelledby="results-h">
+      <div class="wrap">
+        <div class="step-grid solo"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">6</span>Step 6 of 6 · Results</span><h2 id="results-h">Why every designer should build something</h2></div></div><ul class="tiles" role="list"><li><b>50+</b><span>product pages kept accurate</span></li><li><b>0</b><span>accessibility violations on the rebuild</span></li><li><b>6</b><span>pages rebuilt in Next.js</span></li><li><b>5</b><span>front-end tools: HTML, CSS, JavaScript, jQuery, Bootstrap</span></li></ul><div class="step-sub"><span class="eyebrow">What I learned</span><ul class="learn" role="list"><li><h3>Handoffs answer questions early</h3><p>I know which questions a handoff leaves open, because I used to be the one asking them.</p></li><li><h3>Speak the developer&#x27;s language</h3><p>I can talk through HTML and CSS with front-end developers on their terms.</p></li></ul></div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="ai-title">
+      <div class="wrap">
+        <div class="sec-head"><span class="eyebrow">If I did it today, with AI</span><h2 id="ai-title">What I'd do differently <em>now</em></h2><p>Ideas for a next version, not built yet.</p></div>
+        <div class="ai-ideas"><div class="idea"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="1.6"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><h3>A quote assistant</h3><p>A buyer types &quot;500 woven labels, two colors&quot; and AI drafts the quote form for them to confirm.</p></div><div class="idea"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="1.6"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><h3>Search in plain words</h3><p>Find the right label by describing it, without knowing the product name.</p></div></div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="fb-title">
+      <div class="wrap fb" data-fb data-id="omkar" data-case="Omkar Labels: A B2B catalog buyers check before they call">
+        <h2 id="fb-title">Did you <em>like</em> this case study?</h2>
+        <p>Tell me what worked, or what you'd change. It comes straight to me.</p>
+        <div class="fb-choices js-only" role="group" aria-label="Your reaction">
+          <button type="button" class="fb-btn" data-fb-choice="Liked it" aria-pressed="false"><svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>I liked it</button>
+          <button type="button" class="fb-btn" data-fb-choice="Could be better" aria-pressed="false">Could be better</button>
         </div>
-      </div>
-    </section>
-    <!-- CODEVIEW:END -->
-
-    <section id="process" class="band" aria-labelledby="process-title">
-      <div class="wrap">
-        <div class="sec-head"><div><span class="kicker">The work</span><h2 class="h2" id="process-title">From the factory floor to the browser</h2></div></div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-text">
-              <span class="step-n">01</span>
-              <h3>Context: a manufacturer's shop window</h3>
-              <p>Omkar Labels has made labels since 1999, in two factories: one in Thane, near Mumbai, and one in Narmadapuram, Madhya Pradesh. Every order passes a four-point quality check, and the company holds OEKO-TEX, FSC and Global Recycled Standard certifications.</p>
-              <p>The website is where buyers check all of that before picking up the phone.</p>
-            </div>
-            <div class="gallery">
-              <figure class="shot wide"><a class="shot-frame" href="../assets/jaihind/omkar-press.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-press.jpg" width="794" height="596" loading="lazy" alt="An offset printing press on the factory floor"></a><figcaption class="cap">Offset printing on the factory floor.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-qc-crockmeter.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-qc-crockmeter.jpg" width="341" height="719" loading="lazy" alt="A crock meter testing how well label color holds up to rubbing"></a><figcaption class="cap">Testing color fastness.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-qc-spectro.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-qc-spectro.jpg" width="341" height="718" loading="lazy" alt="A handheld spectrophotometer reading color swatches"></a><figcaption class="cap">Checking color accuracy.</figcaption></figure>
-            </div>
-          </div>
-
-          <div class="step flip">
-            <div class="step-text">
-              <span class="step-n">02</span>
-              <h3>The build: from design file to working page</h3>
-              <p>The designer made the interface; I made it work. Responsive layouts in HTML and CSS, behavior in JavaScript and jQuery, and Bootstrap's grid so pages held together on every screen, all inside WordPress.</p>
-              <p>I also kept the product pages for a catalog of 50+ products accurate as things changed. The photos here are the kinds of products those pages carried.</p>
-            </div>
-            <div class="gallery">
-              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-washcare.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-washcare.jpg" width="304" height="302" loading="lazy" alt="A printed wash-care label sewn into a shirt"></a><figcaption class="cap">Wash-care labels.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-hangtag.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-hangtag.jpg" width="794" height="795" loading="lazy" alt="A printed hang tag on a plaid shirt"></a><figcaption class="cap">Hang tags.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-tape.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-tape.jpg" width="303" height="303" loading="lazy" alt="A roll of printed tape beside printed labels"></a><figcaption class="cap">Printed tapes.</figcaption></figure>
-              <figure class="shot"><a class="shot-frame" href="../assets/jaihind/omkar-labels-press.jpg" target="_blank" rel="noopener"><img src="../assets/jaihind/omkar-labels-press.jpg" width="719" height="719" loading="lazy" alt="Printed fabric labels fresh off the press"></a><figcaption class="cap">Labels fresh off the press.</figcaption></figure>
-            </div>
-          </div>
-
-          <div class="step full">
-            <div class="step-text">
-              <span class="step-n">03</span>
-              <h3>Working with the designer: where designs meet reality</h3>
-              <ul class="ticks">
-                <li>When the design file and the browser didn't match, I raised it early and we solved it together before release.</li>
-                <li>When a layout broke in one browser and not another, I traced the cause in Chrome DevTools and fixed the code, not the symptom.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <form class="fb-form js-only" data-fb-form hidden>
+          <input type="hidden" name="reaction" value="">
+          <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+          <label for="fb-msg-omkar">What stood out, or what would you change? <span>(optional)</span></label>
+          <textarea id="fb-msg-omkar" name="message" rows="3" maxlength="1500"></textarea>
+          <label for="fb-from-omkar">Your name or email <span>(optional, if you'd like a reply)</span></label>
+          <input id="fb-from-omkar" name="from" type="text" maxlength="160" autocomplete="email">
+          <button class="btn btn-primary" type="submit">Send</button>
+          <p class="fb-note">Sent to my email through FormSubmit. Nothing else is stored.</p>
+        </form>
+        <p class="fb-status" data-fb-status tabindex="-1" role="status"></p>
+        <noscript><p><a class="text-link" href="mailto:manche.siddhi@gmail.com?subject=Feedback%20on%20Omkar%20Labels">Email me your feedback</a></p></noscript>
       </div>
     </section>
 
-    <section id="results" class="band band-alt" aria-labelledby="results-title">
+    <section class="sec" aria-label="Next case study">
       <div class="wrap">
-        <div class="sec-head"><div><span class="kicker">What it changed</span><h2 class="h2" id="results-title">Why every designer should build something</h2></div></div>
-        <ul class="result-list">
-          <li><b>50+</b><span>product pages kept accurate and consistent.</span></li>
-          <li><b>5</b><span>front-end tools: HTML, CSS, JavaScript, jQuery, Bootstrap.</span></li>
-        </ul>
-        <p class="lede" style="margin-top: 22px;">Having been the developer receiving the file, I know which questions a handoff leaves open. That's why my handoffs specify states, spacing and behavior, and why I can talk through HTML and CSS with front-end developers on their terms.</p>
-      </div>
-    </section>
-
-    <section class="band" aria-label="More case studies">
-      <div class="wrap">
-        <nav class="nextprev" aria-label="More case studies">
-          <a class="np" href="findme.html"><small>&#8592; Previous</small><span>FindMe LLC</span></a>
-          <a class="np right" href="ir2go.html"><small>Next &#8594;</small><span>IRS2GO</span></a>
-        </nav>
+        <a class="next" href="findme.html"><div class="lib-visual"><div class="mini-lib"><img class="findme-logo" src="../assets/findme-logo.svg" alt="" width="92" height="26"><div class="row"><span class="pill">Primary</span><span class="pill sec">Secondary</span><span class="pill ghost">Ghost</span></div><div class="row"><span class="pill">Default</span><span class="pill dis">Disabled</span></div><span class="spec">Button / Primary / Medium / Default</span></div></div><span><small>Next case study</small><b>Growing a design system while the product kept shipping</b></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
     </section>
   </main>
-
-  <footer class="case-foot">© 2026 Siddhi Manche · <a href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a></footer>
-
-  <nav class="dock" aria-label="Page sections">
-    <a href="../index.html#work">&#8592; Work</a>
-    <a href="#overview">Overview</a>
-    <a href="#code">Code</a>
-    <a href="#process">The work</a>
-    <a href="#results">Impact</a>
-    <span class="sep" aria-hidden="true"></span>
-    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to night mode"><span class="ic" aria-hidden="true">&#9728;</span><span class="tx">Day</span></button>
-    <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
-  </nav>
-  <script src="../js/site.js"></script>
-  <script src="../js/lab.js"></script>
-  <script src="../js/codeview.js"></script>
+  <footer class="ftr">
+    <div class="wrap ftr-in">
+      <span>© 2026 Siddhi Manche · Designed by me, coded with Claude Code · WCAG 2.1 AA</span>
+      <span><a href="mailto:manche.siddhi@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/siddhi-manche/" target="_blank" rel="noopener">LinkedIn<span class="sr"> (opens in a new tab)</span></a> · <a href="https://github.com/Siddhidesign" target="_blank" rel="noopener">GitHub<span class="sr"> (opens in a new tab)</span></a></span>
+    </div>
+  </footer>
+  <p class="sr" aria-live="polite" data-live></p>
+  <script src="../js/store.js" defer></script>
 </body>
 </html>

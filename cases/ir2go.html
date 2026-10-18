@@ -1,313 +1,187 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="day">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IRS2GO Redesign, Case Study · Siddhi Manche</title>
-  <meta name="description" content="Redesigning the IRS's official app around the 3 things people open it for. The usability score went from 31.3 to 78.25, with WCAG 2.1 AA on every redesigned screen." />
-  <meta name="theme-color" content="#f7f7f7" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRS2GO: Making the IRS app easy to use | Siddhi Manche</title>
+  <meta name="description" content="Redesigning the IRS&#x27;s official app in a team of 5: clearer forms, payments inside the app and a refund timeline took the usability score from 31.3 to 78.25.">
+  <link rel="canonical" href="https://siddhidesign.github.io/Portfolio/cases/ir2go.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Siddhi Manche">
+  <meta property="og:title" content="IRS2GO: Making the IRS app easy to use | Siddhi Manche">
+  <meta property="og:description" content="Redesigning the IRS&#x27;s official app in a team of 5: clearer forms, payments inside the app and a refund timeline took the usability score from 31.3 to 78.25.">
+  <meta property="og:url" content="https://siddhidesign.github.io/Portfolio/cases/ir2go.html">
+  <meta property="og:image" content="https://siddhidesign.github.io/Portfolio/assets/og/ir2go.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <script>
     (function () {
       var d = document.documentElement, t;
       try { t = localStorage.getItem('theme'); } catch (e) {}
       var q = location.search.match(/theme=(day|night)/); if (q) t = q[1];
-      if (t !== 'day' && t !== 'night') { t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'; }
-      d.setAttribute('data-theme', t); d.classList.add('js');
+      d.setAttribute('data-theme', t === 'night' ? 'night' : 'day'); d.classList.add('js');
     })();
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/site.css" />
-  <link rel="stylesheet" href="../css/proto.css" />
-  <link rel="stylesheet" href="../css/ir-app.css" />
-  <link rel="stylesheet" href="../css/case-kit.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/store.css">
 </head>
-<body class="has-dock">
+<body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="wrap case-top"><a href="../index.html#work">&#8592; All work</a></div>
-
+  <header class="hdr">
+    <div class="wrap hdr-in">
+      <a class="logo" href="../index.html">Siddhi <em>Manche</em></a>
+      <nav class="nav" aria-label="Main">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#work">Work</a>
+        <a class="opt" href="../index.html#journey">Journey</a>
+        <a class="opt" href="../index.html#skills">Skills</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="Switch to dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </div>
+  </header>
   <main id="main">
-    <!-- OVERVIEW -->
-    <section id="overview" class="wrap case-hero">
-      <span class="kicker">IRS2GO · HCI course project · 2025</span>
-      <h1 class="h1">Making the IRS app easy to use</h1>
-      <p class="lede">IRS2GO is the IRS's official app. It was rated 2.8 stars, and 45% of people quit before finishing a task. I redesigned the three things people open it for: checking a refund, making a payment and finding free tax help.</p>
-      <div class="chips"><span class="chip">Mobile app</span><span class="chip">Government</span><span class="chip">Accessibility</span><span class="chip">Usability testing</span></div>
-      <p class="case-note note-hand">usability score: 31.3 → 78.25! <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
-      <div id="ir-main" data-proto="irs2go" data-hint="it's real code, tap around!" data-label="IRS2GO redesign, interactive prototype">
-        <img class="pr-fallback" src="../assets/irs2go/irs2go-refund-status-form.png" width="402" height="872" alt="The redesigned IRS2GO refund status form" />
+    <nav class="crumbs wrap" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="../index.html#work">Work</a></li><li aria-current="page">IRS2GO</li></ol></nav>
+    <div class="wrap pdp">
+      <figure class="gal"><div class="gal-frame"><img data-gal-main src="../assets/live/ir2go.jpg" alt="Three screens of the redesign: welcome, the refund form and the refund status."></div><figcaption data-gal-cap>The redesign: welcome, refund form, refund status.</figcaption>
+          <ul class="thumbs" role="list" aria-label="More images"><li><a href="../assets/live/ir2go.jpg" data-gal data-alt="Three screens of the redesign: welcome, the refund form and the refund status." data-cap="The redesign: welcome, refund form, refund status." aria-current="true"><img src="../assets/live/ir2go.jpg" alt="" width="68" height="50" loading="lazy"><span class="sr">Show image 1: The redesign: welcome, refund form, refund status.</span></a></li><li><a href="../assets/irs2go/irs2go-before.png" data-gal data-alt="Before: the original refund status form, with placeholders instead of labels." data-cap="Before: the original refund form."><img src="../assets/irs2go/irs2go-before.png" alt="" width="68" height="50" loading="lazy"><span class="sr">Show image 2: Before: the original refund form.</span></a></li><li><a href="../assets/irs2go/irs2go-refund-status-form.png" data-gal data-alt="After: the redesigned refund form with labelled required fields." data-cap="After: labelled fields and a sample form."><img src="../assets/irs2go/irs2go-refund-status-form.png" alt="" width="68" height="50" loading="lazy"><span class="sr">Show image 3: After: labelled fields and a sample form.</span></a></li></ul></figure>
+      <div class="buy">
+        <p class="label"><span class="chip c-tested">Course project</span><span>Government app · 4 min read</span></p>
+        <h1>Making the IRS app easy to use</h1>
+        <p class="summary">IRS2Go is the IRS&#x27;s official app. It was rated 2.8 stars, and 45% of people quit before finishing a task. In a team of 5, we redesigned the three things people open it for: checking a refund, paying, and finding free tax help. Then we tested the old app against the new one.</p>
+        <div class="keys" role="group" aria-label="Key results"><div><b>31.3 → 78.25</b><span>usability score (SUS)</span></div><div><b>100%</b><span>of redesigned screens meet WCAG 2.1 AA</span></div><p class="keys-note"><span class="chip c-tested">Tested</span>Tested with people, old app vs redesign</p></div>
+        <dl class="meta"><div><dt>Role</dt><dd>UX/UI Designer</dd></div><div><dt>Timeline</dt><dd>Winter 2025, 4 months</dd></div><div><dt>Team</dt><dd>5 students, HCI course</dd></div></dl>
+        <div class="links"><a class="btn btn-secondary" href="https://www.figma.com/proto/RHTthzwRZGf3j0rqaM6Hbh/IRS2GO--REDESIGN?page-id=0%3A1&amp;node-id=1-1564&amp;starting-point-node-id=1%3A1299&amp;t=TPSclTN0t7PQbSQ5-1" target="_blank" rel="noopener">Figma prototype<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="sr"> (opens in a new tab)</span></a><a class="btn btn-secondary" href="full/ir2go.html">Long version, with the app in code<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
-      <p class="pr-cap">Rebuilt in HTML, CSS and JavaScript from my Figma file. Switch to "Old app" to use the original, with its problems pinned.</p>
-      <dl class="facts">
-        <div class="fact"><dt>My role</dt><dd>UX/UI Designer, solo</dd></div>
-        <div class="fact"><dt>Timeline</dt><dd>4 months, 2025</dd></div>
-        <div class="fact"><dt>Context</dt><dd>HCI course project</dd></div>
-        <div class="fact"><dt>Platform</dt><dd>iOS and Android app</dd></div>
-      </dl>
-    </section>
+    </div>
 
-    <!-- NUMBERS -->
-    <section class="band band-alt" aria-labelledby="nums-title">
+    <nav class="steps-nav" aria-label="Steps in this case study">
+      <div class="wrap"><ol class="stepper" role="list"><li><a href="#problem"><span class="n" aria-hidden="true">1</span>Problem</a></li><li><a href="#research"><span class="n" aria-hidden="true">2</span>Research</a></li><li><a href="#ideas"><span class="n" aria-hidden="true">3</span>Ideas</a></li><li><a href="#design"><span class="n" aria-hidden="true">4</span>Design</a></li><li><a href="#testing"><span class="n" aria-hidden="true">5</span>Testing</a></li><li><a href="#results"><span class="n" aria-hidden="true">6</span>Results</a></li></ol></div>
+    </nav>
+
+    <section class="step" id="problem" data-step aria-labelledby="problem-h">
       <div class="wrap">
-        <div class="sec-head"><div><span class="kicker">Results</span><h2 class="h2" id="nums-title">What changed</h2></div></div>
-        <div class="nums">
-          <div class="num"><b>31 → 78</b><span>usability score (SUS), before and after</span></div>
-          <div class="num"><b>150%</b><span>better usability score</span></div>
-          <div class="num"><b>100%</b><span>of redesigned screens meet WCAG 2.1 AA</span></div>
-          <div class="num"><b>0</b><span>trips out to the website in all three tasks</span></div>
-        </div>
+        <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">1</span>Step 1 of 6 · Problem</span><h2 id="problem-h">A government app people gave up on</h2><p>People open IRS2Go to check a refund, pay what they owe, or find free tax help. All three were hard: forms rejected correct details, payments bounced out to the website, and help didn&#x27;t cover refunds or payments.</p><p class="why"><b>Why:</b> When a tax app confuses people, they start to doubt the agency behind it.</p></div><figure class="step-visual"><div class="frame auto"><ul class="cv cv-stats" role="list"><li><b>2.8 ★</b><span>App Store rating</span></li><li><b>45%</b><span>quit before finishing a task</span></li><li><b>0</b><span>original screens met WCAG 2.1 AA</span></li></ul></div><figcaption>Where the old app stood.</figcaption></figure></div>
       </div>
     </section>
 
-    <!-- SHORT VERSION -->
-    <section class="band" aria-labelledby="short-title">
+    <section class="step" id="research" data-step aria-labelledby="research-h">
       <div class="wrap">
-        <div class="sec-head"><div><span class="kicker">In 30 seconds</span><h2 class="h2" id="short-title">The short version</h2></div></div>
-        <div class="cards3">
-          <div class="card"><span class="kicker">The problem</span><h3>A confusing government app</h3><p>Seven equal menu items, vague statuses like "Return Received", and payments that jumped out to the website halfway through.</p></div>
-          <div class="card"><span class="kicker">What I did</span><h3>Research to tested redesign</h3><p>Read 150+ reviews, interviewed taxpayers and watched people use the app. Then I redesigned the 3 core tasks and tested before and after.</p></div>
-          <div class="card"><span class="kicker">The result</span><h3>Usability more than doubled</h3><p>The SUS score went from 31.3 ("Poor") to 78.25 ("Excellent"), and every redesigned screen meets WCAG 2.1 AA.</p></div>
-        </div>
+        <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">2</span>Step 2 of 6 · Research</span><h2 id="research-h">Find where it breaks</h2><p>We read 150+ app reviews, interviewed taxpayers, watched people try each task in the old app, and checked it against 10 usability rules. Then we wrote out every step of each task to see exactly where people got stuck.</p><ul class="points" role="list"><li>Refunds: Tax Year looked like a text box but was a list, the SSN was split across 3 boxes, and the refund amount had to match to the cent.</li><li>Payments: the app sent people to the IRS website and through several more pages, and some still couldn&#x27;t pay.</li><li>Tax help: it explained ways to file, but nothing about refunds or payments.</li></ul><p class="why"><b>Why:</b> Writing out every step showed the cause of each failure, so we fixed causes instead of symptoms.</p></div><figure class="step-visual"><div class="frame phone"><img src="../assets/irs2go/irs2go-before.png" alt="The original refund status screen, with gray placeholder text instead of labels and a small Get Status button." loading="lazy"></div><figcaption>Before: the original refund form.</figcaption></figure></div>
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section id="process" class="band band-alt" aria-labelledby="process-title">
+    <section class="step" id="ideas" data-step aria-labelledby="ideas-h">
       <div class="wrap">
-        <div class="sec-head"><div><span class="kicker">How I did it</span><h2 class="h2" id="process-title">Five steps, from reviews to a tested app</h2></div></div>
-        <div class="steps">
+        <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">3</span>Step 3 of 6 · Ideas</span><h2 id="ideas-h">Sketch each fix as a story</h2><p>We storyboarded three everyday scenarios: a first-time filer checking his refund, the same person finding out he owes money, and a senior looking for free help with a pile of forms.</p><ul class="points" role="list"><li>3 clear choices on Home, instead of 7 equal menu items.</li><li>A refund timeline: Received, Approved, Sent.</li><li>A summary before any payment.</li><li>No account needed to check a refund.</li></ul><p class="why"><b>Why:</b> Stories kept every idea tied to a real moment we had seen, not a screen in isolation.</p></div><figure class="step-visual"><div class="frame wide"><img src="../assets/irs2go/ideation-1.png" alt="Storyboard comics for three scenarios: a user checking his refund status, paying his tax amount, and searching for tax help." loading="lazy"></div><figcaption>Storyboards for the three tasks.</figcaption></figure></div>
+      </div>
+    </section>
 
-          <div class="step full">
-            <div class="step-text">
-              <span class="step-n">01</span>
-              <h3>Research: find where it breaks</h3>
-              <p>I read 150+ app reviews, interviewed taxpayers, asked people to complete tasks in the old app, and checked it against 10 standard usability rules (Nielsen's heuristics).</p>
-              <ul class="ticks">
-                <li><strong>Refunds:</strong> a vague status with no date, and forms with no format hints. 68% of people who tried left without a clear answer.</li>
-                <li><strong>Payments:</strong> the app sent people to the website mid-task, with no summary before paying.</li>
-                <li><strong>Tax help:</strong> the office finder showed no results for valid zip codes.</li>
-                <li><strong>Accessibility:</strong> none of the original screens met WCAG 2.1 AA.</li>
-              </ul>
-            </div>
-            <div class="cx">
-              <div class="cx-h"><h4>What people were saying</h4><p>Before talking to anyone, I collected ratings, reviews, forum questions and a post from the National Taxpayer Advocate.</p></div>
-              <div class="cx-src">
-                <div class="cx-s cx-card"><span class="where">App Store</span><span class="big">2.8<small>out of 5</small></span><span class="cx-stars" style="--v:56%" role="img" aria-label="2.8 out of 5 stars"><span aria-hidden="true">★★★★★</span><span class="on" aria-hidden="true">★★★★★</span></span><p class="say">Reviewers said the app kept telling them they had "exceeded limits" when they tried to log in.</p><span class="meta">3.9K ratings</span></div>
-                <div class="cx-s cx-card"><span class="where">Google Play</span><span class="big">3.9<small>out of 5</small></span><span class="cx-stars" style="--v:78%" role="img" aria-label="3.9 out of 5 stars"><span aria-hidden="true">★★★★★</span><span class="on" aria-hidden="true">★★★★★</span></span><p class="say">Reviews from February 2025 said it kept rejecting details that matched their return exactly.</p><span class="meta">71.4K reviews</span></div>
-                <div class="cx-s cx-card"><span class="where">Quora</span><p class="say">"That's just how the app was designed."</p><span class="meta">An answer to why the refund amount wouldn't take commas. Other questions:</span><ul><li>Why isn't the IRS2Go app working?</li><li>What does "still being processed" mean after weeks?</li></ul></div>
-                <div class="cx-s cx-card"><span class="where">National Taxpayer Advocate</span><p class="say">Named IRS2Go among standalone tools that don't add up to one experience, and asked for refund status with clear stages and a timeline.</p><span class="meta">Blog post, April 28, 2022 · <a href="https://www.taxpayeradvocate.irs.gov/news/nta-blog/nta-blog-irs-online-accounts-do-not-have-sufficient-functionality-and-integration-with-existing-tools/2022/04/" target="_blank" rel="noopener">Read it<span class="sr"> (opens in a new tab)</span> ↗</a></span></div>
-              </div>
-            </div>
-            <div class="cx">
-              <div class="cx-h"><h4>The old app, rebuilt in code</h4><p>This is the original IRS2Go. Try to check a refund the way testers did. Red pins mark what went wrong; tap one to see how the redesign fixes it.</p></div>
-              <div class="cx-oldwrap">
-                <div id="ir-old" data-proto="irs2go" data-mode="before" data-tour="off" data-controls="mode,reset" data-hint="tap the red pins" data-label="The original IRS2Go app, rebuilt">
-                  <img class="pr-fallback" src="../assets/irs2go/irs2go-before.png" width="760" height="1040" alt="The original IRS2Go refund form, with unlabelled fields" />
-                </div>
-                <div class="cx-side">
-                  <h5>The task people tried</h5>
-                  <ol class="cx-task">
-                    <li><span>Open the app and read the instructions</span></li>
-                    <li><span>Choose the tax year from the list</span></li>
-                    <li><span>Fill in the SSN</span></li>
-                    <li><span>Choose a filing status</span></li>
-                    <li><span>Type the exact refund amount</span></li>
-                    <li><span>Tap Get Status</span></li>
-                  </ol>
-                  <h5>Usability rules it broke</h5>
-                  <div class="cx-pr">
-                    <div class="cx-card"><b>Error prevention and recovery</b>Unclear error messages, and no guidance on how to fix them.</div>
-                    <div class="cx-card"><b>User control and flexibility</b>You couldn't fix one field without starting over.</div>
-                    <div class="cx-card"><b>Efficiency of use</b>A slow payment process, with no quick options.</div>
-                    <div class="cx-card"><b>Recognition rather than recall</b>No predictive text and no auto-save, so people had to remember everything.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="step full">
-            <div class="step-text">
-              <span class="step-n">02</span>
-              <h3>Who I designed for</h3>
-            </div>
-            <div class="person">
-              <div class="person-av" aria-hidden="true">A</div>
+    <section class="step hl" id="design" data-step aria-labelledby="design-h">
+      <div class="wrap">
+        <div class="step-grid solo"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">4</span>Step 4 of 6 · Design</span><h2 id="design-h">Every task finishes inside the app</h2><p>The redesign uses clear labels, one main action per screen, big tap targets, and a tab bar for Refunds, Payments and Tax Help, so no task is buried.</p></div></div><div class="step-sub"><span class="eyebrow">Key decisions</span><ol class="decisions" role="list">
+            <li class="dec key"><figure class="dec-visual"><div class="frame phone"><img src="../assets/irs2go/irs2go-refund-status-form.png" alt="The redesigned refund form with labelled required fields, a Sample Form link and an example amount." loading="lazy"></div><figcaption>After: labels, examples and a sample form.</figcaption></figure>
               <div>
-                <h4>Meet Alex, 29</h4>
-                <p>He filed three weeks ago and is waiting on a $2,100 refund to pay a vet bill. He's not a tax expert and has never used a government app. He just wants to know one thing: where is my money?</p>
+                <span class="dec-n">Key decision 1</span>
+                <h3>Help before the error</h3>
+                <p class="thinking"><b>The thinking:</b> The old form explained its rules only after people got them wrong. Now every field has a label and an example, and a sample form shows where each answer is on your return.</p>
+                <p class="dec-result"><span class="chip c-tested">Tested</span><span>Part of the redesign that scored 78.25.</span></p>
               </div>
-            </div>
-            <ol class="journey" aria-label="Alex's journey in the old app">
-              <li><strong>Can't find it</strong>Seven menu items all look equally important.</li>
-              <li><strong>Gets blocked</strong>"Invalid entry", three times, with no hint.</li>
-              <li><strong>Gets no answer</strong>"Return Received." No date, no next step.</li>
-              <li><strong>Gives up</strong>Help opens a slow website. He Googles it instead.</li>
-            </ol>
-          </div>
-
-          <div class="step flip">
-            <div class="step-text">
-              <span class="step-n">03</span>
-              <h3>Ideas: sketch the fixes</h3>
-              <p>I storyboarded each task as a short comic first, so every idea had to fix a problem I had actually seen.</p>
-              <ul class="ticks">
-                <li><strong>3 clear choices on Home</strong> instead of 7 equal menu items.</li>
-                <li><strong>A refund timeline:</strong> Received, Approved, Sent.</li>
-                <li><strong>Check before you pay:</strong> a summary before any payment.</li>
-                <li><strong>No account needed</strong> to check a refund.</li>
-              </ul>
-            </div>
-            <div class="gallery">
-              <figure class="shot wide"><a class="shot-frame" href="../assets/irs2go/ideation-1.png" target="_blank" rel="noopener"><img src="../assets/irs2go/ideation-1.png" width="1740" height="1010" loading="lazy" alt="Comic-strip storyboards for checking a refund, paying a tax bill and finding tax help"></a><figcaption class="cap">Storyboards for the three tasks.</figcaption></figure>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-text">
-              <span class="step-n">04</span>
-              <h3>Final design: every task finishes inside the app</h3>
-              <p>Clear labels, one main action per screen, big tap targets, and a tab bar (Refunds, Payments, Tax Help, More) so no task is buried.</p>
-              <p>Drag the slider to compare the refund form. Before, the rules only appeared after an error. Now every field is labelled and help comes first.</p>
-            </div>
-            <figure class="cx-cmp">
-              <div class="cx-cmp-tags" aria-hidden="true"><span>&#8592; Before</span><span>After &#8594;</span></div>
-              <div class="pr-cmp">
-                <div class="side after"><div class="ir" aria-hidden="true"><div class="ir-top"><span class="ir-logo"><span class="badge"><svg class="i" viewBox="0 0 24 24" width="16" height="16"><path d="M3 10h18L12 4.5zM5.5 10v7.5M10 10v7.5M14 10v7.5M18.5 10v7.5M3 20h18"/></svg></span><span class="wm"><b>IRS</b>2GO</span></span><span class="ir-link">Privacy Notice</span></div><div class="ir-main"><h2 class="t">Refund Status</h2><p class="ir-p">Check your refund status by entering your information as shown on your tax return. This tool is updated no more than once every 24 hours, usually overnight.</p><span class="ir-link ir-sf">Sample Form ›</span><div class="ir-form"><div class="ir-f"><div class="ir-lab">Tax Year <abbr aria-hidden="true">*</abbr></div><div class="ir-in"><span class="ph">Select Tax Year</span><span class="end"><svg class="i" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></span></div></div><div class="ir-f"><div class="ir-lab">Social Security number (SSN) <abbr aria-hidden="true">*</abbr> <span style="color:#003264;display:grid"><svg class="i" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.4"/></svg></span></div><div class="ir-in"><span class="ph">XXX - XX - XXXX</span></div></div><div class="ir-f"><div class="ir-lab">Filing Status <abbr aria-hidden="true">*</abbr></div><div class="ir-in"><span class="ph">Select Filing Status</span><span class="end"><svg class="i" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></span></div></div><div class="ir-f"><div class="ir-lab">Refund Amount <abbr aria-hidden="true">*</abbr></div><div class="ir-in"><span class="ph">Enter amount. Ex: 10.00</span></div></div></div><span class="ir-btn muted ir-get">Get Status</span><span class="ir-acc">Check Accessibility</span></div><div class="ir-tabs"><span style="display:grid;justify-items:center;gap:3px;padding-top:4px;font-size:11px;color:#003264;font-weight:700">Refunds</span><span style="display:grid;justify-items:center;gap:3px;padding-top:4px;font-size:11px;color:#66717d">Payments</span><span style="display:grid;justify-items:center;gap:3px;padding-top:4px;font-size:11px;color:#66717d">Tax Help</span><span style="display:grid;justify-items:center;gap:3px;padding-top:4px;font-size:11px;color:#66717d">More</span></div></div></div>
-                <div class="side before"><div class="ir old" aria-hidden="true"><div class="ir-oh"><h2>IRS2Go</h2></div><div class="ir-old-main"><h3>Refund Status</h3><p>Check your refund status by entering your information as shown on your tax return. This tool is updated no more than once every 24 hours, usually overnight.</p><p>All fields are required.</p><div class="ir-ol">Tax Year</div><div class="ir-ssn3"><span>SSN</span><div class="ir-ol"></div><span>-</span><div class="ir-ol"></div><span>-</span><div class="ir-ol w4"></div></div><div class="ir-ol">Filing Status</div><div class="ir-ol">Refund Amount</div><div class="ir-old-row"><span class="ol-link">Accessibility</span><span class="ir-old-btn">Get Status</span></div><span class="ol-link">Privacy Notice</span></div><div class="ir-otabs"><span style="display:grid;justify-items:center;padding-top:6px;font-size:10.5px;color:#3F6797;font-weight:700">Refunds</span><span style="display:grid;justify-items:center;padding-top:6px;font-size:10.5px;color:#59636e">Payments</span><span style="display:grid;justify-items:center;padding-top:6px;font-size:10.5px;color:#59636e">Tax Help</span><span style="display:grid;justify-items:center;padding-top:6px;font-size:10.5px;color:#59636e">Connect</span></div></div></div>
-                <input type="range" min="0" max="100" value="50" step="0.5" aria-label="Drag to compare the old and new refund form" />
-                <span class="line" aria-hidden="true"><span class="grip">&#8596;</span></span>
-                <span class="tag l" aria-hidden="true">Before</span><span class="tag r" aria-hidden="true">After</span>
-              </div>
-              <figcaption class="cap">Both sides are code. Left: the original, with placeholders for labels and one small button. Right: the redesign, with labelled required fields, a sample form and an accessibility check.</figcaption>
-            </figure>
-          </div>
-
-          <div class="step full">
-            <div class="cx" style="margin-top: 0;">
-            <div class="cx-h"><h4>Jump to any screen</h4><p>Each one opens in the working prototype at the top of the page.</p></div>
-            <div class="cx-tiles">
-              <button type="button" class="cx-tile cx-card" data-pr-go="#ir-main" data-mode="after" data-screen="onb"><b>A short welcome</b><span>Three intro slides, all skippable</span><i>Show me &#8593;</i></button>
-              <button type="button" class="cx-tile cx-card" data-pr-go="#ir-main" data-mode="after" data-screen="login"><b>Explore without signing in</b><span>The main button, after testing</span><i>Show me &#8593;</i></button>
-              <button type="button" class="cx-tile cx-card" data-pr-go="#ir-main" data-mode="after" data-screen="refund"><b>A clear refund form</b><span>Labels, hints and a sample form</span><i>Show me &#8593;</i></button>
-              <button type="button" class="cx-tile cx-card" data-pr-go="#ir-main" data-mode="after" data-screen="status"><b>The answer as a timeline</b><span>Received, Approved, Sent</span><i>Show me &#8593;</i></button>
-              <button type="button" class="cx-tile cx-card" data-pr-go="#ir-main" data-mode="after" data-screen="paycard"><b>Payment options, explained</b><span>Every fee shown before you pay</span><i>Show me &#8593;</i></button>
-              <button type="button" class="cx-tile cx-card" data-pr-go="#ir-main" data-mode="after" data-screen="help"><b>Tax help, in the app</b><span>Call, find an office, online tools</span><i>Show me &#8593;</i></button>
-            </div>
-            </div>
-          </div>
-
-          <div class="step full">
-            <div class="step-text">
-              <span class="step-n">05</span>
-              <h3>Testing: did it work?</h3>
-              <p>People did the same tasks on the old app and the new one while thinking out loud, then filled in the System Usability Scale, a standard 10-question survey scored out of 100. The score went from 31.3 to 78.25.</p>
-            </div>
-            <div class="cx">
-              <div class="cx-h"><h4>How I tested</h4><p>A short introduction and one practice task first, then the real tasks on both versions.</p></div>
-              <div class="cx-methods">
-                <div class="cx-m cx-card"><b>Think-aloud sessions</b><span>People said what they were thinking while they used the old app and the new one.</span></div>
-                <div class="cx-m cx-card"><b>System Usability Scale</b><span>A standard 10-question survey, scored out of 100, after each version.</span></div>
-                <div class="cx-m cx-card"><b>What I used</b><span>A task sheet, a think-aloud observation sheet, the SUS survey and the Figma prototype.</span></div>
-              </div>
-              <div class="cx-tablewrap cx-card">
-                <table class="cx-goals">
-                  <caption>Usability goals and how I measured them</caption>
-                  <thead><tr><th scope="col">Goal</th><th scope="col">Metric</th></tr></thead>
-                  <tbody>
-                    <tr><td>Make the IRS2GO app more intuitive</td><td>Task success rate, tracked with task completion time</td></tr>
-                    <tr><td>Improve information findability</td><td>Confusion people voiced while thinking aloud</td></tr>
-                    <tr><td>Enhance user trust and satisfaction</td><td>SUS score, with a target above 75</td></tr>
-                    <tr><td>Support accessibility and user control</td><td>Feedback on UI elements, like how visible the form is</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="cx">
-              <div class="cx-h"><h4>What people said, screen by screen</h4><p>Positive and negative responses about satisfaction, effort and difficulty, on the old app and the new one.</p></div>
-              <div class="cx-seg" role="group" aria-label="Choose a screen" data-cx-tabs="cx-panels"><button type="button" data-v="pay" aria-pressed="true">Payments</button><button type="button" data-v="refund" aria-pressed="false">Refund status</button><button type="button" data-v="help" aria-pressed="false">Tax help</button><button type="button" data-v="home" aria-pressed="false">Home screen</button></div>
-              <div class="cx-panels" id="cx-panels">
-                <div class="cx-chart" data-panel="pay"><h5 class="cx-ph">Payments</h5><div class="cx-g cx-card"><h6>Satisfaction</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Positive </span>0</b></div><div class="cx-bar neg"><span class="track"><i style="--w:85.7%"></i></span><b><span class="sr">Negative </span>12</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:78.6%"></i></span><b><span class="sr">Positive </span>11</b></div><div class="cx-bar neg"><span class="track"><i style="--w:28.6%"></i></span><b><span class="sr">Negative </span>4</b></div></div></div></div><div class="cx-g cx-card"><h6>Effort</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:57.1%"></i></span><b><span class="sr">Positive </span>8</b></div><div class="cx-bar neg"><span class="track"><i style="--w:42.9%"></i></span><b><span class="sr">Negative </span>6</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:100.0%"></i></span><b><span class="sr">Positive </span>14</b></div><div class="cx-bar neg"><span class="track"><i style="--w:7.1%"></i></span><b><span class="sr">Negative </span>1</b></div></div></div></div><div class="cx-g cx-card"><h6>Difficulty</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:7.1%"></i></span><b><span class="sr">Positive </span>1</b></div><div class="cx-bar neg"><span class="track"><i style="--w:21.4%"></i></span><b><span class="sr">Negative </span>3</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:28.6%"></i></span><b><span class="sr">Positive </span>4</b></div><div class="cx-bar neg"><span class="track"><i style="--w:7.1%"></i></span><b><span class="sr">Negative </span>1</b></div></div></div></div></div>
-                <div class="cx-chart" data-panel="refund"><h5 class="cx-ph">Refund status</h5><div class="cx-g cx-card"><h6>Satisfaction</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:26.7%"></i></span><b><span class="sr">Positive </span>4</b></div><div class="cx-bar neg"><span class="track"><i style="--w:60.0%"></i></span><b><span class="sr">Negative </span>9</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:100.0%"></i></span><b><span class="sr">Positive </span>15</b></div><div class="cx-bar neg"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Negative </span>0</b></div></div></div></div><div class="cx-g cx-card"><h6>Effort</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:20.0%"></i></span><b><span class="sr">Positive </span>3</b></div><div class="cx-bar neg"><span class="track"><i style="--w:6.7%"></i></span><b><span class="sr">Negative </span>1</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:66.7%"></i></span><b><span class="sr">Positive </span>10</b></div><div class="cx-bar neg"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Negative </span>0</b></div></div></div></div><div class="cx-g cx-card"><h6>Difficulty</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:6.7%"></i></span><b><span class="sr">Positive </span>1</b></div><div class="cx-bar neg"><span class="track"><i style="--w:20.0%"></i></span><b><span class="sr">Negative </span>3</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:33.3%"></i></span><b><span class="sr">Positive </span>5</b></div><div class="cx-bar neg"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Negative </span>0</b></div></div></div></div></div>
-                <div class="cx-chart" data-panel="help"><h5 class="cx-ph">Tax help</h5><div class="cx-g cx-card"><h6>Satisfaction</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:20.0%"></i></span><b><span class="sr">Positive </span>2</b></div><div class="cx-bar neg"><span class="track"><i style="--w:60.0%"></i></span><b><span class="sr">Negative </span>6</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:90.0%"></i></span><b><span class="sr">Positive </span>9</b></div><div class="cx-bar neg"><span class="track"><i style="--w:10.0%"></i></span><b><span class="sr">Negative </span>1</b></div></div></div></div><div class="cx-g cx-card"><h6>Effort</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:10.0%"></i></span><b><span class="sr">Positive </span>1</b></div><div class="cx-bar neg"><span class="track"><i style="--w:30.0%"></i></span><b><span class="sr">Negative </span>3</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:40.0%"></i></span><b><span class="sr">Positive </span>4</b></div><div class="cx-bar neg"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Negative </span>0</b></div></div></div></div><div class="cx-g cx-card"><h6>Difficulty</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:50.0%"></i></span><b><span class="sr">Positive </span>5</b></div><div class="cx-bar neg"><span class="track"><i style="--w:50.0%"></i></span><b><span class="sr">Negative </span>5</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:100.0%"></i></span><b><span class="sr">Positive </span>10</b></div><div class="cx-bar neg"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Negative </span>0</b></div></div></div></div></div>
-                <div class="cx-chart" data-panel="home"><h5 class="cx-ph">Home screen</h5><div class="cx-g cx-card"><h6>Satisfaction</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Positive </span>0</b></div><div class="cx-bar neg"><span class="track"><i style="--w:20.0%"></i></span><b><span class="sr">Negative </span>1</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:80.0%"></i></span><b><span class="sr">Positive </span>4</b></div><div class="cx-bar neg"><span class="track"><i style="--w:20.0%"></i></span><b><span class="sr">Negative </span>1</b></div></div></div></div><div class="cx-g cx-card"><h6>Effort</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Positive </span>0</b></div><div class="cx-bar neg"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Negative </span>0</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:100.0%"></i></span><b><span class="sr">Positive </span>5</b></div><div class="cx-bar neg"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Negative </span>0</b></div></div></div></div><div class="cx-g cx-card"><h6>Difficulty</h6><div class="cx-prow"><span>Old app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Positive </span>0</b></div><div class="cx-bar neg"><span class="track"><i style="--w:0.0%"></i></span><b><span class="sr">Negative </span>0</b></div></div></div><div class="cx-prow"><span>New app</span><div class="bars"><div class="cx-bar pos"><span class="track"><i style="--w:100.0%"></i></span><b><span class="sr">Positive </span>5</b></div><div class="cx-bar neg"><span class="track"><i style="--w:100.0%"></i></span><b><span class="sr">Negative </span>5</b></div></div></div></div></div>
-              </div>
-              <p class="cx-key"><span><i style="background:#2F6FAD"></i>Positive</span><span><i style="background:#D9682E"></i>Negative</span></p>
-            </div>
-            <div class="cx-sus cx-card" data-cx-sus>
+            </li>
+            <li class="dec key flip"><figure class="dec-visual"><div class="frame phone"><img src="../assets/v2/ir2go-status.webp" alt="The refund status screen with a three-step tracker: Return Received, Refund Approved, Refund Sent." loading="lazy"></div><figcaption>Refund status in three clear steps.</figcaption></figure>
               <div>
-                <h4>System Usability Scale</h4>
-                <p class="cx-num">78.25<small>out of 100</small></p>
-                <p>Up from 31.3 on the old app. My target was above 75, and 68 is the commonly cited average.</p>
+                <span class="dec-n">Key decision 2</span>
+                <h3>The answer as a timeline</h3>
+                <p class="thinking"><b>The thinking:</b> &quot;Return Received&quot; gave no date and no next step, and 68% of people left the old flow without a clear answer. Now the status reads Received, Approved, Sent.</p>
+                <p class="dec-result"><span class="chip c-tested">Tested</span><span>Part of the redesign that scored 78.25.</span></p>
               </div>
-              <div class="cx-scale" role="img" aria-label="SUS score on a scale from 0 to 100: old app 31.3, redesign 78.25. Target above 75. Average 68.">
-                <span class="track"></span><span class="fill"></span>
-                <span class="line avg" style="left:68%"></span><span class="line" style="left:75%"></span>
-                <span class="mark old" style="left:31.3%">Old app 31.3</span>
-                <span class="mark new" style="left:78.25%">Redesign 78.25</span>
-                <span class="tick" style="left:0%">0</span><span class="tick" style="left:25%">25</span><span class="tick" style="left:50%">50</span><span class="tick" style="left:75%">75</span><span class="tick" style="left:100%">100</span>
-                <span class="legend"><span>Target, 75</span><span class="avg">Average, 68</span></span>
+            </li>
+            <li class="dec key"><figure class="dec-visual"><div class="frame phone"><img src="../assets/v2/ir2go-pay.webp" alt="The payment screen comparing processor fees by card type, with the total charge above Make a payment." loading="lazy"></div><figcaption>Fees side by side, and the total before paying.</figcaption></figure>
+              <div>
+                <span class="dec-n">Key decision 3</span>
+                <h3>Pay without leaving the app</h3>
+                <p class="thinking"><b>The thinking:</b> The old app sent people out to the website in the middle of paying. Now each payment option sits in the app, with its fees side by side, so people can compare before they choose.</p>
+                <p class="dec-result"><span class="chip c-tested">Tested</span><span>In the final design, all three tasks finish inside the app.</span></p>
               </div>
-            </div>
-          </div>
-
-          <div class="step full">
-            <div class="compare">
-              <div class="was"><h4>What testing showed</h4><ul><li>People wouldn't log in just to check a refund, and many quit at the login screen.</li><li>3 of 6 people hesitated to pay because they couldn't see a summary first.</li></ul></div>
-              <div class="now"><h4>What I changed</h4><ul><li>"Explore without signing in" became the main button. Nobody dropped off at login after that.</li><li>A confirmation screen before paying. After that, 0 of 6 were worried about paying.</li></ul></div>
-            </div>
-          </div>
-
-        </div>
+            </li>
+          </ol></div>
       </div>
     </section>
 
-    <!-- RESULTS -->
-    <section id="results" class="band" aria-labelledby="results-title">
+    <section class="step" id="testing" data-step aria-labelledby="testing-h">
       <div class="wrap">
-        <div class="sec-head"><div><span class="kicker">Results and learnings</span><h2 class="h2" id="results-title">When trust is the product</h2></div></div>
-        <ul class="result-list">
-          <li><b>31.3 → 78.25</b><span>Usability score, from "Poor" to "Excellent".</span></li>
-          <li><b>WCAG 2.1 AA</b><span>On every redesigned screen.</span></li>
-          <li><b>0 redirects</b><span>All three tasks finish inside the app.</span></li>
-          <li><b>No account</b><span>Needed to check a refund.</span></li>
-        </ul>
-        <div class="cards3" style="margin-top: 14px;">
-          <div class="card"><span class="kicker">Learning 1</span><h3>Bad UX costs trust</h3><p>In a government app, a confusing screen makes people doubt the government itself.</p></div>
-          <div class="card"><span class="kicker">Learning 2</span><h3>Guests first</h3><p>Letting people in without an account isn't a shortcut. It's how they reach the answer.</p></div>
-          <div class="card"><span class="kicker">Learning 3</span><h3>Confirm what matters</h3><p>A summary before paying calmed people more than any form design could.</p></div>
-        </div>
-        <blockquote class="quote"><p>"When I saw the new home screen, I immediately knew what to do. That's never happened with a government app before."</p><cite>Usability testing participant</cite></blockquote>
-        <a class="btn btn-accent" href="https://www.figma.com/proto/RHTthzwRZGf3j0rqaM6Hbh/IRS2GO--REDESIGN?page-id=0%3A1&amp;node-id=1-1564&amp;starting-point-node-id=1%3A1299&amp;t=TPSclTN0t7PQbSQ5-1" target="_blank" rel="noopener">Try the Figma prototype ↗</a>
+        <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">5</span>Step 5 of 6 · Testing</span><h2 id="testing-h">Old app against new, then fix</h2><p>People did the same tasks on the old app and the redesign while thinking out loud. Then they rated each version with the System Usability Scale (SUS), a standard 10-question survey scored out of 100.</p></div><figure class="step-visual"><div class="frame auto"><div class="cv cv-bars" role="img" aria-label="System Usability Scale scores out of 100: old app 31.3, redesign 78.25. The target was 75, and 68 is the commonly cited average."><div aria-hidden="true"><div class="bar-group"><div class="bar"><span class="bar-l">Old app</span><span class="track"><span class="fill" style="width:31.3%"></span><span class="mark dash" style="left:75%"></span><span class="mark dot" style="left:68%"></span></span><b>31.3</b></div><div class="bar hi"><span class="bar-l">Redesign</span><span class="track"><span class="fill" style="width:78.25%"></span><span class="mark dash" style="left:75%"></span><span class="mark dot" style="left:68%"></span></span><b>78.25</b></div></div><p class="cv-legend">Dashed line: our target of 75. Dotted line: 68, the commonly cited average.</p></div></div></div><figcaption>SUS score, out of 100.</figcaption></figure></div><div class="step-sub"><span class="eyebrow">What testing changed</span><ol class="decisions" role="list">
+            <li class="dec change"><figure class="dec-visual"><div class="frame phone"><img src="../assets/v2/ir2go-guest.webp" alt="The home screen with Explore without signing in as the main button, and Log in below it." loading="lazy"></div><figcaption>Explore without signing in comes first.</figcaption></figure>
+              <div>
+                <span class="dec-n">Changed after testing</span>
+                <h3>Guests first</h3>
+                <p class="thinking"><b>The thinking:</b> Many people quit at the login screen; they wouldn&#x27;t log in just to check a refund. So &quot;Explore without signing in&quot; became the main button.</p>
+                <p class="dec-result"><span class="chip c-tested">Tested</span><span>Nobody dropped off at login after the change.</span></p>
+              </div>
+            </li>
+            <li class="dec change text-only">
+              <div>
+                <span class="dec-n">Changed after testing</span>
+                <h3>A summary before paying</h3>
+                <p class="thinking"><b>The thinking:</b> 3 of 6 testers hesitated to pay because they couldn&#x27;t see a summary first. We added a confirmation screen with the total before the pay button.</p>
+                <p class="dec-result"><span class="chip c-tested">Tested</span><span>After the change, 0 of 6 were worried about paying.</span></p>
+              </div>
+            </li>
+          </ol></div>
       </div>
     </section>
 
-    <!-- NEXT -->
-    <section class="band band-alt" aria-label="More case studies">
+    <section class="step" id="results" data-step aria-labelledby="results-h">
       <div class="wrap">
-        <nav class="nextprev" aria-label="More case studies">
-          <a class="np" href="omkar.html"><small>&#8592; Previous</small><span>Omkar Labels</span></a>
-          <a class="np right" href="anchor.html"><small>Next &#8594;</small><span>Money Anchor</span></a>
-        </nav>
+        <div class="step-grid solo"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">6</span>Step 6 of 6 · Results</span><h2 id="results-h">Usability more than doubled</h2></div></div><ul class="tiles" role="list"><li><b>31.3 → 78.25</b><span>SUS, well above the 68 average</span></li><li><b>100%</b><span>of redesigned screens meet WCAG 2.1 AA</span></li><li><b>0</b><span>trips out to the website</span></li><li><b>No account</b><span>needed to check a refund</span></li></ul><div class="step-sub"><span class="eyebrow">What I learned</span><ul class="learn" role="list"><li><h3>Bad UX costs trust</h3><p>In a government app, a confusing screen makes people doubt the agency itself.</p></li><li><h3>Guests first</h3><p>Letting people in without an account isn&#x27;t a shortcut. It&#x27;s how they reach the answer.</p></li><li><h3>Confirm what matters</h3><p>A summary before paying calmed people more than any form design could.</p></li></ul></div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="ai-title">
+      <div class="wrap">
+        <div class="sec-head"><span class="eyebrow">If I did it today, with AI</span><h2 id="ai-title">What I'd do differently <em>now</em></h2><p>Ideas for a next version, not built yet.</p></div>
+        <div class="ai-ideas"><div class="idea"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="1.6"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><h3>A plain-language helper</h3><p>Ask &quot;why is my refund late?&quot; and get an answer in plain words, with a link to the official source.</p></div><div class="idea"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="1.6"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><h3>Help while you type</h3><p>Catch a wrong format in a field before you submit, instead of after an error.</p></div></div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="fb-title">
+      <div class="wrap fb" data-fb data-id="ir2go" data-case="IRS2GO: Making the IRS app easy to use">
+        <h2 id="fb-title">Did you <em>like</em> this case study?</h2>
+        <p>Tell me what worked, or what you'd change. It comes straight to me.</p>
+        <div class="fb-choices js-only" role="group" aria-label="Your reaction">
+          <button type="button" class="fb-btn" data-fb-choice="Liked it" aria-pressed="false"><svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>I liked it</button>
+          <button type="button" class="fb-btn" data-fb-choice="Could be better" aria-pressed="false">Could be better</button>
+        </div>
+        <form class="fb-form js-only" data-fb-form hidden>
+          <input type="hidden" name="reaction" value="">
+          <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+          <label for="fb-msg-ir2go">What stood out, or what would you change? <span>(optional)</span></label>
+          <textarea id="fb-msg-ir2go" name="message" rows="3" maxlength="1500"></textarea>
+          <label for="fb-from-ir2go">Your name or email <span>(optional, if you'd like a reply)</span></label>
+          <input id="fb-from-ir2go" name="from" type="text" maxlength="160" autocomplete="email">
+          <button class="btn btn-primary" type="submit">Send</button>
+          <p class="fb-note">Sent to my email through FormSubmit. Nothing else is stored.</p>
+        </form>
+        <p class="fb-status" data-fb-status tabindex="-1" role="status"></p>
+        <noscript><p><a class="text-link" href="mailto:manche.siddhi@gmail.com?subject=Feedback%20on%20IRS2GO">Email me your feedback</a></p></noscript>
+      </div>
+    </section>
+
+    <section class="sec" aria-label="Next case study">
+      <div class="wrap">
+        <a class="next" href="anchor.html"><img src="../assets/live/anchor.jpg" alt="" width="150" height="94" loading="lazy"><span><small>Next case study</small><b>An AI budgeting coach people trust</b></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
     </section>
   </main>
-
-  <footer class="case-foot">© 2026 Siddhi Manche · <a href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a></footer>
-
-  <nav class="dock" aria-label="Page sections">
-    <a href="../index.html#work">&#8592; Work</a>
-    <a href="#overview">Overview</a>
-    <a href="#process">Process</a>
-    <a href="#results">Results</a>
-    <span class="sep" aria-hidden="true"></span>
-    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to night mode"><span class="ic" aria-hidden="true">&#9728;</span><span class="tx">Day</span></button>
-    <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
-  </nav>
-  <script src="../js/site.js"></script>
-  <script src="../js/proto.js"></script>
-  <script src="../js/ir-app.js"></script>
-  <script src="../js/case-kit.js"></script>
+  <footer class="ftr">
+    <div class="wrap ftr-in">
+      <span>© 2026 Siddhi Manche · Designed by me, coded with Claude Code · WCAG 2.1 AA</span>
+      <span><a href="mailto:manche.siddhi@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/siddhi-manche/" target="_blank" rel="noopener">LinkedIn<span class="sr"> (opens in a new tab)</span></a> · <a href="https://github.com/Siddhidesign" target="_blank" rel="noopener">GitHub<span class="sr"> (opens in a new tab)</span></a></span>
+    </div>
+  </footer>
+  <p class="sr" aria-live="polite" data-live></p>
+  <script src="../js/store.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="day">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FindMe LLC, Case Study · Siddhi Manche</title>
+  <meta name="description" content="UX/UI design internship at FindMe LLC, New York: growing a design system of reusable components, patterns and visual standards while designing responsive web and mobile features in agile sprints." />
+  <meta name="theme-color" content="#f7f7f7" />
+  <script>
+    (function () {
+      var d = document.documentElement, t;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      var q = location.search.match(/theme=(day|night)/); if (q) t = q[1];
+      if (t !== 'day' && t !== 'night') { t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'; }
+      d.setAttribute('data-theme', t); d.classList.add('js');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/site.css" />
+  <link rel="stylesheet" href="../../css/case-kit.css" />
+  <link rel="stylesheet" href="../../css/lab.css" />
+</head>
+<body class="has-dock">
+  <p style="margin:0;background:#0f172a;color:#fff;font:600 14px/1.5 Inter,system-ui,sans-serif;text-align:center;padding:10px 16px">You are reading the long version, with the interactive prototype. <a href="../findme.html" style="color:#fff">Back to the short case study</a></p>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap case-top"><a href="../../index.html#work">&#8592; All work</a></div>
+
+  <main id="main">
+    <section id="overview" class="wrap case-hero">
+      <span class="kicker">FindMe LLC · New York · 2025</span>
+      <h1 class="h1">Growing a design system while the product kept shipping</h1>
+      <p class="lede">FindMe is a career portfolio platform: pick a template, show your projects and skills, and share one link. Over a summer internship I added to its design system and designed features from research to final UI.</p>
+      <div class="chips"><span class="chip">Web + mobile</span><span class="chip">Startup</span><span class="chip">Design system</span><span class="chip">Agile</span></div>
+      <p class="case-note note-hand">my summer at a New York startup! <svg class="arrow" aria-hidden="true" viewBox="0 0 46 34"><path d="M6 6 C 20 4, 30 12, 32 28 M32 28 L 25 21 M32 28 L 38 20" /></svg></p>
+      <div class="media" style="background: var(--peach);">
+        <div class="cover-logo">
+          <img src="../../assets/findme-logo.svg" alt="FindMe logo" />
+          <div class="bits" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span>Design system · Web and mobile</span>
+        </div>
+      </div>
+      <dl class="facts">
+        <div class="fact"><dt>My role</dt><dd>UX/UI Design Intern</dd></div>
+        <div class="fact"><dt>Timeline</dt><dd>May to Aug 2025</dd></div>
+        <div class="fact"><dt>Team</dt><dd>Agile team with engineering and product</dd></div>
+        <div class="fact"><dt>Platform</dt><dd>Responsive web and mobile</dd></div>
+      </dl>
+    </section>
+
+    <section class="band band-alt" aria-labelledby="short-title">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="kicker">In 30 seconds</span><h2 class="h2" id="short-title">The short version</h2></div></div>
+        <div class="cards3">
+          <div class="card"><span class="kicker">The problem</span><h3>A product growing faster than its system</h3><p>New screens every sprint meant small drift: a slightly different button, a new spacing value, the same pattern solved twice.</p></div>
+          <div class="card"><span class="kicker">What I did</span><h3>Two tracks at once</h3><p>Added reusable components, patterns and visual standards to the library, and designed features from research to delivered UI.</p></div>
+          <div class="card"><span class="kicker">The result</span><h3>Consistency from the library</h3><p>When a feature needed a card, a form or a list, the answer already existed. Outcome numbers are being confirmed and will be added here.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="band" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="kicker">How I worked</span><h2 class="h2" id="process-title">Three things, every sprint</h2></div></div>
+        <div class="steps">
+          <div class="step full">
+            <div class="step-text">
+              <span class="step-n">01</span>
+              <h3>Design system: components, patterns and standards</h3>
+              <p>I added components, interaction patterns and visual standards to FindMe's Figma library, each with its variants and states defined, so new features started from the library instead of from scratch.</p>
+              <ul class="ticks">
+                <li>Clear, consistent naming, because a library engineers can't navigate doesn't get used.</li>
+                <li>Variants and states defined for each component, so nothing was left to guess.</li>
+              </ul>
+            </div>
+            <div class="lab cx">
+              <div class="cx-h"><h4>How I define a component</h4><p>An illustration of the method, built for this page. FindMe's own library is private, so this is not one of their components.</p></div>
+              <div class="lab-spec" data-lab="spec">
+                <div class="lab-ctrls cx-card"><div><h5>Variant</h5><div class="lab-seg" role="group" aria-label="Variant"><button type="button" data-k="v" data-v="primary" aria-pressed="true">Primary</button><button type="button" data-k="v" data-v="secondary" aria-pressed="false">Secondary</button><button type="button" data-k="v" data-v="ghost" aria-pressed="false">Ghost</button></div></div><div><h5>Size</h5><div class="lab-seg" role="group" aria-label="Size"><button type="button" data-k="s" data-v="sm" aria-pressed="false">Small</button><button type="button" data-k="s" data-v="md" aria-pressed="true">Medium</button><button type="button" data-k="s" data-v="lg" aria-pressed="false">Large</button></div></div><div><h5>State</h5><div class="lab-seg" role="group" aria-label="State"><button type="button" data-k="t" data-v="default" aria-pressed="true">Default</button><button type="button" data-k="t" data-v="hover" aria-pressed="false">Hover</button><button type="button" data-k="t" data-v="focus" aria-pressed="false">Focus</button><button type="button" data-k="t" data-v="disabled" aria-pressed="false">Disabled</button><button type="button" data-k="t" data-v="loading" aria-pressed="false">Loading</button></div></div>
+                  <div class="lab-preview" role="img" aria-label="Preview: Button, Primary, Medium, Default"><span class="lab-btn primary md">Save project</span></div>
+                </div>
+                <div class="lab-out cx-card">
+                  <div class="lab-name"><h5>Library name</h5><code>Button / Primary / Medium / Default</code></div>
+                  <div><h5>Spec</h5><dl class="lab-tokens"><dt>Height</dt><dd>40px</dd><dt>Padding</dt><dd>0 16px</dd><dt>Radius</dt><dd>10px</dd><dt>Label</dt><dd>14px, semibold</dd><dt>Background</dt><dd>color.brand.600</dd><dt>Text</dt><dd>color.white</dd><dt>Border</dt><dd>none</dd></dl></div>
+                  <div><h5>State note for handoff</h5><p class="lab-note">Resting state. Every other state is a change from this one.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="step full">
+            <div class="step-text">
+              <span class="step-n">02</span>
+              <h3>Feature design: from discovery to delivered UI</h3>
+              <p>Research first, then wireframes, then interactive prototypes, then the final UI, all in Figma. Every screen was responsive from the first wireframe, so the phone layout was a decision, not an afterthought.</p>
+            </div>
+          </div>
+          <div class="step full">
+            <div class="step-text">
+              <span class="step-n">03</span>
+              <h3>Working with engineering: inside the sprint</h3>
+              <p>I joined backlog refinement and sprint planning with engineering and product, so design questions came up while they were still cheap to answer.</p>
+              <ul class="ticks">
+                <li>Handoff named components by their library names and spelled out every state.</li>
+                <li>I worked through implementation with the developers, so shipped screens matched designed ones.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="band band-alt" aria-labelledby="results-title">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="kicker">In their words</span><h2 class="h2" id="results-title">What the founder said</h2></div></div>
+        <blockquote class="quote"><p>"Siddhi brought a rare mix of curiosity and rigor to our team. She dug into the research, listened carefully to users, and turned messy problems into clear, thoughtful design decisions. She's proactive, easy to collaborate with, and consistently raised the quality of everything she touched."</p><cite>Shabaan Hossain, Founder of FindMe</cite></blockquote>
+      </div>
+    </section>
+
+    <section class="band" aria-label="More case studies">
+      <div class="wrap">
+        <nav class="nextprev" aria-label="More case studies">
+          <a class="np" href="jaihind.html"><small>&#8592; Previous</small><span>Jai Hind Group</span></a>
+          <a class="np right" href="omkar.html"><small>Next &#8594;</small><span>Omkar Labels</span></a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="case-foot">© 2026 Siddhi Manche · <a href="mailto:manche.siddhi@gmail.com">manche.siddhi@gmail.com</a></footer>
+
+  <nav class="dock" aria-label="Page sections">
+    <a href="../../index.html#work">&#8592; Work</a>
+    <a href="#overview">Overview</a>
+    <a href="#process">Process</a>
+    <a href="#results">Words</a>
+    <span class="sep" aria-hidden="true"></span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to night mode"><span class="ic" aria-hidden="true">&#9728;</span><span class="tx">Day</span></button>
+    <a class="say" href="mailto:manche.siddhi@gmail.com">Say hi</a>
+  </nav>
+  <script src="../../js/site.js"></script>
+  <script src="../../js/lab.js"></script>
+</body>
+</html>
