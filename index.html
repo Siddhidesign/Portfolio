@@ -27,9 +27,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/store.css">
   <style>
-    /* Hero photo: the graduation picture, framed on the face, cap and diploma */
+    /* Hero photo: the graduation picture, cropped from just above her head down to the M Dearborn logo */
     .portrait .ph { aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--r-lg); border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--bg-2); }
-    .portrait .ph img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: 50% 0; border: 0; border-radius: 0; box-shadow: none; transform: scale(1.8); transform-origin: 53% 45%; }
+    .portrait .ph img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; border: 0; border-radius: 0; box-shadow: none; }
+    .portrait figcaption { top: 14px; bottom: auto; }
   </style>
 </head>
 <body>
@@ -61,7 +62,7 @@
             <div role="listitem"><b>31.3 → 78.25</b><span>usability score, tested redesign</span></div>
           </div>
         </div>
-        <figure class="portrait"><div class="ph"><img src="assets/photobook/21.jpeg" alt="Siddhi Manche smiling in her graduation cap and gown, holding her University of Michigan-Dearborn diploma and a bouquet" width="1200" height="1600"></div><figcaption>Open to roles across the US</figcaption></figure>
+        <figure class="portrait"><div class="ph"><img src="assets/v2/siddhi-grad.jpg" alt="Siddhi Manche smiling in her University of Michigan-Dearborn graduation gown, in a sunlit campus hallway" width="528" height="660"></div><figcaption>Open to roles across the US</figcaption></figure>
       </div>
     </section>
 
@@ -121,6 +122,25 @@
           <p class="card-result"><b>78.75</b> usability score, 10 testers</p>
         </article>
         </div>
+      </div>
+    </section>
+
+
+    <section class="sec quick" id="quick" aria-labelledby="quick-title">
+      <div class="wrap quick-grid">
+        <div class="quick-text">
+          <span class="eyebrow">Quick redesign · 1 day</span>
+          <h2 id="quick-title">A one-day redesign of <em>Magic Apron</em></h2>
+          <p>I asked The Home Depot's AI assistant, Magic Apron, the same question from the Home tab and in Store Mode, and got two different answers. In one day, I found where they split, tested with 1 person, and patched 7 real screens, so one quick question decides whether pickup or shipping comes first.</p>
+          <div class="stats" role="list" aria-label="At a glance">
+            <div role="listitem"><b>1 day</b><span>solo, research to prototype</span></div>
+            <div role="listitem"><b>5</b><span>findings from the real app</span></div>
+            <div role="listitem"><b>7</b><span>small changes, before and after</span></div>
+          </div>
+          <div class="btn-row"><a class="btn btn-primary" href="cases/magic-apron.html">Read the case study<span class="sr"> on Magic Apron</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <p class="quick-note"><span class="chip c-concept">Concept</span><span>Not affiliated with or endorsed by The Home Depot.</span></p>
+        </div>
+        <div class="phones"><figure class="phone p1"><figcaption><span class="tag">Before</span><span class="sr">: </span>Asked from Home</figcaption><img src="assets/magic-apron/home-before.webp" alt="Magic Apron on the Home tab suggests Command strips to add to cart, with no word on what is ready for pickup today." width="560" height="1218" loading="lazy"></figure><span class="phones-sep" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><figure class="phone p2"><figcaption><span class="tag after">After</span><span class="sr">: </span>Home asks first</figcaption><img src="assets/magic-apron/c1-after.webp" alt="Magic Apron on the Home tab asks, Question 1 of 2, &quot;When do you need it?&quot; with three answers: I need it today, Sometime this week, and No rush, it can ship. Below: Skip, show all options." width="560" height="1218" loading="lazy"></figure></div>
       </div>
     </section>
 
