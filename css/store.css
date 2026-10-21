@@ -519,3 +519,20 @@ html:has(.steps-nav) { scroll-padding-top: 128px; }
 
 /* Research videos, sized like the phone screenshots */
 .phones .phone video { width: 100%; height: auto; aspect-ratio: 560 / 1218; border-radius: 16px; border: 1px solid var(--line-2); box-shadow: var(--shadow); background: #ffffff; display: block; }
+
+/* Step-by-step case layout: rows and changes without a screenshot, and single-screen changes */
+.ia-row.text-only, .ba.text-only { grid-template-columns: minmax(0, 1fr); }
+.ia-row.text-only .ia-flow, .ba.text-only .ba-text { max-width: 760px; }
+.ia-row.desk { grid-template-columns: minmax(0, 300px) minmax(0, 1fr); }
+.ba-shot { margin: 0; max-width: 440px; }
+.ba-shot img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line-2); box-shadow: var(--shadow); background: #ffffff; display: block; }
+.ba-shot figcaption { font-size: 12.5px; color: var(--muted); margin-top: 10px; line-height: 1.4; }
+.ba-shot .tag { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: var(--sage-soft); color: var(--sage); margin-right: 6px; }
+.ba .dec-result { margin-top: 14px; }
+.ia-tree { margin-top: 18px; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.ia-tree .ia { height: auto; padding: 0; }
+.ia-tree + .ia-tree { margin-top: 14px; }
+.ia-notes { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 14px; }
+.ia-notes li { padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); font-size: 14px; }
+.ia-notes b { display: block; color: var(--ink); margin-bottom: 4px; }
+@media (max-width: 700px) { .ia-row.desk { grid-template-columns: 1fr; } .ia-row.desk .ia-phone { max-width: 300px; } }
