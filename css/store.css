@@ -516,3 +516,6 @@ html:has(.steps-nav) { scroll-padding-top: 128px; }
 .ia-res.fail { background: var(--plum-soft); color: var(--plum); }
 .ia-res.ok { background: var(--sage-soft); color: var(--sage); }
 @media (max-width: 700px) { .ia-row { grid-template-columns: 1fr; padding: 18px; } .ia-phone { max-width: 220px; } }
+
+/* Research videos, sized like the phone screenshots */
+.phones .phone video { width: 100%; height: auto; aspect-ratio: 560 / 1218; border-radius: 16px; border: 1px solid var(--line-2); box-shadow: var(--shadow); background: #ffffff; display: block; }
