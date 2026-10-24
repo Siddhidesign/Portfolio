@@ -24,6 +24,7 @@
   --wrap: 1120px;
   --font: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans: var(--font);
 }
 html[data-theme="night"] {
   --bg: #141312;
@@ -160,9 +161,14 @@ html[data-theme="night"] .theme-btn .moon { display: block; }
 .card h3 a { text-decoration: none; }
 .card h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
 .card h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.card h4 { font-size: 14.5px; line-height: 1.35; margin-top: -6px; color: var(--ink); }
+.card h4 a { text-decoration: none; }
+.card h4 a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.card h4 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 @supports selector(:has(*)) {
   .card h3 a:focus-visible { outline: none; }
-  .card:has(h3 a:focus-visible) .card-media { outline: 2.5px solid var(--accent); outline-offset: 3px; }
+  .card h4 a:focus-visible { outline: none; }
+  .card:has(h3 a:focus-visible) .card-media, .card:has(h4 a:focus-visible) .card-media { outline: 2.5px solid var(--accent); outline-offset: 3px; }
 }
 .card-result { font-size: 14px; color: var(--text); margin-top: -6px; }
 .card-result b { color: var(--ink); font-weight: 700; }
@@ -464,16 +470,6 @@ html:has(.steps-nav) { scroll-padding-top: 128px; }
 .phones-sep { grid-column: 2; grid-row: 2; align-self: center; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .phones-sep svg { display: block; width: 18px; height: 18px; }
 
-/* ---------- Home: a quick redesign, set apart from the case studies ---------- */
-.quick { background: var(--bg-2); }
-.quick-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 64px; align-items: center; }
-.quick-text h2 { font-size: clamp(1.25rem, 1.8vw, 1.5rem); margin: 8px 0 12px; }
-.quick-text > p { max-width: 54ch; }
-.quick-text .stats { margin-top: 26px; }
-.quick-note { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; font-size: 12.5px; color: var(--muted); }
-.quick .phones { width: 100%; max-width: 440px; justify-self: center; }
-@media (max-width: 860px) { .quick-grid { grid-template-columns: 1fr; gap: 36px; } .quick .phones { justify-self: start; } }
-
 /* ---------- Case page: Magic Apron, before and after ---------- */
 .pdp-phones .phones { max-width: 480px; margin: 0 auto; }
 .disclaimer { margin-top: 16px; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
@@ -551,15 +547,9 @@ html:has(.steps-nav) { scroll-padding-top: 128px; }
 .flow-step figcaption b + span { grid-column: 2; font-size: 13.5px; line-height: 1.45; color: var(--muted); }
 .flow-sys { display: grid; place-items: center; background: linear-gradient(140deg, #f6efe8, #efe9f6); }
 html[data-theme="night"] .flow-sys { background: linear-gradient(140deg, #2a2420, #24223a); }
-.sys-facts { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 80%; }
-.sys-facts li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; }
-.sys-facts b { display: block; font-size: 1.15rem; color: var(--ink); line-height: 1.2; }
-.sys-facts span { display: block; font-size: 12px; line-height: 1.35; color: var(--muted); }
 .flow-more { margin-top: 22px; }
 .step-sub .flow { margin-top: 4px; }
 @media (max-width: 900px) { .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; } .flow-step .flow-frame::after { display: none; } }
-@media (max-width: 600px) { .sys-facts { width: 88%; gap: 5px; } .sys-facts li { padding: 4px 7px; border-radius: 8px; } .sys-facts b { font-size: .95rem; } .sys-facts span { font-size: 10.5px; } .flow-step figcaption b + span { font-size: 13px; } }
-@media (max-width: 380px) { .sys-facts { grid-template-columns: 1fr; gap: 3px; width: 86%; } .sys-facts li { display: flex; align-items: baseline; gap: 5px; padding: 0; background: none; border: 0; } .sys-facts b { font-size: .9rem; } .sys-facts span { font-size: 11px; } }
 
 /* ---------- The design system behind this site ---------- */
 .ds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
@@ -591,3 +581,81 @@ html[data-theme="night"] .flow-sys { background: linear-gradient(140deg, #2a2420
 .ds-code { margin: 0; padding: 14px 16px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; font: 12.5px/1.65 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); white-space: pre-wrap; overflow-wrap: anywhere; }
 @media (max-width: 860px) { .ds { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .ds-swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ds-panel { padding: 18px; } }
+
+/* ---------- Home: more work, smaller cards ---------- */
+.more { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); }
+.more-h { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.grid-more { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px 18px; }
+.grid-more .card { gap: 10px; }
+.grid-more .card-media { aspect-ratio: 4 / 3; }
+.grid-more .card-label { font-size: 12px; }
+.grid-more .card-result { font-size: 13.5px; }
+.card-media.shot img { object-position: 0 0; }
+.card-media.phone { display: grid; place-items: start center; padding-top: 12px; }
+.card-media.phone img { width: auto; height: 118%; object-fit: contain; border-radius: 14px; box-shadow: var(--shadow); }
+@media (max-width: 960px) { .grid-more { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .grid-more { grid-template-columns: 1fr; } }
+
+/* ---------- Strip: Jai Hind's own tokens, as a tile ---------- */
+.jh-tile { width: 84%; display: grid; gap: 8px; padding: 12px; background: #FFFFFF; border: 1px solid #E7E4DF; border-radius: 12px; box-shadow: 0 6px 24px rgba(10, 17, 25, .06); }
+.jh-tile-sw { display: flex; gap: 5px; }
+.jh-tile-sw i { flex: 1; height: 20px; border-radius: 6px; border: 1px solid #D7D8D9; }
+.jh-tile-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.jh-tile-chips b { font: 600 10.5px/1 var(--font); padding: 4px 8px; border-radius: 999px; white-space: nowrap; }
+.t-pend { color: #8C5A10; background: #FDF3E1; }
+.t-appr { color: #22605F; background: #E2F4F4; }
+.t-ship { color: #6B46C1; background: #EFEAFB; }
+.t-deli { color: #246B45; background: #E3F4EA; }
+.jh-tile-meta { font-size: 11px; line-height: 1.3; color: #4B535D; }
+@media (max-width: 600px) { .jh-tile { width: 90%; padding: 8px; gap: 6px; } .jh-tile-sw i { height: 14px; } .jh-tile-chips b:nth-child(n+3) { display: none; } .jh-tile-chips b { font-size: 10px; padding: 3px 6px; } .jh-tile-meta { font-size: 10px; } .flow-step figcaption b + span { font-size: 13px; } }
+
+/* ---------- Jai Hind: what shipped, and what is my redesign ---------- */
+.split-sec { padding-bottom: 56px; }
+.split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.split-card { padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); min-width: 0; }
+.split-card .label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.split-card h2 { font-size: 1.1rem; margin: 10px 0 8px; }
+.split-card > p { font-size: 15px; }
+.split-card .dec-result { margin-top: 16px; }
+@media (max-width: 760px) { .split { grid-template-columns: 1fr; } }
+
+/* ---------- Native disclosure for optional detail (works without JavaScript) ---------- */
+details.more-detail { margin-top: 18px; border: 1px solid var(--line-2); border-radius: var(--r); }
+details.more-detail > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; font-size: 15px; font-weight: 600; color: var(--ink); border-radius: var(--r); }
+details.more-detail > summary::-webkit-details-marker { display: none; }
+details.more-detail > summary::after { content: "+"; flex: none; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line-2); font-size: 16px; line-height: 1; color: var(--ink); }
+details.more-detail[open] > summary::after { content: "\2212"; }
+details.more-detail > summary:hover { background: var(--bg-2); }
+details.more-detail > .more-body { padding: 4px 18px 20px; }
+.step.hl details.more-detail > summary:hover { background: var(--surface); }
+
+/* ---------- Jai Hind design system sheet: the product's own tokens and components ---------- */
+.sub-intro { max-width: 70ch; margin-bottom: 16px; font-size: 15px; }
+.jhds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.jhds .jhds-panel.jh { min-height: 0; padding: 22px; border-radius: var(--r-lg); background: #FFFFFF; border: 1px solid #E7E4DF; color: #121315; min-width: 0; }
+.jhds .jhds-wide { grid-column: 1 / -1; }
+.jhds-h { font: 600 11px/14px "Figtree", var(--font); letter-spacing: .09em; text-transform: uppercase; color: #4B535D; margin-bottom: 14px; }
+.jhds-h2 { margin-top: 22px; }
+.jhds-sw { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 12px; }
+.jhds-sw li { min-width: 0; font: 500 13px/1.35 "Figtree", var(--font); color: #121315; overflow-wrap: anywhere; }
+.jhds-sw i { display: block; height: 40px; border-radius: 10px; border: 1px solid #D7D8D9; margin-bottom: 6px; }
+.jhds-sw span { display: block; font: 11.5px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; color: #4B535D; }
+.jhds-note { font: 13px/1.5 "Figtree", var(--font); color: #4B535D; margin-top: 14px; }
+.jhds-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.jhds-type { list-style: none; display: grid; gap: 12px; }
+.jhds-type li { display: grid; gap: 2px; }
+.jhds-display { font: 400 32px/40px "ZCOOL XiaoWei", Georgia, serif; letter-spacing: .5px; color: #0A1119; }
+.jhds-body { font: 400 14px/20px "Figtree", var(--font); color: #121315; }
+.jhds-m { font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; color: #4B535D; }
+.jhds-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid #E7E4DF; }
+.jhds-row:first-of-type { border-top: 0; padding-top: 0; }
+.jhds-k { flex: 0 0 72px; font: 600 11px/14px "Figtree", var(--font); letter-spacing: .09em; text-transform: uppercase; color: #4B535D; }
+.jhds .b { cursor: default; }
+.jhds .jhds-f { min-width: 180px; flex: 0 1 220px; }
+.jhds-v { display: block; font: 500 14px/1.4 "Figtree", var(--font); color: #121315; }
+.jhds-v.jhds-empty { color: #656B75; font-weight: 400; }
+.jhds-r { display: inline-grid; place-items: center; min-width: 96px; height: 40px; padding: 0 12px; border: 1.5px solid #0A1119; background: #F6F5F2; font: 500 12px/1 "Figtree", var(--font); color: #121315; }
+@media (max-width: 860px) { .jhds { grid-template-columns: 1fr; } .jhds-sw { grid-template-columns: repeat(2, minmax(0, 1fr)); } .jhds-k { flex-basis: 100%; } }
+
+/* The clickable console sits inside this page's design system: plain hint text, page fonts for its controls */
+#console .jh-controls .jh-hint { font-family: var(--font); font-size: 14px; font-weight: 600; }
