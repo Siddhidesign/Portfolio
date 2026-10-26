@@ -132,54 +132,104 @@
       .tl h3 { font-size: 14px; }
       .tl-d { font-size: 13px; }
     }
-    /* Full workflow: roles, workflow map, handoffs, decisions */
-    .pv2-ai { margin-top: 14px; max-width: 760px; padding: 12px 16px; border-radius: var(--r); background: var(--gray-soft); font-size: 14px; line-height: 1.55; color: var(--text); }
-    .pv2-ai b { color: var(--ink); }
-    .pv2-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 22px 0 0; padding: 0; list-style: none; }
-    .pv2-facts li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; min-width: 0; font-size: 13.5px; line-height: 1.45; color: var(--text); }
-    .pv2-facts b { display: block; font-size: 1.6rem; line-height: 1.1; color: var(--ink); margin-bottom: 4px; }
-    .pv2-h3 { font-size: 1.05rem; margin: 34px 0 4px; }
-    .pv2-sub { font-size: 14px; color: var(--text); max-width: 760px; }
-    .pv2-roles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 14px 0 0; padding: 0; list-style: none; }
-    .pv2-roles li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; min-width: 0; }
-    .pv2-roles h4 { font-size: 14.5px; margin: 8px 0 4px; }
-    .pv2-roles p { font-size: 13.5px; line-height: 1.5; color: var(--text); }
-    .pv2-role { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 700; }
-    .pv2-role.sa { background: var(--sage-soft); color: var(--sage); }
-    .pv2-role.sm { background: var(--plum-soft); color: var(--plum); }
-    .pv2-role.pw { background: var(--amber-soft); color: var(--amber); }
-    .pv2-role.tc { background: var(--accent-soft); color: var(--accent); }
-    .pv2-role.hr { background: var(--gray-soft); color: var(--ink); }
-    .pv2-role.all { background: var(--surface); color: var(--ink); border: 1px solid var(--line-2); }
-    .pv2-map { margin: 14px 0 0; padding: 0; list-style: none; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); }
-    .pv2-map > li { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 16px; padding: 16px 18px; border-top: 1px solid var(--line); }
-    .pv2-map > li:first-child { border-top: 0; }
-    .pv2-map h4 { font-size: 14px; line-height: 1.35; margin-bottom: 6px; }
-    .pv2-map .pv2-role { margin: 0 4px 4px 0; }
-    .pv2-path { display: flex; flex-wrap: wrap; gap: 6px 4px; margin: 0; padding: 0; list-style: none; }
-    .pv2-path li { display: inline-flex; align-items: center; font-size: 12.5px; line-height: 1.3; color: var(--ink); }
-    .pv2-path li span { padding: 5px 10px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--line-2); }
-    .pv2-path li:not(:last-child)::after { content: "\2192"; margin-left: 4px; color: var(--muted); }
-    .pv2-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 8px 0 0; padding: 0; list-style: none; font-size: 12px; color: var(--text); }
-    .pv2-alt li { padding: 3px 9px; border-radius: 999px; border: 1px dashed var(--line-2); }
-    .pv2-alt .k { padding: 0; border: 0; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-size: 11px; }
-    .pv2-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
-    .pv2-box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
-    .pv2-box h4 { font-size: 14.5px; margin-bottom: 8px; }
-    .pv2-box ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; }
-    .pv2-box li { font-size: 14px; line-height: 1.5; color: var(--text); }
-    .pv2-box li b { color: var(--ink); }
-    .pv2-sizes { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px; margin-top: 14px; }
-    .pv2-dev { display: grid; justify-items: center; gap: 6px; font-size: 12px; color: var(--text); }
-    .pv2-dev i { display: block; border: 2px solid var(--ink); border-radius: 8px; background: linear-gradient(var(--ink) 0 14%, var(--bg-2) 14% 100%); }
-    .pv2-dev.d i { width: 144px; height: 90px; }
-    .pv2-dev.t i { width: 70px; height: 100px; border-radius: 10px; }
-    .pv2-dev.m i { width: 39px; height: 84px; border-radius: 10px; }
-    .pv2-cta { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-    .pv2-note { font-size: 13px; color: var(--text); }
-    @media (max-width: 1100px) { .pv2-roles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    @media (max-width: 900px) { .pv2-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pv2-map > li { grid-template-columns: 1fr; gap: 8px; } }
-    @media (max-width: 640px) { .pv2-roles, .pv2-two, .pv2-facts { grid-template-columns: 1fr; } }
+    /* Full workflow: the story from store visits to design, then the map */
+    .fw-story { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 40px; }
+    .fw-ch { position: relative; padding-left: 54px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; min-width: 0; }
+    .fw-ch::before { content: ""; position: absolute; left: 17px; top: 42px; bottom: -40px; border-left: 2px solid var(--line-2); }
+    .fw-ch:last-child::before { display: none; }
+    .fw-dot { position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font-size: 14px; font-weight: 700; }
+    .fw-stage { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .fw-txt h3 { font-size: 1.2rem; line-height: 1.3; margin-top: 4px; }
+    .fw-txt p { font-size: 14.5px; line-height: 1.6; color: var(--text); margin-top: 10px; max-width: 620px; }
+    .fw-art { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 16px 18px 18px; }
+    .fw-k { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    @media (min-width: 1024px) { .fw-ch { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; align-items: start; } }
+    @media (max-width: 640px) { .fw-ch { padding-left: 44px; } .fw-ch::before { left: 14px; top: 36px; } .fw-dot { width: 30px; height: 30px; font-size: 13px; } .fw-art { padding: 14px; } }
+    /* 1 · field notes */
+    .fw-notes { margin: 0; padding: 0; list-style: none; counter-reset: fwn; border-left: 2px solid var(--accent-soft); }
+    .fw-notes li { counter-increment: fwn; display: flex; gap: 10px; align-items: baseline; padding: 9px 0 9px 12px; border-bottom: 1px dashed var(--line-2); font-size: 14px; line-height: 1.5; color: var(--ink); }
+    .fw-notes li:last-child { border-bottom: 0; }
+    .fw-notes li::before { content: counter(fwn); content: counter(fwn) / ""; flex: none; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-2); border: 1px solid var(--line-2); font-size: 11.5px; font-weight: 700; color: var(--ink); }
+    /* 2 · how the business runs */
+    .fw-chain { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+    .fw-chain > li { position: relative; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 10px; padding: 10px 12px; min-width: 0; }
+    .fw-chain > li:not(:last-child)::after { content: "\2193"; content: "\2193" / ""; position: absolute; left: 50%; bottom: -21px; transform: translateX(-50%); font-size: 15px; line-height: 1; color: var(--muted); }
+    .fw-chain b, .fw-around b { display: block; font-size: 13.5px; line-height: 1.3; color: var(--ink); }
+    .fw-chain small, .fw-around small { display: block; margin-top: 3px; font-size: 12.5px; line-height: 1.4; color: var(--text); }
+    .fw-around { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .fw-around li { border: 1px dashed var(--line-2); border-radius: 10px; padding: 9px 11px; min-width: 0; }
+    @media (min-width: 640px) { .fw-chain { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; } .fw-chain > li:not(:last-child)::after { content: "\2192"; content: "\2192" / ""; left: auto; right: -17px; bottom: auto; top: 50%; transform: translateY(-50%); } }
+    @media (max-width: 639.98px) { .fw-around { grid-template-columns: 1fr; } }
+    /* 3 · what each role needed */
+    .fw-board { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 12px; }
+    .fw-board > li { min-width: 0; }
+    .fw-board h4 { font-size: 13px; line-height: 1.3; margin: 6px 0 8px; color: var(--ink); }
+    .fw-board ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .fw-board ul li { padding: 9px 11px; border-radius: 4px 4px 14px 4px; font-size: 13px; line-height: 1.45; color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, .1); }
+    .fw-board .sa li { background: var(--sage-soft); }
+    .fw-board .sm li { background: var(--plum-soft); }
+    .fw-board .pw li { background: var(--amber-soft); }
+    .fw-board .tc li { background: var(--accent-soft); }
+    .fw-board .hr li { background: var(--gray-soft); }
+    .fw-board .all li { background: var(--bg-2); border: 1px solid var(--line-2); }
+    @media (max-width: 900px) { .fw-board { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .fw-board { grid-template-columns: 1fr; } }
+    /* 4 · one need, followed to the end */
+    .fw-need { display: inline-block; margin-bottom: 14px; padding: 10px 12px; border-radius: 4px 4px 14px 4px; background: var(--sage-soft); font-size: 13.5px; line-height: 1.45; color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, .1); }
+    .fw-need b { display: block; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+    .fw-steps { list-style: none; margin: 0; padding: 0; counter-reset: fws; display: grid; gap: 10px; }
+    .fw-steps > li { counter-increment: fws; position: relative; display: flex; gap: 10px; align-items: flex-start; min-width: 0; }
+    .fw-steps > li::before { content: counter(fws); content: counter(fws) / ""; flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--bg); font-size: 11.5px; font-weight: 700; }
+    .fw-steps > li:not(:last-child)::after { content: ""; position: absolute; left: 11px; top: 26px; bottom: -10px; border-left: 2px solid var(--line-2); }
+    .fw-s { min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding-top: 2px; font-size: 13.5px; line-height: 1.4; color: var(--ink); }
+    .fw-s .fw-role { font-size: 11px; padding: 1px 8px; }
+    .fw-branch { flex-basis: 100%; width: fit-content; max-width: 100%; padding: 3px 10px; border: 1px dashed var(--line-2); border-radius: 999px; font-size: 12px; color: var(--text); }
+    .fw-foot { margin-top: 14px; font-size: 13px; line-height: 1.5; color: var(--text); }
+    /* 5 · designing */
+    .fw-ai { margin-top: 14px; max-width: 620px; padding: 12px 16px; border-radius: var(--r); background: var(--gray-soft); font-size: 14px; line-height: 1.55; color: var(--text); }
+    .fw-ai b { color: var(--ink); }
+    .fw-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .fw-facts li { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; min-width: 0; font-size: 13px; line-height: 1.45; color: var(--text); }
+    .fw-facts b { display: block; font-size: 1.5rem; line-height: 1.1; color: var(--ink); margin-bottom: 4px; }
+    .fw-sizes { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px; margin-top: 16px; }
+    .fw-dev { display: grid; justify-items: center; gap: 6px; font-size: 12px; color: var(--text); }
+    .fw-dev i { display: block; border: 2px solid var(--ink); border-radius: 8px; background: linear-gradient(var(--ink) 0 14%, var(--bg-2) 14% 100%); }
+    .fw-dev.d i { width: 144px; height: 90px; }
+    .fw-dev.t i { width: 70px; height: 100px; border-radius: 10px; }
+    .fw-dev.m i { width: 39px; height: 84px; border-radius: 10px; }
+    @media (max-width: 400px) { .fw-facts { grid-template-columns: 1fr; } }
+    /* The map, handoffs and decisions */
+    .fw-h3 { font-size: 1.05rem; margin: 44px 0 4px; }
+    .fw-sub { font-size: 14px; color: var(--text); max-width: 760px; }
+    .fw-role { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 700; }
+    .fw-role.sa { background: var(--sage-soft); color: var(--sage); }
+    .fw-role.sm { background: var(--plum-soft); color: var(--plum); }
+    .fw-role.pw { background: var(--amber-soft); color: var(--amber); }
+    .fw-role.tc { background: var(--accent-soft); color: var(--accent); }
+    .fw-role.hr { background: var(--gray-soft); color: var(--ink); }
+    .fw-role.all { background: var(--surface); color: var(--ink); border: 1px solid var(--line-2); }
+    .fw-map { margin: 14px 0 0; padding: 0; list-style: none; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); }
+    .fw-map > li { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 16px; padding: 16px 18px; border-top: 1px solid var(--line); }
+    .fw-map > li:first-child { border-top: 0; }
+    .fw-map h4 { font-size: 14px; line-height: 1.35; margin-bottom: 6px; }
+    .fw-map .fw-role { margin: 0 4px 4px 0; }
+    .fw-path { display: flex; flex-wrap: wrap; gap: 6px 4px; margin: 0; padding: 0; list-style: none; }
+    .fw-path li { display: inline-flex; align-items: center; font-size: 12.5px; line-height: 1.3; color: var(--ink); }
+    .fw-path li span { padding: 5px 10px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--line-2); }
+    .fw-path li:not(:last-child)::after { content: "\2192"; content: "\2192" / ""; margin-left: 4px; color: var(--muted); }
+    .fw-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 8px 0 0; padding: 0; list-style: none; font-size: 12px; color: var(--text); }
+    .fw-alt li { padding: 3px 9px; border-radius: 999px; border: 1px dashed var(--line-2); }
+    .fw-alt .k { padding: 0; border: 0; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-size: 11px; }
+    .fw-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+    .fw-box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
+    .fw-box h4 { font-size: 14.5px; margin-bottom: 8px; }
+    .fw-box ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; }
+    .fw-box li { font-size: 14px; line-height: 1.5; color: var(--text); }
+    .fw-box li b { color: var(--ink); }
+    .fw-cta { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .fw-note { font-size: 13px; color: var(--text); }
+    @media (max-width: 900px) { .fw-map > li { grid-template-columns: 1fr; gap: 8px; } }
+    @media (max-width: 640px) { .fw-two { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -207,7 +257,7 @@
         <h1>An order platform that replaced five systems</h1>
         <p class="summary">As one of 3 designers on Jai Hind Group&#x27;s team, I helped combine 5 workflows, each on its own system, into one staff employee portal, and owned its supplier-to-customer workflow. Then our team audited it and shipped a redesign in Jai Hind&#x27;s brand.</p>
         <dl class="meta"><div><dt>Role</dt><dd>Product UX Designer, full-time</dd></div><div><dt>Timeline</dt><dd>Feb 2023 to Jul 2024</dd></div><div><dt>Team</dt><dd>3 designers (me included) and 1 PM, with developers through the build</dd></div><div><dt>Platforms</dt><dd>Desktop and phone</dd></div><div><dt>Methods</dt><dd>Heuristic review, proto-personas, journey maps, information architecture, user flows, Crazy 8s, wireframes, design system, prototyping</dd></div></dl>
-        <div class="links"><a class="btn btn-secondary" href="https://jaihindretail.com" target="_blank" rel="noopener">Live site, rebuilt since I left<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="sr"> (opens in a new tab)</span></a><a class="btn btn-secondary" href="#console">Try the clickable console<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
+        <div class="links"><a class="btn btn-secondary" href="https://jaihindretail.com" target="_blank" rel="noopener">Live site, rebuilt since I left<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="sr"> (opens in a new tab)</span></a><a class="btn btn-secondary" href="#console">Try the clickable console<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a><a class="btn btn-secondary" href="#full-workflow">See the full workflow<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
       </div>
     </div>
 
@@ -320,7 +370,7 @@
         </div>
         <ol class="ba-list" role="list">
             <li class="ba" id="change-1"><figure class="ba-shot"><img src="../assets/jaihind/jh-02-before-dashboard.jpg" alt="The shipped order platform's dashboard, with order counts, sales and trends in one place." width="1440" height="2173" loading="lazy"><figcaption><span class="tag">Shipped</span>The order platform.</figcaption></figure><div class="ba-text"><span class="dec-n">Change 1 · Staff · First version</span><h3>Enter the order once</h3><p>One platform, shared by 3 business functions, combined 5 workflows that each ran on its own system. An order is entered once and moves through every status in one place. My part: the supplier-to-customer workflow, the templates and components the team designed with, and working with developers in Jira until the build matched the design.</p><p class="ba-why-h">UX principles</p><ul class="ba-why" role="list"><li><b>Error prevention.</b> One place for every workflow means fewer handoffs to get wrong.</li><li><b>Visibility of system status.</b> Every order&#x27;s status lives in one place.</li></ul><p class="dec-result"><span class="chip c-measured">Measured</span><span>27% fewer order errors and 40% more efficient workflows, measured from order errors and time per order before and after launch.</span></p></div></li>
-            <li class="ba" id="change-2"><figure class="ba-shot"><img src="../assets/live/jaihind.jpg" alt="The welcome screen with two doors: Explore the store for customers, Employee login for staff." width="1280" height="800" loading="lazy"><figcaption><span class="tag after">After</span>One welcome screen, two doors.</figcaption></figure><div class="ba-text"><span class="dec-n">Change 2 · Both</span><h3>One front door for both</h3><p>The staff tools lived at a separate address and looked nothing like the brand. Now both doors sit behind one welcome screen: &quot;Explore the store&quot; for shoppers, &quot;Employee login&quot; for staff.</p><p class="ba-why-h">UX principles</p><ul class="ba-why" role="list"><li><b>Recognition over recall.</b> Two labeled doors, no need to remember a separate address.</li><li><b>User control and freedom.</b> Shoppers browse without an account. Log out returns staff to Welcome.</li></ul></div></li>
+            <li class="ba" id="change-2"><figure class="ba-shot"><img src="../assets/live/jaihind.jpg" alt="The welcome screen with two doors: Explore the store for customers, Employee login for staff." width="1280" height="800" loading="lazy"><figcaption><span class="tag">After</span>One welcome screen, two doors.</figcaption></figure><div class="ba-text"><span class="dec-n">Change 2 · Both</span><h3>One front door for both</h3><p>The staff tools lived at a separate address and looked nothing like the brand. Now both doors sit behind one welcome screen: &quot;Explore the store&quot; for shoppers, &quot;Employee login&quot; for staff.</p><p class="ba-why-h">UX principles</p><ul class="ba-why" role="list"><li><b>Recognition over recall.</b> Two labeled doors, no need to remember a separate address.</li><li><b>User control and freedom.</b> Shoppers browse without an account. Log out returns staff to Welcome.</li></ul></div></li>
             <li class="ba" id="change-3"><div class="phones"><figure class="phone p1"><figcaption><span class="tag">Before</span><span class="sr">: </span>Generic teal</figcaption><img src="../assets/jaihind/jh-02-before-dashboard.jpg" alt="The dashboard before: generic teal accents, generic type and no logo." width="1440" height="2173" loading="lazy"></figure><span class="phones-sep" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><figure class="phone p2"><figcaption><span class="tag after">After</span><span class="sr">: </span>Jai Hind&#x27;s look</figcaption><img src="../assets/jaihind/jh-13-final-dashboard.jpg" alt="The redesigned dashboard in Jai Hind's colors, fonts and photos, on desktop and phone." width="1784" height="2486" loading="lazy"></figure></div><div class="ba-text"><span class="dec-n">Change 3 · Staff</span><h3>Borrow the brand, don&#x27;t invent one</h3><p>Shoppers saw the brand; staff saw generic teal at a desk. The console now uses the website&#x27;s palette, fonts, a black header and navy silk banners.</p><p class="ba-why-h">UX principles</p><ul class="ba-why" role="list"><li><b>Consistency and standards.</b> The same company on both sides of the counter.</li><li><b>Aesthetic and minimalist design.</b> A small system: every fill bound to one of 37 color variables.</li></ul></div></li>
           </ol>
           <details class="more-detail"><summary>Changes 4 to 7: phone layouts, status in view, stock checks and phone orders</summary><div class="more-body"><p class="sub-intro">All four are in the clickable console above: switch it to Phone, open Orders, approve an order, or start a new one.</p><ol class="ba-list" role="list" start="4">
@@ -337,54 +387,107 @@
         <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">6</span>Step 6 of 6 · Measure · Post-launch metrics</span><h2 id="measure-h">What we measured, and what I&#x27;d measure next</h2><p>The platform was measured before and after launch, by order errors and time per order. The website numbers are scope, not results: we never measured its traffic. If I were still there, I&#x27;d measure these next:</p><ul class="points" role="list"><li>Under 2 minutes to take a phone order with three items</li><li>90% of managers spot flagged orders on the first click</li><li>3 taps or fewer from Welcome to store directions</li><li>0 wrong orders when updating five at once</li></ul><p class="why"><b>How:</b> sessions with 5 to 6 store staff (managers, billing, floor associates) and 5 shoppers.</p></div><figure class="step-visual"><div class="frame auto"><ul class="tiles" role="list"><li><b>27%</b><span>fewer order errors, measured</span></li><li><b>40%</b><span>more efficient workflows, by time per order</span></li><li><b>5 → 1</b><span>workflows, combined into one platform</span></li><li><b>2 · 8 · 10</b><span>brands, collections and stores, shipped</span></li></ul></div></figure></div><div class="step-sub"><span class="eyebrow">What I learned</span><ul class="learn" role="list"><li><h3>Follow the question</h3><p>Shoppers ask what you sell and where you are. Staff ask where an order is. Nobody asks which system holds it.</p></li><li><h3>One place</h3><p>Five scattered workflows meant five places for an order to go wrong. Collections need the same rule: one name, everywhere.</p></li><li><h3>It&#x27;s one company</h3><p>Shoppers saw the brand; staff didn&#x27;t. A business should feel like itself on both sides of the counter.</p></li></ul></div>
       </div>
     </section>
-    <section class="sec" id="full-workflow" aria-labelledby="pv2-h">
+    <section class="sec" id="full-workflow" aria-labelledby="fw-h">
       <div class="wrap">
-        <div class="sec-head"><span class="eyebrow">The full workflow</span><h2 id="pv2-h">Every path in the portal, <em>mapped end to end</em></h2><p>The staff employee portal I worked on, as one workflow: all 10 stores (8 Jaihind, 2 Mewar) and head office, 5 roles, and every path from signing in to finishing each task.</p></div>
-        <p class="pv2-ai"><b>Made with AI.</b> The workflow is the portal I worked on. I used Claude to design every screen in Figma from the Jai Hind design system and lay them out by flow, then reviewed each one.</p>
-        <ul class="pv2-facts" role="list">
-          <li><b>5</b>roles, each with its own home</li>
-          <li><b>15</b>flows, each with its other paths: errors, declines, late or missing items</li>
-          <li><b>141</b>screens, plus a tablet and a phone version of every desktop screen</li>
-          <li><b>50</b>clickable flows in the Figma prototype</li>
-        </ul>
+        <div class="sec-head"><span class="eyebrow">The full workflow</span><h2 id="fw-h">Bringing every workflow <em>into one portal</em></h2><p>How I brought the staff employee portal together, in the order it happened: I went to the stores, learned how the business runs, talked to employees in every role and to stakeholders, then ideated and designed every path, from signing in to finishing each task.</p></div>
 
-        <h3 class="pv2-h3">Who it&#x27;s for</h3>
-        <ul class="pv2-roles" role="list">
-          <li><span class="pv2-role sa">Sales associate</span><h4>On the shop floor</h4><p>Stock in every store, phone orders to delivery, returns, stock needs, hours and leave.</p></li>
-          <li><span class="pv2-role sm">Store manager</span><h4>Runs one store</h4><p>Store orders and sales, staff issues, timesheets, the monthly supplier order and transfers.</p></li>
-          <li><span class="pv2-role pw">Purchasing and warehouse</span><h4>Sees all 10 stores</h4><p>Every store&#x27;s supplier orders, suppliers and products, stock across stores, warehouse deliveries.</p></li>
-          <li><span class="pv2-role tc">Tailoring coordinator</span><h4>Mewar groomwear</h4><p>Measurements, trials and fittings, a job board, late jobs and handover.</p></li>
-          <li><span class="pv2-role hr">HR and admin</span><h4>Head office</h4><p>Checks every new account, people and access, shifts, leave and payroll timesheets.</p></li>
-        </ul>
-
-        <h3 class="pv2-h3">The workflow map</h3>
-        <p class="pv2-sub">Each row is one flow. The main path runs in order, and the other paths sit underneath.</p>
-        <ol class="pv2-map" role="list">
-          <li><div><h4>Sign in and recover access</h4><span class="pv2-role all">Everyone</span></div><div><ol class="pv2-path" role="list"><li><span>Welcome</span></li><li><span>Sign in</span></li><li><span>Home for your role</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Wrong password</li><li>Account locked</li><li>Forgot password</li><li>Code by SMS</li><li>New password</li></ul></div></li>
-          <li><div><h4>Sign up and HR check</h4><span class="pv2-role all">Everyone</span><span class="pv2-role hr">HR</span></div><div><ol class="pv2-path" role="list"><li><span>Your details</span></li><li><span>Check them</span></li><li><span>Sent to HR</span></li><li><span>HR checks the record</span></li><li><span>Account ready</span></li><li><span>Language and texts</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Details wrong</li><li>Sent back by HR</li></ul></div></li>
-          <li><div><h4>Products and customers</h4><span class="pv2-role sa">Sales associate</span></div><div><ol class="pv2-path" role="list"><li><span>Home</span></li><li><span>Products</span></li><li><span>Product detail</span></li><li><span>Customers</span></li><li><span>Customer profile</span></li><li><span>Add a customer</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Nothing found</li><li>Number already saved</li></ul></div></li>
-          <li><div><h4>Phone order to delivery</h4><span class="pv2-role sa">Sales associate</span></div><div><ol class="pv2-path" role="list"><li><span>Customer and items</span></li><li><span>Delivery and payment</span></li><li><span>Review</span></li><li><span>Order placed</span></li><li><span>Ready to pack</span></li><li><span>Hand over</span></li><li><span>Delivered with the customer&#x27;s code</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Not in this store: ask for a transfer</li><li>Not paid yet</li><li>Delivery missed</li></ul></div></li>
-          <li><div><h4>Changes and returns</h4><span class="pv2-role sa">Sales associate</span></div><div><ol class="pv2-path" role="list"><li><span>Change an order</span></li><li><span>Cancel</span></li><li><span>Refund</span></li><li><span>Return or exchange</span></li><li><span>Exchange ready</span></li></ol></div></li>
-          <li><div><h4>Stock needs</h4><span class="pv2-role sa">Sales associate</span><span class="pv2-role sm">Manager</span></div><div><ol class="pv2-path" role="list"><li><span>Add a stock need</span></li><li><span>Sent</span></li><li><span>Manager reviews</span></li><li><span>On the supplier order</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Edit or withdraw</li><li>Not ordered, with a reason</li></ul></div></li>
-          <li><div><h4>Hours, leave and issues</h4><span class="pv2-role sa">Sales associate</span></div><div><ol class="pv2-path" role="list"><li><span>Clock in</span></li><li><span>Break</span></li><li><span>Clock out</span></li><li><span>Apply for leave</span></li><li><span>Raise an issue</span></li><li><span>My requests</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Hours look wrong</li></ul></div></li>
-          <li><div><h4>Store and team</h4><span class="pv2-role sm">Store manager</span></div><div><ol class="pv2-path" role="list"><li><span>Home</span></li><li><span>Store orders</span></li><li><span>Reports</span></li><li><span>Staff issues</span></li><li><span>Approve timesheets</span></li><li><span>Leave requests</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Order due reminder</li><li>Fix a timesheet</li></ul></div></li>
-          <li><div><h4>Monthly supplier order</h4><span class="pv2-role sm">Store manager</span></div><div><ol class="pv2-path" role="list"><li><span>Review staff needs</span></li><li><span>Build the list</span></li><li><span>Email with a PDF, or log a call</span></li><li><span>Track deliveries</span></li><li><span>Count in</span></li><li><span>Stock updated</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Decline a need</li><li>Record a supplier reply</li><li>No reply: chase it</li><li>Damaged or short delivery</li></ul></div></li>
-          <li><div><h4>Urgent transfer between stores</h4><span class="pv2-role sm">Two managers</span></div><div><ol class="pv2-path" role="list"><li><span>Stock in other stores</span></li><li><span>Request</span></li><li><span>Other store approves</span></li><li><span>Sent with the runner</span></li><li><span>Count in</span></li><li><span>Customer order released</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Declined: ask another store</li><li>Fewer arrived</li></ul></div></li>
-          <li><div><h4>Purchasing and warehouse</h4><span class="pv2-role pw">Purchasing</span></div><div><ol class="pv2-path" role="list"><li><span>All store orders</span></li><li><span>Suppliers</span></li><li><span>Add a supplier or product</span></li><li><span>Stock across stores</span></li><li><span>Move slow stock</span></li><li><span>Warehouse deliveries</span></li><li><span>Split to stores</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Problem with a supplier</li></ul></div></li>
-          <li><div><h4>Tailoring</h4><span class="pv2-role tc">Tailoring</span></div><div><ol class="pv2-path" role="list"><li><span>New job</span></li><li><span>Measurements</span></li><li><span>Tailor, dates and price</span></li><li><span>Job board</span></li><li><span>Trial</span></li><li><span>Ready</span></li><li><span>Handed over</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Changes after the trial</li><li>Running late</li></ul></div></li>
-          <li><div><h4>HR and admin</h4><span class="pv2-role hr">HR</span></div><div><ol class="pv2-path" role="list"><li><span>Account requests</span></li><li><span>Check an account</span></li><li><span>People</span></li><li><span>Move store or role</span></li><li><span>Shifts</span></li><li><span>Leave</span></li><li><span>Payroll timesheets</span></li><li><span>Roles and access</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Send a sign-up back</li><li>Remove access</li></ul></div></li>
-          <li><div><h4>On the phone, on the shop floor</h4><span class="pv2-role sa">Sales associate</span><span class="pv2-role sm">Manager</span><span class="pv2-role tc">Tailoring</span></div><div><ol class="pv2-path" role="list"><li><span>Clock in</span></li><li><span>Scan an item</span></li><li><span>Stock in all stores</span></li><li><span>Phone order</span></li><li><span>Stock need</span></li></ol><ul class="pv2-alt" role="list"><li class="k">Other paths</li><li>Delivery code</li><li>Approve a transfer</li><li>Count in a delivery</li><li>Take measurements</li><li>Offline: saved on the phone</li></ul></div></li>
+        <ol class="fw-story" role="list">
+          <li class="fw-ch">
+            <span class="fw-dot" aria-hidden="true">1</span>
+            <div class="fw-txt"><p class="fw-stage">In the stores</p><h3>I started on the shop floor, not in Figma</h3><p>In my first 2 to 3 months, I visited the stores in person and watched a normal working day: orders taken at the counter and over the phone, stock checked between stores, deliveries counted in, and tailoring jobs moving from measurements to trials.</p><p>The work itself was clear. The tools were the problem: five workflows, each in its own system, and nothing connecting them.</p></div>
+            <div class="fw-art"><p class="fw-k">What I noticed</p><ol class="fw-notes" role="list">
+              <li>The same order was typed into more than one system.</li>
+              <li>Staff on the floor work from their phones, not a desk.</li>
+              <li>When a size ran out, the answer was often in another store.</li>
+              <li>Some suppliers only take orders by phone.</li>
+              <li>Tailoring runs on measurements, trial dates and the tailor&#x27;s time.</li>
+            </ol></div>
+          </li>
+          <li class="fw-ch">
+            <span class="fw-dot" aria-hidden="true">2</span>
+            <div class="fw-txt"><p class="fw-stage">Learning the business</p><h3>I mapped how Jai Hind actually runs</h3><p>Before designing a single screen, I followed the stock and the orders through the business: from suppliers to the warehouse, out to 10 stores across two brands, and on to customers.</p><p>Then I added the work around it: transfers between stores, tailoring for Mewar, and head office looking after people. That map became the backbone of the portal. Every role&#x27;s work sits somewhere on it.</p></div>
+            <div class="fw-art"><p class="fw-k">How the business runs</p><ol class="fw-chain" role="list">
+              <li><b>Suppliers</b><small>Ordered every month, by email or by phone</small></li>
+              <li><b>Warehouse</b><small>Purchasing receives stock and splits it to stores</small></li>
+              <li><b>10 stores</b><small>8 Jaihind and 2 Mewar</small></li>
+              <li><b>Customers</b><small>At the counter, over the phone, delivered home</small></li>
+            </ol>
+            <ul class="fw-around" role="list" aria-label="Around the main flow">
+              <li><b>Between stores</b><small>Urgent transfers, carried by a runner</small></li>
+              <li><b>Tailoring</b><small>Mewar groomwear: measurements, trials, fittings</small></li>
+              <li><b>Head office</b><small>HR and admin: people, shifts, leave, payroll</small></li>
+            </ul></div>
+          </li>
+          <li class="fw-ch">
+            <span class="fw-dot" aria-hidden="true">3</span>
+            <div class="fw-txt"><p class="fw-stage">Talking to people</p><h3>I talked to employees in every role, and to stakeholders</h3><p>Sales associates, store managers, purchasing and warehouse staff, tailoring coordinators and HR, plus the stakeholders who run the business. I asked each of them to walk me through their day, and to show me where it breaks.</p><p>Then I grouped what I heard by role. The notes are their needs, in my words.</p></div>
+            <div class="fw-art"><p class="fw-k">What each role needed</p><ul class="fw-board" role="list">
+              <li class="sa"><span class="fw-role sa">Sales associate</span><h4>On the shop floor</h4><ul role="list"><li>Check stock in every store without calling around.</li><li>Take a phone order while the customer is still on the line.</li></ul></li>
+              <li class="sm"><span class="fw-role sm">Store manager</span><h4>Runs one store</h4><ul role="list"><li>See what staff need before the monthly supplier order.</li><li>Approve hours and leave in one place.</li></ul></li>
+              <li class="pw"><span class="fw-role pw">Purchasing and warehouse</span><h4>Sees all 10 stores</h4><ul role="list"><li>See every store&#x27;s supplier orders together.</li><li>Know right away when a delivery arrives short or damaged.</li></ul></li>
+              <li class="tc"><span class="fw-role tc">Tailoring coordinator</span><h4>Mewar groomwear</h4><ul role="list"><li>Keep measurements, trial dates and the tailor in one job.</li><li>Spot late jobs before the customer asks.</li></ul></li>
+              <li class="hr"><span class="fw-role hr">HR and admin</span><h4>Head office</h4><ul role="list"><li>Make sure each new account matches the joining letter.</li><li>Get timesheets for payroll without chasing every store.</li></ul></li>
+              <li class="all"><span class="fw-role all">Stakeholders</span><h4>Run the business</h4><ul role="list"><li>Follow any order from start to finish.</li><li>One portal instead of five systems.</li></ul></li>
+            </ul></div>
+          </li>
+          <li class="fw-ch">
+            <span class="fw-dot" aria-hidden="true">4</span>
+            <div class="fw-txt"><p class="fw-stage">Ideating</p><h3>Every need became a path with a start and an end</h3><p>Ideas started on paper. Then I turned each need into a flow: where it starts, every step to the end, and what happens when it goes wrong. A wrong password, a missing size, a supplier who doesn&#x27;t reply, a delivery that arrives short. None of them is allowed to be a dead end.</p><p>Where one role&#x27;s work becomes another&#x27;s, I drew the handoff, so nothing waits without someone knowing about it.</p></div>
+            <div class="fw-art"><p class="fw-k">One need, followed to the end</p>
+              <p class="fw-need"><b>Sales associate</b>Check stock in every store without calling around.</p>
+              <ol class="fw-steps" role="list">
+                <li><div class="fw-s">The size isn&#x27;t in this store<span class="fw-role sa">Sales associate</span></div></li>
+                <li><div class="fw-s">Check stock in the other stores<span class="fw-role sa">Sales associate</span></div></li>
+                <li><div class="fw-s">Request a transfer<span class="fw-role sm">Store manager</span></div></li>
+                <li><div class="fw-s">The other store approves<span class="fw-role sm">Other store&#x27;s manager</span><span class="fw-branch">If declined: ask another store</span></div></li>
+                <li><div class="fw-s">Sent with the runner</div></li>
+                <li><div class="fw-s">Counted in<span class="fw-role sm">Store manager</span><span class="fw-branch">If fewer arrive: flagged, not lost</span></div></li>
+                <li><div class="fw-s">The customer&#x27;s order is released<span class="fw-role sa">Sales associate</span></div></li>
+              </ol>
+              <p class="fw-foot">Three people, two stores, one order. Every flow in the portal got the same treatment.</p>
+            </div>
+          </li>
+          <li class="fw-ch">
+            <span class="fw-dot" aria-hidden="true">5</span>
+            <div class="fw-txt"><p class="fw-stage">Designing</p><h3>Then I designed all of it, screen by screen</h3><p>In Figma, with the Jai Hind design system. Every flow has its screens laid out in order, with a tablet and a phone version beside each desktop screen. Tables become stacked cards on a phone, dialogs become bottom sheets, and shop-floor tasks like scanning, stock checks and delivery codes are built for the phone first.</p><p class="fw-ai"><b>Made with AI.</b> The workflow is the portal I worked on. I used Claude to draw every screen in Figma from the Jai Hind design system and lay them out by flow, then reviewed each one.</p></div>
+            <div class="fw-art"><p class="fw-k">The design, in numbers</p><ul class="fw-facts" role="list">
+              <li><b>5</b>roles, each with its own home</li>
+              <li><b>15</b>flows, each with its other paths: errors, declines, late or missing items</li>
+              <li><b>141</b>screens, plus a tablet and a phone version of every desktop screen</li>
+              <li><b>50</b>clickable flows in the Figma prototype</li>
+            </ul>
+            <div class="fw-sizes" aria-hidden="true"><span class="fw-dev d"><i></i>Desktop · 1440</span><span class="fw-dev t"><i></i>Tablet · 834</span><span class="fw-dev m"><i></i>Phone · 390</span></div></div>
+          </li>
         </ol>
 
-        <div class="pv2-two">
-          <div class="pv2-box"><h4>Where one role hands work to another</h4><ul>
+        <h3 class="fw-h3">The full workflow map</h3>
+        <p class="fw-sub">Everything I designed, one flow per row. The main path runs in order, and the other paths sit underneath.</p>
+        <ol class="fw-map" role="list">
+          <li><div><h4>Sign in and recover access</h4><span class="fw-role all">Everyone</span></div><div><ol class="fw-path" role="list"><li><span>Welcome</span></li><li><span>Sign in</span></li><li><span>Home for your role</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Wrong password</li><li>Account locked</li><li>Forgot password</li><li>Code by SMS</li><li>New password</li></ul></div></li>
+          <li><div><h4>Sign up and HR check</h4><span class="fw-role all">Everyone</span><span class="fw-role hr">HR</span></div><div><ol class="fw-path" role="list"><li><span>Your details</span></li><li><span>Check them</span></li><li><span>Sent to HR</span></li><li><span>HR checks the record</span></li><li><span>Account ready</span></li><li><span>Language and texts</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Details wrong</li><li>Sent back by HR</li></ul></div></li>
+          <li><div><h4>Products and customers</h4><span class="fw-role sa">Sales associate</span></div><div><ol class="fw-path" role="list"><li><span>Home</span></li><li><span>Products</span></li><li><span>Product detail</span></li><li><span>Customers</span></li><li><span>Customer profile</span></li><li><span>Add a customer</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Nothing found</li><li>Number already saved</li></ul></div></li>
+          <li><div><h4>Phone order to delivery</h4><span class="fw-role sa">Sales associate</span></div><div><ol class="fw-path" role="list"><li><span>Customer and items</span></li><li><span>Delivery and payment</span></li><li><span>Review</span></li><li><span>Order placed</span></li><li><span>Ready to pack</span></li><li><span>Hand over</span></li><li><span>Delivered with the customer&#x27;s code</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Not in this store: ask for a transfer</li><li>Not paid yet</li><li>Delivery missed</li></ul></div></li>
+          <li><div><h4>Changes and returns</h4><span class="fw-role sa">Sales associate</span></div><div><ol class="fw-path" role="list"><li><span>Change an order</span></li><li><span>Cancel</span></li><li><span>Refund</span></li><li><span>Return or exchange</span></li><li><span>Exchange ready</span></li></ol></div></li>
+          <li><div><h4>Stock needs</h4><span class="fw-role sa">Sales associate</span><span class="fw-role sm">Manager</span></div><div><ol class="fw-path" role="list"><li><span>Add a stock need</span></li><li><span>Sent</span></li><li><span>Manager reviews</span></li><li><span>On the supplier order</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Edit or withdraw</li><li>Not ordered, with a reason</li></ul></div></li>
+          <li><div><h4>Hours, leave and issues</h4><span class="fw-role sa">Sales associate</span></div><div><ol class="fw-path" role="list"><li><span>Clock in</span></li><li><span>Break</span></li><li><span>Clock out</span></li><li><span>Apply for leave</span></li><li><span>Raise an issue</span></li><li><span>My requests</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Hours look wrong</li></ul></div></li>
+          <li><div><h4>Store and team</h4><span class="fw-role sm">Store manager</span></div><div><ol class="fw-path" role="list"><li><span>Home</span></li><li><span>Store orders</span></li><li><span>Reports</span></li><li><span>Staff issues</span></li><li><span>Approve timesheets</span></li><li><span>Leave requests</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Order due reminder</li><li>Fix a timesheet</li></ul></div></li>
+          <li><div><h4>Monthly supplier order</h4><span class="fw-role sm">Store manager</span></div><div><ol class="fw-path" role="list"><li><span>Review staff needs</span></li><li><span>Build the list</span></li><li><span>Email with a PDF, or log a call</span></li><li><span>Track deliveries</span></li><li><span>Count in</span></li><li><span>Stock updated</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Decline a need</li><li>Record a supplier reply</li><li>No reply: chase it</li><li>Damaged or short delivery</li></ul></div></li>
+          <li><div><h4>Urgent transfer between stores</h4><span class="fw-role sm">Two managers</span></div><div><ol class="fw-path" role="list"><li><span>Stock in other stores</span></li><li><span>Request</span></li><li><span>Other store approves</span></li><li><span>Sent with the runner</span></li><li><span>Count in</span></li><li><span>Customer order released</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Declined: ask another store</li><li>Fewer arrived</li></ul></div></li>
+          <li><div><h4>Purchasing and warehouse</h4><span class="fw-role pw">Purchasing</span></div><div><ol class="fw-path" role="list"><li><span>All store orders</span></li><li><span>Suppliers</span></li><li><span>Add a supplier or product</span></li><li><span>Stock across stores</span></li><li><span>Move slow stock</span></li><li><span>Warehouse deliveries</span></li><li><span>Split to stores</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Problem with a supplier</li></ul></div></li>
+          <li><div><h4>Tailoring</h4><span class="fw-role tc">Tailoring</span></div><div><ol class="fw-path" role="list"><li><span>New job</span></li><li><span>Measurements</span></li><li><span>Tailor, dates and price</span></li><li><span>Job board</span></li><li><span>Trial</span></li><li><span>Ready</span></li><li><span>Handed over</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Changes after the trial</li><li>Running late</li></ul></div></li>
+          <li><div><h4>HR and admin</h4><span class="fw-role hr">HR</span></div><div><ol class="fw-path" role="list"><li><span>Account requests</span></li><li><span>Check an account</span></li><li><span>People</span></li><li><span>Move store or role</span></li><li><span>Shifts</span></li><li><span>Leave</span></li><li><span>Payroll timesheets</span></li><li><span>Roles and access</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Send a sign-up back</li><li>Remove access</li></ul></div></li>
+          <li><div><h4>On the phone, on the shop floor</h4><span class="fw-role sa">Sales associate</span><span class="fw-role sm">Manager</span><span class="fw-role tc">Tailoring</span></div><div><ol class="fw-path" role="list"><li><span>Clock in</span></li><li><span>Scan an item</span></li><li><span>Stock in all stores</span></li><li><span>Phone order</span></li><li><span>Stock need</span></li></ol><ul class="fw-alt" role="list"><li class="k">Other paths</li><li>Delivery code</li><li>Approve a transfer</li><li>Count in a delivery</li><li>Take measurements</li><li>Offline: saved on the phone</li></ul></div></li>
+        </ol>
+
+        <div class="fw-two">
+          <div class="fw-box"><h4>Where one role hands work to another</h4><ul>
             <li><b>Sign-up to HR.</b> HR opens the account, or sends it back with a note.</li>
             <li><b>Phone order to two managers.</b> A missing size goes to the store manager, then the other store&#x27;s manager, then back into the order.</li>
             <li><b>Staff to supplier.</b> Stock needs are reviewed by the manager and become supplier orders. Purchasing sees every store&#x27;s orders.</li>
             <li><b>Delivery problems to purchasing.</b> A damaged or short delivery is chased by purchasing.</li>
             <li><b>Hours and leave to HR.</b> Managers approve hours and short leave. Long leave and payroll go to HR.</li>
           </ul></div>
-          <div class="pv2-box"><h4>Design decisions</h4><ul>
+          <div class="fw-box"><h4>Design decisions</h4><ul>
             <li><b>Email or a logged call.</b> Some suppliers have no email, so a call log gets the same tracking as an email with a PDF.</li>
             <li><b>HR checks every sign-up.</b> The job position decides what someone can do, so it has to match the joining letter.</li>
             <li><b>The other store approves transfers.</b> Its manager knows which of their own customers are waiting.</li>
@@ -393,10 +496,7 @@
           </ul></div>
         </div>
 
-        <h3 class="pv2-h3">Every screen, three sizes</h3>
-        <p class="pv2-sub">Every desktop screen has a tablet and a phone version next to it in Figma. Tables become stacked cards, dialogs become bottom sheets, and the shop-floor tasks are built for the phone.</p>
-        <div class="pv2-sizes" aria-hidden="true"><span class="pv2-dev d"><i></i>Desktop · 1440</span><span class="pv2-dev t"><i></i>Tablet · 834</span><span class="pv2-dev m"><i></i>Phone · 390</span></div>
-        <div class="pv2-cta"><a class="btn btn-primary" href="https://www.figma.com/proto/jkcD5ZIdXz9MUkG3va5sIo/Jai-Hind-Employee-Portal?page-id=190%3A2&amp;node-id=206-713&amp;starting-point-node-id=206%3A713&amp;scaling=scale-down-width" target="_blank" rel="noopener">Open the clickable prototype<span class="sr"> in Figma (opens in a new tab)</span></a><span class="pv2-note">In Figma. It starts at the welcome screen, and the flow menu jumps to any role.</span></div>
+        <div class="fw-cta"><a class="btn btn-primary" href="https://www.figma.com/proto/jkcD5ZIdXz9MUkG3va5sIo/Jai-Hind-Employee-Portal?page-id=190%3A2&amp;node-id=206-713&amp;starting-point-node-id=206%3A713&amp;scaling=scale-down-width" target="_blank" rel="noopener">Open the clickable prototype<span class="sr"> in Figma (opens in a new tab)</span></a><span class="fw-note">In Figma. It starts at the welcome screen, and the flow menu jumps to any role.</span></div>
       </div>
     </section>
 
