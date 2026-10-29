@@ -132,6 +132,14 @@
       .tl h3 { font-size: 14px; }
       .tl-d { font-size: 13px; }
     }
+    /* Decisions and trade-offs */
+    .tradeoffs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .tradeoffs li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; min-width: 0; }
+    .tradeoffs dl { margin: 0; display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 8px 14px; }
+    .tradeoffs dt { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+    .tradeoffs dd { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--text); }
+    .tradeoffs dd:first-of-type { font-weight: 700; color: var(--ink); }
+    @media (max-width: 640px) { .tradeoffs { grid-template-columns: 1fr; } }
     /* Full workflow: the story from store visits to design, then the map */
     .fw-story { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 40px; }
     .fw-ch { position: relative; padding-left: 54px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; min-width: 0; }
@@ -255,7 +263,8 @@
       <div class="buy">
         <p class="label"><span class="chip c-shipped">Shipped</span><span>Case study · Retail operations · 9 min read</span></p>
         <h1>An order platform that replaced five systems</h1>
-        <p class="summary">As one of 3 designers on Jai Hind Group&#x27;s team, I helped combine 5 workflows, each on its own system, into one staff employee portal, and owned its supplier-to-customer workflow. Then our team audited it and shipped a redesign in Jai Hind&#x27;s brand.</p>
+        <p class="summary">Jai Hind Group ran its business on 5 separate workflows, each in its own system, so nobody could follow an order from start to finish. As one of 3 designers, I helped combine them into one staff employee portal and owned its supplier-to-customer workflow. Then our team audited it and shipped a redesign in Jai Hind&#x27;s brand.</p>
+        <div class="keys" role="group" aria-label="Key results"><div><b>27%</b><span>fewer order errors after launch</span></div><div><b>40%</b><span>more efficient workflows, by time per order</span></div><p class="keys-note"><span class="chip c-measured">Measured</span>Before and after launch, on the shipped platform.</p></div>
         <dl class="meta"><div><dt>Role</dt><dd>Product UX Designer, full-time</dd></div><div><dt>Timeline</dt><dd>Feb 2023 to Jul 2024</dd></div><div><dt>Team</dt><dd>3 designers (me included) and 1 PM, with developers through the build</dd></div><div><dt>Platforms</dt><dd>Desktop and phone</dd></div><div><dt>Methods</dt><dd>Heuristic review, proto-personas, journey maps, information architecture, user flows, Crazy 8s, wireframes, design system, prototyping</dd></div></dl>
         <div class="links"><a class="btn btn-secondary" href="https://jaihindretail.com" target="_blank" rel="noopener">Live site, rebuilt since I left<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="sr"> (opens in a new tab)</span></a><a class="btn btn-secondary" href="#console">Try the clickable console<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a><a class="btn btn-secondary" href="#full-workflow">See the full workflow<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
       </div>
@@ -275,6 +284,18 @@
         <div class="sec-head"><span class="eyebrow">My part</span><h2 id="own-h">The staff employee portal: <em>where I contributed the most</em></h2><p>Of the portal&#x27;s 5 workflows, I owned the one that moves stock and orders from supplier to customer. The same staff member does all three jobs.</p></div>
         <dl class="own-grid"><div class="lead"><dt>Owned</dt><dd>The supplier-to-customer workflow, end to end<ul role="list"><li><b>Reorder from suppliers.</b> A purchase order that brings stock into the warehouse.</li><li><b>Take customer orders.</b> A 4-step sales order, at the counter or over the phone.</li><li><b>Track to delivery.</b> Approve, assign a delivery partner, then In&#8209;Transit and Delivered.</li></ul></dd></div><div><dt>Built</dt><dd>The templates and components the team designed with</dd></div><div><dt>Worked with</dt><dd>Developers in Jira, through the build</dd></div><div><dt>Contributed</dt><dd>Input on the other 4 workflows</dd></div></dl>
         <p class="take">One staff member, one workflow: stock in from suppliers, orders out to customers.</p>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="to-h">
+      <div class="wrap">
+        <div class="sec-head"><span class="eyebrow">Decisions</span><h2 id="to-h">The trade-offs <em>we made</em></h2><p>Four calls that shaped the portal, and the option we passed on each time.</p></div>
+        <ul class="tradeoffs" role="list">
+          <li><dl><dt>Chose</dt><dd>Fix what the audit found</dd><dt>Over</dt><dd>A full redesign</dd><dt>Because</dt><dd>The screens already covered the right jobs. Brand, phone layouts, status tabs and totals were what broke.</dd></dl></li>
+          <li><dl><dt>Chose</dt><dd>A stock check before approving</dd><dt>Over</dt><dd>Approving first, one click</dd><dt>Because</dt><dd>Stock problems used to surface only after approval, when the order had already moved.</dd></dl></li>
+          <li><dl><dt>Chose</dt><dd>Adding the customer inside the order</dd><dt>Over</dt><dd>A &quot;No customer found&quot; stop</dd><dt>Because</dt><dd>On a phone order, the caller is still waiting on the line.</dd></dl></li>
+          <li><dl><dt>Chose</dt><dd>Browsing without an account</dd><dt>Over</dt><dd>A login wall for shoppers</dd><dt>Because</dt><dd>Shoppers shouldn&#x27;t need an account to see what Jai Hind sells or where its stores are.</dd></dl></li>
+        </ul>
       </div>
     </section>
 
