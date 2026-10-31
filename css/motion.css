@@ -1,0 +1,79 @@
+/* Siddhi Manche · portfolio motion, version 1.
+   Hero entrance, scroll reveals, card tilt, the How I work line, scroll progress and back to top.
+   Content is only hidden once js/motion.js has run (html.motion), so nothing disappears if JavaScript fails.
+   Nothing loops, and none of it plays when the visitor asks for reduced motion. */
+
+/* Hero entrance: pure CSS, so it finishes even if a script fails */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero-grid > div > * { animation: m-rise .7s cubic-bezier(.2, .7, .2, 1) both; }
+  .js .hero-grid > div > :nth-child(2) { animation-delay: .08s; }
+  .js .hero-grid > div > :nth-child(3) { animation-delay: .16s; }
+  .js .hero-grid > div > :nth-child(4) { animation-delay: .24s; }
+  .js .hero-grid > div > :nth-child(5) { animation-delay: .32s; }
+  .js .hero .portrait { animation: m-pop .9s cubic-bezier(.2, .7, .2, 1) .15s both; }
+  .js .hero h1 em { background: linear-gradient(var(--accent-soft), var(--accent-soft)) no-repeat 0 88% / 0% 34%; animation: m-sweep .8s cubic-bezier(.2, .7, .2, 1) .75s forwards; }
+}
+@keyframes m-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes m-pop { from { opacity: 0; transform: translateY(10px) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes m-sweep { to { background-size: 100% 34%; } }
+@keyframes m-spin { from { transform: rotate(-120deg) scale(.6); opacity: .3; } to { transform: none; opacity: 1; } }
+.stats b, .card-result b { font-variant-numeric: tabular-nums; }
+
+/* Scroll progress and back to top (added by motion.js) */
+.sp { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; }
+.to-top { position: fixed; right: 20px; bottom: 20px; z-index: 90; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--bg); box-shadow: var(--shadow); opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .2s, transform .2s, visibility .2s; }
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { transform: translateY(-2px); }
+.to-top:focus-visible { outline: 2.5px solid var(--accent); outline-offset: 3px; }
+.to-top svg { width: 18px; height: 18px; }
+
+/* Header: the section you are reading, and the theme icon turning */
+.nav a.is-active { color: var(--ink); background: var(--bg-2); }
+.theme-btn.spin svg { animation: m-spin .5s cubic-bezier(.2, .7, .2, 1); }
+
+/* Buttons lift a little */
+.motion .btn { transition: background .15s, border-color .15s, color .15s, transform .15s, box-shadow .15s; }
+.motion .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+
+/* Scroll reveals. m-init stops a fade-out flash in the frame motion turns on. */
+.m-init [data-reveal], .m-init [data-reveal] *, .m-init [data-seq] > li > *, .m-init [data-seq] > li::before { transition: none !important; }
+.motion [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.2, .7, .2, 1), transform .6s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--d, 0ms); }
+.motion [data-reveal].in, .motion [data-reveal]:focus-within { opacity: 1; transform: none; }
+.motion .skills [data-reveal] .tags li { opacity: 0; transform: translateY(6px) scale(.96); transition: opacity .35s ease, transform .35s ease; transition-delay: calc(var(--d, 0ms) + var(--t, 0ms) + 150ms); }
+.motion .skills [data-reveal].in .tags li { opacity: 1; transform: none; }
+
+/* Project cards: tilt toward the pointer, with a soft light, and the image eases in */
+.card-media::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .3), transparent 60%); opacity: 0; transition: opacity .25s; }
+html[data-theme="night"] .card-media::after { background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .1), transparent 60%); }
+.card.tilt .card-media::after { opacity: 1; }
+.card.tilt .card-media { transition: box-shadow .2s, transform .12s; box-shadow: var(--shadow); }
+.card-media img { transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+.card:hover .card-media:not(.phone) img { transform: scale(1.04); }
+
+/* HCD Associate board: bars fill in once the card is in view */
+.motion .ws-cols i { transform: scaleX(0); transform-origin: left; transition: transform .5s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(.35s + var(--c, 0) * .15s + var(--r, 0) * .07s); }
+.motion .in .ws-cols i { transform: none; }
+.ws-cols > span:nth-child(2) { --c: 1; }
+.ws-cols > span:nth-child(3) { --c: 2; }
+.ws-cols i:nth-of-type(2) { --r: 1; }
+.ws-cols i:nth-of-type(3) { --r: 2; }
+
+/* How I work: the line draws across and each step lights up in turn */
+.method > li .m-n { transition: background .2s, color .2s, transform .2s; }
+.method > li h3 { transition: color .2s; }
+.method > li:hover .m-n, .method > li:focus-within .m-n { background: var(--accent); color: var(--accent-ink); transform: scale(1.1); }
+.method > li:hover h3, .method > li:focus-within h3 { color: var(--accent); }
+.motion [data-seq] > li > :not(.m-n) { opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease, color .2s; transition-delay: calc(var(--k, 0) * 140ms + 120ms); }
+.motion [data-seq] > li::before { transform: scaleX(0); transform-origin: 0 50%; transition: transform .45s ease; transition-delay: calc(var(--k, 0) * 140ms + 60ms); }
+.motion [data-seq] .m-n { opacity: 0; transform: scale(.4); transition: transform .45s cubic-bezier(.3, 1.6, .5, 1), opacity .3s, background .2s, color .2s; transition-delay: calc(var(--k, 0) * 140ms); }
+.motion [data-seq].in > li > :not(.m-n), .motion [data-seq]:focus-within > li > :not(.m-n) { opacity: 1; transform: none; }
+.motion [data-seq].in > li::before, .motion [data-seq]:focus-within > li::before { transform: none; }
+.motion [data-seq].in .m-n, .motion [data-seq]:focus-within .m-n { opacity: 1; transform: none; }
+.motion [data-seq].done > li > *, .motion [data-seq].done > li::before { transition-delay: 0ms; }
+.motion [data-seq].in > li:hover .m-n, .motion [data-seq].in > li:focus-within .m-n { transform: scale(1.1); }
+@media (max-width: 640px) { .motion [data-seq] > li::before { transform: scaleY(0); transform-origin: 50% 0; } }
+
+@media print {
+  .motion [data-reveal], .motion [data-seq] > li > *, .motion .skills .tags li { opacity: 1 !important; transform: none !important; }
+  .sp, .to-top { display: none; }
+}
