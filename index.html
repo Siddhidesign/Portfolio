@@ -33,6 +33,9 @@
     .portrait figcaption { top: 14px; bottom: auto; }
     .quote p { text-wrap: balance; }
     .quote + .quote { margin-top: 40px; }
+    /* Project cards: company, what it is and when, like a resume line */
+    .card-label b { color: var(--ink); font-weight: 700; }
+    .card-label span { white-space: nowrap; }
     /* Skills: four groups, two per row */
     .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 40px; }
     @media (max-width: 820px) { .skills { grid-template-columns: 1fr; gap: 22px; } }
@@ -99,21 +102,21 @@
         <div class="grid">
           <article class="card">
             <div class="card-media shot"><img src="assets/jaihind/jh-02-before-dashboard.jpg" alt="" width="1440" height="2173" loading="lazy"></div>
-            <p class="card-label">Shipped · Team of 3 designers · Retail, shoppers and staff · 9 min read</p>
+            <p class="card-label"><b>Jai Hind Group</b> · Menswear retailer, Mumbai · <span>Full-time, Feb 2023 to Jul 2024</span></p>
             <h3><a href="cases/jaihind.html">An order platform that replaced five systems</a></h3>
             <p class="card-result"><b>27%</b> fewer order errors</p>
             <p class="card-result"><b>I owned:</b> the supplier-to-customer workflow</p>
           </article>
           <article class="card">
             <div class="card-media"><img src="assets/live/omkar.jpg" alt="" width="1280" height="800" loading="lazy"></div>
-            <p class="card-label">Shipped · Front-end developer · B2B catalog · 7 min read</p>
+            <p class="card-label"><b>Omkar Labels</b> · Clothing label maker, Mumbai · <span>Part-time, May 2022 to Jan 2023</span></p>
             <h3><a href="cases/omkar.html">A B2B catalog buyers check before they call</a></h3>
             <p class="card-result"><b>50+</b> product pages built and kept accurate</p>
             <p class="card-result"><b>I coded it in</b> HTML, CSS and JavaScript</p>
           </article>
           <article class="card">
             <div class="card-media"><div class="lib-visual"><div class="mini-lib"><img class="findme-logo" src="assets/findme-logo.svg" alt="" width="92" height="26"><div class="row"><span class="pill">Primary</span><span class="pill sec">Secondary</span><span class="pill ghost">Ghost</span></div><div class="row"><span class="pill">Default</span><span class="pill dis">Disabled</span></div><span class="spec">Button / Primary / Medium / Default</span></div></div></div>
-            <p class="card-label">Internship · Design system, startup · 3 min read</p>
+            <p class="card-label"><b>FindMe LLC</b> · Portfolio startup, New York · <span>Internship, May to Aug 2025</span></p>
             <h3><a href="cases/findme.html">Growing a design system while the product kept shipping</a></h3>
             <p class="card-result"><b>25+</b> components across <b>2</b> products</p>
           </article>
@@ -123,25 +126,25 @@
           <div class="grid grid-more">
           <article class="card">
             <div class="card-media"><img src="assets/live/ir2go.jpg" alt="" width="1280" height="800" loading="lazy"></div>
-            <p class="card-label">Course project · team of 5 · 5 min read</p>
+            <p class="card-label"><b>University of Michigan-Dearborn</b> · HCI course, team of 5 · <span>Winter 2025</span></p>
             <h4><a href="cases/ir2go.html">Making the IRS app easy to use</a></h4>
             <p class="card-result"><b>31.3 → 78.25</b> usability score (SUS)</p>
           </article>
           <article class="card">
             <div class="card-media"><img src="assets/live/anchor.jpg" alt="" width="1280" height="800" loading="lazy"></div>
-            <p class="card-label">Capstone · UX researcher and designer · team of 4 · 5 min read</p>
+            <p class="card-label"><b>University of Michigan-Dearborn</b> · Master&#x27;s capstone, as UX researcher and designer · <span>2025 to 2026</span></p>
             <h4><a href="cases/anchor.html">An AI budgeting coach people trust</a></h4>
             <p class="card-result"><b>6 of 8</b> testers fully trusted the AI</p>
           </article>
           <article class="card">
             <div class="card-media"><img src="assets/live/ev.jpg" alt="" width="1280" height="800" loading="lazy"></div>
-            <p class="card-label">Course project · team of 4 · 5 min read</p>
+            <p class="card-label"><b>University of Michigan-Dearborn</b> · Human Factors course, team of 4 · <span>Fall 2024</span></p>
             <h4><a href="cases/ev.html">One app for every charger</a></h4>
             <p class="card-result"><b>78.75</b> usability score, 10 testers</p>
           </article>
           <article class="card">
             <div class="card-media phone"><img src="assets/magic-apron/c1-after.webp" alt="" width="560" height="1218" loading="lazy"></div>
-            <p class="card-label">Quick concept · solo, 1 weekend · 5 min read</p>
+            <p class="card-label"><b>Self-initiated concept</b> · The Home Depot&#x27;s AI assistant · <span>Oct 2026</span></p>
             <h4><a href="cases/magic-apron.html">A quick redesign of Magic Apron</a></h4>
             <p class="card-result"><b>1</b> interview, <b>6</b> small changes</p>
           </article>
