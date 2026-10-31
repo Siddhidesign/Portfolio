@@ -36,6 +36,26 @@
     /* Project cards: company, what it is and when, like a resume line */
     .card-label b { color: var(--ink); font-weight: 700; }
     .card-label span { white-space: nowrap; }
+    .card-methods { margin-top: -4px; font-size: 12px; line-height: 1.5; color: var(--muted); }
+    /* Work: four roles in one row */
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px 18px; }
+    @media (max-width: 960px) { .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 600px) { .grid-4 { grid-template-columns: 1fr; } }
+    @media (min-width: 601px) { .grid-4 .mini-lib { gap: 6px; transform: scale(.82); } }
+    /* HCD Associate card: a weekly critique board, drawn in CSS */
+    .ws-board { display: grid; gap: 7px; width: 80%; padding: 12px; border-radius: 12px; background: #ffffff; box-shadow: var(--shadow); color: #1f1d1a; }
+    .ws-h { font-size: 12px; font-weight: 700; }
+    .ws-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+    .ws-cols > span { display: grid; gap: 4px; align-content: start; padding: 6px; border-radius: 7px; background: #f4f1ec; }
+    .ws-cols b { font-size: 10px; font-weight: 700; white-space: nowrap; }
+    .ws-cols i { display: block; height: 9px; border-radius: 3px; }
+    .ws-cols > span:nth-child(1) i { background: #bfe0cc; }
+    .ws-cols > span:nth-child(2) i { background: #c9cdf3; }
+    .ws-cols > span:nth-child(3) i { background: #f0d2a4; }
+    .ws-meta { font-size: 10.5px; color: #5c564f; }
+    html[data-theme="night"] .ws-board { background: #1f1d1b; color: #f3efe9; }
+    html[data-theme="night"] .ws-cols > span { background: #2a2826; }
+    html[data-theme="night"] .ws-meta { color: #c9c2b8; }
     /* Skills: four groups, two per row */
     .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 40px; }
     @media (max-width: 820px) { .skills { grid-template-columns: 1fr; gap: 22px; } }
@@ -98,14 +118,31 @@
 
     <section class="sec" id="work" aria-labelledby="work-title">
       <div class="wrap">
-        <div class="sec-head"><span class="eyebrow">Selected work</span><h2 id="work-title">For customers, for staff, <em>and on brand</em></h2><p>The three projects closest to the job: a retailer&#x27;s order platform for its staff, a B2B catalog website its buyers check before they call, which I built as a front-end developer, and a component library that kept 2 products consistent. At Jai Hind, our team also shipped a redesign that gave staff the same brand shoppers see. Each project says what was mine, what shipped and how it was measured.</p></div>
-        <div class="grid">
+        <div class="sec-head"><span class="eyebrow">Selected work</span><h2 id="work-title">For customers, for staff, <em>and on brand</em></h2><p>Four roles, each with what was mine and how it was measured: a retailer&#x27;s order platform for its staff, research and project coordination as a Human-Centered Design Associate, a startup&#x27;s component library, and a B2B catalog website I built as a front-end developer.</p></div>
+        <div class="grid grid-4">
           <article class="card">
             <div class="card-media shot"><img src="assets/jaihind/jh-02-before-dashboard.jpg" alt="" width="1440" height="2173" loading="lazy"></div>
             <p class="card-label"><b>Jai Hind Group</b> · Menswear retailer, Mumbai · <span>Full-time, Feb 2023 to Jul 2024</span></p>
             <h3><a href="cases/jaihind.html">An order platform that replaced five systems</a></h3>
             <p class="card-result"><b>27%</b> fewer order errors</p>
             <p class="card-result"><b>I owned:</b> the supplier-to-customer workflow</p>
+            <p class="card-methods">Store visits · Stakeholder interviews · Desk research · Survey data in Excel · Personas and journey maps</p>
+          </article>
+          <article class="card">
+            <div class="card-media"><div class="lib-visual" aria-hidden="true"><div class="ws-board"><span class="ws-h">Weekly critique</span><span class="ws-cols"><span><b>Progress</b><i></i><i></i><i></i></span><span><b>Next steps</b><i></i><i></i></span><span><b>Blockers</b><i></i></span></span><span class="ws-meta">4 workstreams · 25 contributors</span></div></div></div>
+            <p class="card-label"><b>University of Michigan-Dearborn</b> · Human-Centered Design Associate · <span>Sep 2025 to May 2026</span></p>
+            <h3>Keeping 4 workstreams and 25 contributors moving</h3>
+            <p class="card-result"><b>4</b> concurrent workstreams, <b>25</b> contributors, in Figma and Miro</p>
+            <p class="card-result"><b>Weekly</b> FigJam critiques on progress, next steps and blockers</p>
+            <p class="card-methods">Priorities and capacity made visible · A documented 20-point framework · 2 delivery cycles</p>
+          </article>
+          <article class="card">
+            <div class="card-media"><div class="lib-visual"><div class="mini-lib"><img class="findme-logo" src="assets/findme-logo.svg" alt="" width="92" height="26"><div class="row"><span class="pill">Primary</span><span class="pill sec">Secondary</span><span class="pill ghost">Ghost</span></div><div class="row"><span class="pill">Default</span><span class="pill dis">Disabled</span></div><span class="spec">Button / Primary / Medium / Default</span></div></div></div>
+            <p class="card-label"><b>FindMe LLC</b> · Portfolio startup, New York · <span>Internship, May to Aug 2025</span></p>
+            <h3><a href="cases/findme.html">Growing a design system while the product kept shipping</a></h3>
+            <p class="card-result"><b>25+</b> components across <b>2</b> products</p>
+            <p class="card-result"><b>12+</b> user interviews and usability tests supported</p>
+            <p class="card-methods">Note-taking · Observation · Probing · Tagging in Dovetail · Reusable guides and templates</p>
           </article>
           <article class="card">
             <div class="card-media"><img src="assets/live/omkar.jpg" alt="" width="1280" height="800" loading="lazy"></div>
@@ -113,12 +150,7 @@
             <h3><a href="cases/omkar.html">A B2B catalog buyers check before they call</a></h3>
             <p class="card-result"><b>50+</b> product pages built and kept accurate</p>
             <p class="card-result"><b>I coded it in</b> HTML, CSS and JavaScript</p>
-          </article>
-          <article class="card">
-            <div class="card-media"><div class="lib-visual"><div class="mini-lib"><img class="findme-logo" src="assets/findme-logo.svg" alt="" width="92" height="26"><div class="row"><span class="pill">Primary</span><span class="pill sec">Secondary</span><span class="pill ghost">Ghost</span></div><div class="row"><span class="pill">Default</span><span class="pill dis">Disabled</span></div><span class="spec">Button / Primary / Medium / Default</span></div></div></div>
-            <p class="card-label"><b>FindMe LLC</b> · Portfolio startup, New York · <span>Internship, May to Aug 2025</span></p>
-            <h3><a href="cases/findme.html">Growing a design system while the product kept shipping</a></h3>
-            <p class="card-result"><b>25+</b> components across <b>2</b> products</p>
+            <p class="card-methods">Testing workflows · Documenting findings · Chrome DevTools · Git, with 3 developers</p>
           </article>
         </div>
         <div class="more" id="more">
@@ -129,24 +161,28 @@
             <p class="card-label"><b>University of Michigan-Dearborn</b> · HCI course, team of 5 · <span>Winter 2025</span></p>
             <h4><a href="cases/ir2go.html">Making the IRS app easy to use</a></h4>
             <p class="card-result"><b>31.3 → 78.25</b> usability score (SUS)</p>
+            <p class="card-methods">150+ app reviews · Interviews · Quantitative testing · SUS surveys · WCAG 2.1 AA</p>
           </article>
           <article class="card">
             <div class="card-media"><img src="assets/live/anchor.jpg" alt="" width="1280" height="800" loading="lazy"></div>
             <p class="card-label"><b>University of Michigan-Dearborn</b> · Master&#x27;s capstone, as UX researcher and designer · <span>2025 to 2026</span></p>
             <h4><a href="cases/anchor.html">An AI budgeting coach people trust</a></h4>
             <p class="card-result"><b>6 of 8</b> testers fully trusted the AI</p>
+            <p class="card-methods">IRB-approved study, 24 participants · Recruiting, scheduling and consent · Focus groups · Affinity mapping</p>
           </article>
           <article class="card">
             <div class="card-media"><img src="assets/live/ev.jpg" alt="" width="1280" height="800" loading="lazy"></div>
             <p class="card-label"><b>University of Michigan-Dearborn</b> · Human Factors course, team of 4 · <span>Fall 2024</span></p>
             <h4><a href="cases/ev.html">One app for every charger</a></h4>
             <p class="card-result"><b>78.75</b> usability score, 10 testers</p>
+            <p class="card-methods">Literature review · Competitive audit · Think-aloud tests · SUS surveys</p>
           </article>
           <article class="card">
             <div class="card-media phone"><img src="assets/magic-apron/c1-after.webp" alt="" width="560" height="1218" loading="lazy"></div>
             <p class="card-label"><b>Self-initiated concept</b> · The Home Depot&#x27;s AI assistant · <span>Oct 2026</span></p>
             <h4><a href="cases/magic-apron.html">A quick redesign of Magic Apron</a></h4>
             <p class="card-result"><b>1</b> interview, <b>6</b> small changes</p>
+            <p class="card-methods">AI-assisted workflows · Output quality and risk · Task analysis · Heuristic review</p>
           </article>
           </div>
         </div>
@@ -177,6 +213,7 @@
           <ul class="facts" role="list">
             <li><b>Focus</b><span>UX research, internal team dashboards, customer-facing products, design systems and brand</span></li>
             <li><b>Education</b><span>M.S., University of Michigan-Dearborn</span></li>
+            <li><b>Certificate</b><span>Google UX Design Professional Certificate</span></li>
             <li><b>Worked with</b><span>Jai Hind Group, FindMe and Omkar Labels</span></li>
           </ul>
         </div>
@@ -187,11 +224,11 @@
       <div class="wrap">
         <div class="sec-head"><span class="eyebrow">Journey</span><h2 id="journey-title">How I <em>got here</em></h2></div>
         <ol class="journey" role="list">
-          <li><span class="when">2025 to 2026</span><div><h3>Human-Centered Design Associate <span>· University of Michigan-Dearborn</span></h3><p>Presented design work to non-designers at each project stage, explained the reasoning, and folded their feedback into the next round.</p></div></li>
-          <li><span class="when">May to Aug 2025</span><div><h3>UX/UI Designer, internship <span>· FindMe LLC, New York</span></h3><p>Built and kept up a 25+ component library that kept 2 products consistent, grew engagement 28% on brand pages with Marketing, and supported 12+ user interviews and usability tests.</p></div></li>
+          <li><span class="when">2025 to 2026</span><div><h3>Human-Centered Design Associate <span>· University of Michigan-Dearborn</span></h3><p>Managed 4 concurrent workstreams across 25 contributors in Figma and Miro, keeping priorities and capacity visible against a documented 20-point framework. Shared progress, next steps and blockers in weekly FigJam critiques across 2 delivery cycles, presented work to non-designers at each stage, and folded their feedback into the next round.</p></div></li>
+          <li><span class="when">May to Aug 2025</span><div><h3>UX/UI Designer, internship <span>· FindMe LLC, New York</span></h3><p>Built and kept up a 25+ component library that kept 2 products consistent, and grew engagement 28% on brand pages with Marketing. Supported 12+ user interviews and usability tests through preparation, note-taking, observation and probing, tagged findings in Dovetail, and kept what we learned in reusable guides, templates and checklists.</p></div></li>
           <li><span class="when">2024 to 2026</span><div><h3>M.S., Human-Centered Design and Engineering <span>· University of Michigan-Dearborn</span></h3><p>Graduated in 2026.</p></div></li>
-          <li><span class="when">Feb 2023 to Jul 2024</span><div><h3>Product UX Designer, full-time <span>· Jai Hind Group, Mumbai</span></h3><p>On a team of 3 designers and a PM, designed an internal order platform that replaced 5 systems, then a redesign that also shipped. Owned the supplier-to-customer workflow, built the templates and components the team designed with, helped turn 30+ requirements from 3 business functions into user flows, and worked with developers in Jira through the build. Measured before and after launch: 27% fewer order errors, and workflows 40% more efficient by time per order.</p></div></li>
-          <li><span class="when">May 2022 to Jan 2023</span><div><h3>Junior Front-End Developer, part-time <span>· Omkar Labels, Mumbai</span></h3><p>Developed the company's catalog website in HTML, CSS and JavaScript, with jQuery and Bootstrap on WordPress. It's why my designs account for what the browser can do.</p></div></li>
+          <li><span class="when">Feb 2023 to Jul 2024</span><div><h3>Product UX Designer, full-time <span>· Jai Hind Group, Mumbai</span></h3><p>On a team of 3 designers and a PM, designed an internal order platform that replaced 5 systems, then a redesign that also shipped. Started with store visits, stakeholder interviews and desk research, and organized survey data in Excel across 2 brands and 10 stores into personas and journey maps. Owned the supplier-to-customer workflow, built the templates and components the team designed with, helped turn 30+ requirements from 3 business functions into user flows, and worked with developers in Jira through the build. Measured before and after launch: 27% fewer order errors, and workflows 40% more efficient by time per order.</p></div></li>
+          <li><span class="when">May 2022 to Jan 2023</span><div><h3>Junior Front-End Developer, part-time <span>· Omkar Labels, Mumbai</span></h3><p>Developed and kept up the company's 50+ page catalog website in HTML, CSS and JavaScript, with jQuery and Bootstrap on WordPress, testing workflows in Chrome DevTools and working in Git with 3 developers. It's why my designs account for what the browser can do.</p></div></li>
           <li><span class="when">2020 to 2024</span><div><h3>B.E., Electronics and Telecommunication <span>· Vidyalankar Institute of Technology</span></h3><p>Where the engineer part started.</p></div></li>
         </ol>
       </div>
@@ -201,10 +238,12 @@
       <div class="wrap">
         <div class="sec-head"><span class="eyebrow">Skills</span><h2 id="skills-title">What I <em>work with</em></h2></div>
         <div class="skills">
-          <div><h3>UX research</h3><ul class="tags" role="list"><li>User interviews</li><li>Focus groups</li><li>Field visits and observation</li><li>Usability testing</li><li>Think-aloud sessions</li><li>System Usability Scale (SUS)</li><li>Heuristic evaluation</li><li>Competitive analysis</li><li>Literature review</li><li>App review analysis</li><li>Affinity mapping</li><li>Journey mapping</li><li>Personas</li><li>Task analysis</li><li>Research ethics (IRB)</li><li>Maze</li></ul></div>
-          <div><h3>Design systems and UI</h3><ul class="tags" role="list"><li>Design systems</li><li>Component libraries</li><li>Pattern documentation</li><li>Brand standards</li><li>User flows</li><li>Wireframes</li><li>Prototyping</li><li>Visual design</li></ul></div>
-          <div><h3>Products and code</h3><ul class="tags" role="list"><li>Customer-facing websites and apps</li><li>Internal and B2B tools</li><li>Complex workflows</li><li>Information architecture</li><li>Accessibility, WCAG 2.1 AA</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Chrome DevTools</li></ul></div>
-          <div><h3>Working with</h3><ul class="tags" role="list"><li>Developers, design to production</li><li>Product managers</li><li>Marketing and brand</li><li>Presenting to non-designers</li><li>Figma</li><li>Jira</li><li>Miro</li><li>GitHub</li><li>Claude Code</li></ul></div>
+          <div><h3>UX research</h3><ul class="tags" role="list"><li>User interviews</li><li>Moderation</li><li>Probing</li><li>Note-taking</li><li>Observation</li><li>Field visits</li><li>Focus groups</li><li>Usability testing</li><li>Think-aloud sessions</li><li>Heuristic evaluation</li><li>Desk research</li><li>Reviewing existing research</li><li>Literature review</li><li>Competitive analysis</li><li>App review analysis</li><li>Task analysis</li><li>Personas</li><li>Journey mapping</li></ul></div>
+          <div><h3>Research operations</h3><ul class="tags" role="list"><li>Participant recruiting</li><li>Scheduling</li><li>Participant communications</li><li>Informed consent</li><li>Incentives</li><li>Session setup</li><li>Recording</li><li>Transcription</li><li>File organization</li><li>Study closeout</li><li>IRB protocol</li><li>Research repositories</li><li>Reusable guides, templates and checklists</li></ul></div>
+          <div><h3>Synthesis and data</h3><ul class="tags" role="list"><li>Tagging</li><li>Affinity mapping</li><li>Evidence synthesis</li><li>Concise findings and implications</li><li>Clear reporting</li><li>Surveys</li><li>System Usability Scale (SUS)</li><li>Quantitative testing</li><li>Structured data</li><li>Organizing results</li><li>Pattern identification</li></ul></div>
+          <div><h3>Technical and AI</h3><ul class="tags" role="list"><li>AI-assisted workflows</li><li>Output quality and risk review</li><li>AI integrations through APIs and MCPs</li><li>Investigating options and testing workflows</li><li>Documenting findings</li><li>Claude Code</li><li>Figma Make</li><li>Python</li><li>SQL</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Git</li><li>Chrome DevTools</li><li>Accessibility, WCAG 2.1 AA</li></ul></div>
+          <div><h3>Design and UI</h3><ul class="tags" role="list"><li>Design systems</li><li>Component libraries</li><li>Pattern documentation</li><li>Brand standards</li><li>Information architecture</li><li>User flows</li><li>Wireframes</li><li>Prototyping</li><li>Visual design</li><li>Customer-facing websites and apps</li><li>Internal and B2B tools</li><li>Complex workflows</li></ul></div>
+          <div><h3>Tools and teamwork</h3><ul class="tags" role="list"><li>Dovetail</li><li>Figma</li><li>FigJam</li><li>Miro</li><li>Excel</li><li>Microsoft Teams and Teams transcripts</li><li>Otter.ai</li><li>Maze</li><li>Jira</li><li>GitHub</li><li>Concurrent workstreams</li><li>Agile</li><li>Developers, PMs and Marketing</li><li>Presenting to non-designers</li></ul></div>
         </div>
       </div>
     </section>
