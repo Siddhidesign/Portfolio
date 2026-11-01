@@ -1,6 +1,6 @@
-/* Siddhi Manche · portfolio motion, version 1.
-   Scroll progress, back to top, the section you are reading in the header, scroll reveals,
-   count-ups, card tilt and the How I work sequence.
+/* Siddhi Manche · portfolio motion, version 2.
+   Back to top, the section you are reading in the header, a pointer label over projects,
+   scroll reveals and the hero count-up.
    Content is only hidden after this runs, and the animated parts are skipped for reduced motion. */
 (function () {
   'use strict';
@@ -8,11 +8,9 @@
   function $$(s, el) { return Array.prototype.slice.call((el || d).querySelectorAll(s)); }
   var reduce = !!(w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches);
   var hasIO = 'IntersectionObserver' in w;
+  var chev = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>';
 
-  /* Scroll progress and back to top */
-  var bar = d.createElement('div');
-  bar.className = 'sp'; bar.setAttribute('aria-hidden', 'true');
-  d.body.appendChild(bar);
+  /* Back to top */
   var up = d.createElement('a');
   up.className = 'to-top'; up.href = '#main';
   up.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M6 11l6-6 6 6"/></svg><span class="sr">Back to top</span>';
@@ -24,7 +22,6 @@
     ticking = true;
     w.requestAnimationFrame(function () {
       var h = root.scrollHeight - root.clientHeight;
-      bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, w.scrollY / h) : 0) + ')';
       up.classList.toggle('show', w.scrollY > 900);
       if (h > 0 && w.scrollY >= h - 4 && navLinks.length) {
         navLinks.forEach(function (a) { a.classList.remove('is-active'); });
@@ -58,6 +55,28 @@
     });
   });
 
+  /* A label follows the pointer over projects. Mouse and trackpad only; the real link is the project title. */
+  if (w.matchMedia && w.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var tagEl = d.createElement('div');
+    tagEl.className = 'cur-tag'; tagEl.setAttribute('aria-hidden', 'true');
+    tagEl.innerHTML = '<span></span>';
+    d.body.appendChild(tagEl);
+    var pill = tagEl.firstChild, current = null, px = 0, py = 0, raf = 0;
+    var place = function () { raf = 0; tagEl.style.transform = 'translate3d(' + (px + 16) + 'px,' + (py + 20) + 'px,0)'; };
+    d.addEventListener('pointermove', function (e) {
+      var t = e.target && e.target.closest ? e.target.closest('[data-cursor]') : null;
+      if (!t) { tagEl.classList.remove('on'); current = null; return; }
+      if (t !== current) { current = t; pill.innerHTML = t.getAttribute('data-cursor') + ' ' + chev; }
+      px = e.clientX; py = e.clientY;
+      if (!raf) raf = w.requestAnimationFrame(place);
+      tagEl.classList.add('on');
+    }, { passive: true });
+    var hide = function () { tagEl.classList.remove('on'); current = null; };
+    w.addEventListener('scroll', hide, { passive: true });
+    d.addEventListener('pointerleave', hide);
+    w.addEventListener('blur', hide);
+  }
+
   if (reduce || !hasIO) return;
 
   /* Count a number up from zero. The real value stays in the page for screen readers. */
@@ -80,36 +99,26 @@
   }
   $$('.stats b').forEach(function (b, i) { countUp(b, 500 + i * 120); });
 
-  /* Mark what reveals on scroll, with a small stagger inside each group */
+  /* Mark what rises on scroll: each section label, each block, and list rows one after another */
   function tag(list, step) {
     list.forEach(function (el, i) {
       el.setAttribute('data-reveal', '');
       if (step) el.style.setProperty('--d', Math.min(i, 6) * step + 'ms');
     });
   }
-  tag($$('main .sec-head, .more-h, .about-grid > div, #system .wrap > .ds > .ds-panel, .quote, .contact .wrap > *, #system .wrap > .more-detail'), 0);
-  $$('.grid').forEach(function (g) { tag(Array.prototype.slice.call(g.children), 90); });
-  tag($$('.journey > li'), 70);
-  tag($$('.skills > div'), 70);
-  $$('.skills .tags').forEach(function (ul) {
-    Array.prototype.slice.call(ul.children).forEach(function (li, i) { li.style.setProperty('--t', Math.min(i, 16) * 22 + 'ms'); });
+  tag($$('.lsec-h'), 0);
+  $$('.lsec-body').forEach(function (body) {
+    Array.prototype.slice.call(body.children).forEach(function (el) {
+      if (/^(UL|OL|DL)$/.test(el.tagName)) tag(Array.prototype.slice.call(el.children), 70);
+      else tag([el], 0);
+    });
   });
-  var seq = d.querySelector('.method');
-  if (seq) {
-    seq.setAttribute('data-seq', '');
-    Array.prototype.slice.call(seq.children).forEach(function (li, i) { li.style.setProperty('--k', i); });
-  }
-
-  function onIn(el) {
-    if (el.classList.contains('card')) $$('.card-result > b:first-child', el).forEach(function (b, i) { countUp(b, 250 + i * 100); });
-    if (el.hasAttribute('data-seq')) setTimeout(function () { el.classList.add('done'); }, 1800);
-  }
 
   /* Anything already on screen shows at once, without animating */
-  var items = $$('[data-reveal], [data-seq]'), vh = w.innerHeight;
+  var items = $$('[data-reveal]'), vh = w.innerHeight;
   items.forEach(function (el) {
     var r = el.getBoundingClientRect();
-    if (r.top < vh && r.bottom > 0) { el.classList.add('in'); if (el.hasAttribute('data-seq')) el.classList.add('done'); }
+    if (r.top < vh && r.bottom > 0) el.classList.add('in');
   });
   root.classList.add('motion', 'm-init');
   w.requestAnimationFrame(function () { w.requestAnimationFrame(function () { root.classList.remove('m-init'); }); });
@@ -118,28 +127,7 @@
       if (!en.isIntersecting) return;
       en.target.classList.add('in');
       io.unobserve(en.target);
-      onIn(en.target);
     });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
   items.forEach(function (el) { if (!el.classList.contains('in')) io.observe(el); });
-
-  /* Cards lean toward the pointer, only with a mouse or trackpad */
-  if (w.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    $$('.card').forEach(function (card) {
-      var media = card.querySelector('.card-media');
-      if (!media) return;
-      card.addEventListener('pointermove', function (e) {
-        var c = card.getBoundingClientRect(), r = media.getBoundingClientRect();
-        var x = (e.clientX - c.left) / c.width, y = (e.clientY - c.top) / c.height;
-        media.style.transform = 'perspective(800px) rotateX(' + ((0.5 - y) * 6).toFixed(2) + 'deg) rotateY(' + ((x - 0.5) * 8).toFixed(2) + 'deg) translateY(-4px)';
-        media.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        media.style.setProperty('--my', (e.clientY - r.top) + 'px');
-        card.classList.add('tilt');
-      });
-      card.addEventListener('pointerleave', function () {
-        media.style.transform = '';
-        card.classList.remove('tilt');
-      });
-    });
-  }
 })();
