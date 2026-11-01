@@ -98,6 +98,25 @@
     .xp-at { font-size: 15px; color: var(--muted); }
     .xp-what { margin-top: 6px; max-width: 46em; font-size: 15px; color: var(--text); }
     .sub-label { margin: 40px 0 12px; }
+    /* Experience: cards, stacked like a deck until you open them */
+    .xp-stack { margin: 0; padding: 0; display: grid; gap: 12px; }
+    .xp-card { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 16px; padding: 20px 22px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+    .xp-mark { grid-row: 1 / span 3; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+    .xp-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 16px; }
+    .xp-card h3 { font-size: 18px; font-weight: 500; letter-spacing: -.015em; }
+    .xp-card .xp-when { padding-top: 0; white-space: nowrap; }
+    .xp-stack.is-stack { position: relative; display: block; height: var(--h, auto); transition: height .5s cubic-bezier(.2, .8, .2, 1); }
+    .xp-stack.is-stack > .xp-card { position: absolute; top: 0; left: 0; right: 0; transform: translateY(var(--y, 0)) scale(var(--s, 1)); transform-origin: 50% 100%; transition: transform .5s cubic-bezier(.2, .8, .2, 1), box-shadow .3s; }
+    .xp-stack.xp-init, .xp-stack.xp-init > .xp-card { transition: none; }
+    .xp-stack.collapsed { cursor: pointer; }
+    .xp-stack.collapsed > .xp-card:first-child { box-shadow: var(--shadow); }
+    .xp-stack.collapsed > .xp-card:not(:first-child) { height: var(--h0); overflow: hidden; }
+    .xp-stack.is-stack > .xp-card > * { transition: opacity .3s; }
+    .xp-stack.collapsed > .xp-card:not(:first-child) > * { opacity: 0; }
+    .xp-toggle { margin-top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--line-2); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; transition: background .15s; }
+    .xp-toggle:hover { background: var(--bg-2); }
+    .xp-toggle svg { width: 16px; height: 16px; transition: transform .3s; }
+    .xp-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
     .sk { margin: 0; border-top: 1px solid var(--line); }
     .sk > div { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
     .sk dt { font-size: 15px; font-weight: 600; color: var(--ink); }
@@ -126,6 +145,8 @@
       .steps li { grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; }
       .steps p { grid-column: 2; }
       .xp li, .sk > div { grid-template-columns: 1fr; gap: 4px; }
+      .xp-card { grid-template-columns: 32px minmax(0, 1fr); gap: 4px 12px; padding: 18px; }
+      .xp-mark { width: 32px; height: 32px; border-radius: 10px; font-size: 12px; }
       .shot .mini-lib { width: 80%; transform: none; }
     }
   </style>
@@ -252,12 +273,14 @@
       <div class="wrap lgrid">
         <h2 class="lsec-h" id="experience-title">Experience</h2>
         <div class="lsec-body">
-          <ol class="xp" role="list">
-            <li><span class="xp-when">Sep 2025 to May 2026</span><div><h3>Human-Centered Design Associate</h3><p class="xp-at">University of Michigan-Dearborn</p><p class="xp-what">Kept 4 workstreams and 25 contributors moving in Figma and Miro, with weekly FigJam critiques on progress, next steps and blockers.</p></div></li>
-            <li><span class="xp-when">May to Aug 2025</span><div><h3>UX/UI Designer, internship</h3><p class="xp-at">FindMe LLC, New York</p><p class="xp-what">Grew a 25+ component library across 2 products, and supported 12+ user interviews and usability tests, tagged in Dovetail.</p></div></li>
-            <li><span class="xp-when">Feb 2023 to Jul 2024</span><div><h3>Product UX Designer</h3><p class="xp-at">Jai Hind Group, Mumbai</p><p class="xp-what">Owned the supplier-to-customer workflow of an order platform that cut order errors 27%, starting from store visits and stakeholder interviews.</p></div></li>
-            <li><span class="xp-when">May 2022 to Jan 2023</span><div><h3>Junior Front-End Developer, part-time</h3><p class="xp-at">Omkar Labels, Mumbai</p><p class="xp-what">Built and kept up a 50+ page catalog website in HTML, CSS and JavaScript, working in Git with 3 developers.</p></div></li>
-          </ol>
+          <div class="xp-wrap">
+            <ol class="xp-stack" id="xp-list" role="list">
+              <li class="xp-card"><span class="xp-mark" aria-hidden="true">UM</span><div class="xp-top"><h3>Human-Centered Design Associate</h3><span class="xp-when">Sep 2025 to May 2026</span></div><p class="xp-at">University of Michigan-Dearborn</p><p class="xp-what">Kept 4 workstreams and 25 contributors moving in Figma and Miro, with weekly FigJam critiques on progress, next steps and blockers.</p></li>
+              <li class="xp-card"><span class="xp-mark" aria-hidden="true">FM</span><div class="xp-top"><h3>UX/UI Designer, internship</h3><span class="xp-when">May to Aug 2025</span></div><p class="xp-at">FindMe LLC, New York</p><p class="xp-what">Grew a 25+ component library across 2 products, and supported 12+ user interviews and usability tests, tagged in Dovetail.</p></li>
+              <li class="xp-card"><span class="xp-mark" aria-hidden="true">JH</span><div class="xp-top"><h3>Product UX Designer</h3><span class="xp-when">Feb 2023 to Jul 2024</span></div><p class="xp-at">Jai Hind Group, Mumbai</p><p class="xp-what">Owned the supplier-to-customer workflow of an order platform that cut order errors 27%, starting from store visits and stakeholder interviews.</p></li>
+              <li class="xp-card"><span class="xp-mark" aria-hidden="true">OL</span><div class="xp-top"><h3>Junior Front-End Developer, part-time</h3><span class="xp-when">May 2022 to Jan 2023</span></div><p class="xp-at">Omkar Labels, Mumbai</p><p class="xp-what">Built and kept up a 50+ page catalog website in HTML, CSS and JavaScript, working in Git with 3 developers.</p></li>
+            </ol>
+          </div>
           <h3 class="sub-label">Education</h3>
           <ol class="xp" role="list">
             <li><span class="xp-when">2024 to 2026</span><div><h3>M.S., Human-Centered Design and Engineering</h3><p class="xp-at">University of Michigan-Dearborn</p></div></li>
@@ -313,6 +336,6 @@
   </footer>
   <p class="sr" aria-live="polite" data-live></p>
   <script src="js/store.js" defer></script>
-  <script src="js/motion.js?v=2" defer></script>
+  <script src="js/motion.js?v=3" defer></script>
 </body>
 </html>
