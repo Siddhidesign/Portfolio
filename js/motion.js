@@ -1,4 +1,4 @@
-/* Siddhi Manche · portfolio motion, version 6.
+/* Siddhi Manche · portfolio motion, version 7.
    Back to top, the section you are reading in the header, a pointer label over projects,
    the Experience card stack, scroll reveals (home and case studies) and the hero count-up.
    Content is only hidden after this runs, and the animated parts are skipped for reduced motion. */
@@ -77,7 +77,7 @@
     w.addEventListener('blur', hide);
   }
 
-  /* Experience: the cards overlap downward, each one showing its picture, role, company and dates,
+  /* Experience: the cards overlap downward, each one showing its picture, role, company, dates and case study link,
      with the last one in full, until you open them. Without JavaScript they are a plain list of cards. */
   var stack = d.querySelector('.xp-stack');
   if (stack && stack.children.length > 1) {
@@ -92,7 +92,7 @@
         c.style.zIndex = i + 1;
         if (open) { y += c.offsetHeight + 12; return; }
         if (i < last) {
-          var at = c.querySelector('.xp-at'), th = c.querySelector('.xp-thumb');
+          var at = c.querySelector('.xp-cs') || c.querySelector('.xp-at'), th = c.querySelector('.xp-thumb');
           y += Math.max(at ? at.offsetTop + at.offsetHeight : 70, th ? th.offsetTop + th.offsetHeight : 0) + 20;
         }
       });
@@ -113,7 +113,10 @@
       setOpen(!open);
       if (!open && stack.getBoundingClientRect().top < 70) stack.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' });
     });
-    stack.addEventListener('click', function () { if (!open) { setOpen(true); btn.focus(); } });
+    stack.addEventListener('click', function (e) {
+      if (open || (e.target.closest && e.target.closest('a'))) return;
+      setOpen(true); btn.focus();
+    });
     var queued = 0;
     var relayout = function () { if (!queued) queued = w.requestAnimationFrame(function () { queued = 0; layout(); }); };
     if ('ResizeObserver' in w) { var ro = new ResizeObserver(relayout); ro.observe(stack); cards.forEach(function (c) { ro.observe(c); }); }
