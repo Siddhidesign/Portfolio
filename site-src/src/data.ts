@@ -28,7 +28,7 @@ export const CONTACT = {
 };
 
 export const HERO_STATS: [string, string][] = [
-  ["150+", "research: app reviews read and coded"],
+  ["150+", "research: app reviews read"],
   ["24", "research: people in an IRB study"],
   ["27%", "outcome: fewer order errors"],
 ];
