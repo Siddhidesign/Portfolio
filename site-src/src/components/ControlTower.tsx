@@ -1,8 +1,9 @@
 import type React from "react";
 import { useMemo, useRef, useState } from "react";
 import { sound } from "../hooks/useSound";
+import { FLIGHTS, LAB_PROOF } from "../data";
 
-type Law = { name: string; def: string; tryIt: string; page: string; Demo: () => React.JSX.Element };
+type Law = { id: string; name: string; def: string; tryIt: string; page: string; Demo: () => React.JSX.Element };
 
 function Jakob() {
   const flows: [string, string[]][] = [["FAMILIAR CHECK-IN", ["Find booking", "Select seat", "Bags", "Pay", "Boarding pass"]], ["NOVEL CHECK-IN", ["Pay", "Boarding pass", "Find booking", "Bags", "Select seat"]]];
@@ -32,11 +33,20 @@ function Miller() {
     <div className="dm-col"><h6>CHUNKED</h6><div className="mono" style={{ fontSize: 28, fontWeight: 700, letterSpacing: 2 }}>QX7 · R2K · M94T</div></div>
   </div><div className="dm-out">Same ten characters. Grouping them makes them stick.</div></>);
 }
-function Doherty() {
-  const [o, setO] = useState<{ t: string; ok: boolean }>({ t: "", ok: true });
-  const go = (ms: number) => { setO({ t: "Processing…", ok: false }); setTimeout(() => { setO({ t: `Checked in after ${ms} ms`, ok: true }); sound.tone(1000, 0.1); }, ms); };
-  return (<><div className="dm-row"><button className="dm-btn" onClick={() => go(80)}>Check in (80 ms)</button><button className="dm-btn" onClick={() => go(1600)}>Check in (1,600 ms)</button></div>
-    <div className="dm-out" style={{ color: o.ok ? "var(--ok)" : "var(--muted)" }}>{o.t}</div></>);
+function Prevent() {
+  const [late, setLate] = useState(""), [lateErr, setLateErr] = useState(""), [now, setNow] = useState("");
+  const ok = /^\d{5}$/.test(now);
+  return (<div className="dm-row" style={{ alignItems: "flex-start", gap: 24 }}>
+    <div className="dm-col"><h6>ERROR AFTER THE FACT</h6><div className="field-demo">
+      <label>Gate ZIP code</label><input value={late} className={lateErr ? "bad" : ""} onChange={(e) => { setLate(e.target.value); setLateErr(""); }} />
+      <button className="dm-btn" onClick={() => { setLateErr(/^\d{5}$/.test(late) ? "" : "Submission failed. Please review the form."); sound.tone(/^\d{5}$/.test(late) ? 1000 : 200, 0.1); }}>Submit</button>
+      <span className="err">{lateErr}</span></div></div>
+    <div className="dm-col"><h6>PREVENTED UP FRONT</h6><div className="field-demo">
+      <label>Gate ZIP code</label><span className="hint">5 digits, for example 43215</span>
+      <input value={now} inputMode="numeric" maxLength={5} className={now && !ok ? "bad" : ""} onChange={(e) => setNow(e.target.value.replace(/\D/g, ""))} />
+      <button className="dm-btn" disabled={!ok} style={{ opacity: ok ? 1 : 0.45 }} onClick={() => sound.tone(1000, 0.1)}>{ok ? "Submit ✓" : "Submit"}</button>
+      {now && !ok && <span className="err">{5 - now.length} more digit{5 - now.length === 1 ? "" : "s"}</span>}</div></div>
+  </div>);
 }
 function VonR() {
   const codes = ["UA210", "DL884", "AA101", "SM026", "WN455", "B6120", "AS330", "NK902"]; const [o, setO] = useState("Your flight is SM026. Click it.");
@@ -45,12 +55,12 @@ function VonR() {
 }
 
 const LAWS: Law[] = [
-  { name: "Jakob’s law", def: "People expect your product to work like the ones they already use.", tryIt: "Familiar flows feel instant. Reorder the steps and people slow down.", page: "A familiar top navigation and a standard boarding pass layout.", Demo: Jakob },
-  { name: "Fitts’s law", def: "The time to reach a target depends on its size and distance.", tryIt: "Click both boarding buttons and compare your time.", page: "Big pill buttons and a full-width print button at check-in.", Demo: Fitts },
-  { name: "Hick’s law", def: "The more choices you show, the longer a decision takes.", tryIt: "Find gate C3 in a short list, then in a long one.", page: "Check-in asks three small questions, never one big form.", Demo: Hick },
-  { name: "Miller’s law", def: "People hold roughly seven, plus or minus two, items in working memory.", tryIt: "Which confirmation code is easier to remember?", page: "Flight codes and stats are chunked into short groups.", Demo: Miller },
-  { name: "Doherty threshold", def: "Productivity soars when a system responds in under 400 ms.", tryIt: "Press both buttons. Feel the difference.", page: "Every click here responds immediately, before it animates.", Demo: Doherty },
-  { name: "Von Restorff effect", def: "The item that looks different is the one people remember.", tryIt: "Find your flight on the mini board.", page: "The flight that is boarding glows on the departures board.", Demo: VonR },
+  { id: "jakob", name: "Jakob’s law", def: "People expect your product to work like the ones they already use.", tryIt: "Same five steps, two orders. Which one could you do without thinking?", page: "A familiar top navigation and a standard boarding pass layout.", Demo: Jakob },
+  { id: "fitts", name: "Fitts’s law", def: "The time to reach a target depends on its size and distance.", tryIt: "Click both boarding buttons and compare your time.", page: "Big pill buttons, and a full-width print button at check-in.", Demo: Fitts },
+  { id: "hick", name: "Hick’s law", def: "The more choices you show, the longer a decision takes.", tryIt: "Find gate C3 in a short list, then in a long one.", page: "Check-in asks three small questions, never one big form.", Demo: Hick },
+  { id: "miller", name: "Miller’s law", def: "People hold only a handful of items in working memory, so chunk information into small groups.", tryIt: "Which confirmation code is easier to remember?", page: "Flight codes and stats are chunked into short groups.", Demo: Miller },
+  { id: "vonr", name: "Von Restorff effect", def: "The item that looks different is the one people remember.", tryIt: "Find your flight on the mini board.", page: "The flight that is boarding glows on the departures board.", Demo: VonR },
+  { id: "prevent", name: "Error prevention", def: "Stop the mistake before it happens, instead of explaining it afterwards.", tryIt: "Type a ZIP code into both fields. One waits to tell you; one never lets you get it wrong.", page: "Check-in won’t print until you hold the button, so nothing sends by accident.", Demo: Prevent },
 ];
 
 export default function ControlTower() {
@@ -62,7 +72,30 @@ export default function ControlTower() {
         <div className="num">LAW {String(i + 1).padStart(2, "0")} OF {String(LAWS.length).padStart(2, "0")}</div>
         <h3>{L.name}</h3><p className="def">{L.def}</p>
         <div className="demo"><L.Demo /></div>
-        <div className="why"><div><small>Try it</small><p>{L.tryIt}</p></div><div><small>On this page</small><p>{L.page}</p></div></div>
+        <p className="try"><b>TRY IT</b>{L.tryIt}</p>
+        <Proof id={L.id} />
+        <p className="page-note"><b>ON THIS PAGE</b>{L.page}</p>
+      </div>
+    </div>
+  );
+}
+
+/** "Tried and tested": where this law shows up in a real project, and what happened */
+function Proof({ id }: { id: string }) {
+  const entry = LAB_PROOF[id]; if (!entry) return null;
+  const { proof: p, also } = entry;
+  const f = FLIGHTS.find((x) => x.id === p.flight)!;
+  const a = also && FLIGHTS.find((x) => x.id === also.flight);
+  return (
+    <div className="proof" style={{ ["--c" as any]: f.color }}>
+      <div className="proof-head"><small>TRIED AND TESTED</small><span className="code">{f.code}</span><b>{f.title}</b><span className={`badge ${p.badge}`}>{p.badgeText}</span></div>
+      <div className="proof-body">
+        <div className="proof-stat"><b>{p.stat}</b><span>{p.statLabel}</span></div>
+        <p>{p.did}</p>
+      </div>
+      <div className="proof-foot">
+        <span>{a ? <>{a.id === f.id ? "Also: " : <>Also in <b style={{ color: "var(--ink)" }}>{a.title}</b>: </>}{also!.text}</> : null}</span>
+        <a href={f.link} target="_blank" rel="noopener">Read the case study →</a>
       </div>
     </div>
   );

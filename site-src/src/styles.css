@@ -429,3 +429,31 @@ section:not(.slot){scroll-margin-top:70px}
 .board-slot .lift{width:1180px}
 
 .printer-hint{position:absolute;left:30px;right:30px;top:120px;text-align:center;font:600 13px var(--f-mono);letter-spacing:1.5px;color:var(--muted)}
+/* UX lab: proof from real projects */
+.proof{margin-top:22px;border:1.5px solid color-mix(in srgb,var(--c) 35%,var(--line));border-left:8px solid var(--c);border-radius:16px;padding:20px 22px;background:color-mix(in srgb,var(--c) 5%,var(--paper))}
+.proof-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.proof-head small{font:700 11px var(--f-mono);letter-spacing:1.8px;color:var(--accent)}
+.proof-head .code{font:700 12px var(--f-mono);background:var(--c);color:#fff;padding:3px 8px;border-radius:5px}
+.proof-head b{font:700 22px var(--f-sign)}
+.badge{margin-left:auto;font:700 11px var(--f-mono);letter-spacing:1px;padding:5px 10px;border-radius:999px;text-transform:uppercase}
+.badge.tested{background:#DDF3E7;color:#17663F}.badge.measured{background:#DCE7F7;color:#1F4E79}
+.badge.found{background:#FDE9D9;color:#A4471A}.badge.concept{background:#FBF1CC;color:#7A5B00}
+[data-theme="dark"] .badge{filter:brightness(.9)}
+.proof-body{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:start}
+.proof-stat b{display:block;font:800 40px/1 var(--f-sign);color:var(--c)}
+[data-theme="dark"] .proof-stat b{color:color-mix(in srgb,var(--c) 50%,#fff)}
+.proof-stat span{font-size:13px;color:var(--ink-2)}
+.proof-body p{font-size:15px;color:var(--ink-2)}
+.proof-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--muted)}
+.proof-foot a{font-weight:600;color:var(--ink);white-space:nowrap}
+.law-card .page-note{margin-top:16px;font-size:13.5px;color:var(--muted)}
+.law-card .page-note b{font:700 11px var(--f-mono);letter-spacing:1.6px;color:var(--muted);margin-right:8px}
+.demo{margin:22px 0 0}
+.law-card .try{font-size:14px;color:var(--ink-2);margin-top:18px}
+.law-card .try b{font:700 11px var(--f-mono);letter-spacing:1.6px;color:var(--accent);margin-right:8px}
+.field-demo{display:flex;flex-direction:column;gap:6px;max-width:320px}
+.field-demo label{font-weight:600;font-size:14px}
+.field-demo input{font:500 16px var(--f-mono);padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink)}
+.field-demo input.bad{border-color:#D64545}
+.field-demo .hint{font-size:12.5px;color:var(--muted)}
+.field-demo .err{font-size:12.5px;color:#D64545}

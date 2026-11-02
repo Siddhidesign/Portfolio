@@ -73,7 +73,7 @@ export function FlightLog() {
 export function Lab() {
   return (
     <section id="laws"><div className="wrap">
-      <Head gate="D" label="Control tower" title="UX laws, tested live" lede="The principles behind my decisions. Pick one, try it yourself, then see where it shows up on this page." />
+      <Head gate="D" label="Control tower" title="UX laws, tested live" lede="Six principles I design by. Try each one, then see the real project where I used it and what testing showed." />
       <Reveal delay={0.2}><ControlTower /></Reveal>
     </div></section>
   );

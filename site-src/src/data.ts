@@ -207,3 +207,46 @@ export const INFO: { title: string; items: [string, string][] }[] = [
 
 export const PURPOSE: [string, string][] = [["Hello", "Just saying hi"], ["Collaborate", "Working on something"], ["Hiring", "For a UX role"]];
 export const SEATS: [string, string][] = [["Window", "Email"], ["Aisle", "LinkedIn"], ["Exit row", "GitHub"]];
+
+// =========================================================
+// UX LAB: each law backed by a real decision from a case study.
+// badge: "tested" | "measured" | "found" | "concept"
+// =========================================================
+export interface Proof { flight: string; badge: "tested" | "measured" | "found" | "concept"; badgeText: string; did: string; stat: string; statLabel: string; }
+export const LAB_PROOF: Record<string, { proof: Proof; also?: { flight: string; text: string } }> = {
+  jakob: {
+    proof: { flight: "ev", badge: "found", badgeText: "Found in testing · 10 drivers",
+      did: "Experienced drivers expected payment to work like Tesla’s: set up once, then automatic. Ours didn’t, and it showed. After testing, payment moved to a default method, with the pay button always on screen.",
+      stat: "109.66 s", statLabel: "for experienced drivers to charge and pay, the slowest task in testing" },
+    also: { flight: "ma", text: "5 sections sit in a bottom bar like a bank app, so there was less to learn." },
+  },
+  fitts: {
+    proof: { flight: "hd", badge: "concept", badgeText: "Concept · to be tested",
+      did: "Reporting an empty shelf hid behind a small three-dot menu. I replaced it with a labeled “Can’t find it?” button on the product card: a bigger target, right where the shopper is looking.",
+      stat: "Change 5", statLabel: "of 6 in the concept, designed around Fitts’s law" },
+    also: { flight: "irs", text: "Big tap targets and one main action per screen, part of the redesign that scored 78.25." },
+  },
+  hick: {
+    proof: { flight: "irs", badge: "tested", badgeText: "Tested · old app vs redesign",
+      did: "The old home screen offered 7 equal menu items. We cut it to 3 clear choices, the 3 things people open the app for: refund, payment, tax help.",
+      stat: "31.3 → 78.25", statLabel: "SUS score, old app against the redesign" },
+    also: { flight: "irs", text: "“Explore without signing in” became the main button. Nobody dropped off at login after the change." },
+  },
+  miller: {
+    proof: { flight: "jh", badge: "measured", badgeText: "Shipped · measured before and after",
+      did: "I owned the supplier-to-customer workflow. Taking a customer order became a 4-step sales order that staff finish at the counter or on the phone.",
+      stat: "40%", statLabel: "more efficient workflows, by time per order, on the shipped platform" },
+    also: { flight: "hd", text: "Questions buried in a paragraph became cards: 1 of 2, then 2 of 2." },
+  },
+  vonr: {
+    proof: { flight: "ma", badge: "tested", badgeText: "Tested · 2 rounds, 16 people",
+      did: "In round one, the AI sat in the bottom menu with everything else, and people missed it. We made it a floating chat bubble with its own gradient, so it stands apart from the menu.",
+      stat: "100%", statLabel: "finished the AI chat task in round two" },
+  },
+  prevent: {
+    proof: { flight: "jh", badge: "measured", badgeText: "Shipped · measured before and after",
+      did: "Stock problems only showed up after an order was approved, when it had already moved. We added a stock check before approving, instead of a one-click approve.",
+      stat: "27%", statLabel: "fewer order errors after launch" },
+    also: { flight: "irs", text: "Each field explains itself before you fill it in, with an example and a sample form." },
+  },
+};
