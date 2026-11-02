@@ -139,9 +139,9 @@ function BoardingPass() {
             <div className="stub in-seq">
               <div className="holo"><Plane /></div>
               <h4>BOARDING PASS</h4>
-              <div><h4>PASSENGER</h4><div style={{ font: "700 20px var(--f-sign)" }}>{PROFILE.surnameFirst}</div></div>
+              <div><h4>PASSENGER</h4><div style={{ font: "400 20px var(--f-sign)" }}>{PROFILE.surnameFirst}</div></div>
               <div className="grid2"><div><h4>FROM</h4><div className="big">{PROFILE.from.code}</div></div><div><h4>TO</h4><div className="big">{PROFILE.to.code}</div></div></div>
-              <div className="grid2"><div><h4>BOARDS</h4><div style={{ font: "700 18px var(--f-mono)" }}>NOW</div></div><div><h4>ZONE</h4><div style={{ font: "700 18px var(--f-mono)" }}>1</div></div></div>
+              <div className="grid2"><div><h4>BOARDS</h4><div style={{ font: "400 18px var(--f-mono)" }}>NOW</div></div><div><h4>ZONE</h4><div style={{ font: "400 18px var(--f-mono)" }}>1</div></div></div>
               <div className="barcode">{bars.map((b, i) => <i key={i} style={{ width: b.w, marginRight: b.m }} />)}</div>
             </div>
           </div>

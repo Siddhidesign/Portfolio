@@ -29,8 +29,8 @@ function Hick() {
 }
 function Miller() {
   return (<><div className="dm-row">
-    <div className="dm-col"><h6>UNCHUNKED</h6><div className="mono" style={{ fontSize: 28, fontWeight: 700, letterSpacing: 2 }}>QX7R2KM94T</div></div>
-    <div className="dm-col"><h6>CHUNKED</h6><div className="mono" style={{ fontSize: 28, fontWeight: 700, letterSpacing: 2 }}>QX7 · R2K · M94T</div></div>
+    <div className="dm-col"><h6>UNCHUNKED</h6><div className="mono" style={{ fontSize: 28, letterSpacing: 2 }}>QX7R2KM94T</div></div>
+    <div className="dm-col"><h6>CHUNKED</h6><div className="mono" style={{ fontSize: 28, letterSpacing: 2 }}>QX7 · R2K · M94T</div></div>
   </div><div className="dm-out">Same ten characters. Grouping them makes them stick.</div></>);
 }
 function Prevent() {

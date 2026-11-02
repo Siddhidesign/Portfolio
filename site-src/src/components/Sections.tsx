@@ -54,7 +54,7 @@ export function FlightLog() {
           <div><small>Pilot</small><b>{PROFILE.name}</b></div><div><small>First departure</small><b>Mumbai</b></div>
           <div><small>Next destination</small><b>Anywhere in the US</b></div><div><small>Status</small><b style={{ color: "var(--sign)" }}>In flight</b></div>
         </div>
-        <div className="lb-row" style={{ cursor: "default", font: "600 11px var(--f-mono)", letterSpacing: 1.6, color: "var(--muted)" }}><span>DATE</span><span>LEG</span><span style={{ textAlign: "right" }}>MILES EARNED</span><span /></div>
+        <div className="lb-row" style={{ cursor: "default", font: "400 11px var(--f-mono)", letterSpacing: 1.6, color: "var(--muted)" }}><span>DATE</span><span>LEG</span><span style={{ textAlign: "right" }}>MILES EARNED</span><span /></div>
         <div ref={ref}>
           {LOG.map((l, i) => (
             <div key={l.leg}>
