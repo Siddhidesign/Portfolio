@@ -8,9 +8,9 @@ const SITE = "https://siddhidesign.github.io/Portfolio/";
 export const PROFILE = {
   name: "Siddhi Manche",
   surnameFirst: "MANCHE / SIDDHI",
-  role: "AI UX Designer · B2B workflow optimization",
+  role: "UX Designer · B2B workflow optimization, now with AI",
   focus: "B2B workflow tools, employee research, agentic AI",
-  headline: "I optimized B2B workflows before AI by learning how employees really work. Now I research and design with AI, so those workflows can run faster and automate the repetitive steps.",
+  headline: "I make B2B workflows faster. I learned how by working with employees before AI, and now I design the AI that takes over their repetitive steps.",
   promise:
     "I start with research, from store visits and interviews to usability tests. Then I design for customers, the staff who serve them, and the design systems that keep both on brand. I’ve written production HTML and CSS myself, so what I design can be built.",
   photo: SITE + "assets/v2/siddhi-grad.jpg",
@@ -28,8 +28,8 @@ export const CONTACT = {
 };
 
 export const HERO_STATS: [string, string][] = [
-  ["5 → 1", "workflow: systems combined, before AI"],
-  ["24", "research: people in an IRB study"],
+  ["27%", "workflow: fewer order errors, shipped"],
+  ["40%", "workflow: faster per order"],
   ["6 of 8", "AI: testers fully trusted it"],
 ];
 
@@ -51,9 +51,11 @@ export const PILLARS: { id: Pillar; code: string; label: string; short: string; 
   { id: "ai", code: "AIX", label: "Agentic AI UX", short: "AI", years: "Now", color: "#6B4FA0",
     line: "Designing AI people trust, and building with AI every day.",
     learned: "AI should do the repetitive steps and explain itself. People keep the final say.",
-    stat: ["6 of 8", "testers fully trusted the AI’s advice"] },
+    stat: ["2", "sites built with an AI coding assistant: the Omkar rebuild and this one"] },
 ];
 export const DESTINATION = "B2B workflows where AI handles the repetitive steps and employees stay in control.";
+export const PROBLEM = "Employees lose hours juggling scattered systems. At Jai Hind it was 5, and nobody could follow an order from start to finish.";
+export const NEXT_FLIGHT = "The Jai Hind order workflow, redesigned for an AI agent that drafts reorders and flags stock conflicts, with staff approving.";
 
 export type Status = "board" | "landed" | "ontime";
 export interface Flight {
@@ -103,7 +105,7 @@ export const FLIGHTS: Flight[] = [
     from: "People who overspend first and regret later",
     to: "An AI budgeting coach that speaks up before you spend",
     role: "IRB-approved study, University of Michigan-Dearborn",
-    desc: "24 people in interviews and focus groups shaped the coach. Two rounds of testing took exploration success from 22% to 100%.",
+    desc: "24 people in interviews and focus groups shaped the coach. The lesson I now carry into agentic workflows: people trust AI when it explains itself and leaves them the final say.",
     methods: ["IRB study", "Interviews", "Focus groups", "Usability testing", "AI trust"],
     stats: [["24", "participants"], ["22% → 100%", "exploration success"], ["6 of 8", "fully trusted the AI"]],
     image: SITE + "assets/live/anchor.jpg", link: SITE + "cases/anchor.html",

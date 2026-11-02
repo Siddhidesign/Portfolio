@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FLIGHTS, PROFILE, PROCESS, HERO_STATS, PILLARS, DESTINATION, type Flight, type Pillar } from "../data";
+import { FLIGHTS, PROFILE, PROCESS, HERO_STATS, PILLARS, DESTINATION, PROBLEM, NEXT_FLIGHT, type Flight, type Pillar } from "../data";
 import { sound } from "../hooks/useSound";
 import { useClock } from "../hooks/useHooks";
 import { Plane, Routes, SplitFlap, Kicker } from "./Shared";
@@ -191,7 +191,7 @@ function Itinerary() {
     <div ref={ref} className={`itin ${go ? "go" : ""}`}>
       <div className="board-title">
         <div><Kicker gate="A" label="Itinerary" /><h2 className="h2">From developer to agentic AI UX</h2></div>
-        <p className="itin-lede">I didn’t start with AI. I started by building websites, then learned workflows on the shop floor, then studied research in depth. AI made each of those stronger.</p>
+        <p className="itin-lede"><b className="prob">THE PROBLEM</b>{PROBLEM} I didn’t start with AI. I learned to fix this by building, then by working with employees, then by studying research. AI makes each step stronger.</p>
       </div>
       <div className="legs">
         <div className="legpath"><i /><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" transform="rotate(90 12 12)" /></svg></div>
@@ -207,6 +207,7 @@ function Itinerary() {
         ))}
       </div>
       <div className="dest"><span>FINAL DESTINATION</span><b>{DESTINATION}</b></div>
+      <div className="next"><span>NEXT FLIGHT · PLANNED</span><p>{NEXT_FLIGHT}</p></div>
     </div>
   );
 }

@@ -515,3 +515,10 @@ section:not(.slot){scroll-margin-top:70px}
 .dest b{font:400 22px var(--f-sign)}
 .routes-pick{grid-template-columns:repeat(5,1fr);max-width:720px}
 .pass{height:720px}
+.itin-lede .prob{display:block;font:400 11px var(--f-mono);letter-spacing:2px;color:var(--accent);margin-bottom:4px}
+.itin-lede{max-width:470px;font-size:14.5px}
+.next{margin-top:10px;display:flex;align-items:center;gap:16px;border:1.5px dashed var(--line);border-radius:12px;padding:10px 20px}
+.next span{font:400 12px var(--f-mono);letter-spacing:2px;color:#6B4FA0;white-space:nowrap}
+.next p{font-size:14px;color:var(--ink-2)}
+.legs .leg{padding:14px 16px 16px}
+.leg-code{font-size:40px}
