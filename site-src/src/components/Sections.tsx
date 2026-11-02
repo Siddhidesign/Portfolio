@@ -48,11 +48,11 @@ export function FlightLog() {
   }, [seen, printed]);
   return (
     <section id="story"><div className="wrap">
-      <Head gate="C" label="Flight log" title="Engineering, then workflows, then AI" lede="Every leg prints as you reach it. Open a line for the story behind it." />
+      <Head gate="C" label="Flight log" title="Developer, then workflows, then research, then AI" lede="Every leg prints as you reach it. Open a line for the story behind it." />
       <Reveal className="logbook" delay={0.2}>
         <div className="lb-head">
           <div><small>Pilot</small><b>{PROFILE.name}</b></div><div><small>First departure</small><b>Mumbai</b></div>
-          <div><small>Next destination</small><b>Anywhere in the US</b></div><div><small>Status</small><b style={{ color: "var(--sign)" }}>In flight</b></div>
+          <div><small>Next destination</small><b>Agentic AI UX, B2B</b></div><div><small>Status</small><b style={{ color: "var(--sign)" }}>In flight</b></div>
         </div>
         <div className="lb-row" style={{ cursor: "default", font: "400 11px var(--f-mono)", letterSpacing: 1.6, color: "var(--muted)" }}><span>DATE</span><span>LEG</span><span style={{ textAlign: "right" }}>MILES EARNED</span><span /></div>
         <div ref={ref}>
@@ -250,7 +250,7 @@ export function CheckIn() {
   );
   return (
     <section id="contact"><div className="wrap">
-      <Head gate="K" label="Check-in" title="Let’s check you in" lede="Open to UX design roles in workflow tools, consumer products and AI, across the US. Pick a reason for travel, pick a seat for the channel, then hold to print." />
+      <Head gate="K" label="Check-in" title="Let’s check you in" lede="Open to AI UX and product design roles on B2B workflow tools, across the US. Pick a reason for travel, pick a seat for the channel, then hold to print." />
       <div className="counter">
         <Reveal className="kiosk" delay={0.1}><div className="kiosk-screen">
           <h4>1. PURPOSE OF TRAVEL</h4><Opts list={PURPOSE} val={pur} set={setPur} />

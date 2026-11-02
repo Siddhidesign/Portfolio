@@ -487,3 +487,31 @@ section:not(.slot){scroll-margin-top:70px}
 .back .allow{overflow:auto}
 .back .allow li{padding:5px 0;font-size:14px}
 .pass{height:700px}.promise{font-size:16px}.board-title .h2{font-size:42px}
+/* itinerary: the career route */
+.itin .board-title{margin-bottom:22px}
+.itin-lede{max-width:430px;color:var(--ink-2);font-size:15.5px}
+.legs{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.legpath{position:absolute;left:4%;right:4%;top:62px;height:2px;z-index:0}
+.legpath i{position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--ink-2) 0 7px,transparent 7px 14px);transform:scaleX(0);transform-origin:0 50%;transition:transform 1.8s var(--ease) .2s}
+.itin.go .legpath i{transform:scaleX(1)}
+.legpath svg{position:absolute;top:-12px;left:0;width:24px;height:24px;fill:var(--accent);transition:left 1.8s var(--ease) .2s}
+.itin.go .legpath svg{left:calc(100% - 24px)}
+.leg{position:relative;z-index:1;display:flex;flex-direction:column;text-decoration:none;background:var(--paper);border:1.5px solid color-mix(in srgb,var(--c) 35%,var(--line));border-top:6px solid var(--c);border-radius:16px;padding:16px 18px 18px;opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease) var(--d),transform .8s var(--ease) var(--d),box-shadow .25s}
+.itin.go .leg{opacity:1;transform:none}
+.leg:hover{box-shadow:var(--shadow)}
+.leg-top{display:flex;justify-content:space-between;font:400 11px var(--f-mono);letter-spacing:1.6px;color:var(--muted)}
+.leg-code{font:400 46px/1 var(--f-sign);color:var(--c);margin:10px 0 2px}
+[data-theme="dark"] .leg-code{color:color-mix(in srgb,var(--c) 55%,#fff)}
+.leg-label{font-weight:700;font-size:16px}
+.leg-line{font-size:13.5px;color:var(--ink-2);margin-top:6px;line-height:1.45}
+.leg-learned{font-size:13px;color:var(--ink-2);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);line-height:1.45}
+.leg-learned b{display:block;font:400 10.5px var(--f-mono);letter-spacing:1.6px;color:var(--accent)}
+.leg-stat{margin-top:auto;padding-top:12px}
+.leg-stat b{display:block;font:400 30px/1 var(--f-sign);color:var(--c)}
+[data-theme="dark"] .leg-stat b{color:color-mix(in srgb,var(--c) 55%,#fff)}
+.leg-stat span{font-size:12px;color:var(--muted);line-height:1.3;display:block;margin-top:3px}
+.dest{margin-top:18px;display:flex;align-items:center;gap:16px;background:var(--sign);color:var(--sign-ink);border-radius:12px;padding:14px 20px}
+.dest span{font:400 12px var(--f-mono);letter-spacing:2px;white-space:nowrap}
+.dest b{font:400 22px var(--f-sign)}
+.routes-pick{grid-template-columns:repeat(5,1fr);max-width:720px}
+.pass{height:720px}

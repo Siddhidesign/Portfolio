@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FLIGHTS, PROFILE, PROCESS, HERO_STATS, PILLARS, type Flight, type Pillar } from "../data";
+import { FLIGHTS, PROFILE, PROCESS, HERO_STATS, PILLARS, DESTINATION, type Flight, type Pillar } from "../data";
 import { sound } from "../hooks/useSound";
 import { useClock } from "../hooks/useHooks";
 import { Plane, Routes, SplitFlap, Kicker } from "./Shared";
@@ -67,9 +67,10 @@ export default function Deck({ onRail }: { onRail: (on: boolean, active: number)
   return (
     <div className="deck" ref={deckRef}>
       <section className="slot hero" id="top" style={{ ["--i" as any]: 0 }}><div className="lift"><div className="fit"><BoardingPass /></div></div></section>
-      <section className="slot board-slot" id="work" style={{ ["--i" as any]: 1 }}><div className="lift"><div className="fit"><Departures /></div></div></section>
+      <section className="slot board-slot" id="route" style={{ ["--i" as any]: 1 }}><div className="lift"><div className="fit"><Itinerary /></div></div></section>
+      <section className="slot board-slot" id="work" style={{ ["--i" as any]: 2 }}><div className="lift"><div className="fit"><Departures /></div></div></section>
       {FLIGHTS.map((f, i) => (
-        <section className="slot" id={`n-${f.id}`} key={f.id} style={{ ["--i" as any]: i + 2 }} aria-label={f.title}>
+        <section className="slot" id={`n-${f.id}`} key={f.id} style={{ ["--i" as any]: i + 3 }} aria-label={f.title}>
           <div className="lift"><div className="fit"><Ticket f={f} i={i} /></div></div>
         </section>
       ))}
@@ -83,7 +84,7 @@ function BoardingPass() {
   const [scanning, setScanning] = useState(false);
   const [msg, setMsg] = useState(false);
   const clock = useClock();
-  const micro = "SIDDHI MANCHE · WORKFLOW DESIGN · CONSUMER NAVIGATION · AI UX · BOM ✈ DTW ✈ USA · ".repeat(12);
+  const micro = "SIDDHI MANCHE · DEV ✈ WORKFLOW DESIGN ✈ AI RESEARCH ✈ AGENTIC AI UX · B2B WORKFLOW OPTIMIZATION · ".repeat(12);
   const bars = useMemo(() => { let s = 7; const r = () => (s = (s * 9301 + 49297) % 233280) / 233280;
     return Array.from({ length: 58 }, () => ({ w: 1 + Math.floor(r() * 3.2), m: r() > 0.6 ? 2 : 0 })); }, []);
 
@@ -129,7 +130,7 @@ function BoardingPass() {
                   {HERO_STATS.map(([v, l]) => { const [k, rest] = l.split(": "); return <div className="field" key={l} title={rest}><small>{k}</small><b>{v}</b><em>{rest}</em></div>; })}
                 </div>
                 <div className="sig in-seq">{PROFILE.name}</div>
-                <div className="sig-line in-seq d4">ROUTES: WORKFLOWS · NAVIGATION · AI. VALID ACROSS THE US.</div>
+                <div className="sig-line in-seq d4">VIA WORKFLOW DESIGN AND AI RESEARCH. VALID FOR B2B ACROSS THE US.</div>
                 <div className="cta-row in-seq d5">
                   <button className="btn" onClick={scan}>Scan pass</button>
                   <button className="btn solid" onClick={flip}>Turn over</button>
@@ -141,7 +142,8 @@ function BoardingPass() {
               <h4>BOARDING PASS</h4>
               <div><h4>PASSENGER</h4><div style={{ font: "400 20px var(--f-sign)" }}>{PROFILE.surnameFirst}</div></div>
               <div className="grid2"><div><h4>FROM</h4><div className="big">{PROFILE.from.code}</div></div><div><h4>TO</h4><div className="big">{PROFILE.to.code}</div></div></div>
-              <div className="grid2"><div><h4>BOARDS</h4><div style={{ font: "400 18px var(--f-mono)" }}>NOW</div></div><div><h4>ZONE</h4><div style={{ font: "400 18px var(--f-mono)" }}>1</div></div></div>
+              <div><h4>VIA</h4><div style={{ font: "400 18px var(--f-mono)" }}>WFD ✈ UXR</div></div>
+              <div className="grid2"><div><h4>BOARDS</h4><div style={{ font: "400 18px var(--f-mono)" }}>NOW</div></div><div><h4>FOCUS</h4><div style={{ font: "400 18px var(--f-mono)" }}>B2B</div></div></div>
               <div className="barcode">{bars.map((b, i) => <i key={i} style={{ width: b.w, marginRight: b.m }} />)}</div>
             </div>
           </div>
@@ -154,8 +156,8 @@ function BoardingPass() {
                 <button className="btn solid" style={{ marginTop: 22 }} onClick={flip}>Turn back</button>
               </div>
               <div className="allow">
-                <h4 className="mono" style={{ fontSize: 12, letterSpacing: 2, color: "var(--muted)", marginBottom: 10 }}>THREE ROUTES</h4>
-                <div className="pp-routes">{PILLARS.map((p) => <p key={p.id} style={{ ["--c" as any]: p.color }}><b>{p.label}</b>{p.line}</p>)}</div>
+                <h4 className="mono" style={{ fontSize: 12, letterSpacing: 2, color: "var(--muted)", marginBottom: 10 }}>THE ROUTE</h4>
+                <div className="pp-routes">{PILLARS.map((p) => <p key={p.id} style={{ ["--c" as any]: p.color }}><b>{p.code} · {p.label}</b>{p.line}</p>)}</div>
                 <h4 className="mono" style={{ fontSize: 12, letterSpacing: 2, color: "var(--muted)", margin: "14px 0 6px" }}>BAGGAGE ALLOWANCE</h4>
                 <ul>
                   <li><span>Order errors cut, Jai Hind</span><b>27%</b></li>
@@ -179,6 +181,36 @@ function BoardingPass() {
   );
 }
 
+/* ---------------- The route: developer to agentic AI UX ---------------- */
+function Itinerary() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [go, setGo] = useState(false);
+  useEffect(() => { const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setGo(true); io.disconnect(); } }, { threshold: 0.4 });
+    io.observe(ref.current!); return () => io.disconnect(); }, []);
+  return (
+    <div ref={ref} className={`itin ${go ? "go" : ""}`}>
+      <div className="board-title">
+        <div><Kicker gate="A" label="Itinerary" /><h2 className="h2">From developer to agentic AI UX</h2></div>
+        <p className="itin-lede">I didn’t start with AI. I started by building websites, then learned workflows on the shop floor, then studied research in depth. AI made each of those stronger.</p>
+      </div>
+      <div className="legs">
+        <div className="legpath"><i /><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" transform="rotate(90 12 12)" /></svg></div>
+        {PILLARS.map((p, i) => (
+          <a key={p.id} className="leg" href="#work" style={{ ["--c" as any]: p.color, ["--d" as any]: `${0.25 + i * 0.35}s` }}>
+            <div className="leg-top"><span className="leg-n">LEG {i + 1}</span><span className="leg-y">{p.years}</span></div>
+            <div className="leg-code">{p.code}</div>
+            <div className="leg-label">{p.label}</div>
+            <p className="leg-line">{p.line}</p>
+            <p className="leg-learned"><b>LEARNED</b>{p.learned}</p>
+            <div className="leg-stat"><b>{p.stat[0]}</b><span>{p.stat[1]}</span></div>
+          </a>
+        ))}
+      </div>
+      <div className="dest"><span>FINAL DESTINATION</span><b>{DESTINATION}</b></div>
+    </div>
+  );
+}
+
 /* ---------------- Departures board ---------------- */
 function Departures() {
   const clock = useClock();
@@ -191,19 +223,19 @@ function Departures() {
     <div ref={ref}>
       <i className="dim" style={{ borderRadius: 28, zIndex: 20 }} />
       <div className="board-title">
-        <div><Kicker gate="A" label="Departures" /><h2 className="h2">Three routes, {FLIGHTS.length} flights</h2></div>
+        <div><Kicker gate="A" label="Departures" /><h2 className="h2">Every flight on the route</h2></div>
         <div className="routes-pick">
-          <button className={route === "all" ? "on" : ""} onClick={() => { setRoute("all"); sound.click(); }}><b>All flights</b><span>Every project, in order</span></button>
+          <button className={route === "all" ? "on" : ""} onClick={() => { setRoute("all"); sound.click(); }}><b>All flights</b><span>In story order</span></button>
           {PILLARS.map((p) => (
             <button key={p.id} className={route === p.id ? "on" : ""} style={{ ["--c" as any]: p.color }} onClick={() => { setRoute(p.id); sound.click(); }}>
-              <b><i />{p.label}</b><span>{p.line}</span>
+              <b><i />{p.code} · {p.label}</b><span>{p.years}</span>
             </button>
           ))}
         </div>
       </div>
       <div className="board" style={{ position: "relative" }}>
         <div className="board-head"><h3>DEPARTURES</h3><div className="clock">{clock}</div></div>
-        <div className="brow head"><span>FLIGHT</span><span>DESTINATION</span><span>ROUTE</span><span>GATE</span><span>STATUS</span></div>
+        <div className="brow head"><span>FLIGHT</span><span>DESTINATION</span><span>LEG</span><span>GATE</span><span>STATUS</span></div>
         {FLIGHTS.map((f) => (
           <a key={f.id} className={`brow ${f.status === "board" ? "hl" : ""} ${route !== "all" && !f.pillars.includes(route) ? "off" : ""}`} href={`#n-${f.id}`} onMouseEnter={sound.click}>
             <SplitFlap text={f.code.replace(" ", "")} len={6} run={run} />

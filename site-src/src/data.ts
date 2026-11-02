@@ -8,15 +8,15 @@ const SITE = "https://siddhidesign.github.io/Portfolio/";
 export const PROFILE = {
   name: "Siddhi Manche",
   surnameFirst: "MANCHE / SIDDHI",
-  role: "UX Designer · Workflows, navigation and AI",
-  focus: "Workflow tools for teams, easy navigation for customers, and AI-powered products",
-  headline: "I make complex workflows simple for the teams who run them, and easy to navigate for the customers they serve. Now I research, design and build with AI.",
+  role: "AI UX Designer · B2B workflow optimization",
+  focus: "B2B workflow tools, employee research, agentic AI",
+  headline: "I optimized B2B workflows before AI by learning how employees really work. Now I research and design with AI, so those workflows can run faster and automate the repetitive steps.",
   promise:
     "I start with research, from store visits and interviews to usability tests. Then I design for customers, the staff who serve them, and the design systems that keep both on brand. I’ve written production HTML and CSS myself, so what I design can be built.",
   photo: SITE + "assets/v2/siddhi-grad.jpg",
   photoAlt: "Siddhi Manche in her University of Michigan-Dearborn graduation gown",
-  from: { code: "BOM", city: "Mumbai" },
-  to: { code: "USA", city: "Open across the US" },
+  from: { code: "DEV", city: "Front-end developer" },
+  to: { code: "AIX", city: "Agentic AI UX" },
   status: "Open to roles across the US",
 };
 
@@ -28,18 +28,32 @@ export const CONTACT = {
 };
 
 export const HERO_STATS: [string, string][] = [
-  ["27%", "workflows: fewer order errors"],
-  ["7 → 3", "navigation: home choices, IRS2Go"],
+  ["5 → 1", "workflow: systems combined, before AI"],
+  ["24", "research: people in an IRB study"],
   ["6 of 8", "AI: testers fully trusted it"],
 ];
 
-// The three things the whole portfolio proves. Each flight belongs to one or more.
-export type Pillar = "workflow" | "nav" | "ai";
-export const PILLARS: { id: Pillar; label: string; short: string; color: string; line: string }[] = [
-  { id: "workflow", label: "Workflow design", short: "WORKFLOW", color: "#1F4E79", line: "Internal tools and systems that cut steps, errors and time for the teams doing the work." },
-  { id: "nav", label: "Consumer navigation", short: "NAVIGATION", color: "#E8563A", line: "Fewer choices, clearer labels and paths customers follow without thinking." },
-  { id: "ai", label: "AI UX", short: "AI", color: "#6B4FA0", line: "Designing AI people trust, and using AI to research, prototype and build faster." },
+// THE ROUTE: the four legs of the career story. Every flight belongs to one or more legs.
+export type Pillar = "dev" | "workflow" | "research" | "ai";
+export const PILLARS: { id: Pillar; code: string; label: string; short: string; years: string; color: string; line: string; learned: string; stat: [string, string] }[] = [
+  { id: "dev", code: "DEV", label: "Developer", short: "DEV", years: "2022", color: "#8A5A2B",
+    line: "Built a B2B catalog website in code.",
+    learned: "What is possible in the browser, and what a developer needs from a design.",
+    stat: ["50+", "product pages built in HTML, CSS and JavaScript"] },
+  { id: "workflow", code: "WFD", label: "Workflow designer", short: "WORKFLOW", years: "2023 to 2025", color: "#1F4E79",
+    line: "Optimized B2B workflows before AI was in the market.",
+    learned: "Workflows are people. I visited stores and watched employees move orders before I drew a screen.",
+    stat: ["27%", "fewer order errors on the shipped staff portal"] },
+  { id: "research", code: "UXR", label: "AI-assisted researcher", short: "RESEARCH", years: "2024 to 2026", color: "#2E7D6B",
+    line: "M.S. in Human-Centered Design, with research done in depth and with AI.",
+    learned: "How to run real research: IRB studies, focus groups, usability tests, and AI to analyze faster.",
+    stat: ["24", "people in an IRB-approved study"] },
+  { id: "ai", code: "AIX", label: "Agentic AI UX", short: "AI", years: "Now", color: "#6B4FA0",
+    line: "Designing AI people trust, and building with AI every day.",
+    learned: "AI should do the repetitive steps and explain itself. People keep the final say.",
+    stat: ["6 of 8", "testers fully trusted the AI’s advice"] },
 ];
+export const DESTINATION = "B2B workflows where AI handles the repetitive steps and employees stay in control.";
 
 export type Status = "board" | "landed" | "ontime";
 export interface Flight {
@@ -51,29 +65,7 @@ export interface Flight {
 // Flights = projects, in the order you want them shown
 export const FLIGHTS: Flight[] = [
   {
-    id: "jh", code: "JH 2023", color: "#1F4E79", type: "Internal tool", pillars: ["workflow"] as Pillar[], gate: "A1", status: "landed",
-    title: "Jai Hind staff portal", tagline: "Product UX Designer · Feb 2023 to Jul 2024 · Mumbai",
-    from: "Store staff juggling 5 separate systems to move an order from supplier to customer",
-    to: "One order platform for the whole supplier-to-customer workflow",
-    role: "Owned the supplier-to-customer workflow on a team of 3 designers",
-    desc: "I started with store visits and stakeholder interviews, then designed the order platform that replaced 5 systems and cut order errors 27%.",
-    methods: ["Store visits", "Stakeholder interviews", "Task analysis", "Workflows", "Dashboards"],
-    stats: [["27%", "fewer order errors"], ["40%", "faster per order"], ["5 → 1", "systems replaced"]],
-    image: SITE + "assets/jaihind/jh-13-final-dashboard.jpg", link: SITE + "cases/jaihind.html",
-  },
-  {
-    id: "fm", code: "FM 2025", color: "#2E7D6B", type: "Design system", pillars: ["workflow"] as Pillar[], gate: "A2", status: "landed",
-    title: "FindMe design system", tagline: "UX/UI Designer, internship · May to Aug 2025 · New York",
-    from: "Two products drifting apart, screen by screen",
-    to: "A shared library of 25+ components used across both",
-    role: "Grew the component library and supported research",
-    desc: "I grew a 25+ component library across 2 products and supported 12+ user interviews and usability tests, tagged in Dovetail.",
-    methods: ["Component library", "Design tokens", "User interviews", "Usability tests", "Dovetail"],
-    stats: [["25+", "components"], ["2", "products"], ["12+", "interviews and tests"]],
-    image: SITE + "assets/findme-logo.svg", link: SITE + "cases/findme.html",
-  },
-  {
-    id: "ol", code: "OL 2022", color: "#8A5A2B", type: "Front-end", pillars: ["nav", "ai"] as Pillar[], gate: "A3", status: "landed",
+    id: "ol", code: "OL 2022", color: "#8A5A2B", type: "Front-end", pillars: ["dev", "ai"] as Pillar[], gate: "A1", status: "landed",
     title: "Omkar Labels catalog", tagline: "Junior Front-End Developer, part-time · May 2022 to Jan 2023 · Mumbai",
     from: "A care label maker needing a large catalog kept current",
     to: "A catalog built around the buyer’s questions, rebuilt in 2026 with an AI coding assistant",
@@ -84,7 +76,29 @@ export const FLIGHTS: Flight[] = [
     image: SITE + "assets/live/omkar.jpg", link: SITE + "cases/omkar.html",
   },
   {
-    id: "ma", code: "MA 2026", color: "#6B4FA0", type: "AI · Fintech", pillars: ["ai"] as Pillar[], gate: "B1", status: "landed",
+    id: "jh", code: "JH 2023", color: "#1F4E79", type: "Internal tool", pillars: ["workflow"] as Pillar[], gate: "A2", status: "landed",
+    title: "Jai Hind staff portal", tagline: "Product UX Designer · Feb 2023 to Jul 2024 · Mumbai",
+    from: "Store staff juggling 5 separate systems to move an order from supplier to customer",
+    to: "One order platform for the whole supplier-to-customer workflow",
+    role: "Owned the supplier-to-customer workflow on a team of 3 designers",
+    desc: "Before AI was in the market, I learned the workflow on the shop floor: store visits, staff interviews, watching how orders really move. Then I designed the order platform that replaced 5 systems and cut order errors 27%.",
+    methods: ["Store visits", "Stakeholder interviews", "Task analysis", "Workflows", "Dashboards"],
+    stats: [["27%", "fewer order errors"], ["40%", "faster per order"], ["5 → 1", "systems replaced"]],
+    image: SITE + "assets/jaihind/jh-13-final-dashboard.jpg", link: SITE + "cases/jaihind.html",
+  },
+  {
+    id: "fm", code: "FM 2025", color: "#2E7D6B", type: "Design system", pillars: ["workflow"] as Pillar[], gate: "A3", status: "landed",
+    title: "FindMe design system", tagline: "UX/UI Designer, internship · May to Aug 2025 · New York",
+    from: "Two products drifting apart, screen by screen",
+    to: "A shared library of 25+ components used across both",
+    role: "Grew the component library and supported research",
+    desc: "I grew a 25+ component library across 2 products and supported 12+ user interviews and usability tests, tagged in Dovetail.",
+    methods: ["Component library", "Design tokens", "User interviews", "Usability tests", "Dovetail"],
+    stats: [["25+", "components"], ["2", "products"], ["12+", "interviews and tests"]],
+    image: SITE + "assets/findme-logo.svg", link: SITE + "cases/findme.html",
+  },
+  {
+    id: "ma", code: "MA 2026", color: "#6B4FA0", type: "AI · Fintech", pillars: ["research", "ai"] as Pillar[], gate: "B1", status: "landed",
     title: "Money Anchor", tagline: "Master’s capstone · UX researcher and designer · 2025 to 2026",
     from: "People who overspend first and regret later",
     to: "An AI budgeting coach that speaks up before you spend",
@@ -95,7 +109,7 @@ export const FLIGHTS: Flight[] = [
     image: SITE + "assets/live/anchor.jpg", link: SITE + "cases/anchor.html",
   },
   {
-    id: "irs", code: "IR 2GO", color: "#2F5DA8", type: "Gov tech · a11y", pillars: ["nav"] as Pillar[], gate: "B2", status: "landed",
+    id: "irs", code: "IR 2GO", color: "#2F5DA8", type: "Gov tech · a11y", pillars: ["research"] as Pillar[], gate: "B2", status: "landed",
     title: "IRS2Go", tagline: "HCI course, team of 5 · Winter 2025",
     from: "The IRS’s official app, scoring 31.3 on usability",
     to: "A redesign that scored 78.25, with no account needed to check a refund",
@@ -106,7 +120,7 @@ export const FLIGHTS: Flight[] = [
     image: SITE + "assets/live/ir2go.jpg", link: SITE + "cases/ir2go.html",
   },
   {
-    id: "ev", code: "EV 2024", color: "#C27A12", type: "Mobility", pillars: ["nav"] as Pillar[], gate: "C1", status: "landed",
+    id: "ev", code: "EV 2024", color: "#C27A12", type: "Mobility", pillars: ["research"] as Pillar[], gate: "B3", status: "landed",
     title: "EV charging app", tagline: "Fall 2024",
     from: "A different app for every charging network",
     to: "One app for every charger",
@@ -117,7 +131,7 @@ export const FLIGHTS: Flight[] = [
     image: SITE + "assets/live/ev.jpg", link: SITE + "cases/ev.html",
   },
   {
-    id: "hd", code: "HD 2026", color: "#E8563A", type: "AI concept", pillars: ["ai", "nav"] as Pillar[], gate: "C2", status: "board",
+    id: "hd", code: "HD 2026", color: "#E8563A", type: "AI concept", pillars: ["ai"] as Pillar[], gate: "C1", status: "board",
     title: "Magic Apron redesign", tagline: "Self-initiated concept · Oct 2026",
     from: "The Home Depot’s AI assistant answering differently at home and in Store Mode",
     to: "A concept with 6 changes, grounded in 1 interview",
@@ -145,8 +159,8 @@ export const LOG = [
     story: "Built and kept up a 50+ page catalog website in HTML, CSS and JavaScript, working in Git with 3 developers." },
   { date: "Feb 2023", leg: "Product UX Designer", where: "Jai Hind Group, Mumbai", miles: "+ product",
     story: "From store visits and stakeholder interviews to an order platform that replaced 5 systems and cut order errors 27%." },
-  { date: "2024", leg: "M.S., Human-Centered Design and Engineering", where: "University of Michigan-Dearborn", miles: "+ research",
-    story: "Where research became the first step of everything: IRB studies, focus groups, SUS, and the Money Anchor capstone." },
+  { date: "2024", leg: "M.S., Human-Centered Design and Engineering", where: "University of Michigan-Dearborn", miles: "+ AI research",
+    story: "Where I learned UX research in depth, and learned to use AI in analysis and user research: IRB studies, focus groups, SUS, and the Money Anchor capstone." },
   { date: "May 2025", leg: "UX/UI Designer, internship", where: "FindMe LLC, New York", miles: "+ systems",
     story: "Grew a 25+ component library across 2 products and supported 12+ interviews and usability tests." },
   { date: "Sep 2025", leg: "Human-Centered Design Associate", where: "University of Michigan-Dearborn", miles: "+ leadership",
