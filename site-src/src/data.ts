@@ -28,8 +28,8 @@ export const CONTACT = {
 };
 
 export const HERO_STATS: [string, string][] = [
-  ["150+", "research: app reviews read"],
-  ["24", "research: people in an IRB study"],
+  ["16,000+", "AI research: EV reviews analyzed"],
+  ["~200", "field research: employees, 10 stores"],
   ["27%", "outcome: fewer order errors"],
 ];
 
@@ -42,12 +42,12 @@ export const PILLARS: { id: Pillar; code: string; label: string; short: string; 
     stat: ["50+", "product pages built in HTML, CSS and JavaScript"] },
   { id: "workflow", code: "WFD", label: "Workflow designer", short: "WORKFLOW", years: "2023 to 2025", color: "#1F4E79",
     line: "Optimized B2B workflows before AI, and the website navigation shoppers use.",
-    learned: "Workflows are people. I visited stores and watched employees move orders before I drew a screen.",
+    learned: "Workflows are people. Our team interviewed about 200 employees across 10 stores, 70+ of them by me, before we drew a screen.",
     stat: ["27%", "fewer order errors on the shipped staff portal"] },
   { id: "research", code: "UXR", label: "AI-assisted researcher", short: "RESEARCH", years: "2024 to 2026", color: "#2E7D6B",
     line: "M.S. in Human-Centered Design, with research done in depth and with AI.",
-    learned: "How to run real research: IRB studies, focus groups, usability tests, and AI to analyze faster.",
-    stat: ["24", "people in an IRB-approved study"] },
+    learned: "Research at scale: papers summarized with AI, thousands of reviews analyzed in Google Colab, then checked by hand.",
+    stat: ["16,000+", "EV driver reviews analyzed with AI in Google Colab"] },
   { id: "ai", code: "AIX", label: "Agentic AI UX", short: "AI", years: "Now", color: "#6B4FA0",
     line: "Designing AI people trust, and building with AI every day.",
     learned: "AI should do the repetitive steps and explain itself. People keep the final say.",
@@ -83,9 +83,9 @@ export const FLIGHTS: Flight[] = [
     from: "Store staff juggling 5 separate systems to move an order from supplier to customer",
     to: "One order platform for staff, and a marketing website shoppers can navigate without an account",
     role: "Owned the supplier-to-customer workflow and worked on the website’s navigation, on a team of 3 designers",
-    desc: "Before AI was in the market, I learned the workflow on the shop floor: store visits, staff interviews, watching how orders really move. Then I designed the order platform that replaced 5 systems and cut order errors 27%. On the marketing website, I worked on navigation so shoppers find a collection or a store fast, without a login wall.",
+    desc: "Before AI was in the market, we learned the workflow on the shop floor: about 200 employees interviewed across 10 stores, 70+ of them by me, watching how orders really move. Then I designed the order platform that replaced 5 systems and cut order errors 27%. On the marketing website, I worked on navigation so shoppers find a collection or a store fast, without a login wall.",
     methods: ["Store visits", "Staff interviews", "Workflows", "Dashboards", "Website navigation", "Information architecture"],
-    stats: [["27%", "fewer order errors"], ["40%", "faster per order"], ["5 → 1", "systems replaced"]],
+    stats: [["~200", "employees interviewed across 10 stores, as a team"], ["27%", "fewer order errors"], ["40%", "faster per order"]],
     image: SITE + "assets/jaihind/jh-13-final-dashboard.jpg", link: SITE + "cases/jaihind.html",
   },
   {
@@ -105,31 +105,31 @@ export const FLIGHTS: Flight[] = [
     from: "People who overspend first and regret later",
     to: "An AI budgeting coach that speaks up before you spend",
     role: "IRB-approved study, University of Michigan-Dearborn",
-    desc: "24 people in interviews and focus groups shaped the coach. The lesson I now carry into agentic workflows: people trust AI when it explains itself and leaves them the final say.",
+    desc: "40+ research papers summarized and analyzed with AI, then 24 people in interviews and focus groups shaped the coach. The lesson I now carry into agentic workflows: people trust AI when it explains itself and leaves them the final say.",
     methods: ["IRB study", "Interviews", "Focus groups", "Usability testing", "AI trust"],
     stats: [["24", "participants"], ["22% → 100%", "exploration success"], ["6 of 8", "fully trusted the AI"]],
     image: SITE + "assets/live/anchor.jpg", link: SITE + "cases/anchor.html",
   },
   {
-    id: "irs", code: "IR 2GO", color: "#2F5DA8", type: "Gov tech · a11y", pillars: ["research"] as Pillar[], gate: "B2", status: "landed",
+    id: "irs", code: "IR 2GO", color: "#2F5DA8", type: "Gov tech · a11y", pillars: ["research", "ai"] as Pillar[], gate: "B2", status: "landed",
     title: "IRS2Go", tagline: "HCI course, team of 5 · Winter 2025",
-    from: "The IRS’s official app, scoring 31.3 on usability",
+    from: "The IRS’s official app, scoring 31.3 on usability, with 45% of people quitting mid-task",
     to: "A redesign that scored 78.25, with no account needed to check a refund",
     role: "Research, redesign and accessibility check",
-    desc: "We redesigned the IRS’s official app so checking a refund no longer needs an account. Every redesigned screen passed my WCAG 2.1 AA check.",
-    methods: ["SUS", "Usability testing", "Heuristic evaluation", "WCAG 2.1 AA"],
-    stats: [["31.3 → 78.25", "SUS score"], ["100%", "screens pass WCAG 2.1 AA"]],
+    desc: "I mined 150+ App Store reviews and 200+ Quora posts, interviewed about 10 taxpayers and ran a survey to find where the app breaks. We redesigned it so checking a refund no longer needs an account, and every redesigned screen passed my WCAG 2.1 AA check.",
+    methods: ["Review mining", "Interviews", "Survey", "Usability testing", "SUS", "WCAG 2.1 AA"],
+    stats: [["350+", "App Store reviews and Quora posts analyzed"], ["31.3 → 78.25", "SUS score"], ["100%", "screens pass WCAG 2.1 AA"]],
     image: SITE + "assets/live/ir2go.jpg", link: SITE + "cases/ir2go.html",
   },
   {
-    id: "ev", code: "EV 2024", color: "#C27A12", type: "Mobility", pillars: ["research"] as Pillar[], gate: "B3", status: "landed",
-    title: "EV charging app", tagline: "Fall 2024",
+    id: "ev", code: "EV 2024", color: "#C27A12", type: "Mobility", pillars: ["research", "ai"] as Pillar[], gate: "B3", status: "landed",
+    title: "EV charging app", tagline: "Human Factors course · Fall 2024 · AI-powered review analysis",
     from: "A different app for every charging network",
     to: "One app for every charger",
     role: "Research and design",
-    desc: "I designed one app for every charger and tested it with 10 drivers, reaching a 78.75 usability score.",
-    methods: ["Driver research", "Prototyping", "Usability testing", "SUS"],
-    stats: [["10", "drivers tested"], ["78.75", "SUS score"]],
+    desc: "I analyzed 16,000+ EV driver reviews in Google Colab with AI, alongside a literature review, to find what really frustrates drivers: range anxiety, reliability, safety and payment. Then we designed one app for every charger and tested it with 10 drivers.",
+    methods: ["AI review analysis", "Google Colab", "Literature review", "Usability testing", "SUS"],
+    stats: [["16,000+", "driver reviews analyzed with AI"], ["78.75", "SUS score"], ["10", "drivers tested"]],
     image: SITE + "assets/live/ev.jpg", link: SITE + "cases/ev.html",
   },
   {
@@ -163,6 +163,8 @@ export const LOG = [
     story: "Two sides of one business: an order platform for staff that replaced 5 systems and cut order errors 27%, and the marketing website’s navigation for shoppers." },
   { date: "2024", leg: "M.S., Human-Centered Design and Engineering", where: "University of Michigan-Dearborn", miles: "+ AI research",
     story: "Where I learned UX research in depth, and learned to use AI in analysis and user research: IRB studies, focus groups, SUS, and the Money Anchor capstone." },
+  { date: "Fall 2024", leg: "EV charging research", where: "Human Factors course", miles: "+ AI research",
+    story: "16,000+ EV driver reviews analyzed with AI in Google Colab. The first time I saw AI read at a scale no team could, and why every theme still needs a human check." },
   { date: "May 2025", leg: "UX/UI Designer, internship", where: "FindMe LLC, New York", miles: "+ systems",
     story: "Grew a 25+ component library across 2 products and supported 12+ interviews and usability tests." },
   { date: "Sep 2025", leg: "Human-Centered Design Associate", where: "University of Michigan-Dearborn", miles: "+ leadership",
@@ -222,10 +224,10 @@ export const BAGS: { src: string; caption: string; g1: string; g2: string }[] = 
 
 export const SKILL_GROUPS: { label: string; color: string; items: string[] }[] = [
   { label: "UX research", color: "#1F4E79", items: ["User interviews", "Field visits", "Focus groups", "Usability testing", "Think-aloud", "Heuristic evaluation", "Journey mapping"] },
-  { label: "Synthesis", color: "#2E7D6B", items: ["Affinity mapping", "SUS", "Surveys", "Dovetail tagging"] },
+  { label: "AI research and analysis", color: "#2E7D6B", items: ["AI review analysis", "Google Colab", "Python", "AI literature review", "Thematic analysis", "Affinity mapping", "Surveys", "SUS", "Dovetail tagging"] },
   { label: "Design", color: "#E8563A", items: ["Workflow design", "Internal tools", "Information architecture", "Navigation", "Design systems", "Prototyping", "Figma"] },
   { label: "AI", color: "#6B4FA0", items: ["AI-assisted workflows", "Claude Code", "Figma Make", "AI integrations (APIs, MCP)", "AI output review", "Designing for AI trust"] },
-  { label: "Technical", color: "#2B3440", items: ["HTML/CSS/JS", "Python", "SQL", "Git", "WCAG 2.1 AA"] },
+  { label: "Technical", color: "#2B3440", items: ["HTML/CSS/JS", "SQL", "Git", "WCAG 2.1 AA"] },
 ];
 
 export const INFO: { title: string; items: [string, string][] }[] = [
@@ -287,22 +289,21 @@ export const LAB_PROOF: Record<string, { proof: Proof; also?: { flight: string; 
 // =========================================================
 export const RECORDER = {
   counters: [
-    { n: 150, plus: true, label: "app reviews read", src: "IRS2Go" },
-    { n: 40, plus: true, label: "research papers reviewed", src: "Money Anchor" },
-    { n: 50, plus: true, label: "quotes affinity-mapped", src: "Money Anchor" },
+    { n: 16000, plus: true, label: "EV driver reviews analyzed with AI in Google Colab", src: "EV charging" },
+    { n: 200, plus: false, label: "employees interviewed across 10 stores, as a team (70+ by me)", src: "Jai Hind" },
+    { n: 200, plus: true, label: "Quora posts analyzed", src: "IRS2Go" },
+    { n: 150, plus: true, label: "App Store reviews analyzed", src: "IRS2Go" },
+    { n: 40, plus: true, label: "research papers summarized with AI", src: "Money Anchor" },
     { n: 24, plus: false, label: "people in an IRB study", src: "Money Anchor" },
-    { n: 16, plus: false, label: "usability testers, 2 rounds", src: "Money Anchor" },
-    { n: 12, plus: true, label: "interviews and tests", src: "FindMe" },
-    { n: 10, plus: false, label: "competitor apps benchmarked", src: "Money Anchor" },
-    { n: 10, plus: false, label: "drivers in usability tests", src: "EV charging" },
+    { n: 10, plus: false, label: "interviews, plus a survey", src: "IRS2Go" },
   ],
   steps: [
-    { k: "COLLECT", ai: "", me: "Store visits, interviews, focus groups, reviews, usability sessions.", ex: "Jai Hind: store visits before any screen." },
-    { k: "ANALYZE", ai: "Tags, clusters and summarizes large sets: reviews, transcripts, survey answers.", me: "I set the research questions and the codes.", ex: "Money Anchor: 50+ quotes grouped into themes." },
+    { k: "COLLECT", ai: "Finds and summarizes research papers on the topic.", me: "Field visits, interviews, surveys, focus groups, review scraping.", ex: "Jai Hind: about 200 employees across 10 stores. IRS2Go: App Store, Quora, interviews and a survey." },
+    { k: "ANALYZE", ai: "Tags, clusters and summarizes large sets: reviews, transcripts, survey answers.", me: "I set the research questions and the codes.", ex: "EV charging: 16,000+ driver reviews analyzed in Google Colab with AI." },
     { k: "VERIFY", ai: "", me: "Every AI theme checked against the raw quotes before it counts.", ex: "AI speeds the reading; the judgment stays mine." },
     { k: "DEFINE", ai: "", me: "Name the cause, not the symptom.", ex: "IRS2Go: we wrote out every step to see exactly where people got stuck." },
     { k: "DESIGN + TEST", ai: "Drafts ideas and prototypes faster.", me: "Pick what the findings support, then test with numbers.", ex: "Money Anchor: 100 ideas down to 10; exploration success 22% to 100%." },
   ],
   // Add your large-scale AI analysis here once it is written up (for example: reviews analyzed with an LLM).
-  featured: null as null | { title: string; stat: string; label: string; link: string },
+  featured: { title: "EV charging", stat: "16,000+", label: "driver reviews analyzed with AI in Google Colab", link: SITE + "cases/ev.html" } as null | { title: string; stat: string; label: string; link: string },
 };

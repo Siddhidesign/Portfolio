@@ -550,3 +550,10 @@ section:not(.slot){scroll-margin-top:70px}
 [data-theme="dark"] .who.ai small,[data-theme="dark"] .who.me small{color:var(--sign)}
 .pipe-ex{margin-top:auto;padding-top:14px;font-size:14px;color:var(--ink-2)}
 .pipe-ex b{font:400 11px var(--f-mono);letter-spacing:2px;color:var(--accent);margin-right:10px}
+.bb-counters .bb-feat{grid-column:1/-1;background:#0E1218;color:#F5C518;border-radius:10px;padding:12px 14px;text-decoration:none;border:1.5px solid #F5C518}
+.bb-counters .bb-feat b{display:block;font:400 44px/1 var(--f-mono)}
+.bb-counters .bb-feat span{display:block;font-size:13px;color:#E7ECF3;margin-top:4px}
+.bb-counters .bb-feat em{font:400 10.5px var(--f-mono);font-style:normal;letter-spacing:1px;color:#F5C518}
+.bb-counters div b{font-size:26px}
+.bb-counters{gap:7px}
+.bb-counters div{padding:8px 11px}

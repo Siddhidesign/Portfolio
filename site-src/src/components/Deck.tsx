@@ -219,7 +219,7 @@ function Counter({ n, plus, run }: { n: number; plus: boolean; run: boolean }) {
   useEffect(() => { if (!run) return; const t0 = performance.now(); let raf = 0;
     const step = () => { const p = Math.min(1, (performance.now() - t0) / 1400); setV(Math.round(n * (1 - Math.pow(1 - p, 3)))); if (p < 1) raf = requestAnimationFrame(step); };
     raf = requestAnimationFrame(step); return () => cancelAnimationFrame(raf); }, [n, run]);
-  return <b>{v}{plus ? "+" : ""}</b>;
+  return <b>{v.toLocaleString("en-US")}{plus ? "+" : ""}</b>;
 }
 function Recorder() {
   const ref = useRef<HTMLDivElement>(null);
@@ -238,7 +238,9 @@ function Recorder() {
         <div className="blackbox">
           <div className="bb-head"><span>FLIGHT DATA RECORDER</span><span>DO NOT OPEN</span></div>
           <div className="bb-counters">
-            {RECORDER.counters.map((c) => (<div key={c.label}><Counter n={c.n} plus={c.plus} run={go} /><span>{c.label}</span><em>{c.src}</em></div>))}
+            {RECORDER.counters.map((c, i) => i === 0 && RECORDER.featured
+              ? (<a key={c.label} className="bb-feat" href={RECORDER.featured.link} target="_blank" rel="noopener"><Counter n={c.n} plus={c.plus} run={go} /><span>{c.label}</span><em>{c.src} · read the case study →</em></a>)
+              : (<div key={c.label}><Counter n={c.n} plus={c.plus} run={go} /><span>{c.label}</span><em>{c.src}</em></div>))}
           </div>
         </div>
         <div className="pipeline">
