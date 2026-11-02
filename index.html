@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/store.css">
-  <link rel="stylesheet" href="css/motion.css?v=3">
+  <link rel="stylesheet" href="css/motion.css?v=4">
   <style>
     /* Hero photo: the graduation picture, cropped from just above her head down to the M Dearborn logo */
     .portrait .ph { aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--r-lg); border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--bg-2); }
@@ -98,7 +98,7 @@
     .xp-at { font-size: 15px; color: var(--muted); }
     .xp-what { margin-top: 6px; max-width: 46em; font-size: 15px; color: var(--text); }
     .sub-label { margin: 40px 0 12px; }
-    /* Experience: cards that overlap downward, each showing its role, company and dates, until you open them */
+    /* Experience: cards that overlap downward, each showing its picture, role, company, dates and case study link, until you open them */
     .xp-stack { margin: 0; padding: 0; display: grid; gap: 12px; }
     .xp-card { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 4px 18px; padding: 20px 22px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
     .xp-thumb { grid-row: 1 / span 3; align-self: start; width: 112px; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); }
@@ -115,6 +115,11 @@
     .xp-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 16px; }
     .xp-card h3 { font-size: 18px; font-weight: 500; letter-spacing: -.015em; }
     .xp-card .xp-when { padding-top: 0; white-space: nowrap; }
+    .xp-card > :not(.xp-thumb) { grid-column: 2; }
+    .xp-cs { justify-self: start; display: inline-flex; align-items: center; gap: 4px; margin-top: 2px; padding: 2px 0; font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; }
+    .xp-cs .chev { width: 16px; height: 16px; }
+    .xp-cs:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .xp-cs:hover .chev { transform: translateX(3px); }
     .xp-stack.is-stack { position: relative; display: block; height: var(--h, auto); transition: height .5s cubic-bezier(.2, .8, .2, 1); }
     .xp-stack.is-stack > .xp-card { position: absolute; top: 0; left: 0; right: 0; transform: translateY(var(--y, 0)); transition: transform .5s cubic-bezier(.2, .8, .2, 1), box-shadow .3s, border-color .2s; }
     .xp-stack.xp-init, .xp-stack.xp-init > .xp-card { transition: none; }
@@ -167,9 +172,9 @@
     <div class="wrap hdr-in">
       <a class="logo" href="index.html">Siddhi <em>Manche</em></a>
       <nav class="nav" aria-label="Main">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a class="opt" href="#experience">Experience</a>
+        <a class="opt-sm" href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a class="opt" href="#about">About</a>
         <a class="opt" href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -183,7 +188,7 @@
           <span class="eyebrow">UX/UI designer and researcher · Internal team dashboards, customer-facing products, design systems</span>
           <h1 id="hero-title">I research and design on-brand products for customers <em>and the teams behind them.</em></h1>
           <p class="lede">I start with research, from store visits and interviews to usability tests. Then I design websites and apps for customers, tools for the staff who serve them, and the design systems that keep both on brand. I work with developers from first sketch to production, and I&#x27;ve written production HTML and CSS myself, so what I design can be built.</p>
-          <div class="btn-row"><a class="btn btn-primary" href="#work">See my work</a><a class="btn btn-secondary" href="mailto:manche.siddhi@gmail.com">Email me</a></div>
+          <div class="btn-row"><a class="btn btn-primary" href="#experience">See my work</a><a class="btn btn-secondary" href="mailto:manche.siddhi@gmail.com">Email me</a></div>
           <div class="stats" role="list" aria-label="Results">
             <div role="listitem"><b>27%</b><span>fewer order errors after launch</span></div>
             <div role="listitem"><b>40%</b><span>more efficient workflows, by time per order</span></div>
@@ -194,21 +199,32 @@
       </div>
     </section>
 
-    <section class="lsec" id="work" aria-labelledby="work-title">
+    <section class="lsec" id="experience" aria-labelledby="experience-title">
       <div class="wrap lgrid">
-        <h2 class="lsec-h" id="work-title">Work</h2>
+        <h2 class="lsec-h" id="experience-title">Experience</h2>
         <div class="lsec-body">
-          <article class="proj" data-cursor="View case study">
-            <h3><a href="cases/jaihind.html">Jai Hind staff portal</a></h3>
-            <p class="proj-desc">one portal for 5 workflows that each ran on its own system</p>
-            <div class="shot inset"><img src="assets/jaihind/jh-13-final-dashboard.jpg" alt="" width="1784" height="2486" loading="lazy"></div>
-            <ul class="proj-points" role="list">
-              <li><b>27%</b> fewer order errors after launch.</li>
-              <li><b>40%</b> more efficient workflows, by time per order.</li>
-              <li><b>5 systems</b> combined into one portal for 3 business functions.</li>
-            </ul>
-            <p class="proj-foot"><span>Jai Hind Group · Product UX Designer · Feb 2023 to Jul 2024</span><span class="proj-go" aria-hidden="true">View case study <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></span></p>
-          </article>
+          <div class="xp-wrap">
+            <ol class="xp-stack" id="xp-list" role="list">
+              <li class="xp-card"><span class="xp-thumb board" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><div class="xp-top"><h3>Human-Centered Design Associate</h3><span class="xp-when">Sep 2025 to May 2026</span></div><p class="xp-at">University of Michigan-Dearborn</p><p class="xp-what">Kept 4 workstreams and 25 contributors moving in Figma and Miro, with weekly FigJam critiques on progress, next steps and blockers.</p></li>
+              <li class="xp-card"><span class="xp-thumb logo" aria-hidden="true"><img src="assets/findme-logo.svg" alt="" width="92" height="26" loading="lazy"></span><div class="xp-top"><h3>UX/UI Designer, internship</h3><span class="xp-when">May to Aug 2025</span></div><p class="xp-at">FindMe LLC, New York</p><a class="xp-cs" href="cases/findme.html">View case study<span class="sr">: FindMe design system</span> <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></a><p class="xp-what">Grew a 25+ component library across 2 products, and supported 12+ user interviews and usability tests, tagged in Dovetail.</p></li>
+              <li class="xp-card"><span class="xp-thumb" aria-hidden="true"><img src="assets/jaihind/jh-13-final-dashboard.jpg" alt="" width="1784" height="2486" loading="lazy"></span><div class="xp-top"><h3>Product UX Designer</h3><span class="xp-when">Feb 2023 to Jul 2024</span></div><p class="xp-at">Jai Hind Group, Mumbai</p><a class="xp-cs" href="cases/jaihind.html">View case study<span class="sr">: Jai Hind staff portal</span> <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></a><p class="xp-what">Owned the supplier-to-customer workflow of an order platform that cut order errors 27%, starting from store visits and stakeholder interviews.</p></li>
+              <li class="xp-card"><span class="xp-thumb" aria-hidden="true"><img src="assets/live/omkar.jpg" alt="" width="1280" height="800" loading="lazy"></span><div class="xp-top"><h3>Junior Front-End Developer, part-time</h3><span class="xp-when">May 2022 to Jan 2023</span></div><p class="xp-at">Omkar Labels, Mumbai</p><a class="xp-cs" href="cases/omkar.html">View case study<span class="sr">: Omkar Labels catalog</span> <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></a><p class="xp-what">Built and kept up a 50+ page catalog website in HTML, CSS and JavaScript, working in Git with 3 developers.</p></li>
+            </ol>
+          </div>
+          <h3 class="sub-label">Education</h3>
+          <ol class="xp" role="list">
+            <li><span class="xp-when">2024 to 2026</span><div><h3>M.S., Human-Centered Design and Engineering</h3><p class="xp-at">University of Michigan-Dearborn</p></div></li>
+            <li><span class="xp-when">2020 to 2024</span><div><h3>B.E., Electronics and Telecommunication</h3><p class="xp-at">Vidyalankar Institute of Technology</p></div></li>
+            <li><span class="xp-when">Certificate</span><div><h3>Google UX Design Professional Certificate</h3><p class="xp-at">Google</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="lsec" id="projects" aria-labelledby="projects-title">
+      <div class="wrap lgrid">
+        <h2 class="lsec-h" id="projects-title">Projects</h2>
+        <div class="lsec-body">
           <article class="proj" data-cursor="View case study">
             <h3><a href="cases/anchor.html">Money Anchor</a></h3>
             <p class="proj-desc">an AI budgeting coach that speaks up before you spend</p>
@@ -231,20 +247,8 @@
             </ul>
             <p class="proj-foot"><span>University of Michigan-Dearborn · HCI course, team of 5 · Winter 2025</span><span class="proj-go" aria-hidden="true">View case study <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></span></p>
           </article>
-          <article class="proj" data-cursor="View case study">
-            <h3><a href="cases/findme.html">FindMe design system</a></h3>
-            <p class="proj-desc">a component library that grew while the product kept shipping</p>
-            <div class="shot"><div class="lib-visual" aria-hidden="true"><div class="mini-lib"><img class="findme-logo" src="assets/findme-logo.svg" alt="" width="92" height="26"><div class="row"><span class="pill">Primary</span><span class="pill sec">Secondary</span><span class="pill ghost">Ghost</span></div><div class="row"><span class="pill">Default</span><span class="pill dis">Disabled</span></div><span class="spec">Button / Primary / Medium / Default</span></div></div></div>
-            <ul class="proj-points" role="list">
-              <li><b>25+</b> components keeping 2 products consistent.</li>
-              <li><b>28%</b> more engagement on brand pages, with Marketing.</li>
-              <li><b>12+</b> user interviews and usability tests supported.</li>
-            </ul>
-            <p class="proj-foot"><span>FindMe LLC · UX/UI Designer, internship · May to Aug 2025</span><span class="proj-go" aria-hidden="true">View case study <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></span></p>
-          </article>
-          <h3 class="more-label">More work</h3>
+          <h3 class="more-label">More projects</h3>
           <ul class="mlist" role="list">
-            <li class="mrow" data-cursor="View case study"><div class="mthumb"><img src="assets/live/omkar.jpg" alt="" width="1280" height="800" loading="lazy"></div><div><h4><a href="cases/omkar.html">Omkar Labels catalog</a></h4><p>A B2B catalog website I coded in HTML, CSS and JavaScript, with 50+ product pages</p></div><span class="mrow-when">2022 to 2023 <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></span></li>
             <li class="mrow" data-cursor="View case study"><div class="mthumb"><img src="assets/live/ev.jpg" alt="" width="1280" height="800" loading="lazy"></div><div><h4><a href="cases/ev.html">EV charging app</a></h4><p>One app for every charger, tested with 10 drivers: 78.75 usability score</p></div><span class="mrow-when">Fall 2024 <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></span></li>
             <li class="mrow" data-cursor="View case study"><div class="mthumb phone"><img src="assets/magic-apron/c1-after.webp" alt="" width="560" height="1218" loading="lazy"></div><div><h4><a href="cases/magic-apron.html">Magic Apron redesign</a></h4><p>A self-initiated concept for The Home Depot&#x27;s AI assistant: 1 interview, 6 changes</p></div><span class="mrow-when">Oct 2026 <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></span></li>
           </ul>
@@ -275,28 +279,6 @@
           <p class="lead">I started as an engineer building websites, then helped design an order platform at Jai Hind Group that replaced 5 systems. After a master&#x27;s in Human-Centered Design and Engineering, I start every project with research, and design for the people a business serves and the staff who run it.</p>
           <p class="lead-sm">I care about the quiet stuff: clear labels, readable color, and the one button you actually need.</p>
           <p class="lead-link"><a href="#experience">See my experience <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></a></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="lsec" id="experience" aria-labelledby="experience-title">
-      <div class="wrap lgrid">
-        <h2 class="lsec-h" id="experience-title">Experience</h2>
-        <div class="lsec-body">
-          <div class="xp-wrap">
-            <ol class="xp-stack" id="xp-list" role="list">
-              <li class="xp-card"><span class="xp-thumb board" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><div class="xp-top"><h3>Human-Centered Design Associate</h3><span class="xp-when">Sep 2025 to May 2026</span></div><p class="xp-at">University of Michigan-Dearborn</p><p class="xp-what">Kept 4 workstreams and 25 contributors moving in Figma and Miro, with weekly FigJam critiques on progress, next steps and blockers.</p></li>
-              <li class="xp-card"><span class="xp-thumb logo" aria-hidden="true"><img src="assets/findme-logo.svg" alt="" width="92" height="26" loading="lazy"></span><div class="xp-top"><h3>UX/UI Designer, internship</h3><span class="xp-when">May to Aug 2025</span></div><p class="xp-at">FindMe LLC, New York</p><p class="xp-what">Grew a 25+ component library across 2 products, and supported 12+ user interviews and usability tests, tagged in Dovetail.</p></li>
-              <li class="xp-card"><span class="xp-thumb" aria-hidden="true"><img src="assets/jaihind/jh-13-final-dashboard.jpg" alt="" width="1784" height="2486" loading="lazy"></span><div class="xp-top"><h3>Product UX Designer</h3><span class="xp-when">Feb 2023 to Jul 2024</span></div><p class="xp-at">Jai Hind Group, Mumbai</p><p class="xp-what">Owned the supplier-to-customer workflow of an order platform that cut order errors 27%, starting from store visits and stakeholder interviews.</p></li>
-              <li class="xp-card"><span class="xp-thumb" aria-hidden="true"><img src="assets/live/omkar.jpg" alt="" width="1280" height="800" loading="lazy"></span><div class="xp-top"><h3>Junior Front-End Developer, part-time</h3><span class="xp-when">May 2022 to Jan 2023</span></div><p class="xp-at">Omkar Labels, Mumbai</p><p class="xp-what">Built and kept up a 50+ page catalog website in HTML, CSS and JavaScript, working in Git with 3 developers.</p></li>
-            </ol>
-          </div>
-          <h3 class="sub-label">Education</h3>
-          <ol class="xp" role="list">
-            <li><span class="xp-when">2024 to 2026</span><div><h3>M.S., Human-Centered Design and Engineering</h3><p class="xp-at">University of Michigan-Dearborn</p></div></li>
-            <li><span class="xp-when">2020 to 2024</span><div><h3>B.E., Electronics and Telecommunication</h3><p class="xp-at">Vidyalankar Institute of Technology</p></div></li>
-            <li><span class="xp-when">Certificate</span><div><h3>Google UX Design Professional Certificate</h3><p class="xp-at">Google</p></div></li>
-          </ol>
         </div>
       </div>
     </section>
@@ -346,6 +328,6 @@
   </footer>
   <p class="sr" aria-live="polite" data-live></p>
   <script src="js/store.js" defer></script>
-  <script src="js/motion.js?v=6" defer></script>
+  <script src="js/motion.js?v=7" defer></script>
 </body>
 </html>
