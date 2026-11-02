@@ -51,7 +51,7 @@ export const PILLARS: { id: Pillar; code: string; label: string; short: string; 
   { id: "ai", code: "AIX", label: "Agentic AI UX", short: "AI", years: "Now", color: "#6B4FA0",
     line: "Designing AI people trust, and building with AI every day.",
     learned: "AI should do the repetitive steps and explain itself. People keep the final say.",
-    stat: ["2", "sites built with an AI coding assistant: the Omkar rebuild and this one"] },
+    stat: ["6 of 8", "testers fully trusted the AI coach I designed"] },
 ];
 export const DESTINATION = "B2B workflows where AI handles the repetitive steps and employees stay in control.";
 export const PROBLEM = "Employees lose hours juggling scattered systems. At Jai Hind it was 5, and nobody could follow an order from start to finish.";
@@ -67,13 +67,13 @@ export interface Flight {
 // Flights = projects, in the order you want them shown
 export const FLIGHTS: Flight[] = [
   {
-    id: "ol", code: "OL 2022", color: "#8A5A2B", type: "Front-end", pillars: ["dev", "ai"] as Pillar[], gate: "A1", status: "landed",
+    id: "ol", code: "OL 2022", color: "#8A5A2B", type: "Front-end", pillars: ["dev"] as Pillar[], gate: "A1", status: "landed",
     title: "Omkar Labels catalog", tagline: "Junior Front-End Developer, part-time · May 2022 to Jan 2023 · Mumbai",
     from: "A care label maker needing a large catalog kept current",
-    to: "A catalog built around the buyer’s questions, rebuilt in 2026 with an AI coding assistant",
+    to: "A 50+ page catalog website, coded from the designer’s files",
     role: "Built and maintained the site with 3 developers in Git",
-    desc: "In 2022 I hand-coded its 50+ product pages. In 2026 I rebuilt the site in Next.js, organized around the buyer’s questions, with Request a Quote one tap away. I planned, reviewed and tested; an AI assistant wrote much of the code.",
-    methods: ["Information architecture", "HTML/CSS/JS", "Next.js", "AI-assisted build", "Accessibility testing"],
+    desc: "I turned the designer’s files into responsive pages and kept 50+ product pages accurate, working in Git with 3 developers. Being on the developer side of the handoff is why my own handoffs spell out every state.",
+    methods: ["HTML", "CSS", "JavaScript", "Git", "Design handoff"],
     stats: [["50+", "pages"], ["3", "developers"]],
     image: SITE + "assets/live/omkar.jpg", link: SITE + "cases/omkar.html",
   },
@@ -167,8 +167,8 @@ export const LOG = [
     story: "Grew a 25+ component library across 2 products and supported 12+ interviews and usability tests." },
   { date: "Sep 2025", leg: "Human-Centered Design Associate", where: "University of Michigan-Dearborn", miles: "+ leadership",
     story: "Kept 4 workstreams and 25 contributors moving, with weekly FigJam critiques on progress, next steps and blockers." },
-  { date: "2026", leg: "Designing and building with AI", where: "Omkar Labels rebuild, this portfolio", miles: "+ AI",
-    story: "I rebuilt Omkar Labels in Next.js and built this site with an AI coding assistant. I plan, direct, review and test; the AI writes much of the code." },
+  { date: "2026", leg: "Designing and building with AI", where: "This portfolio", miles: "+ AI",
+    story: "I built this site with an AI coding assistant. I plan, direct, review and test; the AI writes much of the code." },
   { date: "Oct 2026", leg: "Magic Apron concept", where: "Self-initiated", miles: "+ AI UX",
     story: "An AI assistant gave different answers at home and in Store Mode. 1 interview, 6 changes, including questions as taps." },
 ];
@@ -206,7 +206,7 @@ export const STAMPS = [
   { t: "NEW YORK", s: "JFK · FINDME", color: "#2E7D6B", r: "-4deg", note: "Design system internship at FindMe: 25+ components across 2 products." },
   { t: "USA", s: "OPEN · ANY GATE", color: "#C27A12", r: "8deg", note: "Open to UX/UI design and UX research roles across the US." },
   { t: "GOOGLE UX", s: "PRO CERTIFICATE", color: "#1F4E79", r: "-7deg", sq: true, note: "Google UX Design Professional Certificate." },
-  { t: "AI BUILD", s: "CLAUDE CODE · NEXT.JS", color: "#6B4FA0", r: "-3deg", sq: true, note: "This portfolio and the Omkar Labels rebuild were built with an AI coding assistant. I plan, direct, review and test every page." },
+  { t: "AI BUILD", s: "CLAUDE CODE · REACT", color: "#6B4FA0", r: "-3deg", sq: true, note: "This portfolio was built with an AI coding assistant. I plan, direct, review and test every page." },
   { t: "WCAG 2.1", s: "AA · CLEARED", color: "#2E7D6B", r: "5deg", sq: true, note: "Accessibility checked on every redesign. 100% of IRS2Go screens passed." },
 ];
 
