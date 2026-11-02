@@ -1,6 +1,6 @@
-/* Siddhi Manche · portfolio motion, version 4.
+/* Siddhi Manche · portfolio motion, version 5.
    Back to top, the section you are reading in the header, a pointer label over projects,
-   the Experience card stack, scroll reveals and the hero count-up.
+   the Experience card stack, scroll reveals (home and case studies) and the hero count-up.
    Content is only hidden after this runs, and the animated parts are skipped for reduced motion. */
 (function () {
   'use strict';
@@ -144,11 +144,13 @@
   /* Mark what rises on scroll: each section label, each block, and list rows one after another */
   function tag(list, step) {
     list.forEach(function (el, i) {
+      if (el.tagName === 'NOSCRIPT' || el.hidden) return;
       el.setAttribute('data-reveal', '');
       if (step) el.style.setProperty('--d', Math.min(i, 6) * step + 'ms');
     });
   }
   tag($$('.lsec-h'), 0);
+  tag($$('main section:not(.lsec):not(.hero) > .wrap > *'), 0);
   $$('.lsec-body').forEach(function (body) {
     Array.prototype.slice.call(body.children).forEach(function (el) {
       if (/^(UL|OL|DL)$/.test(el.tagName)) tag(Array.prototype.slice.call(el.children), 70);
@@ -170,6 +172,6 @@
       en.target.classList.add('in');
       io.unobserve(en.target);
     });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
   items.forEach(function (el) { if (!el.classList.contains('in')) io.observe(el); });
 })();
