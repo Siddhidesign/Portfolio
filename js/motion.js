@@ -1,4 +1,4 @@
-/* Siddhi Manche · portfolio motion, version 5.
+/* Siddhi Manche · portfolio motion, version 6.
    Back to top, the section you are reading in the header, a pointer label over projects,
    the Experience card stack, scroll reveals (home and case studies) and the hero count-up.
    Content is only hidden after this runs, and the animated parts are skipped for reduced motion. */
@@ -77,7 +77,7 @@
     w.addEventListener('blur', hide);
   }
 
-  /* Experience: the cards overlap downward, each one showing its role, company and dates,
+  /* Experience: the cards overlap downward, each one showing its picture, role, company and dates,
      with the last one in full, until you open them. Without JavaScript they are a plain list of cards. */
   var stack = d.querySelector('.xp-stack');
   if (stack && stack.children.length > 1) {
@@ -91,8 +91,10 @@
         c.style.setProperty('--y', y + 'px');
         c.style.zIndex = i + 1;
         if (open) { y += c.offsetHeight + 12; return; }
-        var at = c.querySelector('.xp-at');
-        if (i < last) y += (at ? at.offsetTop + at.offsetHeight : 70) + 20;
+        if (i < last) {
+          var at = c.querySelector('.xp-at'), th = c.querySelector('.xp-thumb');
+          y += Math.max(at ? at.offsetTop + at.offsetHeight : 70, th ? th.offsetTop + th.offsetHeight : 0) + 20;
+        }
       });
       stack.style.setProperty('--h', (open ? y - 12 : y + cards[last].offsetHeight) + 'px');
     };
