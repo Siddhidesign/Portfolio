@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FLIGHTS, PROFILE, PROCESS, HERO_STATS, type Flight } from "../data";
+import { FLIGHTS, PROFILE, PROCESS, HERO_STATS, PILLARS, type Flight, type Pillar } from "../data";
 import { sound } from "../hooks/useSound";
 import { useClock } from "../hooks/useHooks";
 import { Plane, Routes, SplitFlap, Kicker } from "./Shared";
@@ -83,7 +83,7 @@ function BoardingPass() {
   const [scanning, setScanning] = useState(false);
   const [msg, setMsg] = useState(false);
   const clock = useClock();
-  const micro = "SIDDHI MANCHE · UX DESIGN · UX RESEARCH · BOM ✈ DTW ✈ USA · HCDE · ".repeat(12);
+  const micro = "SIDDHI MANCHE · WORKFLOW DESIGN · CONSUMER NAVIGATION · AI UX · BOM ✈ DTW ✈ USA · ".repeat(12);
   const bars = useMemo(() => { let s = 7; const r = () => (s = (s * 9301 + 49297) % 233280) / 233280;
     return Array.from({ length: 58 }, () => ({ w: 1 + Math.floor(r() * 3.2), m: r() > 0.6 ? 2 : 0 })); }, []);
 
@@ -126,10 +126,10 @@ function BoardingPass() {
                 </div>
                 <p className="promise in-seq d3">{PROFILE.headline}</p>
                 <div className="fields in-seq d3">
-                  {HERO_STATS.map(([v, l]) => <div className="field" key={l} title={l}><small>{l.split(" ").slice(0, 2).join(" ")}</small><b>{v}</b></div>)}
+                  {HERO_STATS.map(([v, l]) => { const [k, rest] = l.split(": "); return <div className="field" key={l} title={rest}><small>{k}</small><b>{v}</b><em>{rest}</em></div>; })}
                 </div>
                 <div className="sig in-seq">{PROFILE.name}</div>
-                <div className="sig-line in-seq d4">ISSUED IN MICHIGAN. VALID FOR RELOCATION ACROSS THE US.</div>
+                <div className="sig-line in-seq d4">ROUTES: WORKFLOWS · NAVIGATION · AI. VALID ACROSS THE US.</div>
                 <div className="cta-row in-seq d5">
                   <button className="btn" onClick={scan}>Scan pass</button>
                   <button className="btn solid" onClick={flip}>Turn over</button>
@@ -154,15 +154,15 @@ function BoardingPass() {
                 <button className="btn solid" style={{ marginTop: 22 }} onClick={flip}>Turn back</button>
               </div>
               <div className="allow">
-                <h4 className="mono" style={{ fontSize: 12, letterSpacing: 2, color: "var(--muted)", marginBottom: 10 }}>BAGGAGE ALLOWANCE</h4>
+                <h4 className="mono" style={{ fontSize: 12, letterSpacing: 2, color: "var(--muted)", marginBottom: 10 }}>THREE ROUTES</h4>
+                <div className="pp-routes">{PILLARS.map((p) => <p key={p.id} style={{ ["--c" as any]: p.color }}><b>{p.label}</b>{p.line}</p>)}</div>
+                <h4 className="mono" style={{ fontSize: 12, letterSpacing: 2, color: "var(--muted)", margin: "14px 0 6px" }}>BAGGAGE ALLOWANCE</h4>
                 <ul>
                   <li><span>Order errors cut, Jai Hind</span><b>27%</b></li>
                   <li><span>Systems replaced</span><b>5 → 1</b></li>
                   <li><span>Library components, FindMe</span><b>25+</b></li>
                   <li><span>IRS2Go SUS score</span><b>31.3 → 78.25</b></li>
-                  <li><span>Money Anchor participants</span><b>24</b></li>
-                  <li><span>Degree</span><b>M.S. HCDE</b></li>
-                  <li><span>Certificate</span><b>Google UX</b></li>
+                  <li><span>Testers who fully trusted the AI</span><b>6 of 8</b></li>
                 </ul>
               </div>
             </div>
@@ -184,23 +184,31 @@ function Departures() {
   const clock = useClock();
   const ref = useRef<HTMLDivElement>(null);
   const [run, setRun] = useState(false);
+  const [route, setRoute] = useState<Pillar | "all">("all");
   useEffect(() => { const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setRun(true); io.disconnect(); } }, { threshold: 0.3 });
     io.observe(ref.current!); return () => io.disconnect(); }, []);
   return (
     <div ref={ref}>
-      <i className="dim" style={{ borderRadius: 28, zIndex: 20 }} /><div className="board-title">
-        <div><Kicker gate="A" label="Departures" /><h2 className="h2">{FLIGHTS.length} projects, one flight each</h2></div>
-        <p>Every project is a flight: where the problem started and where users landed. Pick a flight to jump to its pass.</p>
+      <i className="dim" style={{ borderRadius: 28, zIndex: 20 }} />
+      <div className="board-title">
+        <div><Kicker gate="A" label="Departures" /><h2 className="h2">Three routes, {FLIGHTS.length} flights</h2></div>
+        <div className="routes-pick">
+          <button className={route === "all" ? "on" : ""} onClick={() => { setRoute("all"); sound.click(); }}><b>All flights</b><span>Every project, in order</span></button>
+          {PILLARS.map((p) => (
+            <button key={p.id} className={route === p.id ? "on" : ""} style={{ ["--c" as any]: p.color }} onClick={() => { setRoute(p.id); sound.click(); }}>
+              <b><i />{p.label}</b><span>{p.line}</span>
+            </button>
+          ))}
+        </div>
       </div>
       <div className="board" style={{ position: "relative" }}>
-        <i className="dim" style={{ borderRadius: 20 }} />
         <div className="board-head"><h3>DEPARTURES</h3><div className="clock">{clock}</div></div>
-        <div className="brow head"><span>FLIGHT</span><span>DESTINATION</span><span>TYPE</span><span>GATE</span><span>STATUS</span></div>
+        <div className="brow head"><span>FLIGHT</span><span>DESTINATION</span><span>ROUTE</span><span>GATE</span><span>STATUS</span></div>
         {FLIGHTS.map((f) => (
-          <a key={f.id} className={`brow ${f.status === "board" ? "hl" : ""}`} href={`#n-${f.id}`} onMouseEnter={sound.click}>
+          <a key={f.id} className={`brow ${f.status === "board" ? "hl" : ""} ${route !== "all" && !f.pillars.includes(route) ? "off" : ""}`} href={`#n-${f.id}`} onMouseEnter={sound.click}>
             <SplitFlap text={f.code.replace(" ", "")} len={6} run={run} />
             <SplitFlap text={f.title.replace(/[^A-Za-z0-9 -]/g, "")} len={22} run={run} />
-            <span className="mono" style={{ color: "#C9D1DC", fontSize: 13 }}>{f.type}</span>
+            <span className="pills">{f.pillars.map((p) => { const P = PILLARS.find((x) => x.id === p)!; return <em key={p} style={{ ["--c" as any]: P.color }}>{P.short}</em>; })}</span>
             <SplitFlap text={f.gate} len={3} run={run} />
             <span className={`status ${STATUS[f.status][1]}`}>{STATUS[f.status][0]}</span>
           </a>
@@ -219,7 +227,7 @@ function Ticket({ f, i }: { f: Flight; i: number }) {
       <div className="t-main">
         <Routes seed={i + 3} />
         <div className="gate"><small>GATE</small><b>{f.gate}</b></div>
-        <div className="t-top"><span className="code">{f.code}</span><span>{pad(i + 1)} / {pad(FLIGHTS.length)}</span><span className="tag">{f.type.toUpperCase()}</span></div>
+        <div className="t-top"><span className="code">{f.code}</span><span>{pad(i + 1)} / {pad(FLIGHTS.length)}</span><span className="tag">{f.type.toUpperCase()}</span>{f.pillars.map((p) => { const P = PILLARS.find((x) => x.id === p)!; return <span key={p} className="ptag" style={{ ["--pc" as any]: P.color }}>{P.short}</span>; })}</div>
         <h3 className="t-title">{f.title}</h3>
         <div className="mono" style={{ fontSize: 13, color: "var(--muted)" }}>{f.tagline}</div>
         <div className="t-route">
