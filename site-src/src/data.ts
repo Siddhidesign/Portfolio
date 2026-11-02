@@ -8,9 +8,9 @@ const SITE = "https://siddhidesign.github.io/Portfolio/";
 export const PROFILE = {
   name: "Siddhi Manche",
   surnameFirst: "MANCHE / SIDDHI",
-  role: "UX Designer · B2B workflow optimization, now with AI",
+  role: "UX Researcher and Designer · AI-powered analysis",
   focus: "B2B workflow tools, employee research, agentic AI",
-  headline: "I make B2B workflows faster. I learned how by working with employees before AI, and now I design the AI that takes over their repetitive steps.",
+  headline: "I find the real problem in large amounts of user data, using AI to do the heavy reading and checking every finding myself, then I design the fix. Strongest on B2B workflows.",
   promise:
     "I start with research, from store visits and interviews to usability tests. Then I design for customers, the staff who serve them, and the design systems that keep both on brand. I’ve written production HTML and CSS myself, so what I design can be built.",
   photo: SITE + "assets/v2/siddhi-grad.jpg",
@@ -28,9 +28,9 @@ export const CONTACT = {
 };
 
 export const HERO_STATS: [string, string][] = [
-  ["27%", "workflow: fewer order errors, shipped"],
-  ["40%", "workflow: faster per order"],
-  ["6 of 8", "AI: testers fully trusted it"],
+  ["150+", "research: app reviews read and coded"],
+  ["24", "research: people in an IRB study"],
+  ["27%", "outcome: fewer order errors"],
 ];
 
 // THE ROUTE: the four legs of the career story. Every flight belongs to one or more legs.
@@ -53,7 +53,7 @@ export const PILLARS: { id: Pillar; code: string; label: string; short: string; 
     learned: "AI should do the repetitive steps and explain itself. People keep the final say.",
     stat: ["6 of 8", "testers fully trusted the AI coach I designed"] },
 ];
-export const DESTINATION = "B2B workflows where AI handles the repetitive steps and employees stay in control.";
+export const DESTINATION = "Research-led design for data-driven teams: AI reads the data, I find the problem, then I design the fix.";
 export const PROBLEM = "Employees lose hours juggling scattered systems. At Jai Hind it was 5, and nobody could follow an order from start to finish.";
 export const NEXT_FLIGHT = "The Jai Hind order workflow, redesigned for an AI agent that drafts reorders and flags stock conflicts, with staff approving.";
 
@@ -175,12 +175,12 @@ export const LOG = [
 
 // Back of the boarding pass = "How I work"
 export const PROCESS = [
-  ["Research", "I go where the work happens and listen to the people doing it."],
-  ["Define", "I group what I heard into patterns, then name the problem."],
-  ["Ideate", "Many ideas on paper, then the layout in gray."],
-  ["Design", "The brand becomes a design system, then polished screens."],
-  ["Test", "I watch people use it, then fix what fails."],
-  ["Ship and measure", "I work with developers until it holds up, then measure."],
+  ["Collect", "Field visits, interviews, focus groups, surveys and reviews. I go where the work happens."],
+  ["Analyze with AI", "AI tags, clusters and summarizes large sets of data. I set the questions and the codes."],
+  ["Verify", "I check every theme against the raw quotes. AI can miss context or be wrong."],
+  ["Define", "I name the cause of the problem, not the symptom."],
+  ["Design", "Ideas tied to findings, then a system and polished screens."],
+  ["Test and measure", "I watch people use it, fix what fails, and measure the change."],
 ];
 
 export const WORDS = [
@@ -279,4 +279,30 @@ export const LAB_PROOF: Record<string, { proof: Proof; also?: { flight: string; 
       stat: "27%", statLabel: "fewer order errors after launch" },
     also: { flight: "irs", text: "Each field explains itself before you fill it in, with an example and a sample form." },
   },
+};
+
+
+// =========================================================
+// FLIGHT DATA RECORDER: research at scale. Counts come from the case studies.
+// =========================================================
+export const RECORDER = {
+  counters: [
+    { n: 150, plus: true, label: "app reviews read", src: "IRS2Go" },
+    { n: 40, plus: true, label: "research papers reviewed", src: "Money Anchor" },
+    { n: 50, plus: true, label: "quotes affinity-mapped", src: "Money Anchor" },
+    { n: 24, plus: false, label: "people in an IRB study", src: "Money Anchor" },
+    { n: 16, plus: false, label: "usability testers, 2 rounds", src: "Money Anchor" },
+    { n: 12, plus: true, label: "interviews and tests", src: "FindMe" },
+    { n: 10, plus: false, label: "competitor apps benchmarked", src: "Money Anchor" },
+    { n: 10, plus: false, label: "drivers in usability tests", src: "EV charging" },
+  ],
+  steps: [
+    { k: "COLLECT", ai: "", me: "Store visits, interviews, focus groups, reviews, usability sessions.", ex: "Jai Hind: store visits before any screen." },
+    { k: "ANALYZE", ai: "Tags, clusters and summarizes large sets: reviews, transcripts, survey answers.", me: "I set the research questions and the codes.", ex: "Money Anchor: 50+ quotes grouped into themes." },
+    { k: "VERIFY", ai: "", me: "Every AI theme checked against the raw quotes before it counts.", ex: "AI speeds the reading; the judgment stays mine." },
+    { k: "DEFINE", ai: "", me: "Name the cause, not the symptom.", ex: "IRS2Go: we wrote out every step to see exactly where people got stuck." },
+    { k: "DESIGN + TEST", ai: "Drafts ideas and prototypes faster.", me: "Pick what the findings support, then test with numbers.", ex: "Money Anchor: 100 ideas down to 10; exploration success 22% to 100%." },
+  ],
+  // Add your large-scale AI analysis here once it is written up (for example: reviews analyzed with an LLM).
+  featured: null as null | { title: string; stat: string; label: string; link: string },
 };

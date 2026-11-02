@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FLIGHTS, PROFILE, PROCESS, HERO_STATS, PILLARS, DESTINATION, PROBLEM, NEXT_FLIGHT, type Flight, type Pillar } from "../data";
+import { FLIGHTS, PROFILE, PROCESS, HERO_STATS, PILLARS, DESTINATION, PROBLEM, NEXT_FLIGHT, RECORDER, type Flight, type Pillar } from "../data";
 import { sound } from "../hooks/useSound";
 import { useClock } from "../hooks/useHooks";
 import { Plane, Routes, SplitFlap, Kicker } from "./Shared";
@@ -68,9 +68,10 @@ export default function Deck({ onRail }: { onRail: (on: boolean, active: number)
     <div className="deck" ref={deckRef}>
       <section className="slot hero" id="top" style={{ ["--i" as any]: 0 }}><div className="lift"><div className="fit"><BoardingPass /></div></div></section>
       <section className="slot board-slot" id="route" style={{ ["--i" as any]: 1 }}><div className="lift"><div className="fit"><Itinerary /></div></div></section>
-      <section className="slot board-slot" id="work" style={{ ["--i" as any]: 2 }}><div className="lift"><div className="fit"><Departures /></div></div></section>
+      <section className="slot board-slot" id="research" style={{ ["--i" as any]: 2 }}><div className="lift"><div className="fit"><Recorder /></div></div></section>
+      <section className="slot board-slot" id="work" style={{ ["--i" as any]: 3 }}><div className="lift"><div className="fit"><Departures /></div></div></section>
       {FLIGHTS.map((f, i) => (
-        <section className="slot" id={`n-${f.id}`} key={f.id} style={{ ["--i" as any]: i + 3 }} aria-label={f.title}>
+        <section className="slot" id={`n-${f.id}`} key={f.id} style={{ ["--i" as any]: i + 4 }} aria-label={f.title}>
           <div className="lift"><div className="fit"><Ticket f={f} i={i} /></div></div>
         </section>
       ))}
@@ -208,6 +209,55 @@ function Itinerary() {
       </div>
       <div className="dest"><span>FINAL DESTINATION</span><b>{DESTINATION}</b></div>
       <div className="next"><span>NEXT FLIGHT · PLANNED</span><p>{NEXT_FLIGHT}</p></div>
+    </div>
+  );
+}
+
+/* ---------------- Flight data recorder: research at scale ---------------- */
+function Counter({ n, plus, run }: { n: number; plus: boolean; run: boolean }) {
+  const [v, setV] = useState(0);
+  useEffect(() => { if (!run) return; const t0 = performance.now(); let raf = 0;
+    const step = () => { const p = Math.min(1, (performance.now() - t0) / 1400); setV(Math.round(n * (1 - Math.pow(1 - p, 3)))); if (p < 1) raf = requestAnimationFrame(step); };
+    raf = requestAnimationFrame(step); return () => cancelAnimationFrame(raf); }, [n, run]);
+  return <b>{v}{plus ? "+" : ""}</b>;
+}
+function Recorder() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [go, setGo] = useState(false);
+  const [step, setStep] = useState(1);
+  useEffect(() => { const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setGo(true); io.disconnect(); } }, { threshold: 0.4 });
+    io.observe(ref.current!); return () => io.disconnect(); }, []);
+  const st = RECORDER.steps[step];
+  return (
+    <div ref={ref} className={`rec ${go ? "go" : ""}`}>
+      <div className="board-title">
+        <div><Kicker gate="A" label="Flight recorder" /><h2 className="h2">Research first, at any scale</h2></div>
+        <p className="itin-lede">Every project starts with data: people, reviews, papers, sessions. AI does the heavy reading across large sets; I set the questions, check every finding, and turn it into the problem worth solving.</p>
+      </div>
+      <div className="rec-grid">
+        <div className="blackbox">
+          <div className="bb-head"><span>FLIGHT DATA RECORDER</span><span>DO NOT OPEN</span></div>
+          <div className="bb-counters">
+            {RECORDER.counters.map((c) => (<div key={c.label}><Counter n={c.n} plus={c.plus} run={go} /><span>{c.label}</span><em>{c.src}</em></div>))}
+          </div>
+        </div>
+        <div className="pipeline">
+          <div className="pipe-steps">
+            {RECORDER.steps.map((x, i) => (
+              <button key={x.k} className={i === step ? "on" : ""} onClick={() => { setStep(i); sound.click(); }}>
+                <span>{String(i + 1).padStart(2, "0")}</span>{x.k}{x.ai && <i>AI</i>}
+              </button>
+            ))}
+          </div>
+          <div className="pipe-card" key={step}>
+            <div className="pipe-split">
+              <div className={`who ai ${st.ai ? "" : "none"}`}><small>AI DOES</small><p>{st.ai || "Nothing here. This step is mine."}</p></div>
+              <div className="who me"><small>I DO</small><p>{st.me}</p></div>
+            </div>
+            <p className="pipe-ex"><b>FROM MY WORK</b>{st.ex}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

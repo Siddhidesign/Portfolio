@@ -522,3 +522,31 @@ section:not(.slot){scroll-margin-top:70px}
 .next p{font-size:14px;color:var(--ink-2)}
 .legs .leg{padding:14px 16px 16px}
 .leg-code{font-size:40px}
+/* flight data recorder */
+.rec-grid{display:grid;grid-template-columns:430px 1fr;gap:20px}
+.blackbox{background:#E8763A;border-radius:18px;padding:18px;color:#1A1A1A;position:relative;box-shadow:inset 0 0 0 3px rgba(0,0,0,.15);background-image:repeating-linear-gradient(135deg,transparent 0 22px,rgba(0,0,0,.05) 22px 24px)}
+.bb-head{display:flex;justify-content:space-between;font:400 11px var(--f-mono);letter-spacing:2px;margin-bottom:12px}
+.bb-counters{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bb-counters div{background:#151A21;color:#F5C518;border-radius:10px;padding:10px 12px}
+.bb-counters b{display:block;font:400 30px/1 var(--f-mono)}
+.bb-counters span{display:block;font-size:12px;color:#E7ECF3;margin-top:4px;line-height:1.25}
+.bb-counters em{font:400 10px var(--f-mono);font-style:normal;letter-spacing:1px;color:#8B97A8}
+.pipeline{display:flex;flex-direction:column;gap:12px}
+.pipe-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.pipe-steps button{position:relative;text-align:left;border:1.5px solid var(--line);border-radius:10px;padding:10px;background:var(--paper);font:400 13px var(--f-mono);letter-spacing:1px;transition:.2s}
+.pipe-steps button span{display:block;font-size:11px;color:var(--muted)}
+.pipe-steps button i{position:absolute;top:8px;right:8px;font:400 10px var(--f-mono);font-style:normal;background:#6B4FA0;color:#fff;padding:1px 6px;border-radius:4px}
+.pipe-steps button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pipe-card{flex:1;border:1.5px solid var(--line);border-radius:14px;padding:18px;animation:featIn .5s var(--ease) both;display:flex;flex-direction:column}
+.pipe-split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.who{border-radius:12px;padding:14px}
+.who small{font:400 11px var(--f-mono);letter-spacing:2px}
+.who p{font-size:15px;margin-top:6px;line-height:1.45}
+.who.ai{background:color-mix(in srgb,#6B4FA0 10%,var(--paper));border:1px solid color-mix(in srgb,#6B4FA0 30%,transparent)}
+.who.ai small{color:#6B4FA0}
+.who.ai.none{opacity:.55}
+.who.me{background:color-mix(in srgb,#1F4E79 8%,var(--paper));border:1px solid color-mix(in srgb,#1F4E79 25%,transparent)}
+.who.me small{color:#1F4E79}
+[data-theme="dark"] .who.ai small,[data-theme="dark"] .who.me small{color:var(--sign)}
+.pipe-ex{margin-top:auto;padding-top:14px;font-size:14px;color:var(--ink-2)}
+.pipe-ex b{font:400 11px var(--f-mono);letter-spacing:2px;color:var(--accent);margin-right:10px}

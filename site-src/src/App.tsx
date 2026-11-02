@@ -18,8 +18,8 @@ import { Plane } from "./components/Shared";
   10. Check-in ............. your next step (one clear call to action) */
 
 const NAV = [["work", "Work"], ["story", "Story"], ["laws", "UX lab"], ["words", "Words"], ["gallery", "Practice"], ["me", "Me"], ["skills", "Skills"], ["contact", "Contact"]];
-const CHAPTERS: Record<string, string> = { top: "Boarding", route: "Itinerary", work: "Departures", clearing: "Airlines", story: "Flight log", laws: "Control tower", words: "Postcards", thought: "Announcement", gallery: "Passport", me: "Baggage claim", skills: "Carry-on", contact: "Check-in" };
-const navFor = (id: string) => (id.startsWith("n-") || id === "clearing" || id === "work" || id === "route" ? "work" : id === "thought" ? "words" : id);
+const CHAPTERS: Record<string, string> = { top: "Boarding", route: "Itinerary", research: "Flight recorder", work: "Departures", clearing: "Airlines", story: "Flight log", laws: "Control tower", words: "Postcards", thought: "Announcement", gallery: "Passport", me: "Baggage claim", skills: "Carry-on", contact: "Check-in" };
+const navFor = (id: string) => (id.startsWith("n-") || id === "clearing" || id === "work" || id === "route" || id === "research" ? "work" : id === "thought" ? "words" : id);
 
 export default function App() {
   const [dark, setDark] = useState(() => { try { return localStorage.getItem("sm-theme") === "dark"; } catch { return false; } });
@@ -54,7 +54,7 @@ export default function App() {
 
   const onRail = useCallback((on: boolean, a: number) => setRail((r) => (r.on === on && r.active === a ? r : { on, active: a })), []);
   const go = (id: string) => (e: React.MouseEvent) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); sound.click(); };
-  const railItems = [{ id: "top", c: "var(--ink)", label: "Boarding pass" }, { id: "route", c: "#6B4FA0", label: "Itinerary" }, { id: "work", c: "#F5C518", label: "Departures" }, ...FLIGHTS.map((f) => ({ id: `n-${f.id}`, c: f.color, label: `${f.code} · ${f.title}` }))];
+  const railItems = [{ id: "top", c: "var(--ink)", label: "Boarding pass" }, { id: "route", c: "#6B4FA0", label: "Itinerary" }, { id: "research", c: "#E8763A", label: "Flight recorder" }, { id: "work", c: "#F5C518", label: "Departures" }, ...FLIGHTS.map((f) => ({ id: `n-${f.id}`, c: f.color, label: `${f.code} · ${f.title}` }))];
 
   return (
     <>

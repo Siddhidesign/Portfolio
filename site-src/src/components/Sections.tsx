@@ -48,7 +48,7 @@ export function FlightLog() {
   }, [seen, printed]);
   return (
     <section id="story"><div className="wrap">
-      <Head gate="C" label="Flight log" title="Developer, then workflows, then research, then AI" lede="Every leg prints as you reach it. Open a line for the story behind it." />
+      <Head gate="C" label="Flight log" title="Developer, then workflows, then research, now AI" lede="Every leg prints as you reach it. Open a line for the story behind it." />
       <Reveal className="logbook" delay={0.2}>
         <div className="lb-head">
           <div><small>Pilot</small><b>{PROFILE.name}</b></div><div><small>First departure</small><b>Mumbai</b></div>
@@ -250,7 +250,7 @@ export function CheckIn() {
   );
   return (
     <section id="contact"><div className="wrap">
-      <Head gate="K" label="Check-in" title="Let’s check you in" lede="Open to AI UX and product design roles on B2B workflow tools, across the US. Pick a reason for travel, pick a seat for the channel, then hold to print." />
+      <Head gate="K" label="Check-in" title="Let’s check you in" lede="Open to UX research and product design roles at data-driven teams, especially B2B workflow tools, across the US. Pick a reason for travel, pick a seat for the channel, then hold to print." />
       <div className="counter">
         <Reveal className="kiosk" delay={0.1}><div className="kiosk-screen">
           <h4>1. PURPOSE OF TRAVEL</h4><Opts list={PURPOSE} val={pur} set={setPur} />
