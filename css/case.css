@@ -1,0 +1,12 @@
+/* Siddhi Manche · case studies, version 1.
+   The homepage's quieter look on every case study: lighter, larger headings, a roomier summary
+   and a softer next-case link. Loaded after store.css. */
+.buy h1 { font-size: clamp(2rem, 3.3vw, 2.75rem); font-weight: 300; letter-spacing: -.04em; line-height: 1.06; }
+.sec-head h2, .step h2 { font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-weight: 300; letter-spacing: -.035em; line-height: 1.12; }
+.buy h1 em, .sec-head h2 em, .step h2 em { font-weight: 400; letter-spacing: -.01em; }
+.buy .summary { font-size: 17px; line-height: 1.6; color: var(--text); }
+.next { transition: border-color .2s, box-shadow .2s; }
+.next:hover { border-color: var(--line-2); box-shadow: var(--shadow); }
+.next b { font-size: 1.35rem; font-weight: 300; letter-spacing: -.03em; line-height: 1.2; }
+.next .arrow { transition: transform .2s; }
+.next:hover .arrow { transform: translateX(4px); }
