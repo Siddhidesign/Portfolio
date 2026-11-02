@@ -19,4 +19,4 @@ Then commit and push. GitHub Pages serves the repo root, so the new build is liv
 - Baggage claim photos: put `1.jpg` … `6.jpg` in `site-src/public/photos/`, edit captions in `BAGS`
 
 ## Old homepage
-The previous homepage is saved as the git tag `old-portfolio-2026-11-02`.
+The previous homepage is in commit `6d1be73`. To restore it: `git checkout 6d1be73 -- index.html`.
