@@ -1,4 +1,4 @@
-/* Siddhi Manche · portfolio motion, version 3.
+/* Siddhi Manche · portfolio motion, version 4.
    Quiet and editorial: the hero eases in, sections rise as you reach them, project images settle in,
    and a small label follows the pointer over projects.
    Content is only hidden once js/motion.js has run (html.motion), nothing loops,
@@ -55,6 +55,9 @@
 .xp-stack.collapsed > .xp-card:not(:last-child) .xp-what { opacity: 0; }
 /* The FindMe logo is dark, so its thumbnail keeps a light background in dark mode too. */
 html[data-theme="night"] .xp-card .xp-thumb.logo { background: linear-gradient(140deg, #f6efe8, #efe9f6); }
+
+/* Small phones: Experience sits right under the intro, so its menu link steps aside and Projects and Contact stay in view */
+@media (max-width: 440px) { .nav .opt-sm { display: none; } }
 
 @media print {
   .motion [data-reveal] { opacity: 1 !important; transform: none !important; }
