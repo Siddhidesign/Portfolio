@@ -28,7 +28,7 @@ export const CONTACT = {
 };
 
 export const HERO_STATS: [string, string][] = [
-  ["16,000+", "AI research: EV reviews analyzed"],
+  ["16,767", "research: EV reviews cleaned in Colab"],
   ["~200", "field research: employees, 10 stores"],
   ["27%", "outcome: fewer order errors"],
 ];
@@ -46,8 +46,8 @@ export const PILLARS: { id: Pillar; code: string; label: string; short: string; 
     stat: ["27%", "fewer order errors on the shipped staff portal"] },
   { id: "research", code: "UXR", label: "AI-assisted researcher", short: "RESEARCH", years: "2024 to 2026", color: "#2E7D6B",
     line: "M.S. in Human-Centered Design, with research done in depth and with AI.",
-    learned: "Research at scale: papers summarized with AI, thousands of reviews analyzed in Google Colab, then checked by hand.",
-    stat: ["16,000+", "EV driver reviews analyzed with AI in Google Colab"] },
+    learned: "Research at scale: papers summarized with AI, thousands of reviews cleaned in Google Colab, then checked by hand.",
+    stat: ["16,767", "EV reviews cleaned in Google Colab"] },
   { id: "ai", code: "AIX", label: "Agentic AI UX", short: "AI", years: "Now", color: "#6B4FA0",
     line: "Designing AI people trust, and building with AI every day.",
     learned: "AI should do the repetitive steps and explain itself. People keep the final say.",
@@ -127,9 +127,9 @@ export const FLIGHTS: Flight[] = [
     from: "A different app for every charging network",
     to: "One app for every charger",
     role: "Research and design",
-    desc: "I analyzed 16,000+ EV driver reviews in Google Colab with AI, alongside a literature review, to find what really frustrates drivers: range anxiety, reliability, safety and payment. Then we designed one app for every charger and tested it with 10 drivers.",
+    desc: "We collected 16,767 Google Maps reviews of US charging stations and cleaned them in Google Colab with AI-assisted Python, alongside a literature review, to find what really frustrates drivers: range anxiety, reliability, safety and payment. Then we designed one app for every charger and tested it with 10 drivers.",
     methods: ["AI review analysis", "Google Colab", "Literature review", "Usability testing", "SUS"],
-    stats: [["16,000+", "driver reviews analyzed with AI"], ["78.75", "SUS score"], ["10", "drivers tested"]],
+    stats: [["16,767", "Google Maps reviews collected and cleaned"], ["78.75", "SUS score"], ["10", "drivers tested"]],
     image: SITE + "assets/live/ev.jpg", link: SITE + "cases/ev.html",
   },
   {
@@ -164,7 +164,7 @@ export const LOG = [
   { date: "2024", leg: "M.S., Human-Centered Design and Engineering", where: "University of Michigan-Dearborn", miles: "+ AI research",
     story: "Where I learned UX research in depth, and learned to use AI in analysis and user research: IRB studies, focus groups, SUS, and the Money Anchor capstone." },
   { date: "Fall 2024", leg: "EV charging research", where: "Human Factors course", miles: "+ AI research",
-    story: "16,000+ EV driver reviews analyzed with AI in Google Colab. The first time I saw AI read at a scale no team could, and why every theme still needs a human check." },
+    story: "16,767 EV driver reviews cleaned and sampled in Google Colab with AI-assisted Python. The first time I saw how much data one team could handle with AI, and why every finding still needs a human check." },
   { date: "May 2025", leg: "UX/UI Designer, internship", where: "FindMe LLC, New York", miles: "+ systems",
     story: "Grew a 25+ component library across 2 products and supported 12+ interviews and usability tests." },
   { date: "Sep 2025", leg: "Human-Centered Design Associate", where: "University of Michigan-Dearborn", miles: "+ leadership",
@@ -299,11 +299,78 @@ export const RECORDER = {
   ],
   steps: [
     { k: "COLLECT", ai: "Finds and summarizes research papers on the topic.", me: "Field visits, interviews, surveys, focus groups, review scraping.", ex: "Jai Hind: about 200 employees across 10 stores. IRS2Go: App Store, Quora, interviews and a survey." },
-    { k: "ANALYZE", ai: "Tags, clusters and summarizes large sets: reviews, transcripts, survey answers.", me: "I set the research questions and the codes.", ex: "EV charging: 16,000+ driver reviews analyzed in Google Colab with AI." },
+    { k: "ANALYZE", ai: "Tags, clusters and summarizes large sets: reviews, transcripts, survey answers.", me: "I set the research questions and the codes.", ex: "EV charging: 16,767 reviews cleaned in Google Colab with AI-assisted Python, then sampled 80 per network." },
     { k: "VERIFY", ai: "", me: "Every AI theme checked against the raw quotes before it counts.", ex: "AI speeds the reading; the judgment stays mine." },
     { k: "DEFINE", ai: "", me: "Name the cause, not the symptom.", ex: "IRS2Go: we wrote out every step to see exactly where people got stuck." },
     { k: "DESIGN + TEST", ai: "Drafts ideas and prototypes faster.", me: "Pick what the findings support, then test with numbers.", ex: "Money Anchor: 100 ideas down to 10; exploration success 22% to 100%." },
   ],
   // Add your large-scale AI analysis here once it is written up (for example: reviews analyzed with an LLM).
-  featured: { title: "EV charging", stat: "16,000+", label: "driver reviews analyzed with AI in Google Colab", link: SITE + "cases/ev.html" } as null | { title: string; stat: string; label: string; link: string },
+  featured: { title: "EV charging", stat: "16,767", label: "driver reviews cleaned in Google Colab", link: SITE + "cases/ev.html" } as null | { title: string; stat: string; label: string; link: string },
 };
+
+// =========================================================
+// WORKFLOW THEME (Nov 2026)
+// =========================================================
+export const HERO = {
+  kicker: "UX researcher + designer · B2B workflows · AI",
+  // words wrapped in [ai]..[/ai] or [hum]..[/hum] get colored italics
+  title: "I turn messy [ai]data[/ai] into workflows people [hum]trust[/hum].",
+  lede: "AI reads the reviews, transcripts and papers at scale. I check every finding, find the real problem, and design the fix. Before AI, I learned workflows on the shop floor.",
+  stats: [["~200", "employees interviewed, 10 stores"], ["16,767", "EV reviews in one dataset"], ["27%", "fewer order errors, shipped"]] as [string, string][],
+};
+
+// Packets that flow through the hero canvas. kind "quote" = real words from a review or participant; "finding" = a research finding.
+export const SOURCES: { id: string; big: string; label: string; packets: { t: string; kind: "quote" | "finding" }[] }[] = [
+  { id: "ev", big: "16,767", label: "EV charger reviews", packets: [
+    { t: "“Currently out of order”", kind: "quote" }, { t: "“the credit card machine doesn’t work”", kind: "quote" },
+    { t: "“Customer service was useless”", kind: "quote" }, { t: "“waited 40 minutes”", kind: "quote" } ] },
+  { id: "jh", big: "~200", label: "employees, 10 stores", packets: [
+    { t: "5 systems, no view of one order", kind: "finding" }, { t: "stock problems found after approval", kind: "finding" },
+    { t: "caller waits while staff add a customer", kind: "finding" } ] },
+  { id: "irs", big: "350+", label: "App Store + Quora", packets: [
+    { t: "Tax Year looked like a text box", kind: "finding" }, { t: "SSN split across 3 boxes", kind: "finding" },
+    { t: "payments bounce to the website", kind: "finding" } ] },
+  { id: "ma", big: "40+", label: "papers + 24 people", packets: [
+    { t: "“I spend more when I’m bored”", kind: "quote" }, { t: "“If my friends are going out, I’m going out too”", kind: "quote" } ] },
+];
+export const HERO_THEMES = ["broken or blocked", "payment and forms", "trust and support"];
+
+export const RUNLOG: [string, string][] = [
+  ["cmd", "run workflow --project ev-charging"],
+  ["", "loaded 16,767 Google Maps reviews of EV chargers"],
+  ["", "cleaned to 8,036 recent US reviews in Google Colab"],
+  ["ai", "coded 11 themes · scored sentiment with an AI model"],
+  ["hum", "flagged 36 reviews where the AI and the stars disagree, for a human read"],
+  ["ok", "finding: reviews about broken chargers average 2.25★ vs 3.72★ overall"],
+  ["note", "2026 follow-up analysis, done with an AI assistant"],
+];
+
+// Five nodes per run: label, text, kind ("ai" | "hum" | "" )
+export const PIPES: Record<string, [string, string, "ai" | "hum" | ""][]> = {
+  ol: [["Data in", "Designer files, 50+ products", ""], ["Plan", "Pages mapped to the catalog", ""], ["Check", "Mismatches raised before release", "hum"], ["Build", "Responsive HTML, CSS and JS", ""], ["Result", "50+ pages kept accurate", ""]],
+  jh: [["Data in", "~200 employees across 10 stores", ""], ["Analyze", "5 scattered workflows mapped", ""], ["Verify", "Store visits, real orders watched", "hum"], ["Design", "One portal, plus website navigation", ""], ["Result", "27% fewer errors, 40% faster", ""]],
+  fm: [["Data in", "12+ interviews and usability tests", ""], ["Analyze", "Tagged in Dovetail", ""], ["Verify", "Tested in Maze", "hum"], ["Design", "25+ components, 2 products", ""], ["Result", "28% more engagement, brand pages", ""]],
+  ma: [["Data in", "40+ papers, 24 people, IRB", ""], ["Analyze", "Papers summarized with AI, 50+ quotes mapped", "ai"], ["Verify", "2 test rounds, 16 people", "hum"], ["Design", "AI that explains, you decide", ""], ["Result", "Exploration success 22% to 100%", ""]],
+  irs: [["Data in", "150+ App Store, 200+ Quora, ~10 interviews, survey", ""], ["Analyze", "Papers summarized with AI, every failing step mapped", "ai"], ["Verify", "Old app vs redesign, with people", "hum"], ["Design", "3 choices, no login for refunds", ""], ["Result", "SUS 31.3 to 78.25", ""]],
+  ev: [["Data in", "16,767 Google Maps reviews", ""], ["Analyze", "Cleaned and sampled in Colab, AI-assisted Python", "ai"], ["Verify", "400-review sample, 80 per network", "hum"], ["Design", "One app, one wallet, pay like Tesla", ""], ["Result", "78.75 SUS with 10 drivers", ""]],
+  hd: [["Data in", "1 recorded interview, screen recordings", ""], ["Analyze", "Heuristic review of both modes", ""], ["Verify", "Same question, two different answers", "hum"], ["Design", "6 changes, questions as taps", ""], ["Result", "Hypotheses to test next", ""]],
+};
+export const RUN_STATUS: Record<string, "shipped" | "tested" | "concept"> = { ol: "shipped", jh: "shipped", fm: "shipped", ma: "tested", irs: "tested", ev: "tested", hd: "concept" };
+
+export const EV_FOLLOWUP = {
+  label: "2026 follow-up · done with an AI assistant",
+  points: [
+    "8,036 recent US reviews coded into 11 themes",
+    "Reviews about broken chargers average 2.25★, against 3.72★ for all reviews",
+    "Broken chargers come up in 4.4% of Tesla reviews and 22.5% of Electrify America reviews",
+  ],
+};
+
+export const QUEUED = { code: "AG-next", title: "Agentic reorder workflow", desc: "AI drafts supplier reorders from stock levels and flags conflicts. Staff approve every one.", pipe: ["stock", "agent", "approve", "order"], status: "queued" };
+
+export const VERSIONS = [
+  { v: "v1.0", tag: "developer", years: "2022", title: "Front-end developer", msg: "Built a 50+ page B2B catalog in HTML, CSS and JavaScript", learned: "What is possible in the browser, and what a developer needs from a design.", stat: ["50+", "pages built"] as [string, string] },
+  { v: "v2.0", tag: "workflow", years: "2023 to 2025", title: "Workflow designer, before AI", msg: "Interviewed ~200 employees across 10 stores, replaced 5 systems with 1 portal", learned: "Workflows are people. Watch the work before drawing a screen.", stat: ["27%", "fewer order errors"] as [string, string] },
+  { v: "v3.0", tag: "research", years: "2024 to 2026", title: "AI-assisted researcher, M.S. HCDE", msg: "Papers summarized with AI, 16,767 reviews in Google Colab, IRB studies", learned: "AI reads at scale. A human checks every theme before it counts.", stat: ["24", "people in an IRB study"] as [string, string] },
+  { v: "v4.0-beta", tag: "agentic", years: "Now", title: "Agentic AI UX for B2B workflows", msg: "Designing AI that does the repetitive steps and explains itself", learned: "People trust AI when it shows why and leaves them the final say.", stat: ["6 of 8", "testers fully trusted the AI"] as [string, string] },
+];
