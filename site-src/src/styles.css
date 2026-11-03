@@ -1,12 +1,12 @@
 /* =========================================================
    Siddhi Manche · workflow portfolio
-   Fonts: Brygada 1918 (display), Schibsted Grotesk (body), Martian Mono (data)
+   Fonts: Manrope (headlines and body), Martian Mono (data)
    ========================================================= */
 :root{
   --paper:#F3F0E8; --card:#FFFDF8; --card2:#F8F5EE; --ink:#16161A; --ink2:#55534E; --mute:#8F8C84; --line:#DDD8CC; --dot:#CFC9BB;
   --ai:#5B4BFF; --ai-bg:#ECEAFF; --ai-line:#C9C3FF; --hum:#E8501A; --hum-bg:#FFE9DF; --hum-line:#FFC4AC;
   --ok:#14864F; --ok-bg:#DFF3E7; --ok-line:#B7E2C8; --term:#16161A; --term-ink:#D9D6CE;
-  --serif:'Brygada 1918',Georgia,serif; --sans:'Schibsted Grotesk',system-ui,sans-serif; --mono:'Martian Mono',ui-monospace,monospace;
+  --serif:'Manrope',system-ui,sans-serif; --sans:'Manrope',system-ui,sans-serif; --mono:'Martian Mono',ui-monospace,monospace;
   --ease:cubic-bezier(.2,.8,.2,1); --shadow:0 18px 40px -24px rgba(22,22,26,.35);
 }
 [data-theme="dark"]{
@@ -312,3 +312,13 @@ h2{font-size:48px;line-height:1.05;letter-spacing:-.5px}
 .packet{font-size:10.5px}
 .node b,.hstats b{font-weight:500}
 .node.out{width:192px}.node.out .l{font-family:var(--sans)}
+
+/* Manrope everywhere: bold geometric headlines, no faux italics */
+body{font-synthesis:none}
+h1{font-size:64px;line-height:1.02;letter-spacing:-2.4px;font-weight:800}
+h2{font-size:46px;line-height:1.05;letter-spacing:-1.6px;font-weight:800}
+h1 em,h2 em,.t-ai,.t-hum{font-style:normal}
+.detail h3,.commit h3,.run h3,.law-card h3,.proof-head b{font-weight:700;letter-spacing:-.8px}
+.detail h3{font-size:38px}.law-card h3{font-size:36px}.run h3{font-size:21px;letter-spacing:-.4px}.commit h3{font-size:26px}
+.appr .q{font-size:21px;font-weight:600;letter-spacing:-.4px;line-height:1.35}
+.node b,.hstats b,.counters .c b,.stat b,.dstat b,.commit .st b,.run .metric b,.proof-stat b,.leg-stat b{font-weight:700;letter-spacing:-1px}
