@@ -42,7 +42,7 @@ export const PILLARS: { id: Pillar; code: string; label: string; short: string; 
     stat: ["50+", "product pages built in HTML, CSS and JavaScript"] },
   { id: "workflow", code: "WFD", label: "Workflow designer", short: "WORKFLOW", years: "2023 to 2025", color: "#1F4E79",
     line: "Optimized B2B workflows before AI, and the website navigation shoppers use.",
-    learned: "Workflows are people. Our team interviewed about 200 employees across 10 stores, 70+ of them by me, before we drew a screen.",
+    learned: "Workflows are people. Our team met about 200 employees across 10 stores, 80+ of them interviewed by me, before we drew a screen.",
     stat: ["27%", "fewer order errors on the shipped staff portal"] },
   { id: "research", code: "UXR", label: "AI-assisted researcher", short: "RESEARCH", years: "2024 to 2026", color: "#2E7D6B",
     line: "M.S. in Human-Centered Design, with research done in depth and with AI.",
@@ -80,12 +80,12 @@ export const FLIGHTS: Flight[] = [
   {
     id: "jh", code: "JH 2023", color: "#1F4E79", type: "Internal tool", pillars: ["workflow"] as Pillar[], gate: "A2", status: "landed",
     title: "Jai Hind staff portal and website", tagline: "Product UX Designer · Feb 2023 to Jul 2024 · Mumbai",
-    from: "Store staff juggling 5 separate systems to move an order from supplier to customer",
-    to: "One order platform for staff, and a marketing website shoppers can navigate without an account",
+    from: "Phone calls, paper books and 5 systems to move one order",
+    to: "One order portal for about 200 employees, tracked start to end",
     role: "Owned the supplier-to-customer workflow and worked on the website’s navigation, on a team of 3 designers",
-    desc: "Before AI was in the market, we learned the workflow on the shop floor: about 200 employees interviewed across 10 stores, 70+ of them by me, watching how orders really move. Then I designed the order platform that replaced 5 systems and cut order errors 27%. On the marketing website, I worked on navigation so shoppers find a collection or a store fast, without a login wall.",
-    methods: ["Store visits", "Staff interviews", "Workflows", "Dashboards", "Website navigation", "Information architecture"],
-    stats: [["~200", "employees interviewed across 10 stores, as a team"], ["27%", "fewer order errors"], ["40%", "faster per order"]],
+    desc: "Orders moved by phone calls and paper books, so a whole day went into 2 or 3 orders. Before AI tools, I interviewed 80+ of about 200 employees across 10 stores, then helped design one portal where every order is entered once and tracked to the end. Now staff send 7 or 8 orders a day, 40% faster per order, with 27% fewer errors.",
+    methods: ["Store visits", "80+ interviews", "FigJam", "Miro", "Figma", "Jira", "Information architecture"],
+    stats: [["2-3 → 7-8", "orders sent a day"], ["40%", "faster per order"], ["27%", "fewer order errors"]],
     image: SITE + "assets/jaihind/jh-13-final-dashboard.jpg", link: SITE + "cases/jaihind.html",
   },
   {
@@ -152,7 +152,7 @@ export const AIRLINES = [
   { name: "Jai Hind Group", role: "Product UX Designer", date: "Feb 2023 to Jul 2024", note: "Mumbai" },
   { name: "Omkar Labels", role: "Junior Front-End Developer", date: "May 2022 to Jan 2023", note: "Mumbai" },
 ];
-export const TOOLS = ["Figma", "FigJam", "Miro", "Dovetail", "Maze", "Claude Code"];
+export const TOOLS = ["Figma", "FigJam", "Miro", "Jira", "Dovetail", "Maze", "Claude Code"];
 
 export const LOG = [
   { date: "2020", leg: "B.E., Electronics and Telecommunication", where: "Vidyalankar Institute of Technology, Mumbai", miles: "+ engineering",
@@ -290,7 +290,7 @@ export const LAB_PROOF: Record<string, { proof: Proof; also?: { flight: string; 
 export const RECORDER = {
   counters: [
     { n: 16000, plus: true, label: "EV driver reviews analyzed with AI in Google Colab", src: "EV charging" },
-    { n: 200, plus: false, label: "employees interviewed across 10 stores, as a team (70+ by me)", src: "Jai Hind" },
+    { n: 200, plus: false, label: "employees across 10 stores, met as a team (80+ interviewed by me)", src: "Jai Hind" },
     { n: 200, plus: true, label: "Quora posts analyzed", src: "IRS2Go" },
     { n: 150, plus: true, label: "App Store reviews analyzed", src: "IRS2Go" },
     { n: 40, plus: true, label: "research papers summarized with AI", src: "Money Anchor" },
