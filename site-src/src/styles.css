@@ -1,12 +1,12 @@
 /* =========================================================
    Siddhi Manche · workflow portfolio
-   Fonts: Instrument Serif (display), Geist (body), Geist Mono (data)
+   Fonts: Brygada 1918 (display), Schibsted Grotesk (body), Martian Mono (data)
    ========================================================= */
 :root{
   --paper:#F3F0E8; --card:#FFFDF8; --card2:#F8F5EE; --ink:#16161A; --ink2:#55534E; --mute:#8F8C84; --line:#DDD8CC; --dot:#CFC9BB;
   --ai:#5B4BFF; --ai-bg:#ECEAFF; --ai-line:#C9C3FF; --hum:#E8501A; --hum-bg:#FFE9DF; --hum-line:#FFC4AC;
   --ok:#14864F; --ok-bg:#DFF3E7; --ok-line:#B7E2C8; --term:#16161A; --term-ink:#D9D6CE;
-  --serif:'Instrument Serif',Georgia,serif; --sans:'Geist',system-ui,sans-serif; --mono:'Geist Mono',ui-monospace,monospace;
+  --serif:'Brygada 1918',Georgia,serif; --sans:'Schibsted Grotesk',system-ui,sans-serif; --mono:'Martian Mono',ui-monospace,monospace;
   --ease:cubic-bezier(.2,.8,.2,1); --shadow:0 18px 40px -24px rgba(22,22,26,.35);
 }
 [data-theme="dark"]{
@@ -298,3 +298,17 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:40p
 footer .clk{font-family:var(--mono)}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 .runs > div{min-width:0}
+
+/* type scale for Brygada 1918 (wider than a condensed serif) and Martian Mono (wide mono) */
+h1{font-size:66px;line-height:1.02;letter-spacing:-1px}
+h2{font-size:48px;line-height:1.05;letter-spacing:-.5px}
+.detail h3{font-size:42px}
+.commit h3,.run h3{letter-spacing:-.2px}
+.run h3{font-size:23px}
+.law-card h3{font-size:40px}
+.appr .q{font-size:24px}
+.mono,.tag,.crumb,.live,.node small,.packet,.log,.st,.mini span,.d-top,.d-tag,.fromto small,.flow .n small,.methods span,.steps button,.commit .v,.commit .msg,.counters .c em,.proof-head small,.badge,.law-list button span,.dm-out,.who small,.ex b,.problem b,.ig h4,.edu small,.panel h4,.out,.rail a::after,.theme,.canvas .hd,.canvas .legend,.vt,.followup b,.top{letter-spacing:-.3px}
+.log,.out{font-size:12.5px}
+.packet{font-size:10.5px}
+.node b,.hstats b{font-weight:500}
+.node.out{width:192px}.node.out .l{font-family:var(--sans)}

@@ -83,7 +83,7 @@ export default function Hero() {
           {HERO_THEMES.map((t, k) => <div className="theme" key={t}><span>{t}</span><i className={bump === k ? "bump" : ""}>{counts[k]}</i></div>)}
         </div>
         <div className="node hum" data-id="hum" style={{ left: 250, top: 366 }}><small>me · verify</small>Every theme checked against the raw data<div className={`stamp ${stamp ? "show" : ""}`}>checked</div></div>
-        <div className="node out" data-id="out" style={{ left: 506, top: 262 }}><small>output · shipped</small><b>27%</b><div className="l">fewer order errors</div></div>
+        <div className="node out" data-id="out" style={{ left: 498, top: 262 }}><small>output · shipped</small><b>27%</b><div className="l">fewer order errors</div></div>
         <div className="legend"><span><i style={{ background: "var(--card)", boxShadow: "0 0 0 1px var(--line)" }} />real quote</span><span><i style={{ background: "var(--ink)" }} />research finding</span></div>
       </div>
     </section>

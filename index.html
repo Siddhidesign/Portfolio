@@ -8,30 +8,9 @@
     <link rel="icon" href="https://siddhidesign.github.io/Portfolio/assets/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./app/index-CbudvQS6.js"></script>
-    <link rel="stylesheet" crossorigin href="./app/index-DXbNlzAH.css">
-    <script type="module">
-      // Projects first. The next build already has this order (site-src/src/App.tsx);
-      // until then, move the project overview and cards above "Same designer, four versions."
-      const reorder = () => {
-        const main = document.querySelector("main"), story = document.getElementById("story"), runs = document.getElementById("runs");
-        const deck = runs && runs.nextElementSibling;
-        if (!main || !story || !runs || !deck || !deck.classList.contains("deck")) return false;
-        if (runs.compareDocumentPosition(story) & Node.DOCUMENT_POSITION_FOLLOWING) return true;
-        main.insertBefore(runs, story);
-        main.insertBefore(deck, story);
-        const tabs = document.querySelector("header .tabs");
-        const tr = tabs && tabs.querySelector('a[href="#runs"]'), ts = tabs && tabs.querySelector('a[href="#story"]');
-        if (tr && ts) tabs.insertBefore(tr, ts);
-        return true;
-      };
-      if (!reorder()) {
-        const mo = new MutationObserver(() => { if (reorder()) mo.disconnect(); });
-        mo.observe(document.getElementById("root"), { childList: true, subtree: true });
-        setTimeout(() => mo.disconnect(), 8000);
-      }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400;0,500;1,400;1,500&family=Schibsted+Grotesk:wght@400;500;600&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./app/index-CdnzTlnm.js"></script>
+    <link rel="stylesheet" crossorigin href="./app/index-C7_Wb8r0.css">
   </head>
   <body>
     <div id="root"></div>
