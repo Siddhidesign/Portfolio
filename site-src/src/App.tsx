@@ -6,15 +6,16 @@ import { RunLog, Versions, DataIn, RunsGrid, RunsDeck, Rules, Approvals, Integra
 /* Story order, told as one workflow:
    1. Hero canvas ....... data in → AI → human check → result (the pitch in 5 seconds)
    2. Run log ........... one real analysis, step by step
-   3. Version history ... developer → workflow designer → AI-assisted researcher → agentic AI UX
-   4. Data in ........... research volume, and what AI does vs what I do
-   5. Runs .............. every project at a glance, then one stacked card per run
+   3. Runs .............. every project at a glance, then one stacked card per run
+                          (up top, so recruiters reach the work first)
+   4. Version history ... developer → workflow designer → AI-assisted researcher → agentic AI UX
+   5. Data in ........... research volume, and what AI does vs what I do
    6. Rules engine ...... UX laws, tested on real projects
    7. Approvals ......... what managers and founders said
    8. Integrations ...... methods, tools, education
    9. Start a run ....... contact */
 
-const TABS: [string, string][] = [["top", "Workflow"], ["story", "Versions"], ["pipeline", "Pipeline"], ["runs", "Runs"], ["rules", "Rules"], ["approvals", "Approvals"], ["integrations", "Integrations"]];
+const TABS: [string, string][] = [["top", "Workflow"], ["runs", "Runs"], ["story", "Versions"], ["pipeline", "Pipeline"], ["rules", "Rules"], ["approvals", "Approvals"], ["integrations", "Integrations"]];
 
 export default function App() {
   const [dark, setDark] = useState(() => { try { return localStorage.getItem("sm-theme") === "dark"; } catch { return false; } });
@@ -51,10 +52,10 @@ export default function App() {
       <main>
         <Hero />
         <RunLog />
-        <Versions />
-        <DataIn />
         <RunsGrid />
         <RunsDeck onRail={onRail} />
+        <Versions />
+        <DataIn />
         <Rules />
         <Approvals />
         <Integrations />
