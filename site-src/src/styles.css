@@ -322,3 +322,9 @@ h1 em,h2 em,.t-ai,.t-hum{font-style:normal}
 .detail h3{font-size:38px}.law-card h3{font-size:36px}.run h3{font-size:21px;letter-spacing:-.4px}.commit h3{font-size:26px}
 .appr .q{font-size:21px;font-weight:600;letter-spacing:-.4px;line-height:1.35}
 .node b,.hstats b,.counters .c b,.stat b,.dstat b,.commit .st b,.run .metric b,.proof-stat b,.leg-stat b{font-weight:700;letter-spacing:-1px}
+/* lighter Manrope: a step down from bold */
+h1{font-weight:600;letter-spacing:-2px}
+h2{font-weight:600;letter-spacing:-1.3px}
+.detail h3,.commit h3,.run h3,.law-card h3,.proof-head b{font-weight:600}
+.appr .q{font-weight:500}
+.node b,.hstats b,.counters .c b,.stat b,.dstat b,.commit .st b,.run .metric b,.proof-stat b,.leg-stat b{font-weight:600}
