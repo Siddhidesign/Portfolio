@@ -1,174 +1,51 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="day">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omkar Labels: A B2B catalog buyers check before they call | Siddhi Manche</title>
-  <meta name="description" content="A B2B catalog website for a label manufacturer that I developed in HTML, CSS and JavaScript in 2022, then rebuilt in 2026 in Next.js with 0 WCAG 2.1 AA violations.">
-  <link rel="canonical" href="https://siddhidesign.github.io/Portfolio/cases/omkar.html">
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Siddhi Manche">
-  <meta property="og:title" content="Omkar Labels: A B2B catalog buyers check before they call | Siddhi Manche">
-  <meta property="og:description" content="A B2B catalog website for a label manufacturer that I developed in HTML, CSS and JavaScript in 2022, then rebuilt in 2026 in Next.js with 0 WCAG 2.1 AA violations.">
-  <meta property="og:url" content="https://siddhidesign.github.io/Portfolio/cases/omkar.html">
-  <meta property="og:image" content="https://siddhidesign.github.io/Portfolio/assets/og/omkar.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <script>
-    (function () {
-      var d = document.documentElement, t;
-      try { t = localStorage.getItem('theme'); } catch (e) {}
-      var q = location.search.match(/theme=(day|night)/); if (q) t = q[1];
-      d.setAttribute('data-theme', t === 'night' ? 'night' : 'day'); d.classList.add('js');
-    })();
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/store.css">
-  <link rel="stylesheet" href="../css/motion.css?v=4">
-  <link rel="stylesheet" href="../css/case.css?v=1">
-  <style>
-    /* Languages and tools I developed the site with */
-    .stack { margin-top: 18px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
-    .stack-h { display: flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 700; color: var(--ink); }
-    .stack-h svg { width: 18px; height: 18px; flex: none; }
-    .stack-row { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 6px 10px; align-items: start; margin-top: 10px; }
-    .stack-row > span { padding-top: 6px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-    @media (max-width: 420px) { .stack-row { grid-template-columns: 1fr; } .stack-row > span { padding-top: 0; } }
-    .tags.code li { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
-    .stack-note { margin-top: 10px; font-size: 13px; line-height: 1.5; color: var(--text); }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280">
+<title>Omkar Labels: A B2B catalog buyers check before they call | Siddhi Manche</title>
+<meta name="description" content="Omkar Labels makes clothing labels and tags for apparel brands. Buyers check its website before they pick up the phone, so a broken page or an old listing costs trust. As a front-end developer, I turned the designer&#x27;s files into responsive pages for a catalog of 50+ products.">
+<link rel="canonical" href="https://siddhidesign.github.io/Portfolio/cases/omkar.html">
+<meta property="og:title" content="Omkar Labels: A B2B catalog buyers check before they call | Siddhi Manche">
+<meta property="og:description" content="Omkar Labels makes clothing labels and tags for apparel brands. Buyers check its website before they pick up the phone, so a broken page or an old listing costs trust. As a front-end developer, I turned the designer&#x27;s files into responsive pages for a catalog of 50+ products.">
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/run-case.css?v=1">
+<style>:root{--c:#8A5A2B}</style>
+<script src="../js/run-case.js?v=1"></script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="hdr">
-    <div class="wrap hdr-in">
-      <a class="logo" href="../index.html">Siddhi <em>Manche</em></a>
-      <nav class="nav" aria-label="Main">
-        <a class="opt-sm" href="../index.html#experience">Experience</a>
-        <a href="../index.html#projects">Projects</a>
-        <a class="opt" href="../index.html#about">About</a>
-        <a class="opt" href="../index.html#skills">Skills</a>
-        <a href="../index.html#contact">Contact</a>
-      </nav>
-      <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="Switch to dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress"></div>
+<header class="bar">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="../index.html">siddhi</a><span class="s">/</span><a href="../index.html#runs">runs</a><span class="s">/</span><span class="id">#OL-2022</span></nav>
+  <nav class="tabs"><a href="../index.html#top">Workflow</a><a href="../index.html#runs">Runs</a><a href="../index.html#story">Versions</a><a href="../index.html#pipeline">Pipeline</a><a href="../index.html#rules">Rules</a></nav>
+  <div class="tools"><button class="ibtn" id="themeBtn" aria-label="Toggle dark mode" title="Dark mode"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button><a class="cta" href="../index.html#contact">Start a run →</a></div>
+</header>
+<main id="main" class="wrap">
+  <section class="rhero">
+    <div>
+      <div class="rtop"><span class="code">#OL-2022</span><span>run 01 of 07</span><span class="st shipped">shipped</span><span>B2B catalog · front-end</span></div>
+      <h1>A B2B catalog buyers check before they call</h1>
+      <p class="lede">Omkar Labels makes clothing labels and tags for apparel brands. Buyers check its website before they pick up the phone, so a broken page or an old listing costs trust. As a front-end developer, I turned the designer's files into responsive pages for a catalog of 50+ products.</p>
+      <div class="fromto"><div><small>input · the problem</small><p>A large catalog that had to stay current, and buyers deciding whether to call</p></div><div class="ar">→</div><div><small>output · the result</small><p>A 50+ page catalog website in HTML, CSS and JavaScript, kept accurate</p></div></div>
+      
     </div>
-  </header>
-  <main id="main">
-    <nav class="crumbs wrap" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="../index.html#experience">Experience</a></li><li aria-current="page">Omkar Labels</li></ol></nav>
-    <div class="wrap pdp">
-      <figure class="gal"><div class="gal-frame"><img data-gal-main src="../assets/v2/omkar-rebuild.jpg" alt="The home page of the 2026 rebuild: Labels, Tags and Packaging That Carry Your Brand, with Request a Quote."></div><figcaption data-gal-cap>The 2026 rebuild, home page.</figcaption>
-          <ul class="thumbs" role="list" aria-label="More images"><li><a href="../assets/v2/omkar-rebuild.jpg" data-gal data-alt="The home page of the 2026 rebuild: Labels, Tags and Packaging That Carry Your Brand, with Request a Quote." data-cap="The 2026 rebuild, home page." aria-current="true"><img src="../assets/v2/omkar-rebuild.jpg" alt="" width="68" height="50" loading="lazy"><span class="sr">Show image 1: The 2026 rebuild, home page.</span></a></li><li><a href="../assets/live/omkar.jpg" data-gal data-alt="Product photos: a printing press, a hang tag on a shirt and printed labels." data-cap="The kinds of products the catalog carried."><img src="../assets/live/omkar.jpg" alt="" width="68" height="50" loading="lazy"><span class="sr">Show image 2: The kinds of products the catalog carried.</span></a></li><li><a href="../assets/jaihind/omkar-hangtag.jpg" data-gal data-alt="A printed hang tag on a checked shirt." data-cap="Hang tags."><img src="../assets/jaihind/omkar-hangtag.jpg" alt="" width="68" height="50" loading="lazy"><span class="sr">Show image 3: Hang tags.</span></a></li></ul></figure>
-      <div class="buy">
-        <p class="label"><span class="chip c-shipped">Shipped</span><span>B2B catalog · Front-end development · 7 min read</span></p>
-        <h1>A B2B catalog buyers check before they call</h1>
-        <p class="summary">Omkar Labels makes clothing labels and tags for apparel brands. Buyers check its website before they pick up the phone, so a broken page or an old listing costs trust. In 2022, as a front-end developer, I developed its website in HTML, CSS and JavaScript, turning the designer&#x27;s files into responsive pages for a catalog of 50+ products. It taught me what is possible in the browser. In 2026 I rebuilt the site in Next.js; I directed and tested the build, and an AI assistant wrote much of the code.</p>
-        <div class="stack" role="group" aria-labelledby="stack-h"><p class="stack-h" id="stack-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>I developed the website in code</p><div class="stack-row"><span>2022 site</span><ul class="tags code" role="list" aria-label="Languages and tools for the 2022 site"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>jQuery</li><li>Bootstrap</li><li>WordPress</li></ul></div><div class="stack-row"><span>2026 rebuild</span><ul class="tags code" role="list" aria-label="Languages and tools for the 2026 rebuild"><li>Next.js</li><li>React</li><li>TypeScript</li></ul></div><p class="stack-note">I wrote the 2022 code myself. For the rebuild, I planned, reviewed and tested the code, and an AI coding assistant wrote much of it.</p></div>
-        <div class="keys" role="group" aria-label="Key results"><div><b>50+</b><span>product pages kept accurate</span></div><div><b>8 months</b><span>as the front-end developer on design handoffs, writing the HTML and CSS myself</span></div><p class="keys-note"><span class="chip c-shipped">Shipped</span>The 2022 site. The 2026 rebuild is a preview, built with an AI assistant.</p></div>
-        <dl class="meta"><div><dt>Role</dt><dd>Junior front-end developer, part-time</dd></div><div><dt>Timeline</dt><dd>May 2022 to Jan 2023, rebuilt in 2026</dd></div><div><dt>Team</dt><dd>Worked with the designer</dd></div><div><dt>Methods</dt><dd>Information architecture, user flow, design-to-code handoff, responsive design, accessible form design, automated accessibility testing</dd></div></dl>
-        <div class="links"><a class="btn btn-secondary" href="../omkar-rebuild/" target="_blank" rel="noopener">Live preview of the rebuild<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="sr"> (opens in a new tab)</span></a></div>
-      </div>
+    <div>
+      <div class="himg"><img src="../assets/live/omkar.jpg" alt="Product photos from the catalog: a printing press, a hang tag on a shirt and printed labels." loading="lazy"></div>
+      <div class="metrics"><div class="metric"><b>50+</b><span>product pages kept accurate</span></div><div class="metric"><b>8 months</b><span>as the developer on design handoffs</span></div></div>
+      <dl class="meta"><div><dt class="lbl">Role</dt><dd>Junior front-end developer, part-time</dd></div><div><dt class="lbl">Timeline</dt><dd>May 2022 to Jan 2023</dd></div><div><dt class="lbl">Team</dt><dd>Worked with the designer and 3 developers</dd></div><div><dt class="lbl">Stack</dt><dd>HTML, CSS, JavaScript, jQuery, Bootstrap, WordPress</dd></div></dl>
+      
     </div>
-
-    <nav class="steps-nav" aria-label="Steps in this case study">
-      <div class="wrap"><ol class="stepper" role="list"><li><a href="#context"><span class="n" aria-hidden="true">1</span>Context</a></li><li><a href="#structure"><span class="n" aria-hidden="true">2</span>Structure</a></li><li><a href="#build"><span class="n" aria-hidden="true">3</span>Build</a></li><li><a href="#rebuild"><span class="n" aria-hidden="true">4</span>Rebuild</a></li><li><a href="#testing"><span class="n" aria-hidden="true">5</span>Test</a></li><li><a href="#results"><span class="n" aria-hidden="true">6</span>Results</a></li></ol></div>
-    </nav>
-
-    <section class="step" id="context" data-step aria-labelledby="context-h">
-      <div class="wrap">
-        <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">1</span>Step 1 of 6 · Context · Business and user goals</span><h2 id="context-h">The website is the manufacturer&#x27;s shop window</h2><p>Omkar Labels has made clothing labels, hang tags and tapes since 1999. Buyers check the website before they pick up the phone.</p><ul class="points" role="list"><li><b>What they make:</b> labels, trims, tags and packaging.</li><li><b>Whether to trust it:</b> two factories, in Thane and Narmadapuram, and a four-point quality check on every order.</li><li><b>Proof:</b> OEKO-TEX, FSC and Global Recycled Standard certifications.</li></ul><p class="why"><b>Why it matters:</b> a broken page or an old listing costs trust with exactly the people about to call.</p></div><figure class="step-visual"><div class="frame wide"><img src="../assets/jaihind/omkar-press.jpg" alt="An offset printing press on the factory floor." width="794" height="596" loading="lazy"></div><figcaption>Offset printing on the factory floor.</figcaption></figure></div>
-      </div>
-    </section>
-
-    <section class="step" id="structure" data-step aria-labelledby="structure-h">
-      <div class="wrap">
-        <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">2</span>Step 2 of 6 · Structure · Information architecture, user flow</span><h2 id="structure-h">Organize the site around the buyer&#x27;s questions</h2><p><b>Problem.</b> A B2B buyer needs to confirm what Omkar makes and whether to trust it, then ask for a price, without calling first.</p><p class="why"><b>How might we</b> let a buyer go from &quot;what do you make?&quot; to a sent quote request in a few clear steps?</p></div><figure class="step-visual"><div class="frame wide"><img src="../assets/v2/omkar-rebuild.jpg" alt="The home page of the 2026 rebuild: Labels, Tags and Packaging That Carry Your Brand, with Request a Quote." width="1280" height="800" loading="lazy"></div><figcaption>The 2026 rebuild: Request a Quote is the main action on every page.</figcaption></figure></div>
-        <div class="step-sub"><span class="eyebrow">Information architecture</span>
-          <div class="ia-tree"><div class="ia" role="img" aria-label="The rebuild's structure: 6 pages; the home page sections About Us, Quality, Infrastructure and How we work; and 4 product families."><span class="ia-root" aria-hidden="true">Omkar Labels · 6 pages</span><div class="ia-cols" aria-hidden="true"><div class="ia-col"><b>Pages · 6</b><span>Home</span><span>Products</span><span>How to Order</span><span>Request a Quote</span><span>Quote received</span><span>Contact</span></div><div class="ia-col"><b>Products · 4 families</b><span>Home Textiles &amp; Garment Labels</span><span>Trims &amp; Ribbons</span><span>Brand Presentation</span><span>Packaging Solutions</span></div><div class="ia-col"><b>On the home page</b><span>About Us</span><span>Quality (4-point check)</span><span>Infrastructure (2 units)</span><span>How we work</span></div></div></div></div>
-          <ul class="ia-notes" role="list"><li><b>What do you make?</b>Products, grouped into 4 families, from the label inside the collar to the box on the shelf.</li><li><b>Can I trust you?</b>About Us and Quality are one tap away in the main menu, with the factories and certifications.</li><li><b>How do I order?</b>How to Order shows the 4-step path: order intake, design, quality check, delivery.</li><li><b>Request a Quote</b>The one primary button in the header, so the next step is always visible.</li></ul>
-        </div>
-        <div class="step-sub ia"><span class="eyebrow">User flow</span><p class="ia-intro">The flow that turns a visit into a lead, step by step, as it works in the rebuild. Each ✓ is a step where the site keeps the buyer moving.</p>
-          <h3 class="ia-task">Flow · Request a quote</h3>
-          <div class="ia-row after"><figure class="ia-phone"><img src="../assets/v2/omkar-quote.jpg" alt="The rebuilt quote form after an empty submit: a summary message and an error under each required field." width="800" height="1005" loading="lazy"><figcaption>The quote form, after an empty submit.</figcaption></figure><div class="ia-flow"><p class="ia-h"><span class="tag after">Rebuild</span><span>Step by step</span></p><ol class="ia-steps" role="list"><li class="ok"><span class="ia-ico" aria-hidden="true">✓</span><span class="sr">Step: </span><b>Tap Request a Quote</b><span class="ia-d">From the header, on any page.</span></li><li class="ok"><span class="ia-ico" aria-hidden="true">✓</span><span class="sr">Step: </span><b>Fill in the form</b><span class="ia-d">Labeled fields, with required ones marked.</span></li><li class="warn"><span class="ia-ico" aria-hidden="true">!</span><span class="sr">Decision: </span><b>Decision: is everything valid?</b><span class="ia-d">If not, the form stops in the browser and focus jumps to the first problem, with the error under its field.</span></li><li class="ok"><span class="ia-ico" aria-hidden="true">✓</span><span class="sr">Step: </span><b>Send</b><span class="ia-d">The server checks the same rules again.</span></li><li class="ok"><span class="ia-ico" aria-hidden="true">✓</span><span class="sr">Step: </span><b>Quote received</b><span class="ia-d">A confirmation page, so the buyer knows it went through.</span></li></ol><p class="ia-res ok">A typo is caught before it becomes a lost lead.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="step hl" id="build" data-step aria-labelledby="build-h">
-      <div class="wrap">
-        <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">3</span>Step 3 of 6 · Build · Design-to-code handoff, responsive design</span><h2 id="build-h">From design file to working page (2022)</h2><p>As a part-time front-end developer, I developed the website&#x27;s pages in code, turning the designer&#x27;s files into responsive pages on the company&#x27;s WordPress site.</p><ul class="points" role="list"><li><b>Layout:</b> HTML and CSS, with Bootstrap&#x27;s grid so pages held up on every screen.</li><li><b>Behavior:</b> JavaScript and jQuery.</li><li><b>Content:</b> I kept the catalog of 50+ products accurate as things changed.</li><li><b>Handoff:</b> when the design file and the browser didn&#x27;t match, I raised it early and we solved it together before release.</li><li><b>Debugging:</b> when a layout broke in one browser and not another, I traced the cause in Chrome DevTools and fixed the code, not the symptom.</li></ul><p class="why"><b>Why it matters:</b> I&#x27;ve been the developer on the other side of a handoff, so my own handoffs now spell out states, spacing and behavior.</p></div><figure class="step-visual"><div class="frame wide"><img src="../assets/live/omkar.jpg" alt="Product photos from the catalog: a printing press, a hang tag on a shirt and printed labels." width="1280" height="800" loading="lazy"></div><figcaption>The kinds of products the catalog carried.</figcaption></figure></div>
-      </div>
-    </section>
-
-    <section class="step" id="rebuild" data-step aria-labelledby="rebuild-h">
-      <div class="wrap">
-        <div class="step-grid solo"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">4</span>Step 4 of 6 · Rebuild · Accessible design, form design, SEO</span><h2 id="rebuild-h">Six decisions, and the principle behind each</h2><p>I no longer had the 2022 code, so in 2026 I rebuilt the site from the designer&#x27;s Figma files in Next.js 16, React 19 and TypeScript. I planned and directed the build, reviewed the code and tested every page. An AI coding assistant wrote much of the code.</p></div></div><ol class="ba-list" role="list">
-            <li class="ba" id="change-1"><figure class="ba-shot"><img src="../assets/v2/omkar-quote.jpg" alt="The rebuilt quote form after an empty submit: a summary message and an error under each required field." width="800" height="1005" loading="lazy"><figcaption><span class="tag">Rebuild</span>Errors under each field.</figcaption></figure><div class="ba-text"><span class="dec-n">Decision 1 · Forms</span><h3>Catch mistakes before the quote is sent</h3><p>A quote request with a typo is a lost lead. The form checks every field in the browser, then again on the server. An invalid form stops before sending, and focus jumps to the first problem.</p><p class="ba-why-h">UX principles</p><ul class="ba-why" role="list"><li><b>Error prevention.</b> Problems are caught before the request leaves.</li><li><b>Help users recognize and recover from errors.</b> Each message sits under its own field, and editing a field clears its error.</li></ul></div></li>
-            <li class="ba text-only" id="change-2"><div class="ba-text"><span class="dec-n">Decision 2 · Accessibility</span><h3>Every error is tied to its field</h3><p>Each message is linked to its input, so a screen reader reads the error together with the field.</p><p class="ba-why-h">UX principles</p><ul class="ba-why" role="list"><li><b>Accessibility (WCAG 2.1 AA).</b> The same feedback for people who can&#x27;t see the red text.</li></ul></div></li>
-            <li class="ba text-only" id="change-3"><div class="ba-text"><span class="dec-n">Decision 3 · Navigation</span><h3>A phone menu you can always escape</h3><p>On tablets and phones, the menu opens full screen. Esc closes it, the close button gets focus first, and the page behind it can&#x27;t be reached by mistake.</p><p class="ba-why-h">UX principles</p><ul class="ba-why" role="list"><li><b>User control and freedom.</b> A clear, keyboard-friendly way out.</li><li><b>Consistency and standards.</b> Built on the browser&#x27;s own dialog, so it behaves the way people expect.</li></ul></div></li>
-            <li class="ba text-only" id="change-4"><div class="ba-text"><span class="dec-n">Decision 4 · Content</span><h3>An FAQ that shows one answer at a time</h3><p>Questions open one at a time, and work even without JavaScript, with the keyboard and screen readers handled by the browser.</p><p class="ba-why-h">UX principles</p><ul class="ba-why" role="list"><li><b>Progressive disclosure.</b> Buyers see the questions first, and open only the answer they need.</li><li><b>Aesthetic and minimalist design.</b> A short page instead of a wall of text.</li></ul></div></li>
-            <li class="ba text-only" id="change-5"><div class="ba-text"><span class="dec-n">Decision 5 · Findability</span><h3>Pages search engines can read</h3><p>B2B buyers often start with a search. Every page has a title, description and canonical link, the home page adds structured business data, and 5 of 6 pages are served as plain HTML.</p><p class="ba-why-h">UX principles</p><ul class="ba-why" role="list"><li><b>Findability.</b> The site shows up where the buyer&#x27;s journey starts.</li></ul><p class="dec-result"><span class="chip c-built">Built</span><span>It&#x27;s a preview, so there&#x27;s no traffic to report.</span></p></div></li>
-            <li class="ba text-only" id="change-6"><div class="ba-text"><span class="dec-n">Decision 6 · Responsive</span><h3>Design tokens from the Figma file</h3><p>Colors, type and spacing are variables taken from the designer&#x27;s file. Spacing steps down at 1100px and 768px, between the 1440px desktop and 390px phone frames.</p><p class="ba-why-h">UX principles</p><ul class="ba-why" role="list"><li><b>Consistency and standards.</b> One source for every color and space, so pages match the design.</li><li><b>Flexibility.</b> The same content works from phone to desktop.</li></ul></div></li>
-          </ol>
-      </div>
-    </section>
-
-    <section class="step" id="testing" data-step aria-labelledby="testing-h">
-      <div class="wrap">
-        <div class="step-grid"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">5</span>Step 5 of 6 · Test · Automated accessibility audit, contrast check, code review</span><h2 id="testing-h">Checked, not assumed</h2><p>Before calling the rebuild done, I checked it at phone and desktop sizes.</p><ul class="points" role="list"><li><b>Accessibility:</b> axe-core against WCAG 2.1 AA, on all 6 pages.</li><li><b>Contrast:</b> text over photos, checked against the worst spot behind it.</li><li><b>Code quality:</b> TypeScript in strict mode and ESLint.</li></ul><p class="why"><b>Limit:</b> automated checks find many accessibility problems, not all. Next would be testing with a screen reader user and real buyers.</p></div><figure class="step-visual"><div class="frame auto"><ul class="cv cv-checks" role="list"><li><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><b>0</b><span>axe-core violations of WCAG 2.1 AA, on all 6 pages</span></li><li><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><b>7.1:1</b><span>lowest contrast of any text over a photo; AA asks for 4.5:1</span></li><li><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><b>0</b><span>TypeScript errors, in strict mode</span></li><li><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><b>0</b><span>ESLint problems</span></li><li><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><b>5 of 6</b><span>pages served as plain HTML</span></li></ul></div><figcaption>Checked on the build, October 2026.</figcaption></figure></div>
-      </div>
-    </section>
-
-    <section class="step" id="results" data-step aria-labelledby="results-h">
-      <div class="wrap">
-        <div class="step-grid solo"><div class="step-text"><span class="step-n"><span class="num" aria-hidden="true">6</span>Step 6 of 6 · Results</span><h2 id="results-h">Why every designer should build something</h2></div></div><ul class="tiles" role="list"><li><b>50+</b><span>product pages kept accurate</span></li><li><b>8 months</b><span>as the developer on the other side of design handoffs</span></li><li><b>6</b><span>pages rebuilt in Next.js</span></li><li><b>5</b><span>front-end tools: HTML, CSS, JavaScript, jQuery, Bootstrap</span></li></ul><div class="step-sub"><span class="eyebrow">What I learned</span><ul class="learn" role="list"><li><h3>Handoffs answer questions early</h3><p>I know which questions a handoff leaves open, because I used to be the one asking them.</p></li><li><h3>Speak the developer&#x27;s language</h3><p>I can talk through HTML and CSS with front-end developers on their terms.</p></li></ul></div>
-      </div>
-    </section>
-    <section class="sec" aria-labelledby="ai-title">
-      <div class="wrap">
-        <div class="sec-head"><span class="eyebrow">If I did it today, with AI</span><h2 id="ai-title">What I'd do differently <em>now</em></h2><p>Ideas for a next version, not built yet.</p></div>
-        <div class="ai-ideas"><div class="idea"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="1.6"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><h3>A quote assistant</h3><p>A buyer types &quot;500 woven labels, two colors&quot; and AI drafts the quote form for them to confirm.</p></div><div class="idea"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="1.6"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><h3>Search in plain words</h3><p>Find the right label by describing it, without knowing the product name.</p></div></div>
-      </div>
-    </section>
-
-    <section class="sec" aria-labelledby="fb-title">
-      <div class="wrap fb" data-fb data-id="omkar" data-case="Omkar Labels: A B2B catalog buyers check before they call">
-        <h2 id="fb-title">Did you <em>like</em> this case study?</h2>
-        <p>Tell me what worked, or what you'd change. It comes straight to me.</p>
-        <div class="fb-choices js-only" role="group" aria-label="Your reaction">
-          <button type="button" class="fb-btn" data-fb-choice="Liked it" aria-pressed="false"><svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>I liked it</button>
-          <button type="button" class="fb-btn" data-fb-choice="Could be better" aria-pressed="false">Could be better</button>
-        </div>
-        <form class="fb-form js-only" data-fb-form hidden>
-          <input type="hidden" name="reaction" value="">
-          <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
-          <label for="fb-msg-omkar">What stood out, or what would you change? <span>(optional)</span></label>
-          <textarea id="fb-msg-omkar" name="message" rows="3" maxlength="1500"></textarea>
-          <label for="fb-from-omkar">Your name or email <span>(optional, if you'd like a reply)</span></label>
-          <input id="fb-from-omkar" name="from" type="text" maxlength="160" autocomplete="email">
-          <button class="btn btn-primary" type="submit">Send</button>
-          <p class="fb-note">Sent to my email through FormSubmit. Nothing else is stored.</p>
-        </form>
-        <p class="fb-status" data-fb-status tabindex="-1" role="status"></p>
-        <noscript><p><a class="text-link" href="mailto:manche.siddhi@gmail.com?subject=Feedback%20on%20Omkar%20Labels">Email me your feedback</a></p></noscript>
-      </div>
-    </section>
-
-    <section class="sec" aria-label="Next case study">
-      <div class="wrap">
-        <a class="next" href="findme.html"><div class="lib-visual"><div class="mini-lib"><img class="findme-logo" src="../assets/findme-logo.svg" alt="" width="92" height="26"><div class="row"><span class="pill">Primary</span><span class="pill sec">Secondary</span><span class="pill ghost">Ghost</span></div><div class="row"><span class="pill">Default</span><span class="pill dis">Disabled</span></div><span class="spec">Button / Primary / Medium / Default</span></div></div><span><small>Next case study</small><b>Growing a design system while the product kept shipping</b></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-      </div>
-    </section>
-  </main>
-  <footer class="ftr">
-    <div class="wrap ftr-in">
-      <span>© 2026 Siddhi Manche · Designed by me, built with Claude Code · Checked with axe for WCAG 2.1 AA</span>
-      <span><a href="mailto:manche.siddhi@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/siddhi-manche/" target="_blank" rel="noopener">LinkedIn<span class="sr"> (opens in a new tab)</span></a> · <a href="https://github.com/Siddhidesign" target="_blank" rel="noopener">GitHub<span class="sr"> (opens in a new tab)</span></a></span>
-    </div>
-  </footer>
-  <p class="sr" aria-live="polite" data-live></p>
-  <script src="../js/store.js" defer></script>
-  <script src="../js/motion.js?v=7" defer></script>
+  </section>
+  <nav class="pipe" aria-label="Steps of this run"><ol><li><a href="#input" class=""><small>01 · Input</small>The shop window</a></li><li><a href="#plan" class=""><small>02 · Plan</small>Buyer's questions</a></li><li><a href="#check" class="k-hum"><small>03 · Check</small>Handoff</a></li><li><a href="#build" class=""><small>04 · Build</small>Working pages</a></li><li><a href="#result" class="k-ok"><small>05 · Result</small>What it taught me</a></li></ol></nav>
+  <section class="step " id="input"><div class="node"><span class="chip"><i>01</i>Input</span><p>Business and user goals</p></div><div class="body" data-reveal><h2>The website is the manufacturer's shop window</h2><p>Omkar Labels has made clothing labels, hang tags and tapes since 1999. Buyers check the website before they pick up the phone.</p><ul class="bul"><li><b>What they make:</b> labels, trims, tags and packaging.</li><li><b>Whether to trust it:</b> two factories, in Thane and Narmadapuram, and a four-point quality check on every order.</li><li><b>Proof:</b> OEKO-TEX, FSC and Global Recycled Standard certifications.</li></ul><div class="why"><b>Why</b><span>A broken page or an old listing costs trust with exactly the people about to call.</span></div><figure class="fig"><img src="../assets/jaihind/omkar-press.jpg" alt="An offset printing press on the factory floor." loading="lazy"><figcaption>Offset printing on the factory floor.</figcaption></figure></div></section><section class="step " id="plan"><div class="node"><span class="chip"><i>02</i>Plan</span><p>Information architecture</p></div><div class="body" data-reveal><h2>Organize the site around the buyer's questions</h2><p>A B2B buyer needs to confirm what Omkar makes and whether to trust it, then ask for a price, without calling first.</p><ul class="bul"><li><b>What do you make?</b> Products grouped into 4 families, from the label inside the collar to the box on the shelf.</li><li><b>Can I trust you?</b> About Us and Quality one tap away, with the factories and certifications.</li><li><b>How do I order?</b> A 4-step path: order intake, design, quality check, delivery.</li><li><b>Request a Quote</b> as the one primary action, so the next step is always visible.</li></ul></div></section><section class="step k-hum" id="check"><div class="node"><span class="chip"><i>03</i>Check · me</span><p>Design-to-code handoff</p></div><div class="body" data-reveal><h2>Raise the mismatch before release</h2><p>When the design file and the browser didn't match, I raised it early and we solved it together before release. When a layout broke in one browser and not another, I traced the cause in Chrome DevTools and fixed the code, not the symptom.</p><div class="why"><b>Why</b><span>I've been the developer on the other side of a handoff, so my own handoffs now spell out states, spacing and behavior.</span></div></div></section><section class="step " id="build"><div class="node"><span class="chip"><i>04</i>Build</span><p>Responsive front-end</p></div><div class="body" data-reveal><h2>From design file to working page</h2><ul class="bul"><li><b>Layout:</b> HTML and CSS, with Bootstrap's grid so pages held up on every screen.</li><li><b>Behavior:</b> JavaScript and jQuery.</li><li><b>Content:</b> I kept the catalog of 50+ products accurate as things changed, on the company's WordPress site.</li></ul><div class="chips2"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>jQuery</span><span>Bootstrap</span><span>WordPress</span><span>Git</span><span>Chrome DevTools</span></div></div></section><section class="step k-ok" id="result"><div class="node"><span class="chip"><i>05</i>Result</span><p>Results and learning</p></div><div class="body" data-reveal><h2>Why every designer should build something</h2><div class="stats"><div class="metric"><b>50+</b><span>product pages kept accurate</span></div><div class="metric"><b>8 months</b><span>as the developer on the other side of handoffs</span></div><div class="metric"><b>3</b><span>developers I worked with in Git</span></div></div><div class="cards"><div><h3>Handoffs answer questions early</h3><p>I know which questions a handoff leaves open, because I used to be the one asking them.</p></div><div><h3>Speak the developer's language</h3><p>I can talk through HTML and CSS with front-end developers on their terms.</p></div><div><h3>Know what's buildable</h3><p>It taught me what is possible in the browser, which still shapes how I design.</p></div></div><div class="cards queued"><div><span class="t">queued · not built yet</span><h3>A quote assistant</h3><p>A buyer types "500 woven labels, two colors" and AI drafts the quote form for them to confirm.</p></div><div><span class="t">queued · not built yet</span><h3>Search in plain words</h3><p>Find the right label by describing it, without knowing the product name.</p></div></div></div></section>
+  <nav class="next" aria-label="More runs">
+    <a href="magic-apron.html"><small>← previous run · #HD-2026</small><b>Magic Apron redesign</b></a>
+    <a href="jaihind.html" style="text-align:right"><small>next run · #JH-2023 →</small><b>Jai Hind staff portal and website</b></a>
+  </nav>
+  <footer><span>© 2026 Siddhi Manche · Designed by me, built with an AI coding assistant</span><span><a href="mailto:manche.siddhi@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/siddhi-manche/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/Siddhidesign" target="_blank" rel="noopener">GitHub</a></span><a class="ghost" href="../index.html#runs">All runs</a></footer>
+</main>
 </body>
 </html>
