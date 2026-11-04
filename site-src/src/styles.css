@@ -6,7 +6,7 @@
   --paper:#F3F0E8; --card:#FFFDF8; --card2:#F8F5EE; --ink:#16161A; --ink2:#55534E; --mute:#8F8C84; --line:#DDD8CC; --dot:#CFC9BB;
   --ai:#5B4BFF; --ai-bg:#ECEAFF; --ai-line:#C9C3FF; --hum:#E8501A; --hum-bg:#FFE9DF; --hum-line:#FFC4AC;
   --ok:#14864F; --ok-bg:#DFF3E7; --ok-line:#B7E2C8; --term:#16161A; --term-ink:#D9D6CE;
-  --serif:'Manrope',system-ui,sans-serif; --sans:'Manrope',system-ui,sans-serif; --mono:'Martian Mono',ui-monospace,monospace;
+  --serif:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter",system-ui,"Segoe UI",sans-serif; --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter",system-ui,"Segoe UI",sans-serif; --mono:'Martian Mono',ui-monospace,monospace;
   --ease:cubic-bezier(.2,.8,.2,1); --shadow:0 18px 40px -24px rgba(22,22,26,.35);
 }
 [data-theme="dark"]{
@@ -328,3 +328,11 @@ h2{font-weight:600;letter-spacing:-1.3px}
 .detail h3,.commit h3,.run h3,.law-card h3,.proof-head b{font-weight:600}
 .appr .q{font-weight:500}
 .node b,.hstats b,.counters .c b,.stat b,.dstat b,.commit .st b,.run .metric b,.proof-stat b,.leg-stat b{font-weight:600}
+
+/* SF Pro (from the visitor's Apple device; Inter elsewhere) with real italics as accents */
+h1,h2{letter-spacing:-1.4px}
+h1 em,h2 em{font-style:italic;font-weight:500;letter-spacing:-1.6px}
+.t-ai,.t-hum{font-style:italic}
+.appr .q{font-style:italic;font-weight:400}
+.packet.quote{font-family:var(--sans);font-style:italic;font-size:12px}
+.sub em,p em{font-style:italic}

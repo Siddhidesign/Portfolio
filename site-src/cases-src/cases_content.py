@@ -10,7 +10,7 @@ CASES = {}
 CASES["omkar"] = dict(
     id="omkar", code="OL-2022", color="#8A5A2B", status="shipped", kind="B2B catalog · front-end", short="Omkar Labels catalog",
     seo_title="Omkar Labels: A B2B catalog buyers check before they call",
-    title="A B2B catalog buyers check before they call",
+    title="A B2B catalog buyers check *before they call*",
     lede="Omkar Labels makes clothing labels and tags for apparel brands. Buyers check its website before they pick up the phone, so a broken page or an old listing costs trust. As a front-end developer, I turned the designer's files into responsive pages for a catalog of 50+ products.",
     inp="A large catalog that had to stay current, and buyers deciding whether to call",
     out="A 50+ page catalog website in HTML, CSS and JavaScript, kept accurate",
@@ -36,7 +36,7 @@ CASES["omkar"] = dict(
             ("bul", ["**Layout:** HTML and CSS, with Bootstrap's grid so pages held up on every screen.", "**Behavior:** JavaScript and jQuery.", "**Content:** I kept the catalog of 50+ products accurate as things changed, on the company's WordPress site."]),
             ("chips", ["HTML", "CSS", "JavaScript", "jQuery", "Bootstrap", "WordPress", "Git", "Chrome DevTools"]),
         ]),
-        dict(id="result", node="Result", label="What it taught me", side="Results and learning", k="ok", title="Why every designer should build something", blocks=[
+        dict(id="result", node="Result", label="What it taught me", side="Results and learning", k="ok", title="Why every designer should *build something*", blocks=[
             ("stats", [("50+", "product pages kept accurate"), ("8 months", "as the developer on the other side of handoffs"), ("3", "developers I worked with in Git")]),
             ("cards", [("Handoffs answer questions early", "I know which questions a handoff leaves open, because I used to be the one asking them."), ("Speak the developer's language", "I can talk through HTML and CSS with front-end developers on their terms."), ("Know what's buildable", "It taught me what is possible in the browser, which still shapes how I design.")]),
             ("queued", [("A quote assistant", "A buyer types \"500 woven labels, two colors\" and AI drafts the quote form for them to confirm."), ("Search in plain words", "Find the right label by describing it, without knowing the product name.")]),
@@ -47,7 +47,7 @@ CASES["omkar"] = dict(
 CASES["jaihind"] = dict(
     id="jaihind", code="JH-2023", color="#1F4E79", status="shipped", kind="internal tool · B2B workflow", short="Jai Hind staff portal and website",
     seo_title="Jai Hind: One order portal for 200 employees",
-    title="One order portal for 200 employees",
+    title="One order portal for *200 employees*",
     lede="Jai Hind sells menswear in 10 stores across Maharashtra, India. Orders moved by phone calls and paper books, so a whole day went into just 2 or 3 orders. I helped turn that into one portal where every order is entered once and tracked to the end.",
     inp="Phone calls, paper books and 5 systems that didn't talk to each other",
     out="One order portal for about 200 employees, tracked from call to delivery",
@@ -57,7 +57,7 @@ CASES["jaihind"] = dict(
     meta=[("People", "About 200 employees, 10 stores"), ("Timeline", "Feb 2023 to Jul 2024"), ("My role", "Product UX Designer, full-time"), ("Team", "3 designers, 1 PM, developers")],
     links=[("Figma example, all 26 flows", "https://www.figma.com/design/jkcD5ZIdXz9MUkG3va5sIo/Untitled?node-id=190-2")],
     steps=[
-        dict(id="input", node="Input", label="Phone, paper, phone", side="Where every order started", title="Phone, paper, phone again", blocks=[
+        dict(id="input", node="Input", label="Phone, paper, phone", side="Where every order started", title="Phone, paper, *phone again*", blocks=[
             ("p", "Every order took the same slow route. Staff were good at their jobs. The tools were the problem."),
             ("flow", ["**A customer calls the store** and asks for a size, colour or item.", "**Staff write it in a book** by hand, in a paper file.", "**Staff call the supplier** to place the order, one call at a time.", "**Each person tracks their own orders,** so nobody sees the full picture."]),
             ("cards", [("Slow", "A whole day for only 2 or 3 orders."), ("Lost", "Orders got misplaced. To know the status, you had to call someone."), ("Scattered", "The rest of the work lived in 5 separate systems that did not talk to each other.")]),
@@ -101,7 +101,7 @@ CASES["jaihind"] = dict(
 CASES["findme"] = dict(
     id="findme", code="FM-2025", color="#2E7D6B", status="shipped", kind="design system · startup", short="FindMe design system",
     seo_title="FindMe: Growing a design system while the product kept shipping",
-    title="Growing a design system while the product kept shipping",
+    title="Growing a design system *while the product kept shipping*",
     lede="FindMe helps people build a portfolio and share one link. Over a summer, I grew its Figma component library to 25+ components across 2 products, held brand pages to the brand's standards with Marketing, and designed features from research to final UI, inside the sprint with engineering.",
     inp="New screens every sprint, and small drift between them",
     out="A library of 25+ components keeping 2 products consistent",
@@ -128,7 +128,7 @@ CASES["findme"] = dict(
             ("p", "I joined backlog refinement and sprint planning, so design questions came up while they were still cheap to answer. Handoffs named components by their library names and spelled out every state."),
             ("p", "With Marketing, brand-facing pages kept the same color, type and icon standards."),
         ]),
-        dict(id="result", node="Result", label="28% engagement", side="Results", k="ok", title="In the founder's words", blocks=[
+        dict(id="result", node="Result", label="28% engagement", side="Results", k="ok", title="In the *founder's words*", blocks=[
             ("quotes", ["Siddhi brought a rare mix of curiosity and rigor to our team. She dug into the research, listened carefully to users, and turned messy problems into clear, thoughtful design decisions. She's proactive, easy to collaborate with, and consistently raised the quality of everything she touched."]),
             ("p", "Shabaan Hossain, Founder of FindMe"),
             ("stats", [("25+", "components, 2 products"), ("28%", "more engagement on brand pages"), ("12+", "interviews and usability tests")]),
@@ -140,7 +140,7 @@ CASES["findme"] = dict(
 CASES["anchor"] = dict(
     id="anchor", code="MA-2026", color="#6B4FA0", status="tested", kind="AI product · fintech", short="Money Anchor",
     seo_title="Money Anchor: An AI budgeting coach people trust",
-    title="An AI budgeting coach people trust",
+    title="An AI budgeting coach people *trust*",
     lede="Tapping a card doesn't feel like spending, so small buys and forgotten subscriptions add up. For our master's capstone, our team of 4 designed Money Anchor, a budgeting app with an AI coach that speaks up before you spend and explains why.",
     inp="People who overspend first and regret later, and avoid money apps",
     out="An AI coach that explains every suggestion and leaves you the final say",
@@ -172,7 +172,7 @@ CASES["anchor"] = dict(
                 dict(tag="decision 3", title="A nudge, not a lecture", text="People said apps that scold them make them avoid money altogether. So alerts are gentle, and the AI suggests while you decide.", badge="tested", result="7 of 8 testers said an alert would make them rethink or cancel a purchase."),
             ]),
         ]),
-        dict(id="verify", node="Verify", label="2 test rounds", side="Testing with 16 people", k="hum", title="Two rounds, then fix what failed", blocks=[
+        dict(id="verify", node="Verify", label="2 test rounds", side="Testing with 16 people", k="hum", title="Two rounds, then *fix what failed*", blocks=[
             ("p", "We ran 2 rounds of moderated tests on Maze and Zoom, 8 people per round. Each person explored the app, acted on AI advice, adjusted a budget and asked the AI for buying advice, thinking out loud while Maze recorded success, time and misclicks."),
             ("bars", [("success, round 1", 22, 100, "22%", True), ("success, round 2", 100, 100, "100%", False), ("misclicks, round 1", 29, 100, "29%", True), ("misclicks, round 2", 0, 100, "0%", False)]),
             ("decs", [
@@ -192,7 +192,7 @@ CASES["anchor"] = dict(
 CASES["ir2go"] = dict(
     id="ir2go", code="IR-2GO", color="#2F5DA8", status="tested", kind="gov tech · accessibility", short="IRS2Go",
     seo_title="IRS2Go: Making the IRS app easy to use",
-    title="Making the IRS app easy to use",
+    title="Making the IRS app *easy to use*",
     lede="IRS2Go is the IRS's official app. It was rated 2.8 stars, and 45% of people quit before finishing a task. In a team of 5, we redesigned the three things people open it for: checking a refund, paying, and finding free tax help. Then we tested the old app against the new one.",
     inp="An official app people quit: 2.8 stars, 45% abandoning tasks",
     out="Every task finishes inside the app, no account needed for a refund",
@@ -233,7 +233,7 @@ CASES["ir2go"] = dict(
                 dict(tag="changed after testing", title="A summary before paying", text="3 of 6 testers hesitated to pay because they couldn't see a summary first. We added a confirmation screen with the total before the pay button.", badge="tested", result="After the change, 0 of 6 were worried about paying."),
             ]),
         ]),
-        dict(id="result", node="Result", label="SUS 31 → 78", side="Results and learning", k="ok", title="Usability more than doubled", blocks=[
+        dict(id="result", node="Result", label="SUS 31 → 78", side="Results and learning", k="ok", title="Usability *more than doubled*", blocks=[
             ("stats", [("31.3 → 78.25", "SUS, well above the 68 average"), ("100%", "screens passed my WCAG 2.1 AA check"), ("0", "trips out to the website"), ("No account", "needed to check a refund")]),
             ("cards", [("Bad UX costs trust", "In a government app, a confusing screen makes people doubt the agency itself."), ("Guests first", "Letting people in without an account isn't a shortcut. It's how they reach the answer."), ("Confirm what matters", "A summary before paying calmed people more than any form design could.")]),
             ("queued", [("A plain-language helper", "Ask \"why is my refund late?\" and get an answer in plain words, with a link to the official source."), ("Help while you type", "Catch a wrong format in a field before you submit, instead of after an error.")]),
@@ -244,7 +244,7 @@ CASES["ir2go"] = dict(
 CASES["ev"] = dict(
     id="ev", code="EV-2024", color="#C27A12", status="tested", kind="research · mobility", short="EV charging app",
     seo_title="EV Charging: One app for every charger",
-    title="One app for every charger",
+    title="One app for *every charger*",
     lede="EV drivers juggle apps to find a charger that works, fits their car and takes their payment. Our team of 4 started from data: 16,767 Google Maps reviews of charging stations, cleaned in Google Colab, plus a literature review. Then we designed one app for the whole stop and tested it with 10 drivers.",
     inp="A different app, card or membership for every charging network",
     out="One app to find, check in, charge and pay, tested with 10 drivers",
@@ -297,7 +297,7 @@ CASES["ev"] = dict(
 CASES["magic-apron"] = dict(
     id="magic-apron", code="HD-2026", color="#E8563A", status="concept", kind="AI assistant · retail concept", short="Magic Apron redesign",
     seo_title="Magic Apron: Ask the right question, finish the task",
-    title="Ask the right question, finish the task",
+    title="Ask the right question, *finish the task*",
     lede="I watched a first-time DIYer ask The Home Depot's AI assistant, Magic Apron, how to hang a photo frame. In Store Mode it showed only hanging kits, so they had to ask again. When the item wasn't on the shelf, reporting it ended with \"Thanks for letting us know.\" My redesign asks the 2 questions that matter as taps, and turns an empty shelf into a way to finish the task.",
     inp="An AI assistant giving different answers at home and in Store Mode",
     out="6 small changes: questions as taps, and a way to finish the task",

@@ -13,7 +13,8 @@ KIND = {"ai": "k-ai", "hum": "k-hum", "ok": "k-ok", "": ""}
 
 def esc(s):
     s = html.escape(s, quote=False)
-    return re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s)
+    s = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s)
+    return re.sub(r"(?<![*\w])\*(?!\*)(.+?)\*(?!\w)", r"<em>\1</em>", s)
 
 
 def att(s):
@@ -130,7 +131,7 @@ def page(c):
 <meta property="og:description" content="{att(c["lede"])}">
 <link rel="icon" href="../assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/run-case.css?v=1">
 <style>:root{{--c:{c["color"]}}}</style>
 <script src="../js/run-case.js?v=1"></script>
