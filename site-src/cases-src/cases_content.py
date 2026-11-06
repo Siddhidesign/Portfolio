@@ -16,7 +16,7 @@ CASES["omkar"] = dict(
     out="A 50+ page catalog website in HTML, CSS and JavaScript, kept accurate",
     metrics=[("50+", "product pages kept accurate"), ("8 months", "as the developer on design handoffs")],
     hero=(A + "live/omkar.jpg", "Product photos from the catalog: a printing press, a hang tag on a shirt and printed labels."),
-    meta=[("Role", "Junior front-end developer, part-time"), ("Timeline", "May 2022 to Jan 2023"), ("Team", "Worked with the designer and 3 developers"), ("Stack", "HTML, CSS, JavaScript, jQuery, Bootstrap, WordPress")],
+    meta=[("Role", "Junior Front-End Developer"), ("Timeline", "May 2022 to Jan 2023"), ("Team", "Worked with the designer and 3 developers"), ("Stack", "HTML, CSS, JavaScript, jQuery, Bootstrap, WordPress")],
     steps=[
         dict(id="input", node="Input", label="The shop window", side="Business and user goals", title="The website is the manufacturer's shop window", blocks=[
             ("p", "Omkar Labels has made clothing labels, hang tags and tapes since 1999. Buyers check the website before they pick up the phone."),
@@ -45,10 +45,10 @@ CASES["omkar"] = dict(
 )
 
 CASES["jaihind"] = dict(
-    id="jaihind", code="JH-2023", color="#1F4E79", status="shipped", kind="internal tool · B2B workflow", short="Jai Hind staff portal and website",
-    seo_title="Jai Hind: One order portal for 200 employees",
+    id="jaihind", code="JH-2023", color="#1F4E79", status="shipped", kind="internal tool · B2B workflow", short="JaiHind-India staff portal and website",
+    seo_title="JaiHind-India: One order portal for 200 employees",
     title="One order portal for *200 employees*",
-    lede="Jai Hind sells menswear in 10 stores across Maharashtra, India. Orders moved by phone calls and paper books, so a whole day went into just 2 or 3 orders. I helped turn that into one portal where every order is entered once and tracked to the end.",
+    lede="JaiHind-India sells menswear in 10 stores across Maharashtra, India. Orders moved by phone calls and paper books, so a whole day went into just 2 or 3 orders. I helped turn that into one portal where every order is entered once and tracked to the end.",
     inp="Phone calls, paper books and 5 systems that didn't talk to each other",
     out="One order portal for about 200 employees, tracked from call to delivery",
     note="Before AI tools · 80+ interviews by me · desktop and phone",
@@ -106,7 +106,7 @@ CASES["findme"] = dict(
     inp="New screens every sprint, and small drift between them",
     out="A library of 25+ components keeping 2 products consistent",
     metrics=[("25+", "components, across 2 products"), ("28%", "more engagement on brand pages"), ("12+", "interviews and usability tests"), ("2", "products kept consistent")],
-    meta=[("Role", "UX/UI Designer, internship"), ("Timeline", "May to Aug 2025"), ("Team", "Engineering, product and Marketing, Agile"), ("Where", "New York")],
+    meta=[("Role", "UX/UI Designer"), ("Timeline", "May to Aug 2025"), ("Team", "Engineering, product and Marketing, Agile"), ("Where", "New York")],
     note="FindMe's own library is private, so the component examples here illustrate the method.",
     steps=[
         dict(id="input", node="Input", label="Drift", side="The problem", title="A product growing faster than its system", blocks=[
@@ -146,7 +146,7 @@ CASES["anchor"] = dict(
     out="An AI coach that explains every suggestion and leaves you the final say",
     metrics=[("22% → 100%", "task success exploring the app, round 1 to 2"), ("6 of 8", "fully trusted the AI's advice"), ("24", "people in an IRB-approved study"), ("40+", "papers summarized with AI")],
     hero=(A + "live/anchor.jpg", "Three Money Anchor screens: budget, the AI assistant and insights."),
-    meta=[("Role", "UX Researcher and Designer"), ("Timeline", "2025 to 2026, master's capstone"), ("Team", "Brandan, Giselle, Shreeraj and me"), ("My part", "Research, the AI coach and the budget flows")],
+    meta=[("Role", "UX Researcher and Designer"), ("Timeline", "2025 to 2026, master's capstone"), ("Team", "Brandan, Giselle, Shreeraj and me"), ("My part", "Research, the AI coach and the budget flows"), ("Study", "IRB-approved mixed methods, protocol HUM00280873")],
     steps=[
         dict(id="input", node="Input", label="Money feels unreal", side="The problem", title="Money that doesn't feel real", blocks=[
             ("p", "Cards and digital wallets remove the small pain of paying, so spending feels effortless until the statement arrives. Forgotten subscriptions keep charging. And most budgeting apps only chart the past, which many people avoid opening."),

@@ -24,7 +24,7 @@ export const CONTACT = {
   email: "manche.siddhi@gmail.com",
   linkedin: "https://www.linkedin.com/in/siddhi-manche/",
   github: "https://github.com/Siddhidesign",
-  resume: "", // to show the résumé button: put resume.pdf in site-src/public and set this to "resume.pdf"
+  resume: "resume.pdf", // relative, so it works under /Portfolio/. The file lives at the repo root.
 };
 
 export const HERO_STATS: [string, string][] = [
@@ -54,21 +54,41 @@ export const PILLARS: { id: Pillar; code: string; label: string; short: string; 
     stat: ["6 of 8", "testers fully trusted the AI coach I designed"] },
 ];
 export const DESTINATION = "Research-led design for data-driven teams: AI reads the data, I find the problem, then I design the fix.";
-export const PROBLEM = "Employees lose hours juggling scattered systems. At Jai Hind it was 5, and nobody could follow an order from start to finish.";
-export const NEXT_FLIGHT = "The Jai Hind order workflow, redesigned for an AI agent that drafts reorders and flags stock conflicts, with staff approving.";
+export const PROBLEM = "Employees lose hours juggling scattered systems. At JaiHind-India it was 5, and nobody could follow an order from start to finish.";
+export const NEXT_FLIGHT = "The JaiHind-India order workflow, redesigned for an AI agent that drafts reorders and flags stock conflicts, with staff approving.";
 
 export type Status = "board" | "landed" | "ontime";
 export interface Flight {
   id: string; code: string; color: string; type: string; gate: string; status: Status;
   title: string; tagline: string; from: string; to: string; role: string; desc: string;
-  methods: string[]; stats: [string, string][]; image?: string; link: string; pillars: Pillar[];
+  methods: string[]; stats: [string, string][]; image?: string; imageAlt?: string; link?: string; pillars: Pillar[];
 }
 
 // Flights = projects, in the order you want them shown
 export const FLIGHTS: Flight[] = [
   {
+    id: "hcd", code: "HCD 2025", color: "#3D6B4F", type: "Research", pillars: ["research"] as Pillar[], gate: "A0", status: "landed",
+    title: "Canvas coursework research", tagline: "Human-Centered Design Researcher · Sept 2025 to May 2026 · UM-Dearborn",
+    from: "Coursework built on assumptions about what students already understood",
+    to: "2 new UX coursework modules added to the syllabus, from research with students",
+    role: "Human-Centered Design Researcher",
+    desc: "A longitudinal study across 2 semesters. I interviewed graduate and undergraduate students about how coursework was delivered and where they got stuck, reviewed student work and feedback across 4 project stages, and compared findings with associates working under 3 other faculty to separate one-off complaints from real patterns. Two new UX coursework modules were added to the following syllabus as a result.",
+    methods: ["Longitudinal research", "User interviews", "Learning platforms", "Thematic analysis", "Canvas"],
+    stats: [["2", "semesters"], ["2", "new coursework modules"]],
+  },
+  {
+    id: "rl", code: "RL 2026", color: "#4A4E9C", type: "MCP server", pillars: ["ai", "research"] as Pillar[], gate: "A0", status: "board",
+    title: "Research Lens", tagline: "Self-initiated · Nov 2026 · MCP server",
+    from: "AI synthesis that cannot tell you who said it, or how many people said it",
+    to: "An MCP server that answers research questions with participant-level citations attached",
+    role: "Self-initiated",
+    desc: "The usual AI research workflow is copy and paste, so the model only sees what you happened to paste and the output carries no citations. I built an MCP server in TypeScript that lets an assistant query a research repository directly. Five tools, and one deliberate constraint: the server retrieves and counts, it does not interpret. Every excerpt returns with a participant ID, round and timestamp. pattern_frequency counts distinct participants rather than quotes, because three quotes from one person is not a pattern. draft_findings ends with a NOT SUPPORTED section that refuses causal claims on a small sample. The researcher still writes the finding.",
+    methods: ["MCP", "TypeScript", "Node", "AI in research", "Research repositories", "Traceable citations"],
+    stats: [["5", "tools"], ["TypeScript", "MCP server"]],
+  },
+  {
     id: "ol", code: "OL 2022", color: "#8A5A2B", type: "Front-end", pillars: ["dev"] as Pillar[], gate: "A1", status: "landed",
-    title: "Omkar Labels catalog", tagline: "Junior Front-End Developer, part-time · May 2022 to Jan 2023 · Mumbai",
+    title: "Omkar Labels catalog", tagline: "Junior Front-End Developer · May 2022 to Jan 2023 · Mumbai",
     from: "A care label maker needing a large catalog kept current",
     to: "A 50+ page catalog website, coded from the designer’s files",
     role: "Built and maintained the site with 3 developers in Git",
@@ -79,7 +99,7 @@ export const FLIGHTS: Flight[] = [
   },
   {
     id: "jh", code: "JH 2023", color: "#1F4E79", type: "Internal tool", pillars: ["workflow"] as Pillar[], gate: "A2", status: "landed",
-    title: "Jai Hind staff portal and website", tagline: "Product UX Designer · Feb 2023 to Jul 2024 · Mumbai",
+    title: "JaiHind-India staff portal and website", tagline: "Product UX Designer · Feb 2023 to Jul 2024 · Mumbai",
     from: "Phone calls, paper books and 5 systems to move one order",
     to: "One order portal for about 200 employees, tracked start to end",
     role: "Owned the supplier-to-customer workflow and worked on the website’s navigation, on a team of 3 designers",
@@ -90,7 +110,7 @@ export const FLIGHTS: Flight[] = [
   },
   {
     id: "fm", code: "FM 2025", color: "#2E7D6B", type: "Design system", pillars: ["workflow"] as Pillar[], gate: "A3", status: "landed",
-    title: "FindMe design system", tagline: "UX/UI Designer, internship · May to Aug 2025 · New York",
+    title: "FindMe design system", tagline: "UX/UI Designer · May to Aug 2025 · New York",
     from: "Two products drifting apart, screen by screen",
     to: "A shared library of 25+ components used across both",
     role: "Grew the component library and supported research",
@@ -104,11 +124,11 @@ export const FLIGHTS: Flight[] = [
     title: "Money Anchor", tagline: "Master’s capstone · UX researcher and designer · 2025 to 2026",
     from: "People who overspend first and regret later",
     to: "An AI budgeting coach that speaks up before you spend",
-    role: "IRB-approved study, University of Michigan-Dearborn",
-    desc: "40+ research papers summarized and analyzed with AI, then 24 people in interviews and focus groups shaped the coach. The lesson I now carry into agentic workflows: people trust AI when it explains itself and leaves them the final say.",
-    methods: ["IRB study", "Interviews", "Focus groups", "Usability testing", "AI trust"],
-    stats: [["24", "participants"], ["22% → 100%", "exploration success"], ["6 of 8", "fully trusted the AI"]],
-    image: SITE + "assets/live/anchor.jpg", link: SITE + "cases/anchor.html",
+    role: "IRB-approved mixed-methods study (protocol HUM00280873), University of Michigan-Dearborn",
+    desc: "An IRB-approved mixed-methods study (protocol HUM00280873). 40+ research papers summarized and analyzed with AI, then 24 participants in interviews and focus groups shaped the coach. 5 sections sit in a bottom bar, like a bank app, so there was less to learn. In testing, 6 of 8 people (75%) fully trusted the AI’s advice, and task success exploring the app reached 100%. The lesson I now carry into agentic workflows: people trust AI when it explains itself and leaves them the final say.",
+    methods: ["IRB study", "Mixed methods", "Interviews", "Focus groups", "Usability testing", "AI trust"],
+    stats: [["24", "participants, IRB-approved"], ["75%", "fully trusted the AI (6 of 8)"], ["22% → 100%", "task success exploring the app"]],
+    image: SITE + "assets/live/anchor.jpg", imageAlt: "Three Money Anchor screens: budget, the AI assistant and insights", link: SITE + "cases/anchor.html",
   },
   {
     id: "irs", code: "IR 2GO", color: "#2F5DA8", type: "Gov tech · a11y", pillars: ["research", "ai"] as Pillar[], gate: "B2", status: "landed",
@@ -146,10 +166,10 @@ export const FLIGHTS: Flight[] = [
 ];
 
 export const AIRLINES = [
-  { name: "University of Michigan-Dearborn", role: "Human-Centered Design Associate", date: "Sep 2025 to May 2026",
+  { name: "University of Michigan-Dearborn", role: "Human-Centered Design Researcher", date: "Sep 2025 to May 2026",
     note: "Kept 4 workstreams and 25 contributors moving in Figma and Miro." },
-  { name: "FindMe LLC", role: "UX/UI Designer, internship", date: "May to Aug 2025", note: "New York" },
-  { name: "Jai Hind Group", role: "Product UX Designer", date: "Feb 2023 to Jul 2024", note: "Mumbai" },
+  { name: "FindMe LLC", role: "UX/UI Designer", date: "May to Aug 2025", note: "New York" },
+  { name: "JaiHind-India", role: "Product UX Designer", date: "Feb 2023 to Jul 2024", note: "Mumbai" },
   { name: "Omkar Labels", role: "Junior Front-End Developer", date: "May 2022 to Jan 2023", note: "Mumbai" },
 ];
 export const TOOLS = ["Figma", "FigJam", "Miro", "Jira", "Dovetail", "Maze", "Claude Code"];
@@ -159,15 +179,15 @@ export const LOG = [
     story: "I started as an engineer. It taught me how systems are built, which still shapes how I design them." },
   { date: "May 2022", leg: "Junior Front-End Developer", where: "Omkar Labels, Mumbai", miles: "+ code",
     story: "Built and kept up a 50+ page catalog website in HTML, CSS and JavaScript, working in Git with 3 developers." },
-  { date: "Feb 2023", leg: "Product UX Designer", where: "Jai Hind Group, Mumbai", miles: "+ product",
+  { date: "Feb 2023", leg: "Product UX Designer", where: "JaiHind-India, Mumbai", miles: "+ product",
     story: "Two sides of one business: an order platform for staff that replaced 5 systems and cut order errors 27%, and the marketing website’s navigation for shoppers." },
   { date: "2024", leg: "M.S., Human-Centered Design and Engineering", where: "University of Michigan-Dearborn", miles: "+ AI research",
     story: "Where I learned UX research in depth, and learned to use AI in analysis and user research: IRB studies, focus groups, SUS, and the Money Anchor capstone." },
   { date: "Fall 2024", leg: "EV charging research", where: "Human Factors course", miles: "+ AI research",
     story: "16,767 EV driver reviews cleaned and sampled in Google Colab with AI-assisted Python. The first time I saw how much data one team could handle with AI, and why every finding still needs a human check." },
-  { date: "May 2025", leg: "UX/UI Designer, internship", where: "FindMe LLC, New York", miles: "+ systems",
+  { date: "May 2025", leg: "UX/UI Designer", where: "FindMe LLC, New York", miles: "+ systems",
     story: "Grew a 25+ component library across 2 products and supported 12+ interviews and usability tests." },
-  { date: "Sep 2025", leg: "Human-Centered Design Associate", where: "University of Michigan-Dearborn", miles: "+ leadership",
+  { date: "Sep 2025", leg: "Human-Centered Design Researcher", where: "University of Michigan-Dearborn", miles: "+ leadership",
     story: "Kept 4 workstreams and 25 contributors moving, with weekly FigJam critiques on progress, next steps and blockers." },
   { date: "2026", leg: "Designing and building with AI", where: "This portfolio", miles: "+ AI",
     story: "I built this site with an AI coding assistant. I plan, direct, review and test; the AI writes much of the code." },
@@ -187,7 +207,7 @@ export const PROCESS = [
 
 export const WORDS = [
   { quote: "Siddhi designs with empathy. She took the time to understand our employees and how they work, and designed around them. She has a great understanding of users.",
-    name: "Priyanka Jain", title: "Siddhi’s manager at Jai Hind Group", stamp: "JH", color: "#1F4E79", from: "Mumbai" },
+    name: "Priyanka Jain", title: "Siddhi’s manager at JaiHind-India", stamp: "JH", color: "#1F4E79", from: "Mumbai" },
   { quote: "Siddhi brought a rare mix of curiosity and rigor to our team. She dug into the research, listened carefully to users, and turned messy problems into clear, thoughtful design decisions.",
     name: "Shabaan Hossain", title: "Founder of FindMe", stamp: "FM", color: "#2E7D6B", from: "New York" },
 ];
@@ -203,8 +223,8 @@ export const THOUGHTS: [string, string][] = [
 ];
 
 export const STAMPS = [
-  { t: "MUMBAI", s: "BOM · ORIGIN", color: "#E8563A", r: "-10deg", note: "Engineering at Vidyalankar, my first front-end job at Omkar Labels, and product UX at Jai Hind Group." },
-  { t: "DEARBORN", s: "DTW · M.S. HCDE", color: "#2F5DA8", r: "6deg", note: "M.S. in Human-Centered Design and Engineering, then Human-Centered Design Associate on 4 workstreams." },
+  { t: "MUMBAI", s: "BOM · ORIGIN", color: "#E8563A", r: "-10deg", note: "Engineering at Vidyalankar, my first front-end job at Omkar Labels, and product UX at JaiHind-India." },
+  { t: "DEARBORN", s: "DTW · M.S. HCDE", color: "#2F5DA8", r: "6deg", note: "M.S. in Human-Centered Design and Engineering, then Human-Centered Design Researcher." },
   { t: "NEW YORK", s: "JFK · FINDME", color: "#2E7D6B", r: "-4deg", note: "Design system internship at FindMe: 25+ components across 2 products." },
   { t: "USA", s: "OPEN · ANY GATE", color: "#C27A12", r: "8deg", note: "Open to UX/UI design and UX research roles across the US." },
   { t: "GOOGLE UX", s: "PRO CERTIFICATE", color: "#1F4E79", r: "-7deg", sq: true, note: "Google UX Design Professional Certificate." },
@@ -289,16 +309,16 @@ export const LAB_PROOF: Record<string, { proof: Proof; also?: { flight: string; 
 // =========================================================
 export const RECORDER = {
   counters: [
-    { n: 16000, plus: true, label: "EV driver reviews analyzed with AI in Google Colab", src: "EV charging" },
-    { n: 200, plus: false, label: "employees across 10 stores, met as a team (80+ interviewed by me)", src: "Jai Hind" },
+    { n: 16767, plus: false, label: "EV driver reviews in one dataset, cleaned in Google Colab", src: "EV charging" },
+    { n: 200, pre: "~", plus: false, label: "employees across 10 stores, met as a team (80+ interviewed by me)", src: "JaiHind-India" },
     { n: 200, plus: true, label: "Quora posts analyzed", src: "IRS2Go" },
     { n: 150, plus: true, label: "App Store reviews analyzed", src: "IRS2Go" },
     { n: 40, plus: true, label: "research papers summarized with AI", src: "Money Anchor" },
     { n: 24, plus: false, label: "people in an IRB study", src: "Money Anchor" },
-    { n: 10, plus: false, label: "interviews, plus a survey", src: "IRS2Go" },
+    { n: 10, pre: "~", plus: false, label: "interviews, plus a survey", src: "IRS2Go" },
   ],
   steps: [
-    { k: "COLLECT", ai: "Finds and summarizes research papers on the topic.", me: "Field visits, interviews, surveys, focus groups, review scraping.", ex: "Jai Hind: about 200 employees across 10 stores. IRS2Go: App Store, Quora, interviews and a survey." },
+    { k: "COLLECT", ai: "Finds and summarizes research papers on the topic.", me: "Field visits, interviews, surveys, focus groups, review scraping.", ex: "JaiHind-India: about 200 employees across 10 stores. IRS2Go: App Store, Quora, interviews and a survey." },
     { k: "ANALYZE", ai: "Tags, clusters and summarizes large sets: reviews, transcripts, survey answers.", me: "I set the research questions and the codes.", ex: "EV charging: 16,767 reviews cleaned in Google Colab with AI-assisted Python, then sampled 80 per network." },
     { k: "VERIFY", ai: "", me: "Every AI theme checked against the raw quotes before it counts.", ex: "AI speeds the reading; the judgment stays mine." },
     { k: "DEFINE", ai: "", me: "Name the cause, not the symptom.", ex: "IRS2Go: we wrote out every step to see exactly where people got stuck." },
@@ -347,6 +367,8 @@ export const RUNLOG: [string, string][] = [
 
 // Five nodes per run: label, text, kind ("ai" | "hum" | "" )
 export const PIPES: Record<string, [string, string, "ai" | "hum" | ""][]> = {
+  hcd: [["Data in", "Students across 2 semesters, grad and undergrad", ""], ["Analyze", "Feedback and submissions across 4 project stages", ""], ["Verify", "Findings compared across 4 faculty groups", "hum"], ["Design", "Syllabus and coursework recommendations", ""], ["Result", "2 new UX coursework modules implemented", ""]],
+  rl: [["Data in", "A research repository: sessions, segments, rounds, tagged excerpts", ""], ["Analyze", "5 tools: search, quotes by theme, pattern frequency, compare rounds, draft findings", "ai"], ["Verify", "Citations mandatory on every result, so any claim stays traceable", "hum"], ["Design", "A constraint: no interpretation, and it states what it cannot tell you", ""], ["Result", "In progress, deploying next", ""]],
   ol: [["Data in", "Designer files, 50+ products", ""], ["Plan", "Pages mapped to the catalog", ""], ["Check", "Mismatches raised before release", "hum"], ["Build", "Responsive HTML, CSS and JS", ""], ["Result", "50+ pages kept accurate", ""]],
   jh: [["Data in", "~200 employees across 10 stores", ""], ["Analyze", "5 scattered workflows mapped", ""], ["Verify", "Store visits, real orders watched", "hum"], ["Design", "One portal, plus website navigation", ""], ["Result", "27% fewer errors, 40% faster", ""]],
   fm: [["Data in", "12+ interviews and usability tests", ""], ["Analyze", "Tagged in Dovetail", ""], ["Verify", "Tested in Maze", "hum"], ["Design", "25+ components, 2 products", ""], ["Result", "28% more engagement, brand pages", ""]],
@@ -355,7 +377,7 @@ export const PIPES: Record<string, [string, string, "ai" | "hum" | ""][]> = {
   ev: [["Data in", "16,767 Google Maps reviews", ""], ["Analyze", "Cleaned and sampled in Colab, AI-assisted Python", "ai"], ["Verify", "400-review sample, 80 per network", "hum"], ["Design", "One app, one wallet, pay like Tesla", ""], ["Result", "78.75 SUS with 10 drivers", ""]],
   hd: [["Data in", "1 recorded interview, screen recordings", ""], ["Analyze", "Heuristic review of both modes", ""], ["Verify", "Same question, two different answers", "hum"], ["Design", "6 changes, questions as taps", ""], ["Result", "Hypotheses to test next", ""]],
 };
-export const RUN_STATUS: Record<string, "shipped" | "tested" | "concept"> = { ol: "shipped", jh: "shipped", fm: "shipped", ma: "tested", irs: "tested", ev: "tested", hd: "concept" };
+export const RUN_STATUS: Record<string, "shipped" | "tested" | "concept" | "building"> = { hcd: "shipped", rl: "building", ol: "shipped", jh: "shipped", fm: "shipped", ma: "tested", irs: "tested", ev: "tested", hd: "concept" };
 
 export const EV_FOLLOWUP = {
   label: "2026 follow-up · done with an AI assistant",

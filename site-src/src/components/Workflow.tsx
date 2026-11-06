@@ -3,9 +3,10 @@ import {
   FLIGHTS, PIPES, RUN_STATUS, EV_FOLLOWUP, QUEUED, VERSIONS, PROBLEM, RUNLOG, RECORDER, WORDS, SKILL_GROUPS, INFO,
   CONTACT, PROFILE, PURPOSE, type Flight,
 } from "../data";
-import { useClock, useInView } from "../hooks/useHooks";
+import { useClock, useInView, reducedMotion, onScreen } from "../hooks/useHooks";
 import ControlTower from "./ControlTower";
 import { Rich } from "./Hero";
+import { Stat, onColor } from "./Stat";
 
 const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
 
@@ -19,23 +20,32 @@ function Head({ tag, title, sub }: { tag: string; title: string; sub?: string })
 
 /* ---------------- run log: types itself out ---------------- */
 export function RunLog() {
-  const [ref, seen] = useInView<HTMLDivElement>(0.4);
-  const [shown, setShown] = useState<{ c: string; t: string }[]>([]);
+  const ref = useRef<HTMLDivElement>(null);
+  // Every line is in the HTML from the start. Typing is only an effect on top.
+  const full = RUNLOG.map(([c, t]) => ({ c, t }));
+  const [shown, setShown] = useState(full);
   useEffect(() => {
-    if (!seen) return; let li = 0, ci = 0; let timer = 0;
-    const step = () => {
-      if (li >= RUNLOG.length) return;
-      const [c, t] = RUNLOG[li]; ci++;
-      setShown((s) => { const n = s.slice(0, li); n[li] = { c, t: t.slice(0, ci) }; return n; });
-      if (ci >= t.length) { li++; ci = 0; timer = window.setTimeout(step, 260); } else timer = window.setTimeout(step, 16);
-    };
-    step(); return () => clearTimeout(timer);
-  }, [seen]);
+    const el = ref.current; if (!el || reducedMotion() || onScreen(el)) return;
+    let timer = 0;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return; io.disconnect();
+      let li = 0, ci = 0; setShown([]);
+      const step = () => {
+        if (li >= RUNLOG.length) return;
+        const [c, t] = RUNLOG[li]; ci++;
+        setShown((s) => { const n = s.slice(0, li); n[li] = { c, t: t.slice(0, ci) }; return n; });
+        if (ci >= t.length) { li++; ci = 0; timer = window.setTimeout(step, 260); } else timer = window.setTimeout(step, 16);
+      };
+      step();
+    }, { threshold: 0.4 });
+    io.observe(el); return () => { io.disconnect(); clearTimeout(timer); setShown(full); };
+  }, []);
   return (
     <div className="wrap" ref={ref}>
-      <div className="log" aria-label="Run log of the EV review analysis">
-        {shown.map((l, i) => <div key={i}><span className="p">{l.c === "cmd" ? "$ " : "› "}</span><span className={l.c}>{l.t}</span></div>)}
-        <span className="cursor" />
+      <div className="log" role="region" aria-label="Run log of the EV review analysis">
+        <div aria-hidden="true">{shown.map((l, i) => <div key={i}><span className="p">{l.c === "cmd" ? "$ " : "› "}</span><span className={l.c}>{l.t}</span></div>)}
+        <span className="cursor" /></div>
+        <ul className="sr">{RUNLOG.map(([, t]) => <li key={t}>{t}</li>)}</ul>
       </div>
     </div>
   );
@@ -49,12 +59,12 @@ export function Versions() {
       <Head tag="pipeline · version history" title="Same designer, [ai]four[/ai] versions." sub="I didn’t start with AI. Each version kept what the last one learned." />
       <Reveal delay={0.15}><div className="problem"><b>THE PROBLEM</b><p>{PROBLEM}</p></div></Reveal>
       <div className="commits" ref={ref}>
-        <div className="fill" style={{ height: seen ? "calc(100% - 20px)" : 0 }} />
+        <div className="fill" aria-hidden="true" style={{ height: seen ? "calc(100% - 20px)" : 0 }} />
         {[...VERSIONS].reverse().map((v, i) => (
           <Reveal key={v.v} delay={0.1 * i} className={`commit ${i === 0 ? "head" : ""}`}>
             <div className="v">{v.v}<span>{v.years}</span><em className="vt" style={{ fontStyle: "normal" }}>{i === 0 ? "HEAD" : v.tag}</em></div>
             <div><h3>{v.title}</h3><p className="msg">"{v.msg}"</p><p className="learn">{v.learned}</p></div>
-            <div className="st"><b>{v.stat[0]}</b><span>{v.stat[1]}</span></div>
+            <Stat className="st" v={v.stat[0]} l={v.stat[1]} />
           </Reveal>
         ))}
       </div>
@@ -63,34 +73,49 @@ export function Versions() {
 }
 
 /* ---------------- data in: research volume + AI/human split ---------------- */
-function Counter({ n, plus, run }: { n: number; plus: boolean; run: boolean }) {
-  const [v, setV] = useState(0);
-  useEffect(() => { if (!run) return; const t0 = performance.now(); let raf = 0;
-    const step = () => { const p = Math.min(1, (performance.now() - t0) / 1400); setV(Math.round(n * (1 - Math.pow(1 - p, 3)))); if (p < 1) raf = requestAnimationFrame(step); };
-    raf = requestAnimationFrame(step); return () => cancelAnimationFrame(raf); }, [n, run]);
-  return <b>{v.toLocaleString("en-US")}{plus ? "+" : ""}</b>;
+/**
+ * The real value is the element's text from the first render (and in the prerendered HTML).
+ * It only counts up, to that same value, when it scrolls into view later and motion is allowed.
+ * If it is already on screen, reduced motion is on, the script fails, or it is never scrolled to,
+ * the final number simply stays.
+ */
+function Counter({ n, plus, pre = "" }: { n: number; plus: boolean; pre?: string }) {
+  const ref = useRef<HTMLElement>(null);
+  const [v, setV] = useState<number | null>(null); // null = show the final value
+  useEffect(() => {
+    const el = ref.current; if (!el || reducedMotion() || onScreen(el)) return;
+    let raf = 0;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return; io.disconnect(); const t0 = performance.now();
+      const step = () => { const p = Math.min(1, (performance.now() - t0) / 1400);
+        if (p >= 1) { setV(null); return; } setV(Math.max(1, Math.round(n * (1 - Math.pow(1 - p, 3))))); raf = requestAnimationFrame(step); };
+      raf = requestAnimationFrame(step);
+    }, { threshold: 0.6 });
+    io.observe(el); return () => { io.disconnect(); cancelAnimationFrame(raf); setV(null); };
+  }, [n]);
+  return <b ref={ref} aria-hidden="true">{pre}{(v ?? n).toLocaleString("en-US")}{plus ? "+" : ""}</b>;
 }
+const fmtCount = (c: { n: number; plus: boolean; pre?: string }) => `${c.pre ?? ""}${c.n.toLocaleString("en-US")}${c.plus ? "+" : ""}`;
 export function DataIn() {
-  const [ref, seen] = useInView<HTMLDivElement>(0.25);
   const [step, setStep] = useState(1);
   const st = RECORDER.steps[step];
-  const counters = RECORDER.counters.map((c, i) => (i === 0 ? { ...c, n: 16767, plus: false, label: "EV driver reviews in one dataset, cleaned in Google Colab" } : c));
+  const counters = RECORDER.counters;
   return (
     <section className="sec wrap" id="pipeline">
       <Head tag="pipeline · data in" title="Research first, at [ai]any scale[/ai]." sub="AI does the heavy reading across large sets. I set the questions, check every finding, and turn it into the problem worth solving." />
-      <div className="srcgrid" ref={ref}>
+      <div className="srcgrid">
         <Reveal className="counters">
           {counters.map((c, i) => i === 0 ? (
-            <a key={c.label} className="c feat" href="#n-ev"><Counter n={c.n} plus={c.plus} run={seen} /><span>{c.label}</span><em>{c.src} · see the run →</em></a>
-          ) : (<div key={c.label} className="c"><Counter n={c.n} plus={c.plus} run={seen} /><span>{c.label}</span><em>{c.src}</em></div>))}
+            <a key={c.label} className="c feat" href="#n-ev"><Counter {...c} /><span aria-hidden="true">{c.label}</span><span className="sr">{fmtCount(c)} {c.label}, from {c.src}. See the run.</span><em aria-hidden="true">{c.src} · see the run →</em></a>
+          ) : (<div key={c.label} className="c"><Counter {...c} /><span aria-hidden="true">{c.label}</span><span className="sr">{fmtCount(c)} {c.label}, from {c.src}</span><em aria-hidden="true">{c.src}</em></div>))}
         </Reveal>
         <Reveal delay={0.1}>
-          <div className="steps">
+          <div className="steps" role="group" aria-label="Research steps">
             {RECORDER.steps.map((x, i) => (
-              <button key={x.k} className={i === step ? "on" : ""} onClick={() => setStep(i)}><span>{String(i + 1).padStart(2, "0")}</span>{x.k.toLowerCase()}{x.ai && <i>AI</i>}</button>
+              <button key={x.k} className={i === step ? "on" : ""} aria-pressed={i === step} onClick={() => setStep(i)}><span aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>{x.k.toLowerCase()}{x.ai && <i><span className="sr">, uses </span>AI</i>}</button>
             ))}
           </div>
-          <div className="stepcard" key={step}>
+          <div className="stepcard" key={step} aria-live="polite">
             <div className="split">
               <div className={`who ai ${st.ai ? "" : "none"}`}><small>AI DOES</small><p>{st.ai || "Nothing. This step is mine."}</p></div>
               <div className="who me"><small>I DO</small><p>{st.me}</p></div>
@@ -114,8 +139,8 @@ export function RunsGrid() {
             <a className="run" href={`#n-${f.id}`} style={{ flex: 1 }}>
               <div className="top"><span>#{f.code.replace(" ", "-")}</span><span className={`st ${RUN_STATUS[f.id]}`}>{RUN_STATUS[f.id]}</span></div>
               <h3>{f.title}</h3>
-              <div className="mini">{PIPES[f.id].map((n, k) => (<span key={k} style={{ display: "contents" }}>{k > 0 && <em />}<span className={n[2]}>{n[0].toLowerCase()}</span></span>))}</div>
-              <div className="metric"><b>{f.stats[0][0]}</b><span>{f.stats[0][1]}</span></div>
+              <div className="mini" aria-hidden="true">{PIPES[f.id].map((n, k) => (<span key={k} style={{ display: "contents" }}>{k > 0 && <em />}<span className={n[2]}>{n[0].toLowerCase()}</span></span>))}</div>
+              <Stat className="metric" v={f.stats[0][0]} l={f.stats[0][1]} />
             </a>
           </Reveal>
         ))}
@@ -124,7 +149,7 @@ export function RunsGrid() {
             <div className="top"><span>#{QUEUED.code}</span><span className="st queued">{QUEUED.status}</span></div>
             <h3>{QUEUED.title}</h3>
             <p>{QUEUED.desc}</p>
-            <div className="mini">{QUEUED.pipe.map((n, k) => (<span key={k} style={{ display: "contents" }}>{k > 0 && <em />}<span className={n === "agent" ? "ai" : n === "approve" ? "hum" : ""}>{n}</span></span>))}</div>
+            <div className="mini" aria-hidden="true">{QUEUED.pipe.map((n, k) => (<span key={k} style={{ display: "contents" }}>{k > 0 && <em />}<span className={n === "agent" ? "ai" : n === "approve" ? "hum" : ""}>{n}</span></span>))}</div>
           </div>
         </Reveal>
       </div>
@@ -179,22 +204,22 @@ export function RunsDeck({ onRail }: { onRail: (on: boolean, active: number) => 
 function RunDetail({ f, i }: { f: Flight; i: number }) {
   const pad = (n: number) => String(n).padStart(2, "0");
   return (
-    <article className="detail" style={{ ["--c" as any]: f.color }}>
-      <i className="dim" />
+    <article className="detail" style={{ ["--c" as any]: f.color, ["--on" as any]: onColor(f.color) }}>
+      <i className="dim" aria-hidden="true" />
       <div>
         <div className="d-top"><span className="code">#{f.code.replace(" ", "-")}</span><span>run {pad(i + 1)} of {pad(FLIGHTS.length)}</span><span className={`st ${RUN_STATUS[f.id]}`}>{RUN_STATUS[f.id]}</span></div>
         <h3>{f.title}</h3>
         <div className="d-tag">{f.tagline}</div>
         <div className="fromto"><div><small>input · the problem</small><p>{f.from}</p></div><div className="ar">→</div><div><small>output · the result</small><p>{f.to}</p></div></div>
         <p className="d-desc">{f.desc}</p>
-        <div className="flow">{PIPES[f.id].map((n, k) => <div key={k} className={`n ${n[2]}`} style={{ ["--k" as any]: k }}><small>{n[0]}{n[2] === "ai" ? " · AI" : n[2] === "hum" ? " · me" : ""}</small>{n[1]}</div>)}</div>
+        <div className="flow" role="list" aria-label="Run steps">{PIPES[f.id].map((n, k) => <div key={k} role="listitem" className={`n ${n[2]}`} style={{ ["--k" as any]: k }}><small>{n[0]}{n[2] === "ai" ? " · AI" : n[2] === "hum" ? " · me" : ""}</small>{n[1]}</div>)}</div>
         {f.id === "ev" && <div className="followup"><b>{EV_FOLLOWUP.label.toUpperCase()}</b><ul>{EV_FOLLOWUP.points.map((p) => <li key={p}>{p}</li>)}</ul></div>}
         <div className="methods">{f.methods.map((m) => <span key={m}>{m}</span>)}</div>
       </div>
       <aside className="d-side">
-        {f.image && <div className={`d-img ${f.image.endsWith(".svg") ? "logo" : ""}`}><img src={f.image} alt="" loading="lazy" onError={(e) => e.currentTarget.parentElement!.remove()} /></div>}
-        {f.stats.slice(0, 2).map(([v, l]) => <div className="dstat" key={l}><b>{v}</b><span>{l}</span></div>)}
-        <a className="cta" href={f.link} target="_blank" rel="noopener">Open the full case study →</a>
+        {f.image && <div className={`d-img ${f.image.endsWith(".svg") ? "logo" : ""}`}><img src={f.image} alt={f.imageAlt ?? ""} loading="lazy" onError={(e) => e.currentTarget.parentElement!.remove()} /></div>}
+        {f.stats.slice(0, 2).map(([v, l]) => <Stat className="dstat" key={l} v={v} l={l} />)}
+        {f.link && <a className="cta" href={f.link} target="_blank" rel="noopener">Open the full case study<span className="sr"> for {f.title} (opens in a new tab)</span> <span aria-hidden="true">→</span></a>}
       </aside>
     </article>
   );
@@ -219,8 +244,8 @@ export function Approvals() {
         {WORDS.map((w, i) => (
           <Reveal key={w.name} delay={0.1 * i} className="appr">
             <div className="top"><span>#{w.stamp}-review</span><span className="st shipped">approved</span></div>
-            <p className="q">“{w.quote}”</p>
-            <div className="by"><span className="ok">✓</span><div><b>{w.name}</b><span>{w.title}</span></div></div>
+            <blockquote className="q">“{w.quote}”</blockquote>
+            <div className="by"><span className="ok" aria-hidden="true">✓</span><div><b>{w.name}</b><span>{w.title}</span></div></div>
           </Reveal>
         ))}
       </div>
@@ -236,7 +261,7 @@ export function Integrations() {
       <div className="integ">
         {SKILL_GROUPS.map((g, i) => (
           <Reveal key={g.label} delay={0.06 * i} className="ig" style={{ ["--c" as any]: g.color }}>
-            <h4><i />{g.label}</h4><div className="chips">{g.items.map((s) => <span key={s}>{s}</span>)}</div>
+            <h3><i aria-hidden="true" />{g.label}</h3><div className="chips">{g.items.map((s) => <span key={s}>{s}</span>)}</div>
           </Reveal>
         ))}
       </div>
@@ -258,28 +283,32 @@ export function StartRun() {
       <Head tag="start a run · contact" title="Let’s start a [hum]run[/hum]." sub="Open to UX research and product design roles at data-driven teams, especially B2B workflow tools, across the US. I reply within one working day." />
       <div className="start">
         <Reveal className="panel">
-          <h4>1 · PURPOSE</h4>
-          <div className="opts">{PURPOSE.map(([a, b], i) => <button key={a} className={`opt ${i === pur ? "on" : ""}`} onClick={() => { setPur(i); setRan(false); }}><b>{a}</b><span>{b}</span></button>)}</div>
-          <h4>2 · CHANNEL</h4>
-          <div className="opts">{CHANNELS.map(([a, b], i) => <button key={a} className={`opt ${i === ch ? "on" : ""}`} onClick={() => { setCh(i); setRan(false); }}><b>{a}</b><span style={{ wordBreak: "break-all" }}>{b}</span></button>)}</div>
-          <button className="runbtn" onClick={() => setRan(true)}>▶ Run</button>
+          <h3 id="pur-h">1 · PURPOSE</h3>
+          <div className="opts" role="group" aria-labelledby="pur-h">{PURPOSE.map(([a, b], i) => <button key={a} className={`opt ${i === pur ? "on" : ""}`} aria-pressed={i === pur} onClick={() => { setPur(i); setRan(false); }}><b>{a}</b><span>{b}</span></button>)}</div>
+          <h3 id="ch-h">2 · CHANNEL</h3>
+          <div className="opts" role="group" aria-labelledby="ch-h">{CHANNELS.map(([a, b], i) => <button key={a} className={`opt ${i === ch ? "on" : ""}`} aria-pressed={i === ch} onClick={() => { setCh(i); setRan(false); }}><b>{a}</b><span style={{ wordBreak: "break-all" }}>{b}</span></button>)}</div>
+          <button className="runbtn" onClick={() => setRan(true)} aria-describedby="run-out"><span aria-hidden="true">▶ </span>Run<span className="sr">: get the {CHANNELS[ch][0]} link for “{PURPOSE[pur][0]}”</span></button>
         </Reveal>
         <Reveal delay={0.1} className="out">
-          <div><span className="p">$ </span>start-run --purpose {PURPOSE[pur][0].toLowerCase()} --via {CHANNELS[ch][0].toLowerCase()}</div>
-          {ran ? (<>
-            <div><span className="p">› </span>routing to Siddhi Manche…</div>
-            <div className="ok">› ready. <a href={url} target="_blank" rel="noopener">open {CHANNELS[ch][0]} →</a></div>
-            <div><span className="p">› </span>{CHANNELS[ch][1]}</div>
-          </>) : <div className="p">› waiting for ▶ Run</div>}
+          <div id="run-out" aria-live="polite">
+            <div><span className="p" aria-hidden="true">$ </span>start-run --purpose {PURPOSE[pur][0].toLowerCase()} --via {CHANNELS[ch][0].toLowerCase()}</div>
+            {ran ? (<>
+              <div><span className="p" aria-hidden="true">› </span>routing to Siddhi Manche…</div>
+              <div className="ok"><span aria-hidden="true">› </span>ready. <a href={url} target="_blank" rel="noopener">open {CHANNELS[ch][0]}<span className="sr"> (opens in a new tab)</span> <span aria-hidden="true">→</span></a></div>
+              <div><span className="p" aria-hidden="true">› </span>{CHANNELS[ch][1]}</div>
+            </>) : <div className="p"><span aria-hidden="true">› </span>waiting for <span aria-hidden="true">▶ </span>Run</div>}
+          </div>
           <div className="links">
             <a href={`mailto:${CONTACT.email}`}>Email</a>
-            <button onClick={() => { navigator.clipboard?.writeText(CONTACT.email).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1600); }).catch(() => {}); }}>{copied ? "Copied ✓" : "Copy email"}</button>
-            <a href={CONTACT.linkedin} target="_blank" rel="noopener">LinkedIn</a>
-            <a href={CONTACT.github} target="_blank" rel="noopener">GitHub</a>
+            <button onClick={() => { navigator.clipboard?.writeText(CONTACT.email).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1600); }).catch(() => {}); }}>{copied ? <>Copied <span aria-hidden="true">✓</span></> : <>Copy email<span className="sr"> address, {CONTACT.email}</span></>}</button>
+            <span className="sr" aria-live="polite">{copied ? "Email address copied" : ""}</span>
+            {CONTACT.resume && <a href={CONTACT.resume} download="Siddhi-Manche-Resume.pdf" data-resume>Resume<span className="sr"> (PDF)</span></a>}
+            <a href={CONTACT.linkedin} target="_blank" rel="noopener">LinkedIn<span className="sr"> (opens in a new tab)</span></a>
+            <a href={CONTACT.github} target="_blank" rel="noopener">GitHub<span className="sr"> (opens in a new tab)</span></a>
           </div>
         </Reveal>
       </div>
-      <footer><span>Designed and built by {PROFILE.name}, with an AI coding assistant. © {new Date().getFullYear()}</span><span className="clk">{clock} ET</span><a className="ghost" href="#top">Back to top ↑</a></footer>
+      <footer><span>Designed and built by {PROFILE.name}, with an AI coding assistant. © {new Date().getFullYear()}</span><span className="clk" suppressHydrationWarning>{clock} ET</span><a className="ghost" href="#top">Back to top <span aria-hidden="true">↑</span></a></footer>
     </section>
   );
 }

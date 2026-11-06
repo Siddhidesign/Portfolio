@@ -1,4 +1,4 @@
-/* Jai Hind page: behaviour for the coded research, flows and style guide.
+/* JaiHind-India page: behaviour for the coded research, flows and style guide.
    Without this file everything is still visible: all personas, all journey
    stages and the full audit table simply show at once. */
 (function () {

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { HERO, PROFILE, SOURCES, HERO_THEMES } from "../data";
+import { reducedMotion } from "../hooks/useHooks";
+import { Stat } from "./Stat";
 
 /** Renders "[ai]word[/ai]" and "[hum]word[/hum]" as colored italics */
 export function Rich({ text }: { text: string }) {
@@ -8,12 +10,18 @@ export function Rich({ text }: { text: string }) {
     : p.startsWith("[hum]") ? <em key={i} className="t-hum">{p.slice(5, -6)}</em> : <span key={i}>{p}</span>)}</>;
 }
 
+/** Which theme a packet belongs to. */
+const themeOf = (t: string) => (/order|broken|out of order|waited|Tax|SSN/.test(t) ? 0 : /card|payment|bounce|spend|friends/.test(t) ? 1 : 2);
+/** How many of the example quotes and findings in this diagram fall under each theme. Derived from SOURCES, never invented. */
+export const THEME_TOTALS = HERO_THEMES.map((_, k) => SOURCES.flatMap((s) => s.packets).filter((p) => themeOf(p.t) === k).length);
+
 /* The hero canvas: research packets travel from sources into the AI node,
    themes get counted, a human check stamps them, and a result comes out. */
 export default function Hero() {
   const cv = useRef<HTMLDivElement>(null);
   const svg = useRef<SVGSVGElement>(null);
-  const [counts, setCounts] = useState([0, 0, 0]);
+  // The totals are shown from the first paint. Packets arriving only flash the theme they land in.
+  const counts = THEME_TOTALS;
   const [bump, setBump] = useState(-1);
   const [stamp, setStamp] = useState(false);
   const [hit, setHit] = useState("");
@@ -35,7 +43,7 @@ export default function Hero() {
       });
     };
     draw(); addEventListener("resize", draw);
-    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const still = reducedMotion();
     const live: HTMLElement[] = [];
     const fly = (key: string, text: string, cls: string, dur: number, done?: () => void) => {
       const p = paths[key]; if (!p) return; const L = p.getTotalLength(); const el = document.createElement("div");
@@ -50,8 +58,8 @@ export default function Hero() {
       const src = SOURCES[i % SOURCES.length], pk = src.packets[Math.floor(i / SOURCES.length) % src.packets.length];
       setHit(src.id); setTimeout(() => setHit(""), 400);
       fly(src.id + "ai", pk.t, pk.kind, 1700, () => {
-        const ti = /order|broken|out of order|waited|Tax|SSN/.test(pk.t) ? 0 : /card|payment|bounce|spend|friends/.test(pk.t) ? 1 : 2;
-        setCounts((cs) => cs.map((v, j) => (j === ti ? v + 1 : v))); setBump(ti); setTimeout(() => setBump(-1), 250);
+        const ti = themeOf(pk.t);
+        setBump(ti); setTimeout(() => setBump(-1), 250);
         if (i % 3 === 0) fly("aihum", "theme →", "theme-p", 900, () => { setStamp(true); setTimeout(() => setStamp(false), 700); fly("humout", "verified", "ver", 1300); });
       });
       i++;
@@ -67,12 +75,12 @@ export default function Hero() {
         <span className="tag">{HERO.kicker}</span>
         <h1><Rich text={HERO.title} /></h1>
         <p className="lede">{HERO.lede}</p>
-        <div className="hstats">{HERO.stats.map(([b, l]) => <div key={l}><b>{b}</b><span>{l}</span></div>)}</div>
+        <div className="hstats">{HERO.stats.map(([b, l]) => <Stat key={l} v={b} l={l} />)}</div>
         <div className="me"><img src={PROFILE.photo} alt={PROFILE.photoAlt} onError={(e) => (e.currentTarget.style.display = "none")} /><div><b>{PROFILE.name}</b><span>M.S. Human-Centered Design · UM-Dearborn</span></div></div>
       </div>
-      <div className="canvas" ref={cv} aria-label="Animation: research data flows into AI analysis, a human check, then a result">
+      <div className="canvas" ref={cv} role="img" aria-label={`Diagram of how every project works. Data comes in: ${SOURCES.map((s) => `${s.big} ${s.label}`).join("; ")}. AI tags and clusters themes: ${HERO_THEMES.map((t, k) => `${t}, ${THEME_TOTALS[k]} examples`).join("; ")}. I verify every theme against the raw data. Output: 27% fewer order errors, shipped.`}>
         <div className="hd"><span>workflow.run · how every project works</span><span>live</span></div>
-        <svg className="wires" ref={svg} />
+        <svg className="wires" ref={svg} aria-hidden="true" />
         {SOURCES.map((s, k) => (
           <div key={s.id} className={`node src ${hit === s.id ? "hit" : ""}`} data-id={s.id} style={{ left: 22, top: tops[k] }}>
             <small>data in</small><b>{s.big}</b><div className="l">{s.label}</div>

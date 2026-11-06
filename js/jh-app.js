@@ -1,4 +1,4 @@
-/* Jai Hind staff console, recreated in code from the Figma file.
+/* JaiHind-India staff console, recreated in code from the Figma file.
    Screens: Welcome (two doors), the shopper's door, Dashboard, Orders,
    Customers, and a four-step sales order with one live cart.
    Modes: Wireframe (with the file's numbered notes), Before (the team's
@@ -137,7 +137,7 @@
   var STORES = ['Laxmi Road', 'Kothrud', 'Pimpri-Chinchwad', 'Aundh', 'Hadapsar', 'Kolhapur', 'Nashik', 'Sambhaji Nagar', 'Kumthekar Road', 'Camp'];
   var NOTES = ['Top bar: Dashboard, Orders, Customers, New Order and the account menu.', 'Silk banner with the page title and a period selector.', 'Two KPIs, each with its change vs yesterday.', 'Orders and sales trends, each with its own period.', 'Order rate and cycle time use the status colors.', 'Top 10 selling items carousel.', 'Top customers table; a row opens customer details.'];
   var ISSUES = {
-    brand: ['high', 'Consistency and standards', "The visual language doesn't match the Jai Hind brand: teal accents, generic type, no logo treatment.", 'Site palette, ZCOOL headings, a black header and navy silk page banners.'],
+    brand: ['high', 'Consistency and standards', "The visual language doesn't match the JaiHind-India brand: teal accents, generic type, no logo treatment.", 'Site palette, ZCOOL headings, a black header and navy silk page banners.'],
     account: ['low', 'User control and freedom', 'No visible account menu or log out.', 'An account menu on desktop and an account sheet on mobile, each with Log out.'],
     mobile: ['high', 'Flexibility and efficiency of use', 'No mobile layouts for staff working on the shop floor. Switch the demo to Phone to feel it.', '26 mobile screens: cards, bottom sheets, a tab bar and a sticky cart bar.'],
     data: ['medium', 'Match between system and real world', 'Placeholder data mixes regions: Dhaka delivery zones, +880 and 01600000000 phone numbers.', 'Mumbai and Pune zones, +91 numbers and varied, realistic rows.'],
@@ -196,8 +196,8 @@
     if (ctl.indexOf('device') > -1) c += '<div class="jh-seg jh-seg-device" role="group" aria-label="Screen size"><button type="button" data-ctl="device" data-v="desktop" aria-pressed="false">Desktop</button><button type="button" data-ctl="device" data-v="phone" aria-pressed="false">Phone</button></div>';
     if (ctl.indexOf('jump') > -1) c += '<div class="jh-go" role="group" aria-label="Jump to a screen"><button type="button" data-ctl="go" data-v="welcome">Welcome</button><button type="button" data-ctl="go" data-v="dashboard">Dashboard</button><button type="button" data-ctl="go" data-v="orders">Orders</button><button type="button" data-ctl="go" data-v="new">New order</button><button type="button" data-ctl="reset" aria-label="Reset the demo">' + '↺ Reset</button></div>';
     c += '</div>';
-    c += '<div class="jh-frame"><div class="jh-chrome" aria-hidden="true"><i></i><i></i><i></i><span>' + esc(r.dataset.url || 'Jai Hind staff console · coded replica · placeholder data') + '</span></div>';
-    c += '<div class="jh-vp" role="region" tabindex="0" aria-label="' + esc(r.dataset.label || 'Interactive Jai Hind console, recreated in code') + '"><div class="jh"></div></div>';
+    c += '<div class="jh-frame"><div class="jh-chrome" aria-hidden="true"><i></i><i></i><i></i><span>' + esc(r.dataset.url || 'JaiHind-India staff console · coded replica · placeholder data') + '</span></div>';
+    c += '<div class="jh-vp" role="region" tabindex="0" aria-label="' + esc(r.dataset.label || 'Interactive JaiHind-India console, recreated in code') + '"><div class="jh"></div></div>';
     c += '<div class="jh-layer"><div class="jh-ov"></div><div class="jh-toast" role="status" aria-live="polite"></div></div></div>';
     r.innerHTML = c;
     this.vp = r.querySelector('.jh-vp'); this.app = r.querySelector('.jh'); this.layer = r.querySelector('.jh-layer');
