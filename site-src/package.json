@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && rm -rf ../app && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node prerender.mjs",
+    "build": "python3 v3/build.py .. ..",
     "preview": "vite preview",
-    "check:stats": "node check-stats.mjs"
+    "check:stats": "node check-stats.mjs",
+    "build:classic": "tsc -b && rm -rf ../app && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node prerender.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",
