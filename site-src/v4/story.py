@@ -172,3 +172,106 @@ STORY["magic-apron"] = dict(
     outcome_sub="These are hypotheses to test. Next, I'd test with 5 first-time DIYers, at home and in the store.",
     goal_results=[("Status", "Concept, not affiliated with The Home Depot")],
 )
+
+# ---------------- explanatory diagrams, placed per section ----------------
+def L(label, rows, verdict): return dict(label=label, rows=rows, verdict=verdict)
+
+FIGS = {}
+
+FIGS["jaihind"] = dict(
+    problem=[dict(kind="scenario", title="Where one order lived",
+        left=L("Before: phone, paper and 5 systems", [("Customer phone call", ""), ("Paper order book", "by hand"), ("Supplier call", "one at a time"), ("Each person's own tracking", "no full picture"), ("5 systems that didn't talk", "typed again")], "Typed many times, copies don't match"),
+        right=L("After: 1 order record", [("Entered once", "4 short steps"), ("Stock checked", "before approval"), ("Sent to supplier", "same record"), ("Status everyone sees", "Pending → Delivered")], "1 place, one version of the truth"),
+        cap="Before and after, for the same customer order.")],
+    solutions=[dict(kind="steps", title="One order, four statuses everyone can see",
+        items=[("Pending", "Entered once, at the counter or on a call"), ("Approved", "Only after the stock check"), ("In transit", "Sent to the supplier from the same record"), ("Delivered", "Tracked from the call to delivery")])],
+    research=[dict(kind="pipeline", title="From store visits to a shipped portal",
+        items=[("~200", "employees met in 10 stores, as a team"), ("80+", "interviews I ran myself"), ("Every handoff", "mapped across 6 teams"), ("Crazy 8s", "eight ideas in eight minutes"), ("Wireframes", "gray, desktop and phone"), ("Tested", "with staff, then fixed")],
+        end=("10 heuristics", "audit of the live portal, each with a fix"))],
+    results=[dict(kind="bars", title="Orders sent to suppliers in a day", maxv=8,
+        items=[("Before (phone and paper)", 2.5, "2-3", False), ("After (one portal)", 7.5, "7-8", True)],
+        cap="Measured before launch and after. Orders also got 40% faster and 27% less error-prone.")],
+)
+
+FIGS["anchor"] = dict(
+    problem=[dict(kind="scenario", title="When does the help arrive?",
+        left=L("A typical money app", [("You tap your card", "feels free"), ("The statement arrives", "weeks later"), ("A chart of the past", "if you open it")], "Help arrives after the money is gone"),
+        right=L("Money Anchor", [("You ask before buying", "in the moment"), ("The coach explains why", "with confidence"), ("You decide", "apply or no thanks")], "Help arrives before you spend"),
+        cap="Most budgeting apps report on spending. The coach steps in at the moment of the decision.")],
+    solutions=[dict(kind="steps", title="Three steps from a question to a decision",
+        items=[("Ask the coach", "\"How much can I safely spend today?\""), ("See the reason", "Every suggestion shows why and how sure it is"), ("Decide", "Apply the change, or say no thanks")])],
+    research=[dict(kind="funnel", title="From 40+ papers to 10 features in the prototype",
+        items=[("40+", "research papers, summarized and analyzed with AI"), ("10", "budgeting apps benchmarked"), ("24", "people: 8 interviews and 16 in 4 focus groups (IRB-approved)"), ("100", "ideas written by our team of 4"), ("64", "after sorting into 7 themes"), ("10", "features in the prototype")])],
+    results=[dict(kind="bars", title="Round one vs round two, 8 testers each", maxv=100, unit="%",
+        items=[("Task success, round 1", 22, "22", False), ("Task success, round 2", 100, "100", True), ("Misclicks, round 1", 29, "29", False), ("Misclicks, round 2", 0, "0", True)],
+        cap="Exploring the app. After the AI got its own button and buttons got labels.")],
+)
+
+FIGS["ev"] = dict(
+    problem=[dict(kind="scenario", title="One road trip, two ways",
+        left=L("Today", [("Tesla app", "own network"), ("ChargePoint app or card", "own network"), ("Electrify America app", "own network"), ("EVgo app", "own network"), ("PlugShare", "info, no payment")], "5 apps, and you still can't tell if it works"),
+        right=L("One app", [("Plan the route", "chargers on the way"), ("Check the stop", "what's nearby"), ("Check in", "any network"), ("Pay", "one wallet")], "1 app for the whole stop"),
+        cap="The networks we compared in our competitive audit.")],
+    solutions=[dict(kind="steps", title="Four steps for every charging stop",
+        items=[("Plan the route", "Chargers along the way, with live traffic"), ("Check the stop", "See what's nearby before you drive there"), ("Check in", "Pick a free charger, no RFID card"), ("Pay", "One payment method for every network")])],
+    research=[dict(kind="pipeline", title="From 16,767 reviews to a fair comparison",
+        items=[("16,767", "Google Maps reviews of US stations"), ("Cleaned", "empty, duplicate, closed and very short reviews removed"), ("12 months", "recent, US only"), ("Tagged", "by network, with AI-assisted Python in Colab")],
+        end=("400", "reviews sampled, 80 per network")),
+        dict(kind="bars", title="Average rating by network, 400-review sample", maxv=5,
+        items=[("Tesla", 4.26, "4.26", True), ("ChargePoint", 3.76, "3.76", False), ("Other", 3.34, "3.34", False), ("Electrify America", 3.32, "3.32", False), ("EVgo", 3.25, "3.25", False)],
+        cap="Out of 5 stars. Tesla's lead pointed at what drivers expect everywhere: chargers that work and payment that just happens."),
+        dict(kind="table", title="What existing apps did, and didn't",
+        cols=["PlugShare", "Network apps", "Our app"],
+        rows=[["Information for every network", True, False, True], ["Pay for a charge", False, "Own network only", True], ["Safety and amenities up front", False, False, True]],
+        cap="From our competitive audit of Tesla, ChargePoint, Electrify America, PlugShare and EVgo.")],
+    results=[dict(kind="bars", title="Usability score (SUS) with 10 drivers", maxv=100, ref=(68, "68 is the common average"),
+        items=[("New to EVs", 89.5, "89.5", True), ("Experienced", 68.0, "68.0", False), ("Everyone", 78.75, "78.75", True)])],
+)
+
+FIGS["ir2go"] = dict(
+    problem=[dict(kind="menu", title="Seven equal choices became three clear ones",
+        cap="People open the app for three things, so the home screen offers exactly those three.")],
+    solutions=[dict(kind="steps", title="Every task now finishes inside the app",
+        items=[("Explore as a guest", "No account to check a refund"), ("Pick a task", "Refunds, Payments or Tax Help"), ("Fill it right", "Labels, examples and a sample form"), ("Finish here", "A status timeline, or pay with fees shown")])],
+    research=[dict(kind="pipeline", title="Where the research came from",
+        items=[("150+", "App Store reviews"), ("200+", "Quora posts"), ("~10", "taxpayer interviews"), ("1", "survey"), ("Papers", "summarized with AI")],
+        end=("Every step", "written out, to find where each task broke"))],
+    results=[dict(kind="bars", title="Usability score (SUS), same tasks, old app vs redesign", maxv=100, ref=(68, "68 is the common average"),
+        items=[("Old app", 31.3, "31.3", False), ("Redesign", 78.25, "78.25", True)])],
+)
+
+FIGS["findme"] = dict(
+    problem=[dict(kind="drift", title="What drift looks like, and what fixed it")],
+    solutions=[dict(kind="anatomy", title="Every component named the way engineers search",
+        parts=[("Button", "component"), ("Primary", "variant"), ("Medium", "size"), ("Default", "state")],
+        cap="Illustrates the naming method. FindMe's library itself is private.")],
+)
+
+FIGS["canvas"] = dict(
+    research=[dict(kind="pipeline", title="How two semesters of research reached the syllabus",
+        items=[("50+", "papers and industry reports, with UM-GPT"), ("43", "students' feedback across 8 presentations"), ("2 cohorts", "mapped on shared Figma affinity boards"), ("Weekly", "consolidated with 10+ research assistants"), ("Monthly", "recommendations to faculty")],
+        end=("2", "new UX courses"))],
+)
+
+FIGS["omkar"] = dict(
+    solutions=[dict(kind="pipeline", title="The loop, repeated for every page",
+        items=[("Design file", "from the designers"), ("Build", "about 2 days per page"), ("Check", "against the design, in Chrome DevTools"), ("Hand off", "to the lead developers")],
+        end=("50+", "catalog pages"))],
+)
+
+FIGS["research-lens"] = dict(
+    problem=[dict(kind="scenario", title="Three quotes are not three people",
+        left=L("Counting quotes", [("Quote 1", "participant A"), ("Quote 2", "participant A"), ("Quote 3", "participant A")], "Looks like a pattern: 3"),
+        right=L("Counting participants", [("Participant A", "3 quotes"), ("Distinct people", "1")], "Actually 1 person"),
+        cap="Illustrative example. pattern_frequency counts distinct participants, not quotes.")],
+    solutions=[dict(kind="pipeline", title="How a question travels",
+        items=[("AI assistant", "asks a research question"), ("Research Lens", "5 tools: search, quotes by theme, pattern frequency, compare rounds, draft findings"), ("Repository", "sessions, segments, rounds, tagged excerpts")],
+        end=("Every answer", "with participant ID, round and timestamp"))],
+)
+
+FIGS["magic-apron"] = dict(
+    problem=[dict(kind="scenario", title="Same question, asked in two places",
+        left=L("Store Mode", [("Hanging kits", "only option"), ("Adhesive strips", "only after typing it")], "The person had to ask again"),
+        right=L("Home tab", [("Hanging kit", ""), ("Adhesive strips", "no holes")], "Two options, one answer"),
+        cap="\"I have a 24×28 photo frame and need to hang it on a wall. What products should I buy?\"")],
+)

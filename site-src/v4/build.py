@@ -4,19 +4,19 @@ stat tiles, phase cards on case pages. Content comes from ../v3/content.py (unch
 
     python3 build.py OUT_DIR [ASSET_ROOT]
 """
-import html, re, shutil, sys
+import hashlib, html, re, shutil, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "v3"))
 from content import SITE, HOW, TOOLS, WORDS, EXPERIENCE, PROJECTS, SIDE, CASES, ORDER
 sys.path.insert(0, str(HERE))
-from story import STORY
+from story import STORY, FIGS
+from figs import render as viz, CSS as VIZ_CSS
+CSSV = hashlib.md5(((HERE / "site.css").read_text() + VIZ_CSS).encode()).hexdigest()[:8]
 
 OUT = Path(sys.argv[1] if len(sys.argv) > 1 else "/home/claude/preview4")
 ROOT = Path(sys.argv[2] if len(sys.argv) > 2 else HERE.parents[1])
 used = set()
-import hashlib
-CSSV = hashlib.md5((HERE / "site.css").read_bytes()).hexdigest()[:8]  # cache-busting: browsers fetch the new file when it changes
 
 TINT = {"canvas": "#ECEAFF", "findme": "#E3F1EA", "jaihind": "#EEF1F6", "omkar": "#E2EAF8", "anchor": "#DCE3FF",
         "ev": "#D9EFE3", "ir2go": "#FCE3C6", "research-lens": "#ECEAFF", "magic-apron": "#FBE6DC"}
@@ -147,6 +147,8 @@ def case(cid):
     if c.get("note"): o.append(f'<p class="wrap note">{esc(c["note"])}</p>')
 
     S = STORY.get(cid, {})
+    F = FIGS.get(cid, {})
+    def figs(k): return "".join(viz(x) for x in F.get(k, []))
     n = 0
     def sec(label, title, side, body):
         nonlocal n; n += 1
@@ -156,6 +158,7 @@ def case(cid):
     # 01 Problem
     body = "".join(f'<p class="lead">{rich(p)}</p>' for p in c["problem"])
     if c.get("quotes"): body += '<ul class="qcards">' + "".join(f'<li>“{esc(q)}”</li>' for q in c["quotes"]) + "</ul>"
+    body += figs("problem")
     if c.get("problem_img"): body += fig(c["problem_img"], "Before the redesign")
     sec("Problem", S.get("scene", c["tldr"][0][1]), S.get("scene_sub"), body)
 
@@ -165,7 +168,7 @@ def case(cid):
 
     # 03 Solutions
     sols = S.get("solutions") or [(d["title"], d["why"]) for d in c["decisions"]]
-    b = ""
+    b = figs("solutions")
     for k, (hl, txt) in enumerate(sols, 1):
         d = c["decisions"][k - 1] if k - 1 < len(c["decisions"]) else {}
         hasimg = bool(d.get("img"))
@@ -181,6 +184,7 @@ def case(cid):
     if S.get("insight"):
         nm, tx = S["insight"]
         b += f'<div class="insight"><p class="k">Key insight</p><h3>“{esc(nm)}”</h3><p>{esc(tx)}</p></div>'
+    b += figs("research")
     if r.get("img"): b += fig(r["img"])
     if S.get("flow_before"):
         def flow(name, steps, foot, cls):
@@ -199,6 +203,7 @@ def case(cid):
     # 05 Reflection and outcome
     res = c.get("results") or {}
     b = ""
+    b += figs("results")
     if S.get("goal_results"): b += '<ul class="gres">' + "".join(f'<li><p class="k">{esc(g)}</p><b>{esc(v)}</b></li>' for g, v in S["goal_results"]) + "</ul>"
     if res.get("rows"):
         b += '<table><thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead><tbody>' + "".join(f'<tr><th scope="row">{esc(a)}</th><td>{esc(x) or "<span class=sr>not measured</span>"}</td><td><b>{esc(y)}</b></td></tr>' for a, x, y in res["rows"]) + "</tbody></table>"
@@ -221,7 +226,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True); (OUT / "work").mkdir(exist_ok=True)
     (OUT / "index.html").write_text(home())
     for cid in ORDER: (OUT / "work" / f"{cid}.html").write_text(case(cid))
-    shutil.copy(HERE / "site.css", OUT / "site.css")
+    (OUT / "site.css").write_text((HERE / "site.css").read_text() + VIZ_CSS)
     for src in used | {"assets/favicon.svg"}:
         d = OUT / src
         if d.resolve() == (ROOT / src).resolve(): continue
