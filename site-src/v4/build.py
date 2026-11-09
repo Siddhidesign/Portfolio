@@ -4,7 +4,7 @@ stat tiles, phase cards on case pages. Content comes from ../v3/content.py (unch
 
     python3 build.py OUT_DIR [ASSET_ROOT]
 """
-import hashlib, html, re, shutil, sys
+import hashlib, html, random, re, shutil, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "v3"))
@@ -95,6 +95,21 @@ def card(cid, size, pre=""):
 <div class="btext"><p class="meta">{esc(who)} · {esc(when)}</p><h3>{esc(c["card"])}</h3><p>{esc(c["line"])}</p>{pills(c["tags"])}</div>
 <span class="go" aria-hidden="true">{icon("arrow")}</span></a></li>'''
 
+def headline():
+    """The hero line with its two key words wrapped: 'messy' as jumbled letters, 'clear' as a blur that sharpens."""
+    rnd = random.Random(7)
+    out = []
+    for word in re.split(r"(\s+)", SITE["title"]):
+        w = word.replace("*", "")
+        if word.startswith("*messy"):
+            letters = "".join(f'<span class="ch" style="--x:{rnd.uniform(-.18,.18):.2f}em;--y:{rnd.uniform(-.22,.22):.2f}em;--r:{rnd.uniform(-24,24):.0f}deg">{esc(ch)}</span>' for ch in w)
+            out.append(f'<span class="w-messy">{letters}</span>')
+        elif word.startswith("*clear"):
+            out.append(f'<span class="w-clear">{esc(w)}</span>')
+        else:
+            out.append(f'<span class="nw">{esc(w)}</span>' if "-" in w else esc(w))  # keep "research-led" on one line
+    return "".join(out)
+
 def marquee():
     chips = "".join(f'<li class="mg">{esc(g)}</li>' + "".join(f"<li>{esc(x)}</li>" for x in xs) for g, xs in TOOLS)
     return f'<div class="marquee"><ul class="mq">{chips}</ul><ul class="mq" aria-hidden="true">{chips}</ul></div>'
@@ -109,9 +124,9 @@ def home():
     words = "".join(f'<figure><blockquote>“{esc(q)}”</blockquote><figcaption><b>{esc(n)}</b> {esc(t)}</figcaption></figure>' for q, n, t in WORDS)
     title = plain(SITE["title"])
     return head(f'{SITE["name"]} · {SITE["role"]}', title + " " + plain(SITE["intro"][1]), pre, "home") + f'''
-<section class="band hero" aria-labelledby="h"><div class="wrap"><h1 id="h" class="mega">{esc(title)}</h1></div></section>
+<section class="band hero" aria-labelledby="h"><div class="wrap"><h1 id="h" class="mega"><span class="sr">{esc(title)}</span><span aria-hidden="true">{headline()}</span></h1></div></section>
 <section class="panel intro" aria-labelledby="hi"><div class="wrap igrid">
-  <div><h2 id="hi" class="h2">Hi! I’m Siddhi Manche</h2>{"".join(f"<p>{peek(rich(p))}</p>" for p in SITE["intro"])}</div>
+  <div><h2 id="hi" class="h2">Hi! I’m Siddhi Manche</h2><p class="lede">{esc(SITE["lede"])}</p><p>{peek(rich(SITE["story"]))}</p></div>
   {socials(pre)}
 </div></section>
 <section class="panel" id="work" aria-labelledby="xp"><div class="wrap">

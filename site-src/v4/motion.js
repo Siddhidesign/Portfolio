@@ -27,6 +27,21 @@
     }
   }
 
+  /* ---- 1b. Headline: 'messy' jumbles at the top of the page, snaps into line as you scroll or hover ---- */
+  const heroBand = document.querySelector('.hero');
+  if (heroBand && heroBand.querySelector('.w-messy') && !reduced) {
+    const h1 = heroBand.querySelector('h1');
+    const hint = document.createElement('span');
+    hint.className = 'hint'; hint.setAttribute('aria-hidden', 'true'); hint.textContent = 'Scroll to clear it up ↓';
+    h1.after(hint);
+    let hover = false;
+    const set = () => heroBand.classList.toggle('jumbled', scrollY < 40 && !hover);
+    h1.addEventListener('mouseenter', () => { hover = true; set(); });
+    h1.addEventListener('mouseleave', () => { hover = false; set(); });
+    addEventListener('scroll', set, { passive: true });
+    set();
+  }
+
   /* ---- 2. Staggered reveals ---- */
   const groups = [
     // [selector, base delay ms, stagger ms, immediate]
