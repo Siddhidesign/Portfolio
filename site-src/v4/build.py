@@ -15,6 +15,8 @@ from story import STORY
 OUT = Path(sys.argv[1] if len(sys.argv) > 1 else "/home/claude/preview4")
 ROOT = Path(sys.argv[2] if len(sys.argv) > 2 else HERE.parents[1])
 used = set()
+import hashlib
+CSSV = hashlib.md5((HERE / "site.css").read_bytes()).hexdigest()[:8]  # cache-busting: browsers fetch the new file when it changes
 
 TINT = {"canvas": "#ECEAFF", "findme": "#E3F1EA", "jaihind": "#EEF1F6", "omkar": "#E2EAF8", "anchor": "#DCE3FF",
         "ev": "#D9EFE3", "ir2go": "#FCE3C6", "research-lens": "#ECEAFF", "magic-apron": "#FBE6DC"}
@@ -51,7 +53,7 @@ def head(title, desc, pre, page=""):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title><meta name="description" content="{esc(desc)}">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
-<link rel="icon" href="{pre}assets/favicon.svg">{FONT}<link rel="stylesheet" href="{pre}site.css"></head><body class="{page}">
+<link rel="icon" href="{pre}assets/favicon.svg">{FONT}<link rel="stylesheet" href="{pre}site.css?v={CSSV}"></head><body class="{page}">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="dock" aria-label="Main"><a class="home" href="{pre}index.html">SM<span class="sr"> Siddhi Manche, home</span></a><a href="{pre}index.html#work">Experience</a><a href="{pre}index.html#projects">Projects</a><a href="{pre}index.html#about">About</a><a href="{pre}index.html#contact">Contact</a></nav>
 <main id="main" tabindex="-1">'''

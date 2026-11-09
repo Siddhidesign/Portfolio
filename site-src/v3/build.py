@@ -14,6 +14,8 @@ OUT = Path(sys.argv[1] if len(sys.argv) > 1 else "/home/claude/preview")
 ROOT = Path(sys.argv[2] if len(sys.argv) > 2 else Path(__file__).resolve().parents[2])
 HERE = Path(__file__).resolve().parent
 used = set()
+import hashlib
+CSSV = hashlib.md5((HERE / "site.css").read_bytes()).hexdigest()[:8]  # cache-busting: browsers fetch the new file when it changes
 
 def esc(s): return html.escape(s, quote=True)
 def rich(s):
@@ -32,7 +34,7 @@ def head(title, desc, pre):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title><meta name="description" content="{esc(desc)}">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
-<link rel="icon" href="{pre}assets/favicon.svg">{FONT}<link rel="stylesheet" href="{pre}site.css"></head><body>
+<link rel="icon" href="{pre}assets/favicon.svg">{FONT}<link rel="stylesheet" href="{pre}site.css?v={CSSV}"></head><body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar wrap"><a class="me" href="{pre}index.html">{esc(SITE["name"])}</a>
 <nav aria-label="Main"><a href="{pre}index.html#work">Experience</a><a href="{pre}index.html#projects">Projects</a><a href="{pre}index.html#about">About</a><a href="{pre}{SITE["resume"]}" data-resume download="Siddhi-Manche-Resume.pdf">Resume</a><a href="mailto:{SITE["email"]}">Contact</a></nav></header>
