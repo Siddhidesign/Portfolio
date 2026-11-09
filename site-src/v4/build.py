@@ -12,7 +12,7 @@ from content import SITE, HOW, TOOLS, WORDS, EXPERIENCE, PROJECTS, SIDE, CASES, 
 sys.path.insert(0, str(HERE))
 from story import STORY, FIGS
 from figs import render as viz, CSS as VIZ_CSS
-CSSV = hashlib.md5(((HERE / "site.css").read_text() + VIZ_CSS).encode()).hexdigest()[:8]
+CSSV = hashlib.md5(((HERE / "site.css").read_text() + VIZ_CSS + (HERE / "motion.js").read_text()).encode()).hexdigest()[:8]
 
 OUT = Path(sys.argv[1] if len(sys.argv) > 1 else "/home/claude/preview4")
 ROOT = Path(sys.argv[2] if len(sys.argv) > 2 else HERE.parents[1])
@@ -30,6 +30,9 @@ ICONS = {  # simple line icons, decorative
     "mail": '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/>',
     "gh": '<path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5a3 3 0 0 0-.9-2.4c3-.3 6-1.5 6-6.6a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6s-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.5 0C6.1 1 5 1.3 5 1.3a4.8 4.8 0 0 0-.1 3.6A5.2 5.2 0 0 0 3.5 8.5c0 5.1 3 6.3 6 6.6a3 3 0 0 0-.9 2.4V21"/>',
     "arrow": '<path d="M7 17 17 7M8 7h9v9"/>',
+    "brief": '<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+    "grid": '<rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/>',
+    "user": '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
 }
 def icon(k, cls="ic"): return f'<svg class="{cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">{ICONS[k]}</svg>'
 
@@ -41,21 +44,27 @@ def plain(s): return re.sub(r"\*+", "", s)
 def img(src, alt, pre, lazy=True):
     used.add(src)
     return f'<img src="{pre}{esc(src)}" alt="{esc(alt)}"{" loading=\"lazy\"" if lazy else ""} decoding="async">'
+def peek(h):
+    """Company names in the intro link to their page and show a preview image on hover."""
+    for name, cid, src in [("JaiHind-India", "jaihind", "assets/jaihind/jh-13-final-dashboard.jpg"), ("UM-Dearborn", "canvas", "assets/v2/siddhi-grad.jpg")]:
+        used.add(src)
+        h = h.replace(f"<b>{name}</b>", f'<a class="plink" href="work/{cid}.html" data-preview="{src}"><b>{name}</b></a>', 1)
+    return h
 def pills(ts): return '<ul class="pills">' + "".join(f"<li>{esc(t)}</li>" for t in ts) + "</ul>"
 
 FONT = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Inter:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">'
 
 def socials(pre, light=False):
-    return f'''<div class="social{" light" if light else ""}"><a class="round" href="{SITE["linkedin"]}" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)">{icon("in")}</a><a class="round" href="mailto:{SITE["email"]}" aria-label="Email {SITE["email"]}">{icon("mail")}</a><a class="round" href="{SITE["github"]}" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)">{icon("gh")}</a><a class="pillbtn" href="{pre}{SITE["resume"]}" data-resume download="Siddhi-Manche-Resume.pdf">Resume<span class="sr"> (PDF)</span></a></div>'''
+    return f'''<div class="social{" light" if light else ""}"><a class="round" href="{SITE["linkedin"]}" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)" data-tip="LinkedIn">{icon("in")}</a><a class="round" href="mailto:{SITE["email"]}" aria-label="Email {SITE["email"]}" data-tip="Email">{icon("mail")}</a><a class="round" href="{SITE["github"]}" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)" data-tip="GitHub">{icon("gh")}</a><a class="pillbtn" href="{pre}{SITE["resume"]}" data-resume download="Siddhi-Manche-Resume.pdf">Resume<span class="sr"> (PDF)</span></a></div>'''
 
 def head(title, desc, pre, page=""):
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title><meta name="description" content="{esc(desc)}">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
-<link rel="icon" href="{pre}assets/favicon.svg">{FONT}<link rel="stylesheet" href="{pre}site.css?v={CSSV}"></head><body class="{page}">
+<script>document.documentElement.classList.add("js")</script><link rel="icon" href="{pre}assets/favicon.svg">{FONT}<link rel="stylesheet" href="{pre}site.css?v={CSSV}"></head><body class="{page}">
 <a class="skip" href="#main">Skip to content</a>
-<nav class="dock" aria-label="Main"><a class="home" href="{pre}index.html">SM<span class="sr"> Siddhi Manche, home</span></a><a href="{pre}index.html#work">Experience</a><a href="{pre}index.html#projects">Projects</a><a href="{pre}index.html#about">About</a><a href="{pre}index.html#contact">Contact</a></nav>
+<nav class="dock" aria-label="Main"><a class="home" href="{pre}index.html" data-tip="Home">SM<span class="sr"> Siddhi Manche, home</span></a><a class="di" href="{pre}index.html#work" aria-label="Experience" data-tip="Experience">{icon("brief")}</a><a class="di" href="{pre}index.html#projects" aria-label="Projects" data-tip="Projects">{icon("grid")}</a><a class="di" href="{pre}index.html#about" aria-label="About" data-tip="About">{icon("user")}</a><a class="di" href="{pre}index.html#contact" aria-label="Contact" data-tip="Contact">{icon("mail")}</a></nav>
 <main id="main" tabindex="-1">'''
 
 def foot(pre):
@@ -67,6 +76,7 @@ def foot(pre):
 <a class="bigmail" href="mailto:{SITE["email"]}">{SITE["email"]} {icon("arrow")}</a></div></div>
 <p class="wrap fine">Designed and built by Siddhi Manche, with an AI coding assistant. Plain HTML and CSS, hosted on GitHub Pages. © 2026</p></footer>
 <script>fetch("{pre}{SITE["resume"]}",{{method:"HEAD"}}).then(function(r){{if(!r.ok)throw 0}}).catch(function(){{document.querySelectorAll("[data-resume]").forEach(function(a){{a.hidden=true}})}});</script>
+<script src="{pre}motion.js?v={CSSV}" defer></script>
 </body></html>'''
 
 def tile(cid, pre, lazy=True):
@@ -85,6 +95,10 @@ def card(cid, size, pre=""):
 <div class="btext"><p class="meta">{esc(who)} · {esc(when)}</p><h3>{esc(c["card"])}</h3><p>{esc(c["line"])}</p>{pills(c["tags"])}</div>
 <span class="go" aria-hidden="true">{icon("arrow")}</span></a></li>'''
 
+def marquee():
+    chips = "".join(f'<li class="mg">{esc(g)}</li>' + "".join(f"<li>{esc(x)}</li>" for x in xs) for g, xs in TOOLS)
+    return f'<div class="marquee"><ul class="mq">{chips}</ul><ul class="mq" aria-hidden="true">{chips}</ul></div>'
+
 def home():
     pre = ""
     xp = CASES
@@ -97,7 +111,7 @@ def home():
     return head(f'{SITE["name"]} · {SITE["role"]}', title + " " + plain(SITE["intro"][1]), pre, "home") + f'''
 <section class="band hero" aria-labelledby="h"><div class="wrap"><h1 id="h" class="mega">{esc(title)}</h1></div></section>
 <section class="panel intro" aria-labelledby="hi"><div class="wrap igrid">
-  <div><h2 id="hi" class="h2">Hi! I’m Siddhi Manche</h2>{"".join(f"<p>{rich(p)}</p>" for p in SITE["intro"])}</div>
+  <div><h2 id="hi" class="h2">Hi! I’m Siddhi Manche</h2>{"".join(f"<p>{peek(rich(p))}</p>" for p in SITE["intro"])}</div>
   {socials(pre)}
 </div></section>
 <section class="panel" id="work" aria-labelledby="xp"><div class="wrap">
@@ -117,7 +131,7 @@ def home():
 <section class="panel grey" aria-labelledby="hw"><div class="wrap">
   <h2 id="hw" class="mega sm dark">How I work</h2>
   <ol class="how">{how}</ol>
-  <h3 class="caps dark tools-h">Tools I use</h3><div class="tools">{tools}</div>
+  <h3 class="caps dark tools-h">Tools I use</h3>{marquee()}
 </div></section>
 <section class="panel" id="about" aria-labelledby="ab"><div class="wrap agrid">
   <div><h2 id="ab" class="mega sm dark">About</h2>
@@ -159,6 +173,9 @@ def case(cid):
     body = "".join(f'<p class="lead">{rich(p)}</p>' for p in c["problem"])
     if c.get("quotes"): body += '<ul class="qcards">' + "".join(f'<li>“{esc(q)}”</li>' for q in c["quotes"]) + "</ul>"
     body += figs("problem")
+    if S.get("videos"):
+        body += '<div class="vids">' + "".join(f'<figure class="vid"><video src="{pre}{esc(v)}" data-once muted playsinline controls preload="metadata" aria-label="{esc(l)}"></video><figcaption>{esc(l)}</figcaption></figure>' for v, l in S["videos"]) + "</div>"
+        used.update(v for v, _ in S["videos"])
     if c.get("problem_img"): body += fig(c["problem_img"], "Before the redesign")
     sec("Problem", S.get("scene", c["tldr"][0][1]), S.get("scene_sub"), body)
 
@@ -226,7 +243,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True); (OUT / "work").mkdir(exist_ok=True)
     (OUT / "index.html").write_text(home())
     for cid in ORDER: (OUT / "work" / f"{cid}.html").write_text(case(cid))
-    (OUT / "site.css").write_text((HERE / "site.css").read_text() + VIZ_CSS)
+    (OUT / "site.css").write_text((HERE / "site.css").read_text() + VIZ_CSS); shutil.copy(HERE / "motion.js", OUT / "motion.js")
     for src in used | {"assets/favicon.svg"}:
         d = OUT / src
         if d.resolve() == (ROOT / src).resolve(): continue

@@ -163,6 +163,7 @@ STORY["research-lens"] = dict(
 
 STORY["magic-apron"] = dict(
     scene="Same question, two different answers",
+    videos=[("assets/magic-apron/research-home.mp4", "Recorded session: the question on the Home tab"), ("assets/magic-apron/research-store.mp4", "Recorded session: the same question in Store Mode")],
     scene_sub="At home the assistant suggested hanging kits or adhesive strips. In Store Mode it showed only kits, and an empty shelf ended with \"Thanks for letting us know.\"",
     solutions_title="Six small changes, two shown here",
     solutions=[("Ask how you want to hang it, before showing products", "One question as a tap would have caught \"adhesive\" in my interview, instead of a long answer people read past."),
