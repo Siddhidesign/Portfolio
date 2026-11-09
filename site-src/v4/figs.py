@@ -47,7 +47,7 @@ def table(title, cols, rows, cap=None):
     """Feature comparison. Cells: True → yes, False → no, str → as written. First col is the feature."""
     def cell(v, j):
         if v is True: return '<td class="y"><span aria-hidden="true">✓</span><span class="sr">Yes</span></td>'
-        if v is False: return '<td class="n"><span aria-hidden="true">—</span><span class="sr">No</span></td>'
+        if v is False: return '<td class="n"><span aria-hidden="true">✕</span><span class="sr">No</span></td>'
         return f'<td class="p">{e(v)}</td>'
     head = "".join(f'<th scope="col"{" class=us" if j == len(cols) - 1 else ""}>{e(c)}</th>' for j, c in enumerate(cols))
     body = "".join(f'<tr><th scope="row">{e(r[0])}</th>' + "".join(cell(v, j) for j, v in enumerate(r[1:])) + "</tr>" for r in rows)
