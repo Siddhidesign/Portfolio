@@ -9,6 +9,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "v3"))
 from content import SITE, HOW, TOOLS, WORDS, EXPERIENCE, PROJECTS, SIDE, CASES, ORDER
+sys.path.insert(0, str(HERE))
+from story import STORY
 
 OUT = Path(sys.argv[1] if len(sys.argv) > 1 else "/home/claude/preview4")
 ROOT = Path(sys.argv[2] if len(sys.argv) > 2 else HERE.parents[1])
@@ -142,45 +144,71 @@ def case(cid):
         o.append(f'<div class="wrap"><div class="cover{" top" if c.get("cover_fit") == "top" else ""}" style="--tint:{TINT[cid]}">{img(c["cover"], c["cover_alt"], pre, False)}</div></div>')
     if c.get("note"): o.append(f'<p class="wrap note">{esc(c["note"])}</p>')
 
+    S = STORY.get(cid, {})
     n = 0
     def sec(label, title, side, body):
         nonlocal n; n += 1
         o.append(f'<section class="wrap sec"><div class="shead"><div><p class="eyebrow bar">{n:02d} · {esc(label)}</p><h2 class="h2">{esc(title)}</h2></div>{f"<p>{esc(side)}</p>" if side else ""}</div>{body}</section>')
+    def fig(f, cap=None): return f'<figure class="fig">{img(f[0], f[1], pre)}<figcaption>{esc(cap or f[1])}</figcaption></figure>'
 
-    body = "".join(f'<p class="lead">{rich(p)}</p>' for p in c["problem"][1:])
+    # 01 Problem
+    body = "".join(f'<p class="lead">{rich(p)}</p>' for p in c["problem"])
     if c.get("quotes"): body += '<ul class="qcards">' + "".join(f'<li>“{esc(q)}”</li>' for q in c["quotes"]) + "</ul>"
-    if c.get("problem_img"): body += f'<figure class="fig">{img(c["problem_img"][0], c["problem_img"][1], pre)}<figcaption>Before the redesign</figcaption></figure>'
-    sec("Problem", c["tldr"][0][1], c["problem"][0], body)
+    if c.get("problem_img"): body += fig(c["problem_img"], "Before the redesign")
+    sec("Problem", S.get("scene", c["tldr"][0][1]), S.get("scene_sub"), body)
 
-    r = c.get("research")
-    if r:
-        b = ""
-        if r.get("findings"): b += '<ul class="cards">' + "".join(f'<li><span class="num">{k:02d}</span><p>{esc(f)}</p></li>' for k, f in enumerate(r["findings"], 1)) + "</ul>"
-        if r.get("img"): b += f'<figure class="fig">{img(r["img"][0], r["img"][1], pre)}<figcaption>{esc(r["img"][1])}</figcaption></figure>'
-        sec("Research", "What the data said", r["text"], b)
+    # 02 Goals
+    if S.get("goals"):
+        sec("Goals", "What it had to do", None, '<ul class="goals">' + "".join(f'<li><p class="k">Goal {k:02d}</p><h3>{esc(g)}</h3><p>{esc(d)}</p></li>' for k, (g, d) in enumerate(S["goals"], 1)) + "</ul>")
 
+    # 03 Solutions
+    sols = S.get("solutions") or [(d["title"], d["why"]) for d in c["decisions"]]
     b = ""
-    for k, d in enumerate(c["decisions"], 1):
+    for k, (hl, txt) in enumerate(sols, 1):
+        d = c["decisions"][k - 1] if k - 1 < len(c["decisions"]) else {}
         hasimg = bool(d.get("img"))
-        b += f'''<article class="phase{" noimg" if not hasimg else ""}"><div class="ptext"><p class="k">Decision {k:02d}</p><h3>{esc(d["title"])}</h3>
-<p class="why"><span>Why</span>{esc(d["why"])}</p>{f'<p class="res">{icon("check")} {esc(d["result"])}</p>' if d.get("result") else ""}</div>
+        b += f'''<article class="phase{" noimg" if not hasimg else ""}"><div class="ptext"><p class="k">Solution {k:02d}</p><h3>{esc(hl)}</h3>
+<p class="body">{esc(txt)}</p>{f'<p class="res">{icon("check")} {esc(d["result"])}</p>' if d.get("result") else ""}</div>
 {f'<figure>{img(d["img"][0], d["img"][1], pre)}<figcaption>{esc(d["img"][1])}</figcaption></figure>' if hasimg else ""}</article>'''
-    sec("Key decisions", f'{len(c["decisions"])} decisions that shaped the design', "Each one with the reason behind it.", b)
+    sec("Solutions", S.get("solutions_title", "Key decisions"), None, b)
 
-    if c.get("rejected"):
-        sec("What I rejected", "Ideas I dropped, and why", None, '<ul class="rej">' + "".join(f'<li><p class="k">Rejected</p><h3>{esc(a)}</h3><p>{esc(w)}</p></li>' for a, w in c["rejected"]) + "</ul>")
+    # 04 Research and design
+    r = c.get("research") or {}
+    b = ""
+    if r.get("findings"): b += '<ul class="cards">' + "".join(f'<li><span class="num">{k:02d}</span><p>{esc(f)}</p></li>' for k, f in enumerate(r["findings"], 1)) + "</ul>"
+    if S.get("insight"):
+        nm, tx = S["insight"]
+        b += f'<div class="insight"><p class="k">Key insight</p><h3>“{esc(nm)}”</h3><p>{esc(tx)}</p></div>'
+    if r.get("img"): b += fig(r["img"])
+    if S.get("flow_before"):
+        def flow(name, steps, foot, cls):
+            items = "".join(f'<li><span class="n">{k}</span><div><b>{esc(a)}</b><p>{esc(d)}</p>{f"<em>{esc(tag)}</em>" if tag else ""}</div></li>' for k, (a, d, tag) in enumerate(steps, 1))
+            return f'<div class="flow {cls}"><p class="k">{esc(name)}</p><ol>{items}</ol><p class="foot">{esc(foot)}</p></div>'
+        b += '<div class="flows">' + flow("Before · the old flow", S["flow_before"], S["flow_before_foot"], "old") + flow("After · the redesigned flow", S["flow_after"], S["flow_after_foot"], "new") + "</div>"
+    if S.get("twist"):
+        hl, tx = S["twist"]
+        b += f'<div class="twist"><p class="k">Plot twist</p><h3>{esc(hl)}</h3><p>{esc(tx)}</p></div>'
+    rej = c.get("rejected", [])[1:] if S.get("twist") else c.get("rejected", [])  # the twist already tells the first one
+    if rej:
+        b += '<h3 class="caps dark sub3">Ideas I dropped</h3><ul class="rej">' + "".join(f'<li><p class="k">Rejected</p><h3>{esc(a)}</h3><p>{esc(w)}</p></li>' for a, w in rej) + "</ul>"
+    if b or r.get("text"):
+        sec("Research and design", S.get("research_title", "How I got there"), r.get("text"), b)
 
-    res = c.get("results")
-    if res and (res.get("rows") or res.get("note") or res.get("img")):
-        b = ""
-        if res.get("rows"):
-            b += '<table><thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead><tbody>' + "".join(f'<tr><th scope="row">{esc(a)}</th><td>{esc(x) or "<span class=sr>not measured</span>"}</td><td><b>{esc(y)}</b></td></tr>' for a, x, y in res["rows"]) + "</tbody></table>"
-        if res.get("note"): b += f'<p class="small">{esc(res["note"])}</p>'
-        if res.get("img"): b += f'<figure class="fig">{img(res["img"][0], res["img"][1], pre)}<figcaption>{esc(res["img"][1])}</figcaption></figure>'
-        sec("Summary and impact", c["tldr"][2][1], None, b)
+    # 05 Reflection and outcome
+    res = c.get("results") or {}
+    b = ""
+    if S.get("goal_results"): b += '<ul class="gres">' + "".join(f'<li><p class="k">{esc(g)}</p><b>{esc(v)}</b></li>' for g, v in S["goal_results"]) + "</ul>"
+    if res.get("rows"):
+        b += '<table><thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead><tbody>' + "".join(f'<tr><th scope="row">{esc(a)}</th><td>{esc(x) or "<span class=sr>not measured</span>"}</td><td><b>{esc(y)}</b></td></tr>' for a, x, y in res["rows"]) + "</tbody></table>"
+    if res.get("note"): b += f'<p class="small">{esc(res["note"])}</p>'
+    if res.get("img"): b += fig(res["img"])
+    if S.get("lesson"): b += f'<p class="lesson"><b>The lesson:</b> {esc(S["lesson"])}</p>'
+    sec("Reflection and outcome", S.get("outcome_title", c["tldr"][2][1]), S.get("outcome_sub"), b)
 
-    if c.get("next"):
-        sec("Reflection", "If I took it further", "Ideas, not built.", '<ul class="cards">' + "".join(f'<li><span class="num">{k:02d}</span><p>{esc(x)}</p></li>' for k, x in enumerate(c["next"], 1)) + "</ul>")
+    # 06 Future scope
+    fut = S.get("future") or [(f"Idea {k:02d}", x) for k, x in enumerate(c.get("next", []), 1)]
+    if fut:
+        sec("Future scope", "Where I'd take it next", "Ideas, not built.", '<ul class="goals">' + "".join(f'<li><p class="k">Future {k:02d}</p><h3>{esc(a)}</h3><p>{esc(x)}</p></li>' for k, (a, x) in enumerate(fut, 1)) + "</ul>")
     if c.get("links"):
         o.append('<p class="wrap links">' + " ".join(f'<a class="pillbtn" href="{esc(u)}" target="_blank" rel="noopener">{esc(l)}<span class="sr"> (opens in a new tab)</span> {icon("arrow")}</a>' for l, u in c["links"]) + "</p>")
     o.append(f'<section class="wrap nextp" aria-labelledby="np"><h2 id="np" class="h2">Next projects</h2><ul class="bento">{"".join(card(x, "half", pre) for x in nxt)}</ul></section>')
