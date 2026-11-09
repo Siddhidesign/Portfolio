@@ -271,7 +271,7 @@ CASES["canvas"] = dict(
 CASES["magic-apron"] = dict(
     org="Concept", year="2026", kind="AI assistant · Retail concept",
     card="Magic Apron: fixing an AI shopping assistant", line="Fixing an AI shopping assistant after watching a first-time DIYer use it.",
-    tags=["AI assistant", "Concept"], cover=None,
+    tags=["AI assistant", "Concept"], cover=A + "magic-apron/c1-after.webp", cover_alt="Store Mode asks how you want to hang it, with tap options.", cover_fit="top",
     title="Ask the right question, *finish the task*",
     meta=[("Role", "UX designer, solo"), ("Time", "1 weekend, Oct 2026"), ("Methods", "Interview, screen recording, heuristic review"), ("Status", "Concept")],
     tldr=[("Problem", "The Home Depot's AI assistant gave different answers at home and in Store Mode, and an empty shelf ended with \"Thanks for letting us know.\""),
