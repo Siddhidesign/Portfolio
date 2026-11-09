@@ -12,7 +12,7 @@ SITE = dict(
     role="UX Researcher and Designer",
     title="A research-led designer who turns *messy* experiences into *clear* ones.",
     lede="I start where things are confusing: interviews, store floors, thousands of reviews. AI helps me read at scale, but I check every finding myself, then design the fix.",
-    story="Before AI, I learned this on the store floors of **JaiHind-India**, interviewing staff and redesigning how about 200 employees move orders. My M.S. at **UM-Dearborn** added AI to my research: it reads at scale, and I check every finding myself.",
+    story="Before AI, I learned this on the store floors of **JaiHind-India**, interviewing staff and redesigning how about 200 employees move orders. My M.S. at **UM-Dearborn** added AI to how I research.",
     intro=[
         "I started as a front-end developer, building catalog pages from designers' files. At **JaiHind-India** I moved into design: our team interviewed about 200 store employees, and I redesigned how orders move from the counter to the supplier.",
         "My M.S. in Human-Centered Design at **UM-Dearborn** added AI to my research. I use it to read thousands of reviews, transcripts and papers, then I check every finding myself before it shapes a design.",
