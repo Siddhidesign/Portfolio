@@ -30,9 +30,8 @@ main:focus{outline:none}
 .h2{font-family:var(--display);font-stretch:85%;font-weight:800;font-size:clamp(26px,2.6vw,34px);line-height:1.08;letter-spacing:-.3px}
 .eyebrow,.caps,.k,.k2{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
 .eyebrow{display:flex;align-items:center;gap:10px;color:var(--ink2)}
-.eyebrow .sq{width:8px;height:8px;border-radius:2px;background:var(--brand)}
-.eyebrow.light{color:#fff}.eyebrow.light .sq{background:#fff}
-.eyebrow.bar{border-left:3px solid var(--brand);padding-left:10px;color:var(--brand-ink);line-height:1.2}
+.eyebrow.light{color:#fff}
+.eyebrow.bar{border-left:3px solid var(--face,var(--brand));padding-left:10px;color:var(--brand-ink);line-height:1.2}
 .caps{color:#fff;opacity:.92}
 .dark{color:var(--ink)}
 .k{color:var(--mute);font-size:11.5px}
@@ -266,7 +265,7 @@ tbody tr:last-child>*{border-bottom:0}
 @keyframes mq{to{transform:translateX(calc(-100% - 10px))}}
 @media (prefers-reduced-motion:reduce){.marquee{flex-wrap:wrap;mask-image:none;-webkit-mask-image:none}.mq{flex-wrap:wrap;animation:none}.mq[aria-hidden]{display:none}}
 .aside img{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-.readbar{position:fixed;top:0;left:0;right:0;height:4px;background:var(--brand);transform-origin:0 50%;transform:scaleX(0);z-index:45}
+
 .vids{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:620px;margin-top:20px}
 .vid video{width:100%;border-radius:18px;background:#000;aspect-ratio:560/1218;max-height:560px;object-fit:contain}
 .vid figcaption{font-size:13px;color:var(--mute);margin-top:8px}
@@ -299,3 +298,42 @@ html,body{overflow-x:clip}
 
 .hero .mega{max-width:17ch;font-size:clamp(46px,7.4vw,108px)}
 .nw{white-space:nowrap}
+
+/* ---------- hero cube (scrambled -> solved on scroll) ---------- */
+.hero .wrap{position:relative}
+.hero .mega{max-width:15ch;font-size:clamp(44px,6.1vw,92px)}
+.cube-art{display:none;--s:80px;position:absolute;right:10px;top:50%;width:min(32%,380px);aspect-ratio:1;transform:translateY(-50%);perspective:1400px;cursor:grab;touch-action:pan-y;user-select:none}
+.cube-art.grab{cursor:grabbing}
+.js .cube-art{display:block}
+.cube-stage{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(-26deg) rotateY(-38deg)}
+.cube{position:absolute;left:50%;top:50%;transform-style:preserve-3d}
+.cubie{position:absolute;left:calc(var(--s) / -2);top:calc(var(--s) / -2);width:var(--s);height:var(--s);transform-style:preserve-3d}
+.cubie i{position:absolute;inset:0;background:#16161A;backface-visibility:hidden}
+.cubie i::after{content:"";position:absolute;inset:6%;border-radius:14%;background:var(--c)}
+.cubie i.in::after{display:none}
+.cube-art::after{content:"\2713  Solved";position:absolute;left:50%;top:-8%;transform:translate(-50%,8px);font:600 13px/1 var(--sans,system-ui);letter-spacing:.12em;text-transform:uppercase;color:#C9F2D9;opacity:0;transition:opacity .4s,transform .4s}
+.cube-art.solved::after{opacity:1;transform:translate(-50%,0)}
+.cube-ctl{position:absolute;left:8%;right:8%;bottom:-12%;display:flex;align-items:center;gap:12px;font:600 12px/1 var(--sans,system-ui);letter-spacing:.12em;text-transform:uppercase;color:#fff;cursor:default}
+.cube-ctl input{flex:1;accent-color:#C9F2D9;height:28px;cursor:pointer}
+.cube-ctl input:focus-visible{outline:3px solid #fff;outline-offset:4px;border-radius:4px}
+@media (max-width:860px){
+  .hero{padding-bottom:40px}
+  .cube-art{position:relative;right:auto;top:auto;transform:none;width:min(70%,280px);margin:40px auto 56px}
+}
+
+/* ---------- cube motif ---------- */
+.face{display:inline-grid;grid-template-columns:repeat(3,var(--fs,4px));gap:1px;flex:none;vertical-align:middle}
+.face i{width:var(--fs,4px);height:var(--fs,4px);border-radius:1px;background:var(--f,var(--brand))}
+.face.mix i:nth-child(1),.face.mix i:nth-child(8){background:#2FCB86}
+.face.mix i:nth-child(2),.face.mix i:nth-child(6){background:#FF5A5F}
+.face.mix i:nth-child(3),.face.mix i:nth-child(7){background:#4DA3FF}
+.face.mix i:nth-child(4){background:#FFCC33}
+.face.mix i:nth-child(5),.face.mix i:nth-child(9){background:#FF9F43}
+
+.bcard .meta .face{margin-right:8px;position:relative;top:-1px}
+.eyebrow.bar .face.solved{margin-right:10px;gap:1.5px}
+.readface{position:fixed;right:22px;bottom:22px;z-index:45;display:grid;grid-template-columns:repeat(3,11px);gap:3px;padding:8px;border-radius:10px;background:#16161A;box-shadow:0 6px 20px #00000030;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.readface i{width:11px;height:11px;border-radius:3px;background:#3A3A44;transition:background .25s}
+.readface i.on{background:var(--face,var(--brand))}
+.readface.done{transform:scale(1.18) rotate(-6deg)}
+@media (prefers-reduced-motion:reduce){.readface,.readface i{transition:none}.readface.done{transform:none}}

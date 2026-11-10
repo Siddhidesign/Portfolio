@@ -75,12 +75,48 @@ def menu(title, cap=None):
              f'<span class="sc-vs" aria-hidden="true">vs</span><div class="sc good"><p class="sc-l">Redesigned home screen</p><div class="mn new">{new}</div><p class="sc-v">3 clear choices</p></div></div>')
     return wrap("scenario", title, inner, cap)
 
+def sift(title, steps, groups, check=None, cap=None):
+    """Interactive: a cloud of reviews sifted step by step into a fair sample, then averaged.
+    steps=[(big, label, ai)], groups=[(name, value, colour)]. check=(title, text) or None while waiting on real input."""
+    import json
+    li = "".join(f'<li><button type="button" data-i="{i}"><span class="sf-n">{i + 1}</span><b>{e(a)}</b><span>{e(b)}</span>'
+                 f'{"<em>AI-assisted</em>" if ai else ""}</button></li>' for i, (a, b, ai) in enumerate(steps))
+    vals = "".join(f'<li><i style="background:{c}"></i>{e(n)} <b>{v:.2f}</b></li>' for n, v, c in groups)
+    # Shown only once Siddhi gives a real example; until then the box is left out entirely.
+    chk = f'<div class="sf-check"><p class="sf-ck">{e(check[0])}</p><p>{e(check[1])}</p></div>' if check else ""
+    data = e(json.dumps([[n, v, c] for n, v, c in groups]))
+    return (f'<figure class="viz viz-sift" data-groups="{data}"><div class="sf-top"><p class="viz-t">{e(title)}</p>'
+            f'<button type="button" class="sf-play">Replay</button></div>'
+            f'<div class="sf-stage"><canvas aria-hidden="true"></canvas></div><ol class="sf-steps">{li}</ol>'
+            f'<ul class="sf-vals" aria-label="Average rating by network">{vals}</ul>{chk}'
+            + (f'<figcaption>{e(cap)}</figcaption>' if cap else "") + "</figure>")
+
 def render(spec):
     spec = dict(spec); kind = spec.pop("kind")
     return {"scenario": scenario, "steps": steps, "pipeline": pipeline, "funnel": funnel, "bars": bars,
-            "table": table, "drift": drift, "anatomy": anatomy, "menu": menu}[kind](**spec)
+            "table": table, "drift": drift, "anatomy": anatomy, "menu": menu, "sift": sift}[kind](**spec)
 
 CSS = """
+/* ---------- sift: reviews to a fair sample ---------- */
+.sf-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.sf-play{font:700 12px/1 var(--sans);letter-spacing:1.2px;text-transform:uppercase;border:1.5px solid var(--ink);border-radius:99px;padding:9px 16px;background:#fff;cursor:pointer;flex:none}
+.sf-play:hover{background:var(--ink);color:#fff}
+.sf-stage{background:#16161A;border-radius:18px;overflow:hidden}
+.sf-stage canvas{display:block;width:100%;height:340px}
+.sf-steps{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:14px}
+.sf-steps button{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:3px;width:100%;height:100%;padding:12px;border-radius:14px;border:1.5px solid var(--line);cursor:pointer;font-size:12.5px;line-height:1.3;color:var(--ink2);transition:border-color .2s,background .2s}
+.sf-steps button:hover{border-color:var(--ink)}
+.sf-steps button:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.sf-steps button[aria-current="step"]{border-color:var(--brand);background:var(--brand-soft);color:var(--ink)}
+.sf-steps b{font-family:var(--display);font-stretch:85%;font-weight:800;font-size:17px;color:var(--ink)}
+.sf-n{font-size:11px;font-weight:800;color:var(--mute)}
+.sf-steps em{font-style:normal;align-self:flex-start;margin-top:4px;font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;background:#16161A;color:#fff;border-radius:99px;padding:3px 8px}
+.sf-vals{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13.5px;color:var(--ink2)}
+.sf-vals li{display:flex;align-items:center;gap:6px}.sf-vals i{width:10px;height:10px;border-radius:3px}
+.sf-check{margin-top:16px;border-radius:16px;padding:16px 18px;background:#EAF8F0;border:1.5px solid #2FCB86}
+.sf-check.pending{background:#FFF6DC;border:1.5px dashed #C98A00}
+.sf-ck{font-size:11.5px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:6px}
+@media (max-width:860px){.sf-steps{grid-template-columns:repeat(2,1fr)}.sf-stage canvas{height:280px}}
 /* ---------- explanatory diagrams ---------- */
 .viz{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px 30px;margin:24px 0}
 .viz-t{font-family:var(--display);font-stretch:85%;font-weight:800;font-size:20px;line-height:1.15;margin-bottom:20px}

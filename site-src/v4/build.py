@@ -57,12 +57,12 @@ FONT = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="pr
 def socials(pre, light=False):
     return f'''<div class="social{" light" if light else ""}"><a class="round" href="{SITE["linkedin"]}" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)" data-tip="LinkedIn">{icon("in")}</a><a class="round" href="mailto:{SITE["email"]}" aria-label="Email {SITE["email"]}" data-tip="Email">{icon("mail")}</a><a class="round" href="{SITE["github"]}" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)" data-tip="GitHub">{icon("gh")}</a><a class="pillbtn" href="{pre}{SITE["resume"]}" data-resume download="Siddhi-Manche-Resume.pdf">Resume<span class="sr"> (PDF)</span></a></div>'''
 
-def head(title, desc, pre, page=""):
+def head(title, desc, pre, page="", face_color=""):
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title><meta name="description" content="{esc(desc)}">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
-<script>document.documentElement.classList.add("js")</script><link rel="icon" href="{pre}assets/favicon.svg">{FONT}<link rel="stylesheet" href="{pre}site.css?v={CSSV}"></head><body class="{page}">
+<script>document.documentElement.classList.add("js")</script><link rel="icon" href="{pre}assets/favicon.svg">{FONT}<link rel="stylesheet" href="{pre}site.css?v={CSSV}"></head><body class="{page}"{f' style="--face:{face_color}"' if face_color else ""}>
 <a class="skip" href="#main">Skip to content</a>
 <nav class="dock" aria-label="Main"><a class="home" href="{pre}index.html" data-tip="Home">SM<span class="sr"> Siddhi Manche, home</span></a><a class="di" href="{pre}index.html#work" aria-label="Experience" data-tip="Experience">{icon("brief")}</a><a class="di" href="{pre}index.html#projects" aria-label="Projects" data-tip="Projects">{icon("grid")}</a><a class="di" href="{pre}index.html#about" aria-label="About" data-tip="About">{icon("user")}</a><a class="di" href="{pre}index.html#contact" aria-label="Contact" data-tip="Contact">{icon("mail")}</a></nav>
 <main id="main" tabindex="-1">'''
@@ -70,7 +70,7 @@ def head(title, desc, pre, page=""):
 def foot(pre):
     return f'''</main>
 <footer class="band contact" id="contact"><div class="wrap cgrid">
-<div><p class="eyebrow light"><span class="sq" aria-hidden="true"></span>Get in touch</p>
+<div><p class="eyebrow light">{face(size=4)}Get in touch</p>
 <h2 class="mega">Let’s build something people trust.</h2>{socials(pre, True)}</div>
 <div class="cside"><p>Open to UX research and product design roles in the US, especially B2B workflow tools and AI products. I reply within one working day.</p>
 <a class="bigmail" href="mailto:{SITE["email"]}">{SITE["email"]} {icon("arrow")}</a></div></div>
@@ -78,6 +78,14 @@ def foot(pre):
 <script>fetch("{pre}{SITE["resume"]}",{{method:"HEAD"}}).then(function(r){{if(!r.ok)throw 0}}).catch(function(){{document.querySelectorAll("[data-resume]").forEach(function(a){{a.hidden=true}})}});</script>
 <script src="{pre}motion.js?v={CSSV}" defer></script>
 </body></html>'''
+
+CUBE = {"green": "#2FCB86", "red": "#FF5A5F", "blue": "#4DA3FF", "orange": "#FF9F43", "yellow": "#FFCC33"}
+FACE = {"canvas": "blue", "findme": "orange", "jaihind": "green", "omkar": "yellow", "anchor": "red",
+        "ev": "green", "ir2go": "blue", "research-lens": "orange", "magic-apron": "yellow"}
+def face(color=None, size=4, cls=""):
+    """A mini 3x3 cube face: solved in one colour, or scrambled when no colour is given."""
+    st = f' style="--f:{CUBE[color]};--fs:{size}px"' if color else f' style="--fs:{size}px"'
+    return f'<span class="face{" mix" if not color else ""}{(" " + cls) if cls else ""}" aria-hidden="true"{st}>' + "<i></i>" * 9 + "</span>"
 
 def tile(cid, pre, lazy=True):
     c = CASES[cid]
@@ -92,7 +100,7 @@ def card(cid, size, pre=""):
     who = f'{c["role"]} · {c["org"]}' if c.get("role") else c["org"]
     flag = "Building" if c.get("status") == "building" else "Concept" if c["org"] == "Concept" else ""
     return f'''<li class="bcard {size}"><a href="{pre}work/{cid}.html">{tile(cid, pre)}{f'<span class="flag">{flag}</span>' if flag else ""}
-<div class="btext"><p class="meta">{esc(who)} · {esc(when)}</p><h3>{esc(c["card"])}</h3><p>{esc(c["line"])}</p>{pills(c["tags"])}</div>
+<div class="btext"><p class="meta">{face(FACE[cid], 3)}{esc(who)} · {esc(when)}</p><h3>{esc(c["card"])}</h3><p>{esc(c["line"])}</p>{pills(c["tags"])}</div>
 <span class="go" aria-hidden="true">{icon("arrow")}</span></a></li>'''
 
 def headline():
@@ -110,6 +118,43 @@ def headline():
             out.append(f'<span class="nw">{esc(w)}</span>' if "-" in w else esc(w))  # keep "research-led" on one line
     return "".join(out)
 
+def scribble(seed=5):
+    """A knotted ball of line, like a pen that went round and round: the 'messy' body."""
+    import math
+    rnd = random.Random(seed)
+    pts, a = [], 0.0
+    cx, cy = 300.0, 315.0
+    while a < math.pi * 2 * 9:
+        if rnd.random() < 0.18:  # drift the centre so loops overlap unevenly
+            cx = 300 + rnd.uniform(-38, 38); cy = 315 + rnd.uniform(-32, 32)
+        rad = 150 + rnd.uniform(-34, 22)
+        pts.append((cx + math.cos(a) * rad, cy + math.sin(a) * rad * 0.92))
+        a += rnd.uniform(0.55, 0.95)
+    d = f"M{pts[0][0]:.0f} {pts[0][1]:.0f}"
+    for i in range(1, len(pts) - 1):
+        (x0, y0), (x1, y1) = pts[i], pts[i + 1]
+        d += f" Q{x0:.0f} {y0:.0f} {(x0 + x1) / 2:.0f} {(y0 + y1) / 2:.0f}"
+    return d
+
+def buddy():
+    """Hero character: a tangled scribble with a face. Scroll untangles it into one clean loop and it smiles."""
+    eye = lambda x: (f'<g class="b-eye"><circle class="b-white" cx="{x}" cy="285" r="30"/>'
+                     f'<circle class="b-pupil" cx="{x}" cy="288" r="13"/><circle class="b-shine" cx="{x + 5}" cy="282" r="4"/></g>')
+    return f'''<div class="buddy-art" aria-hidden="true"><svg viewBox="0 0 600 600" class="buddy-svg">
+<g class="b-body">
+  <circle class="b-fill" cx="300" cy="315" r="150"/>
+  <path class="mess" d="{scribble()}"/>
+  <circle class="b-clean" cx="300" cy="315" r="150" pathLength="1"/>
+</g>
+<g class="b-face">
+  <path class="b-brow b-brow-l" d="M222 238 l52 14"/><path class="b-brow b-brow-r" d="M378 238 l-52 14"/>
+  {eye(255)}{eye(345)}
+  <path class="b-mouth b-worry" d="M262 372 q10 -14 19 0 t19 0 t19 0 t19 0"/>
+  <path class="b-mouth b-smile" d="M258 360 q42 42 84 0"/>
+  <circle class="b-cheek" cx="222" cy="345" r="15"/><circle class="b-cheek" cx="378" cy="345" r="15"/>
+</g>
+</svg></div>'''
+
 def marquee():
     chips = "".join(f'<li class="mg">{esc(g)}</li>' + "".join(f"<li>{esc(x)}</li>" for x in xs) for g, xs in TOOLS)
     return f'<div class="marquee"><ul class="mq">{chips}</ul><ul class="mq" aria-hidden="true">{chips}</ul></div>'
@@ -124,18 +169,18 @@ def home():
     words = "".join(f'<figure><blockquote>“{esc(q)}”</blockquote><figcaption><b>{esc(n)}</b> {esc(t)}</figcaption></figure>' for q, n, t in WORDS)
     title = plain(SITE["title"])
     return head(f'{SITE["name"]} · {SITE["role"]}', title + " " + plain(SITE["intro"][1]), pre, "home") + f'''
-<section class="band hero" aria-labelledby="h"><div class="wrap"><h1 id="h" class="mega"><span class="sr">{esc(title)}</span><span aria-hidden="true">{headline()}</span></h1></div></section>
+<section class="band hero" aria-labelledby="h"><div class="wrap"><h1 id="h" class="mega"><span class="sr">{esc(title)}</span><span aria-hidden="true">{headline()}</span></h1><div class="cube-art"><div class="cube-stage" aria-hidden="true"><div class="cube"></div></div><label class="cube-ctl"><span aria-hidden="true">Messy</span><input type="range" min="0" max="8" step="1" value="0" aria-label="Solve the cube. Right solves, left scrambles."><span aria-hidden="true">Clear</span></label></div></div></section>
 <section class="panel intro" aria-labelledby="hi"><div class="wrap igrid">
   <div><h2 id="hi" class="h2">Hi! I’m Siddhi Manche</h2><p class="lede">{esc(SITE["lede"])}</p><p>{peek(rich(SITE["story"]))}</p></div>
   {socials(pre)}
 </div></section>
 <section class="panel" id="work" aria-labelledby="xp"><div class="wrap">
-  <p class="eyebrow"><span class="sq" aria-hidden="true"></span>Experience</p>
+  <p class="eyebrow">{face(size=4)}Experience</p>
   <h2 id="xp" class="big">I design workflows from what people actually do.</h2>
   <ul class="bento">{card("canvas", "half")}{card("findme", "half")}{card("jaihind", "full")}{card("omkar", "full short")}</ul>
 </div></section>
 <section class="panel" id="projects" aria-labelledby="pj"><div class="wrap">
-  <p class="eyebrow"><span class="sq" aria-hidden="true"></span>Projects</p>
+  <p class="eyebrow">{face(size=4)}Projects</p>
   <h2 id="pj" class="big">Research-led projects, with AI in the loop.</h2>
   <ul class="bento">{card("anchor", "full")}{card("ev", "third")}{card("ir2go", "twothird")}</ul>
 </div></section>
@@ -162,7 +207,7 @@ def home():
 def case(cid):
     c, pre = CASES[cid], "../"
     i = ORDER.index(cid); nxt = [ORDER[(i + 1) % len(ORDER)], ORDER[(i + 2) % len(ORDER)]]
-    o = [head(f'{plain(c["title"])} · {SITE["name"]}', c["tldr"][0][1] + " " + c["tldr"][2][1], pre, "case")]
+    o = [head(f'{plain(c["title"])} · {SITE["name"]}', c["tldr"][0][1] + " " + c["tldr"][2][1], pre, "case", CUBE[FACE[cid]])]
     stats = "".join(f'<li><span class="k">{esc(l)}</span><b>{esc(v)}</b></li>' for v, l in c.get("metrics", [])[:4])
     o.append(f'''<header class="wrap chead">
 <a class="back" href="../index.html#{"work" if cid in EXPERIENCE else "projects"}"><span aria-hidden="true">←</span> All work</a>
@@ -181,7 +226,8 @@ def case(cid):
     n = 0
     def sec(label, title, side, body):
         nonlocal n; n += 1
-        o.append(f'<section class="wrap sec"><div class="shead"><div><p class="eyebrow bar">{n:02d} · {esc(label)}</p><h2 class="h2">{esc(title)}</h2></div>{f"<p>{esc(side)}</p>" if side else ""}</div>{body}</section>')
+        mark = face(FACE[cid], 5, "solved") if label == "Reflection and outcome" else ""
+        o.append(f'<section class="wrap sec"><div class="shead"><div><p class="eyebrow bar">{mark}{n:02d} · {esc(label)}</p><h2 class="h2">{esc(title)}</h2></div>{f"<p>{esc(side)}</p>" if side else ""}</div>{body}</section>')
     def fig(f, cap=None): return f'<figure class="fig">{img(f[0], f[1], pre)}<figcaption>{esc(cap or f[1])}</figcaption></figure>'
 
     # 01 Problem
