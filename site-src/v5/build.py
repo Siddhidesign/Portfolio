@@ -68,8 +68,8 @@ def socials():
 
 def big_footer(pre):
     return f'''<footer id="contact"><div class="footer-cube">{mini()}</div>
-<p class="section-kicker">Have a messy problem?</p>
-<h2>Let’s make it<br><em>clear.</em></h2>
+<p class="section-kicker">Have a tricky problem?</p>
+<h2>Let’s figure it<br>out <em>together.</em></h2>
 <p class="foot-note">{esc(SITE["status"])}, especially B2B workflow tools and AI products.</p>
 <a href="mailto:{SITE["email"]}">{esc(SITE["email"])} {DIAG}</a>
 <div class="footer-bottom"><span>Designed and built by Siddhi Manche, with an AI coding assistant. © 2026</span>
@@ -108,7 +108,7 @@ def home():
 {CUBE}
 <div class="scroll-note" aria-hidden="true"><i></i> Scroll to explore</div></section>''')
     o.append(f'''<section class="statement" id="about"><p class="section-kicker">What I do</p>
-<h2>I start where things are confusing.<br><span>Then I design the fix.</span></h2>
+<h2>Complexity doesn’t scare me.<br><span>It gives me something to solve.</span></h2>
 <div class="statement-grid"><p>{rich(SITE["story"])}</p>
 <div class="capabilities"><span>01</span><p>UX research</p><span>02</span><p>B2B workflow design</p><span>03</span><p>AI-assisted analysis</p><span>04</span><p>Front-end build</p></div></div></section>''')
     yrs = lambda ids: sorted({y for i in ids for y in re.findall(r"20\d\d", CASES[i].get("dates") or CASES[i]["year"])})
