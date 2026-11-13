@@ -28,16 +28,18 @@ This is the first review, so there is no earlier list to grade. Changes in `main
 - Speed and weight: pages load in about 0.4 to 1.4 s from this test machine. Home about 350 KB at desktop, 100 KB at mobile. Magic Apron is the heaviest at about 1.6 MB (two research videos). Fine. [Certain]
 - Accessibility: axe-core 4.10 (WCAG 2 A/AA plus best practice) found 0 violations on all 11 pages at 1440 px, and on home at 390 px. Images have alt text. Reduced motion shows all content at once. [Certain]
 - Mobile: no horizontal scroll at 390 px on any page. [Certain]
-- Broken: `resume.pdf` 404, linked from every page (nav, footer, About). The file is not in the repo. [Certain]
+- Missing: `resume.pdf` is not in the repo. Resume links in nav, footer and About are hidden by script until it exists, so nothing looks broken, but there is no resume to open. Each page logs one 404 from the existence check. [Certain]
+- Not reviewed: per the build session, a case-page section map, magnetic buttons, a View bubble, and an EV "Where I checked the AI" box exist in a preview that is not live yet. This review covers only what is live on `main`. [Certain]
 - Empty sections: Research Lens and Magic Apron both have a "How I got there" heading with nothing (or only a plot twist) under it. [Certain]
 
 ### Top improvements, ranked by impact on getting interviews
 
-**1. Put the resume back. (Small. Needs her: the PDF.)**
-What: add `resume.pdf` at the repo root (or point the link at a hosted copy).
-Why: recruiters click Resume before they read a case study. Right now every page sends them to a GitHub 404. This is the cheapest fix with the biggest downside if left. [Certain]
+**1. Add the resume. (Small. Needs her: the PDF.)**
+What: add `resume.pdf` at the repo root. The hidden links will then appear on their own.
+Why: recruiters and ATS-driven screeners usually want the resume before a case study. Right now a recruiter on the site has no way to get one without emailing you. [Certain] that it is missing, [Likely] that it costs screens.
 
 **2. Prove "I check every finding myself" with real moments. (Medium. Needs her.)**
+Progress note: the build session says an EV "Where I checked the AI" box exists in a preview and is waiting on a real example from you. Good start. It needs the real example, then the same block in Money Anchor and the curriculum case.
 What: in Money Anchor, EV and the curriculum case, add one short block each: "What the AI said / What I found when I checked / What changed." Show the AI theme next to the raw quotes or numbers. Even one case where the AI was right but overcounted (your own Research Lens point about three quotes from one person) is strong.
 Why: it is your headline claim and the core of the AI-product pitch. Current guidance says hiring managers want to see AI as a partner "without losing your judgment" ([Everyday UX, Mar 2026](https://www.everydayux.net/ux-portfolios-2026/)). Right now there is zero evidence of that judgment on the site. [Certain] that it is missing, [Likely] that it is the most persuasive addition you can make.
 Ask her: Can you name one time AI (UM-GPT, Colab, Claude) produced a theme or number you rejected or corrected? What was it, and what did you do instead?
@@ -71,8 +73,8 @@ Why: at 1440 px the first screen is a headline and a Rubik's cube, with no compa
 
 | # | Suggestion | First raised | Status |
 |---|---|---|---|
-| 1 | Add resume.pdf | 2026-11-13 | Open |
-| 2 | Show AI-checking moments in AI cases | 2026-11-13 | Open |
+| 1 | Add resume.pdf (links auto-hide until then) | 2026-11-13 | Open |
+| 2 | Show AI-checking moments in AI cases | 2026-11-13 | Open (EV box in preview, needs her example) |
 | 3 | Reorder home or rebuild curriculum case | 2026-11-13 | Open |
 | 4 | Ship and link Research Lens demo | 2026-11-13 | Open |
 | 5 | Proof line in hero, product designer label | 2026-11-13 | Open |
