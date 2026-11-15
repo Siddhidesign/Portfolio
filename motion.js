@@ -104,7 +104,10 @@
     ['.twist', 0, 0], ['.rej li', 0, 100], ['.solution-intro', 0, 0], ['.solution-stage', 0, 0], ['.impact-grid > div', 0, 90],
     ['.case-impact table', 0, 0], ['.learning', 0, 0], ['.future-grid article', 0, 100],
     ['.about-hero h1', 0, 0, true], ['.about-intro', 150, 0, true], ['.values-list article', 0, 100], ['.experience-list > div', 0, 80],
-    ['.tool-group', 0, 90], ['.word-card', 0, 120]
+    ['.tool-group', 0, 90], ['.word-card', 0, 120],
+    ['.k-cover-copy', 0, 0, true], ['.k-cover-pic', 150, 0, true], ['.k-title', 0, 0], ['.k-panel li', 0, 70], ['.k-chips li', 0, 50], ['.k-circle', 0, 110],
+    ['.k-track i', 0, 70], ['.k-quotes blockquote', 0, 110], ['.k-insight li', 0, 100], ['.k-card', 0, 100], ['.k-principle', 0, 0], ['.k-flow li', 0, 70],
+    ['.k-twist', 0, 0], ['.k-note', 0, 0], ['.k-anno .k-device', 120, 0], ['.donut', 0, 120]
   ];
   const items = [];
   groups.forEach(([sel, base, step, now]) => {
@@ -147,18 +150,27 @@
     io.observe(v);
   });
 
-  /* ---- 8. Reading progress on case pages: a 3x3 cube face that fills sticker by sticker ---- */
+  /* ---- 8. Case pages: a cube-face section map. One sticker per section; it fills as you read and each sticker jumps there ---- */
   if (document.body.classList.contains('case')) {
-    const rf = document.createElement('div');
-    rf.className = 'readface'; rf.setAttribute('aria-hidden', 'true');
-    rf.innerHTML = '<i></i>'.repeat(9);
-    document.body.appendChild(rf);
-    const cells = [...rf.children];
+    const secs = [...document.querySelectorAll('main > section, main > header')].filter((s) => s.querySelector('.case-kicker, .k-title, h1, h3'));
+    const nav = document.createElement('nav');
+    nav.className = 'readface'; nav.setAttribute('aria-label', 'Sections of this case study');
+    secs.forEach((s, i) => {
+      if (!s.id) s.id = 'sec-' + (i + 1);
+      const k = s.querySelector('.case-kicker, .k-title, h3'), label = s.matches('header') ? 'Top' : (k ? k.textContent.replace(/^\d+\s*·\s*/, '') : 'Section');
+      const a = document.createElement('a'); a.href = '#' + s.id; a.dataset.tip = label;
+      a.innerHTML = '<span class="sr">' + label + '</span>';
+      a.addEventListener('click', (ev) => { ev.preventDefault(); s.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); history.replaceState(null, '', '#' + s.id); });
+      nav.appendChild(a);
+    });
+    nav.style.setProperty('--n', Math.ceil(Math.sqrt(secs.length)));
+    document.body.appendChild(nav);
+    const cells = [...nav.children];
     const upd = () => {
-      const max = doc.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, scrollY / max) : 0;
-      const k = p > 0.995 ? 9 : Math.floor(p * 9);
-      cells.forEach((c, i) => c.classList.toggle('on', i < k));
-      rf.classList.toggle('done', k === 9);
+      let cur = 0; secs.forEach((s, i) => { if (s.getBoundingClientRect().top < innerHeight * 0.45) cur = i; });
+      const end = scrollY + innerHeight >= doc.scrollHeight - 4; if (end) cur = secs.length - 1;
+      cells.forEach((c, i) => { c.classList.toggle('on', i <= cur); c.toggleAttribute('aria-current', i === cur); });
+      nav.classList.toggle('done', end);
     };
     addEventListener('scroll', upd, { passive: true }); upd();
   }
@@ -250,6 +262,23 @@
     if (fc) { const cols = [...fc.children].map((i) => i.style.background);
       fc.parentElement.addEventListener('pointerenter', () => { const s = cols.slice().sort(() => Math.random() - .5);
         [...fc.children].forEach((i, k) => { i.style.background = s[k]; }); }); }
+  }
+
+
+  /* ---- 11. Magnetic buttons and a "View" bubble that follows the cursor over project panels ---- */
+  if (!reduced && matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.nav-cta, footer#contact > a, .about-cta > a, .text-link').forEach((b) => {
+      b.addEventListener('pointermove', (e) => { const r = b.getBoundingClientRect();
+        b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .25).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * .35).toFixed(1) + 'px)'; });
+      b.addEventListener('pointerleave', () => { b.style.transform = ''; });
+    });
+    const bub = document.createElement('div'); bub.className = 'view-bubble'; bub.setAttribute('aria-hidden', 'true'); bub.textContent = 'View case';
+    document.body.appendChild(bub);
+    document.querySelectorAll('.project-visual').forEach((pv) => {
+      pv.addEventListener('pointerenter', () => bub.classList.add('on'));
+      pv.addEventListener('pointerleave', () => bub.classList.remove('on'));
+      pv.addEventListener('pointermove', (e) => { bub.style.left = e.clientX + 'px'; bub.style.top = e.clientY + 'px'; });
+    });
   }
 
 })();

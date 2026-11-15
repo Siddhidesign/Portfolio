@@ -152,6 +152,72 @@ def about():
     o.append("</main>" + case_footer(pre) + tail(pre))
     return "\n".join(o)
 
+# Facts below are lifted from each case's own text in content.py (research, problem, meta). Nothing new.
+AUDIENCE = {
+    "canvas": ["UX students, 43 across 2 cohorts", "Faculty planning the new courses"],
+    "findme": ["Engineers building FindMe screens", "Product and marketing teammates"],
+    "jaihind": ["Sales staff at the counter", "Store managers", "Purchasing", "Tailoring", "HR", "The owner"],
+    "omkar": ["B2B buyers who check the catalog before they call"],
+    "anchor": ["Young adults aged 20 to 32, the people we interviewed"],
+    "ev": ["EV drivers in the US", "People new to EVs"],
+    "ir2go": ["Taxpayers checking a refund", "Taxpayers making a payment", "People looking for free tax help"],
+    "research-lens": ["UX researchers using AI to make sense of interviews"],
+    "magic-apron": ["Shoppers asking a store's AI assistant for help"],
+}
+METHODS = {
+    "canvas": ["50+ papers and reports, read with UM-GPT", "Feedback from 43 students", "8 presentations, 2 cohorts"],
+    "findme": ["12+ interviews and usability tests in Maze", "Findings tagged in Dovetail"],
+    "jaihind": ["Visits to all 10 stores", "About 200 employee interviews", "80+ of them run by me"],
+    "anchor": ["40+ papers analyzed with AI", "10 budgeting apps benchmarked", "8 interviews", "4 focus groups, 16 people"],
+    "ev": ["16,767 Google Maps reviews", "AI-assisted cleaning in Colab", "Studies since 2012", "5 charging apps compared"],
+    "ir2go": ["150+ App Store reviews", "200+ Quora posts", "About 10 taxpayer interviews", "A survey", "Papers summarized with AI"],
+    "magic-apron": ["Interview", "Screen recording", "Heuristic review"],
+}
+
+# Headline research numbers, each taken from the case's own research text or scene line.
+OBS = {
+    "canvas": [("50+", "papers and industry reports reviewed"), ("43", "students gave feedback"), ("8", "presentations across 2 cohorts")],
+    "findme": [("12+", "user interviews and usability tests supported")],
+    "jaihind": [("10", "stores visited by our team"), ("~200", "employees interviewed"), ("80+", "of those interviews run by me")],
+    "anchor": [("40+", "research papers analyzed with AI"), ("10", "budgeting apps benchmarked"), ("24", "people in interviews and focus groups")],
+    "ev": [("16,767", "Google Maps reviews collected"), ("4.26", "Tesla's average rating, the highest"), ("5", "charging apps compared")],
+    "ir2go": [("2.8", "App Store star rating"), ("45%", "of people quit before finishing a task"), ("None", "of the screens met WCAG 2.1 AA")],
+}
+
+def two(a, b): return f'<h2 class="k-title">{esc(a)} <em>{esc(b)}</em></h2>'
+
+def device(src, alt, pre, lazy=True, cls=""):
+    """Phone frame for tall screenshots, browser frame for wide ones (by the image's own shape)."""
+    import struct
+    w = h = 0
+    try:
+        from PIL import Image
+        with Image.open(ROOT / src) as im: w, h = im.size
+    except Exception: pass
+    tall = h > w * 1.4
+    kind = "k-phone" if tall else "k-browser"
+    bar = '' if tall else '<span class="k-bar"><i></i><i></i><i></i></span>'
+    return f'<figure class="k-device {kind} {cls}">{bar}<span class="k-screen">{img(src, alt, pre, lazy)}</span></figure>'
+
+def figure(src, alt, pre):
+    """A screenshot or image with its caption; tall phone screenshots go in a phone frame."""
+    try:
+        from PIL import Image
+        with Image.open(ROOT / src) as im: w, h = im.size
+    except Exception: w, h = 1, 1
+    if h > w * 1.4:
+        return f'<div class="k-solo">{device(src, alt, pre)}<p class="k-cap">{esc(alt)}</p></div>'
+    return f'<figure class="fig">{img(src, alt, pre)}<figcaption>{esc(alt)}</figcaption></figure>'
+
+def donuts(metrics):
+    out = ""
+    for v, l in metrics:
+        m = re.fullmatch(r"[−-]?(\d+(?:\.\d+)?)%", v.strip())
+        if not m: continue
+        pct = min(100, float(m.group(1)))
+        out += f'<figure class="donut" style="--p:{pct}"><span class="d-ring" aria-hidden="true"></span><figcaption><b>{esc(v)}</b>{esc(l)}</figcaption></figure>'
+    return out
+
 def case(cid):
     c, pre = CASES[cid], "../"
     S, F = STORY.get(cid, {}), FIGS.get(cid, {})
@@ -159,106 +225,152 @@ def case(cid):
     i = ORDER.index(cid); nxt = ORDER[(i + 1) % len(ORDER)]
     acc = ACCENT[cid]
     back = ("../index.html#projects" if cid not in EXPERIENCE else "../index.html#work", "All work")
-    o = [head(f'{plain(c["title"])} · {SITE["name"]}', c["tldr"][0][1] + " " + c["tldr"][2][1], pre, "case", acc),
-         f'<main id="main" tabindex="-1" class="case-page">', nav(pre, back)]
-    dl = "".join(f"<div><dt>{esc(k)}</dt><dd>{esc(v)}</dd></div>" for k, v in c["meta"])
-    o.append(f'''<header class="case-hero"><div class="case-hero-label"><span>Case study · {i + 1:02d}</span><span>{esc(c["kind"])} · {esc(c["year"])}</span></div>
-<h1>{rich(c["title"])}</h1>
-<div class="case-hero-intro"><p>{esc(c["line"])}</p><dl>{dl}</dl></div></header>''')
-    if c.get("cover"): o.append(f'''<section class="case-showcase cs-img" aria-label="Cover"><div class="showcase-grid"></div>
-<figure class="cs-shot{" top" if c.get("cover_fit") == "top" else ""}">{img(c["cover"], c.get("cover_alt", ""), pre, False)}</figure></section>''')
-    res = "".join(f"<div><strong>{esc(v)}</strong><span>{esc(l)}</span></div>" for v, l in c.get("metrics", []))
-    o.append(f'''<section class="case-summary"><p class="case-kicker">The short version</p>
-<h2>{esc(c["tldr"][2][1])}</h2>
-<div class="case-summary-grid"><p><b>The problem.</b> {esc(c["tldr"][0][1])}</p><p><b>What I did.</b> {esc(c["tldr"][1][1])}</p></div>
-{f'<div class="case-results">{res}</div>' if res else ""}</section>''')
-
-    n = 0
-    def kick(label):
-        nonlocal n; n += 1
-        return f'<p class="case-kicker">{n:02d} · {esc(label)}</p>'
-
-    # 01 Challenge (dark)
-    q = c.get("quotes", [])
-    body = "".join(f"<p>{rich(p)}</p>" for p in c["problem"])
-    quote = f'<blockquote>“{esc(q[0])}”<cite>Research participant</cite></blockquote>' if q else ""
-    side = figs("problem")
-    if S.get("videos"):
-        side += "".join(f'<figure class="vid"><video src="{pre}{esc(v)}" data-once muted playsinline controls preload="metadata" aria-label="{esc(l)}"></video><figcaption>{esc(l)}</figcaption></figure>' for v, l in S["videos"])
-        used.update(v for v, _ in S["videos"])
-    if c.get("problem_img"):
-        side += f'<figure class="dark-fig">{img(c["problem_img"][0], c["problem_img"][1], pre)}<figcaption>Before the redesign</figcaption></figure>'
-    extra = "".join(f"<li>“{esc(x)}”</li>" for x in q[1:])
-    o.append(f'''<section class="case-challenge"><div class="challenge-copy">{kick("The challenge")}<h2>{esc(S.get("scene", c["tldr"][0][1]))}</h2>{body}{quote}
-{f'<ul class="more-quotes">{extra}</ul>' if extra else ""}</div><div class="challenge-side">{side}</div></section>''')
-
-    # 02 Goals (optional)
-    if S.get("goals"):
-        g = "".join(f'<article class="goal"><span style="background:{acc}">{k:02d}</span><h3>{esc(a)}</h3><p>{esc(d)}</p></article>' for k, (a, d) in enumerate(S["goals"], 1))
-        o.append(f'<section class="case-goals">{kick("The goals")}<h2>What it had to do.</h2><div class="goals-grid">{g}</div></section>')
-
-    # 03 Finding the pattern
     r = c.get("research") or {}
-    colors = [RED, YELLOW, BLUE, GREEN]
-    cards = "".join(f'<article class="insight-card"><span style="background:{colors[(k - 1) % 4]}">{k:02d}</span><p>{esc(f)}</p></article>' for k, f in enumerate(r.get("findings", []), 1))
-    b = f'<div class="insights-grid">{cards}</div>' if cards else ""
+    o = [head(f'{plain(c["title"])} · {SITE["name"]}', c["tldr"][0][1] + " " + c["tldr"][2][1], pre, "case k-case", acc),
+         '<main id="main" tabindex="-1" class="case-page">', nav(pre, back)]
+
+    # Cover
+    meta = dict(c["meta"])
+    tools = meta.get("Tools") or meta.get("Stack") or meta.get("Methods")
+    chips = [t.strip() for t in tools.split(",")] if tools else c.get("tags", [])
+    dl = "".join(f"<div><dt>{esc(k)}</dt><dd>{esc(v)}</dd></div>" for k, v in c["meta"] if k not in ("Tools", "Stack", "Methods"))
+    pic = device(c["cover"], c.get("cover_alt", ""), pre, False, "k-hero-dev") if c.get("cover") else (
+        f'<div class="k-hero-type"><b>{esc(c["metrics"][0][0])}</b><span>{esc(c["metrics"][0][1])}</span></div>' if c.get("metrics") else "")
+    o.append(f'''<header class="k-cover"><div class="k-arcs" aria-hidden="true"></div><div class="k-cover-copy">
+<p class="k-pill">{esc(c["kind"])} · Case study {i + 1:02d}</p><h1>{rich(c["title"])}</h1><p class="k-lede">{esc(c["line"])}</p>
+<ul class="k-tools" aria-label="Tools and methods">{"".join(f"<li>{esc(t)}</li>" for t in chips)}</ul>
+<dl class="k-meta">{dl}</dl></div><div class="k-cover-pic">{pic}</div></header>''')
+
+    # Problem statement / possible solution
+    o.append(f'''<section class="k-sec k-center">{two("Problem", "Statement")}
+<p class="k-scene">{esc(S.get("scene", ""))}</p>{"".join(f"<p>{rich(x)}</p>" for x in c["problem"])}</section>''')
+    o.append(f'<section class="k-sec k-center">{two("Possible", "Solution")}<p>{esc(c["tldr"][1][1])}</p></section>')
+    if S.get("goals"):
+        o.append(f'''<section class="k-sec">{two("Objectives &", "Goals")}<div class="k-cards">{"".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></article>' for k, (a, b) in enumerate(S["goals"], 1))}</div></section>''')
+
+    # Target audience + approach
+    aud = AUDIENCE.get(cid, [])
+    if aud or r.get("text"):
+        o.append(f'''<section class="k-sec k-two">
+<div>{two("Target", "Audience")}<ul class="k-panel">{"".join(f"<li>{esc(a)}</li>" for a in aud)}</ul></div>
+<div>{two("The", "Approach")}<p>{esc(r.get("text") or S.get("scene_sub", ""))}</p></div></section>''')
+
+    # My role
+    role = [meta.get("Role", "")] + [x.strip() for x in (meta.get("I owned") or "").split(",") if x.strip()] + c.get("tags", [])
+    seen = []; [seen.append(x[:1].upper() + x[1:]) for x in role if x and x[:1].upper() + x[1:] not in seen]
+    o.append(f'<section class="k-band k-center">{two("My", "Role")}<ul class="k-chips">{"".join(f"<li>{esc(x)}</li>" for x in seen)}</ul></section>')
+
+    # Design thinking process (only real items in each stage)
+    findings = r.get("findings") or []
+    stages = [("Empathize", METHODS.get(cid, [])),
+              ("Define", ([S["insight"][0]] if S.get("insight") else []) + [g for g, _ in S.get("goals", [])][:3]),
+              ("Ideate", [a for a, _ in c.get("rejected", [])][:3] + (["Crazy 8s sketches"] if "sketch" in (r.get("img") or ("", ""))[1].lower() else [])),
+              ("Design", [d["title"] for d in c["decisions"]][:4]),
+              ("Test", [g for g, _ in S.get("goal_results", [])][:4] or [a for a, _, _ in (c.get("results") or {}).get("rows", [])][:4])]
+    stages = [(n, it) for n, it in stages if it]
+    circ = "".join(f'''<li class="k-circle"><span class="k-dot">{k:02d}</span><h3>{n}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in it)}</ul></li>''' for k, (n, it) in enumerate(stages, 1))
+    o.append(f'''<section class="k-sec k-center">{two("Design Thinking", "Process")}
+<p>How this project moved from the mess to a decision. Each stage lists only what was actually done.</p><ol class="k-process">{circ}</ol>
+<div class="k-timeline" aria-label="Project timeline"><span class="k-t-k">Project timeline</span>
+<div class="k-track">{"".join(f"<i>{n}</i>" for n, _ in stages)}</div><div class="k-t-ends"><span>{esc(meta.get("Timeline") or meta.get("Time") or c["year"])}</span><span>Phases in order, not to scale</span></div></div></section>''')
+
+    # Empathize phase
+    q = c.get("quotes", [])
+    emp = ""
+    if r.get("text"): emp += f'<h3 class="k-h"><span></span>Qualitative research</h3><p>{esc(r["text"])}</p>'
+    if OBS.get(cid):
+        emp += '<h3 class="k-h"><span></span>Observations</h3><div class="k-obs">' + "".join(f'<div><strong>{esc(v)}</strong><span>{esc(l)}</span></div>' for v, l in OBS[cid]) + "</div>"
+    if q: emp += '<div class="k-quotes">' + "".join(f'<blockquote>“{esc(x)}”<cite>Research participant</cite></blockquote>' for x in q) + "</div>"
+    if r.get("img") and "sketch" not in r["img"][1].lower():
+        emp += figure(r["img"][0], r["img"][1], pre)
+    for x in F.get("research", []):
+        lab = "Competitive analysis" if x["kind"] == "table" else ("How the reviews were analyzed" if x["kind"] == "sift" else "Quantitative research")
+        emp += f'<h3 class="k-h"><span></span>{lab}</h3>{viz(x)}'
+    if S.get("videos"):
+        emp += '<h3 class="k-h"><span></span>Field recordings</h3><div class="k-vids">' + "".join(f'<figure class="vid"><video src="{pre}{esc(v)}" data-once muted playsinline controls preload="metadata" aria-label="{esc(l)}"></video><figcaption>{esc(l)}</figcaption></figure>' for v, l in S["videos"]) + "</div>"
+        used.update(v for v, _ in S["videos"])
+    if emp:
+        o.append(f'<section class="k-sec">{two("Empathize", "Phase")}{emp}</section>')
+    if findings:
+        o.append(f'''<section class="k-insight"><h3>Key insights derived</h3><ol>{"".join(f"<li>{esc(f)}</li>" for f in findings)}</ol></section>''')
+
+    # Define phase
+    d = ""
+    pf = figs("problem")
+    if pf: d += f'<h3 class="k-h"><span></span>The problem in one picture</h3>{pf}'
+    if c.get("problem_img"): d += figure(c["problem_img"][0], c["problem_img"][1], pre)
+    pains = [(a, b, t) for a, b, t in S.get("flow_before", []) if t]
+    if pains:
+        d += '<h3 class="k-h"><span></span>Challenges users faced</h3><ul class="k-pains">' + "".join(f'<li><b>{esc(a)}</b><span>{esc(b)}</span><em>{esc(t)}</em></li>' for a, b, t in pains) + "</ul>"
     if S.get("insight"):
         nm, tx = S["insight"]
-        b += f'<div class="case-principle"><span>Key insight</span><div><p>{esc(nm)}</p><p class="cp-sub">{esc(tx)}</p></div></div>'
-    b += figs("research")
-    if r.get("img"): b += f'<figure class="fig">{img(r["img"][0], r["img"][1], pre)}<figcaption>{esc(r["img"][1])}</figcaption></figure>'
+        d += f'<div class="k-principle"><span>The insight we designed around</span><p>{esc(nm)}</p><small>{esc(tx)}</small></div>'
+    if d: o.append(f'<section class="k-sec">{two("Define", "Phase")}{d}</section>')
+
+    # Task flow
     if S.get("flow_before"):
         def flow(name, steps, foot, cls):
-            items = "".join(f'<li><span class="n">{k}</span><div><b>{esc(a)}</b><p>{esc(d)}</p>{f"<em>{esc(t)}</em>" if t else ""}</div></li>' for k, (a, d, t) in enumerate(steps, 1))
-            return f'<div class="flow {cls}"><p class="k">{esc(name)}</p><ol>{items}</ol><p class="foot">{esc(foot)}</p></div>'
-        b += '<div class="flows">' + flow("Before", S["flow_before"], S["flow_before_foot"], "old") + flow("After", S["flow_after"], S["flow_after_foot"], "new") + "</div>"
+            items = "".join(f'<li><b>{esc(a)}</b><small>{esc(t) if t else esc(b)}</small></li>' for a, b, t in steps)
+            return f'<div class="k-flow {cls}"><h3 class="k-h"><span></span>{esc(name)}</h3><ol>{items}</ol><p class="k-flow-foot">{esc(foot)}</p></div>'
+        o.append(f'''<section class="k-sec">{two("Task", "Flow")}{flow("Before: the old flow", S["flow_before"], S["flow_before_foot"], "old")}
+{flow("After: the redesigned flow", S["flow_after"], S["flow_after_foot"], "new")}</section>''')
+
+    # Ideate
+    rej = c.get("rejected", [])[1:] if S.get("twist") else c.get("rejected", [])
+    idea = ""
+    if r.get("img") and "sketch" in r["img"][1].lower():
+        idea += f'<h3 class="k-h"><span></span>Low-fidelity sketches</h3><figure class="fig">{img(r["img"][0], r["img"][1], pre)}<figcaption>{esc(r["img"][1])}</figcaption></figure>'
     if S.get("twist"):
         hl, tx = S["twist"]
-        b += f'<div class="twist"><p class="k">Plot twist</p><h3>{esc(hl)}</h3><p>{esc(tx)}</p></div>'
-    rej = c.get("rejected", [])[1:] if S.get("twist") else c.get("rejected", [])
+        idea += f'<div class="k-twist"><span>Plot twist</span><h3>{esc(hl)}</h3><p>{esc(tx)}</p></div>'
     if rej:
-        b += '<h3 class="sub-k">Ideas I dropped</h3><ul class="rej">' + "".join(f'<li><p class="k">Rejected</p><h4>{esc(a)}</h4><p>{esc(w)}</p></li>' for a, w in rej) + "</ul>"
-    if b or r.get("text"):
-        o.append(f'''<section class="case-research"><div class="case-section-head">{kick("Finding the pattern")}</div>
-<div class="research-head"><h2>{esc(S.get("research_title", "How I got there"))}</h2>{f"<p>{esc(r['text'])}</p>" if r.get("text") else ""}</div>{b}</section>''')
+        idea += '<h3 class="k-h"><span></span>Ideas I tested and dropped</h3><ul class="rej">' + "".join(f'<li><p class="k">Dropped</p><h4>{esc(a)}</h4><p>{esc(w)}</p></li>' for a, w in rej) + "</ul>"
+    if idea: o.append(f'<section class="k-sec">{two("Ideate", "Phase")}{idea}</section>')
 
-    # 04 Solution (dark, coloured stages)
-    sols = S.get("solutions") or [(d["title"], d["why"]) for d in c["decisions"]]
-    stage_cols = [acc, YELLOW if acc != YELLOW else BLUE, "#F7F4EC"]
-    stages = ""
+    # High-fidelity design, annotated
+    sols = S.get("solutions") or [(x["title"], x["why"]) for x in c["decisions"]]
+    hi = ""
     for k, (hl, txt) in enumerate(sols, 1):
-        d = c["decisions"][k - 1] if k - 1 < len(c["decisions"]) else {}
-        pic = f'<figure class="stage-shot">{img(d["img"][0], d["img"][1], pre)}<figcaption>{esc(d["img"][1])}</figcaption></figure>' if d.get("img") else ""
-        resl = f'<p class="stage-res">✓ {esc(d["result"])}</p>' if d.get("result") else ""
-        stages += f'''<div class="solution-stage{" noimg" if not pic else ""}" style="background:{stage_cols[(k - 1) % 3]}"><div class="solution-copy"><span>{k:02d} · Solution</span>
-<h3>{esc(hl)}</h3><p>{esc(txt)}</p>{resl}</div>{pic}</div>'''
+        dd = c["decisions"][k - 1] if k - 1 < len(c["decisions"]) else {}
+        res = f'<p class="k-res">✓ {esc(dd["result"])}</p>' if dd.get("result") else ""
+        if dd.get("img"):
+            hi += f'''<div class="k-anno{" flip" if k % 2 == 0 else ""}"><div class="k-note"><span>{k:02d}</span><h3>{esc(hl)}</h3><p>{esc(txt)}</p>{res}</div>
+{device(dd["img"][0], dd["img"][1], pre)}<p class="k-cap">{esc(dd["img"][1])}</p></div>'''
+        else:
+            hi += f'<div class="k-anno noimg"><div class="k-note"><span>{k:02d}</span><h3>{esc(hl)}</h3><p>{esc(txt)}</p>{res}</div></div>'
     sf = figs("solutions")
-    o.append(f'''<section class="case-solution"><div class="solution-intro">{kick("The solution")}<h2>{esc(S.get("solutions_title", "Key decisions"))}</h2>
-<p>{esc(c["tldr"][1][1])}</p></div>{f'<div class="light-figs">{sf}</div>' if sf else ""}{stages}</section>''')
+    o.append(f'''<section class="k-sec">{two("High-Fidelity", "Design")}<p class="k-intro">{esc(S.get("solutions_title", ""))}</p>
+{f'<div class="k-figs">{sf}</div>' if sf else ""}{hi}</section>''')
 
-    # 05 Impact
+    # Test and results
     rs = c.get("results") or {}
-    b = figs("results")
+    t = ""
+    dn = donuts(c.get("metrics", []))
+    big = "".join(f"<div><strong>{esc(v)}</strong><span>{esc(l)}</span></div>" for v, l in c.get("metrics", []) if not re.fullmatch(r"[−-]?\d+(?:\.\d+)?%", v.strip()))
+    if dn: t += f'<div class="k-donuts">{dn}</div>'
+    if big: t += f'<div class="case-results">{big}</div>'
     if S.get("goal_results"):
-        b += '<div class="impact-grid">' + "".join(f'<div><span class="ig-k">{esc(g)}</span><p class="ig-v">{esc(v)}</p></div>' for g, v in S["goal_results"]) + "</div>"
+        t += '<h3 class="k-h"><span></span>Did it meet the goals?</h3><div class="k-cards">' + "".join(f'<article class="k-card"><h3>{esc(g)}</h3><p>{esc(v)}</p></article>' for g, v in S["goal_results"]) + "</div>"
     if rs.get("rows"):
-        b += '<table><thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead><tbody>' + "".join(
+        t += '<table><thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead><tbody>' + "".join(
             f'<tr><th scope="row">{esc(a)}</th><td>{esc(x) or "<span class=sr>not measured</span>"}</td><td><b>{esc(y)}</b></td></tr>' for a, x, y in rs["rows"]) + "</tbody></table>"
-    if rs.get("note"): b += f'<p class="small">{esc(rs["note"])}</p>'
-    if rs.get("img"): b += f'<figure class="fig">{img(rs["img"][0], rs["img"][1], pre)}<figcaption>{esc(rs["img"][1])}</figcaption></figure>'
-    if S.get("lesson"): b += f'<div class="learning"><span>What I learned</span><p>{esc(S["lesson"])}</p></div>'
-    o.append(f'''<section class="case-impact">{kick("The impact")}<h2>{esc(S.get("outcome_title", c["tldr"][2][1]))}</h2>
-{f'<p class="impact-sub">{esc(S["outcome_sub"])}</p>' if S.get("outcome_sub") else ""}{b}</section>''')
+    if rs.get("note"): t += f'<p class="small">{esc(rs["note"])}</p>'
+    t += figs("results")
+    if rs.get("img"): t += figure(rs["img"][0], rs["img"][1], pre)
+    if S.get("lesson"): t += f'<div class="learning"><span>What I learned</span><p>{esc(S["lesson"])}</p></div>'
+    o.append(f'''<section class="k-sec k-results">{two("Test &", "Results")}<p class="k-intro">{esc(S.get("outcome_title", c["tldr"][2][1]))}</p>
+{f'<p class="impact-sub">{esc(S["outcome_sub"])}</p>' if S.get("outcome_sub") else ""}{t}</section>''')
 
-    # 06 Next
     fut = S.get("future") or [(f"Idea {k:02d}", x) for k, x in enumerate(c.get("next", []), 1)]
     if fut:
-        f = "".join(f'<article><span>{k:02d}</span><h3>{esc(a)}</h3><p>{esc(x)}</p></article>' for k, (a, x) in enumerate(fut, 1))
-        o.append(f'<section class="case-future">{kick("What’s next")}<h2>Where I’d take it next.</h2><p class="fut-note">Ideas, not built.</p><div class="future-grid">{f}</div></section>')
+        o.append(f'''<section class="k-sec">{two("What’s", "Next")}<p class="fut-note">Ideas, not built.</p>
+<div class="k-cards">{"".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(a)}</h3><p>{esc(x)}</p></article>' for k, (a, x) in enumerate(fut, 1))}</div></section>''')
     if c.get("links"):
         o.append('<p class="case-links">' + "".join(f'<a href="{esc(u)}" target="_blank" rel="noopener">{esc(l)}<span class="sr"> (opens in a new tab)</span> {DIAG}</a>' for l, u in c["links"]) + "</p>")
     nc = CASES[nxt]
-    o.append(f'''<section class="case-next" style="background:{ACCENT[nxt]}"><p class="case-kicker">Next project</p>
+    o.append(f'''<section class="k-thanks"><div class="k-thanks-cube" aria-hidden="true">{mini()}</div><h2>Thank you for your time :)</h2>
+<p>Questions or feedback on this case study? <a href="mailto:{SITE["email"]}">{esc(SITE["email"])}</a></p></section>
+<section class="case-next" style="background:{ACCENT[nxt]}"><p class="case-kicker">Next project</p>
 <a href="{nxt}.html"><span>{esc(nc["org"])} · {esc(nc["kind"])}</span><strong>{esc(nc["card"])} {DIAG}</strong></a></section>''')
     o.append("</main>" + case_footer(pre) + tail(pre))
     return "\n".join(o)
