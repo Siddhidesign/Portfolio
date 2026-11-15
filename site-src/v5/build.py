@@ -394,8 +394,10 @@ def case(cid):
     # Ideate
     rej = c.get("rejected", [])[1:] if S.get("twist") else c.get("rejected", [])
     idea = ""
+    if r.get("ideas"):
+        idea += f'<h3 class="k-h"><span></span>Rough ideas</h3><figure class="fig"><div class="sk" tabindex="0" role="region" aria-label="Rough idea sketches, scrolls sideways">{img(r["ideas"][0], r["ideas"][1], pre)}</div><figcaption>{esc(r["ideas"][1])}</figcaption></figure>'
     if r.get("img") and "sketch" in r["img"][1].lower():
-        idea += f'<h3 class="k-h"><span></span>Low-fidelity sketches</h3><figure class="fig"><div class="sk" tabindex="0" role="region" aria-label="Low-fidelity sketches, scrolls sideways">{img(r["img"][0], r["img"][1], pre)}</div><figcaption>{esc(r["img"][1])}</figcaption></figure>'
+        idea += f'<h3 class="k-h"><span></span>{"Wireframes taking shape" if r.get("ideas") else "Low-fidelity sketches"}</h3><figure class="fig"><div class="sk" tabindex="0" role="region" aria-label="Low-fidelity sketches, scrolls sideways">{img(r["img"][0], r["img"][1], pre)}</div><figcaption>{esc(r["img"][1])}</figcaption></figure>'
     if cid in SKETCHES:
         sp, sa = SKETCHES[cid]
         idea += f'<h3 class="k-h"><span></span>Low-fidelity sketches</h3><figure class="fig"><div class="sk" tabindex="0" role="region" aria-label="Low-fidelity sketches, scrolls sideways">{img(sp, sa, pre)}</div><figcaption>{esc(sa)}</figcaption></figure>'
