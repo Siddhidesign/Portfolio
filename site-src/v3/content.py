@@ -73,8 +73,8 @@ CASES["jaihind"] = dict(
     research=dict(
         text="Before drawing a screen, I visited 5 of the 10 stores, and our design team covered all 10. We ran 35+ contextual inquiries and usability evaluations with associates, cashiers, tailors, managers and merchandisers, mapped every handoff, and turned what we saw into 30+ functional requirements.",
         findings=["Staff work on their feet, from phones and tablets, often with a customer waiting.", "The same order and customer were typed into more than one place, so copies didn't match.", "From the counter, nobody could see stock in other stores or where a tailoring job was.", "Most had never used a work app before, and many were more comfortable reading Marathi."],
-        ideas=(A + "jaihind/jh-ideas-rough.webp", "Rough thumbnail sketches: layouts I tried for the staff home, phone order, approval and tablets, with the rejected ones crossed out. Redrawn for this page."),
-        img=(A + "jaihind/jh-sketches-desktop-tablet.webp", "Low-fidelity sketches of the picked layouts on desktop and tablet, with notes on each decision. Redrawn for this page from the shipped screens.")),
+        ideas=(A + "jaihind/jh-ideas-rough.webp", "Rough idea sketches on paper: layouts I tried for the staff home, phone order, approval and tablets. Rejected ones are crossed out, picks are circled. Redrawn for this page."),
+        img=(A + "jaihind/jh-sketches-desktop-tablet.webp", "Low-fidelity marker sketches of the picked layouts on desktop and tablet, with dot-vote stickers on the team favourites. Redrawn for this page from the shipped screens.")),
     decisions=[
         dict(title="Enter an order once, follow it to the end", img=None,
              why="The work is complex, so the system should carry it. Staff see one order moving through Pending, Approved, In transit and Delivered.", result="5 systems became 1"),
