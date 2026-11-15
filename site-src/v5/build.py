@@ -163,7 +163,7 @@ def about():
 AUDIENCE = {
     "canvas": ["UX students, 43 across 2 cohorts", "Faculty planning the new courses"],
     "findme": ["Engineers building FindMe screens", "Product and marketing teammates"],
-    "jaihind": ["Sales staff at the counter", "Store managers", "Purchasing", "Tailoring", "HR", "The owner"],
+    "jaihind": ["Sales associates and cashiers", "Store managers", "Tailors and fabric cutters", "Mewar stylists", "Purchasing and warehouse", "Accounts and HR", "The owner and head office"],
     "omkar": ["B2B buyers who check the catalog before they call"],
     "anchor": ["Young adults aged 20 to 32, the people we interviewed"],
     "ev": ["EV drivers in the US", "People new to EVs"],
@@ -174,7 +174,7 @@ AUDIENCE = {
 METHODS = {
     "canvas": ["50+ papers and reports, read with UM-GPT", "Feedback from 43 students", "8 presentations, 2 cohorts"],
     "findme": ["12+ interviews and usability tests in Maze", "Findings tagged in Dovetail"],
-    "jaihind": ["Visits to all 10 stores", "About 200 employee interviews", "80+ of them run by me"],
+    "jaihind": ["5 stores visited by me, all 10 by the team", "35+ contextual inquiries and usability evaluations", "Every handoff mapped across 6 teams"],
     "anchor": ["40+ papers analyzed with AI", "10 budgeting apps benchmarked", "8 interviews", "4 focus groups, 16 people"],
     "ev": ["16,767 Google Maps reviews", "AI-assisted cleaning in Colab", "Studies since 2012", "5 charging apps compared"],
     "ir2go": ["150+ App Store reviews", "200+ Quora posts", "About 10 taxpayer interviews", "A survey", "Papers summarized with AI"],
@@ -185,7 +185,7 @@ METHODS = {
 OBS = {
     "canvas": [("50+", "papers and industry reports reviewed"), ("43", "students gave feedback"), ("8", "presentations across 2 cohorts")],
     "findme": [("12+", "user interviews and usability tests supported")],
-    "jaihind": [("10", "stores visited by our team"), ("~200", "employees interviewed"), ("80+", "of those interviews run by me")],
+    "jaihind": [("5", "stores I visited"), ("10", "stores covered by our team"), ("35+", "contextual inquiries and usability evaluations")],
     "anchor": [("40+", "research papers analyzed with AI"), ("10", "budgeting apps benchmarked"), ("24", "people in interviews and focus groups")],
     "ev": [("16,767", "Google Maps reviews collected"), ("4.26", "Tesla's average rating, the highest"), ("5", "charging apps compared")],
     "ir2go": [("2.8", "App Store star rating"), ("45%", "of people quit before finishing a task"), ("None", "of the screens met WCAG 2.1 AA")],
