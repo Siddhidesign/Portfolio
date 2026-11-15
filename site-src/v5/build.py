@@ -12,6 +12,12 @@ sys.path.insert(0, str(HERE.parent / "v3")); sys.path.insert(0, str(HERE.parent 
 from content import SITE, HOW, TOOLS, WORDS, EXPERIENCE, PROJECTS, SIDE, CASES, ORDER
 from story import STORY, FIGS
 from figs import render as viz, CSS as VIZ_CSS
+from artifacts import ARTIFACTS, SITENAV
+SKETCHES = {
+    "ir2go": ("assets/irs2go/irs2go-sketches-flow.webp", "Low-fidelity sketches of the IRS2Go refund, payment and tax help flows, redrawn for this page from the shipped screens."),
+    "anchor": ("assets/moneyanchor/anchor-sketches-flow.webp", "Low-fidelity sketches of Money Anchor's budget, accounts, AI assistant, transactions, report and goals screens, redrawn for this page from the shipped screens."),
+    "ev": ("assets/ev/ev-sketches-flow.webp", "Low-fidelity sketches of the EV charging app's trip planning, station check-in, battery health and payment screens, redrawn for this page from the shipped screens."),
+}
 
 OUT = Path(sys.argv[1] if len(sys.argv) > 1 else "/home/claude/preview5")
 ROOT = Path(sys.argv[2] if len(sys.argv) > 2 else HERE.parents[1])
@@ -104,6 +110,7 @@ def home():
 <p class="eyebrow"><span></span> {esc(SITE["role"])} · Open to US roles</p>
 <h1>{rich(SITE["title"])}</h1>
 <p class="hero-intro">{esc(SITE["lede"])}</p>
+<p class="hero-now"><b><i aria-hidden="true"></i>Now</b> Until now I made workflows easier for people. Today I work on how AI interacts with people: how an assistant shows its sources and leaves people in control. First up is <a href="work/research-lens.html">Research Lens</a>.</p>
 <a class="text-link" href="#work">See my work {ARROW}</a></div>
 {CUBE}
 <div class="scroll-note" aria-hidden="true"><i></i> Scroll to explore</div></section>''')
@@ -218,6 +225,73 @@ def donuts(metrics):
         out += f'<figure class="donut" style="--p:{pct}"><span class="d-ring" aria-hidden="true"></span><figcaption><b>{esc(v)}</b>{esc(l)}</figcaption></figure>'
     return out
 
+
+def art(cid, phase):
+    """Render research artifacts found in Drive for one phase. Every block names its source."""
+    out = ""
+    for a in ARTIFACTS.get(cid, {}).get(phase, []):
+        t, h = a["type"], f'<h3 class="k-h"><span></span>{esc(a["title"])}</h3>'
+        note = f'<p class="a-note">{esc(a["note"])}</p>' if a.get("note") else ""
+        src = f'<p class="a-src">Source: {esc(a["src"])}</p>'
+        if t == "issues":
+            body = '<div class="a-cols">' + "".join(f'<div class="a-col"><h4>{esc(n)}</h4><ul>{"".join(f"<li>{esc(x)}</li>" for x in xs)}</ul></div>' for n, xs in a["cols"]) + "</div>"
+        elif t == "steps":
+            body = '<div class="a-cols">'
+            for n, xs in a["cols"]:
+                li = "".join(f'<li{" class=bad" if f else ""}><span>{esc(s_)}</span>' + (f"<em>{esc(f)}</em>" if f else "") + "</li>" for s_, f in xs)
+                body += f'<div class="a-col"><h4>{esc(n)} <small>{len(xs)} steps</small></h4><ol class="a-steps">{li}</ol></div>'
+            body += "</div>"
+        elif t == "scenarios":
+            body = '<div class="k-cards">' + "".join(f'<article class="k-card a-persona"><span>{esc(k)}</span><h3>{esc(w)}</h3>' + (f"<p>{esc(x)}</p>" if x else "") + "</article>" for k, w, x in a["items"]) + "</div>"
+        elif t == "matrix":
+            hd = "".join(f'<th scope="col"><span>{esc(c_)}</span></th>' for c_ in a["cols"])
+            rows = ""
+            for g, items in a["groups"]:
+                rows += f'<tr class="a-g"><th scope="rowgroup" colspan="{len(a["cols"]) + 1}">{esc(g)}</th></tr>'
+                for n, vs in items:
+                    rows += f'<tr><th scope="row">{esc(n)}</th>' + "".join('<td><b aria-label="yes">●</b></td>' if v else '<td><span class="sr">no</span></td>' for v in vs) + "</tr>"
+            tot = [sum(vs[k] for _, it in a["groups"] for _, vs in it) for k in range(len(a["cols"]))]
+            rows += '<tr class="a-tot"><th scope="row">Sources raising it</th>' + "".join(f"<td>{n}</td>" for n in tot) + "</tr>"
+            body = f'<div class="a-scroll" tabindex="0" role="region" aria-label="{esc(a["title"])}"><table class="a-matrix"><thead><tr><th scope="col">Source</th>{hd}</tr></thead><tbody>{rows}</tbody></table></div>'
+        elif t == "compare":
+            body = "<table><thead><tr>" + "".join(f'<th scope="col">{esc(x)}</th>' for x in a["heads"]) + "</tr></thead><tbody>" + "".join(f'<tr><th scope="row">{esc(r_[0])}</th>' + "".join(f"<td>{esc(x)}</td>" for x in r_[1:]) + "</tr>" for r_ in a["rows"]) + "</tbody></table>"
+        elif t == "map":
+            body = '<ul class="a-map">' + "".join(f'<li><blockquote>“{esc(q_)}”</blockquote><span aria-hidden="true">→</span><p>{esc(d_)}</p></li>' for q_, d_ in a["rows"]) + "</ul>"
+        elif t == "funnel":
+            body = '<ol class="a-funnel">' + "".join(f'<li style="--w:{100 - 22 * k}%"><b>{esc(n)}</b><span>{esc(l)}</span></li>' for k, (n, l) in enumerate(a["steps"])) + "</ol>"
+            body += '<p class="a-note">Research themes the ideas grew from:</p><ul class="k-chips">' + "".join(f"<li>{esc(x)}</li>" for x in a["chips"]) + "</ul>"
+        elif t == "pair":
+            body = '<div class="a-cols">' + "".join(f'<div class="a-col{" off" if k else ""}"><h4>{esc(n)}</h4><ul>' + "".join(f"<li>{esc(x)}</li>" for x in xs) + "</ul></div>" for k, (n, xs) in enumerate((a["a"], a["b"]))) + "</div>"
+        elif t == "process":
+            body = '<ol class="a-proc">' + "".join(f"<li><b>{esc(n)}</b><p>{esc(x)}</p></li>" for n, x in a["steps"]) + "</ol>"
+        elif t == "ia":
+            body = f'<div class="a-ia"><b>{esc(a["root"])}</b><ul>' + "".join(f"<li>{esc(k)}</li>" for k in a["kids"]) + "</ul></div>"
+        elif t == "chips":
+            body = '<ul class="k-chips">' + "".join(f"<li>{esc(x)}</li>" for x in a["items"]) + "</ul>"
+        else:
+            continue
+        out += h + note + body + src
+    return out
+
+
+def sitenav(cid, pre):
+    n = SITENAV.get(cid)
+    if not n:
+        return ""
+    menu, tree = "", ""
+    for top, kids in n["menu"]:
+        kl = "".join(f"<li>{esc(x)}</li>" for x in kids)
+        menu += f'<details class="sn-g"><summary>{esc(top)}</summary><ul>{kl}</ul></details>' if kids else f'<p class="sn-g">{esc(top)}</p>'
+        tree += f"<li><b>{esc(top)}</b>" + (f"<ul>{kl}</ul>" if kids else "") + "</li>"
+    pts = "".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></article>' for k, (a, b) in enumerate(n["points"], 1))
+    return (f'<section class="k-sec">{two("Marketing Website", "Navigation")}'
+            '<p class="k-intro">I also designed the navigation and information architecture of the public website. The pages have been restyled since, but the menu still runs on the structure below.</p>'
+            f'<div class="sn-wrap"><div class="sn-phone" role="group" aria-label="Working copy of the site menu"><p class="sn-brand" aria-hidden="true">JAIHIND</p>{menu}<p class="a-note">Tap a group to open it.</p></div>'
+            f'<div class="sn-tree"><h3 class="k-h"><span></span>Information architecture</h3><ul class="a-tree">{tree}</ul></div></div>'
+            f'<h3 class="k-h"><span></span>How it helps people find things</h3><div class="k-cards">{pts}</div>'
+            f'<p class="a-src">Source: the live menu on <a href="{n["url"]}" target="_blank" rel="noopener">jaihindretail.com<span class="sr"> (opens in a new tab)</span></a>, read November 2026.</p></section>')
+
+
 def case(cid):
     c, pre = CASES[cid], "../"
     S, F = STORY.get(cid, {}), FIGS.get(cid, {})
@@ -264,7 +338,7 @@ def case(cid):
     findings = r.get("findings") or []
     stages = [("Empathize", METHODS.get(cid, [])),
               ("Define", ([S["insight"][0]] if S.get("insight") else []) + [g for g, _ in S.get("goals", [])][:3]),
-              ("Ideate", [a for a, _ in c.get("rejected", [])][:3] + (["Crazy 8s sketches"] if "sketch" in (r.get("img") or ("", ""))[1].lower() else [])),
+              ("Ideate", [a for a, _ in c.get("rejected", [])][:3] + (["Low-fidelity sketches"] if ("sketch" in (r.get("img") or ("", ""))[1].lower() or cid in SKETCHES) else [])),
               ("Design", [d["title"] for d in c["decisions"]][:4]),
               ("Test", [g for g, _ in S.get("goal_results", [])][:4] or [a for a, _, _ in (c.get("results") or {}).get("rows", [])][:4])]
     stages = [(n, it) for n, it in stages if it]
@@ -289,6 +363,7 @@ def case(cid):
     if S.get("videos"):
         emp += '<h3 class="k-h"><span></span>Field recordings</h3><div class="k-vids">' + "".join(f'<figure class="vid"><video src="{pre}{esc(v)}" data-once muted playsinline controls preload="metadata" aria-label="{esc(l)}"></video><figcaption>{esc(l)}</figcaption></figure>' for v, l in S["videos"]) + "</div>"
         used.update(v for v, _ in S["videos"])
+    emp += art(cid, "empathize")
     if emp:
         o.append(f'<section class="k-sec">{two("Empathize", "Phase")}{emp}</section>')
     if findings:
@@ -305,6 +380,7 @@ def case(cid):
     if S.get("insight"):
         nm, tx = S["insight"]
         d += f'<div class="k-principle"><span>The insight we designed around</span><p>{esc(nm)}</p><small>{esc(tx)}</small></div>'
+    d += art(cid, "define")
     if d: o.append(f'<section class="k-sec">{two("Define", "Phase")}{d}</section>')
 
     # Task flow
@@ -319,12 +395,16 @@ def case(cid):
     rej = c.get("rejected", [])[1:] if S.get("twist") else c.get("rejected", [])
     idea = ""
     if r.get("img") and "sketch" in r["img"][1].lower():
-        idea += f'<h3 class="k-h"><span></span>Low-fidelity sketches</h3><figure class="fig">{img(r["img"][0], r["img"][1], pre)}<figcaption>{esc(r["img"][1])}</figcaption></figure>'
+        idea += f'<h3 class="k-h"><span></span>Low-fidelity sketches</h3><figure class="fig"><div class="sk" tabindex="0" role="region" aria-label="Low-fidelity sketches, scrolls sideways">{img(r["img"][0], r["img"][1], pre)}</div><figcaption>{esc(r["img"][1])}</figcaption></figure>'
+    if cid in SKETCHES:
+        sp, sa = SKETCHES[cid]
+        idea += f'<h3 class="k-h"><span></span>Low-fidelity sketches</h3><figure class="fig"><div class="sk" tabindex="0" role="region" aria-label="Low-fidelity sketches, scrolls sideways">{img(sp, sa, pre)}</div><figcaption>{esc(sa)}</figcaption></figure>'
     if S.get("twist"):
         hl, tx = S["twist"]
         idea += f'<div class="k-twist"><span>Plot twist</span><h3>{esc(hl)}</h3><p>{esc(tx)}</p></div>'
     if rej:
         idea += '<h3 class="k-h"><span></span>Ideas I tested and dropped</h3><ul class="rej">' + "".join(f'<li><p class="k">Dropped</p><h4>{esc(a)}</h4><p>{esc(w)}</p></li>' for a, w in rej) + "</ul>"
+    idea += art(cid, "ideate")
     if idea: o.append(f'<section class="k-sec">{two("Ideate", "Phase")}{idea}</section>')
 
     # High-fidelity design, annotated
@@ -340,7 +420,8 @@ def case(cid):
             hi += f'<div class="k-anno noimg"><div class="k-note"><span>{k:02d}</span><h3>{esc(hl)}</h3><p>{esc(txt)}</p>{res}</div></div>'
     sf = figs("solutions")
     o.append(f'''<section class="k-sec">{two("High-Fidelity", "Design")}<p class="k-intro">{esc(S.get("solutions_title", ""))}</p>
-{f'<div class="k-figs">{sf}</div>' if sf else ""}{hi}</section>''')
+{f'<div class="k-figs">{sf}</div>' if sf else ""}{hi}{art(cid, "design")}</section>''')
+    o.append(sitenav(cid, pre))
 
     # Test and results
     rs = c.get("results") or {}
@@ -355,6 +436,7 @@ def case(cid):
         t += '<table><thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead><tbody>' + "".join(
             f'<tr><th scope="row">{esc(a)}</th><td>{esc(x) or "<span class=sr>not measured</span>"}</td><td><b>{esc(y)}</b></td></tr>' for a, x, y in rs["rows"]) + "</tbody></table>"
     if rs.get("note"): t += f'<p class="small">{esc(rs["note"])}</p>'
+    t += art(cid, "test")
     t += figs("results")
     if rs.get("img"): t += figure(rs["img"][0], rs["img"][1], pre)
     if S.get("lesson"): t += f'<div class="learning"><span>What I learned</span><p>{esc(S["lesson"])}</p></div>'

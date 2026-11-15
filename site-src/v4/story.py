@@ -14,7 +14,8 @@ STORY["jaihind"] = dict(
     solutions=[("Enter an order once, and everyone sees where it is", "An order moves through Pending, Approved, In transit and Delivered in one place, so nobody has to call around to find it."),
                ("Stock gets checked before anyone approves", "The portal checks stock first, so a problem is caught before the order moves instead of after."),
                ("A sales order fits inside one phone call", "Four short steps replace one long form, so staff finish while the customer waits at the counter or on the line."),
-               ("New customers get added without leaving the order", "If the caller isn't in the system, staff add them right inside the order, so nobody hits a \"No customer found\" dead end.")],
+               ("New customers get added without leaving the order", "If the caller isn't in the system, staff add them right inside the order, so nobody hits a \"No customer found\" dead end."),
+               ("Customer and catalog records in one place", "Staff used to struggle to find an old customer's address or to update customer and catalog records. Now they search one database and edit it in place.")],
     research_title="How we got from 2 orders a day to 8",
     insight=("One order, typed many times", "The same order went into more than one place, so copies didn't match. Entering it once became the rule every screen followed."),
     flow_before=[("Customer calls", "Asks for a size, colour or item.", ""), ("Written in a book", "Staff note it by hand, in a paper file.", "Copies don't match"),
@@ -25,7 +26,7 @@ STORY["jaihind"] = dict(
     flow_after_foot="7 to 8 orders a day",
     outcome_title="Workflows are people, not screens",
     outcome_sub="The slow parts were the handoffs between teams, which no single team could see until we mapped them.",
-    goal_results=[("One record", "5 systems became 1"), ("Fewer errors", "27% fewer order errors"), ("Fast at the counter", "40% faster per order")],
+    goal_results=[("One record", "5 systems became 1"), ("Fewer errors", "27% fewer employee errors"), ("Fast at the counter", "About 5 min per order, down from 10 to 15")],
     lesson="Design for the least sure user: big buttons and plain words helped people who had never used a work app.",
     future=[("Agent-drafted reorders", "An agent drafts supplier reorders from stock and sales, with the reason on every draft (\"Sold 14 this week, 3 left\"). Staff approve every one.")],
 )
@@ -191,7 +192,7 @@ FIGS["jaihind"] = dict(
         end=("10 heuristics", "audit of the live portal, each with a fix"))],
     results=[dict(kind="bars", title="Orders sent to suppliers in a day", maxv=8,
         items=[("Before (phone and paper)", 2.5, "2-3", False), ("After (one portal)", 7.5, "7-8", True)],
-        cap="Measured before launch and after. Orders also got 40% faster and 27% less error-prone.")],
+        cap="Measured before launch and after. Each order also dropped from 10 to 15 minutes to about 5, with 27% fewer employee errors.")],
 )
 
 FIGS["anchor"] = dict(
