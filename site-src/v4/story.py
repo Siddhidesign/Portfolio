@@ -170,6 +170,38 @@ STORY["research-lens"] = dict(
     goal_results=[("Status", "Building, deploying next")],
 )
 
+STORY["fitcheck"] = dict(
+    scene="Four assistants, the same task, the same four problems",
+    scene_sub="Each assistant showed deals before asking anything, made me retype my specs, mixed ads into the picks, and lost the chat when I opened a product page.",
+    goals=[("Ask first", "Three taps before any pick, so the assistant ranks by what the shopper needs."),
+           ("Check, don't guess", "Every claim shows its source, or says it can't be verified."),
+           ("Stay in control", "Nothing enters the cart, and nobody loses the chat, without the shopper's say.")],
+    solutions_title="Twelve steps per retailer, six shown here",
+    solutions=[("Three taps before any pick", "Use, must-haves and budget as chips. No typing, no guessing what the assistant needs to know."),
+               ("Checked picks, ranked by fit, no ads", "Each card lists the checks it passed against the shopper's own answers. A pick with only 2 ratings says so."),
+               ("Compare side by side, and say Not stated", "The panel widens into a table. Rows that differ are highlighted, missing facts read Not stated, and the total includes tax."),
+               ("Check required, instead of a confident guess", "When the listing doesn't state the warranty, an amber card says so and offers an associate, with the source and the date checked."),
+               ("Ask about the add-on, nothing pre-selected", "Accident protection is a question, not a default. The all-in total sits next to the budget before anything is added."),
+               ("A person one tap away, with the context passed", "The associate gets the goal, the item and the open question, so the shopper never repeats themselves.")],
+    research_title="What four recordings and the published research agreed on",
+    insight=("The shopper does the checking", "On every assistant, fit, stock and price were left for the shopper to verify. So every claim in Fit Check either shows its source or says it can't be checked."),
+    flow_before=[("Open the chat", "Deals and prompts appear before any question.", "Answers before asking"), ("Type the specs", "Size, budget and must-haves, retyped.", "Typing burden"),
+                 ("Get a list", "Picks with no reason given, ads mixed in.", "No reason to trust"), ("Open a product page", "The chat closes or forgets.", "Biggest stall"),
+                 ("Check it yourself", "Fit, stock and warranty, by hand.", "Shopper does the checking")],
+    flow_before_foot="Recorded on 4 assistants, Nov 2026",
+    flow_after=[("Open", "One labeled button, same spot on every page.", "Found"), ("3 taps", "Use, must-haves, budget as chips.", "No retyping"),
+                ("Checked picks", "Ranked by fit, each claim with a source.", "Trust fix"), ("Product page", "Assistant floats bottom-left, context kept.", "Chat survives"),
+                ("Cart check", "Add-ons asked, total with tax, a person one tap away.", "Your call")],
+    flow_after_foot="12 steps, the same on all 4 retailers",
+    twist=("My first version looked finished. It was wrong in six places.", "Reading the NN/g and Baymard usability studies and the 2026 shopper surveys showed what my own review had missed: an unlabeled launcher, no sign of what the assistant could see, nothing marked as unverified, no way to reach a person. Version 4 fixed each one, on desktop, tablet and mobile."),
+    outcome_title="A concept, reviewed but not tested",
+    outcome_sub="Reviewed through a developer, business and UX-writing lens, then revised against published research. Nothing here has been tested with shoppers yet.",
+    goal_results=[("Ask first", "Built: 3 taps before any pick, on all 4 retailers"), ("Check, don't guess", "Built: Check required and Not stated states, a source on every claim"), ("Stay in control", "Built: nothing pre-selected, the chat survives checkout, an associate one tap away")],
+    lesson="Polish hides gaps. The published research found problems my own review did not, and most of the fixes were labels, not features.",
+    future=[("Wizard-of-Oz test", "10 to 15 shoppers on a real task, with me approving or editing each draft answer behind the scenes, so I can count how often the assistant would have been wrong."),
+            ("A small pilot", "6 to 8 weeks on a slice of desktop traffic, measuring chat sessions that end in an order and returns marked not as expected, with wrong claims as a hard stop.")],
+)
+
 STORY["magic-apron"] = dict(
     scene="Same question, two different answers",
     videos=[("assets/magic-apron/research-home.mp4", "Recorded session: the question on the Home tab"), ("assets/magic-apron/research-store.mp4", "Recorded session: the same question in Store Mode")],
@@ -280,6 +312,15 @@ FIGS["research-lens"] = dict(
     solutions=[dict(kind="pipeline", title="How a question travels",
         items=[("AI assistant", "asks a research question"), ("Research Lens", "5 tools: search, quotes by theme, pattern frequency, compare rounds, draft findings"), ("Repository", "sessions, segments, rounds, tagged excerpts")],
         end=("Every answer", "with participant ID, round and timestamp"))],
+)
+
+FIGS["fitcheck"] = dict(
+    problem=[dict(kind="scenario", title="What one task looked like, before and after",
+        left=L("The four assistants today", [("Deals first", "before any question"), ("Specs typed by hand", "size, budget, must-haves"), ("Picks with ads mixed in", "no reason given"), ("Product page opens", "chat is gone"), ("Fit, stock, warranty", "checked by the shopper")], "Shopper does the checking, then double-checks"),
+        right=L("Fit Check", [("3 taps", "use, must-haves, budget"), ("Checked picks", "ranked by fit, no ads"), ("Compare table", "Not stated, never guessed"), ("Product page", "assistant stays, bottom-left"), ("Cart check", "total with tax, your call")], "Every claim shows its source"),
+        cap="The same laptop task, recorded on Ask Blue, Sparky, Magic Apron and Ask Target in Nov 2026.")],
+    solutions=[dict(kind="steps", title="Twelve steps, in five groups",
+        items=[("Open and ask", "One labeled launcher; three taps instead of typing"), ("Checked picks", "Each check runs in view; picks ranked by fit"), ("Compare", "Side by side, with Not stated where a listing is silent"), ("Product page", "Answers with evidence, floating where Add to cart stays clear"), ("Cart and checkout", "Add-ons asked, totals with tax, a fixed form, a person one tap away")])],
 )
 
 FIGS["magic-apron"] = dict(

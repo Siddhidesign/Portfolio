@@ -9,7 +9,7 @@ import hashlib, html, json, re, shutil, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "v3")); sys.path.insert(0, str(HERE.parent / "v4"))
-from content import SITE, HOW, TOOLS, WORDS, EXPERIENCE, PROJECTS, SIDE, CASES, ORDER
+from content import SITE, HOW, TOOLS, WORDS, EXPERIENCE, PROJECTS, SIDE, CASES, ORDER, FEATURED
 from story import STORY, FIGS
 from figs import render as viz, CSS as VIZ_CSS
 from artifacts import ARTIFACTS, SITENAV
@@ -28,7 +28,7 @@ used = set()
 
 RED, BLUE, YELLOW, GREEN = "#ef4f3e", "#4f7bf3", "#ffc92a", "#21b36b"
 ACCENT = {"canvas": BLUE, "findme": RED, "jaihind": GREEN, "omkar": YELLOW, "anchor": RED,
-          "ev": GREEN, "ir2go": BLUE, "research-lens": YELLOW, "magic-apron": RED}
+          "ev": GREEN, "ir2go": BLUE, "research-lens": YELLOW, "magic-apron": RED, "fitcheck": BLUE}
 
 def esc(s): return html.escape(str(s), quote=True)
 def rich(s):
@@ -119,11 +119,9 @@ def home():
 <div class="statement-grid"><p>{rich(SITE["story"])}</p>
 <div class="capabilities"><span>01</span><p>UX research</p><span>02</span><p>B2B workflow design</p><span>03</span><p>AI-assisted analysis</p><span>04</span><p>Front-end build</p></div></div></section>''')
     yrs = lambda ids: sorted({y for i in ids for y in re.findall(r"20\d\d", CASES[i].get("dates") or CASES[i]["year"])})
-    ey, py = yrs(EXPERIENCE), yrs(PROJECTS)
-    o.append(f'<section class="work" id="work"><div class="section-heading"><h2 class="section-kicker">Experience</h2><span>{ey[0]} to {ey[-1]}</span></div>')
-    o += [project(cid, k) for k, cid in enumerate(EXPERIENCE, 1)]
-    o.append(f'<div class="section-heading sh2" id="projects"><h2 class="section-kicker">Projects</h2><span>{py[0]} to {py[-1]}</span></div>')
-    o += [project(cid, k) for k, cid in enumerate(PROJECTS, len(EXPERIENCE) + 1)]
+    fy = yrs(FEATURED)
+    o.append(f'<section class="work" id="work"><div class="section-heading" id="projects"><h2 class="section-kicker">Work</h2><span>{fy[0]} to {fy[-1]}</span></div>')
+    o += [project(cid, k) for k, cid in enumerate(FEATURED, 1)]
     side = "".join(f'''<li><a href="work/{cid}.html" style="--a:{ACCENT[cid]}"><span class="sp-k">{esc(CASES[cid]["kind"])} · {esc(CASES[cid]["year"])}</span>
 <strong>{esc(CASES[cid]["card"])}</strong><span class="sp-l">{esc(CASES[cid]["line"])}</span><em>Read it {DIAG}</em></a></li>''' for cid in SIDE)
     o.append(f'<div class="section-heading sh2"><h2 class="section-kicker">Side projects</h2><span>Self-initiated</span></div><ul class="side-list">{side}</ul></section>')
@@ -170,6 +168,7 @@ AUDIENCE = {
     "ir2go": ["Taxpayers checking a refund", "Taxpayers making a payment", "People looking for free tax help"],
     "research-lens": ["UX researchers using AI to make sense of interviews"],
     "magic-apron": ["Shoppers asking a store's AI assistant for help"],
+    "fitcheck": ["Shoppers using a retailer's AI assistant to choose between products", "Store associates who take the handoff"],
 }
 METHODS = {
     "canvas": ["50+ papers and reports, read with UM-GPT", "Feedback from 43 students", "8 presentations, 2 cohorts"],
@@ -179,6 +178,7 @@ METHODS = {
     "ev": ["16,767 Google Maps reviews", "AI-assisted cleaning in Colab", "Studies since 2012", "5 charging apps compared"],
     "ir2go": ["150+ App Store reviews", "200+ Quora posts", "About 10 taxpayer interviews", "A survey", "Papers summarized with AI"],
     "magic-apron": ["Interview", "Screen recording", "Heuristic review"],
+    "fitcheck": ["4 assistants recorded on the same task, 24 real steps", "Heuristic review against NN/g's chatbot guidelines", "Desk research: 2025 to 2026 usability studies and shopper surveys"],
 }
 
 # Headline research numbers, each taken from the case's own research text or scene line.
@@ -189,6 +189,7 @@ OBS = {
     "anchor": [("40+", "research papers analyzed with AI"), ("10", "budgeting apps benchmarked"), ("24", "people in interviews and focus groups")],
     "ev": [("16,767", "Google Maps reviews collected"), ("4.26", "Tesla's average rating, the highest"), ("5", "charging apps compared")],
     "ir2go": [("2.8", "App Store star rating"), ("45%", "of people quit before finishing a task"), ("None", "of the screens met WCAG 2.1 AA")],
+    "fitcheck": [("54%", "of AI shoppers double-check everything it says (2026 survey)"), ("78%", "assume brands pay their way into AI picks (2026 survey)"), ("11%", "at most would let AI make the purchase (Gartner, Jan 2026)")],
 }
 
 def two(a, b): return f'<h2 class="k-title">{esc(a)} <em>{esc(b)}</em></h2>'

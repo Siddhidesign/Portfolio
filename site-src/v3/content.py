@@ -48,9 +48,10 @@ WORDS = [
 
 # Home page order: work experience first (newest first), then academic projects, then side projects.
 EXPERIENCE = ["canvas", "findme", "jaihind", "omkar"]
-PROJECTS = ["anchor", "ev", "ir2go"]
+PROJECTS = ["fitcheck", "anchor", "ev", "ir2go"]
 SIDE = ["research-lens", "magic-apron"]
-FEATURED = EXPERIENCE + PROJECTS
+# Home page order, set by Siddhi (Nov 2026): the Fit Check redesign first, then the rest.
+FEATURED = ["fitcheck", "findme", "jaihind", "ir2go", "anchor", "canvas", "omkar", "ev"]
 
 CASES = {}
 
@@ -302,6 +303,42 @@ CASES["magic-apron"] = dict(
     results=None, next=[], links=[],
 )
 
+CASES["fitcheck"] = dict(
+    org="Concept", year="2026", kind="AI assistant · Retail concept",
+    card="Fit Check: retail AI that checks before it answers", line="Redesigning the AI assistants on Best Buy, Walmart, Home Depot and Target so shoppers can decide, then fixing what published research said I had missed.",
+    tags=["AI assistant", "Concept"], cover=A + "fitcheck/cover-product-page.webp", cover_alt="Walmart product page with the redesigned Ask Sparky floating bottom-left: a battery answer that says it rests on only 2 reviews, with the spec it verified.",
+    title="Same assistant, *shows its work*",
+    meta=[("Role", "UX designer, solo"), ("Time", "Oct to Nov 2026"), ("Methods", "Screen recordings, heuristic review, desk research"), ("Status", "Concept")],
+    tldr=[("Problem", "Four retailers' AI assistants answer before they ask, leave the checking to the shopper, lose the chat on product pages and give no reason to trust a pick."),
+          ("What I did", "Recorded all four assistants on the same task, redesigned the 12 steps inside each one on its real pages, then revised every step against 2025 to 2026 usability research on retail assistants."),
+          ("Result", "A retailer-agnostic pattern on desktop, tablet and mobile, with 3 edge cases. Concept, not tested yet. Not affiliated with any retailer.")],
+    metrics=[("4", "assistants recorded on the same task"), ("12 + 3", "steps and edge cases per retailer"), ("3", "breakpoints: desktop, tablet, mobile")],
+    problem=["In 2026 Best Buy, Walmart, Home Depot and Target all shipped AI shopping assistants: Ask Blue, Sparky, Magic Apron and Ask Target. I gave each one the same task, a gaming laptop under $2,000, and recorded every step. All four showed deals before asking a question, made me retype my specs, mixed ads into the picks, and dropped the conversation the moment I opened a product page.",
+             "Published research says shoppers feel this too. In 2026 surveys, 54% of people who shopped with AI said they double-checked everything it told them, and 78% assumed brands pay their way into the picks. Nearly half of US shoppers who bought on an AI recommendation have returned the item (Blue Yonder, 2026). The retailer, not the model, takes the blame."],
+    research=dict(text="Desk research first: the 2025 to 2026 usability studies of live retail assistants (Nielsen Norman Group, Baymard) and the shopper surveys on AI trust (Gartner, Klaviyo, Blue Yonder, Synchrony). Then my own recordings of the four assistants on one task, scored against NN/g's chatbot guidelines.",
+                  findings=["Every assistant answered before it asked. Deals and prompts came first; my budget and must-haves came only after I typed them.",
+                            "The shopper did the checking. Fit, stock, warranty and price were left for me to verify on the product page.",
+                            "The chat got lost. Opening a product page closed or reset the conversation on all four.",
+                            "No reason to trust. Picks rarely said where a fact came from, and sponsored items looked like recommendations."]),
+    decisions=[
+        dict(title="Three taps before any pick", img=(A + "fitcheck/d1-three-taps.webp", "Ask Sparky asks what the laptop is for, the must-haves and the budget as tap chips, then Show matches."),
+             why="Every assistant I recorded asked for specs in prose or not at all. Three chip questions replace the retyping and give the assistant something honest to rank by.", result="Built on all 4 retailers"),
+        dict(title="Checked picks, ranked by fit, no ads", img=(A + "fitcheck/d2-checked-picks.webp", "Two laptops that match, each with the checks it passed, a ratings count flagged as too few, and pickup stock with the time it was checked."),
+             why="78% of shoppers assume paid placement steers AI picks. Each card shows which of the shopper's own answers it passed, and a Best match with only 2 ratings says so.", result="Built, not tested"),
+        dict(title="Compare side by side, and say Not stated", img=(A + "fitcheck/d3-mobile-compare.webp", "Mobile compare table: rows that differ are highlighted, Graphics reads Not stated in listing, and the total includes estimated tax."),
+             why="Baymard's research shows people can't compare specs that aren't side by side. When a listing is silent, the cell says Not stated instead of a guess.", result="Built on desktop, tablet and mobile"),
+        dict(title="Check required, instead of a confident guess", img=(A + "fitcheck/d4-check-required.webp", "On the product page an amber Check required card says the listing doesn't state the warranty, with Chat with an associate and Why we say this."),
+             why="54% of AI shoppers double-check everything. Making uncertainty a visible state, with the source and the date it was checked, is what makes the green checks believable.", result="Edge case E1, built"),
+        dict(title="Ask about the add-on, nothing pre-selected", img=(A + "fitcheck/d5-add-on-asked.webp", "Before adding to cart: the accident plan options, No plan included, nothing pre-selected, the all-in total with tax against the $2,000 budget."),
+             why="At most 11% of shoppers would let AI buy for them (Gartner, 2026). The assistant stages the choice, shows the total with tax, and the shopper taps Add.", result="Built, not tested"),
+        dict(title="A person one tap away, with the context passed", img=(A + "fitcheck/d6-handoff.webp", "Chat with an associate: the goal, the item and the open question are listed, then Chat now, Call me or Book in store."),
+             why="Published tests found bots tuned to contain support rather than resolve it. The handoff carries the goal, the item and the unanswered question so nobody repeats themselves.", result="Edge case E3, built"),
+    ],
+    rejected=[("Replacing each assistant with a new one", "Shoppers already know where the button is. I kept each assistant's entry point, name and look and changed only what happens inside each step."),
+              ("Adding to the cart from inside the chat", "It hid the price breakdown and the add-ons. The assistant now guides to the product page and stages the add, so the shopper sees the total before anything moves.")],
+    results=None, next=[], links=[],
+)
+
 CASES["omkar"] = dict(
     role="Junior Front-End Developer", dates="May 2022 to Jan 2023",
     org="Omkar Labels", year="2022", kind="Front-end development",
@@ -320,4 +357,4 @@ CASES["omkar"] = dict(
     rejected=[], results=None, next=[], links=[],
 )
 
-ORDER = EXPERIENCE + PROJECTS + SIDE
+ORDER = FEATURED + SIDE
