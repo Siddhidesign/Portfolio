@@ -6,8 +6,8 @@ def fc(node): return FC.format(n=node.replace(":", "-"), s=node.replace(":", "%3
 
 PROTOS = {
     "ir2go": [("Try the clickable prototype", "https://www.figma.com/proto/RHTthzwRZGf3j0rqaM6Hbh/IRS2GO--REDESIGN?page-id=0%3A1&node-id=1-1564&starting-point-node-id=1%3A1299", "proto")],
-    "fitcheck": [("Click through the redesign (Walmart)", fc("51:414"), "proto"),
-                 ("Click through today's Sparky", fc("51:371"), "proto")],
+    "fitcheck": [("Play the redesign, step by step", "#walmart-after", "play"),
+                 ("Play today's Sparky", "#walmart-before", "play")],
     "jaihind": [("Open all 34 flows in Figma", "https://www.figma.com/design/jkcD5ZIdXz9MUkG3va5sIo/Untitled?node-id=190-2", "file")],
     "ev": [("Open the app design in Figma", "https://www.figma.com/design/iQ43CH3FjQVDSkjKN35Zld/EV-Charging-prototype?node-id=0-1", "file")],
     "magic-apron": [("Open the case study in Figma", "https://www.figma.com/design/MS2GwRpGShTPmcSCDCWBof/Untitled?node-id=22-3", "file")],
