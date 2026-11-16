@@ -96,7 +96,7 @@ def project(cid, n, pre=""):
     m = c.get("metrics", [])
     big = f'<div><strong>{esc(m[0][0])}</strong><span>{esc(m[0][1])}</span></div>' if m else ""
     who = c.get("role") or c["kind"]
-    shot = (f'<span class="pv-shot">{img(c["cover"], "", pre)}</span>' if c.get("cover") else
+    shot = (f'<span class="pv-shot">{img(c.get("card_cover") or c["cover"], "", pre)}</span>' if c.get("cover") else
             f'<span class="pv-type"><b>{esc(m[0][0])}</b><span>{esc(m[0][1])}</span><i>{esc(c["kind"])}</i></span>' if m else "")
     return f'''<article class="project"><a class="project-visual" href="{pre}work/{cid}.html" style="background:{ACCENT[cid]}" tabindex="-1" aria-hidden="true">
 <span class="project-number">{n:02d}</span>{shot}</a>
@@ -111,6 +111,7 @@ def home():
 <p class="eyebrow"><span></span> {esc(SITE["role"])} · Open to US roles</p>
 <h1>{rich(SITE["title"])}</h1>
 <p class="hero-intro">{esc(SITE["lede"])}</p>
+<ul class="hero-proof" aria-label="Results">{"".join(f'<li><a href="work/{c}.html"><b>{esc(s)}</b> {esc(d)}</a></li>' for s, d, c in SITE["proof"])}</ul>
 <p class="hero-now"><b><i aria-hidden="true"></i>Now</b> Until now I made workflows easier for people. Today I work on how AI interacts with people: how an assistant shows its sources and leaves people in control. First up is <a href="work/research-lens.html">Research Lens</a>.</p>
 <a class="text-link" href="#work">See my work {ARROW}</a></div>
 {CUBE}

@@ -9,9 +9,11 @@ A = "assets/"
 
 SITE = dict(
     name="Siddhi Manche",
-    role="UX Researcher and Designer",
+    role="Product Designer, research-led",
     title="A research-led designer who turns *messy* experiences into *clear* ones.",
     lede="I start where things are confusing: interviews, store floors, thousands of reviews. AI helps me read at scale, but I check every finding myself, then design the fix.",
+    proof=[("27%", "fewer employee errors, from the portal I designed for about 200 retail staff", "jaihind"),
+           ("6 of 8", "testers fully trusted the AI budgeting coach I designed", "anchor")],
     story="Before AI, I learned this on the store floors of **JaiHind-India**, interviewing staff and redesigning how about 200 employees move orders. My M.S. at **UM-Dearborn** added AI to how I research.",
     intro=[
         "I started as a front-end developer, building catalog pages from designers' files. At **JaiHind-India** I moved into design: I visited 5 of the 10 stores while our design team covered all 10, and I designed a role-based portal for about 200 employees.",
@@ -304,9 +306,9 @@ CASES["magic-apron"] = dict(
 )
 
 CASES["fitcheck"] = dict(
-    org="Concept", year="2026", kind="AI assistant · Retail concept",
+    org="Concept, not yet tested", year="2026", kind="AI assistant · Retail concept",
     card="Fit Check: retail AI that checks before it answers", line="Redesigning the AI assistants on Best Buy, Walmart, Home Depot and Target so shoppers can decide, then fixing what published research said I had missed.",
-    tags=["AI assistant", "Concept"], cover=A + "fitcheck/cover-product-page.webp", cover_alt="Walmart product page with the redesigned Ask Sparky floating bottom-left: a battery answer that says it rests on only 2 reviews, with the spec it verified.",
+    tags=["AI assistant", "Concept"], cover=A + "fitcheck/cover-product-page.webp", card_cover=A + "fitcheck/cover-product-page-1440.webp", cover_alt="Walmart product page with the redesigned Ask Sparky floating bottom-left: a battery answer that says it rests on only 2 reviews, with the spec it verified.",
     title="Same assistant, *shows its work*",
     meta=[("Role", "UX designer, solo"), ("Time", "Oct to Nov 2026"), ("Methods", "Screen recordings, heuristic review, desk research"), ("Status", "Concept")],
     tldr=[("Problem", "Four retailers' AI assistants answer before they ask, leave the checking to the shopper, lose the chat on product pages and give no reason to trust a pick."),
