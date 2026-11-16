@@ -14,6 +14,7 @@ from story import STORY, FIGS
 from figs import render as viz, CSS as VIZ_CSS
 from artifacts import ARTIFACTS, SITENAV
 from quality import QUALITY
+from protos import PROTOS, FLOWS
 SKETCHES = {
     "ir2go": ("assets/irs2go/irs2go-sketches-flow.webp", "Low-fidelity sketches of the IRS2Go refund, payment and tax help flows, redrawn for this page from the shipped screens."),
     "anchor": ("assets/moneyanchor/anchor-sketches-flow.webp", "Low-fidelity sketches of Money Anchor's budget, accounts, AI assistant, transactions, report and goals screens, redrawn for this page from the shipped screens."),
@@ -316,6 +317,8 @@ def case(cid):
 <p class="k-pill">{esc(c["kind"])} · Case study {i + 1:02d}</p><h1>{rich(c["title"])}</h1><p class="k-lede">{esc(c["line"])}</p>
 <ul class="k-tools" aria-label="Tools and methods">{"".join(f"<li>{esc(t)}</li>" for t in chips)}</ul>
 <dl class="k-meta">{dl}</dl></div><div class="k-cover-pic">{pic}</div></header>''')
+    if PROTOS.get(cid):
+        o.append('<nav class="pbar" aria-label="See it in Figma">' + "".join(f'<a class="pbar-{k}" href="{esc(u)}" target="_blank" rel="noopener"><span class="pbar-k">{"Clickable prototype" if k == "proto" else "Figma design file"}</span>{esc(l)} {DIAG}<span class="sr"> (opens in a new tab)</span></a>' for l, u, k in PROTOS[cid]) + '</nav>')
 
     # Problem statement / possible solution
     o.append(f'''<section class="k-sec k-center">{two("Problem", "Statement")}
@@ -425,6 +428,18 @@ def case(cid):
     sf = figs("solutions")
     o.append(f'''<section class="k-sec">{two("High-Fidelity", "Design")}<p class="k-intro">{esc(S.get("solutions_title", ""))}</p>
 {f'<div class="k-figs">{sf}</div>' if sf else ""}{hi}{art(cid, "design")}</section>''')
+    if cid == "fitcheck":
+        tabs = "".join(f'<button type="button" role="tab" class="bf-tab" id="bft-{f["key"]}" aria-controls="bfp-{f["key"]}" aria-selected="{"true" if i == 0 else "false"}">{esc(f["name"])}</button>' for i, f in enumerate(FLOWS))
+        panels = ""
+        for i, f in enumerate(FLOWS):
+            bef = "".join(f'<li><div class="bf-img">{img(f"assets/fitcheck/flow/{f["key"]}-before-{k}.webp", f["name"] + " today, step " + str(k) + ": " + cap, pre)}</div><span class="bf-step">{k:02d}</span><p>{esc(cap)}</p></li>' for k, cap in enumerate(f["before"], 1))
+            aft = "".join(f'<li><div class="bf-img">{img(f"assets/fitcheck/flow/{f["key"]}-after-{k}.webp", f["name"] + " redesign, step " + str(k) + ": " + better, pre)}</div><span class="bf-step">{k:02d}</span><p><b>Kept:</b> {esc(same)}</p><p><b>Better:</b> {esc(better)}</p></li>' for k, (same, better) in enumerate(f["after"], 1))
+            panels += f'''<div class="bf-panel" role="tabpanel" id="bfp-{f["key"]}" aria-labelledby="bft-{f["key"]}"><p class="bf-task"><span>Same task, both flows</span>{esc(f["task"])}</p>
+<div class="bf-row bf-before"><div class="bf-head"><h3><i>Before</i> The real assistant today</h3><a href="{esc(f["proto"][0])}" target="_blank" rel="noopener">Click through it {DIAG}<span class="sr"> (opens Figma in a new tab)</span></a></div><ol class="bf-strip" tabindex="0" aria-label="{esc(f["name"])} today, 6 steps, scrolls sideways">{bef}</ol></div>
+<div class="bf-row bf-after"><div class="bf-head"><h3><i>After</i> My redesign, same place, same task</h3><a href="{esc(f["proto"][1])}" target="_blank" rel="noopener">Click through it {DIAG}<span class="sr"> (opens Figma in a new tab)</span></a></div><ol class="bf-strip" tabindex="0" aria-label="{esc(f["name"])} redesign, 6 steps, scrolls sideways">{aft}</ol></div></div>'''
+        o.append(f'''<section class="k-sec" id="before-after">{two("Before &", "After")}<p class="k-intro">The full flow for all 4 assistants: what a shopper gets today, then the same task in my redesign. Scroll each row sideways, or click through it in Figma.</p>
+<div class="bf-tabs" role="tablist" aria-label="Retailer">{tabs}</div>{panels}
+<script>(function(){{var t=document.querySelectorAll(".bf-tab"),p=document.querySelectorAll(".bf-panel");function s(i){{t.forEach(function(b,j){{b.setAttribute("aria-selected",j===i);b.tabIndex=j===i?0:-1;p[j].hidden=j!==i}})}}t.forEach(function(b,i){{b.addEventListener("click",function(){{s(i)}});b.addEventListener("keydown",function(e){{if(e.key==="ArrowRight"||e.key==="ArrowLeft"){{var n=(i+(e.key==="ArrowRight"?1:t.length-1))%t.length;s(n);t[n].focus()}}}})}});s(0)}})();</script></section>''')
     q = QUALITY.get(cid)
     if q:
         TAGC = {"Visual": "v", "Accessibility": "a", "System": "s"}
