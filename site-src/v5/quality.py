@@ -1,117 +1,130 @@
-"""Visual design, accessibility and design system notes for each case study.
-Every line comes from the shipped screens on this site or facts already on the case pages.
-Projects without a visual design deliverable (curriculum research, Research Lens) have no entry."""
+"""Design Quality section for each case study: one real screen from the project with numbered
+highlights, the reasoning behind each, and the design system it was built on.
+Pins are (x %, y %, tag, title, why). Tags: Visual, Accessibility, System.
+Every point is visible in the shipped screen or already stated on the case page."""
+
+A = "assets/"
 
 QUALITY = {
-    "jaihind": [
-        ("Visual design", [
-            "Black and red JaiHind brand on calm, card-based layouts, so numbers and actions stand out.",
-            "One primary action, New Order, always in the header on desktop and in the center of the phone's bottom bar.",
-            "Order status uses one fixed colour set (Flagged red, Pending amber, Approved teal, Shipped purple, Delivered green, Cancelled grey) on every screen.",
-            "The same dashboard reflows from desktop to tablet to phone without changing what anything means.",
-        ]),
-        ("Accessibility", [
-            "Designed for the least sure user: big buttons, plain words and Marathi labels.",
-            "Touch steppers instead of typing quantities, and undo on key actions, so mistakes are easy to avoid and easy to fix.",
-            "Status is never shown by colour alone. Every colour sits next to a text label.",
-        ]),
-        ("Design system", [
-            "My team's own shared Figma library, built for this platform.",
-            "Covers desktop, tablet and phone, JaiHind and Mewar themes, and English and Marathi.",
-            "591+ screens built from one library.",
-        ]),
-    ],
-    "findme": [
-        ("Visual design", [
-            "One spacing scale and one solution per pattern, to stop the drift that crept in with every sprint.",
-            "Two products share the same components, so they look and behave the same.",
-        ]),
-        ("Accessibility", [
-            "Every component has its default, hover, focus, disabled and loading states designed, so keyboard users always see where they are and nothing is left for engineers to guess.",
-        ]),
-        ("Design system", [
-            "FindMe's own Figma library, which I grew to 25+ components across 2 products.",
-            "Every name follows one pattern, Button / Primary / Medium / Default, so engineers find components by the name they search for.",
-            "The library is private, so this page describes the method rather than showing it.",
-        ]),
-    ],
-    "ir2go": [
-        ("Visual design", [
-            "One accent colour, IRS navy, for actions and the active tab. Everything else stays neutral.",
-            "A label above every field, required fields marked, and one primary button per screen.",
-            "A 4-tab bar with an icon and a word on each tab: Refunds, Payments, Tax Help, More.",
-        ]),
-        ("Accessibility", [
-            "Designed to WCAG 2.1 AA, and tested with VoiceOver, the iPhone screen reader.",
-            "A Check Accessibility entry right on the refund form.",
-            "Usability score (SUS) went from 31.3 to 78.25.",
-        ]),
-        ("Design system", [
-            "Apple's Human Interface Guidelines for iPhone: tab bar, navigation, form fields and pickers.",
-            "Styled with the IRS brand colours so it still feels official.",
-        ]),
-    ],
-    "anchor": [
-        ("Visual design", [
-            "Soft blue-white background with white cards, so the AI's messages read as calm, separate blocks.",
-            "Suggested questions appear as tappable chips with icons, so people don't have to know what to type.",
-            "Inter for the interface, with clear size steps between titles, messages and chips.",
-        ]),
-        ("Accessibility", [
-            "Text contrast passes WCAG 2.1 AA on the assistant screen: messages about 17:1, chips about 10:1, input hint about 6:1.",
-            "A microphone button gives a way to ask without typing.",
-        ]),
-        ("Design system", [
-            "Our team's style guide in Figma (Inter, Helvetica).",
-            "iPhone layout from Apple's Human Interface Guidelines, with Material Design components such as the top app bar and suggestion chips.",
-        ]),
-    ],
-    "ev": [
-        ("Visual design", [
-            "One teal accent for every action, and a station photo at the top so drivers recognise where they are.",
-            "A single full-width button for the main step, like Connect to start Charging.",
-            "Save, Amenities and Information as icon tiles, each with a text label.",
-        ]),
-        ("Accessibility", [
-            "White text on the teal buttons measures about 5.2:1, which passes WCAG 2.1 AA.",
-            "Large, full-width buttons that are easy to tap at a charger.",
-        ]),
-        ("Design system", [
-            "Android with Material Design: bottom navigation, cards and full-width buttons.",
-        ]),
-    ],
-    "fitcheck": [
-        ("Visual design", [
-            "Rows that differ are highlighted, and the highlight can be turned on or off.",
-            "Missing facts read Not stated in plain text instead of being left blank or guessed.",
-            "The total with estimated tax sits in bold at the bottom, where the eye ends.",
-        ]),
-        ("Accessibility", [
-            "Text contrast on the redesigned compare screen passes WCAG 2.1 AA, including the small note under the table (about 7.5:1).",
-            "Differences are shown with a highlight and words, not colour alone.",
-        ]),
-        ("Design system", [
-            "Each retailer's own look and components: Best Buy Ask Blue, Walmart Sparky, Home Depot Magic Apron and Ask Target.",
-            "I improved the steps inside each assistant instead of reskinning them, so a team could ship the change without a redesign.",
-        ]),
-    ],
-    "magic-apron": [
-        ("Visual design", [
-            "Follows The Home Depot's orange and Magic Apron's existing layout.",
-            "A small 2 of 2 counter shows how many questions are left.",
-            "Answers are full-width options, with Skip questions, show all options offered on every question.",
-        ]),
-        ("Accessibility", [
-            "Full-width answer buttons are large tap targets.",
-            "Skipping is always possible, so the questions never block someone who already knows what they want.",
-        ]),
-        ("Design system", [
-            "The Home Depot's existing Magic Apron design, so the fix fits what the team already ships.",
-        ]),
-    ],
-    "omkar": [
-        ("Design system", [
-            "Pages built on Bootstrap's grid and components inside WordPress, with HTML, CSS, JavaScript and jQuery.",
-        ]),
-    ],
+    "jaihind": dict(
+        img=A + "jaihind/jh-13-final-dashboard.jpg", wide=True,
+        alt="JaiHind staff console dashboard on desktop with the same dashboard on a phone beside it.",
+        pins=[
+            (47.5, 6.4, "Visual", "One primary action, always in reach",
+             "New Order is the most frequent task at the counter, so it sits in the header on desktop and in the centre of the phone's bottom bar."),
+            (23, 17, "Visual", "Numbers first, on calm cards",
+             "Managers glance at the dashboard between customers. Big figures on white cards with a short label read in a second."),
+            (28, 40, "Accessibility", "Colour is never the only signal",
+             "Each order status has a fixed colour (Flagged red, Pending amber, Approved teal, Shipped purple, Delivered green, Cancelled grey), and every colour sits next to its word and percentage."),
+            (76.5, 9.5, "Visual", "Same meaning on every screen size",
+             "Staff move between the shop-floor tablet, the office desktop and their phone, so the dashboard reflows without changing what anything means."),
+            (94, 94, "Accessibility", "Big targets for busy hands",
+             "Staff work on their feet, often with a customer waiting. The bottom bar uses large, labelled targets instead of small icons."),
+        ],
+        system=("My team's own Figma library",
+                "Built for this platform: desktop, tablet and phone, JaiHind and Mewar themes, English and Marathi, with touch steppers and undo. 591+ screens came from one library."),
+    ),
+    "ir2go": dict(
+        img=A + "irs2go/irs2go-refund-status-form.png",
+        alt="Redesigned IRS2Go refund status form on an iPhone.",
+        pins=[
+            (48, 10, "Visual", "One accent colour",
+             "IRS navy marks the brand, actions and the active tab. Everything else stays neutral, so the eye goes where the task is."),
+            (27, 33, "Accessibility", "A label above every field",
+             "Labels stay visible while people type, and required fields are marked, so nobody has to remember what a box was for."),
+            (76, 44, "Visual", "Help right where the question is",
+             "The info icon next to SSN explains the format in place instead of sending people to another page."),
+            (93, 78.5, "Visual", "One primary button per screen",
+             "Get Status is the only filled button, so there is never a question about what to do next."),
+            (21, 85.2, "Accessibility", "Accessibility options on the form",
+             "A Check Accessibility entry sits right under the action. Every redesigned screen was designed to WCAG 2.1 AA and tested with VoiceOver."),
+            (22, 90.5, "System", "iOS tab bar, icon plus word",
+             "Refunds, Payments, Tax Help and More each have an icon and a label, following Apple's tab bar pattern people already know."),
+        ],
+        system=("Apple Human Interface Guidelines, in IRS colours",
+                "It's an iPhone app, so the tab bar, navigation, form fields and pickers follow Apple's guidelines. The IRS brand colours keep it feeling official. Usability score (SUS) went from 31.3 to 78.25."),
+    ),
+    "anchor": dict(
+        img=A + "moneyanchor/ai-anchor.png",
+        alt="Money Anchor AI assistant screen with suggested questions as chips and a message box with a microphone.",
+        pins=[
+            (88, 9.4, "System", "Material top app bar",
+             "Back arrow with a left-aligned title, so people always know where they are and how to get out."),
+            (92, 17.5, "Visual", "Calm, separate message blocks",
+             "White cards on a soft blue-white background keep each AI message distinct and easy to scan."),
+            (80, 40, "Visual", "Suggestions instead of a blank box",
+             "People don't know what to ask an AI about their money. Tappable chips with icons show what it can do."),
+            (79, 88, "Accessibility", "Ask without typing",
+             "The microphone button gives another way in for people who find typing hard."),
+            (93, 26, "Accessibility", "Readable contrast",
+             "Message text is about 17:1 against its background and chip text about 10:1, well past WCAG 2.1 AA."),
+        ],
+        system=("Our team's style guide, built on Apple and Material",
+                "The Figma style guide uses Inter and Helvetica. The iPhone layout follows Apple's guidelines, and components like the top app bar and suggestion chips come from Material Design."),
+    ),
+    "ev": dict(
+        img=A + "ev/ev-checkin.png", wide=True,
+        alt="Three EV charging check-in screens: nearby stations, a station with Connect to start Charging, and the plug-in step.",
+        pins=[
+            (51.5, 32, "Visual", "Show the place, not just a name",
+             "A photo of the station at the top lets drivers confirm they're at the right charger."),
+            (65.5, 61, "Accessibility", "One big button for the main step",
+             "Connect to start Charging is full width and easy to hit while standing at a charger. White on teal measures about 5.2:1."),
+            (55.5, 66.5, "Visual", "Icons always have words",
+             "Save as Favorite, Amenities and Information each pair an icon with a label, so nothing depends on guessing an icon."),
+            (61.5, 16, "System", "Built for Android",
+             "Android system bar, bottom navigation and elevated cards follow Material Design."),
+        ],
+        system=("Material Design for Android",
+                "Bottom navigation, cards and full-width buttons follow Material Design, with one teal accent used for every action."),
+    ),
+    "fitcheck": dict(
+        img=A + "fitcheck/d3-mobile-compare.webp",
+        alt="Mobile compare table in Walmart's Ask Sparky with differences highlighted and a total with estimated tax.",
+        pins=[
+            (75, 4.8, "System", "Kept Walmart's own header",
+             "Ask Sparky, the AI tag and Chat with an associate stay exactly where Walmart puts them, so it still feels like Walmart."),
+            (2.5, 21.8, "Accessibility", "Highlighting the shopper controls",
+             "Differences are highlighted only when the toggle is on, so the table can also be read plain."),
+            (96.5, 33, "Visual", "Rows that differ stand out",
+             "A soft tint marks only the rows where the two laptops differ, so the decision is visible at a glance."),
+            (96.5, 39.5, "Visual", "Say Not stated, never guess",
+             "Missing facts read Not stated in listing instead of being blank or made up."),
+            (2, 73.5, "Visual", "The real total, in bold, at the end",
+             "Total with estimated tax is where the eye lands last, so the price comparison is honest."),
+            (96.5, 79.5, "Accessibility", "Small text that still passes",
+             "The note under the table measures about 7.5:1 against white, past WCAG 2.1 AA."),
+        ],
+        system=("Each retailer's own design language",
+                "Best Buy Ask Blue, Walmart Sparky, Home Depot Magic Apron and Ask Target each keep their own look and components. I changed the steps inside, so a team could ship it without a redesign."),
+    ),
+    "magic-apron": dict(
+        img=A + "magic-apron/c2-after.webp",
+        alt="Redesigned Magic Apron asking about frame weight with full-width answer options.",
+        pins=[
+            (21, 40.8, "Visual", "Show how much is left",
+             "A 2 of 2 counter tells people the questions are almost done."),
+            (92.5, 42.5, "Visual", "One question, with a hint",
+             "Each question comes with a typical answer, like 8 to 15 lb for a 24x28 frame, so people can answer without measuring."),
+            (92, 59, "Accessibility", "Full-width answers",
+             "Each option is a large tap target across the whole screen, including Not sure."),
+            (92, 77.5, "Visual", "Always a way out",
+             "Skip questions, show all options sits under every question, so nobody is forced through the flow."),
+        ],
+        system=("The Home Depot's existing Magic Apron design",
+                "I kept Home Depot's orange, type and layout, and changed only the steps, so the fix fits what the team already ships."),
+    ),
+    "findme": dict(
+        cards=[
+            ("Visual design", ["One spacing scale and one solution per pattern, to stop the drift that crept in with every sprint.",
+                               "Two products share the same components, so they look and behave the same."]),
+            ("Accessibility", ["Default, hover, focus, disabled and loading states are designed for every component, so keyboard users always see where they are."]),
+        ],
+        system=("FindMe's own Figma library",
+                "I grew it to 25+ components across 2 products. Every name follows one pattern, Button / Primary / Medium / Default. The library is private, so this page shows the method, not the files."),
+    ),
+    "omkar": dict(
+        system=("Bootstrap",
+                "Pages were built on Bootstrap's grid and components inside WordPress, with HTML, CSS, JavaScript and jQuery."),
+    ),
 }

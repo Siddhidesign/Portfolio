@@ -425,9 +425,22 @@ def case(cid):
     sf = figs("solutions")
     o.append(f'''<section class="k-sec">{two("High-Fidelity", "Design")}<p class="k-intro">{esc(S.get("solutions_title", ""))}</p>
 {f'<div class="k-figs">{sf}</div>' if sf else ""}{hi}{art(cid, "design")}</section>''')
-    if QUALITY.get(cid):
-        qc = "".join(f'<article class="k-card k-q"><span>{k:02d}</span><h3>{esc(h)}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in it)}</ul></article>' for k, (h, it) in enumerate(QUALITY[cid], 1))
-        o.append(f'<section class="k-sec" id="design-quality">{two("Design", "Quality")}<p class="k-intro">Visual design, accessibility and the design system behind it.</p><div class="k-cards">{qc}</div></section>')
+    q = QUALITY.get(cid)
+    if q:
+        TAGC = {"Visual": "v", "Accessibility": "a", "System": "s"}
+        body = ""
+        if q.get("img"):
+            pins = q.get("pins", [])
+            dots = "".join(f'<span class="dq-pin dq-{TAGC[t]}" style="left:{x}%;top:{y}%" aria-hidden="true">{k}</span>' for k, (x, y, t, _, _) in enumerate(pins, 1))
+            notes = "".join(f'<li class="dq-{TAGC[t]}"><span class="dq-n" aria-hidden="true">{k}</span><div><em>{esc(t)}</em><h3>{esc(h)}</h3><p>{esc(w)}</p></div></li>' for k, (x, y, t, h, w) in enumerate(pins, 1))
+            body += f'<figure class="dq{" dq-wide" if q.get("wide") else ""}"><div class="dq-shot"><div class="dq-frame">{img(q["img"], q["alt"], pre)}{dots}</div></div><ol class="dq-notes" aria-label="Design decisions in this screen">{notes}</ol></figure>'
+        if q.get("cards"):
+            body += '<div class="k-cards">' + "".join(f'<article class="k-card k-q"><span>{k:02d}</span><h3>{esc(h)}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in it)}</ul></article>' for k, (h, it) in enumerate(q["cards"], 1)) + "</div>"
+        if q.get("system"):
+            nm, why = q["system"]
+            body += f'<div class="dq-sys"><span class="dq-sys-k">Design system used</span><strong>{esc(nm)}</strong><p>{esc(why)}</p></div>'
+        legend = '<ul class="dq-legend" aria-hidden="true"><li class="dq-v">Visual design</li><li class="dq-a">Accessibility</li><li class="dq-s">Design system</li></ul>' if q.get("img") else ""
+        o.append(f'<section class="k-sec" id="design-quality">{two("Design", "Quality")}<p class="k-intro">The reasoning behind the screen: visual design, accessibility and the design system it was built on.</p>{legend}{body}</section>')
     o.append(sitenav(cid, pre))
 
     # Test and results
