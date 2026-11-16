@@ -13,6 +13,7 @@ from content import SITE, HOW, TOOLS, WORDS, EXPERIENCE, PROJECTS, SIDE, CASES, 
 from story import STORY, FIGS
 from figs import render as viz, CSS as VIZ_CSS
 from artifacts import ARTIFACTS, SITENAV
+from quality import QUALITY
 SKETCHES = {
     "ir2go": ("assets/irs2go/irs2go-sketches-flow.webp", "Low-fidelity sketches of the IRS2Go refund, payment and tax help flows, redrawn for this page from the shipped screens."),
     "anchor": ("assets/moneyanchor/anchor-sketches-flow.webp", "Low-fidelity sketches of Money Anchor's budget, accounts, AI assistant, transactions, report and goals screens, redrawn for this page from the shipped screens."),
@@ -424,6 +425,9 @@ def case(cid):
     sf = figs("solutions")
     o.append(f'''<section class="k-sec">{two("High-Fidelity", "Design")}<p class="k-intro">{esc(S.get("solutions_title", ""))}</p>
 {f'<div class="k-figs">{sf}</div>' if sf else ""}{hi}{art(cid, "design")}</section>''')
+    if QUALITY.get(cid):
+        qc = "".join(f'<article class="k-card k-q"><span>{k:02d}</span><h3>{esc(h)}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in it)}</ul></article>' for k, (h, it) in enumerate(QUALITY[cid], 1))
+        o.append(f'<section class="k-sec" id="design-quality">{two("Design", "Quality")}<p class="k-intro">Visual design, accessibility and the design system behind it.</p><div class="k-cards">{qc}</div></section>')
     o.append(sitenav(cid, pre))
 
     # Test and results

@@ -3431,6 +3431,8 @@ p.sn-g{padding:12px 0}
 .k-sec p.a-src{font-size:13px}
 .k-sec:not(.k-center) .k-chips{justify-content:flex-start}
 .viz,.k-sec>*{min-width:0;max-width:100%}
+.k-card.k-q ul{margin:0;padding-left:18px;color:var(--ink2);line-height:1.6;font-size:15px}
+.k-card.k-q li+li{margin-top:8px}
 
 /* ---------- sift: reviews to a fair sample ---------- */
 .sf-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
