@@ -69,7 +69,6 @@ CASES["jaihind"] = dict(
     metrics=[("27%", "fewer employee errors"), ("35%", "faster task completion"), ("2-3 → 7-8", "supplier orders a day"), ("10-15 → 5 min", "to place one order"), ("5 → 1", "systems per order"), ("+40%", "platform adoption")],
     problem=["Every order took the same route. A customer called the store, staff wrote it in a paper book, then called the supplier, one call at a time. Each person tracked their own orders, so nobody saw the full picture. Stock in other stores, tailoring status and vouchers were just as hard to see.",
              "Staff were good at their jobs. The tools were the problem."],
-    problem_img=(A + "jaihind/jh-02-before-dashboard.jpg", "The old dashboard before the redesign."),
     research=dict(
         text="Before drawing a screen, I visited 5 of the 10 stores, and our design team covered all 10. We ran 35+ contextual inquiries and usability evaluations with associates, cashiers, tailors, managers and merchandisers, mapped every handoff, and turned what we saw into 30+ functional requirements.",
         findings=["Staff work on their feet, from phones and tablets, often with a customer waiting.", "The same order and customer were typed into more than one place, so copies didn't match.", "From the counter, nobody could see stock in other stores or where a tailoring job was.", "Most had never used a work app before, and many were more comfortable reading Marathi."],
