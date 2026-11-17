@@ -457,7 +457,7 @@ def case(cid):
             nm, why = q["system"]
             body += f'<div class="dq-sys"><span class="dq-sys-k">Design system used</span><strong>{esc(nm)}</strong><p>{esc(why)}</p></div>'
         legend = '<ul class="dq-legend" aria-hidden="true"><li class="dq-v">Visual design</li><li class="dq-a">Accessibility</li><li class="dq-s">Design system</li></ul>' if q.get("img") else ""
-        o.append(f'<section class="k-sec" id="design-quality">{two("Design", "Quality")}<p class="k-intro">The reasoning behind the screen: visual design, accessibility and the design system it was built on.</p>{legend}{body}</section>')
+        o.append(f'<section class="k-sec" id="design-quality">{two("Design", "Quality")}<p class="k-intro">The reasoning behind the screen: visual design, accessibility and the design system it was built on.{" Contrast figures are measured from the final exported screens, and the gaps are listed with the fix I'd make." if q.get("measured") else ""}</p>{legend}{body}</section>')
     o.append(sitenav(cid, pre))
 
     # Test and results
