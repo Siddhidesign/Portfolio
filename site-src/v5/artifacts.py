@@ -126,10 +126,10 @@ FC_SRC = "My screen recordings of Ask Blue, Sparky, Magic Apron and Ask Target, 
 HDMA_SRC = "My recorded session with a first-time DIYer, Oct 2026"
 ARTIFACTS["fitcheck"] = {
     "empathize": [
-        {"type": "matrix", "title": "Same task, four assistants", "src": FC_SRC, "total": "Problems found, out of 4", "rowhead": "What I saw",
-         "note": "What happened on each assistant when I gave it the same shopping task.",
+        {"type": "matrix", "title": "Four assistants, four products", "src": FC_SRC, "total": "Problems found, out of 4", "rowhead": "What I saw",
+         "note": "What happened on each assistant: a TV deal on Ask Blue and Magic Apron, a laptop on Sparky, a gift on Ask Target.",
          "cols": ["Ask Blue", "Sparky", "Magic Apron", "Ask Target"], "groups": [
-            ("Seen in my recordings", [("Deals shown before any question", [1, 1, 1, 1]), ("Specs retyped in prose", [1, 1, 1, 1]),
+            ("Seen in my recordings", [("Deals shown before any question", [1, 1, 1, 1]), ("Needs retyped in prose", [1, 1, 1, 1]),
                                        ("Ads mixed into the picks", [1, 1, 1, 1]), ("Chat lost on the product page", [1, 1, 1, 1])])]},
     ],
     "define": [

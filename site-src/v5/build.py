@@ -180,7 +180,7 @@ METHODS = {
     "ev": ["16,767 Google Maps reviews", "AI-assisted cleaning in Colab", "Studies since 2012", "5 charging apps compared"],
     "ir2go": ["150+ App Store reviews", "200+ Quora posts", "About 10 taxpayer interviews", "A survey", "Papers summarized with AI"],
     "magic-apron": ["Interview", "Screen recording", "Heuristic review"],
-    "fitcheck": ["4 assistants recorded on the same task, 24 real steps", "Heuristic review against NN/g's chatbot guidelines", "Desk research: 2025 to 2026 usability studies and shopper surveys"],
+    "fitcheck": ["4 assistants recorded, one store-fit task each, 24 real steps", "Heuristic review against NN/g's chatbot guidelines", "Desk research: 2025 to 2026 usability studies and shopper surveys"],
 }
 
 # Headline research numbers, each taken from the case's own research text or scene line.

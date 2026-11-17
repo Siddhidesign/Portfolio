@@ -171,8 +171,8 @@ STORY["research-lens"] = dict(
 )
 
 STORY["fitcheck"] = dict(
-    scene="Four assistants, the same task, the same four problems",
-    scene_sub="Each assistant showed deals before asking anything, made me retype my specs, mixed ads into the picks, and lost the chat when I opened a product page.",
+    scene="Four assistants, four products, the same four problems",
+    scene_sub="Each assistant showed deals before asking anything, made me retype what I needed, mixed ads into the picks, and lost the chat when I opened a product page.",
     goals=[("Ask first", "Three taps before any pick, so the assistant ranks by what the shopper needs."),
            ("Check, don't guess", "Every claim shows its source, or says it can't be verified."),
            ("Stay in control", "Nothing enters the cart, and nobody loses the chat, without the shopper's say.")],
@@ -316,9 +316,9 @@ FIGS["research-lens"] = dict(
 
 FIGS["fitcheck"] = dict(
     problem=[dict(kind="scenario", title="What one task looked like, before and after",
-        left=L("The four assistants today", [("Deals first", "before any question"), ("Specs typed by hand", "size, budget, must-haves"), ("Picks with ads mixed in", "no reason given"), ("Product page opens", "chat is gone"), ("Fit, stock, warranty", "checked by the shopper")], "Shopper does the checking, then double-checks"),
+        left=L("The four assistants today", [("Deals first", "before any question"), ("Needs typed by hand", "size, budget, must-haves"), ("Picks with ads mixed in", "no reason given"), ("Product page opens", "chat is gone"), ("Fit, stock, warranty", "checked by the shopper")], "Shopper does the checking, then double-checks"),
         right=L("Fit Check", [("3 taps", "use, must-haves, budget"), ("Checked picks", "ranked by fit, no ads"), ("Compare table", "Not stated, never guessed"), ("Product page", "assistant stays, bottom-left"), ("Cart check", "total with tax, your call")], "Every claim shows its source"),
-        cap="The same laptop task, recorded on Ask Blue, Sparky, Magic Apron and Ask Target in Nov 2026.")],
+        cap="Recorded on Ask Blue, Sparky, Magic Apron and Ask Target in Nov 2026: TV deals at Best Buy and Home Depot, a laptop at Walmart, a gift at Target.")],
     solutions=[dict(kind="steps", title="Twelve steps, in five groups",
         items=[("Open and ask", "One labeled launcher; three taps instead of typing"), ("Checked picks", "Each check runs in view; picks ranked by fit"), ("Compare", "Side by side, with Not stated where a listing is silent"), ("Product page", "Answers with evidence, floating where Add to cart stays clear"), ("Cart and checkout", "Add-ons asked, totals with tax, a fixed form, a person one tap away")])],
 )
