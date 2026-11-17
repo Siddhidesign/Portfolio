@@ -3478,6 +3478,7 @@ p.sn-g{padding:12px 0}
 .bf-head h3 i{font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:4px 10px;border-radius:6px}
 .bf-before h3 i{background:#c4352a}.bf-after h3 i{background:#14804a}
 .bf-head a{font:600 14px var(--display);color:#16130f}
+.bf-rec{font:500 13px var(--display);color:#5a544c}
 .bf-strip{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,420px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;list-style:none;padding:0 0 12px;margin:0}
 .bf-strip li{scroll-snap-align:start;position:relative}
 .bf-img{border-radius:10px;overflow:hidden;border:1px solid var(--line)}
