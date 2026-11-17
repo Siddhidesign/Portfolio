@@ -295,6 +295,26 @@ def sitenav(cid, pre):
             f'<p class="a-src">Source: the live menu on <a href="{n["url"]}" target="_blank" rel="noopener">jaihindretail.com<span class="sr"> (opens in a new tab)</span></a>, read November 2026.</p></section>')
 
 
+def problem_ui(u, scene):
+    """Interactive problem statement: pick a store to see the task and which of the shared problems showed up."""
+    tabs = "".join(f'<button type="button" role="tab" class="pb-tab" id="pbt-{k}" aria-controls="pbp-{k}" aria-selected="{"true" if k == 0 else "false"}"><b>{esc(st["bot"])}</b><small>{esc(st["name"])}</small></button>' for k, st in enumerate(u["stores"]))
+    panels = ""
+    for k, st in enumerate(u["stores"]):
+        rows = "".join(f'<li class="{"on" if v else "off"}"><span class="pb-dot" aria-hidden="true">{"✕" if v else "✓"}</span><b>{esc(n)}</b><span class="sr">{": seen" if v else ": not seen"}</span></li>' for (n, _), v in zip(u["problems"], st["seen"]))
+        panels += (f'<div class="pb-panel" role="tabpanel" id="pbp-{k}" aria-labelledby="pbt-{k}"{"" if k == 0 else " hidden"}>'
+                   f'<div class="pb-tasks"><div><span>Task I recorded</span><p>{esc(st["recorded"])}</p></div><span class="pb-arrow" aria-hidden="true">→</span><div class="pb-new"><span>Task the redesign carries</span><p>{esc(st["redesign"])}</p></div></div>'
+                   f'<p class="pb-k">What went wrong on {esc(st["bot"])}</p><ul class="pb-list">{rows}</ul><p class="pb-note">{esc(st["note"])}</p></div>')
+    probs = "".join(f'<li><span>{i:02d}</span><b>{esc(n)}</b><p>{esc(d)}</p></li>' for i, (n, d) in enumerate(u["problems"], 1))
+    stats = "".join(f'<div><strong>{esc(v)}</strong><span>{esc(l)}</span></div>' for v, l in u["stats"])
+    js = ('<script>(function(){var t=document.querySelectorAll(".pb-tab"),p=document.querySelectorAll(".pb-panel");'
+          'function s(i){t.forEach(function(b,j){b.setAttribute("aria-selected",j===i);b.tabIndex=j===i?0:-1;p[j].hidden=j!==i})}'
+          't.forEach(function(b,i){b.addEventListener("click",function(){s(i)});b.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var n=(i+(e.key==="ArrowRight"?1:t.length-1))%t.length;s(n);t[n].focus()}})});s(0)})();</script>')
+    return (f'<section class="k-sec pb">{two("Problem", "Statement")}<p class="k-scene">{esc(scene)}</p><p class="pb-lead">{esc(u["lead"])}</p>'
+            f'<ol class="pb-probs" aria-label="The four problems">{probs}</ol>'
+            f'<p class="pb-k">Pick an assistant</p><div class="pb-tabs" role="tablist" aria-label="Assistant">{tabs}</div>{panels}'
+            f'<p class="pb-k">Shoppers feel it too (2026 surveys)</p><div class="pb-stats">{stats}</div>{js}</section>')
+
+
 def case(cid):
     c, pre = CASES[cid], "../"
     S, F = STORY.get(cid, {}), FIGS.get(cid, {})
@@ -321,7 +341,10 @@ def case(cid):
         o.append('<nav class="pbar" aria-label="See it in Figma">' + "".join(f'<a class="pbar-{k}" href="{esc(u)}" target="_blank" rel="noopener"><span class="pbar-k">{"Clickable prototype" if k == "proto" else "Figma design file"}</span>{esc(l)} {DIAG}<span class="sr"> (opens in a new tab)</span></a>' for l, u, k in PROTOS[cid]) + '</nav>')
 
     # Problem statement / possible solution
-    o.append(f'''<section class="k-sec k-center">{two("Problem", "Statement")}
+    if c.get("problem_ui"):
+        o.append(problem_ui(c["problem_ui"], S.get("scene", "")))
+    else:
+        o.append(f'''<section class="k-sec k-center">{two("Problem", "Statement")}
 <p class="k-scene">{esc(S.get("scene", ""))}</p>{"".join(f"<p>{rich(x)}</p>" for x in c["problem"])}</section>''')
     o.append(f'<section class="k-sec k-center">{two("Possible", "Solution")}<p>{esc(c["tldr"][1][1])}</p></section>')
     if S.get("goals"):
