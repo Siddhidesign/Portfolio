@@ -3123,8 +3123,8 @@ footer .foot-note{color:#c9c6bd;max-width:560px;margin:46px 0 40px;line-height:1
 .case-next strong{max-width:20ch;display:block}
 
 /* case pages: cube-face section map (fills as you read, each sticker jumps to its section) */
-.readface{position:fixed;right:22px;bottom:22px;z-index:45;display:grid;grid-template-columns:repeat(var(--n,3),14px);gap:4px;padding:9px;background:var(--ink);box-shadow:0 6px 20px #00000030;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
-.readface a{position:relative;width:14px;height:14px;border-radius:2px;background:#3d3c37;transition:background .25s,transform .2s}
+.readface{position:fixed;right:22px;bottom:22px;z-index:45;display:grid;grid-template-columns:repeat(var(--n,3),20px);gap:4px;padding:10px;background:var(--ink);box-shadow:0 6px 20px #00000030;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.readface a{position:relative;width:20px;height:20px;border-radius:2px;background:#3d3c37;transition:background .25s,transform .2s}
 .readface a.on{background:var(--face,var(--blue))}
 .readface a[aria-current]{outline:2px solid #fff;outline-offset:1px}
 .readface a:hover,.readface a:focus-visible{transform:scale(1.25)}
@@ -3433,7 +3433,7 @@ p.sn-g{padding:12px 0}
 .viz,.k-sec>*{min-width:0;max-width:100%}
 .k-card.k-q ul{margin:0;padding-left:18px;color:var(--ink2);line-height:1.6;font-size:15px}
 .k-card.k-q li+li{margin-top:8px}
-#design-quality{--dv:#4f7bf3;--da:#21b36b;--ds:#ef4f3e}
+#design-quality{--dv:#4f7bf3;--da:#21b36b;--ds:#c8372a}
 .dq-legend{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0 0 28px}
 .dq-legend li{display:flex;align-items:center;gap:8px;font:600 13px var(--display);padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line)}
 .dq-legend li::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--c)}

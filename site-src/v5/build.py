@@ -451,6 +451,8 @@ def case(cid):
             body += f'<figure class="dq{" dq-wide" if q.get("wide") else ""}"><div class="dq-shot"><div class="dq-frame">{img(q["img"], q["alt"], pre)}{dots}</div></div><ol class="dq-notes" aria-label="Design decisions in this screen">{notes}</ol></figure>'
         if q.get("cards"):
             body += '<div class="k-cards">' + "".join(f'<article class="k-card k-q"><span>{k:02d}</span><h3>{esc(h)}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in it)}</ul></article>' for k, (h, it) in enumerate(q["cards"], 1)) + "</div>"
+        if q.get("gallery"):
+            body += '<div class="dq-gallery">' + "".join(f'<figure class="fig">{img(src, alt, pre)}<figcaption>{esc(cap)}</figcaption></figure>' for src, alt, cap in q["gallery"]) + "</div>"
         if q.get("system"):
             nm, why = q["system"]
             body += f'<div class="dq-sys"><span class="dq-sys-k">Design system used</span><strong>{esc(nm)}</strong><p>{esc(why)}</p></div>'
