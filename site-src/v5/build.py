@@ -105,13 +105,15 @@ def project(cid, n, pre=""):
 <h3><a href="{pre}work/{cid}.html">{esc(c["card"])}</a></h3><p class="pc-role">{esc(who)}</p><p>{esc(c["line"])}</p>
 <div class="project-foot"><a href="{pre}work/{cid}.html" aria-hidden="true" tabindex="-1">View case study {DIAG}</a>{big}</div></div></article>'''
 
-def home():
+def home(research=False):
     pre = ""
-    o = [head(f'{SITE["name"]} · {SITE["role"]}', SITE["lede"], pre, "home"), '<main id="main" tabindex="-1">', nav(pre)]
+    ROLE = "UX Researcher" if research else SITE["role"]
+    LEDE = ("I plan and run studies, organize the evidence so the team can reuse it, and turn findings into clear next steps. I also build AI research workflows with MCPs and APIs." if research else SITE["lede"])
+    o = [head(f'{SITE["name"]} · {ROLE}', LEDE, pre, "home"), '<main id="main" tabindex="-1">', nav(pre)]
     o.append(f'''<section class="hero" id="top"><div class="hero-copy">
-<p class="eyebrow"><span></span> {esc(SITE["role"])} · Open to US roles</p>
-<h1>{rich(SITE["title"])}</h1>
-<p class="hero-intro">{esc(SITE["lede"])}</p>
+<p class="eyebrow"><span></span> {esc(ROLE)} · Open to US roles</p>
+<h1>{rich("Research that keeps teams *moving*." if research else SITE["title"])}</h1>
+<p class="hero-intro">{esc(LEDE)}</p>
 <p class="hero-now"><b><i aria-hidden="true"></i>Now</b> Until now I made workflows easier for people. Today I work on how AI interacts with people: how an assistant shows its sources and leaves people in control. First up is <a href="work/research-lens.html">Research Lens</a>.</p>
 <a class="text-link" href="#work">See my work {ARROW}</a></div>
 {CUBE}
@@ -119,11 +121,13 @@ def home():
     o.append(f'''<section class="statement" id="about"><p class="section-kicker">What I do</p>
 <h2>Complexity doesn’t scare me.<br><span>It gives me something to solve.</span></h2>
 <div class="statement-grid"><p>{rich(SITE["story"])}</p>
-<div class="capabilities"><span>01</span><p>UX research</p><span>02</span><p>B2B workflow design</p><span>03</span><p>AI-assisted analysis</p><span>04</span><p>Front-end build</p></div></div></section>''')
+{CAPS_R if research else '<div class="capabilities"><span>01</span><p>UX research</p><span>02</span><p>B2B workflow design</p><span>03</span><p>AI-assisted analysis</p><span>04</span><p>Front-end build</p></div>'}</div></section>''')
+    if research: o.append(research_blocks())
     yrs = lambda ids: sorted({y for i in ids for y in re.findall(r"20\d\d", CASES[i].get("dates") or CASES[i]["year"])})
-    fy = yrs(FEATURED)
+    FEAT = FEATURED_R if research else FEATURED
+    fy = yrs(FEAT)
     o.append(f'<section class="work" id="work"><div class="section-heading" id="projects"><h2 class="section-kicker">Work</h2><span>{fy[0]} to {fy[-1]}</span></div>')
-    o += [project(cid, k) for k, cid in enumerate(FEATURED, 1)]
+    o += [project(cid, k) for k, cid in enumerate(FEAT, 1)]
     side = "".join(f'''<li><a href="work/{cid}.html" style="--a:{ACCENT[cid]}"><span class="sp-k">{esc(CASES[cid]["kind"])} · {esc(CASES[cid]["year"])}</span>
 <strong>{esc(CASES[cid]["card"])}</strong><span class="sp-l">{esc(CASES[cid]["line"])}</span><em>Read it {DIAG}</em></a></li>''' for cid in SIDE)
     o.append(f'<div class="section-heading sh2"><h2 class="section-kicker">Side projects</h2><span>Self-initiated</span></div><ul class="side-list">{side}</ul></section>')
@@ -136,6 +140,22 @@ def home():
 <div class="process-grid">{cards}</div></section>''')
     o.append("</main>" + big_footer(pre) + tail(pre))
     return "\n".join(o)
+
+# ---- Research-first homepage (research.html). Every fact below is already on a case page or the resume. ----
+FEATURED_R = ["canvas", "ev", "anchor", "ir2go", "jaihind", "fitcheck", "findme", "omkar"]
+CAPS_R = '<div class="capabilities"><span>01</span><p>Study coordination</p><span>02</span><p>Qual and quant synthesis</p><span>03</span><p>AI research workflows</p><span>04</span><p>Clear, reusable reporting</p></div>'
+KEEP = [
+ ("Study coordination", "Worked inside IRB-approved studies: protocol HUM00280873 for Money Anchor, with 24 participants across 2 rounds, and a team outpatient anxiety study with written consent, interviews and a Google Forms diary study."),
+ ("Evidence review and synthesis", "50+ papers and industry reports reviewed with UM-GPT, feedback from 43 students mapped on Figma affinity boards, findings tagged in Dovetail at FindMe, and reusable research templates and guides I created there."),
+ ("Qualitative and quantitative", "16,767 Google Maps reviews cleaned in Python on Google Colab, 804 lines of interview transcript scored with VADER sentiment, and SUS scores tracked from 31.3 to 78.25 on IRS2Go."),
+ ("AI research workflows", "Synthesized findings through an MCP with UM-GPT, and built Research Lens, an MCP server with 15 tools that lets an AI assistant answer from research data with citations."),
+]
+def research_blocks():
+    cards = "".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(t)}</h3><p>{esc(d)}</p></article>' for k, (t, d) in enumerate(KEEP, 1))
+    rows = "".join(f'<tr><th scope="row"><a href="work/{c}.html">{esc(CASES[c]["org"])}</a><small>{esc(CASES[c]["kind"])}</small></th><td>{"".join(f"<span class=rm>{esc(m)}</span>" for m in METHODS.get(c, []))}</td><td>{esc(OBS[c][0][0]) + " " + esc(OBS[c][0][1]) if OBS.get(c) else ""}</td></tr>' for c in FEATURED_R if METHODS.get(c))
+    return f'''<section class="rsec"><p class="section-kicker">How I keep research moving</p><h2>Organized evidence.<br><span>Clear next steps.</span></h2>
+<div class="k-cards">{cards}</div>
+<h3 class="rsub">Research at a glance</h3><div class="a-scroll" tabindex="0" role="region" aria-label="Research methods by project"><table class="rtable"><thead><tr><th scope="col">Project</th><th scope="col">Methods</th><th scope="col">Scale</th></tr></thead><tbody>{rows}</tbody></table></div></section>'''
 
 def about():
     pre = ""
@@ -520,6 +540,7 @@ def case(cid):
 def main():
     OUT.mkdir(parents=True, exist_ok=True); (OUT / "work").mkdir(exist_ok=True)
     (OUT / "index.html").write_text(home())
+    (OUT / "research.html").write_text(home(research=True))
     (OUT / "about.html").write_text(about())
     for cid in ORDER: (OUT / "work" / f"{cid}.html").write_text(case(cid))
     (OUT / "site.css").write_text(CSS); (OUT / "motion.js").write_text(JS)
