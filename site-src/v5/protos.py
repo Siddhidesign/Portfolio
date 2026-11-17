@@ -6,6 +6,9 @@ def fc(node): return FC.format(n=node.replace(":", "-"), s=node.replace(":", "%3
 
 PROTOS = {
     "ir2go": [("Try the clickable prototype", "https://www.figma.com/proto/RHTthzwRZGf3j0rqaM6Hbh/IRS2GO--REDESIGN?page-id=0%3A1&node-id=1-1564&starting-point-node-id=1%3A1299", "proto")],
+    "shopping-canvas": [("Click through the web prototype", "https://www.figma.com/proto/DEA1HY6HwZyEMntHgdSm7V/Verified-Hybrid-Shopping-Canvas?node-id=85-2&starting-point-node-id=85%3A2&page-id=193%3A2&scaling=scale-down", "proto"),
+                        ("Click through the mobile prototype", "https://www.figma.com/proto/DEA1HY6HwZyEMntHgdSm7V/Verified-Hybrid-Shopping-Canvas?node-id=121-2&starting-point-node-id=121%3A2&page-id=193%3A39&scaling=scale-down", "proto"),
+                        ("Open the key screens in Figma", "https://www.figma.com/design/DEA1HY6HwZyEMntHgdSm7V?node-id=50-2", "file")],
     "fitcheck": [("Click through the redesign (Walmart)", fc("51:414"), "proto"),
                  ("Click through today's Sparky", fc("51:371"), "proto")],
     "jaihind": [("Open all 34 flows in Figma", "https://www.figma.com/design/jkcD5ZIdXz9MUkG3va5sIo/Untitled?node-id=190-2", "file")],

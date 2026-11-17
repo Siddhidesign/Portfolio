@@ -30,7 +30,7 @@ used = set()
 
 RED, BLUE, YELLOW, GREEN = "#ef4f3e", "#4f7bf3", "#ffc92a", "#21b36b"
 ACCENT = {"canvas": BLUE, "findme": RED, "jaihind": GREEN, "omkar": YELLOW, "anchor": RED,
-          "ev": GREEN, "ir2go": BLUE, "research-lens": YELLOW, "magic-apron": RED, "fitcheck": BLUE}
+          "ev": GREEN, "ir2go": BLUE, "research-lens": YELLOW, "magic-apron": RED, "fitcheck": BLUE, "shopping-canvas": BLUE}
 
 def esc(s): return html.escape(str(s), quote=True)
 def rich(s):
@@ -171,6 +171,7 @@ AUDIENCE = {
     "research-lens": ["UX researchers using AI to make sense of interviews"],
     "magic-apron": ["Shoppers asking a store's AI assistant for help"],
     "fitcheck": ["Shoppers using a retailer's AI assistant to choose between products", "Store associates who take the handoff"],
+    "shopping-canvas": ["Shoppers comparing electronics with a retailer's AI assistant", "Geek Squad specialists who take the handoff"],
 }
 METHODS = {
     "canvas": ["50+ papers and reports, read with UM-GPT", "Feedback from 43 students", "8 presentations, 2 cohorts"],
@@ -180,6 +181,7 @@ METHODS = {
     "ev": ["16,767 Google Maps reviews", "AI-assisted cleaning in Colab", "Studies since 2012", "5 charging apps compared"],
     "ir2go": ["150+ App Store reviews", "200+ Quora posts", "About 10 taxpayer interviews", "A survey", "Papers summarized with AI"],
     "magic-apron": ["Interview", "Screen recording", "Heuristic review"],
+    "shopping-canvas": ["NN/g 2025 to 2026 retail bot studies", "Baymard comparison and checkout research", "2026 shopper trust surveys", "Visual audit of chat assistants"],
     "fitcheck": ["4 assistants recorded on the same task, 24 real steps", "Heuristic review against NN/g's chatbot guidelines", "Desk research: 2025 to 2026 usability studies and shopper surveys"],
 }
 
@@ -191,6 +193,7 @@ OBS = {
     "anchor": [("40+", "research papers analyzed with AI"), ("10", "budgeting apps benchmarked"), ("24", "people in interviews and focus groups")],
     "ev": [("16,767", "Google Maps reviews collected"), ("4.26", "Tesla's average rating, the highest"), ("5", "charging apps compared")],
     "ir2go": [("2.8", "App Store star rating"), ("45%", "of people quit before finishing a task"), ("None", "of the screens met WCAG 2.1 AA")],
+    "shopping-canvas": [("54%", "of AI shoppers double-check everything (FutureFox, 2026)"), ("62%", "say AI output wasted their time (FutureFox, 2026)"), ("11%", "at most would let AI make the purchase (Gartner, Jan 2026)")],
     "fitcheck": [("54%", "of AI shoppers double-check everything it says (2026 survey)"), ("78%", "assume brands pay their way into AI picks (2026 survey)"), ("11%", "at most would let AI make the purchase (Gartner, Jan 2026)")],
 }
 
@@ -428,6 +431,19 @@ def case(cid):
     sf = figs("solutions")
     o.append(f'''<section class="k-sec">{two("High-Fidelity", "Design")}<p class="k-intro">{esc(S.get("solutions_title", ""))}</p>
 {f'<div class="k-figs">{sf}</div>' if sf else ""}{hi}{art(cid, "design")}</section>''')
+    if cid == "shopping-canvas":
+        A2 = "assets/shopping-canvas/"
+        rules = [("Size", "One type scale: 56, 24, 20, 16, 14, 13 and 12 px. The all-in total and the page title are the largest text in their areas; nothing drops under 12 px."),
+                 ("Color roles", "Yellow is only for the purchase action. Blue is for the assistant, links and secondary actions. Green and amber are reserved for verified and can't-verify states."),
+                 ("Spacing", "One scale: 4, 8, 12, 16, 20, 24, 32, 48 px. 16 px inside a group, 24 to 32 px between groups, so related items read as one unit."),
+                 ("Reading order", "Status first, evidence second, action last. Every card starts with an icon and a bold line, and every review ends with one button.")]
+        rl = "".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></article>' for k, (a, b) in enumerate(rules, 1))
+        o.append(f'''<section class="k-sec" id="visual-hierarchy">{two("Visual", "Hierarchy")}<p class="k-intro">The squint test: blur the screen and the order should still hold</p>
+<p>Blurred, the review screen still reads in the intended order: the yellow Add to cart first, the blue Start chat second, then the card headings. In grayscale, the states still separate because each one carries words and an icon, not color alone.</p>
+<div class="vh-trio" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin:24px 0 8px">{"".join(f'<figure style="margin:0">{img(A2 + f, alt, pre)}<figcaption class="k-cap" style="margin-top:10px">{cap}</figcaption></figure>' for f, alt, cap in [("d5-review-before-adding.webp", "The review screen at full detail.", "Full detail"), ("squint-blur.webp", "The same screen blurred: the yellow button, then the blue button, then the headings still stand out.", "Blurred: the yellow action still leads"), ("squint-gray.webp", "The same screen in grayscale: badges, totals and buttons still separate.", "Grayscale: meaning does not depend on color")])}</div>
+<h3 class="k-h"><span></span>How the hierarchy is set</h3><div class="k-cards">{rl}</div>
+<h3 class="k-h"><span></span>The system behind it</h3>{figure(A2 + "design-system.webp", "Design system sheet: color tokens, type scale, spacing scale, components and states, and a table of computed contrast ratios that all pass WCAG AA.", pre)}
+<h3 class="k-h"><span></span>The same system on mobile</h3>{figure(A2 + "mobile-flow-compare.webp", "Six mobile screens of the comparison task: ask, compare, hide matching rows, save and share, partner view, decide. Pink rings mark the next tap; white pills are scroll cues.", pre)}</section>''')
     if cid == "fitcheck":
         tabs = "".join(f'<button type="button" role="tab" class="bf-tab" id="bft-{f["key"]}" aria-controls="bfp-{f["key"]}" aria-selected="{"true" if i == 0 else "false"}">{esc(f["name"])}</button>' for i, f in enumerate(FLOWS))
         panels = ""
@@ -492,11 +508,39 @@ def case(cid):
     o.append("</main>" + case_footer(pre) + tail(pre))
     return "\n".join(o)
 
+def bestbuy():
+    """Unlisted page for Best Buy's Associate Experience Designer application. Not linked from the home page."""
+    pre = "../"
+    c = CASES["shopping-canvas"]; P = PROTOS["shopping-canvas"]
+    rows = [("Visual design and accessibility", "One type scale (12 to 56 px), one spacing scale (4 to 48 px) and strict color roles. All 12 color pairs checked by script against WCAG AA; status shown with words and icons, never color alone; a visible keyboard focus ring.", "shopping-canvas.html#visual-hierarchy", "Visual hierarchy"),
+            ("Established patterns, evolving the system", "Kept the blue header, navigation and yellow purchase button. Added a context bar, verification badges, a review card and a proof receipt as documented components with tokens.", "shopping-canvas.html#design-quality", "Design quality"),
+            ("Prototypes and user flows", "Six end-to-end shopper tasks, each 6 steps, on web, tablet and mobile: 108 screens, wired as clickable Figma prototypes.", P[0][1], "Web prototype"),
+            ("Small interaction components", "Tap-to-answer pills, verified and can't-verify badges, a docked assistant, scroll cues, and a review card with nothing pre-selected, all fitted into existing product and checkout pages.", "shopping-canvas.html", "Case study"),
+            ("Edge cases and follow-up", "Designed the can't-verify, conflicting-source, over-the-limit and sold-out-while-staged states, plus what to measure after launch: task completion, control use versus typing, mismatches caught, and AI overrides.", "shopping-canvas.html", "Case study")]
+    tr = "".join(f'<tr><th scope="row">{esc(a)}</th><td>{esc(b)}</td><td><a href="{esc(u)}"{" target=_blank rel=noopener" if u.startswith("http") else ""}>{esc(l)} {DIAG}</a></td></tr>' for a, b, u, l in rows)
+    o = [head(f'For Best Buy · {SITE["name"]}', "A retail AI shopping assistant concept, shaped around the visual design side of Best Buy's Associate Experience Designer role.", pre, "case k-case", BLUE).replace("<meta name=\"description\"", '<meta name="robots" content="noindex"><meta name="description"', 1),
+         '<main id="main" tabindex="-1" class="case-page">', nav(pre, ("../index.html#projects", "All work"))]
+    o.append(f'''<header class="k-cover"><div class="k-arcs" aria-hidden="true"></div><div class="k-cover-copy">
+<p class="k-pill">For Best Buy · Associate Experience Designer</p><h1>Built for the <em>visual side</em> of the role</h1>
+<p class="k-lede">After our conversation, I took the role's emphasis on visual design and built a retail AI shopping assistant inside Best Buy's page patterns: seven key screens, a small design system and six clickable flows on web, tablet and mobile.</p>
+<p class="small">Self-initiated concept. Not affiliated with Best Buy, and it uses no internal information: product specs are public, store and inventory data are simulated.</p></div>
+<div class="k-cover-pic">{device(c["cover"], c["cover_alt"], pre, False, "k-hero-dev")}</div></header>''')
+    o.append('<nav class="pbar" aria-label="See it">' + f'<a class="pbar-file" href="shopping-canvas.html"><span class="pbar-k">Case study</span>Read the full case study {DIAG}</a>' + "".join(f'<a class="pbar-{k}" href="{esc(u)}" target="_blank" rel="noopener"><span class="pbar-k">{"Clickable prototype" if k == "proto" else "Figma design file"}</span>{esc(l)} {DIAG}<span class="sr"> (opens Figma in a new tab)</span></a>' for l, u, k in P) + "</nav>")
+    o.append(f'''<section class="k-sec">{two("What the role asks,", "what I did")}<p class="k-intro">Each area of the posting, matched to the work and where to see it</p>
+<style>.bb-map{{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:14px;overflow:hidden;margin-top:20px;font-size:15px;line-height:24px}}.bb-map th,.bb-map td{{text-align:left;vertical-align:top;padding:18px 20px;border-bottom:1px solid rgba(0,0,0,.08)}}.bb-map tr:last-child th,.bb-map tr:last-child td{{border-bottom:0}}.bb-map thead th{{font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:#f1efe8}}.bb-map tbody th{{width:24%;font-weight:600}}.bb-map td:last-child{{width:16%;white-space:nowrap}}@media (max-width:700px){{.bb-map td:last-child{{white-space:normal}}}}</style><table class="bb-map"><thead><tr><th scope="col">From the posting</th><th scope="col">What I did</th><th scope="col">See it</th></tr></thead><tbody>{tr}</tbody></table></section>''')
+    o.append(f'''<section class="k-sec">{two("The squint", "test")}<p>Blurred, the review screen still reads in the intended order: the yellow purchase button first, the blue Start chat second, then the card headings.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:16px">{"".join(f'<figure style="margin:0">{img("assets/shopping-canvas/" + f, alt, pre)}<figcaption class="k-cap" style="margin-top:10px">{cap}</figcaption></figure>' for f, alt, cap in [("d5-review-before-adding.webp", "The review screen at full detail.", "Full detail"), ("squint-blur.webp", "The review screen blurred; the yellow button still leads.", "Blurred"), ("squint-gray.webp", "The review screen in grayscale; states still separate.", "Grayscale")])}</div></section>''')
+    o.append(f'''<section class="k-thanks"><div class="k-thanks-cube" aria-hidden="true">{mini()}</div><h2>Thank you for your time :)</h2>
+<p>I'd love to walk you through it. <a href="mailto:{SITE["email"]}">{esc(SITE["email"])}</a></p></section>''')
+    o.append("</main>" + case_footer(pre) + tail(pre))
+    return "\n".join(o)
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True); (OUT / "work").mkdir(exist_ok=True)
     (OUT / "index.html").write_text(home())
     (OUT / "about.html").write_text(about())
     for cid in ORDER: (OUT / "work" / f"{cid}.html").write_text(case(cid))
+    (OUT / "work" / "for-best-buy.html").write_text(bestbuy())
     (OUT / "site.css").write_text(CSS); (OUT / "motion.js").write_text(JS)
     for src in used | {"assets/favicon.svg"}:
         d = OUT / src
