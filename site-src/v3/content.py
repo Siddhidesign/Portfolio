@@ -48,10 +48,10 @@ WORDS = [
 
 # Home page order: work experience first (newest first), then academic projects, then side projects.
 EXPERIENCE = ["canvas", "findme", "jaihind", "omkar"]
-PROJECTS = ["shopping-canvas", "anchor", "ev", "ir2go"]
+PROJECTS = ["fitcheck", "anchor", "ev", "ir2go"]
 SIDE = ["research-lens", "magic-apron"]
-# Home page order, set by Siddhi (Nov 2026): the retail AI shopping assistant first, then the rest.
-FEATURED = ["shopping-canvas", "findme", "jaihind", "ir2go", "anchor", "canvas", "omkar", "ev"]
+# Home page order, set by Siddhi (Nov 2026): the Fit Check redesign first, then the rest.
+FEATURED = ["fitcheck", "findme", "jaihind", "ir2go", "anchor", "canvas", "omkar", "ev"]
 
 CASES = {}
 
@@ -336,42 +336,6 @@ CASES["fitcheck"] = dict(
     ],
     rejected=[("Replacing each assistant with a new one", "Shoppers already know where the button is. I kept each assistant's entry point, name and look and changed only what happens inside each step."),
               ("Adding to the cart from inside the chat", "It hid the price breakdown and the add-ons. The assistant now guides to the product page and stages the add, so the shopper sees the total before anything moves.")],
-    results=None, next=[], links=[],
-)
-
-CASES["shopping-canvas"] = dict(
-    org="Concept", year="2026", kind="AI shopping assistant · Visual design",
-    card="A retail AI assistant you can check at a glance", line="A retail AI assistant designed inside Best Buy's own page patterns, where visual hierarchy makes the purchase action, the proof and the uncertainty readable in one look.",
-    tags=["Visual design", "AI assistant", "Concept"], cover=A + "shopping-canvas/d2-tap-to-answer.webp", cover_alt="Best Buy-style product page for the Sonos Arc Ultra with the assistant panel open: what it can see, tap-to-answer questions and a Check compatibility button.",
-    title="Retail AI you can *check at a glance*",
-    meta=[("Role", "UX and visual designer, solo"), ("Time", "Nov 2026"), ("Methods", "Desk research, visual audit, design system, prototyping"), ("Status", "Concept")],
-    tldr=[("Problem", "Retail AI assistants hide their reasoning inside a chat bubble, so shoppers double-check everything, and the screens give no visual cue for what is verified, what is a guess, and what still needs their decision."),
-          ("What I did", "Designed five assistant modules inside Best Buy's existing page patterns, set the visual hierarchy with one type scale, one spacing scale and strict color roles, documented them as a small design system with computed contrast, and prototyped six end-to-end tasks on web, tablet and mobile."),
-          ("Result", "7 key screens, a design system sheet and 108 flow screens with clickable prototypes. Concept, not tested with shoppers yet. Not affiliated with Best Buy.")],
-    metrics=[("7", "key screens at 1440 × 1024"), ("108", "flow screens across web, tablet and mobile"), ("12 of 12", "color pairs pass WCAG AA, computed")],
-    problem=["Retailers have moved their AI assistants into the shopping journey, but most still answer inside a narrow chat bubble. Nielsen Norman Group's 2025 to 2026 studies of live retail bots found shoppers missing the entry point, getting pulled from search into chat, losing the assistant at checkout and retyping follow-ups that were shown as plain text.",
-             "Shoppers feel the cost. In a 2026 industry synthesis by FutureFox, 54% of recent AI shoppers said they double-check everything the tools tell them and 62% said it wasted their time. Nearly half of US shoppers who bought on an AI recommendation returned the item (Blue Yonder, 2026), and 75% would shop less after a bad AI pick (Synchrony and Oxford Economics). The visual problem underneath: nothing on screen separates a verified fact from a guess."],
-    research=dict(text="Desk research only: Nielsen Norman Group's 2025 to 2026 usability studies of retail and consumer bots (Amazon, Home Depot, Williams Sonoma, Redfin), Baymard Institute's comparison and checkout research, HCI studies comparing chat and graphical interfaces, and 2026 shopper surveys (FutureFox, Gartner, Blue Yonder, Synchrony). Then a visual audit of how chat assistants show certainty, priority and next steps.",
-                  findings=["Chat flattens hierarchy. Every answer arrives as the same gray bubble, so a verified spec and a guess look identical.",
-                            "Comparison needs a grid. Baymard found people can't compare spec-heavy products unless attributes sit side by side; chat stacks them.",
-                            "The primary action gets lost. Assistants and pages competed for attention, and the assistant often vanished at checkout, where 70.19% of carts are abandoned (Baymard).",
-                            "Control matters more than speed. 72% are comfortable with AI help if they keep the final decision, and at most 11% would let AI buy for them (Gartner, Jan 2026)."]),
-    decisions=[
-        dict(title="One entry point, labeled in plain words", img=(A + "shopping-canvas/d1-search-stays-search.webp", "Search suggestions open the normal results grid; the assistant has its own labeled row, and one Shopping Assistant button sits bottom-right."),
-             why="NN/g saw shoppers miss a mascot-named assistant and get pulled into chat from search. The assistant gets its own row and one button in the same spot, styled as secondary so it never competes with Add to Cart.", result="Built, not tested"),
-        dict(title="Tap-to-answer controls instead of paragraphs", img=(A + "shopping-canvas/d2-tap-to-answer.webp", "The assistant panel shows what it can see, then pills for the TV port and Blu-ray question, with keyboard focus visible on Not sure."),
-             why="Only missing facts become controls, grouped with uppercase labels and 16 px gaps so each question reads as one unit. Selected pills use weight and a 2 px border, not color alone.", result="Built, not tested"),
-        dict(title="A comparison table, not a transcript", img=(A + "shopping-canvas/d3-comparison.webp", "Split view: chat on the left, a three-column spec table on the right with rows that differ tinted and labeled Differs."),
-             why="Real specs for Sonos Arc Ultra, Bose Smart Ultra and Samsung HW-Q990F sit side by side. Rows that differ get a tint and a text tag, so the difference survives grayscale and color blindness.", result="Built, not tested"),
-        dict(title="Verified, can't-verify and stock as visual states", img=(A + "shopping-canvas/d4-proof-uncertainty.webp", "A green verified card, an amber can't-verify card with the missing fact, a stock card with minutes since check, and a proof receipt."),
-             why="Green and amber cards share one layout so the eye compares them; each starts with an icon and a bold status line. The receipt uses a two-column list so sources scan like a table.", result="Built, not tested"),
-        dict(title="One yellow button per screen", img=(A + "shopping-canvas/d5-review-before-adding.webp", "Review before adding: line items with checkboxes, an all-in total, a spending limit and one yellow Add 1 item to cart button; a specialist handoff card on the right."),
-             why="Yellow is reserved for the purchase action, blue for assistant and secondary actions. Add-ons start unchecked and the all-in total is the largest number in the card.", result="Built, not tested"),
-        dict(title="Help stays, the form stays fixed", img=(A + "shopping-canvas/d6-checkout-docked.webp", "Checkout with a fixed pickup and payment form, an order summary and the assistant docked bottom-right with re-checked stock."),
-             why="Baymard ties abandonment to surprise costs and unclear delivery. The docked assistant answers those questions, while payment stays a predictable, non-generative form it cannot touch.", result="Built, not tested"),
-    ],
-    rejected=[("Using Best Buy's logo and live data", "I kept Best Buy's layout patterns, blue header and yellow purchase button, but used a neutral wordmark, real product specs and clearly labeled simulated inventory."),
-              ("A floating arrow on every screen", "Arrows everywhere became noise. Scroll cues appear only where content really continues; next-tap rings are case-study annotations, shown in a different style.")],
     results=None, next=[], links=[],
 )
 

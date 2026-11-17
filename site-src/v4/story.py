@@ -202,40 +202,6 @@ STORY["fitcheck"] = dict(
             ("A small pilot", "6 to 8 weeks on a slice of desktop traffic, measuring chat sessions that end in an order and returns marked not as expected, with wrong claims as a hard stop.")],
 )
 
-STORY["shopping-canvas"] = dict(
-    scene="A verified fact and a guess looked exactly the same",
-    scene_sub="Chat assistants put every answer in the same bubble, so nothing on screen told a shopper what was checked, what was guessed and what to do next.",
-    goals=[("Make priority visible", "One clear first action per screen, set by size, color role and position, so the squint test still shows it."),
-           ("Make certainty visible", "Verified, can't-verify and stock freshness each get a distinct, consistent visual state with words, not color alone."),
-           ("Fit the existing system", "Extend Best Buy's page patterns with a few documented components instead of inventing a new look.")],
-    solutions_title="Six key screens, each with one job",
-    solutions=[("One entry point, labeled in plain words", "Search stays search. The assistant has its own labeled row and one bottom-right button, styled as secondary so it never outranks Add to Cart."),
-               ("Tap-to-answer controls instead of paragraphs", "Only missing facts become pills and selectors, grouped under small uppercase labels with 16 px between groups. The TV is prefilled and labeled with its source."),
-               ("A comparison table, not a transcript", "The panel opens into a split view. Rows that differ are tinted and tagged Differs in text, and a count of sponsored placements sits beside the title."),
-               ("Verified, can't-verify and stock as visual states", "Green and amber cards share one layout with an icon, a bold status line and the evidence. A proof receipt lists claim, sources, time checked and what isn't covered."),
-               ("One yellow button per screen", "Yellow means buy, blue means assistant or secondary. Add-ons start unchecked, the all-in total is the biggest number, and the spending limit sits just above the button."),
-               ("Help stays, the form stays fixed", "The assistant docks at checkout to answer tax and stock questions. Payment is a standard form the assistant cannot see or fill.")],
-    research_title="What the published research agreed on",
-    insight=("Chat flattens hierarchy", "Every chat answer looks the same, so the shopper has to read everything to find what matters. The fix was visual before it was technical: give priority and certainty their own consistent look."),
-    flow_before=[("Open the chat", "A mascot name, a sparkle icon, sometimes top-left.", "Hard to find"), ("Type the question", "Follow-ups shown as text, retyped by hand.", "Typing burden"),
-                 ("Read a long answer", "Specs stacked in one bubble.", "No hierarchy"), ("Check it elsewhere", "No sign of what was verified.", "Double-checking"),
-                 ("Reach checkout", "The assistant disappears.", "Help vanishes")],
-    flow_before_foot="Patterns reported by NN/g and Baymard, 2025 to 2026",
-    flow_after=[("Open", "One labeled button, same place on every page.", "Found"), ("Tap answers", "Pills and selectors, prefilled where known.", "No retyping"),
-                ("Compare", "A side-by-side table, differences tagged.", "Scannable"), ("Verify", "Green, amber and timestamped stock states.", "Trust"),
-                ("Review and buy", "One yellow button, all-in total, help docked.", "Your call")],
-    flow_after_foot="Built on web, tablet and mobile",
-    twist=("My first screens looked finished. They were crowded and the data was invented.", "Text was packed into cards with no breathing room, some type ran under 12 px, a placeholder logo made it look unfinished, and the products were fictional. I rebuilt every key screen on one type scale (12 to 56 px) and one spacing scale (4 to 48 px), checked every color pair by script, swapped in real product specs, and replaced the placeholder with a neutral wordmark."),
-    outcome_title="A concept, reviewed but not tested",
-    outcome_sub="Every color pair was checked by script and every screen was reviewed against the posting's visual, interaction and system criteria. Nothing has been tested with shoppers yet.",
-    goal_results=[("Make priority visible", "Built: one yellow action per screen; the squint test still shows it first"),
-                  ("Make certainty visible", "Built: verified, can't-verify, conflict and stock-freshness states, each with words and an icon"),
-                  ("Fit the existing system", "Built: Best Buy page patterns kept; new components documented with tokens and contrast")],
-    lesson="Hierarchy is a set of rules, not a look. Once yellow meant buy and amber meant not verified, every new screen got easier to design and easier to read.",
-    future=[("Wizard-of-Oz test", "10 to 15 shoppers on a real task, with me approving or editing each answer behind the scenes, to count how often the assistant would have been wrong."),
-            ("Five-second and squint tests", "Show each key screen for five seconds and ask what to do next, to check the hierarchy holds for people, not just under blur.")],
-)
-
 STORY["magic-apron"] = dict(
     scene="Same question, two different answers",
     videos=[("assets/magic-apron/research-home.mp4", "Recorded session: the question on the Home tab"), ("assets/magic-apron/research-store.mp4", "Recorded session: the same question in Store Mode")],
@@ -355,15 +321,6 @@ FIGS["fitcheck"] = dict(
         cap="The same laptop task, recorded on Ask Blue, Sparky, Magic Apron and Ask Target in Nov 2026.")],
     solutions=[dict(kind="steps", title="Twelve steps, in five groups",
         items=[("Open and ask", "One labeled launcher; three taps instead of typing"), ("Checked picks", "Each check runs in view; picks ranked by fit"), ("Compare", "Side by side, with Not stated where a listing is silent"), ("Product page", "Answers with evidence, floating where Add to cart stays clear"), ("Cart and checkout", "Add-ons asked, totals with tax, a fixed form, a person one tap away")])],
-)
-
-FIGS["shopping-canvas"] = dict(
-    problem=[dict(kind="scenario", title="The same question, two ways to show the answer",
-        left=L("A chat bubble", [("Every answer looks the same", "verified or not"), ("Specs stacked", "hard to compare"), ("Follow-ups as text", "retyped"), ("Checkout", "assistant gone")], "Shopper double-checks everything"),
-        right=L("The redesign", [("Green, amber, timestamped", "certainty you can see"), ("Side-by-side table", "differences tagged"), ("Tap-to-answer pills", "no retyping"), ("Docked at checkout", "help stays")], "One clear first action per screen"),
-        cap="Patterns from NN/g's 2025 to 2026 studies of live retail bots and Baymard's comparison research.")],
-    solutions=[dict(kind="steps", title="Five modules, one visual system",
-        items=[("Unified entry", "One labeled button and a bar that says what the assistant can see"), ("Tap-to-answer", "Pills and selectors for missing facts only"), ("Comparison canvas", "A real table with labeled differences"), ("Proof and uncertainty", "Verified, can't-verify and stock states, each with a receipt"), ("Review before adding", "One yellow button, all-in total, a person one tap away")])],
 )
 
 FIGS["magic-apron"] = dict(
