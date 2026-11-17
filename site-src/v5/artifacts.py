@@ -121,6 +121,41 @@ ARTIFACTS = {
     },
 }
 
+
+FC_SRC = "My screen recordings of Ask Blue, Sparky, Magic Apron and Ask Target, Oct to Nov 2026"
+HDMA_SRC = "My recorded session with a first-time DIYer, Oct 2026"
+ARTIFACTS["fitcheck"] = {
+    "empathize": [
+        {"type": "matrix", "title": "Same task, four assistants", "src": FC_SRC, "total": "Problems found, out of 4", "rowhead": "What I saw",
+         "note": "What happened on each assistant when I gave it the same shopping task.",
+         "cols": ["Ask Blue", "Sparky", "Magic Apron", "Ask Target"], "groups": [
+            ("Seen in my recordings", [("Deals shown before any question", [1, 1, 1, 1]), ("Specs retyped in prose", [1, 1, 1, 1]),
+                                       ("Ads mixed into the picks", [1, 1, 1, 1]), ("Chat lost on the product page", [1, 1, 1, 1])])]},
+    ],
+    "define": [
+        {"type": "pair", "title": "What my review caught, and what the studies added", "src": "My recordings, then NN/g and Baymard usability studies (2025 to 2026)",
+         "a": ("From my recordings", ["Answers before asking", "The shopper does the checking", "The chat gets lost on product pages", "No reason to trust the picks"]),
+         "b": ("Missed until I read the studies", ["An unlabeled launcher", "No sign of what the assistant could see", "Nothing marked as unverified", "No way to reach a person"])},
+    ],
+}
+ARTIFACTS["magic-apron"] = {
+    "empathize": [
+        {"type": "pair", "title": "Same question, two answers", "src": HDMA_SRC,
+         "a": ("Home tab", ["Suggested hanging kits or adhesive strips"]),
+         "b": ("Store Mode", ["Showed only hanging kits", "Adhesive strips appeared only after typing \"Adhesive\"", "An empty shelf ended with \"Thanks for letting us know\""])},
+    ],
+}
+ARTIFACTS["findme"] = {
+    "empathize": [
+        {"type": "process", "title": "From research to the library", "src": "My internship work at FindMe, May to Aug 2025", "steps": [
+            ("Test", "12+ user interviews and usability tests in Maze."),
+            ("Tag", "Findings tagged in Dovetail."),
+            ("Wireframe", "Findings fed straight into the wireframes."),
+            ("Systemize", "25+ components named Button / Primary / Medium / Default."),
+            ("Build", "Every state defined, worked with developers until built matched designed.")]},
+    ],
+}
+
 # The marketing website navigation, read from the live jaihindretail.com menu (Nov 2026).
 SITENAV = {
     "jaihind": {

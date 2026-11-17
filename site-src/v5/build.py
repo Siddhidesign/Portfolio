@@ -254,8 +254,8 @@ def art(cid, phase):
                 for n, vs in items:
                     rows += f'<tr><th scope="row">{esc(n)}</th>' + "".join('<td><b aria-label="yes">●</b></td>' if v else '<td><span class="sr">no</span></td>' for v in vs) + "</tr>"
             tot = [sum(vs[k] for _, it in a["groups"] for _, vs in it) for k in range(len(a["cols"]))]
-            rows += '<tr class="a-tot"><th scope="row">Sources raising it</th>' + "".join(f"<td>{n}</td>" for n in tot) + "</tr>"
-            body = f'<div class="a-scroll" tabindex="0" role="region" aria-label="{esc(a["title"])}"><table class="a-matrix"><thead><tr><th scope="col">Source</th>{hd}</tr></thead><tbody>{rows}</tbody></table></div>'
+            rows += f'<tr class="a-tot"><th scope="row">{esc(a.get("total", "Sources raising it"))}</th>' + "".join(f"<td>{n}</td>" for n in tot) + "</tr>"
+            body = f'<div class="a-scroll" tabindex="0" role="region" aria-label="{esc(a["title"])}"><table class="a-matrix"><thead><tr><th scope="col">{esc(a.get("rowhead", "Source"))}</th>{hd}</tr></thead><tbody>{rows}</tbody></table></div>'
         elif t == "compare":
             body = "<table><thead><tr>" + "".join(f'<th scope="col">{esc(x)}</th>' for x in a["heads"]) + "</tr></thead><tbody>" + "".join(f'<tr><th scope="row">{esc(r_[0])}</th>' + "".join(f"<td>{esc(x)}</td>" for x in r_[1:]) + "</tr>" for r_ in a["rows"]) + "</tbody></table>"
         elif t == "map":
@@ -457,7 +457,7 @@ def case(cid):
             nm, why = q["system"]
             body += f'<div class="dq-sys"><span class="dq-sys-k">Design system used</span><strong>{esc(nm)}</strong><p>{esc(why)}</p></div>'
         legend = '<ul class="dq-legend" aria-hidden="true"><li class="dq-v">Visual design</li><li class="dq-a">Accessibility</li><li class="dq-s">Design system</li></ul>' if q.get("img") else ""
-        o.append(f'<section class="k-sec" id="design-quality">{two("Design", "Quality")}<p class="k-intro">The reasoning behind the screen: visual design, accessibility and the design system it was built on.{" Contrast figures are measured from the final exported screens, and the gaps are listed with the fix I'd make." if q.get("measured") else ""}</p>{legend}{body}</section>')
+        o.append(f'<section class="k-sec" id="design-quality">{two("Design", "Quality")}<p class="k-intro">The reasoning behind the screen: visual design, accessibility and the design system it was built on.{" Contrast figures are measured from the final screens; any gap is fixed in the Figma file and shown before and after." if q.get("measured") else ""}</p>{legend}{body}</section>')
     o.append(sitenav(cid, pre))
 
     # Test and results

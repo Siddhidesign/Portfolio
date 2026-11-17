@@ -292,7 +292,11 @@ CASES["magic-apron"] = dict(
           ("Result", "A concept with hypotheses to test, not results. Not affiliated with The Home Depot.")],
     metrics=[("1", "recorded interview"), ("2", "pain points"), ("6", "small changes")],
     problem=["Asked how to hang a photo frame, Store Mode showed only hanging kits. Adhesive strips appeared only after the person typed \"Adhesive.\" When the strips weren't on the shelf, reporting it led nowhere."],
-    research=None,
+    research=dict(text="I sat with a first-time DIYer while they asked Magic Apron how to hang a photo frame, recorded the screen on the Home tab and in Store Mode, and reviewed both sessions against usability heuristics.",
+                  findings=["The same question got different answers at home and in Store Mode.",
+                            "Store Mode showed only hanging kits; adhesive strips appeared only after the person typed \"Adhesive.\"",
+                            "Reporting an empty shelf ended with \"Thanks for letting us know,\" with no way to still get the item."],
+                  img=None),
     decisions=[
         dict(title="Ask the most important question first", img=(A + "magic-apron/c1-after.webp", "Store Mode asks how you want to hang it, with tap options."),
              why="One question, \"how do you want to hang it?\", would have caught adhesive in my interview.", result="Hypothesis: fewer repeat questions"),
