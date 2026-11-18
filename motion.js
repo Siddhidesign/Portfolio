@@ -284,9 +284,17 @@
 
   /* ---- Before / after slider (Fit Check) ---- */
   document.querySelectorAll('.ba').forEach((ba) => {
-    const r = ba.querySelector('.ba-range'), st = ba.querySelector('.ba-stage');
+    const r = ba.querySelector('.ba-range'), st = ba.querySelector('.ba-stage'), h = ba.querySelector('.ba-handle');
     const set = () => st.style.setProperty('--x', r.value + '%');
     r.addEventListener('input', set); set();
+    const move = (e) => { const b = st.getBoundingClientRect(); r.value = Math.max(0, Math.min(100, ((e.clientX - b.left) / b.width) * 100)); set(); };
+    let drag = false;
+    if (h) {
+      h.addEventListener('pointerdown', (e) => { drag = true; h.setPointerCapture(e.pointerId); st.classList.add('dragging'); e.preventDefault(); });
+      h.addEventListener('pointermove', (e) => { if (drag) move(e); });
+      const end = () => { drag = false; st.classList.remove('dragging'); };
+      h.addEventListener('pointerup', end); h.addEventListener('pointercancel', end);
+    }
   });
 
   /* ---- Count-up numbers on case pages ---- */
