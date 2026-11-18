@@ -3530,6 +3530,9 @@ p.sn-g{padding:12px 0}
 .ba-tb{left:12px;background:#c4352a}.ba-ta{right:12px;background:#14804a}
 .ba-ctl{display:flex;flex-direction:column;gap:6px;margin-top:10px;font-size:14px;color:var(--ink2)}
 .ba-range{width:100%;accent-color:#16130f}
+#before-after{scroll-margin-top:80px}
+#before-after .k-lead{font:500 clamp(17px,1.6vw,20px)/1.5 var(--display);color:var(--ink);max-width:760px}
+#before-after .ba-stage{box-shadow:0 30px 70px -30px rgba(0,0,0,.45)}
 
 /* ---------- sift: reviews to a fair sample ---------- */
 .sf-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}

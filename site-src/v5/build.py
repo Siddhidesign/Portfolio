@@ -536,6 +536,15 @@ def case(cid):
 <p>Questions or feedback on this case study? <a href="mailto:{SITE["email"]}">{esc(SITE["email"])}</a></p></section>
 <section class="case-next" style="background:{ACCENT[nxt]}"><p class="case-kicker">Next project</p>
 <a href="{nxt}.html"><span>{esc(nc["org"])} · {esc(nc["kind"])}</span><strong>{esc(nc["card"])} {DIAG}</strong></a></section>''')
+    if cid == "fitcheck":
+        ba = next((x for x in o if x.startswith('<section class="k-sec" id="before-after"')), None)
+        if ba:
+            o.remove(ba)
+            ba = ba.replace('<p class="k-intro">The full flow for all 4 assistants: what a shopper gets today, then the same task in my redesign. Scroll each row sideways, or click through it in Figma.</p>',
+                '<p class="k-intro k-lead">See the result first. Drag the slider to watch today\'s assistant turn into my redesign, then follow the whole task, step by step, for all 4 retailers. The process behind it comes after.</p>')
+            at = next(i for i, x in enumerate(o) if x.startswith('<header class="k-cover"')) + 1
+            if at < len(o) and o[at].startswith('<nav class="pbar"'): at += 1
+            o.insert(at, ba)
     o.append("</main>" + case_footer(pre) + tail(pre))
     return "\n".join(o)
 
