@@ -281,4 +281,29 @@
     });
   }
 
+
+  /* ---- Before / after slider (Fit Check) ---- */
+  document.querySelectorAll('.ba').forEach((ba) => {
+    const r = ba.querySelector('.ba-range'), st = ba.querySelector('.ba-stage');
+    const set = () => st.style.setProperty('--x', r.value + '%');
+    r.addEventListener('input', set); set();
+  });
+
+  /* ---- Count-up numbers on case pages ---- */
+  const nums = document.querySelectorAll('.k-obs strong, .case-results strong, .k-hero-type b');
+  const parse = (t) => { const m = t.trim().match(/^([^0-9]*)([0-9][0-9,]*\.?[0-9]*)(.*)$/); return m && !/[→]/.test(t) ? m : null; };
+  nums.forEach((el) => {
+    const m = parse(el.textContent); if (!m || reduced) return;
+    const pre = m[1], raw = m[2], post = m[3], end = parseFloat(raw.replace(/,/g, '')), dec = (raw.split('.')[1] || '').length, comma = raw.includes(',');
+    const fmt = (v) => { let s = v.toFixed(dec); if (comma) s = Number(s).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec }); return pre + s + post; };
+    el.setAttribute('aria-label', el.textContent);
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (!e.isIntersecting) return; io.disconnect();
+      const t0 = performance.now(), dur = 1100;
+      const tick = (t) => { const k = Math.min(1, (t - t0) / dur), ease = 1 - Math.pow(1 - k, 3); el.textContent = fmt(end * ease); if (k < 1) requestAnimationFrame(tick); else el.textContent = fmt(end); };
+      el.textContent = fmt(0); requestAnimationFrame(tick);
+    }), { threshold: .6 });
+    io.observe(el);
+  });
+
 })();
