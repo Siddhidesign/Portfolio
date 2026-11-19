@@ -33,7 +33,7 @@ HOW = [
 ]
 
 TOOLS = [
-    ("Research", ["Dovetail", "Maze", "Google Colab", "Python", "UM-GPT", "Figma affinity boards"]),
+    ("Research", ["Dovetail", "Maze", "Google Colab", "Python", "U-M Maizey", "Figma affinity boards"]),
     ("Design", ["Figma", "Figma Make", "Prototyping", "Design systems"]),
     ("Build", ["HTML, CSS, JavaScript", "TypeScript", "Git", "Claude Code"]),
     ("Team", ["Jira", "Agile sprints", "WCAG 2.1 AA"]),
@@ -264,15 +264,17 @@ CASES["canvas"] = dict(
     tags=["Longitudinal research", "AI literature review", "Affinity mapping"],
     cover=None, cover_text=("2", "new UX courses"),
     title="Bringing a pre-AI UX curriculum *up to date*",
-    meta=[("Role", "Human-Centered Design Researcher"), ("Timeline", "Sep 2025 to May 2026"), ("Where", "UM-Dearborn"), ("Tools", "UM-GPT, Figma, Zoom, Canvas")],
+    meta=[("Role", "Human-Centered Design Researcher"), ("Timeline", "Sep 2025 to May 2026"), ("Where", "UM-Dearborn"), ("Tools", "U-M Maizey, Canvas, Figma, Zoom, Excel")],
     tldr=[("Problem", "The UX curriculum was built before AI, and it fell short of how UX is practiced now."),
-          ("What I did", "Two semesters of research: 50+ papers and industry reports analyzed with UM-GPT, plus feedback from 43 students across 8 presentations."),
+          ("What I did", "Two semesters of research: 50+ papers and industry reports synthesized in U-M Maizey, grounded in our research websites and Canvas course content, plus feedback from 43 students across 8 presentations."),
           ("Result", "2 new UX courses came out of the research.")],
     metrics=[("50+", "papers and industry reports"), ("43", "students' feedback"), ("8", "presentations"), ("2", "new UX courses")],
     problem=["AI changed how UX research and design are done, but the coursework still reflected the field before it. Students were learning a version of the job that was already changing."],
-    research=dict(text="Over 2 semesters I reviewed 50+ papers and industry reports with UM-GPT, the university's AI tool, and gathered feedback from 43 students across 8 presentations in 2 cohorts.",
+    research=dict(text="Over 2 semesters I reviewed 50+ papers and industry reports and gathered feedback from 43 students across 8 presentations in 2 cohorts. To synthesize, I worked in a U-M Maizey project, the university's AI tool, connected to the public research websites we used and our Canvas course content, so the AI answered from our actual sources instead of pasted text. Access was limited to the research team through MCommunity groups, and every theme it suggested was checked against its original source.",
                   findings=[], img=None),
     decisions=[
+        dict(title="Ground the AI in our sources, then check it", img=None,
+             why="Maizey answered from the research websites and Canvas course content connected to the project, not from whatever was pasted in. Every theme went back to its source before it reached faculty.", result="Themes traced back to sources"),
         dict(title="Put research and student feedback on one board", img=None,
              why="Mapping findings and feedback onto shared Figma affinity boards across 2 cohorts showed real patterns, not one-off complaints.", result=None),
         dict(title="Consolidate weekly, recommend monthly", img=None,

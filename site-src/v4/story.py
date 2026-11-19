@@ -138,7 +138,8 @@ STORY["canvas"] = dict(
     scene="Students were learning a version of UX that was already changing",
     scene_sub="The UX curriculum was built before AI, and it fell short of how UX is practiced now.",
     solutions_title="How the research reached the syllabus",
-    solutions=[("Research and student feedback on one board", "Findings and feedback went onto shared Figma affinity boards across 2 cohorts, so real patterns stood out from one-off complaints."),
+    solutions=[("Ground the AI in our sources, then check it", "A U-M Maizey project connected to our research websites and Canvas course content meant the AI answered from real sources. Access stayed with the research team through MCommunity groups, and every theme was checked against its source."),
+               ("Research and student feedback on one board", "Findings and feedback went onto shared Figma affinity boards across 2 cohorts, so real patterns stood out from one-off complaints."),
                ("Consolidate weekly, recommend monthly", "I consolidated findings with 10+ research assistants every week and presented recommendations to faculty every month, so research turned into decisions.")],
     research_title="Two semesters of evidence",
     outcome_title="Patterns, not one-off complaints",
@@ -294,7 +295,7 @@ FIGS["findme"] = dict(
 
 FIGS["canvas"] = dict(
     research=[dict(kind="pipeline", title="How two semesters of research reached the syllabus",
-        items=[("50+", "papers and industry reports, with UM-GPT"), ("43", "students' feedback across 8 presentations"), ("2 cohorts", "mapped on shared Figma affinity boards"), ("Weekly", "consolidated with 10+ research assistants"), ("Monthly", "recommendations to faculty")],
+        items=[("50+", "papers and industry reports, synthesized in U-M Maizey"), ("43", "students' feedback across 8 presentations"), ("2 cohorts", "mapped on shared Figma affinity boards"), ("Weekly", "consolidated with 10+ research assistants"), ("Monthly", "recommendations to faculty")],
         end=("2", "new UX courses"))],
 )
 
