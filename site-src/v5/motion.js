@@ -314,4 +314,21 @@
     io.observe(el);
   });
 
+
+  /* More-work index: a preview card follows the cursor (hover devices only, never with reduced motion). */
+  const wp = document.querySelector('.wi-preview');
+  if (wp && !reduced && matchMedia('(hover: hover)').matches) {
+    let x = -999, y = -999, tx = x, ty = y, raf = 0;
+    const tick = () => { x += (tx - x) * .18; y += (ty - y) * .18;
+      wp.style.transform = `translate3d(${x + 40}px,${y - 265}px,0) rotate(${Math.max(-6, Math.min(6, (tx - x) * .05))}deg)`;
+      raf = (Math.abs(tx - x) + Math.abs(ty - y) > .3) ? requestAnimationFrame(tick) : 0; };
+    document.querySelectorAll('.wi-row').forEach((row) => {
+      const tpl = row.querySelector('template');
+      if (!tpl) return;
+      row.addEventListener('pointerenter', (e) => { wp.replaceChildren(tpl.content.cloneNode(true)); if (x < -900) { x = tx = e.clientX; y = ty = e.clientY; } wp.classList.add('on'); });
+      row.addEventListener('pointerleave', () => wp.classList.remove('on'));
+      row.addEventListener('pointermove', (e) => { tx = e.clientX; ty = e.clientY; if (!raf) raf = requestAnimationFrame(tick); });
+    });
+  }
+
 })();

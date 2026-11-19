@@ -590,3 +590,55 @@ p.sn-g{padding:12px 0}
 #before-after{scroll-margin-top:80px}
 #before-after .k-lead{font:500 clamp(17px,1.6vw,20px)/1.5 var(--display);color:var(--ink);max-width:760px}
 #before-after .ba-stage{box-shadow:0 30px 70px -30px rgba(0,0,0,.45)}
+
+/* ---------- v6 polish: work index, cursor preview, page transitions (refs: Offforum rows, SAFDS list preview, Anders Drage + Segerman transitions on details.so) ---------- */
+.work-index{list-style:none;margin:0;padding:0}
+.work-index li{border-bottom:1px solid rgba(23,23,20,.16)}
+.wi-row{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr) 150px 190px 28px;align-items:center;gap:24px;padding:30px 4px;text-decoration:none;color:var(--ink);isolation:isolate}
+.wi-row::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--a);transform:scaleY(0);transform-origin:bottom;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.wi-n{font:600 12px/1 var(--sans);letter-spacing:.12em;color:var(--mute)}
+.wi-main{display:flex;flex-direction:column;gap:8px;min-width:0}
+.wi-main strong{font:600 clamp(22px,2.2vw,32px)/1.08 var(--display);letter-spacing:-.045em;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.wi-k{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.wi-year{font-size:13px;color:var(--ink2)}
+.wi-stat{display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:4px}
+.wi-stat strong{font:600 26px/1 var(--display);letter-spacing:-.04em}
+.wi-stat small{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);max-width:190px}
+.wi-go{font-size:20px;justify-self:end;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.wi-row:hover::before,.wi-row:focus-visible::before{transform:scaleY(1)}
+.wi-row:hover,.wi-row:focus-visible{color:#fff}
+.wi-row:hover .wi-k,.wi-row:hover .wi-n,.wi-row:hover .wi-year,.wi-row:hover .wi-stat small,
+.wi-row:focus-visible .wi-k,.wi-row:focus-visible .wi-n,.wi-row:focus-visible .wi-year,.wi-row:focus-visible .wi-stat small{color:inherit}
+.wi-row:hover .wi-main strong,.wi-row:focus-visible .wi-main strong{transform:translateX(10px)}
+.wi-row:hover .wi-go,.wi-row:focus-visible .wi-go{transform:translate(3px,-3px)}
+.wi-row:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+/* yellow fill keeps dark text; other fills use a deeper shade so white text passes 4.5:1 */
+.wi-row.wi-light:hover,.wi-row.wi-light:focus-visible{color:var(--ink)}
+.wi-preview{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/3;pointer-events:none;z-index:50;opacity:0;transform:translate3d(-999px,-999px,0) scale(.85);transition:opacity .25s ease,scale .25s ease;box-shadow:0 30px 60px rgba(0,0,0,.25);overflow:hidden;background:#fff;border-radius:6px}
+.wi-preview.on{opacity:1}
+.wi-preview img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+@media (hover:none),(prefers-reduced-motion:reduce){.wi-preview{display:none}}
+@media (max-width:900px){
+  .wi-row{grid-template-columns:40px minmax(0,1fr) 22px;gap:14px;padding:24px 2px}
+  .wi-year,.wi-stat{display:none}
+}
+
+/* Project cards: CTA underline draws in on hover */
+.project-foot a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s}
+.project:hover .project-foot a{background-size:100% 1px}
+
+/* Case pages: Figma links line up with the cover and never wrap the arrow */
+.pbar{max-width:1440px;margin:-20px auto 0;padding:0 5vw}
+.pbar a{white-space:nowrap}
+.case-links{max-width:1240px;padding:40px 5vw 90px}
+
+/* Cross-page transitions: the project image travels from the home card into the case cover.
+   Progressive: browsers without view transitions just navigate. Off for reduced motion. */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vt-out .28s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vt-in .42s cubic-bezier(.2,.7,.2,1) both}
+::view-transition-group(*){animation-duration:.5s;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+@keyframes vt-out{to{opacity:0;transform:translateY(-12px)}}
+@keyframes vt-in{from{opacity:0;transform:translateY(16px)}}
+@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+@media (max-width:600px){.pbar a{white-space:normal}}

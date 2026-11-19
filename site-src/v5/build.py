@@ -97,13 +97,26 @@ def project(cid, n, pre=""):
     m = c.get("metrics", [])
     big = f'<div><strong>{esc(m[0][0])}</strong><span>{esc(m[0][1])}</span></div>' if m else ""
     who = c.get("role") or c["kind"]
-    shot = (f'<span class="pv-shot">{img(c["cover"], "", pre)}</span>' if c.get("cover") else
+    shot = (f'<span class="pv-shot" style="view-transition-name:vt-{cid}">{img(c["cover"], "", pre)}</span>' if c.get("cover") else
             f'<span class="pv-type"><b>{esc(m[0][0])}</b><span>{esc(m[0][1])}</span><i>{esc(c["kind"])}</i></span>' if m else "")
     return f'''<article class="project"><a class="project-visual" href="{pre}work/{cid}.html" style="background:{ACCENT[cid]}" tabindex="-1" aria-hidden="true">
 <span class="project-number">{n:02d}</span>{shot}</a>
 <div class="project-copy"><div class="project-meta"><span>{esc(c["org"])}</span><span>{esc(c.get("dates") or c["year"])}</span></div>
 <h3><a href="{pre}work/{cid}.html">{esc(c["card"])}</a></h3><p class="pc-role">{esc(who)}</p><p>{esc(c["line"])}</p>
 <div class="project-foot"><a href="{pre}work/{cid}.html" aria-hidden="true" tabindex="-1">View case study {DIAG}</a>{big}</div></div></article>'''
+
+def index_row(cid, n, pre=""):
+    """Compact row for the 'More work' index; the preview follows the cursor on hover-capable screens."""
+    c = CASES[cid]
+    m = c.get("metrics", [])
+    prev = f'<template>{img(c["cover"], "", pre)}</template>' if c.get("cover") else ""
+    stat = f'<span class="wi-stat"><strong>{esc(m[0][0])}</strong><small>{esc(m[0][1])}</small></span>' if m else "<span></span>"
+    side = " · Side project" if cid in SIDE else ""
+    deep = {RED: "#c8331f", GREEN: "#13804a", BLUE: "#2f5bd6"}.get(ACCENT[cid], ACCENT[cid])
+    light = " wi-light" if ACCENT[cid] == YELLOW else ""
+    return f'''<li><a class="wi-row{light}" href="{pre}work/{cid}.html" style="--a:{deep}"><span class="wi-n">{n:02d}</span>
+<span class="wi-main"><strong>{esc(c["card"])}</strong><span class="wi-k">{esc(c["kind"]) if c["org"].lower() in c["kind"].lower() else esc(c["org"]) + " · " + esc(c["kind"])}{side}</span></span>
+<span class="wi-year">{esc(c["year"])}</span>{stat}<span class="wi-go" aria-hidden="true">↗</span>{prev}</a></li>'''
 
 def home(research=False):
     pre = ""
@@ -127,10 +140,11 @@ def home(research=False):
     FEAT = FEATURED_R if research else FEATURED
     fy = yrs(FEAT)
     o.append(f'<section class="work" id="work"><div class="section-heading" id="projects"><h2 class="section-kicker">Work</h2><span>{fy[0]} to {fy[-1]}</span></div>')
-    o += [project(cid, k) for k, cid in enumerate(FEAT, 1)]
-    side = "".join(f'''<li><a href="work/{cid}.html" style="--a:{ACCENT[cid]}"><span class="sp-k">{esc(CASES[cid]["kind"])} · {esc(CASES[cid]["year"])}</span>
-<strong>{esc(CASES[cid]["card"])}</strong><span class="sp-l">{esc(CASES[cid]["line"])}</span><em>Read it {DIAG}</em></a></li>''' for cid in SIDE)
-    o.append(f'<div class="section-heading sh2"><h2 class="section-kicker">Side projects</h2><span>Self-initiated</span></div><ul class="side-list">{side}</ul></section>')
+    BIG, REST = FEAT[:5], FEAT[5:] + SIDE
+    o += [project(cid, k) for k, cid in enumerate(BIG, 1)]
+    o.append(f'<div class="section-heading sh2" id="more-work"><h2 class="section-kicker">More work</h2><span>Research, front-end and side projects</span></div>'
+             f'<ol class="work-index">{"".join(index_row(cid, k, pre) for k, cid in enumerate(REST, len(BIG) + 1))}</ol>'
+             '<div class="wi-preview" aria-hidden="true"></div></section>')
     tiles = [RED, YELLOW, BLUE, GREEN]
     cards = "".join(f'''<div class="process-card"><span>{k:02d}</span><div class="tile" style="background:{tiles[k-1]}"><i></i><i></i><i></i><i></i></div>
 <h3>{esc(t)}</h3><p>{esc(d)}</p></div>''' for k, (t, d) in enumerate(HOW, 1))
@@ -356,9 +370,9 @@ def case(cid):
     o.append(f'''<header class="k-cover"><div class="k-arcs" aria-hidden="true"></div><div class="k-cover-copy">
 <p class="k-pill">{esc(c["kind"])} · Case study {i + 1:02d}</p><h1>{rich(c["title"])}</h1><p class="k-lede">{esc(c["line"])}</p>
 <ul class="k-tools" aria-label="Tools and methods">{"".join(f"<li>{esc(t)}</li>" for t in chips)}</ul>
-<dl class="k-meta">{dl}</dl></div><div class="k-cover-pic">{pic}</div></header>''')
+<dl class="k-meta">{dl}</dl></div><div class="k-cover-pic"{f' style="view-transition-name:vt-{cid}"' if c.get("cover") else ""}>{pic}</div></header>''')
     if PROTOS.get(cid):
-        o.append('<nav class="pbar" aria-label="See it in Figma">' + "".join(f'<a class="pbar-{k}" href="{esc(u)}" target="_blank" rel="noopener"><span class="pbar-k">{"Clickable prototype" if k == "proto" else "Figma design file"}</span>{esc(l)} {DIAG}<span class="sr"> (opens in a new tab)</span></a>' for l, u, k in PROTOS[cid]) + '</nav>')
+        o.append('<nav class="pbar" aria-label="See it in Figma">' + "".join(f'<a class="pbar-{k}" href="{esc(u)}" target="_blank" rel="noopener"><span class="pbar-k">{"Clickable prototype" if k == "proto" else "Figma design file"}</span><span>{esc(l)} {DIAG}</span><span class="sr"> (opens in a new tab)</span></a>' for l, u, k in PROTOS[cid]) + '</nav>')
 
     # Problem statement / possible solution
     if c.get("problem_ui"):
@@ -529,8 +543,10 @@ def case(cid):
     if fut:
         o.append(f'''<section class="k-sec">{two("What’s", "Next")}<p class="fut-note">Ideas, not built.</p>
 <div class="k-cards">{"".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(a)}</h3><p>{esc(x)}</p></article>' for k, (a, x) in enumerate(fut, 1))}</div></section>''')
-    if c.get("links"):
-        o.append('<p class="case-links">' + "".join(f'<a href="{esc(u)}" target="_blank" rel="noopener">{esc(l)}<span class="sr"> (opens in a new tab)</span> {DIAG}</a>' for l, u in c["links"]) + "</p>")
+    shown = {u for _, u, _ in PROTOS.get(cid, [])}
+    links = [(l, u) for l, u in c.get("links", []) if u not in shown]
+    if links:
+        o.append('<p class="case-links">' + "".join(f'<a href="{esc(u)}" target="_blank" rel="noopener">{esc(l)}<span class="sr"> (opens in a new tab)</span> {DIAG}</a>' for l, u in links) + "</p>")
     nc = CASES[nxt]
     o.append(f'''<section class="k-thanks"><div class="k-thanks-cube" aria-hidden="true">{mini()}</div><h2>Thank you for your time :)</h2>
 <p>Questions or feedback on this case study? <a href="mailto:{SITE["email"]}">{esc(SITE["email"])}</a></p></section>
