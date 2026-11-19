@@ -161,7 +161,7 @@ QUALITY = {
                              "On product pages the assistant waits, then rises as a small bar and opens only on tap."]),
         ],
         gallery=[
-            (A + "fitcheck/v5-data-controls.webp", "Walmart, Home Depot and Target data screens: what the assistant can use, with Ask first, Allow or Off for orders, store, viewed items and chat history.",
+            (A + "fitcheck/v5-data-controls.webp", "Best Buy, Walmart, Home Depot and Target data screens: what the assistant can use, with Ask first, Allow or Off for orders, store, viewed items and chat history.",
              "New: shoppers choose what the assistant can use. Ask first, Allow or Off for orders, store, viewed items and chat history, in each store's own chips."),
             (A + "fitcheck/v5-hero.webp", "The same answer component in Best Buy, Walmart, Home Depot and Target modes.",
              "One component, four variable modes. Only brand color, action color and corner radius change."),
