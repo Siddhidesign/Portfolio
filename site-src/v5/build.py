@@ -146,9 +146,9 @@ FEATURED_R = ["canvas", "ev", "anchor", "ir2go", "jaihind", "fitcheck", "findme"
 CAPS_R = '<div class="capabilities"><span>01</span><p>Study coordination</p><span>02</span><p>Qual and quant synthesis</p><span>03</span><p>AI research workflows</p><span>04</span><p>Clear, reusable reporting</p></div>'
 KEEP = [
  ("Study coordination", "Worked inside IRB-approved studies: protocol HUM00280873 for Money Anchor, with 24 participants across 2 rounds, and a team outpatient anxiety study with written consent, interviews and a Google Forms diary study."),
- ("Evidence review and synthesis", "50+ papers and industry reports reviewed with UM-GPT, feedback from 43 students mapped on Figma affinity boards, findings tagged in Dovetail at FindMe, and reusable research templates and guides I created there."),
+ ("Evidence review and synthesis", "50+ papers and industry reports synthesized in U-M Maizey, feedback from 43 students mapped on Figma affinity boards, findings tagged in Dovetail at FindMe, and reusable research templates and guides I created there."),
  ("Qualitative and quantitative", "16,767 Google Maps reviews cleaned in Python on Google Colab, 804 lines of interview transcript scored with VADER sentiment, and SUS scores tracked from 31.3 to 78.25 on IRS2Go."),
- ("AI research workflows", "Synthesized findings through an MCP with UM-GPT, and built Research Lens, an MCP server with 15 tools that lets an AI assistant answer from research data with citations."),
+ ("AI research workflows", "Synthesized findings in U-M Maizey, grounded in research websites and Canvas course content, and built Research Lens, an MCP server with 15 tools that lets an AI assistant answer from research data with citations."),
 ]
 def research_blocks():
     cards = "".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(t)}</h3><p>{esc(d)}</p></article>' for k, (t, d) in enumerate(KEEP, 1))
@@ -193,7 +193,7 @@ AUDIENCE = {
     "fitcheck": ["Shoppers using a retailer's AI assistant to choose between products", "Store associates who take the handoff"],
 }
 METHODS = {
-    "canvas": ["50+ papers and reports, read with UM-GPT", "Feedback from 43 students", "8 presentations, 2 cohorts"],
+    "canvas": ["50+ papers and reports, synthesized in U-M Maizey", "Feedback from 43 students", "8 presentations, 2 cohorts"],
     "findme": ["12+ interviews and usability tests in Maze", "Findings tagged in Dovetail"],
     "jaihind": ["5 stores visited by me, all 10 by the team", "35+ contextual inquiries and usability evaluations", "Every handoff mapped across 6 teams"],
     "anchor": ["40+ papers analyzed with AI", "10 budgeting apps benchmarked", "8 interviews", "4 focus groups, 16 people"],
