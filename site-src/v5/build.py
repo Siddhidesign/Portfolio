@@ -228,7 +228,31 @@ OBS = {
     "fitcheck": [("54%", "of AI shoppers double-check everything it says (2026 survey)"), ("78%", "assume brands pay their way into AI picks (2026 survey)"), ("11%", "at most would let AI make the purchase (Gartner, Jan 2026)")],
 }
 
-def two(a, b): return f'<h2 class="k-title">{esc(a)} <em>{esc(b)}</em></h2>'
+HEADS = {  # template label -> (short kicker, editorial headline). Headlines name what happened; content-specific ones are passed in.
+    ("Problem", "Statement"): ("The problem", None),
+    ("Possible", "Solution"): ("The idea", "The fix, in one line"),
+    ("Objectives &", "Goals"): ("Goals", "What success had to look like"),
+    ("Target", "Audience"): ("Who it’s for", "The people on the other side of the screen"),
+    ("The", "Approach"): ("Approach", "How I worked"),
+    ("My", "Role"): ("My role", "What I owned"),
+    ("Design Thinking", "Process"): ("Process", "From the mess to a decision"),
+    ("Empathize", "Phase"): ("Research", "What the research showed"),
+    ("Define", "Phase"): ("Define", None),
+    ("Task", "Flow"): ("Task flow", "The same task, before and after"),
+    ("Ideate", "Phase"): ("Ideas", "Ideas I kept, and the ones I dropped"),
+    ("High-Fidelity", "Design"): ("Design", None),
+    ("Before &", "After"): ("Before & after", "See the result first"),
+    ("Design", "Quality"): ("Design quality", "Why the screens look the way they do"),
+    ("Test &", "Results"): ("Results", None),
+    ("What’s", "Next"): ("What’s next", "What I’d build next"),
+    ("Marketing Website", "Navigation"): ("Website navigation", "Helping people find things on the public site"),
+}
+def two(a, b, h=None):
+    kick, d = HEADS.get((a, b), (f"{a} {b}", None))
+    h = h or d or f"{a} {b}"
+    w = h.rsplit(" ", 2)
+    lead, mark = (" ".join(w[:-2]), " ".join(w[-2:])) if len(w) > 2 else ("", h)
+    return f'<p class="k-kick">{esc(kick)}</p><h2 class="k-title">{esc(lead) + " " if lead else ""}<em>{esc(mark)}</em></h2>' 
 
 def device(src, alt, pre, lazy=True, cls=""):
     """Phone frame for tall screenshots, browser frame for wide ones (by the image's own shape)."""
@@ -343,7 +367,7 @@ def problem_ui(u, scene):
     js = ('<script>(function(){var t=document.querySelectorAll(".pb-tab"),p=document.querySelectorAll(".pb-panel");'
           'function s(i){t.forEach(function(b,j){b.setAttribute("aria-selected",j===i);b.tabIndex=j===i?0:-1;p[j].hidden=j!==i})}'
           't.forEach(function(b,i){b.addEventListener("click",function(){s(i)});b.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var n=(i+(e.key==="ArrowRight"?1:t.length-1))%t.length;s(n);t[n].focus()}})});s(0)})();</script>')
-    return (f'<section class="k-sec pb">{two("Problem", "Statement")}<p class="k-scene">{esc(scene)}</p><p class="pb-lead">{esc(u["lead"])}</p>'
+    return (f'<section class="k-sec pb">{two("Problem", "Statement", scene)}<p class="pb-lead">{esc(u["lead"])}</p>'
             f'<ol class="pb-probs" aria-label="The four problems">{probs}</ol>'
             f'<p class="pb-k">Pick an assistant</p><div class="pb-tabs" role="tablist" aria-label="Assistant">{tabs}</div>{panels}'
             f'<p class="pb-k">Shoppers feel it too (2026 surveys)</p><div class="pb-stats">{stats}</div>{js}</section>')
@@ -374,12 +398,19 @@ def case(cid):
     if PROTOS.get(cid):
         o.append('<nav class="pbar" aria-label="See it in Figma">' + "".join(f'<a class="pbar-{k}" href="{esc(u)}" target="_blank" rel="noopener"><span class="pbar-k">{"Clickable prototype" if k == "proto" else "Figma design file"}</span><span>{esc(l)} {DIAG}</span><span class="sr"> (opens in a new tab)</span></a>' for l, u, k in PROTOS[cid]) + '</nav>')
 
+    # At a glance: the 3 headline numbers, where a 30-second skim will see them
+    gl = c.get("metrics", [])[:3]
+    if gl:
+        lab = "At a glance"
+        o.append(f'''<section class="k-glance" aria-label="{lab}"><p class="k-kick">{lab}</p><ul>{"".join(f'<li><strong>{esc(v)}</strong><span>{esc(l)}</span></li>' for v, l in gl)}</ul>
+<a class="k-glance-go" href="#results">Jump to the results <span aria-hidden="true">↓</span></a></section>''')
+
     # Problem statement / possible solution
     if c.get("problem_ui"):
         o.append(problem_ui(c["problem_ui"], S.get("scene", "")))
     else:
-        o.append(f'''<section class="k-sec k-center">{two("Problem", "Statement")}
-<p class="k-scene">{esc(S.get("scene", ""))}</p>{"".join(f"<p>{rich(x)}</p>" for x in c["problem"])}</section>''')
+        o.append(f'''<section class="k-sec k-center">{two("Problem", "Statement", S.get("scene"))}
+{"".join(f"<p>{rich(x)}</p>" for x in c["problem"])}</section>''')
     o.append(f'<section class="k-sec k-center">{two("Possible", "Solution")}<p>{esc(c["tldr"][1][1])}</p></section>')
     if S.get("goals"):
         o.append(f'''<section class="k-sec">{two("Objectives &", "Goals")}<div class="k-cards">{"".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></article>' for k, (a, b) in enumerate(S["goals"], 1))}</div></section>''')
@@ -406,7 +437,7 @@ def case(cid):
     stages = [(n, it) for n, it in stages if it]
     circ = "".join(f'''<li class="k-circle"><span class="k-dot">{k:02d}</span><h3>{n}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in it)}</ul></li>''' for k, (n, it) in enumerate(stages, 1))
     o.append(f'''<section class="k-sec k-center">{two("Design Thinking", "Process")}
-<p>How this project moved from the mess to a decision. Each stage lists only what was actually done.</p><ol class="k-process">{circ}</ol>
+<p>Each stage lists only what was actually done.</p><ol class="k-process">{circ}</ol>
 <div class="k-timeline" aria-label="Project timeline"><span class="k-t-k">Project timeline</span>
 <div class="k-track">{"".join(f"<i>{n}</i>" for n, _ in stages)}</div><div class="k-t-ends"><span>{esc(meta.get("Timeline") or meta.get("Time") or c["year"])}</span><span>Phases in order, not to scale</span></div></div></section>''')
 
@@ -443,7 +474,7 @@ def case(cid):
         nm, tx = S["insight"]
         d += f'<div class="k-principle"><span>The insight we designed around</span><p>{esc(nm)}</p><small>{esc(tx)}</small></div>'
     d += art(cid, "define")
-    if d: o.append(f'<section class="k-sec">{two("Define", "Phase")}{d}</section>')
+    if d: o.append(f'<section class="k-sec">{two("Define", "Phase", S["insight"][0] if S.get("insight") else "Naming the real problem")}{d}</section>')
 
     # Task flow
     if S.get("flow_before"):
@@ -483,7 +514,7 @@ def case(cid):
         else:
             hi += f'<div class="k-anno noimg"><div class="k-note"><span>{k:02d}</span><h3>{esc(hl)}</h3><p>{esc(txt)}</p>{res}</div></div>'
     sf = figs("solutions")
-    o.append(f'''<section class="k-sec">{two("High-Fidelity", "Design")}<p class="k-intro">{esc(S.get("solutions_title", ""))}</p>
+    o.append(f'''<section class="k-sec">{two("High-Fidelity", "Design", S.get("solutions_title") or "The final design")}
 {f'<div class="k-figs">{sf}</div>' if sf else ""}{hi}{art(cid, "design")}</section>''')
     if cid == "fitcheck":
         tabs = "".join(f'<button type="button" role="tab" class="bf-tab" id="bft-{f["key"]}" aria-controls="bfp-{f["key"]}" aria-selected="{"true" if i == 0 else "false"}">{esc(f["name"])}</button>' for i, f in enumerate(FLOWS))
@@ -536,7 +567,7 @@ def case(cid):
     t += figs("results")
     if rs.get("img"): t += figure(rs["img"][0], rs["img"][1], pre)
     if S.get("lesson"): t += f'<div class="learning"><span>What I learned</span><p>{esc(S["lesson"])}</p></div>'
-    o.append(f'''<section class="k-sec k-results">{two("Test &", "Results")}<p class="k-intro">{esc(S.get("outcome_title", c["tldr"][2][1]))}</p>
+    o.append(f'''<section class="k-sec k-results" id="results">{two("Test &", "Results", S.get("outcome_title"))}{"" if S.get("outcome_title") else f'<p class="k-intro">{esc(c["tldr"][2][1])}</p>'}
 {f'<p class="impact-sub">{esc(S["outcome_sub"])}</p>' if S.get("outcome_sub") else ""}{t}</section>''')
 
     fut = S.get("future") or [(f"Idea {k:02d}", x) for k, x in enumerate(c.get("next", []), 1)]
@@ -550,8 +581,8 @@ def case(cid):
     nc = CASES[nxt]
     o.append(f'''<section class="k-thanks"><div class="k-thanks-cube" aria-hidden="true">{mini()}</div><h2>Thank you for your time :)</h2>
 <p>Questions or feedback on this case study? <a href="mailto:{SITE["email"]}">{esc(SITE["email"])}</a></p></section>
-<section class="case-next" style="background:{ACCENT[nxt]}"><p class="case-kicker">Next project</p>
-<a href="{nxt}.html"><span>{esc(nc["org"])} · {esc(nc["kind"])}</span><strong>{esc(nc["card"])} {DIAG}</strong></a></section>''')
+<section class="case-next{" has-pic" if nc.get("cover") else ""}" style="background:{ACCENT[nxt]}"><p class="case-kicker">Next project</p>
+<a href="{nxt}.html"><span class="cn-copy"><span>{esc(nc["org"])} · {esc(nc["kind"])}</span><strong>{esc(nc["card"])} {DIAG}</strong></span>{f'<span class="cn-pic" style="view-transition-name:vt-{nxt}">{img(nc["cover"], "", pre)}</span>' if nc.get("cover") else ""}</a></section>''')
     if cid == "fitcheck":
         ba = next((x for x in o if x.startswith('<section class="k-sec" id="before-after"')), None)
         if ba:

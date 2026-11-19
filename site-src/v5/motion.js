@@ -152,12 +152,12 @@
 
   /* ---- 8. Case pages: a cube-face section map. One sticker per section; it fills as you read and each sticker jumps there ---- */
   if (document.body.classList.contains('case')) {
-    const secs = [...document.querySelectorAll('main > section, main > header')].filter((s) => s.querySelector('.case-kicker, .k-title, h1, h3'));
+    const secs = [...document.querySelectorAll('main > section, main > header')].filter((s) => s.querySelector('.k-kick, .case-kicker, .k-title, h1, h3'));
     const nav = document.createElement('nav');
     nav.className = 'readface'; nav.setAttribute('aria-label', 'Sections of this case study');
     secs.forEach((s, i) => {
       if (!s.id) s.id = 'sec-' + (i + 1);
-      const k = s.querySelector('.case-kicker, .k-title, h3'), label = s.matches('header') ? 'Top' : (k ? k.textContent.replace(/^\d+\s*·\s*/, '') : 'Section');
+      const k = s.querySelector('.k-kick, .case-kicker, .k-title, h3'), label = s.matches('header') ? 'Top' : (k ? k.textContent.replace(/^\d+\s*·\s*/, '') : 'Section');
       const a = document.createElement('a'); a.href = '#' + s.id; a.dataset.tip = label;
       a.innerHTML = '<span class="sr">' + label + '</span>';
       a.addEventListener('click', (ev) => { ev.preventDefault(); s.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); history.replaceState(null, '', '#' + s.id); });
@@ -298,7 +298,7 @@
   });
 
   /* ---- Count-up numbers on case pages ---- */
-  const nums = document.querySelectorAll('.k-obs strong, .case-results strong, .k-hero-type b');
+  const nums = document.querySelectorAll('.k-obs strong, .case-results strong, .k-hero-type b, .k-glance strong');
   const parse = (t) => { const m = t.trim().match(/^([^0-9]*)([0-9][0-9,]*\.?[0-9]*)(.*)$/); return m && !/[→]/.test(t) ? m : null; };
   nums.forEach((el) => {
     const m = parse(el.textContent); if (!m || reduced) return;
