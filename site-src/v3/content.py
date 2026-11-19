@@ -51,7 +51,7 @@ EXPERIENCE = ["canvas", "findme", "jaihind", "omkar"]
 PROJECTS = ["fitcheck", "anchor", "ev", "ir2go"]
 SIDE = ["research-lens", "magic-apron"]
 # Home page order, set by Siddhi (Nov 2026): the Fit Check redesign first, then the rest.
-FEATURED = ["fitcheck", "findme", "jaihind", "ir2go", "anchor", "canvas", "omkar", "ev"]
+FEATURED = ["fitcheck", "canvas", "findme", "jaihind", "ir2go", "anchor", "omkar", "ev"]
 
 CASES = {}
 
