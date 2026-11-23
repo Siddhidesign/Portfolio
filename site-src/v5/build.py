@@ -245,6 +245,9 @@ HEADS = {  # template label -> (short kicker, editorial headline). Headlines nam
     ("Design", "Quality"): ("Design quality", "Why the screens look the way they do"),
     ("Test &", "Results"): ("Results", None),
     ("What’s", "Next"): ("What’s next", "What I’d build next"),
+    ("In 30", "Seconds"): ("In 30 seconds", "The project, the problem and the fix"),
+    ("Design System", "Decision"): ("Design system", None),
+    ("How it", "Evolved"): ("Iterations", "How it got here, and what I dropped"),
     ("Marketing Website", "Navigation"): ("Website navigation", "Helping people find things on the public site"),
 }
 def two(a, b, h=None):
@@ -373,8 +376,11 @@ def problem_ui(u, scene):
             f'<p class="pb-k">Shoppers feel it too (2026 surveys)</p><div class="pb-stats">{stats}</div>{js}</section>')
 
 
+SHORT = {"fitcheck"}  # short format: 30-second summary, then the visual story
+
 def case(cid):
     c, pre = CASES[cid], "../"
+    short = cid in SHORT
     S, F = STORY.get(cid, {}), FIGS.get(cid, {})
     figs = lambda k: "".join(viz(x) for x in F.get(k, []))
     i = ORDER.index(cid); nxt = ORDER[(i + 1) % len(ORDER)]
@@ -398,8 +404,11 @@ def case(cid):
     if PROTOS.get(cid):
         o.append('<nav class="pbar" aria-label="See it in Figma">' + "".join(f'<a class="pbar-{k}" href="{esc(u)}" target="_blank" rel="noopener"><span class="pbar-k">{"Clickable prototype" if k == "proto" else "Figma design file"}</span><span>{esc(l)} {DIAG}</span><span class="sr"> (opens in a new tab)</span></a>' for l, u, k in PROTOS[cid]) + '</nav>')
 
+    if short and c.get("summary"):
+        o.append(f'''<section class="k-sec k-sum" id="summary">{two("In 30", "Seconds")}<div class="k-cards">{"".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></article>' for k, (a, b) in enumerate(c["summary"], 1))}</div></section>''')
+
     # At a glance: the 3 headline numbers, where a 30-second skim will see them
-    gl = c.get("metrics", [])[:3]
+    gl = [] if short else c.get("metrics", [])[:3]
     if gl:
         lab = "At a glance"
         o.append(f'''<section class="k-glance" aria-label="{lab}"><p class="k-kick">{lab}</p><ul>{"".join(f'<li><strong>{esc(v)}</strong><span>{esc(l)}</span></li>' for v, l in gl)}</ul>
@@ -411,13 +420,13 @@ def case(cid):
     else:
         o.append(f'''<section class="k-sec k-center">{two("Problem", "Statement", S.get("scene"))}
 {"".join(f"<p>{rich(x)}</p>" for x in c["problem"])}</section>''')
-    o.append(f'<section class="k-sec k-center">{two("Possible", "Solution")}<p>{esc(c["tldr"][1][1])}</p></section>')
-    if S.get("goals"):
+    if not short: o.append(f'<section class="k-sec k-center">{two("Possible", "Solution")}<p>{esc(c["tldr"][1][1])}</p></section>')
+    if S.get("goals") and not short:
         o.append(f'''<section class="k-sec">{two("Objectives &", "Goals")}<div class="k-cards">{"".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></article>' for k, (a, b) in enumerate(S["goals"], 1))}</div></section>''')
 
     # Target audience + approach
     aud = AUDIENCE.get(cid, [])
-    if aud or r.get("text"):
+    if (aud or r.get("text")) and not short:
         o.append(f'''<section class="k-sec k-two">
 <div>{two("Target", "Audience")}<ul class="k-panel">{"".join(f"<li>{esc(a)}</li>" for a in aud)}</ul></div>
 <div>{two("The", "Approach")}<p>{esc(r.get("text") or S.get("scene_sub", ""))}</p></div></section>''')
@@ -425,7 +434,7 @@ def case(cid):
     # My role
     role = [meta.get("Role", "")] + [x.strip() for x in (meta.get("I owned") or "").split(",") if x.strip()] + c.get("tags", [])
     seen = []; [seen.append(x[:1].upper() + x[1:]) for x in role if x and x[:1].upper() + x[1:] not in seen]
-    o.append(f'<section class="k-band k-center">{two("My", "Role")}<ul class="k-chips">{"".join(f"<li>{esc(x)}</li>" for x in seen)}</ul></section>')
+    if not short: o.append(f'<section class="k-band k-center">{two("My", "Role")}<ul class="k-chips">{"".join(f"<li>{esc(x)}</li>" for x in seen)}</ul></section>')
 
     # Design thinking process (only real items in each stage)
     findings = r.get("findings") or []
@@ -434,9 +443,9 @@ def case(cid):
               ("Ideate", [a for a, _ in c.get("rejected", [])][:3] + (["Low-fidelity sketches"] if ("sketch" in (r.get("img") or ("", ""))[1].lower() or cid in SKETCHES) else [])),
               ("Design", [d["title"] for d in c["decisions"]][:4]),
               ("Test", [g for g, _ in S.get("goal_results", [])][:4] or [a for a, _, _ in (c.get("results") or {}).get("rows", [])][:4])]
-    stages = [(n, it) for n, it in stages if it]
+    stages = [] if short else [(n, it) for n, it in stages if it]
     circ = "".join(f'''<li class="k-circle"><span class="k-dot">{k:02d}</span><h3>{n}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in it)}</ul></li>''' for k, (n, it) in enumerate(stages, 1))
-    o.append(f'''<section class="k-sec k-center">{two("Design Thinking", "Process")}
+    if stages: o.append(f'''<section class="k-sec k-center">{two("Design Thinking", "Process")}
 <p>Each stage lists only what was actually done.</p><ol class="k-process">{circ}</ol>
 <div class="k-timeline" aria-label="Project timeline"><span class="k-t-k">Project timeline</span>
 <div class="k-track">{"".join(f"<i>{n}</i>" for n, _ in stages)}</div><div class="k-t-ends"><span>{esc(meta.get("Timeline") or meta.get("Time") or c["year"])}</span><span>Phases in order, not to scale</span></div></div></section>''')
@@ -457,9 +466,9 @@ def case(cid):
         emp += '<h3 class="k-h"><span></span>Field recordings</h3><div class="k-vids">' + "".join(f'<figure class="vid"><video src="{pre}{esc(v)}" data-once muted playsinline controls preload="metadata" aria-label="{esc(l)}"></video><figcaption>{esc(l)}</figcaption></figure>' for v, l in S["videos"]) + "</div>"
         used.update(v for v, _ in S["videos"])
     emp += art(cid, "empathize")
-    if emp:
+    if emp and not short:
         o.append(f'<section class="k-sec">{two("Empathize", "Phase")}{emp}</section>')
-    if findings:
+    if findings and not short:
         o.append(f'''<section class="k-insight"><h3>Key insights derived</h3><ol>{"".join(f"<li>{esc(f)}</li>" for f in findings)}</ol></section>''')
 
     # Define phase
@@ -474,10 +483,10 @@ def case(cid):
         nm, tx = S["insight"]
         d += f'<div class="k-principle"><span>The insight we designed around</span><p>{esc(nm)}</p><small>{esc(tx)}</small></div>'
     d += art(cid, "define")
-    if d: o.append(f'<section class="k-sec">{two("Define", "Phase", S["insight"][0] if S.get("insight") else "Naming the real problem")}{d}</section>')
+    if d and not short: o.append(f'<section class="k-sec">{two("Define", "Phase", S["insight"][0] if S.get("insight") else "Naming the real problem")}{d}</section>')
 
     # Task flow
-    if S.get("flow_before"):
+    if S.get("flow_before") and not short:
         def flow(name, steps, foot, cls):
             items = "".join(f'<li><b>{esc(a)}</b><small>{esc(t) if t else esc(b)}</small></li>' for a, b, t in steps)
             return f'<div class="k-flow {cls}"><h3 class="k-h"><span></span>{esc(name)}</h3><ol>{items}</ol><p class="k-flow-foot">{esc(foot)}</p></div>'
@@ -500,7 +509,14 @@ def case(cid):
     if rej:
         idea += '<h3 class="k-h"><span></span>Ideas I tested and dropped</h3><ul class="rej">' + "".join(f'<li><p class="k">Dropped</p><h4>{esc(a)}</h4><p>{esc(w)}</p></li>' for a, w in rej) + "</ul>"
     idea += art(cid, "ideate")
-    if idea: o.append(f'<section class="k-sec">{two("Ideate", "Phase")}{idea}</section>')
+    late = ""
+    if idea and short: late = f'<section class="k-sec" id="evolution">{two("How it", "Evolved")}{idea}</section>'
+    elif idea: o.append(f'<section class="k-sec">{two("Ideate", "Phase")}{idea}</section>')
+    sd = c.get("system_decision")
+    if sd:
+        stack = "".join(f'<article class="k-card"><span>{esc(r_)}</span><h3>{esc(n_)}</h3><p>{esc(w_)}</p></article>' for n_, r_, w_ in sd["stack"])
+        o.append(f'''<section class="k-sec" id="design-system">{two("Design System", "Decision", sd["title"])}{"".join(f"<p>{esc(x)}</p>" for x in sd["text"])}
+<div class="k-cards">{stack}</div>{figure(sd["img"][0], sd["img"][1], pre) if sd.get("img") else ""}</section>''')
 
     # High-fidelity design, annotated
     sols = S.get("solutions") or [(x["title"], x["why"]) for x in c["decisions"]]
@@ -539,6 +555,11 @@ def case(cid):
             dots = "".join(f'<span class="dq-pin dq-{TAGC[t]}" style="left:{x}%;top:{y}%" aria-hidden="true">{k}</span>' for k, (x, y, t, _, _) in enumerate(pins, 1))
             notes = "".join(f'<li class="dq-{TAGC[t]}"><span class="dq-n" aria-hidden="true">{k}</span><div><em>{esc(t)}</em><h3>{esc(h)}</h3><p>{esc(w)}</p></div></li>' for k, (x, y, t, h, w) in enumerate(pins, 1))
             body += f'<figure class="dq{" dq-wide" if q.get("wide") else ""}"><div class="dq-shot"><div class="dq-frame">{img(q["img"], q["alt"], pre)}{dots}</div></div><ol class="dq-notes" aria-label="Design decisions in this screen">{notes}</ol></figure>'
+        for fg in q.get("figs", []):
+            pins = fg["pins"]
+            dots = "".join(f'<span class="dq-pin dq-{TAGC[t]}" style="left:{x}%;top:{y}%" aria-hidden="true">{k}</span>' for k, (x, y, t, _, _) in enumerate(pins, 1))
+            notes = "".join(f'<li class="dq-{TAGC[t]}"><span class="dq-n" aria-hidden="true">{k}</span><div><em>{esc(t)}</em><h3>{esc(h)}</h3><p>{esc(w)}</p></div></li>' for k, (x, y, t, h, w) in enumerate(pins, 1))
+            body += f'<h3 class="k-h"><span></span>{esc(fg["title"])}</h3><figure class="dq"><div class="dq-shot"><div class="dq-frame">{img(fg["img"], fg["alt"], pre)}{dots}</div></div><ol class="dq-notes" aria-label="{esc(fg["title"])}: design decisions in this screen">{notes}</ol></figure>'
         if q.get("cards"):
             body += '<div class="k-cards">' + "".join(f'<article class="k-card k-q"><span>{k:02d}</span><h3>{esc(h)}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in it)}</ul></article>' for k, (h, it) in enumerate(q["cards"], 1)) + "</div>"
         if q.get("gallery"):
@@ -546,8 +567,9 @@ def case(cid):
         if q.get("system"):
             nm, why = q["system"]
             body += f'<div class="dq-sys"><span class="dq-sys-k">Design system used</span><strong>{esc(nm)}</strong><p>{esc(why)}</p></div>'
-        legend = '<ul class="dq-legend" aria-hidden="true"><li class="dq-v">Visual design</li><li class="dq-a">Accessibility</li><li class="dq-s">Design system</li></ul>' if q.get("img") else ""
-        o.append(f'<section class="k-sec" id="design-quality">{two("Design", "Quality")}<p class="k-intro">The reasoning behind the screen: visual design, accessibility and the design system it was built on.{" Contrast figures are measured from the final screens; any gap is fixed in the Figma file and shown before and after." if q.get("measured") else ""}</p>{legend}{body}</section>')
+        legend = '<ul class="dq-legend" aria-hidden="true"><li class="dq-v">Visual design</li><li class="dq-a">Accessibility</li><li class="dq-s">Design system</li></ul>' if (q.get("img") or q.get("figs")) else ""
+        o.append(f'<section class="k-sec" id="design-quality">{two("Design", "Quality")}<p class="k-intro">{esc(q["intro"]) if q.get("intro") else "The reasoning behind the screen: visual design, accessibility and the design system it was built on."}{" Contrast figures are measured from the final screens; any gap is fixed in the Figma file and shown before and after." if q.get("measured") else ""}</p>{legend}{body}</section>')
+    if late: o.append(late)
     o.append(sitenav(cid, pre))
 
     # Test and results
@@ -591,6 +613,7 @@ def case(cid):
                 '<p class="k-intro k-lead">See the result first. Drag the slider to watch today\'s assistant turn into my redesign, then follow the whole task, step by step, for all 4 retailers. The process behind it comes after.</p>')
             at = next(i for i, x in enumerate(o) if x.startswith('<header class="k-cover"')) + 1
             if at < len(o) and o[at].startswith('<nav class="pbar"'): at += 1
+            if at < len(o) and o[at].startswith('<section class="k-sec k-sum"'): at += 1
             o.insert(at, ba)
     o.append("</main>" + case_footer(pre) + tail(pre))
     return "\n".join(o)
