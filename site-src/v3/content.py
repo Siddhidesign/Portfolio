@@ -310,7 +310,7 @@ CASES["magic-apron"] = dict(
 CASES["fitcheck"] = dict(
     org="Concept", year="2026", kind="AI assistant · Retail concept",
     card="Fit Check: retail AI that checks before it answers", line="Turning the AI assistants on Best Buy, Walmart, Home Depot and Target from a chat into a finished task: ask only what changes the answer, show the work, and let the shopper commit.",
-    tags=["AI assistant", "Concept"], cover=A + "fitcheck/cover-product-page.webp", cover_alt="Walmart product page with the redesigned Ask Sparky floating bottom-left: a battery answer that says it rests on only 2 reviews, with the spec it verified.",
+    tags=["AI assistant", "Concept"], cover=A + "fitcheck/cover-product-page.webp", cover_alt="Best Buy home page with the redesigned Ask Blue panel: a chat greeting for Alex, goals as rounded suggestion pills, and TVs from past orders.",
     title="Same assistant, *shows its work*",
     meta=[("Role", "UX designer, solo"), ("Time", "Oct to Nov 2026"), ("Methods", "Screen recordings, heuristic review, desk research, principles audit"), ("Status", "Concept")],
     summary=[("Project", "Fit Check, a concept redesign of the AI shopping assistants on Best Buy, Walmart, Home Depot and Target."),
