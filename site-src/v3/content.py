@@ -327,7 +327,7 @@ CASES["fitcheck"] = dict(
                ("IBM Carbon for AI", "AI labelling", "The AI badge opens what it used and how it picks."),
                ("Baymard and NN/g", "Shopping and usability", "Compare tables, add-ons, totals with tax, response times and loading."),
                ("WCAG 2.2 AA", "Accessibility", "Contrast, 44 px targets, visible focus, a tap for every drag, help in one place.")],
-        img=(A + "fitcheck/v5-hero.webp", "The same answer component in Best Buy, Walmart, Home Depot and Target modes: only brand colour, action colour and corners change.")),
+        img=(A + "fitcheck/v5-seq-questions.webp", "The quick check on Best Buy, Walmart, Home Depot and Target: the same components in each store's colours; only brand colour, action colour and corners change.")),
     tldr=[("Problem", "Four retailers' AI assistants answer before they ask, leave the checking to the shopper, lose the chat on product pages, give no reason to trust a pick, and end in a list of options instead of a finished task."),
           ("What I did", "Recorded all four assistants, each on a task that fits its store, redesigned the 12 steps inside each one on its real pages, revised every step against 2025 to 2026 usability research, then audited the result against Microsoft's HAX guidelines, Google PAIR, NN/g and WCAG 2.2 and rebuilt it as a task workspace."),
           ("Result", "One component set with four brand modes, carried through 12 steps and 5 edge cases per retailer in a clickable prototype. Concept, not tested yet. Not affiliated with any retailer.")],

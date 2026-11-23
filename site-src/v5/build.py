@@ -405,7 +405,7 @@ def case(cid):
         o.append('<nav class="pbar" aria-label="See it in Figma">' + "".join(f'<a class="pbar-{k}" href="{esc(u)}" target="_blank" rel="noopener"><span class="pbar-k">{"Clickable prototype" if k == "proto" else "Figma design file"}</span><span>{esc(l)} {DIAG}</span><span class="sr"> (opens in a new tab)</span></a>' for l, u, k in PROTOS[cid]) + '</nav>')
 
     if short and c.get("summary"):
-        o.append(f'''<section class="k-sec k-sum" id="summary">{two("In 30", "Seconds")}<div class="k-cards">{"".join(f'<article class="k-card"><span>{k:02d}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></article>' for k, (a, b) in enumerate(c["summary"], 1))}</div></section>''')
+        o.append(f'''<section class="k-sec k-sum" id="summary">{two("In 30", "Seconds")}<dl class="k-sum-list">{"".join(f'<dt>{esc(a)}</dt><dd>{esc(b)}</dd>' for a, b in c["summary"])}</dl></section>''')
 
     # At a glance: the 3 headline numbers, where a 30-second skim will see them
     gl = [] if short else c.get("metrics", [])[:3]
@@ -514,9 +514,9 @@ def case(cid):
     elif idea: o.append(f'<section class="k-sec">{two("Ideate", "Phase")}{idea}</section>')
     sd = c.get("system_decision")
     if sd:
-        stack = "".join(f'<article class="k-card"><span>{esc(r_)}</span><h3>{esc(n_)}</h3><p>{esc(w_)}</p></article>' for n_, r_, w_ in sd["stack"])
+        stack = "".join(f'<article class="k-card"><span>{k_:02d}</span><p class="k-tag">{esc(r_)}</p><h3>{esc(n_)}</h3><p>{esc(w_)}</p></article>' for k_, (n_, r_, w_) in enumerate(sd["stack"], 1))
         o.append(f'''<section class="k-sec" id="design-system">{two("Design System", "Decision", sd["title"])}{"".join(f"<p>{esc(x)}</p>" for x in sd["text"])}
-<div class="k-cards">{stack}</div>{figure(sd["img"][0], sd["img"][1], pre) if sd.get("img") else ""}</section>''')
+<div class="k-cards k-3">{stack}</div>{figure(sd["img"][0], sd["img"][1], pre) if sd.get("img") else ""}</section>''')
 
     # High-fidelity design, annotated
     sols = S.get("solutions") or [(x["title"], x["why"]) for x in c["decisions"]]

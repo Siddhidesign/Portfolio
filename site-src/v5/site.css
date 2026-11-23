@@ -671,3 +671,13 @@ p.sn-g{padding:12px 0}
 .case-next strong{font-size:clamp(40px,5vw,80px)}
 @media (max-width:900px){.case-next.has-pic > a{grid-template-columns:1fr}.cn-pic{max-width:520px}}
 @media (prefers-reduced-motion:reduce){.cn-pic,.cn-pic img{transition:none}}
+
+/* Fit Check short format */
+.k-sum-list{display:grid;grid-template-columns:200px 1fr;margin:0;border-top:1px solid var(--line)}
+.k-sum-list dt,.k-sum-list dd{padding:20px 0;border-bottom:1px solid var(--line);margin:0}
+.k-sum-list dt{font:600 16px var(--display);letter-spacing:-.01em;padding-right:24px}
+.k-sum-list dd{color:var(--ink2);font-size:18px;line-height:1.55}
+.k-cards.k-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.k-card .k-tag{font:600 12px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px}
+@media (max-width:900px){.k-cards.k-3{grid-template-columns:1fr}}
+@media (max-width:720px){.k-sum-list{grid-template-columns:1fr}.k-sum-list dt{padding-bottom:4px;border-bottom:0}.k-sum-list dd{padding-top:0}}
