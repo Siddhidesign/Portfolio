@@ -3629,6 +3629,9 @@ p.sn-g{padding:12px 0}
 @media (max-width:900px){.k-cards.k-3{grid-template-columns:1fr}}
 @media (max-width:720px){.k-sum-list{grid-template-columns:1fr}.k-sum-list dt{padding-bottom:4px;border-bottom:0}.k-sum-list dd{padding-top:0}}
 
+/* Experience as a resume list: dates, company, role */
+.experience-list > div{grid-template-columns:0.7fr 1.2fr 1.6fr}
+
 /* ---------- sift: reviews to a fair sample ---------- */
 .sf-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
 .sf-play{font:700 12px/1 var(--sans);letter-spacing:1.2px;text-transform:uppercase;border:1.5px solid var(--ink);border-radius:99px;padding:9px 16px;background:#fff;cursor:pointer;flex:none}
