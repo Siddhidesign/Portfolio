@@ -142,9 +142,10 @@ def home(research=False):
     o.append(f'<section class="work" id="work"><div class="section-heading" id="projects"><h2 class="section-kicker">Work</h2><span>{fy[0]} to {fy[-1]}</span></div>')
     BIG, REST = FEAT[:5], FEAT[5:] + SIDE
     o += [project(cid, k) for k, cid in enumerate(BIG, 1)]
-    o.append(f'<div class="section-heading sh2" id="more-work"><h2 class="section-kicker">More work</h2><span>Research, front-end and side projects</span></div>'
+    o.append(f'<div class="section-heading sh2" id="more-work"><h2 class="section-kicker">More work</h2><span>Side projects</span></div>'
              f'<ol class="work-index">{"".join(index_row(cid, k, pre) for k, cid in enumerate(REST, len(BIG) + 1))}</ol>'
              '<div class="wi-preview" aria-hidden="true"></div></section>')
+    o.append(experience())
     tiles = [RED, YELLOW, BLUE, GREEN]
     cards = "".join(f'''<div class="process-card"><span>{k:02d}</span><div class="tile" style="background:{tiles[k-1]}"><i></i><i></i><i></i><i></i></div>
 <h3>{esc(t)}</h3><p>{esc(d)}</p></div>''' for k, (t, d) in enumerate(HOW, 1))
@@ -156,7 +157,7 @@ def home(research=False):
     return "\n".join(o)
 
 # ---- Research-first homepage (research.html). Every fact below is already on a case page or the resume. ----
-FEATURED_R = ["canvas", "ev", "anchor", "ir2go", "jaihind", "fitcheck", "findme", "omkar"]
+FEATURED_R = ["ev", "anchor", "ir2go", "fitcheck"]
 CAPS_R = '<div class="capabilities"><span>01</span><p>Study coordination</p><span>02</span><p>Qual and quant synthesis</p><span>03</span><p>AI research workflows</p><span>04</span><p>Clear, reusable reporting</p></div>'
 KEEP = [
  ("Study coordination", "Worked inside IRB-approved studies: protocol HUM00280873 for Money Anchor, with 24 participants across 2 rounds, and a team outpatient anxiety study with written consent, interviews and a Google Forms diary study."),
@@ -171,6 +172,11 @@ def research_blocks():
 <div class="k-cards">{cards}</div>
 <h3 class="rsub">Research at a glance</h3><div class="a-scroll" tabindex="0" role="region" aria-label="Research methods by project"><table class="rtable"><thead><tr><th scope="col">Project</th><th scope="col">Methods</th><th scope="col">Scale</th></tr></thead><tbody>{rows}</tbody></table></div></section>'''
 
+def experience():
+    """Resume-style list: dates, company, role. No case study links."""
+    rows = "".join(f'<div><span>{esc(CASES[c]["dates"])}</span><strong>{esc(CASES[c]["org"])}</strong><p>{esc(CASES[c]["role"])}</p></div>' for c in EXPERIENCE)
+    return f'<section class="about-experience" id="experience"><h2 class="case-kicker">Experience</h2><div class="experience-list">{rows}</div></section>'
+
 def about():
     pre = ""
     o = [head(f'About · {SITE["name"]}', SITE["lede"], pre, "about"), '<main id="main" tabindex="-1" class="about-page">', nav(pre)]
@@ -182,8 +188,7 @@ def about():
     vals = "".join(f'''<article><span>{k:02d}</span><i class="value-shape value-shape-{k}"></i><h3>{esc(t)}</h3><p>{esc(d)}</p></article>''' for k, (t, d) in enumerate(HOW, 1))
     o.append(f'''<section class="about-values"><div class="about-values-title"><p class="case-kicker">How I work</p><h2>How I show up.</h2></div>
 <div class="values-list">{vals}</div></section>''')
-    rows = "".join(f'''<div><span>{esc(CASES[c]["dates"])}</span><strong><a href="work/{c}.html">{esc(CASES[c]["org"])}</a></strong><p>{esc(CASES[c]["role"])}</p><small>{esc(CASES[c]["kind"])}</small></div>''' for c in EXPERIENCE)
-    o.append(f'<section class="about-experience"><h2 class="case-kicker">Experience</h2><div class="experience-list">{rows}</div></section>')
+    o.append(experience())
     tools = "".join(f'<div class="tool-group"><h3>{esc(g)}</h3><ul>{"".join(f"<li>{esc(t)}</li>" for t in ts)}</ul></div>' for g, ts in TOOLS)
     o.append(f'<section class="about-tools"><div><p class="case-kicker">Tools</p><h2>What I work with.</h2></div><div class="tools-grid">{tools}</div></section>')
     words = "".join(f'<blockquote class="word-card"><p>“{esc(q)}”</p><cite><b>{esc(n)}</b>{esc(r)}</cite></blockquote>' for q, n, r in WORDS)

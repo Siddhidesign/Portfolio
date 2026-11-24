@@ -681,3 +681,6 @@ p.sn-g{padding:12px 0}
 .k-card .k-tag{font:600 12px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px}
 @media (max-width:900px){.k-cards.k-3{grid-template-columns:1fr}}
 @media (max-width:720px){.k-sum-list{grid-template-columns:1fr}.k-sum-list dt{padding-bottom:4px;border-bottom:0}.k-sum-list dd{padding-top:0}}
+
+/* Experience as a resume list: dates, company, role */
+.experience-list > div{grid-template-columns:0.7fr 1.2fr 1.6fr}
